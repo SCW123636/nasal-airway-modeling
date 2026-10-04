@@ -1,0 +1,136 @@
+{
+  "schema": "nasal_cfd_wedge_tube_summary/v1",
+  "purpose": "Independent non-patient evidence for the generated 5-degree OpenFOAM v1912 wedge tube chain.",
+  "patient_data": false,
+  "raw_cases": {
+    "r21_40mm_developed_80x16": {
+      "work_dir": "C:\\ts_work\\wedge_tube_validation_20261004_r21",
+      "validation_json": "C:\\ts_work\\wedge_tube_validation_20261004_r21\\validation.json",
+      "exists": true,
+      "status": "fail",
+      "checks": {
+        "mesh_quality_passed": true,
+        "residual_quality_passed": false,
+        "simple_converged": true,
+        "mass_imbalance_below_1e-6": true,
+        "no_reverse_flow": true,
+        "flow_error_below_1pct": true,
+        "pressure_error_below_2pct": false,
+        "peak_error_below_5pct": true
+      },
+      "analytic_pressure_drop_pa": 28.80704469963305,
+      "measured_pressure_drop_pa": 29.483817983556,
+      "relative_pressure_error": 0.023493325711803147,
+      "relative_flow_error": 6.396792817664476e-14,
+      "relative_peak_error": 0.004150314649753955,
+      "mass_imbalance_frac": 0.0,
+      "sha256": "27c54a751109ec35ad466c6aff4042a202cb4edb02fa7a2d029b7377b9e42dbc",
+      "archived_copy": "work/07_cfd_pipeline/solver_reference/wedge_tube_validation/r21_40mm_developed_80x16.validation.json",
+      "raw_sha256": {
+        "case/case_manifest.json": "1cc7761eb988819b766e5c26f9a8e8c3629bc2f901dce9f40baccbd44a6366eb",
+        "case/run_manifest.json": "769fc2489b182bb2cd744cfd29eec197fbe13dc988aab1ebd7303dcc3e0439bc",
+        "case/log.checkMesh": "b46022118bd8b2da3aad077ff860503914f8611a1adbd19248bb282b1c395794",
+        "case/log.simpleFoam": "4dc5d96fb8d93652393ed27fa6c895508f40becf6367d97de6c4a7dfa7681055"
+      }
+    },
+    "r22_160mm_developed_320x32_relTol001": {
+      "work_dir": "C:\\ts_work\\wedge_tube_validation_20261004_r22",
+      "validation_json": "C:\\ts_work\\wedge_tube_validation_20261004_r22\\validation.json",
+      "exists": true,
+      "status": "fail",
+      "checks": {
+        "mesh_quality_passed": true,
+        "residual_quality_passed": false,
+        "simple_converged": true,
+        "mass_imbalance_below_1e-6": true,
+        "no_reverse_flow": true,
+        "flow_error_below_1pct": true,
+        "pressure_error_below_2pct": true,
+        "peak_error_below_5pct": true
+      },
+      "analytic_pressure_drop_pa": 115.2281787985322,
+      "measured_pressure_drop_pa": 116.739545989368,
+      "relative_pressure_error": 0.013116298518249693,
+      "relative_flow_error": 6.396792817664476e-14,
+      "relative_peak_error": 0.000973536158444753,
+      "mass_imbalance_frac": 0.0,
+      "sha256": "0b50175415c5b14dc3458ca4b962517106021112a0fc37868b1a4c348f6e3b20",
+      "archived_copy": "work/07_cfd_pipeline/solver_reference/wedge_tube_validation/r22_160mm_developed_320x32_relTol001.validation.json",
+      "raw_sha256": {
+        "case/case_manifest.json": "a18452071049218763629e52d556602ca113caaa9910c929891d5037d8c0ccea",
+        "case/run_manifest.json": "8b20722806437e2feecdbdfbb7f6feb67bdfe27f79b7d073d92d63370b4646c1",
+        "case/log.checkMesh": "afb1e9a999de70fc57aaab810b26db7a6129fd6e8f1eae5512362e6106b068da",
+        "case/log.simpleFoam": "fab53e17f5d59e992ad3c67cd5c054e3ecabc6142c8547e1f4c26c59c0853bf6"
+      }
+    },
+    "r23_160mm_developed_320x32_relTol0": {
+      "work_dir": "C:\\ts_work\\wedge_tube_validation_20261004_r23",
+      "validation_json": "C:\\ts_work\\wedge_tube_validation_20261004_r23\\validation.json",
+      "exists": true,
+      "status": "pass",
+      "checks": {
+        "mesh_quality_passed": true,
+        "residual_quality_passed": true,
+        "simple_converged": true,
+        "mass_imbalance_below_1e-6": true,
+        "no_reverse_flow": true,
+        "flow_error_below_1pct": true,
+        "pressure_error_below_2pct": true,
+        "peak_error_below_5pct": true
+      },
+      "analytic_pressure_drop_pa": 115.2281787985322,
+      "measured_pressure_drop_pa": 116.739545988792,
+      "relative_pressure_error": 0.013116298513250964,
+      "relative_flow_error": 6.396792817664476e-14,
+      "relative_peak_error": 0.000973536158444753,
+      "mass_imbalance_frac": 0.0,
+      "sha256": "2778abd9d88c2a3951217310bd5d7d55674a16ef5dd38fbe9251022ee8b02be3",
+      "archived_copy": "work/07_cfd_pipeline/solver_reference/wedge_tube_validation/r23_160mm_developed_320x32_relTol0.validation.json",
+      "raw_sha256": {
+        "case/case_manifest.json": "a18452071049218763629e52d556602ca113caaa9910c929891d5037d8c0ccea",
+        "case/run_manifest.json": "8da7e1ef382a1b672724c901efd5ed21d51979435f04247befb227d32a18ddbd",
+        "case/log.checkMesh": "973dc07021763ece0ad88c5440f71fa2f8579771cff4f4a38349f12eb8776979",
+        "case/log.simpleFoam": "aba70b81dbb98c21f7ee5534a7381f90333bbeb794c1ed4df2cd1bf9c8c71d75"
+      }
+    },
+    "r24_160mm_developed_160x16_relTol0": {
+      "work_dir": "C:\\ts_work\\wedge_tube_validation_20261004_r24",
+      "validation_json": "C:\\ts_work\\wedge_tube_validation_20261004_r24\\validation.json",
+      "exists": true,
+      "status": "pass",
+      "checks": {
+        "mesh_quality_passed": true,
+        "residual_quality_passed": true,
+        "simple_converged": true,
+        "mass_imbalance_below_1e-6": true,
+        "no_reverse_flow": true,
+        "flow_error_below_1pct": true,
+        "pressure_error_below_2pct": true,
+        "peak_error_below_5pct": true
+      },
+      "analytic_pressure_drop_pa": 115.2281787985322,
+      "measured_pressure_drop_pa": 116.340965145204,
+      "relative_pressure_error": 0.00965724146883741,
+      "relative_flow_error": 6.396792817664476e-14,
+      "relative_peak_error": 0.0041452881015092945,
+      "mass_imbalance_frac": 0.0,
+      "sha256": "fd52a57242a32971a6648b269fa830ef38ff4ef3a8298ffb3043738f169a97fc",
+      "archived_copy": "work/07_cfd_pipeline/solver_reference/wedge_tube_validation/r24_160mm_developed_160x16_relTol0.validation.json",
+      "raw_sha256": {
+        "case/case_manifest.json": "470089d1dd12e79f9dc0d371cbc5016fe3090b9b71f8fae0c92f1225962d6314",
+        "case/run_manifest.json": "67d19c0a1f7b3bc32e3be9691792ba8170eb2155666170cff70051315e4bf385",
+        "case/log.checkMesh": "9e0c954482c088d9ff3fd38c24e49dbf7866998529c66d88e1ee2fa9bec2520d",
+        "case/log.simpleFoam": "09b1feaaea8f102641dacf0a6b21bea9664c215a92f941136a7d9d1d5bfbbf3c"
+      }
+    }
+  },
+  "scope": {
+    "accepted_as": "solver-chain evidence for a 160 mm fully-developed circular-tube diagnostic",
+    "not_accepted_as": [
+      "the original STL/snappy 40 mm validation",
+      "patient mesh validation",
+      "patient CFD readiness"
+    ],
+    "original_failure_preserved": "work/07_cfd_pipeline/solver_reference/phantom_validation/validation.json"
+  }
+}

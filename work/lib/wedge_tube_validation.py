@@ -2,8 +2,9 @@
 
 The case is a 5-degree axisymmetric wedge with an exact blockMesh arc.  A
 known pressure drop drives the sector; the measured sector flux is scaled to
-the full circle and compared with Hagen-Poiseuille.  The result remains a
-diagnostic until the project's full mesh gate accepts the wedge topology.
+the full circle and compared with Hagen-Poiseuille.  The result is a
+non-patient solver diagnostic: a passing case establishes only this generated
+circular-tube chain and does not certify a patient mesh or unlock patient CFD.
 """
 from __future__ import annotations
 
@@ -145,11 +146,14 @@ boundaryField
     # stabilisation experiment, but it adds avoidable axial diffusion in this
     # laminar tube and changes the pressure/flow comparison.
     (case / "system/fvSchemes").write_text(schemes, encoding="ascii")
+    # Use absolute linear-solver tolerances so the reported final residual is
+    # not merely the 1% relative stopping point allowed by relTol 0.01.
+    # This tightens the solve; the acceptance thresholds below are unchanged.
     (case / "system/fvSolution").write_text(header("fvSolution") + """
 solvers
 {
- p { solver GAMG; tolerance 1e-12; relTol 0.01; smoother GaussSeidel; }
- U { solver smoothSolver; smoother symGaussSeidel; tolerance 1e-12; relTol 0.01; }
+ p { solver GAMG; tolerance 1e-12; relTol 0; smoother GaussSeidel; }
+ U { solver smoothSolver; smoother symGaussSeidel; tolerance 1e-12; relTol 0; }
 }
 SIMPLE
 {
