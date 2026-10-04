@@ -1,0 +1,379 @@
+{
+  "schema": "coarse_anatomy_adjustment/v1",
+  "case": "p0",
+  "source_coordinate_system": "LPS",
+  "unified_coordinate_system": "UAS",
+  "normalized_coordinate_system": "UAS-NORM",
+  "unit": "mm",
+  "normalization_unit": "ratio_0_to_1",
+  "target_frame": {
+    "schema": "unified_anatomical_frame/v1",
+    "coordinate_system": "UAS",
+    "unit": "mm",
+    "axis_labels": [
+      "patient_left",
+      "posterior",
+      "superior"
+    ],
+    "origin_lps_mm": [
+      -16.666888241496324,
+      -194.68171620555484,
+      -670.3305488487931
+    ],
+    "axes_lps_columns": [
+      [
+        0.9934380756630385,
+        0.11060917413461212,
+        -0.029092961694852263
+      ],
+      [
+        -0.1141038352036061,
+        0.9758991323020555,
+        -0.1860139735716746
+      ],
+      [
+        0.00781694407984277,
+        0.188112982458294,
+        0.9821162870128457
+      ]
+    ],
+    "lps_to_uas_matrix": [
+      [
+        0.9934380756630385,
+        -0.1141038352036061,
+        0.00781694407984277
+      ],
+      [
+        0.11060917413461212,
+        0.9758991323020555,
+        0.188112982458294
+      ],
+      [
+        -0.029092961694852263,
+        -0.1860139735716746,
+        0.9821162870128457
+      ]
+    ],
+    "uas_to_lps_matrix": [
+      [
+        0.9934380756630385,
+        0.11060917413461212,
+        -0.029092961694852263
+      ],
+      [
+        -0.1141038352036061,
+        0.9758991323020555,
+        -0.1860139735716746
+      ],
+      [
+        0.00781694407984277,
+        0.188112982458294,
+        0.9821162870128457
+      ]
+    ],
+    "origin_definition": "bilateral nasal cavity midpoint projected onto hard-palate fit plane",
+    "source_frame": {
+      "origin_lps_mm": [
+        -16.666888241496324,
+        -194.68171620555484,
+        -670.3305488487931
+      ],
+      "superior_lps": [
+        -0.029092961694852263,
+        -0.1860139735716746,
+        0.9821162870128457
+      ],
+      "posterior_lps": [
+        0.11060917413461212,
+        0.9758991323020555,
+        0.188112982458294
+      ],
+      "left_lps": [
+        0.9934380756630385,
+        -0.1141038352036061,
+        0.00781694407984277
+      ],
+      "origin_definition": "bilateral nasal cavity midpoint projected onto hard-palate fit plane",
+      "nasal_midline_reference_lps_mm": [
+        -17.146628386565006,
+        -197.7490687701398,
+        -654.1355455711026
+      ],
+      "palate_fit": {
+        "point_lps_mm": [
+          -15.634430988096314,
+          -193.11663499765285,
+          -670.0035364389432
+        ],
+        "normal_lps": [
+          -0.029092961694852263,
+          -0.1860139735716746,
+          0.9821162870128457
+        ],
+        "samples": 46770,
+        "rms_mm": 1.1262940224356683,
+        "p95_residual_mm": 2.1894054965714966,
+        "planarity_ratio": 0.16262792978290352,
+        "roi_lps_mm": {
+          "min": [
+            -31.71687087416649,
+            -210.60906729102135,
+            -678.1399784982204
+          ],
+          "max": [
+            1.650284081697464,
+            -170.94895055890083,
+            -663.2899786829948
+          ]
+        }
+      },
+      "note": "Palate plane defines coordinates only; it is not an oral barrier."
+    }
+  },
+  "target_descriptor": {
+    "local_bounds_uas_mm": {
+      "min": [
+        -14.771513609281529,
+        -40.95091977316214,
+        -0.5820165389123483
+      ],
+      "max": [
+        15.508048273246875,
+        33.572297236799955,
+        43.17908680181983
+      ]
+    },
+    "span_uas_mm": [
+      30.279561882528405,
+      74.5232170099621,
+      43.76110334073218
+    ],
+    "exact_extrema_uas_mm": {
+      "min": [
+        -16.109923699123343,
+        -43.91551190733184,
+        -2.4015542170833397
+      ],
+      "max": [
+        16.70965549677784,
+        36.9723428888216,
+        46.995409034097875
+      ]
+    },
+    "exact_extrema_lps_mm": {
+      "min": [
+        -36.70905062556267,
+        -240.07387617230415,
+        -670.8899785876274
+      ],
+      "max": [
+        1.3983290195465088,
+        -160.0134180188179,
+        -625.0399793684483
+      ]
+    },
+    "fov_truncated_labels": {
+      "nasal_cavity_left": false,
+      "nasal_cavity_right": false,
+      "nasopharynx": false,
+      "oropharynx": true,
+      "hard_palate": false,
+      "soft_palate": false
+    },
+    "eligible": true,
+    "reasons": []
+  },
+  "reference_library_sha256": "cfb600ad3f0a9a3597767725e54fe1e3ecad9fab5e5266963705f8f890af56f5",
+  "reviewed_reference_count": 0,
+  "accepted_references": [],
+  "excluded_references": [],
+  "status": "unavailable",
+  "landmarks": {
+    "nostril_L": {
+      "coarse": null,
+      "refined": {
+        "point_lps_mm": [
+          -14.23892636399821,
+          -234.66605581608877,
+          -668.7812194994518
+        ],
+        "point_uas_mm": [
+          6.986507293895388,
+          -38.46067850877563,
+          8.888630877631206
+        ],
+        "point_uas_normalized": [
+          0.7185711929250701,
+          0.03341564366516306,
+          0.21641701633533583
+        ],
+        "coordinate_systems": {
+          "lps": "LPS",
+          "unified": "UAS",
+          "normalized": "UAS-NORM"
+        },
+        "status": "proposed",
+        "normal_lps": [
+          0.05254286626437159,
+          0.34250093981592405,
+          0.9380470955287551
+        ],
+        "normal_uas": [
+          0.020450074847668497,
+          0.5165169298494207,
+          0.856032742141125
+        ]
+      },
+      "delta": null
+    },
+    "nostril_R": {
+      "coarse": null,
+      "refined": {
+        "point_lps_mm": [
+          -31.96022610617594,
+          -231.20129686104153,
+          -669.4075820062977
+        ],
+        "point_uas_mm": [
+          -11.018745145738214,
+          -37.157388499246274,
+          8.144541571969434
+        ],
+        "point_uas_normalized": [
+          0.12393734354884106,
+          0.05090401925897478,
+          0.1994135760914244
+        ],
+        "coordinate_systems": {
+          "lps": "LPS",
+          "unified": "UAS",
+          "normalized": "UAS-NORM"
+        },
+        "status": "proposed",
+        "normal_lps": [
+          0.13515789971652484,
+          0.10054565511992941,
+          0.9857093452842587
+        ],
+        "normal_uas": [
+          0.1305035937738648,
+          0.29849684603212856,
+          0.9454461618310045
+        ]
+      },
+      "delta": null
+    },
+    "posterior_choana_L": {
+      "coarse": null,
+      "refined": {
+        "point_lps_mm": [
+          -6.691918397033718,
+          -165.74633159482363,
+          -659.0591225993355
+        ],
+        "point_uas_mm": [
+          6.695984598596018,
+          31.461641519296673,
+          5.397264013597362
+        ],
+        "point_uas_normalized": [
+          0.708976513304986,
+          0.9716778770135335,
+          0.13663459319007357
+        ],
+        "coordinate_systems": {
+          "lps": "LPS",
+          "unified": "UAS",
+          "normalized": "UAS-NORM"
+        },
+        "status": "proposed",
+        "normal_lps": [
+          0.02703115023677018,
+          -0.9625500195353549,
+          0.2697531775704691
+        ],
+        "normal_uas": [
+          0.13879306818289366,
+          -0.885617760897899,
+          0.4431903268422842
+        ]
+      },
+      "delta": null
+    },
+    "posterior_choana_R": {
+      "coarse": null,
+      "refined": {
+        "point_lps_mm": [
+          -18.207581541873157,
+          -164.26871330017192,
+          -658.9309345321483
+        ],
+        "point_uas_mm": [
+          -4.911713511430915,
+          31.65402378049199,
+          5.583326698535918
+        ],
+        "point_uas_normalized": [
+          0.32562558652936824,
+          0.9742593847491643,
+          0.14088637549752217
+        ],
+        "coordinate_systems": {
+          "lps": "LPS",
+          "unified": "UAS",
+          "normalized": "UAS-NORM"
+        },
+        "status": "proposed",
+        "normal_lps": [
+          -0.2228704247504877,
+          -0.9414144607617161,
+          0.2531157577873496
+        ],
+        "normal_uas": [
+          -0.11201037367293126,
+          -0.8957627089100783,
+          0.43018931357685813
+        ]
+      },
+      "delta": null
+    },
+    "nasopharynx_outlet": {
+      "coarse": null,
+      "refined": {
+        "point_lps_mm": [
+          -11.516358289822167,
+          -158.33160182579724,
+          -666.2174786671997
+        ],
+        "point_uas_mm": [
+          1.001196742621909,
+          36.817462845516,
+          -2.871960171186007
+        ],
+        "point_uas_normalized": [
+          0.5209028589348396,
+          1.0435456994332686,
+          -0.05232828830762623
+        ],
+        "coordinate_systems": {
+          "lps": "LPS",
+          "unified": "UAS",
+          "normalized": "UAS-NORM"
+        },
+        "status": "proposed",
+        "normal_lps": [
+          -0.0170798987760283,
+          0.0004106188129102961,
+          0.9998540435733564
+        ],
+        "normal_uas": [
+          -0.009198871807319254,
+          0.1865970552048759,
+          0.982393464832875
+        ]
+      },
+      "delta": null
+    }
+  },
+  "note": "Coarse positions initialize local search; refined CT candidates remain authoritative proposals."
+}

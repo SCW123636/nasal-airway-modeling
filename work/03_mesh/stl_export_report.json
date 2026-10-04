@@ -1,0 +1,92 @@
+{
+  "raw": {
+    "ok": true,
+    "path": "D:\\项目\\鼻腔建模\\work\\03_mesh\\airway_raw.stl",
+    "n_verts": 151712,
+    "n_faces": 303424,
+    "bbox_mm": {
+      "min": [
+        -51.57,
+        -230.81,
+        -639.56
+      ],
+      "max": [
+        -19.05,
+        -148.3,
+        -605.62
+      ],
+      "size": [
+        32.51,
+        82.51,
+        33.95
+      ]
+    },
+    "closed": true,
+    "edge_stats": {
+      "n_edges": 455136,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "is_closed": true
+    }
+  },
+  "smooth2": {
+    "ok": true,
+    "path": "D:\\项目\\鼻腔建模\\work\\03_mesh\\airway_smooth2.stl",
+    "n_verts": 132220,
+    "n_faces": 264440,
+    "bbox_mm": {
+      "min": [
+        -51.57,
+        -230.39,
+        -638.82
+      ],
+      "max": [
+        -19.27,
+        -149.91,
+        -606.39
+      ],
+      "size": [
+        32.3,
+        80.49,
+        32.43
+      ]
+    },
+    "closed": true,
+    "edge_stats": {
+      "n_edges": 396660,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "is_closed": true
+    }
+  },
+  "smooth1": {
+    "ok": true,
+    "path": "D:\\项目\\鼻腔建模\\work\\03_mesh\\airway_smooth1.stl",
+    "n_verts": 144274,
+    "n_faces": 288544,
+    "bbox_mm": {
+      "min": [
+        -51.57,
+        -230.72,
+        -639.4
+      ],
+      "max": [
+        -19.06,
+        -149.09,
+        -605.96
+      ],
+      "size": [
+        32.51,
+        81.63,
+        33.44
+      ]
+    },
+    "closed": true,
+    "edge_stats": {
+      "n_edges": 432816,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "is_closed": true
+    }
+  }
+}

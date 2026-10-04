@@ -1,0 +1,60 @@
+[
+  {
+    "patient": "患者1",
+    "series": "1.0 x 0.8 Bone",
+    "dz": 0.8,
+    "nz": 136,
+    "x_mid": 267.0,
+    "bilateral_segments": [
+      [
+        0,
+        112
+      ],
+      [
+        123,
+        135
+      ]
+    ],
+    "longest_bilateral": [
+      0,
+      112
+    ],
+    "longest_span_mm": 89.6
+  },
+  {
+    "patient": "患者2",
+    "series": "Sinus  0.75  H40s",
+    "dz": 0.5,
+    "nz": 286,
+    "x_mid": 277.0,
+    "bilateral_segments": [
+      [
+        0,
+        237
+      ]
+    ],
+    "longest_bilateral": [
+      0,
+      237
+    ],
+    "longest_span_mm": 118.5
+  },
+  {
+    "patient": "患者3",
+    "series": "0.6 x 0.6_BONE",
+    "dz": 0.6,
+    "nz": 186,
+    "x_mid": 253.0,
+    "bilateral_segments": [
+      [
+        0,
+        148
+      ]
+    ],
+    "longest_bilateral": [
+      0,
+      148
+    ],
+    "longest_span_mm": 88.8
+  }
+]

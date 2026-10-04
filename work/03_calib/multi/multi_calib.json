@@ -1,0 +1,167 @@
+[
+  {
+    "patient": "患者1",
+    "path": "患者1\\______-______\\20260127\\202-1.0 x 0.8 Bone",
+    "series_desc": "1.0 x 0.8 Bone",
+    "kernel": "H_SHARP_C",
+    "n_slices": 136,
+    "hu_range": [
+      -1023,
+      64511
+    ],
+    "status": "OK",
+    "shape": [
+      136,
+      512,
+      512
+    ],
+    "spacing_xyz_mm": [
+      0.347656,
+      0.347656,
+      0.8
+    ],
+    "origin_ipp": [
+      -96.0762,
+      -120.2537,
+      139.3293
+    ],
+    "slice_thickness_mm": 0.8,
+    "z_nostril_entry": {
+      "z": 15,
+      "mm_z": 151.329
+    },
+    "z_nasal_peak": {
+      "z": 38,
+      "mm_z": 169.729
+    },
+    "z_nasopharynx": {
+      "z": 72,
+      "mm_z": 196.929
+    },
+    "z_widest": {
+      "z": 38,
+      "mm_z": 169.729
+    },
+    "nasal_span_mm": 45.6,
+    "nasal_span_slices": 57,
+    "x_center": 266.0,
+    "air_inside_voxels": 1441002,
+    "air_outside_voxels": 14204319,
+    "gate_symmetry_ratio": 0.994,
+    "gate_sym_left": 573736,
+    "gate_sym_right": 570316,
+    "gate_hu_impure_voxels": 0,
+    "gate_hu_impure_frac": 0.0,
+    "nasal_mask_voxels": 1149081
+  },
+  {
+    "patient": "患者2",
+    "path": "患者2\\p01360058-____\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s",
+    "series_desc": "Sinus  0.75  H40s",
+    "kernel": "H40s",
+    "n_slices": 286,
+    "hu_range": [
+      -1024,
+      3071
+    ],
+    "status": "OK",
+    "shape": [
+      286,
+      512,
+      512
+    ],
+    "spacing_xyz_mm": [
+      0.458984,
+      0.458984,
+      0.5
+    ],
+    "origin_ipp": [
+      -117.2705,
+      -271.2705,
+      -650.5
+    ],
+    "slice_thickness_mm": 0.5,
+    "z_nostril_entry": {
+      "z": 73,
+      "mm_z": -614.0
+    },
+    "z_nasal_peak": {
+      "z": 127,
+      "mm_z": -587.0
+    },
+    "z_nasopharynx": {
+      "z": 139,
+      "mm_z": -581.0
+    },
+    "z_widest": {
+      "z": 127,
+      "mm_z": -587.0
+    },
+    "nasal_span_mm": 33.0,
+    "nasal_span_slices": 66,
+    "x_center": 277.0,
+    "air_inside_voxels": 1227253,
+    "air_outside_voxels": 44794378,
+    "gate_symmetry_ratio": 0.986,
+    "gate_sym_left": 367251,
+    "gate_sym_right": 372326,
+    "gate_hu_impure_voxels": 0,
+    "gate_hu_impure_frac": 0.0,
+    "nasal_mask_voxels": 745004
+  },
+  {
+    "patient": "患者3",
+    "path": "患者3\\250111559-TKT\\20260217-5.___\\202-0.6 x 0.6_BONE",
+    "series_desc": "0.6 x 0.6_BONE",
+    "kernel": "H_VSHARP_C",
+    "n_slices": 186,
+    "hu_range": [
+      -1024,
+      8825
+    ],
+    "status": "OK",
+    "shape": [
+      186,
+      512,
+      512
+    ],
+    "spacing_xyz_mm": [
+      0.367188,
+      0.367188,
+      0.6
+    ],
+    "origin_ipp": [
+      -93.8164,
+      -148.7083,
+      281.2904
+    ],
+    "slice_thickness_mm": 0.6,
+    "z_nostril_entry": {
+      "z": 15,
+      "mm_z": 290.29
+    },
+    "z_nasal_peak": {
+      "z": 31,
+      "mm_z": 299.89
+    },
+    "z_nasopharynx": {
+      "z": 88,
+      "mm_z": 334.09
+    },
+    "z_widest": {
+      "z": 24,
+      "mm_z": 295.69
+    },
+    "nasal_span_mm": 43.8,
+    "nasal_span_slices": 73,
+    "x_center": 254.0,
+    "air_inside_voxels": 1693856,
+    "air_outside_voxels": 19234225,
+    "gate_symmetry_ratio": 0.998,
+    "gate_sym_left": 684405,
+    "gate_sym_right": 686100,
+    "gate_hu_impure_voxels": 0,
+    "gate_hu_impure_frac": 0.0,
+    "nasal_mask_voxels": 1377858
+  }
+]

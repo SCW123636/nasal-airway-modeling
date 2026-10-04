@@ -1,0 +1,107 @@
+{
+  "acceptance_thresholds": {
+    "delta_p_coarse_rel_error": 0.05,
+    "delta_p_fine_rel_error": 0.02,
+    "mass_imbalance_frac": 1e-06,
+    "peak_velocity_rel_error": 0.05
+  },
+  "analytic": {
+    "delta_p_pa": 28.80704469963305,
+    "equation": "delta_p = 128 mu L Q / (pi D^4); u_peak = 2 u_mean (Hagen-Poiseuille)",
+    "reynolds": 5275.854467134652,
+    "u_mean_m_s": 19.89436788648692,
+    "u_peak_m_s": 39.78873577297384
+  },
+  "checks": {
+    "converged": true,
+    "delta_p_coarse_within_5pct": false,
+    "delta_p_fine_within_2pct": false,
+    "error_decreases_with_refinement": true,
+    "mass_imbalance_below_1e-6": true,
+    "mesh_quality_passed": false,
+    "peak_velocity_within_5pct": true
+  },
+  "diagnostics": {
+    "cause_status": "not_established",
+    "note": "Computed checks establish this run's errors only. Entrance development, inlet profile and mesh resolution require independent controlled comparisons; no pressure-driven control is executed by this collector."
+  },
+  "experiment": {
+    "baseline_report": "../phantom_validation/validation.json",
+    "controlled_change": "Circular inlet radius derived from source STL vertices instead of boundary face centroids.",
+    "kind": "source_radius_profile_diagnostic",
+    "purpose": "Isolate inlet profile implementation; failed meshes cannot receive engineering acceptance."
+  },
+  "generated_at": "2026-10-02T13:31:29+00:00",
+  "inlet_profile": "area-normalized parabolic fixedValue imposed after meshing (developed profile; no entrance-length approximation)",
+  "levels": [
+    {
+      "case": "case_h0p4",
+      "cell_size_mm": 0.4,
+      "converged": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 23.777240346492,
+      "delta_p_rel_error": 0.17460327519140206,
+      "mass_imbalance_frac": 0.0,
+      "measured_flow_m3_s": 0.00025,
+      "mesh_quality_passed": false,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 39.63761187719768,
+      "peak_velocity_rel_error": 0.003798157766018009,
+      "source_sha256": {
+        "case_manifest.json": "c950882754b9459ae8e5a7232a0dc79a67fa109f60834a05fdccaefe936f667b",
+        "log.checkMesh": "4b40d1eda545788cc2edf1a084cfbc2d34211b9a89fa4a09ebfdf0226c72a96a",
+        "log.simpleFoam": "cb57dbccba898c361a0ea576c972e912774273c38adec0a651d218f744d7221c",
+        "metrics.json": "477c85827a1953e9b1e15a813454c0d574ca174f62915aa8b2a7137cfc2ac922",
+        "run_manifest.json": "94002350acb24f55d29a92f23a68c27cc578d62e7c61719e4ac2f1ac327e1022"
+      },
+      "target_flow_m3_s": 0.00025,
+      "target_flow_rel_error": 0.0
+    },
+    {
+      "case": "case_h0p2",
+      "cell_size_mm": 0.2,
+      "converged": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 24.538384824096,
+      "delta_p_rel_error": 0.14818111055978697,
+      "mass_imbalance_frac": 0.0,
+      "measured_flow_m3_s": 0.00025,
+      "mesh_quality_passed": false,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 39.7621006652965,
+      "peak_velocity_rel_error": 0.0006694132688535381,
+      "source_sha256": {
+        "case_manifest.json": "3850881f401d9daa2569066b8a32f626b091a164dd69167a24e46a2e52f3d7f2",
+        "log.checkMesh": "b6847f403587145886bbdc902f0d73d89d7821648df1da0f260bc284dd749cd0",
+        "log.simpleFoam": "f4a2b07410f764f3e1afc90d6e89affe2d629b1348093ef1b0149abc86b09816",
+        "metrics.json": "972b9d4f0cfd5b9cff694f4f9e3f4ef4f7fe3ff949ac6261e3334f462c9344d2",
+        "run_manifest.json": "2db62b32a053982a97c756a64d7d5247c292dbda9ebc265cb8c765f4da10bade"
+      },
+      "target_flow_m3_s": 0.00025,
+      "target_flow_rel_error": 0.0
+    }
+  ],
+  "phantom": {
+    "D_mm": 4.0,
+    "L_mm": 40.0,
+    "Q_m3_s": 0.00025,
+    "kind": "straight_circular_tube",
+    "patch_map": {
+      "inlet": "inlet",
+      "outlet": "outlet",
+      "wall": "wall"
+    },
+    "stl_sha256": "786c59f85bb2cb0e4315b2c3e461f2d21b17f48bfbc4854106e4c26fab407cb4"
+  },
+  "physics": {
+    "mu_Pa_s": 1.81e-05,
+    "note": "laminar solver at Re 5276 validates the chain against the laminar analytic solution; not a physical-regime claim",
+    "rho_kg_m3": 1.2
+  },
+  "schema": "nasal_cfd_phantom_validation/v1",
+  "script": {
+    "name": "phantom_validation.py",
+    "version": "1.1.0"
+  },
+  "verdict": "fail"
+}

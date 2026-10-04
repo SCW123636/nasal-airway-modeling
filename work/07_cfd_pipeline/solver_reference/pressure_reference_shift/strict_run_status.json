@@ -1,0 +1,14 @@
+{
+  "schema": "strict_pressure_shift_stopping_record/v1",
+  "patient_data": false,
+  "status": "intentionally_terminated_after_observed_pressure_linear_residual_floor",
+  "simpleFoam_exit_code": -15,
+  "elapsed_seconds": 274.886091269,
+  "last_started_iteration": 1975.0,
+  "SIMPLE_automatic_stopping_satisfied": false,
+  "pressure_linear_tolerance": 1e-12,
+  "observed_pressure_linear_residual_floor_approximately": 4.5e-12,
+  "preserved_execution_json": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\case\\execution.json",
+  "preserved_log": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\case\\log.simpleFoam",
+  "reason": "Keep strict run evidence and compare a separate 0/18 Pa pair using identical attainable numerical settings. Original verified reference is untouched."
+}

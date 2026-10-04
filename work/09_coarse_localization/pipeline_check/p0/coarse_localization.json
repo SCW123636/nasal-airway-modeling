@@ -1,0 +1,146 @@
+{
+  "schema": "coarse_anatomy_prior/v1",
+  "coordinate_system": "LPS",
+  "unit": "mm",
+  "status": "unavailable",
+  "target_descriptor": {
+    "schema": "coarse_anatomy_descriptor/v1",
+    "coordinate_system": "LPS",
+    "unit": "mm",
+    "frame": {
+      "origin_lps_mm": [
+        -15.634430988096314,
+        -193.11663499765285,
+        -670.0035364389432
+      ],
+      "superior_lps": [
+        -0.029092961694852263,
+        -0.1860139735716746,
+        0.9821162870128457
+      ],
+      "posterior_lps": [
+        0.11060917413461212,
+        0.9758991323020555,
+        0.188112982458294
+      ],
+      "left_lps": [
+        0.9934380756630385,
+        -0.1141038352036061,
+        0.00781694407984277
+      ],
+      "palate_fit": {
+        "point_lps_mm": [
+          -15.634430988096314,
+          -193.11663499765285,
+          -670.0035364389432
+        ],
+        "normal_lps": [
+          -0.029092961694852263,
+          -0.1860139735716746,
+          0.9821162870128457
+        ],
+        "samples": 46770,
+        "rms_mm": 1.1262940224356683,
+        "p95_residual_mm": 2.1894054965714966,
+        "planarity_ratio": 0.16262792978290352,
+        "roi_lps_mm": {
+          "min": [
+            -31.71687087416649,
+            -210.60906729102135,
+            -678.1399784982204
+          ],
+          "max": [
+            1.650284081697464,
+            -170.94895055890083,
+            -663.2899786829948
+          ]
+        }
+      },
+      "note": "Palate plane defines coordinates only; it is not an oral barrier."
+    },
+    "structure": "bilateral semantic nasal cavity",
+    "axes": [
+      "patient_left",
+      "posterior",
+      "superior"
+    ],
+    "bounds_quantiles": [
+      0.005,
+      0.995
+    ],
+    "local_bounds_mm": {
+      "min": [
+        -15.621170425798086,
+        -42.65399568978153,
+        -0.5820165389122982
+      ],
+      "max": [
+        14.658391456730321,
+        31.869221320180554,
+        43.17908680181988
+      ]
+    },
+    "span_mm": [
+      30.279561882528405,
+      74.52321700996208,
+      43.76110334073218
+    ],
+    "exact_extrema_local_mm": {
+      "min": [
+        -16.959580515639896,
+        -45.61858782395124,
+        -2.401554217083289
+      ],
+      "max": [
+        15.85999868026129,
+        35.269266972202196,
+        46.995409034097925
+      ]
+    },
+    "exact_extrema_lps_mm": {
+      "min": [
+        -36.70905062556267,
+        -240.07387617230415,
+        -670.8899785876274
+      ],
+      "max": [
+        1.3983290195465088,
+        -160.0134180188179,
+        -625.0399793684483
+      ]
+    },
+    "fov_truncated_labels": {
+      "nasal_cavity_left": false,
+      "nasal_cavity_right": false,
+      "nasopharynx": false,
+      "oropharynx": true,
+      "hard_palate": false,
+      "soft_palate": false
+    },
+    "eligible": true,
+    "reasons": []
+  },
+  "parameters": {
+    "bounds_quantiles": [
+      0.005,
+      0.995
+    ],
+    "scale_range": [
+      0.7,
+      1.4
+    ],
+    "minimum_independent_patients": 2,
+    "search_margin_mm": 10.0,
+    "maximum_reference_spread_mm": 12.0,
+    "minimum_span_mm": 1.0,
+    "maximum_palate_rms_mm": 1.5,
+    "note": "Engineering settings; search boxes are not confidence intervals."
+  },
+  "accepted_references": [],
+  "excluded_references": [],
+  "landmarks": {},
+  "purpose": "Initial search position only; target CT evidence remains required.",
+  "reason": "No compatible independent reviewed references",
+  "reference_library_sha256": "cfb600ad3f0a9a3597767725e54fe1e3ecad9fab5e5266963705f8f890af56f5",
+  "reviewed_reference_count": 0
+}

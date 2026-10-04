@@ -1,0 +1,8 @@
+NasalSeg P001 Slicer load: OK
+IMAGE_NODE=P001_img
+IMAGE_DIMS=(153, 205, 52)
+IMAGE_RANGE=(-1024.0, 3070.0)
+LABEL_NODE=P001_seg
+LABEL_DIMS=(153, 205, 52)
+LABEL_RANGE=(0.0, 5.0)
+SCENE=D:\项目\鼻腔建模\work\NasalSeg_P001_Slicer场景.mrml

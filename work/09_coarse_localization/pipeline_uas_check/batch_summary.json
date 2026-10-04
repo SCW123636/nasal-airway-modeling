@@ -1,0 +1,53 @@
+[
+  {
+    "case": "p0",
+    "landmarks": {
+      "nostril_L": {
+        "status": "proposed",
+        "point_lps_mm": [
+          -14.23892636399821,
+          -234.66605581608877,
+          -668.7812194994518
+        ],
+        "review_reasons": []
+      },
+      "posterior_choana_L": {
+        "status": "proposed",
+        "point_lps_mm": [
+          -6.691918397033718,
+          -165.74633159482363,
+          -659.0591225993355
+        ],
+        "review_reasons": []
+      },
+      "nostril_R": {
+        "status": "proposed",
+        "point_lps_mm": [
+          -31.96022610617594,
+          -231.20129686104153,
+          -669.4075820062977
+        ],
+        "review_reasons": []
+      },
+      "posterior_choana_R": {
+        "status": "proposed",
+        "point_lps_mm": [
+          -18.207581541873157,
+          -164.26871330017192,
+          -658.9309345321483
+        ],
+        "review_reasons": []
+      },
+      "nasopharynx_outlet": {
+        "status": "proposed",
+        "point_lps_mm": [
+          -11.516358289822167,
+          -158.33160182579724,
+          -666.2174786671997
+        ],
+        "review_reasons": []
+      }
+    },
+    "out": "work\\09_coarse_localization\\pipeline_uas_check\\p0"
+  }
+]

@@ -1,0 +1,156 @@
+{
+  "case": "P009",
+  "status": "needs_semantic_mapping",
+  "cfd_eligible": false,
+  "source": {
+    "image_nrrd": "D:\\项目\\鼻腔建模\\NasalSeg_按患者\\P009\\P009_img.nrrd",
+    "label_nrrd": "D:\\项目\\鼻腔建模\\NasalSeg_按患者\\P009\\P009_seg.nrrd",
+    "image_sha256": "d30e2d8cd865ac6bd25d58a48bc179a4f04b4df949e67cb4c8d142ef192a1b48",
+    "label_sha256": "49226a4e1f3668e23af07fcd27086da13443bb459ee9a7f7df5c7760ea6c677b"
+  },
+  "converted": {
+    "ct_nifti": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases\\P009\\ct.nii.gz",
+    "labelmap_nifti": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases\\P009\\masks\\nasalseg_labelmap.nii.gz",
+    "ct_sha256": "767b2c90db601b15335a0cb0772a16d210aabc2e983ddb7a65c50fa8e3cc7af4",
+    "labelmap_sha256": "9d5d48da94687b856c58abe3b574089683197748b7741e5eca79cdb4f38013a8"
+  },
+  "geometry": {
+    "size_xyz": [
+      143,
+      188,
+      50
+    ],
+    "spacing_xyz_mm": [
+      0.5859375,
+      0.5859375,
+      1.5000000000000002
+    ],
+    "origin_xyz_mm": [
+      -149.70703125000003,
+      -330.7070312499999,
+      -676.4999999999999
+    ],
+    "direction_lps": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.9999999999999999
+    ],
+    "dtype": "int16"
+  },
+  "label_geometry": {
+    "size_xyz": [
+      143,
+      188,
+      50
+    ],
+    "spacing_xyz_mm": [
+      0.5859375,
+      0.5859375,
+      1.5000000000000002
+    ],
+    "origin_xyz_mm": [
+      -149.70703125000003,
+      -330.7070312499999,
+      -676.4999999999999
+    ],
+    "direction_lps": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.9999999999999999
+    ],
+    "dtype": "int16"
+  },
+  "geometry_reconciliation": {
+    "status": "exact",
+    "delta": {
+      "spacing_max_abs_mm": 0.0,
+      "origin_max_abs_mm": 0.0,
+      "direction_max_abs": 0.0
+    }
+  },
+  "label_values": {
+    "0": 1244828,
+    "1": 26687,
+    "2": 21895,
+    "3": 17784,
+    "4": 18332,
+    "5": 14674
+  },
+  "semantic_mapping": {
+    "status": "verified_partial_project_mapping",
+    "source": {
+      "title": "NasalSeg: A Dataset for Automatic Segmentation of Nasal Cavity and Paranasal Sinuses from 3D CT Images",
+      "doi": "10.1038/s41597-024-04176-1",
+      "url": "https://www.nature.com/articles/s41597-024-04176-1",
+      "zenodo": "https://zenodo.org/records/13893419",
+      "evidence": "Data Records: labels 0 to 5 and Table 2"
+    },
+    "label_id_to_structure": {
+      "1": "right_maxillary_sinus",
+      "2": "left_maxillary_sinus",
+      "3": "right_nasal_cavity",
+      "4": "left_nasal_cavity",
+      "5": "nasopharynx"
+    },
+    "project_masks": {
+      "maxillary_sinus_right": {
+        "source_label_id": 1,
+        "source_name": "right_maxillary_sinus",
+        "path": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases\\P009\\masks\\maxillary_sinus_right.nii.gz",
+        "sha256": "7b840ca61fc1dd80e3d3b293978913088a502d9dd5efdb0e501b58a3286380fc",
+        "voxels": 26687
+      },
+      "maxillary_sinus_left": {
+        "source_label_id": 2,
+        "source_name": "left_maxillary_sinus",
+        "path": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases\\P009\\masks\\maxillary_sinus_left.nii.gz",
+        "sha256": "809638edc8e1b21327a5d1759cfccb13bdb5e20e5e122c03e2ce83ce6fa5cfaa",
+        "voxels": 21895
+      },
+      "nasal_cavity_right": {
+        "source_label_id": 3,
+        "source_name": "right_nasal_cavity",
+        "path": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases\\P009\\masks\\nasal_cavity_right.nii.gz",
+        "sha256": "ddd201f67e85e25e577c786cc007cefdc5030887e46af64d7111849b6b699b6d",
+        "voxels": 17784
+      },
+      "nasal_cavity_left": {
+        "source_label_id": 4,
+        "source_name": "left_nasal_cavity",
+        "path": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases\\P009\\masks\\nasal_cavity_left.nii.gz",
+        "sha256": "d3d030366de0377b2767068a597692868ccd64f1ef51dd47adc6fee788a7b80c",
+        "voxels": 18332
+      },
+      "nasopharynx": {
+        "source_label_id": 5,
+        "source_name": "nasopharynx",
+        "path": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases\\P009\\masks\\nasopharynx.nii.gz",
+        "sha256": "ae378efa93857ea8de75f2714940c0274f83eb9d5064d0eedf4cc6875bb3fd25",
+        "voxels": 14674
+      }
+    },
+    "missing_project_labels": [
+      "oropharynx",
+      "hard_palate",
+      "soft_palate"
+    ],
+    "mapping_does_not_claim_medical_accuracy": true
+  },
+  "downstream": {
+    "landmark_pipeline": "blocked_until_oropharynx_hard_palate_soft_palate",
+    "geometry": "blocked_until_project_label_completion_and_boundary_review",
+    "cfd": "blocked"
+  }
+}

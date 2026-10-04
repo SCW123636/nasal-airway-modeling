@@ -1,0 +1,47 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:                                        |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : OPENFOAM=1912 patch=200626
+Arch   : "LSB;label=32;scalar=64"
+Exec   : foamToVTK -latestTime -ascii -fields (p U)
+Date   : Oct 02 2026
+Time   : 00:51:50
+Host   : LAPTOP-44R13S8U
+PID    : 420
+--> FOAM Warning : 
+    From function Foam::fileName Foam::cwd_L()
+    in file POSIX.C at line 494
+    PWD is not the cwd() - reverting to physical description
+I/O    : uncollated
+--> FOAM Warning : 
+    From function Foam::fileName Foam::cwd_L()
+    in file POSIX.C at line 494
+    PWD is not the cwd() - reverting to physical description
+Case   : /home/lenovo2/nasal_cfd_reference/pressure_reference_matched_pair/reference_0Pa
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Initial memory 140824 kB
+Create mesh for time = 110
+
+VTK mesh topology: 0.03 s, 142344 kB
+Time: 110
+    volScalar    : p
+    volVector    : U
+    Internal  : "VTK/reference_0Pa_110/internal.vtu"
+    Boundary  : "VTK/reference_0Pa_110/boundary/inlet.vtp"
+    Boundary  : "VTK/reference_0Pa_110/boundary/outlet.vtp"
+    Boundary  : "VTK/reference_0Pa_110/boundary/walls.vtp"
+Wrote in 0.04 s, 144932 kB
+
+End: 0.07 s, 145564 kB (peak)
+

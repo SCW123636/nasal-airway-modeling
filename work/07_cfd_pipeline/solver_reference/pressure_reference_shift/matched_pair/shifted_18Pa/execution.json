@@ -1,0 +1,16 @@
+{
+  "comparison_mode": "matched_numerical_settings_pair",
+  "changed_input_files": [
+    "0/p"
+  ],
+  "baseline_inputs_unchanged": true,
+  "verified_source_inputs_unchanged": true,
+  "shared_numerical_settings": {
+    "linear_tolerance_p": 1e-10,
+    "linear_tolerance_U": 1e-10,
+    "SIMPLE_residual_p": 1e-08,
+    "SIMPLE_residual_U": 1e-06,
+    "endTime": 2000
+  },
+  "same_numerical_settings_as_original_verified": false
+}

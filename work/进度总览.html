@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>鼻腔 CFD 项目 · 进度总览</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--line:#e3e6ea;--tx:#1f2328;--mut:#6b7280;
+--ok:#15803d;--warn:#b45309;--bad:#b91c1c;--acc:#2563eb;}
+*{box-sizing:border-box}
+body{overflow-wrap:anywhere}
+body{margin:0;padding:24px;background:var(--bg);color:var(--tx);
+font:14px/1.65 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font-size:22px;margin:0 0 4px} h2{font-size:16px;margin:22px 0 10px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+padding:16px 18px;margin-bottom:14px}
+.todo{border-left:4px solid var(--warn)}
+.block{border-left:4px solid var(--bad)}
+.done{border-left:4px solid var(--ok)}
+ol{margin:8px 0 0 20px;padding:0} li{margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+.table-scroll{max-width:100%;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#f0f2f5;font-weight:600}
+tr:nth-child(even) td{background:#fafbfc}
+.ok{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)}
+.muted{color:var(--mut)} .small{font-size:12px}
+code{background:#f0f2f5;padding:1px 5px;border-radius:4px;font-size:12.5px}
+a{color:var(--acc)} .tag{display:inline-block;background:#eef2ff;color:#3730a3;
+border-radius:4px;padding:1px 7px;font-size:12px;margin-right:6px}
+</style><script src="/workspace/embed.js" defer></script></head><body><div class="wrap">
+
+<h1>鼻腔 CFD 空气域复核 · 进度总览</h1>
+<div class="sub">生成时间 2026-10-03 13:45 ｜ 只读汇总，不修改任何掩膜与候选点 ｜
+缺失项一律标「未跑」，无占位数字</div>
+
+<div class="card" style="border-left:4px solid var(--acc)">
+<h2>项目主线已确定</h2>
+<p>本项目按“匿名 CT → 自动分割 → UAS 粗定位 → 本例 CT 精标定 → 可视人工检验 → 版本化几何 → CFD → 实际结果”推进。阶段一只做患者原始鼻腔建模和气流分析；结构修改、二次模拟和鼻塞设计留到后续阶段。</p>
+<p class="small" style="margin-top:8px">主线版本：2026-10-03 ｜ 下一项：让 p0 自动走到待复核，并将人工决定接到新几何。求解组件验证在等待复核期间推进。</p>
+</div>
+
+<div class="card" id="coarse-localization">
+<h2>粗标定已接入：统一坐标预设 → 本例影像精调</h2>
+<p>以硬腭及鼻腔方向校正姿态，在 UAS（患者左、后、上）中按鼻腔三轴范围转移参考标点。粗定位预设搜索范围，本例 CT 确定候选与平面。CT 和气道模型保留真实毫米尺寸。</p>
+<div class="table-scroll"><table>
+<tr><th>病例</th><th>本例适用性与实际搜索</th><th>本例参考来源</th><th>最大粗→精偏移</th><th>证据</th></tr>
+<tr><td>p0</td><td>可用于搜索与对照<br><span class="small muted">搜索/对照 4 点；仅显示 0 点；局部搜索 2 点；回退 0 点</span></td><td>p1, p2, p3, p3t1；带质量警告的粗定位参考：p2<br>3 位独立患者</td><td>2.58 mm<br><span class="small muted">4 点可比较</span></td><td><a href="/landmark-review/p0/coarse_adjustment.json">坐标与搜索框</a></td></tr><tr><td>p1</td><td>可用于搜索与对照<br><span class="small muted">搜索/对照 4 点；仅显示 0 点；局部搜索 2 点；回退 0 点</span></td><td>p0, p2, p3, p3t1；带质量警告的粗定位参考：p2<br>3 位独立患者</td><td>4.56 mm<br><span class="small muted">4 点可比较</span></td><td><a href="/landmark-review/p1/coarse_adjustment.json">坐标与搜索框</a></td></tr><tr><td>p2</td><td>粗定位不适用，使用本例 CT<br><span class="small muted">搜索/对照 0 点；仅显示 0 点；局部搜索 0 点；回退 0 点；硬腭拟合残差 1.832 mm</span></td><td>无适用参考<br>0 位独立患者</td><td>—<br><span class="small muted">0 点可比较</span></td><td><a href="/landmark-review/p2/coarse_adjustment.json">坐标与搜索框</a></td></tr><tr><td>p3</td><td>可用于搜索与对照<br><span class="small muted">搜索/对照 4 点；仅显示 0 点；局部搜索 2 点；回退 0 点</span></td><td>p0, p1, p2；带质量警告的粗定位参考：p2<br>3 位独立患者</td><td>2.21 mm<br><span class="small muted">4 点可比较</span></td><td><a href="/landmark-review/p3/coarse_adjustment.json">坐标与搜索框</a></td></tr><tr><td>p3t1</td><td>可用于搜索与对照<br><span class="small muted">搜索/对照 4 点；仅显示 0 点；局部搜索 2 点；回退 0 点</span></td><td>p0, p1, p2；带质量警告的粗定位参考：p2<br>3 位独立患者</td><td>3.88 mm<br><span class="small muted">4 点可比较</span></td><td><a href="/landmark-review/p3t1/coarse_adjustment.json">坐标与搜索框</a></td></tr>
+</table></div>
+<p class="small muted" style="margin-top:8px">参考库逐例排除本人、相同 CT 和同病例；p3 / p3t1 按同一患者等权。局部失败回退本例解剖范围搜索。偏移是粗点到自动候选的距离，医学准确性仍待独立人工真值验证。</p>
+<p class="small" style="margin-top:8px">粗定位参考接受与正式解剖确认分别记录。下一步：在<a href="/landmark-review/index.html">切片复核</a>检查精调点、超框提示和入口/出口平面，再生成正式审核记录。</p>
+</div>
+
+<div class="card todo">
+<h2>① 当前人工确认入口</h2>
+<ol>
+<li><a href="/landmark-review/index.html">标定审核</a>：五组扫描，共 25 个候选点，尚待正式解剖确认。</li>
+<li><a href="/landmark-review/feedback_review/index.html">意见核对</a>：点位与平面方向需要结合本例 CT 分别复核，跨病例绝对 XYZ 不能作为统一位置标准。</li>
+<li>审核记录与原候选分开保存；接受、拒绝或调整记录均不会直接修改分割或解锁患者计算。</li>
+</ol>
+<div class="small muted" style="margin-top:8px">
+正式审核记录仍需通过来源校验，并结合口腔、鼻窦与进出口边界确认。
+</div>
+</div>
+
+<div class="card done">
+<h2>② 人工意见诊断核对：诊断核对已完成</h2>
+<p>已读取 6 条人工意见，其中 2 条可绑定当前候选，4 条仍需解释或人工复核。这一步不改变候选坐标，也不代表临床接受。</p>
+<p class="small muted" style="margin-top:8px">来源：<code>06_auto_landmarks/feedback_review/audit.json</code> ｜
+页面：<a href="/landmark-review/feedback_review/index.html">人工意见与局部切面对照</a></p>
+</div>
+
+<div class="card block">
+<h2>③ 非患者求解闭环：未通过严格压降标准</h2>
+<p>求解链路已跑完；质量守恒、收敛和峰值速度检查通过，但粗/细网格压降相对误差为 77.0% / 36.5%。误差原因需要独立对照检验，不能据此放行患者计算。</p>
+<p class="small muted" style="margin-top:8px">报告：<a href="/solver_reference/phantom_validation/validation.json"><code>solver_reference/phantom_validation/validation.json</code></a> ｜ 仅用于工程链路验收，不含患者结果</p>
+</div>
+
+<div class="card block">
+<h2>④ 拿到正式签字后仍然锁住的两项</h2>
+<ul>
+<li><b>口腔排除确认</b> —— 口咽/软腭那道屏障是否真的把口腔隔开了</li>
+<li><b>鼻窦边界策略确认</b> —— G_sinus 里鼻窦按什么口径保留</li>
+</ul>
+<div class="small muted">
+5 个标点全部正确 ≠ 契约门禁解锁。这两项是独立于标点定位的判断，
+脚本默认 false，只有你确认后才置 true。
+</div>
+</div>
+
+<div class="card">
+<h2>⑤ 逐例状态</h2>
+<div class="table-scroll"><table>
+<tr><th>病例</th><th>自动定位</th><th>MCA 左/右 (cm²)</th><th>vs 亚洲参考 0.75</th>
+<th>入口边界</th><th>鼻窦（craniofacial_structures）</th></tr>
+<tr><td><b>p0</b><br><span class="muted small">例0（浙一 / Philips 0.35mm 各向同性）</span></td><td>5 点<br><span class="muted small">全部 proposed</span></td><td>0.704 / 0.748</td><td>×0.94 / ×1.00</td><td><span class="warn">⚠ 入口边界疑似伪影</span></td><td>上颌窦 36.45 mL · <span class="warn">候选开放·位置待确认</span> · 宽≈0.70 mm<br>额窦 3.14 mL · <span class="muted">亚体素·不可判定</span></td></tr><tr><td><b>p1</b><br><span class="muted small">患者1（深圳二院 / 联影 uCT760）</span></td><td>5 点<br><span class="muted small">1 点 needs_review</span></td><td>0.848 / 1.108</td><td>×1.13 / ×1.48</td><td><span class="warn">⚠ 入口边界疑似伪影</span></td><td><span class="muted">未跑</span></td></tr><tr><td><b>p2</b><br><span class="muted small">患者2（复旦眼耳鼻喉科 / 西门子 Flash）</span></td><td>5 点<br><span class="muted small">全部 proposed</span></td><td>0.779 / 0.882</td><td>×1.04 / ×1.18</td><td><span class="warn">⚠ 入口边界疑似伪影</span></td><td><span class="muted">未跑</span></td></tr><tr><td><b>p3</b><br><span class="muted small">患者3 t2（湘雅三院 / 联影 uCT968）</span></td><td>5 点<br><span class="muted small">1 点 needs_review</span></td><td>0.774 / 1.354</td><td>×1.03 / ×1.81</td><td><span class="warn">⚠ 入口边界疑似伪影</span></td><td><span class="muted">未跑</span></td></tr><tr><td><b>p3t1</b><br><span class="muted small">患者3 t1（湘雅三院 / 联影 uCT710）</span></td><td>5 点<br><span class="muted small">1 点 needs_review</span></td><td>0.934 / 0.906</td><td>×1.25 / ×1.21</td><td><span class="warn">⚠ 入口边界疑似伪影</span></td><td><span class="muted">未跑</span></td></tr>
+</table></div>
+<div class="small muted" style="margin-top:8px">
+MCA = 最小截面积，跳过入口 3 mm 后测得；亚洲成人声反射参考 0.75 cm²，
+<b>只当量级哨兵，不是合格线</b>。鼻窦一栏只有例0跑过（其余 4 例未跑 craniofacial_structures）。
+</div>
+</div>
+
+<div class="card done">
+<h2>⑥ 近期已完成</h2>
+<ul>
+<li><b>MCA 测量</b> <code>work/lib/measure_mca.py</code> —— 5 例全跑通，
+10/10 侧落在参考值 0.94–1.81 倍。这是项目第一次有数字能跟外部文献对账</li>
+<li><b>入口面检验</b> <code>work/lib/inspect_entry_plane.py</code> ——
+v2 已记录 10 侧：观测范围内未命中 HU&gt;-200 为 10 侧，命中为 0 侧，采样范围截断为 3 侧。 越出 CT 可采样范围的值保留为缺失，不延用边缘体素。
+射线记录<b>不能确认入口位置、入口深度或鼻前庭缺失</b>；
+没有命中阈值也不等于已识别鼻孔边缘，仍需三切面及局部结构复核。</li>
+<li><b>鼻窦标签</b> <code>work/lib/measure_sinus_ostia.py</code> ——
+例0 上颌窦 36.45 mL、额窦 3.14 mL，HU&gt;0 仅 1.54%/0.94%（鼻腔标签是 8.70%，
+说明鼻窦标签基本就是空气域）。窦口用<b>逐级腐蚀测瓶颈</b>：
+上颌窦通到 k=1（宽约 0.7–1.05 mm，候选开放），额窦仅 k=0（亚体素，不可判定）</li>
+<li><b>签字链路最后一公里</b> <code>work/lib/confirm_landmark_review.py</code> ——
+网页导出的决定 → 求解管线确认件，含哈希校验与门禁剩余项清单</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⑦ 还差什么</h2>
+<div class="table-scroll"><table>
+<tr><th>项</th><th>状态</th><th>卡在谁</th></tr>
+<tr><td>5 点人工复核落成文件</td><td class="bad">尚待正式审核记录</td><td>解剖审核</td></tr>
+<tr><td>口腔排除 / 鼻窦边界策略</td><td class="bad">未确认</td><td>你</td></tr>
+<tr><td>筛窦 / 蝶窦标签</td><td class="bad">TS 41 个 task 全无</td><td>人工标注</td></tr>
+<tr><td>窦口通道位置确认</td><td class="bad">未验证（可能绕经筛窦）</td><td>人工看图</td></tr>
+<tr><td>其余 4 例鼻窦推理</td><td class="warn">未跑</td><td>我（每例约 7 分钟）</td></tr>
+<tr><td>真实表面 → 体网格（E 段 S1/S2）</td><td class="warn">脚本已具备，患者未执行</td><td>待正式边界与体网格门禁</td></tr>
+<tr><td>网页三 layer（流速/压力/湍流）</td><td class="warn">参考算例已支持，患者待结果</td><td>患者 CFD 解锁后</td></tr>
+</table></div>
+</div>
+
+<div class="card">
+<h2>⑧ 文件清单</h2>
+<div class="small">
+复核页 <code>work/06_auto_landmarks/index.html</code> ｜
+复核说明 <code>work/06_auto_landmarks/复核页使用说明.md</code><br>
+MCA 汇总 <code>work/05_ts_seg/MCA测量汇总.md</code> ｜
+鼻窦实测 <code>work/05_ts_seg/鼻窦标签与窦口连通性实测.md</code><br>
+E 段脚本规格 <code>work/脚本编写方案-E段自动化.md</code> ｜
+方案陈述 <code>work/方案陈述-鼻腔CFD空气域复核.md</code>
+</div>
+</div>
+
+</div></body></html>

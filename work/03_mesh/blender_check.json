@@ -1,0 +1,125 @@
+{
+  "airway_raw.stl": {
+    "import_ok": true,
+    "dims_mm": [
+      32.51,
+      82.51,
+      33.95
+    ],
+    "before": {
+      "verts": 151712,
+      "edges": 455136,
+      "faces": 303424,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0
+    },
+    "fix_log": {
+      "fill_holes": "{'FINISHED'}",
+      "remove_doubles": "{'FINISHED'}",
+      "normals_make_consistent": "{'FINISHED'}",
+      "dissolve_degenerate": "{'FINISHED'}"
+    },
+    "after_fix": {
+      "verts": 151712,
+      "edges": 455136,
+      "faces": 303424,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0
+    },
+    "decimate": {
+      "ok": true,
+      "after": {
+        "verts": 45513,
+        "edges": 136539,
+        "faces": 91026,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0
+      }
+    }
+  },
+  "airway_smooth1.stl": {
+    "import_ok": true,
+    "dims_mm": [
+      32.51,
+      81.63,
+      33.44
+    ],
+    "before": {
+      "verts": 144273,
+      "edges": 432813,
+      "faces": 288542,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0
+    },
+    "fix_log": {
+      "fill_holes": "{'FINISHED'}",
+      "remove_doubles": "{'FINISHED'}",
+      "normals_make_consistent": "{'FINISHED'}",
+      "dissolve_degenerate": "{'FINISHED'}"
+    },
+    "after_fix": {
+      "verts": 144249,
+      "edges": 432733,
+      "faces": 288486,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0
+    },
+    "decimate": {
+      "ok": true,
+      "after": {
+        "verts": 43276,
+        "edges": 129822,
+        "faces": 86548,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0
+      }
+    }
+  },
+  "airway_smooth2.stl": {
+    "import_ok": true,
+    "dims_mm": [
+      32.3,
+      80.49,
+      32.43
+    ],
+    "before": {
+      "verts": 132218,
+      "edges": 396654,
+      "faces": 264436,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0
+    },
+    "fix_log": {
+      "fill_holes": "{'FINISHED'}",
+      "remove_doubles": "{'FINISHED'}",
+      "normals_make_consistent": "{'FINISHED'}",
+      "dissolve_degenerate": "{'FINISHED'}"
+    },
+    "after_fix": {
+      "verts": 132188,
+      "edges": 396553,
+      "faces": 264365,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0
+    },
+    "decimate": {
+      "ok": true,
+      "after": {
+        "verts": 39656,
+        "edges": 118968,
+        "faces": 79312,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0
+      }
+    }
+  }
+}

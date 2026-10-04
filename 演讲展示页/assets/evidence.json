@@ -1,0 +1,24 @@
+{
+  "patient_results": 0,
+  "patient_data": false,
+  "chart": [
+    {
+      "label": "coarse",
+      "cells": 800,
+      "pressure_error_percent": 2.167150899668526,
+      "velocity_error_percent": 0.903970858844587
+    },
+    {
+      "label": "medium",
+      "cells": 3200,
+      "pressure_error_percent": 0.6080804961878644,
+      "velocity_error_percent": 0.231729343021043
+    },
+    {
+      "label": "fine",
+      "cells": 12800,
+      "pressure_error_percent": 0.18478487812155922,
+      "velocity_error_percent": 0.058312065340849505
+    }
+  ]
+}

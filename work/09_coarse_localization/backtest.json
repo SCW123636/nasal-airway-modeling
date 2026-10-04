@@ -1,0 +1,229 @@
+{
+  "schema": "coarse_prior_exploratory_backtest/v1",
+  "cases": [
+    "p0",
+    "p1",
+    "p2",
+    "p3",
+    "p3t1"
+  ],
+  "independent_patients": 4,
+  "clinical_ground_truth": false,
+  "production_library_modified": false,
+  "comparison": "distance to existing automatic proposals, not anatomical localization error",
+  "summary": {
+    "scan_box": {
+      "count": 16,
+      "median_mm": 16.31567288543601,
+      "p95_mm": 28.291298146853936,
+      "max_mm": 31.130562530494846
+    },
+    "nasal_lps_box": {
+      "count": 16,
+      "median_mm": 5.163227865574026,
+      "p95_mm": 9.307958828786,
+      "max_mm": 9.8500691076191
+    },
+    "anatomy_frame": {
+      "count": 16,
+      "median_mm": 1.7221294672008451,
+      "p95_mm": 4.218412960123997,
+      "max_mm": 4.43240245330714
+    }
+  },
+  "rows": [
+    {
+      "case": "p0",
+      "landmark": "nostril_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 3.4771973077508993,
+        "scan_box": 27.3448766856403,
+        "nasal_lps_box": 9.8500691076191
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p0",
+      "landmark": "nostril_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.9090507366639382,
+        "scan_box": 27.141207147544424,
+        "nasal_lps_box": 6.158211400029515
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p0",
+      "landmark": "posterior_choana_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.0311163808880819,
+        "scan_box": 14.226662746943955,
+        "nasal_lps_box": 5.5420115560040335
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p0",
+      "landmark": "posterior_choana_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.2924732248098028,
+        "scan_box": 13.899822687541029,
+        "nasal_lps_box": 9.127255402508299
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p1",
+      "landmark": "nostril_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 4.43240245330714,
+        "scan_box": 19.142463420069852,
+        "nasal_lps_box": 4.784444175144019
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p1",
+      "landmark": "nostril_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 3.108352392626985,
+        "scan_box": 18.404683023928058,
+        "nasal_lps_box": 2.3535773827656996
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p1",
+      "landmark": "posterior_choana_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.4784909579253476,
+        "scan_box": 10.083025082105838,
+        "nasal_lps_box": 4.068148820574547
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p1",
+      "landmark": "posterior_choana_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.178253626831212,
+        "scan_box": 10.133204474941621,
+        "nasal_lps_box": 3.221383230379758
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3",
+      "landmark": "nostril_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.5867821345378177,
+        "scan_box": 11.242313754857378,
+        "nasal_lps_box": 1.8682296349661067
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3",
+      "landmark": "nostril_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.286959063201415,
+        "scan_box": 11.357652996139773,
+        "nasal_lps_box": 3.0761936648651838
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3",
+      "landmark": "posterior_choana_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.5435411335433162,
+        "scan_box": 7.761017077105023,
+        "nasal_lps_box": 1.7377666576323643
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3",
+      "landmark": "posterior_choana_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.7902835075173331,
+        "scan_box": 7.5771708484891755,
+        "nasal_lps_box": 4.5354981530848635
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3t1",
+      "landmark": "nostril_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 4.14708312906295,
+        "scan_box": 25.451456157151398,
+        "nasal_lps_box": 7.12925253092225
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3t1",
+      "landmark": "nostril_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 3.803672403532538,
+        "scan_box": 31.130562530494846,
+        "nasal_lps_box": 8.611364080786712
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3t1",
+      "landmark": "posterior_choana_L",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 2.3339470148475896,
+        "scan_box": 21.04974482805848,
+        "nasal_lps_box": 7.74051164679318
+      },
+      "candidate_within_search_box": true
+    },
+    {
+      "case": "p3t1",
+      "landmark": "posterior_choana_R",
+      "independent_reference_patients": 2,
+      "prior_status": "search_prior",
+      "distance_to_existing_candidate_mm": {
+        "anatomy_frame": 1.6539754268843572,
+        "scan_box": 22.308656867090477,
+        "nasal_lps_box": 8.609056007116425
+      },
+      "candidate_within_search_box": true
+    }
+  ],
+  "excluded_or_unavailable_points": 9
+}

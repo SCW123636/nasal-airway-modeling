@@ -1,0 +1,54 @@
+{
+  "schema": "auto_anatomy_pipeline/v1",
+  "cases": {
+    "p0": {
+      "identity": {
+        "input_sha256": {
+          "ct.nii.gz": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648",
+          "masks\\nasal_cavity_left.nii.gz": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72",
+          "masks\\nasal_cavity_right.nii.gz": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38",
+          "masks\\nasopharynx.nii.gz": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7",
+          "masks\\oropharynx.nii.gz": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+          "masks\\hard_palate.nii.gz": "01717f76bdcec3a10a4ab9a8f724184da1bc289355d36d0d60adfafa51829e08",
+          "masks\\soft_palate.nii.gz": "423b75845dd1f5a0f7b5741b0d2d5c87e7f7ec87dd2324d47c421e92a3b52a74"
+        },
+        "code_sha256": {
+          "auto_anatomy_landmarks.py": "3d91844dfe5fc3b16ccb455bf7bf0b2d48cabd28c4a7e2c3628bf5b750c55ad6",
+          "coarse_anatomy_prior.py": "0982efc8805ac5f2b8a815b5b0e9c266e944ec8620c07c3b6880b04b88902ce6",
+          "ts_quality_gate.py": "e3eeddba5d3a61bd9bbc397b608430f5d8623baf05f51c6bcfb881d940430500"
+        },
+        "coarse_reference": {
+          "library_sha256": "cfb600ad3f0a9a3597767725e54fe1e3ecad9fab5e5266963705f8f890af56f5",
+          "patient_id": "p0"
+        },
+        "software": {
+          "python": "3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]",
+          "SimpleITK": "2.5.6",
+          "scipy": "1.18.1",
+          "numpy": "2.5.3"
+        }
+      },
+      "status": "generated",
+      "execution": "computed",
+      "medical_or_cfd_validation_pass": false,
+      "output_sha256": {
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\landmarks.json": "4c9008bd9bbe68dfa8bb8de95e4aaf98f775d3eb18e31f9c1a30ea9baab707a1",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\landmarks.mrk.json": "42c55536b467405acd588204a031ad94d1365a7cbe3241d33bf15ff8525c3709",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\review_config_proposed.json": "ccc68822a86bd0f06572bf93f707e33a7aafe9a8a12afe2c6e60fef906e15cfb",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\review.png": "aa75aef226a94a79317bd4e3c0cb1836ace16b335c90cac0e6dee286252a2092",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\coarse_localization.json": "1d77848d434fa981dc94034796f7638adaa77e7850622703793ad3aeafa78bfa",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\coarse_adjustment.json": "4aa41fedb024a13156f41fab9d8153eebb601a03853bbb27c74c3b78c46bca16",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\qc_uas_check\\p0\\gate_p0.json": "7ab8379886a0656df24c79d38f159e28a26778623c2aa87e13204abcc8a13928",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\qc_uas_check\\p0\\gate_p0.png": "bdc900609e21936293bba5a6e223207636db4cbc35dc6479ede813e84f7f3776",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\nostril_L.png": "416114428301ead7ba87b4ba9349d60737cf5ec2e2fff5fe62b8b6138fb7d33c",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\posterior_choana_L.png": "b059dfd83ae4f0e2f29739b6deb10e5d931e3d1a603804ca6044dd30222205fc",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\nostril_R.png": "a03295270d7bcdae951ff2309e57fb4136afcf7b744003c6b3ca2e518ee8c074",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\posterior_choana_R.png": "692207c91fe7137d8984561e78e7ad4e579aeddd920267364a68c85fcfaeecc5",
+        "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_uas_check\\p0\\nasopharynx_outlet.png": "8f41b036824d8a450cf263a56ca3540ab4e767217e09775b18d9f9177c42ed95"
+      }
+    }
+  },
+  "elapsed_seconds": 21.44,
+  "medical_or_cfd_validation_pass": false,
+  "note": "Content hashes permit computation reuse, never medical acceptance."
+}

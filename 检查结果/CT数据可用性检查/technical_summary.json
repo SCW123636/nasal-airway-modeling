@@ -1,0 +1,65 @@
+{
+  "source": "D:\\项目\\鼻腔建模\\资料\\脱敏的ct信息-2(1).zip",
+  "zip_crc_and_pixel_decode": "420/420 passed",
+  "slices": 420,
+  "shape_zyx": [
+    420,
+    512,
+    512
+  ],
+  "spacing_xyz_mm": [
+    0.468,
+    0.468,
+    0.30000000000001137
+  ],
+  "slice_thickness_mm": 0.5,
+  "center_to_center_coverage_mm": 125.69999999999999,
+  "instance_range": [
+    162,
+    581
+  ],
+  "unique_sop_instance_uids": 420,
+  "unique_pixel_arrays": 420,
+  "unique_studies": 1,
+  "unique_series": 1,
+  "unique_frames_of_reference": 1,
+  "slice_step_min_max_mm": [
+    0.2999999999999545,
+    0.3000000000000682
+  ],
+  "private_tag_count_per_slice": 28.0,
+  "nonempty_sensitive_or_deidentification_fields_counts": {
+    "InstitutionalDepartmentName": 420,
+    "PatientName": 420,
+    "PatientID": 420,
+    "PatientSex": 420,
+    "PatientAge": 420
+  },
+  "empty_sensitive_fields": [
+    "AccessionNumber",
+    "AcquisitionDate",
+    "ContentDate",
+    "InstitutionAddress",
+    "InstitutionName",
+    "OperatorsName",
+    "OtherPatientIDs",
+    "OtherPatientNames",
+    "PatientBirthDate",
+    "PatientComments",
+    "ReferringPhysicianName",
+    "SeriesDate",
+    "StudyDate"
+  ],
+  "suspicious_referenced_sop_class_uid_count": 420,
+  "series_description": "  Sft Tissue 0.5",
+  "kernel": "FC08",
+  "private_original_image_count_candidate": "854",
+  "raw_pixel_range": [
+    -2048,
+    8177
+  ],
+  "rescale_slope_intercept": [
+    1.0,
+    0.0
+  ]
+}

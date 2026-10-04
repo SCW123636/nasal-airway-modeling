@@ -1,0 +1,147 @@
+{
+  "schema": "coarse_anatomy_prior/v1",
+  "coordinate_system": "LPS",
+  "unit": "mm",
+  "status": "unavailable",
+  "target_descriptor": {
+    "schema": "coarse_anatomy_descriptor/v1",
+    "coordinate_system": "LPS",
+    "unit": "mm",
+    "frame": {
+      "origin_lps_mm": [
+        11.01166208880159,
+        -194.50177144941145,
+        -611.4334024060323
+      ],
+      "superior_lps": [
+        0.07041448259299282,
+        -0.19922451427217217,
+        0.9774207863321601
+      ],
+      "posterior_lps": [
+        -0.05310980016187305,
+        0.9777144227402024,
+        0.2031104544147318
+      ],
+      "left_lps": [
+        0.9961029815073977,
+        0.06621254019300285,
+        -0.05826448106061673
+      ],
+      "palate_fit": {
+        "point_lps_mm": [
+          11.01166208880159,
+          -194.50177144941145,
+          -611.4334024060323
+        ],
+        "normal_lps": [
+          0.07041448259299281,
+          -0.19922451427217214,
+          0.97742078633216
+        ],
+        "samples": 34746,
+        "rms_mm": 1.8324701587208256,
+        "p95_residual_mm": 3.50149325571373,
+        "planarity_ratio": 0.2637460896377096,
+        "roi_lps_mm": {
+          "min": [
+            -7.2783203125,
+            -210.8486328125,
+            -620.5
+          ],
+          "max": [
+            28.8505859375,
+            -174.2607421875,
+            -604.0
+          ]
+        }
+      },
+      "note": "Palate plane defines coordinates only; it is not an oral barrier."
+    },
+    "structure": "bilateral semantic nasal cavity",
+    "axes": [
+      "patient_left",
+      "posterior",
+      "superior"
+    ],
+    "bounds_quantiles": [
+      0.005,
+      0.995
+    ],
+    "local_bounds_mm": {
+      "min": [
+        -15.97055477931574,
+        -39.03262192174825,
+        -1.7449857615728435
+      ],
+      "max": [
+        14.94688516700667,
+        34.26942465573777,
+        45.208854946157906
+      ]
+    },
+    "span_mm": [
+      30.91743994632241,
+      73.30204657748602,
+      46.95384070773075
+    ],
+    "exact_extrema_local_mm": {
+      "min": [
+        -17.512321347291323,
+        -41.889810694087735,
+        -3.32098535918532
+      ],
+      "max": [
+        16.550622538173617,
+        37.611975347776465,
+        48.896490572502934
+      ]
+    },
+    "exact_extrema_lps_mm": {
+      "min": [
+        -6.6552734375,
+        -238.6826171875,
+        -609.5
+      ],
+      "max": [
+        27.3095703125,
+        -160.6552734375,
+        -563.0
+      ]
+    },
+    "fov_truncated_labels": {
+      "nasal_cavity_left": false,
+      "nasal_cavity_right": false,
+      "nasopharynx": false,
+      "oropharynx": true,
+      "hard_palate": false,
+      "soft_palate": false
+    },
+    "eligible": false,
+    "reasons": [
+      "Palate frame residual exceeds engineering setting"
+    ]
+  },
+  "parameters": {
+    "bounds_quantiles": [
+      0.005,
+      0.995
+    ],
+    "scale_range": [
+      0.7,
+      1.4
+    ],
+    "minimum_independent_patients": 2,
+    "search_margin_mm": 10.0,
+    "maximum_reference_spread_mm": 12.0,
+    "minimum_span_mm": 1.0,
+    "maximum_palate_rms_mm": 1.5,
+    "note": "Engineering settings; search boxes are not confidence intervals."
+  },
+  "accepted_references": [],
+  "excluded_references": [],
+  "landmarks": {},
+  "purpose": "Initial search position only; target CT evidence remains required.",
+  "reason": "Target structure/frame incomplete: Palate frame residual exceeds engineering setting",
+  "usage": "exploratory comparison only; unconfirmed candidates excluded from production library"
+}

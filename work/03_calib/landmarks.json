@@ -1,0 +1,48 @@
+{
+  "source": {
+    "dicom": "D:\\项目\\鼻腔建模\\work\\00_dicom\\bone",
+    "shape": [
+      394,
+      512,
+      512
+    ],
+    "spacing_xyz_mm": [
+      0.349609,
+      0.349609,
+      0.34999999999999987
+    ],
+    "origin_ipp_first": [
+      -96.492188,
+      -261.400024,
+      -703.79
+    ]
+  },
+  "method": "体内空气(排除边缘连通) + 面积导数拐点",
+  "anchors": {
+    "z_nostril_entry": {
+      "z": 62,
+      "mm_z": -682.09,
+      "meaning": "鼻腔起始（面积上升沿起点）"
+    },
+    "z_nasal_peak": {
+      "z": 146,
+      "mm_z": -652.69,
+      "meaning": "鼻腔横截面积最大层"
+    },
+    "z_nasopharynx": {
+      "z": 208,
+      "mm_z": -630.99,
+      "meaning": "鼻咽过渡（最强下降沿）"
+    },
+    "z_widest": {
+      "z": 132,
+      "mm_z": -657.59,
+      "meaning": "鼻腔段 x 跨度最大层"
+    },
+    "x_center_nasal": {
+      "x": 236
+    }
+  },
+  "nasal_span_mm": 51.1,
+  "status": "自动推定，需人工目视确认"
+}

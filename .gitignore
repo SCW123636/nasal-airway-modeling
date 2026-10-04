@@ -1,0 +1,48 @@
+# Local environments and caches
+.pytest_cache/
+.tools/
+.workbuddy/
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Installed desktop applications and their generated files
+软件/
+
+# Patient data and other medical imaging assets
+资料/脱敏数据/
+资料/脱敏数据_clean/
+NasalSeg/
+NasalSeg_按患者/
+work/00_dicom/
+work/05_ts_seg/
+work/06_auto_landmarks/
+work/07_cfd_pipeline/solver_install/
+work/07_cfd_pipeline/workspace/
+
+# Large archives and local exports
+*.zip
+*.7z
+*.rar
+*.nii
+*.nii.gz
+*.nrrd
+*.npy
+*.npz
+*.dcm
+*.stl
+*.ply
+*.obj
+*.blend
+*.exe
+*.dll
+*.pyd
+*.bin
+
+# Local result pages and temporary outputs
+work/**/out/
+work/**/results/
+work/**/logs/
+work/**/preview/
+work/**/_smoke/
+test_localsystem.txt

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061415">
+  <meta name="description" content="从 CT 到鼻腔数字模型的研究旅程：探索解剖结构、自动定位与气流计算。">
+  <title>让呼吸，有迹可循 · 鼻腔建模研究</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">{"imports":{"three":"./assets/vendor/three.module.js"}}</script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="visual-stage" aria-label="鼻腔三维粒子与气流概念动效"><div class="stage-fallback" aria-hidden="true"></div><canvas id="scene-canvas"></canvas></div>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#intro" aria-label="回到开场"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 19C12 2 18 3 26 10M5 25C14 7 22 9 27 18M12 28C21 16 24 20 26 24"/></svg><span>AIRWAY<span class="brand-sub">鼻腔建模研究</span></span></a>
+    <nav aria-label="章节导航"><a href="#anatomy">问题</a><a href="#method">方法</a><a href="#evidence">验证</a><button id="present-toggle" type="button" aria-pressed="false">演讲模式 <span>↗</span></button></nav>
+    <div class="top-progress" aria-hidden="true"><i></i></div>
+  </header>
+  <aside class="chapter-nav" aria-label="快速跳转">
+    <a href="#intro" aria-label="01 开场" class="active"><span>开场</span><i></i></a>
+    <a href="#anatomy" aria-label="02 理解鼻腔"><span>理解鼻腔</span><i></i></a>
+    <a href="#method" aria-label="03 技术路线"><span>技术路线</span><i></i></a>
+    <a href="#innovation" aria-label="04 自动定位"><span>自动定位</span><i></i></a>
+    <a href="#evidence" aria-label="05 阶段验证"><span>阶段验证</span><i></i></a>
+    <a href="#next" aria-label="06 下一阶段"><span>下一阶段</span><i></i></a>
+  </aside>
+
+  <main>
+    <section class="story-screen hero" id="intro" data-scene="0">
+      <div class="story-copy">
+        <p class="eyebrow"><span class="status-dot"></span> CT → GEOMETRY → AIRFLOW</p>
+        <h1><span>让呼吸，</span><span class="accent">有迹可循。</span></h1>
+        <p class="lead">基于 CT 的鼻腔三维建模与气流计算研究</p>
+        <p class="body-copy">一口空气，穿过复杂而精细的通道。<br>我们希望看见它的路径，也理解每一处阻力。</p>
+        <a class="journey-button" href="#anatomy"><span>进入这段研究旅程</span><i>↓</i></a>
+        <div class="hero-stats"><div><b>04</b><span>匿名患者</span></div><div><b>05</b><span>扫描序列</span></div><div><b>25</b><span>自动候选点</span></div></div>
+      </div>
+      <div class="visual-label hero-label"><i></i><b>NASAL AIRWAY</b><span>候选结构 · 粒子演绎</span></div>
+      <div class="hero-ruler" aria-hidden="true"><span>01 — 06</span><i></i><span>SCROLL TO EXPLORE</span></div>
+    </section>
+
+    <section class="story-screen" id="anatomy" data-scene="1">
+      <div class="story-copy">
+        <p class="eyebrow">01 / THE QUESTION</p>
+        <h2>很小的通道，<br>很复杂的<span class="accent">呼吸。</span></h2>
+        <p class="body-copy">鼻阀、鼻甲与鼻咽组成的通路，会改变局部截面、气流分配与阻力。二维影像提供结构线索，三维模型让这些关系变得直观。</p>
+        <div class="anatomy-notes"><button type="button" data-focus="nostril" class="selected"><span>01</span> 鼻孔入口<i>＋</i></button><button type="button" data-focus="choana"><span>02</span> 后鼻孔<i>＋</i></button><button type="button" data-focus="outlet"><span>03</span> 鼻咽出口<i>＋</i></button></div>
+        <p class="micro-note">点击结构名称，查看 p0 对应的自动候选位置。</p>
+        <button class="atlas-link" id="open-atlas" type="button">查看专业解剖图谱 <span>↗</span></button>
+      </div>
+      <div class="visual-label anatomy-label"><i></i><b id="landmark-title">鼻孔入口候选</b><span>自动点位 · 尚待医学确认</span></div>
+    </section>
+
+    <section class="story-screen" id="method" data-scene="2">
+      <div class="story-copy">
+        <p class="eyebrow">02 / FROM IMAGE TO MODEL</p>
+        <h2>从一张 CT，<br>到一条<span class="accent">数字气道。</span></h2>
+        <p class="body-copy">自动处理重复步骤，人工确认关键边界。让结构、坐标与计算条件在同一条链路中接续。</p>
+        <ol class="pipeline">
+          <li><span>01</span><div><b>CT 读取与坐标检查</b><small>真实间距 · 方向 · 毫米单位</small></div><i class="complete">已接通</i></li>
+          <li><span>02</span><div><b>分割与解剖候选</b><small>结构标签 · 局部定位 · 异常提示</small></div><i class="complete">已接通</i></li>
+          <li><span>03</span><div><b>人工边界复核</b><small>鼻孔、鼻咽、口腔与鼻窦策略</small></div><i>当前阶段</i></li>
+          <li><span>04</span><div><b>几何、网格与求解</b><small>质量检查 · 数值验证 · 结果报告</small></div><i>待衔接</i></li>
+        </ol>
+      </div>
+      <div class="visual-label"><i></i><b>STRUCTURE RECONSTRUCTION</b><span>扫描动效 · 解释建模过程</span></div>
+    </section>
+
+    <section class="story-screen" id="innovation" data-scene="3">
+      <div class="story-copy">
+        <p class="eyebrow">03 / ANATOMICAL LOCALIZATION</p>
+        <h2>先找到方向，<br>再寻找<span class="accent">边界。</span></h2>
+        <p class="body-copy">以硬腭与鼻腔结构建立局部坐标系，再把参考位置映射为本例搜索范围。精细候选仍由本例影像提供。</p>
+        <div class="coordinate-card"><span>本例解剖坐标系</span><div class="coordinate-axes"><b>左右 <i>L</i></b><b>前后 <i>P</i></b><b>上下 <i>S</i></b></div><p>姿态校正 → 比例映射 → 本例定位</p></div>
+        <p class="micro-note">粗定位方法已接入；正式人工确认标准库当前为空。示意搜索框不是统计置信区间。</p>
+      </div>
+      <div class="visual-label"><i></i><b>LANDMARK SEARCH</b><span>候选点与坐标框架 · 动态示意</span></div>
+    </section>
+
+    <section class="story-screen evidence-screen" id="evidence" data-scene="4">
+      <div class="evidence-inner">
+        <p class="eyebrow">04 / WHAT WE HAVE VERIFIED</p>
+        <h2>让每一步，<span class="accent">经得起验证。</span></h2>
+        <div class="evidence-layout">
+          <div class="evidence-facts"><div class="fact"><span>三阈值候选重复性</span><b data-value="0.064" data-decimals="3">0.064<small>mm</small></b><p>最大点位漂移；反映重复性，尚不能证明定位准确。</p></div><div class="fact"><span>非患者平行板算例</span><b data-value="0.185" data-decimals="3">0.185<small>%</small></b><p>细网格压降相对误差；用独立标准流动验证求解组件。</p></div></div>
+          <figure class="validation-figure">
+            <figcaption><b>网格细化，误差逐步下降。</b><span>本项目实际数值 · 非患者标准算例</span></figcaption>
+            <div class="chart-legend"><span class="pressure-key">压降误差</span><span class="velocity-key">速度剖面 L2 误差</span></div>
+            <svg id="validation-chart" viewBox="0 0 620 325" role="img" aria-label="粗中细网格的压降误差为2.167%、0.608%、0.185%，速度误差为0.904%、0.232%、0.058%">
+              <g class="chart-grid"><path d="M60 45H585M60 96H585M60 147H585M60 198H585M60 249H585"/></g>
+              <g class="chart-text"><text x="12" y="49">2.5%</text><text x="12" y="100">2.0%</text><text x="12" y="151">1.5%</text><text x="12" y="202">1.0%</text><text x="12" y="253">0.5%</text><text x="23" y="298">0</text><text x="64" y="320">800 单元</text><text x="270" y="320">3,200 单元</text><text x="496" y="320">12,800 单元</text></g>
+              <path class="chart-axis" d="M60 30V300H585"/>
+              <path class="chart-line pressure-line" d="M90 79L315 238L540 281"/>
+              <path class="chart-line velocity-line" d="M90 208L315 276L540 294"/>
+              <g class="pressure-points"><circle cx="90" cy="79" r="5"/><circle cx="315" cy="238" r="5"/><circle cx="540" cy="281" r="5"/></g>
+              <g class="velocity-points"><circle cx="90" cy="208" r="4"/><circle cx="315" cy="276" r="4"/><circle cx="540" cy="294" r="4"/></g>
+              <g class="chart-values"><text x="94" y="63">2.167%</text><text x="318" y="222">0.608%</text><text x="494" y="264">0.185%</text></g>
+            </svg>
+          </figure>
+        </div>
+        <div class="research-boundary"><span class="status-dot"></span><p>当前处于候选复核与求解组件验证阶段。<b>患者 CFD 结果为 0</b>；圆管严格压降与网格质量仍待通过，尚无独立医学真值。</p></div>
+      </div>
+    </section>
+
+    <section class="story-screen finale" id="next" data-scene="5">
+      <div class="story-copy">
+        <p class="eyebrow">05 / THE NEXT BREATH</p>
+        <h2>从看见结构，<br>走向<span class="accent">理解呼吸。</span></h2>
+        <p class="body-copy">下一步完成首例医学复核与正式几何，再进行患者体网格、自然分流工况和结果稳定性验证。</p>
+        <div class="next-steps"><span><i>01</i> 医学确认</span><span><i>02</i> 求解验收</span><span><i>03</i> 首例结果</span></div>
+        <p class="closing-line">把一口呼吸，变成可以讨论的证据。</p>
+        <a class="journey-button" href="#intro"><span>回到研究起点</span><i>↑</i></a>
+      </div>
+      <div class="visual-label"><i></i><b>THE JOURNEY CONTINUES</b><span>气流粒子路径为概念动效</span></div>
+    </section>
+  </main>
+
+  <footer id="sources"><div><b>AIRWAY / 鼻腔建模研究</b><p>学军比赛演讲展示 · 内容基线 2026.10.03</p></div><div class="source-links"><span>网上视觉参考</span><a href="https://lusion.co/" target="_blank" rel="noopener">Lusion / 三维叙事 ↗</a><a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" target="_blank" rel="noopener">WebGL Fluid / 流体交互 ↗</a><a href="https://www.biodigital.com/" target="_blank" rel="noopener">BioDigital / 医学交互 ↗</a><a href="https://www.visiblebody.com/" target="_blank" rel="noopener">Visible Body / 解剖表达 ↗</a></div><p class="source-note">视觉与交互在本页重新制作。三维结构来自本项目 p0 候选模型；粒子、扫描与搜索框用于讲解，不代表患者 CFD 结果。</p></footer>
+
+  <div class="stage-controls"><span id="chapter-counter">01 / 06</span><button id="motion-toggle" type="button" aria-pressed="false" aria-label="暂停动效"><span class="pause-icon"></span></button><button id="previous" type="button" aria-label="上一章">↑</button><button id="next-chapter" type="button" aria-label="下一章">↓</button><button id="exit-present" type="button" hidden>退出演讲</button></div>
+  <div class="render-note" id="render-note" role="status">正在构建三维场景…</div>
+  <dialog id="atlas-dialog"><button class="dialog-close" type="button" aria-label="关闭图谱">×</button><div class="atlas-copy"><p class="eyebrow">MEDICAL ATLAS / 专业图谱</p><h3>理解鼻腔的解剖结构</h3><p>OpenStax 教材解剖图与开放研究插图。原图用于结构说明，不代表项目患者。</p><div class="atlas-tabs"><button data-atlas="openstax" class="selected">教材解剖</button><button data-atlas="research">鼻腔功能分区</button></div></div><figure><div class="atlas-image"><img id="atlas-image" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/731_Nasal_Cavity.jpg" alt="OpenStax 鼻腔解剖图"><p id="atlas-error" hidden>网络图片暂未加载，可通过下方来源查看原图。</p></div><figcaption id="atlas-credit">OpenStax College · CC BY 3.0 · 原图未修改 <a href="https://commons.wikimedia.org/wiki/File:731_Nasal_Cavity.jpg" target="_blank" rel="noopener">原图与许可 ↗</a></figcaption></figure></dialog>
+  <noscript><p class="noscript-note">启用 JavaScript 可体验三维与动效；章节文字和验证数据仍可正常阅读。</p></noscript>
+  <script type="module" src="scene.js"></script>
+</body>
+</html>

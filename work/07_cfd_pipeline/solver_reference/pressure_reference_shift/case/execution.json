@@ -1,0 +1,58 @@
+{
+  "schema": "pressure_reference_shift_execution/v1",
+  "patient_data": false,
+  "baseline": "/home/lenovo2/nasal_cfd_reference/poiseuille_v1912_verified/medium",
+  "case": "/home/lenovo2/nasal_cfd_reference/pressure_reference_shift_medium",
+  "rho_kg_m3": 1.2,
+  "outlet_pressure_before_kinematic": 0.0,
+  "outlet_pressure_after_kinematic": 15.0,
+  "expected_pressure_shift_Pa": 18.0,
+  "independent_inlet_pressure_added": false,
+  "changed_input_files": [
+    "0/p"
+  ],
+  "baseline_input_hashes": {
+    "0/U": "4433fd5f14fa4fc61e2af28d3689dbefeb5d71a0d3b1799fd0ccbe280aac72f1",
+    "0/p": "7c65609b9e9cc1a7f907b2069756f8f66d6c3652c39579c83ff42111cc675b5b",
+    "constant/polyMesh/boundary": "fb512783d76542664657d6aa68477edd107b9209620abea4f9df34a0cd352067",
+    "constant/polyMesh/faces": "cacc6d7da89aa9da46ac6a53eb8ce7603725c9f98e45bd3272a5782facf22655",
+    "constant/polyMesh/neighbour": "de21175ee6c538466efe1e9c76c49a9fa492500483fc9dcb7de042b43b390de0",
+    "constant/polyMesh/owner": "210a6af5baa0cc96be0dd5c175643ccb1b3614fde6fd0fde7b9f9804848e1776",
+    "constant/polyMesh/points": "b645cc8cc5dc09655f4ffc02584d7a9722c1aa5eae74c0c790e2b4c4a4d82e14",
+    "constant/polyMesh/sets/twoInternalFacesCells": "05b815e46fee30230019e28117fe855a465233021214a7b3a0aa5fe06436e1ca",
+    "constant/transportProperties": "c68976a4b2b1f005b1e26ce110e4f3edbfba28730ca0aa2b7e6c3fe77a5cff48",
+    "constant/turbulenceProperties": "8fec78500aa8c5f8807135f0f7e2cf02f2a02c69c306fd12a899ce3abf57c269",
+    "system/blockMeshDict": "80117539feac70fcb566f9fb037aa54eb13e040fb4251eba82d80d8d529c0609",
+    "system/controlDict": "f3c2fe3e5b1fa7acd9751b1d7b9c7ca1dd9b8504e20f1167c1920a547701ee51",
+    "system/fvSchemes": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135",
+    "system/fvSolution": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e"
+  },
+  "shifted_input_hashes": {
+    "0/U": "4433fd5f14fa4fc61e2af28d3689dbefeb5d71a0d3b1799fd0ccbe280aac72f1",
+    "0/p": "3eb9a1cdc53332a89f712c010004efc60e95a65a011b4c6a2c6f7c4a3cc30727",
+    "constant/polyMesh/boundary": "fb512783d76542664657d6aa68477edd107b9209620abea4f9df34a0cd352067",
+    "constant/polyMesh/faces": "cacc6d7da89aa9da46ac6a53eb8ce7603725c9f98e45bd3272a5782facf22655",
+    "constant/polyMesh/neighbour": "de21175ee6c538466efe1e9c76c49a9fa492500483fc9dcb7de042b43b390de0",
+    "constant/polyMesh/owner": "210a6af5baa0cc96be0dd5c175643ccb1b3614fde6fd0fde7b9f9804848e1776",
+    "constant/polyMesh/points": "b645cc8cc5dc09655f4ffc02584d7a9722c1aa5eae74c0c790e2b4c4a4d82e14",
+    "constant/polyMesh/sets/twoInternalFacesCells": "05b815e46fee30230019e28117fe855a465233021214a7b3a0aa5fe06436e1ca",
+    "constant/transportProperties": "c68976a4b2b1f005b1e26ce110e4f3edbfba28730ca0aa2b7e6c3fe77a5cff48",
+    "constant/turbulenceProperties": "8fec78500aa8c5f8807135f0f7e2cf02f2a02c69c306fd12a899ce3abf57c269",
+    "system/blockMeshDict": "80117539feac70fcb566f9fb037aa54eb13e040fb4251eba82d80d8d529c0609",
+    "system/controlDict": "f3c2fe3e5b1fa7acd9751b1d7b9c7ca1dd9b8504e20f1167c1920a547701ee51",
+    "system/fvSchemes": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135",
+    "system/fvSolution": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e"
+  },
+  "commands": [
+    {
+      "command": [
+        "simpleFoam"
+      ],
+      "exit_code": -15,
+      "elapsed_seconds": 274.886091269,
+      "log": "log.simpleFoam"
+    }
+  ],
+  "execution_status": "failed",
+  "error": "RuntimeError('Execution failed: log.simpleFoam')"
+}

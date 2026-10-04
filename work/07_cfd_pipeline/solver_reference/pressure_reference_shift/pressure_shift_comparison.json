@@ -1,0 +1,107 @@
+{
+  "schema": "fixed_flow_pressure_reference_shift/v1",
+  "patient_data": false,
+  "clinical_validation": false,
+  "status": "invariance_observed",
+  "invariance_checks_pass": true,
+  "checks": {
+    "only_outlet_pressure_input_changed": true,
+    "baseline_inputs_unchanged": true,
+    "pressure_shift_uniform_within_1e_minus6_Pa": true,
+    "velocity_difference_below_1e_minus7_relative": true,
+    "pressure_drop_difference_below_1e_minus6_relative": true,
+    "mass_imbalance_below_1e_minus6": true,
+    "last20_pressure_drop_stable_below_1e_minus6": true
+  },
+  "baseline_case": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\matched_pair\\reference_0Pa",
+  "shifted_case": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\matched_pair\\shifted_18Pa",
+  "raw_fields_compared": [
+    "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\matched_pair\\reference_0Pa\\110\\p",
+    "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\matched_pair\\shifted_18Pa\\244\\p",
+    "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\matched_pair\\reference_0Pa\\110\\U",
+    "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver_reference\\pressure_reference_shift\\matched_pair\\shifted_18Pa\\244\\U"
+  ],
+  "comparison_mode": "matched_numerical_settings_pair",
+  "same_numerical_settings_as_original_verified": false,
+  "shared_pair_numerical_settings": {
+    "linear_tolerance_p": 1e-10,
+    "linear_tolerance_U": 1e-10,
+    "SIMPLE_residual_p": 1e-08,
+    "SIMPLE_residual_U": 1e-06,
+    "endTime": 2000
+  },
+  "comparison_precision": "raw OpenFOAM ASCII fields read as float64; not float32 VTK export",
+  "rho_kg_m3": 1.2,
+  "outlet_kinematic_pressure_before": 0.0,
+  "outlet_kinematic_pressure_after": 15.0,
+  "baseline": {
+    "SIMPLE_automatic_stopping_satisfied": true,
+    "last_iteration": 110.0,
+    "last_residuals": {
+      "Ux": {
+        "initial": 1.88467573623e-11,
+        "final": 1.88467573623e-11
+      },
+      "Uy": {
+        "initial": 9.89662282993e-07,
+        "final": 2.62411324235e-09
+      },
+      "p": {
+        "initial": 3.17166745237e-10,
+        "final": 2.240595872e-11
+      }
+    },
+    "maximum_pressure_linear_iterations": 6,
+    "inlet_signed_phi_m3_s": -2e-07,
+    "outlet_signed_phi_m3_s": 1.999999999992e-07,
+    "mass_imbalance_fraction_at_saved_precision": 3.999980744510425e-12,
+    "inlet_area_average_static_pressure_Pa": 0.21587924915544002,
+    "outlet_area_average_static_pressure_Pa": 0.0,
+    "pressure_drop_Pa": 0.21587924915544002,
+    "last20_pressure_drop_relative_range": 6.614819008915868e-11
+  },
+  "shifted": {
+    "SIMPLE_automatic_stopping_satisfied": true,
+    "last_iteration": 244.0,
+    "last_residuals": {
+      "Ux": {
+        "initial": 9.24236137918e-12,
+        "final": 9.24236137918e-12
+      },
+      "Uy": {
+        "initial": 9.74923433731e-07,
+        "final": 2.27034513794e-09
+      },
+      "p": {
+        "initial": 2.57939806779e-10,
+        "final": 2.06791269422e-11
+      }
+    },
+    "maximum_pressure_linear_iterations": 6,
+    "inlet_signed_phi_m3_s": -2e-07,
+    "outlet_signed_phi_m3_s": 2.000000000119e-07,
+    "mass_imbalance_fraction_at_saved_precision": 5.950009407413409e-11,
+    "inlet_area_average_static_pressure_Pa": 18.21587924916,
+    "outlet_area_average_static_pressure_Pa": 18.0,
+    "pressure_drop_Pa": 0.21587924915999962,
+    "last20_pressure_drop_relative_range": 5.5591571923585367e-11
+  },
+  "field_comparison": {
+    "cells": 3200,
+    "expected_uniform_pressure_shift_Pa": 18.0,
+    "observed_pressure_shift_mean_Pa": 18.000000000003585,
+    "observed_pressure_shift_min_Pa": 17.9999999999352,
+    "observed_pressure_shift_max_Pa": 18.0000000000996,
+    "pressure_shift_max_absolute_deviation_Pa": 9.960032798517204e-11,
+    "velocity_vector_max_absolute_difference_m_s": 3.762337070971114e-11,
+    "velocity_vector_relative_L2_difference": 3.9267075731725465e-11,
+    "pressure_drop_absolute_difference_Pa": 4.559602695408671e-12,
+    "pressure_drop_relative_difference": 2.112107909049475e-11,
+    "inlet_signed_flow_change_m3_s": 0.0,
+    "outlet_signed_flow_change_m3_s": 1.2700014964436954e-17
+  },
+  "scope": "constant-property incompressible non-patient channel with prescribed inlet flow and one outlet pressure reference",
+  "independent_inlet_pressure_added": false,
+  "same_as_total_0_static_outlet_plus18_pressure_driven_case": false,
+  "limitation": "This does not validate the recording with total-pressure inlet 0 and static-pressure outlet +18 Pa, and says nothing about patient anatomy."
+}

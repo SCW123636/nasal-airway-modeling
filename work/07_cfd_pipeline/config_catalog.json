@@ -1,0 +1,205 @@
+{
+  "schema": "nasal_cfd_config_catalog/v1",
+  "config_schema": "nasal_cfd_config/v1",
+  "result_schema": "nasal_cfd_result/v1",
+  "status": "templates_only_no_patient_cfd_results",
+  "configs": [
+    {
+      "config_id": "total_flow_laminar_coarse",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\total_flow_laminar_coarse.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    },
+    {
+      "config_id": "total_flow_laminar_medium",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\total_flow_laminar_medium.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    },
+    {
+      "config_id": "total_flow_laminar_fine",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\total_flow_laminar_fine.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    },
+    {
+      "config_id": "total_flow_laminar_medium_equal_split_baseline",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\total_flow_laminar_medium_equal_split_baseline.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    },
+    {
+      "config_id": "total_flow_kOmegaSST_medium_I01",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\total_flow_kOmegaSST_medium_I01.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    },
+    {
+      "config_id": "total_flow_kOmegaSST_medium_I05",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\total_flow_kOmegaSST_medium_I05.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    },
+    {
+      "config_id": "static_pressure_difference_laminar_medium",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\static_pressure_difference_laminar_medium.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    },
+    {
+      "config_id": "recording_total0_staticplus18_laminar_medium",
+      "file": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\configs\\recording_total0_staticplus18_laminar_medium.json",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "geometry.case_id is required for patient execution",
+          "geometry.source_file is required for patient execution",
+          "geometry.sha256 must bind the reviewed geometry",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed",
+          "solver adapter has not been implemented and verified for these boundary conditions"
+        ],
+        "execution_allowed": false,
+        "validation_scope": "contract_metadata_and_inline_values_only"
+      }
+    }
+  ]
+}

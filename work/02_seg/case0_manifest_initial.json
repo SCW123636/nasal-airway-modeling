@@ -1,0 +1,66 @@
+{
+  "case": "例0",
+  "series": "ISO_Bone_0.35mm",
+  "threshold_HU": -300,
+  "spacing_mm": [
+    0.349609,
+    0.349609,
+    0.34999999999999987
+  ],
+  "origin_mm": [
+    -96.492188,
+    -261.400024,
+    -703.79
+  ],
+  "units": "mm",
+  "coord": "LPS",
+  "method": "Grow-from-Seeds fallback (TS权重未下载)",
+  "seeds": {
+    "nasal_L": {
+      "voxel": [
+        211,
+        181,
+        316
+      ],
+      "hit": true
+    },
+    "nasal_R": {
+      "voxel": [
+        216,
+        183,
+        194
+      ],
+      "hit": true
+    },
+    "nasopharynx": {
+      "voxel": [
+        282,
+        465,
+        255
+      ],
+      "hit": false
+    }
+  },
+  "qc": {
+    "voxels": 38239187,
+    "volume_cm3": 1635.84,
+    "hu_purity": 1.0,
+    "n_components": 2,
+    "bbox_mm": {
+      "x": 178.65019900000001,
+      "y": 178.65019900000001,
+      "z": 137.54999999999995
+    },
+    "oral_leak_suspected": true
+  },
+  "warning": "口腔/鼻窦屏障未施加；oral/sinus 泄漏需 Slicer 人工复核 (规范 step3-4)",
+  "opening_status_list": {
+    "maxillary_sinus": "unknown",
+    "frontal_sinus": "unknown",
+    "ethmoid_sinus": "unknown",
+    "sphenoid_sinus": "unknown",
+    "nostril_L": "open(待确认)",
+    "nostril_R": "open(待确认)",
+    "nasopharynx_outlet": "open(待确认)"
+  }
+}

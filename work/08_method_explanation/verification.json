@@ -1,0 +1,109 @@
+{
+  "document": [
+    {
+      "width": 1365,
+      "scrollWidth": 1365,
+      "sections": 19,
+      "figures": [
+        {
+          "embedded": true,
+          "rendered": true
+        },
+        {
+          "embedded": true,
+          "rendered": true
+        },
+        {
+          "embedded": true,
+          "rendered": true
+        }
+      ],
+      "externalAssets": 0,
+      "sourceAnchors": 19,
+      "emphasisMarkersVisible": false,
+      "allTocTargetsExist": true
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "sections": 19,
+      "figures": [
+        {
+          "embedded": true,
+          "rendered": true
+        },
+        {
+          "embedded": true,
+          "rendered": true
+        },
+        {
+          "embedded": true,
+          "rendered": true
+        }
+      ],
+      "externalAssets": 0,
+      "sourceAnchors": 19,
+      "emphasisMarkersVisible": false,
+      "allTocTargetsExist": true
+    },
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "sections": 19,
+      "figures": [
+        {
+          "embedded": true,
+          "rendered": true
+        },
+        {
+          "embedded": true,
+          "rendered": true
+        },
+        {
+          "embedded": true,
+          "rendered": true
+        }
+      ],
+      "externalAssets": 0,
+      "sourceAnchors": 19,
+      "emphasisMarkersVisible": false,
+      "allTocTargetsExist": true
+    }
+  ],
+  "geometry": [
+    {
+      "width": 704,
+      "scrollWidth": 704,
+      "x1": "274.75555555555553",
+      "y1": "216.0621991940095",
+      "perpendicularCosine": 0,
+      "labelsFit": true,
+      "offset": "+2.0 mm",
+      "angle": "+30°",
+      "detail": "候选点法向位移 +2.0 mm · 法向夹角 30°"
+    },
+    {
+      "width": 358,
+      "scrollWidth": 358,
+      "x1": "273.75555555555553",
+      "y1": "216.0621991940095",
+      "perpendicularCosine": 0,
+      "labelsFit": true,
+      "offset": "+2.0 mm",
+      "angle": "+30°",
+      "detail": "候选点法向位移 +2.0 mm · 法向夹角 30°"
+    },
+    {
+      "width": 288,
+      "scrollWidth": 288,
+      "x1": "224.63333333333333",
+      "y1": "203.53369835259463",
+      "perpendicularCosine": 0,
+      "labelsFit": true,
+      "offset": "+2.0 mm",
+      "angle": "+30°",
+      "detail": "候选点法向位移 +2.0 mm · 法向夹角 30°"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,3404 @@
+{
+  "schema": "nasalseg_intake_validation/v1",
+  "source_root": "D:\\项目\\鼻腔建模\\NasalSeg_按患者",
+  "output_root": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\cases",
+  "batch_manifest": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\nasalseg_intake_manifest.json",
+  "case_count": 130,
+  "passed_cases": 130,
+  "failed_cases": 0,
+  "geometry_repairs": 12,
+  "batch_failures": 0,
+  "overall_status": "pass",
+  "semantic_mapping_status": "partial_project_mapping",
+  "semantic_mapping_manifest": "D:\\项目\\鼻腔建模\\work\\10_nasalseg_intake\\nasalseg_semantic_manifest.json",
+  "medical_or_cfd_validation_pass": false,
+  "cases": [
+    {
+      "case": "P001",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        153,
+        205,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P002",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        164,
+        196,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P003",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        164,
+        196,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P004",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        124,
+        178,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P005",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        142,
+        187,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P006",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        142,
+        187,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P007",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        169,
+        186,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P008",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        131,
+        185,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P009",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        143,
+        188,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P010",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        143,
+        188,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P011",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        152,
+        174,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P012",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        152,
+        168,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P013",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        124,
+        194,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P014",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        163,
+        201,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P015",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        153,
+        190,
+        56
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P016",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        156,
+        191,
+        55
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P017",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        140,
+        183,
+        42
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P018",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        140,
+        178,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P019",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        131,
+        214,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P020",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        169,
+        178,
+        57
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P021",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        181,
+        210,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P022",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        171,
+        180,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P023",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        143,
+        192,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P024",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        151,
+        179,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P025",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        144,
+        170,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P026",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        156,
+        186,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P027",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        156,
+        186,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P028",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        184,
+        201,
+        59
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P029",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        167,
+        201,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P030",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        164,
+        187,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P031",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        164,
+        187,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P032",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        150,
+        196,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P033",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        155,
+        179,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P034",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        155,
+        179,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P035",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        135,
+        169,
+        46
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P036",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        170,
+        189,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P037",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        125,
+        169,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P038",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        153,
+        197,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P039",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        152,
+        190,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P040",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        169,
+        213,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P041",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        169,
+        213,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P042",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        166,
+        171,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P043",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        142,
+        175,
+        39
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5102739334106445
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P044",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        152,
+        153,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P045",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        174,
+        168,
+        45
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P046",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        155,
+        188,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P047",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        133,
+        184,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P048",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        133,
+        184,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P049",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        133,
+        184,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P050",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        147,
+        190,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P051",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        154,
+        186,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P052",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        183,
+        190,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P053",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        132,
+        193,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P054",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        132,
+        193,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P055",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        184,
+        174,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P056",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        141,
+        185,
+        55
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P057",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        137,
+        188,
+        56
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P058",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        180,
+        202,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P059",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        148,
+        187,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P060",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        181,
+        195,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P061",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        181,
+        195,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P062",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        181,
+        195,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P063",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        118,
+        197,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P064",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        122,
+        168,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P065",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        161,
+        187,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P066",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        140,
+        192,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P067",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        165,
+        182,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P068",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        154,
+        181,
+        57
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P069",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        125,
+        195,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P070",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        143,
+        200,
+        47
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P071",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        166,
+        172,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P072",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        118,
+        179,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P073",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        118,
+        179,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P074",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        182,
+        195,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P075",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        148,
+        202,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P076",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        167,
+        180,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P077",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        167,
+        180,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P078",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        167,
+        180,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P079",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        167,
+        180,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P080",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        150,
+        185,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P081",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        150,
+        185,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P082",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        171,
+        206,
+        56
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P083",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        132,
+        188,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P084",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        132,
+        188,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P085",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        159,
+        176,
+        45
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P086",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        143,
+        165,
+        44
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P087",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        163,
+        194,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P088",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        157,
+        193,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P089",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        117,
+        167,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P090",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        161,
+        173,
+        46
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P091",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        161,
+        173,
+        46
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P092",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        153,
+        190,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P093",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        157,
+        203,
+        58
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P094",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        144,
+        165,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P095",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        112,
+        188,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P096",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        183,
+        189,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P097",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        171,
+        186,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P098",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        124,
+        176,
+        45
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P099",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        159,
+        169,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P100",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        157,
+        184,
+        59
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P101",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        164,
+        204,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P102",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        164,
+        204,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P103",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        129,
+        180,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P104",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        158,
+        198,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P105",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        156,
+        195,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P106",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        139,
+        187,
+        42
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P107",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        151,
+        176,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P108",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        149,
+        175,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P109",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        125,
+        166,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P110",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        149,
+        168,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P111",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        149,
+        168,
+        53
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P112",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        128,
+        201,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P113",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        161,
+        189,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P114",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        123,
+        181,
+        47
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P115",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        177,
+        184,
+        52
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P116",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        169,
+        188,
+        51
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P117",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        148,
+        182,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P118",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        148,
+        182,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P119",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        133,
+        173,
+        43
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P120",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        158,
+        175,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P121",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        109,
+        177,
+        49
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P122",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        158,
+        173,
+        45
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P123",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        152,
+        191,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P124",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        150,
+        192,
+        48
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P125",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        137,
+        162,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P126",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        141,
+        229,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P127",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        136,
+        188,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P128",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        136,
+        188,
+        54
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P129",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        141,
+        206,
+        50
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "repaired_from_image_geometry",
+      "arrays_equal_to_source": true
+    },
+    {
+      "case": "P130",
+      "status": "pass",
+      "failures": [],
+      "warnings": [],
+      "size_xyz": [
+        137,
+        183,
+        47
+      ],
+      "spacing_xyz_mm": [
+        0.5859375,
+        0.5859375,
+        1.5
+      ],
+      "label_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "geometry_reconciliation": "exact",
+      "arrays_equal_to_source": true
+    }
+  ],
+  "failures": [],
+  "acceptance": {
+    "source_and_converted_arrays_equal": true,
+    "converted_ct_and_label_geometry_match": true,
+    "label_values_exactly_0_to_5": true,
+    "numeric_ids_not_mapped_to_project_anatomy": true
+  }
+}

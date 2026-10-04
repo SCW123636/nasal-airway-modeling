@@ -1,0 +1,247 @@
+[
+  {
+    "label": "例0_Bone_0.35mm",
+    "path": "D:\\项目\\鼻腔建模\\资料/脱敏数据/脱敏后图像数据/ISO_Bone_0.35mm_part1/ISO_Bone_0.35mm",
+    "itk_spacing_xyz": [
+      0.3496,
+      0.3496,
+      0.35
+    ],
+    "itk_origin_xyz": [
+      -96.4922,
+      -261.4,
+      -703.79
+    ],
+    "tag_slice_thickness": 0.35,
+    "tag_spacing_between": 0.35,
+    "rescale_intercept": -1024.0,
+    "series_instance_uid": "1.2.826.0.1.3680043.8.498.16148240650051698915864202078781670203",
+    "hu_range": [
+      -1024,
+      3716
+    ],
+    "raw": {
+      "n_files_used": 132,
+      "ipp_first": [
+        -96.4922,
+        -261.4,
+        -703.79
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "normal_unit": [
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "dz_from_neighbor_ipp": 0.35,
+      "dz_from_full_span": 0.35
+    },
+    "manufacturer": "Philips",
+    "institution": "",
+    "modality": "CT",
+    "convolution_kernel": "YB"
+  },
+  {
+    "label": "患者3_t2_0.6x0.6_BONE",
+    "path": "D:\\项目\\鼻腔建模\\资料/脱敏数据/患者ct+鼻空腔建模/患者ct+鼻空腔建模/患者3/250111559-TKT/20260217-5.___/202-0.6 x 0.6_BONE",
+    "itk_spacing_xyz": [
+      0.3672,
+      0.3672,
+      0.6
+    ],
+    "itk_origin_xyz": [
+      -93.8164,
+      -148.7083,
+      281.2904
+    ],
+    "tag_slice_thickness": 0.6,
+    "tag_spacing_between": 0.0,
+    "rescale_intercept": -1024.0,
+    "series_instance_uid": "1.2.156.112605.137174099561709.260217021922.3.10336.67633",
+    "hu_range": [
+      -1024,
+      8825
+    ],
+    "raw": {
+      "n_files_used": 186,
+      "ipp_first": [
+        -93.8164,
+        -148.7083,
+        392.2904
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "dz_from_neighbor_ipp": 0.6,
+      "dz_from_full_span": 0.6
+    },
+    "manufacturer": "UIH",
+    "institution": "中南大学湘雅三医院",
+    "modality": "CT",
+    "convolution_kernel": "H_VSHARP_C"
+  },
+  {
+    "label": "患者3_t1_1.0x0.5_bone",
+    "path": "D:\\项目\\鼻腔建模\\资料/脱敏数据/患者ct+鼻空腔建模/患者ct+鼻空腔建模/患者3/250111559-TKT/20250709/202-1.0 x 0.5_bone",
+    "itk_spacing_xyz": [
+      0.4668,
+      0.4668,
+      0.5
+    ],
+    "itk_origin_xyz": [
+      -119.2666,
+      -147.9636,
+      775.0284
+    ],
+    "tag_slice_thickness": 1.0,
+    "tag_spacing_between": 0.5,
+    "rescale_intercept": -1024.0,
+    "series_instance_uid": "1.2.156.112605.189250954619708.250709063732.3.5564.53258",
+    "hu_range": [
+      -1023,
+      40487
+    ],
+    "raw": {
+      "n_files_used": 232,
+      "ipp_first": [
+        -119.2666,
+        -147.9636,
+        890.5284
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "dz_from_neighbor_ipp": 0.5,
+      "dz_from_full_span": 0.5
+    },
+    "manufacturer": "UIH",
+    "institution": "中南大学湘雅三医院",
+    "modality": "CT",
+    "convolution_kernel": "H_VSHARP_C"
+  },
+  {
+    "label": "患者1_1.0x0.8_Bone",
+    "path": "D:\\项目\\鼻腔建模\\资料/脱敏数据/患者ct+鼻空腔建模/患者ct+鼻空腔建模/患者1/______-______/20260127/202-1.0 x 0.8 Bone",
+    "itk_spacing_xyz": [
+      0.3477,
+      0.3477,
+      0.8
+    ],
+    "itk_origin_xyz": [
+      -96.0762,
+      -120.2537,
+      139.3293
+    ],
+    "tag_slice_thickness": 1.0,
+    "tag_spacing_between": 0.0,
+    "rescale_intercept": -1024.0,
+    "series_instance_uid": "1.2.156.112605.66988329202957.260127070552.3.6012.103316",
+    "hu_range": [
+      -1023,
+      64511
+    ],
+    "raw": {
+      "n_files_used": 136,
+      "ipp_first": [
+        -96.0762,
+        -120.2537,
+        139.3293
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "dz_from_neighbor_ipp": 0.8,
+      "dz_from_full_span": 0.8
+    },
+    "manufacturer": "UIH",
+    "institution": "Shenzhen Second People's Hospital",
+    "modality": "CT",
+    "convolution_kernel": "H_SHARP_C"
+  },
+  {
+    "label": "患者2_Sinus0.75_H40s",
+    "path": "D:\\项目\\鼻腔建模\\资料/脱敏数据/患者ct+鼻空腔建模/患者ct+鼻空腔建模/患者2/p01360058-____/20250902-Head^07_Sinus (Adult)/4-Sinus  0.75  H40s",
+    "itk_spacing_xyz": [
+      0.459,
+      0.459,
+      0.5
+    ],
+    "itk_origin_xyz": [
+      -117.2705,
+      -271.2705,
+      -650.5
+    ],
+    "tag_slice_thickness": 0.75,
+    "tag_spacing_between": 0.0,
+    "rescale_intercept": -1024.0,
+    "series_instance_uid": "1.3.12.2.1107.5.1.4.74406.30000025090200282732400005700",
+    "hu_range": [
+      -1024,
+      3071
+    ],
+    "raw": {
+      "n_files_used": 286,
+      "ipp_first": [
+        -117.2705,
+        -271.2705,
+        -508.0
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "dz_from_neighbor_ipp": 0.5,
+      "dz_from_full_span": 0.5
+    },
+    "manufacturer": "SIEMENS",
+    "institution": "EENT Hospital of Fudan Univ.",
+    "modality": "CT",
+    "convolution_kernel": "H40s"
+  }
+]

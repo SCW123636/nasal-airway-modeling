@@ -1,0 +1,68 @@
+{
+  "schema": "matched_pressure_reference_pair/v1",
+  "patient_data": false,
+  "source_verified_case": "/home/lenovo2/nasal_cfd_reference/poiseuille_v1912_verified/medium",
+  "same_numerical_settings_as_original_verified": false,
+  "shared_numerical_settings": {
+    "linear_tolerance_p": 1e-10,
+    "linear_tolerance_U": 1e-10,
+    "SIMPLE_residual_p": 1e-08,
+    "SIMPLE_residual_U": 1e-06,
+    "endTime": 2000
+  },
+  "description": "Both copied cases use identical tolerances. Between the pair only the outlet pressure value differs.",
+  "cases": {
+    "reference_0Pa": {
+      "commands": [
+        {
+          "command": [
+            "simpleFoam"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.923031292000001
+        },
+        {
+          "command": [
+            "foamToVTK",
+            "-latestTime",
+            "-ascii",
+            "-fields",
+            "(p U)"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.21515541100000135
+        }
+      ],
+      "SIMPLE_automatic_stopping_satisfied": true
+    },
+    "shifted_18Pa": {
+      "commands": [
+        {
+          "command": [
+            "simpleFoam"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 1.1287124789999972
+        },
+        {
+          "command": [
+            "foamToVTK",
+            "-latestTime",
+            "-ascii",
+            "-fields",
+            "(p U)"
+          ],
+          "exit_code": 0,
+          "elapsed_seconds": 0.13948603800000114
+        }
+      ],
+      "SIMPLE_automatic_stopping_satisfied": true
+    }
+  },
+  "strict_run_note": "The original 1e-12 linear-tolerance +18Pa run was terminated after observing a numerical pressure residual floor; retained separately.",
+  "changed_input_files_within_pair": [
+    "0/p"
+  ],
+  "verified_source_inputs_unchanged": true,
+  "status": "completed"
+}

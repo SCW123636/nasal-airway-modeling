@@ -1,0 +1,39 @@
+{
+  "seeds": {
+    "nasal_L": {
+      "voxel": [
+        211,
+        181,
+        316
+      ],
+      "hit": true
+    },
+    "nasal_R": {
+      "voxel": [
+        216,
+        183,
+        194
+      ],
+      "hit": true
+    },
+    "nasopharynx": {
+      "voxel": [
+        282,
+        465,
+        255
+      ],
+      "hit": false
+    }
+  },
+  "bbox_index": {
+    "zmin": 0,
+    "zmax": 393,
+    "ymin": 43,
+    "ymax": 511,
+    "xmin": 0,
+    "xmax": 511,
+    "mid_x": 255
+  },
+  "hu_air": -300,
+  "note": "自动提出，需人工确认；口腔/鼻窦屏障未施加"
+}

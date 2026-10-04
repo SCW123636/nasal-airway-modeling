@@ -1,0 +1,72 @@
+{
+  "analytic": {
+    "delta_p_pa": 28.80704469963305,
+    "equation": "delta_p = 128 mu L Q / (pi D^4); u_peak = 2 u_mean (Hagen-Poiseuille)",
+    "reynolds": 5275.854467134652,
+    "u_mean_m_s": 19.89436788648692,
+    "u_peak_m_s": 39.78873577297384
+  },
+  "checks": {
+    "converged": true,
+    "delta_p_coarse_within_5pct": false,
+    "delta_p_fine_within_2pct": false,
+    "error_decreases_with_refinement": true,
+    "mass_imbalance_below_1e-6": true,
+    "peak_velocity_within_5pct": true
+  },
+  "diagnostics": {
+    "cross_check_pressure_driven": "Independent control: the SAME S1->S2->S3 chain re-run pressure-driven (inlet fixedValue p = analytic delta_p, outlet p = 0) on this tube geometry yields Q within ~0.02 percent of the analytic 2.5e-4 m3/s (Hagen-Poiseuille inverse). This isolates the chain as correct and attributes the flow-driven short-tube delta_p bias to the entrance region, not to S1/S2/S3.",
+    "flow_driven_short_tube_note": "delta_p_rel_error decreases with refinement (0.77 -> 0.36) but stays far above the tolerance bands on the default S1 mesh (addLayers off). Two compounding causes, both properties of the setup rather than of the solver chain: (1) the default castellated+snap mesh is too coarse across the 4 mm diameter (mid-tube dp/dz reaches only ~49 percent of theory on the coarse mesh and ~81 percent on the fine mesh); (2) a parabolic velocity inlet with a zeroGradient pressure inlet still needs a numerical entrance length (a few tube diameters) for the pressure field to develop, and for L/D = 10.0 that region is a non-negligible fraction of the tube. Per spec 7.4 the verdict is left as fail and the tolerances are NOT widened; wall layers + a finer cross-section would be needed to bring this configuration into band."
+  },
+  "generated_at": "2026-10-02T00:17:59+00:00",
+  "inlet_profile": "area-normalized parabolic fixedValue imposed after meshing (developed profile; no entrance-length approximation)",
+  "levels": [
+    {
+      "case": "case_h0p4",
+      "cell_size_mm": 0.4,
+      "converged": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 6.625571546480399,
+      "delta_p_rel_error": 0.7700016917540731,
+      "mass_imbalance_frac": 0.0,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 41.28931391446394,
+      "peak_velocity_rel_error": 0.03771364212354184
+    },
+    {
+      "case": "case_h0p2",
+      "cell_size_mm": 0.2,
+      "converged": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 18.294202371924,
+      "delta_p_rel_error": 0.36493998038760855,
+      "mass_imbalance_frac": 0.0,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 40.358700710221186,
+      "peak_velocity_rel_error": 0.014324781277280306
+    }
+  ],
+  "phantom": {
+    "D_mm": 4.0,
+    "L_mm": 40.0,
+    "Q_m3_s": 0.00025,
+    "kind": "straight_circular_tube",
+    "patch_map": {
+      "inlet": "inlet",
+      "outlet": "outlet",
+      "wall": "wall"
+    },
+    "stl_sha256": "786c59f85bb2cb0e4315b2c3e461f2d21b17f48bfbc4854106e4c26fab407cb4"
+  },
+  "physics": {
+    "mu_Pa_s": 1.81e-05,
+    "note": "laminar solver at Re 5276 validates the chain against the laminar analytic solution; not a physical-regime claim",
+    "rho_kg_m3": 1.2
+  },
+  "schema": "nasal_cfd_phantom_validation/v1",
+  "script": {
+    "name": "phantom_validation.py",
+    "version": "1.0.0"
+  },
+  "verdict": "fail"
+}

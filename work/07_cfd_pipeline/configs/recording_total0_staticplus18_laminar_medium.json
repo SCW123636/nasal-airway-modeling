@@ -1,0 +1,90 @@
+{
+  "schema": "nasal_cfd_config/v1",
+  "config_id": "recording_total0_staticplus18_laminar_medium",
+  "status": "engineering_template_requires_patient_backtest",
+  "physics": {
+    "flow_regime": "incompressible",
+    "time_mode": "steady",
+    "rho_kg_m3": 1.2,
+    "mu_Pa_s": 1.81e-05,
+    "temperature_assumption_C": 20.0,
+    "turbulence_model": "laminar"
+  },
+  "boundary_conditions": {
+    "mode": "recording_total0_staticplus18",
+    "total_inspiratory_flow_m3_s": null,
+    "flow_split": null,
+    "nostril_pressure": {
+      "value": 0.0,
+      "unit": "Pa",
+      "quantity": "total",
+      "reference": "gauge"
+    },
+    "nasopharynx_pressure": {
+      "value": 18.0,
+      "unit": "Pa",
+      "quantity": "static",
+      "reference": "gauge"
+    },
+    "static_pressure_difference_Pa": null,
+    "direction_policy": "measure_signed_boundary_flux_before_interpretation",
+    "walls": "rigid_no_slip"
+  },
+  "turbulence": {
+    "inlet_intensity_fraction": null,
+    "length_scale_Dh_fraction": null,
+    "low_speed_threshold_m_s": null,
+    "low_speed_threshold_basis": null,
+    "definition": null,
+    "report_status": "not_applicable"
+  },
+  "mesh": {
+    "level": "medium",
+    "bulk_target_mm": 0.4,
+    "local_initial_target_mm": 0.25,
+    "minimum_cells_across_gap": 6,
+    "local_resolution_rule": "h <= min(local_initial_target_mm, measured_gap_mm/6)",
+    "prism_layers": null
+  },
+  "geometry": {
+    "kind": "patient",
+    "case_id": null,
+    "source_file": null,
+    "sha256": null,
+    "units": "mm",
+    "solver_units": "m",
+    "scale_to_m": 0.001,
+    "coordinate_system": "LPS",
+    "review": {
+      "status": "pending",
+      "method": "human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "record_file": null,
+      "reviewed_geometry_sha256": null,
+      "confirmed_boundaries": [],
+      "oral_exclusion_confirmed": false,
+      "sinus_boundary_policy_confirmed": false
+    }
+  },
+  "solver_adapter": {
+    "status": "not_implemented",
+    "name": null,
+    "version": null,
+    "desired_strategy": "direct_pressure_boundaries",
+    "flow_target_role": null,
+    "strategy_description": null
+  },
+  "engineering_screen": {
+    "maximum_mass_imbalance_fraction": 0.005,
+    "maximum_monitor_relative_change": 0.005,
+    "target_residual_max": 1e-05,
+    "medium_to_fine_change_screen_fraction": 0.05
+  },
+  "notes": [
+    "No patient flow solution is included.",
+    "Templates are not clinically validated.",
+    "Equal bilateral flow is an imposed comparison only, never a measured patient split.",
+    "Fixed flow plus one static pressure reference is valid; fixed flow plus a prescribed two-end pressure difference is not this contract."
+  ]
+}

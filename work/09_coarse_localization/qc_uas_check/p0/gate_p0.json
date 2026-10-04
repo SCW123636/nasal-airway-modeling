@@ -1,0 +1,573 @@
+{
+  "case": "p0",
+  "ct": "C:\\ts_work\\p0\\ct.nii.gz",
+  "mask_dir": "C:\\ts_work\\p0\\masks",
+  "threshold_HU": -300,
+  "overall_status": "provisional",
+  "hard_failures": [],
+  "warnings": [
+    "label touches image boundary: oropharynx (z_min)",
+    "left nasal air contains components disconnected from nasopharynx in 6-neighborhood",
+    "right nasal air contains components disconnected from nasopharynx in 6-neighborhood"
+  ],
+  "manual_review_required": true,
+  "audit_version": "2.0",
+  "medical_or_cfd_validation_pass": false,
+  "ct_geometry": {
+    "size_xyz": [
+      512,
+      512,
+      394
+    ],
+    "spacing_xyz_mm": [
+      0.34960898756980896,
+      0.34960898756980896,
+      0.3499999940395355
+    ],
+    "origin_xyz_mm": [
+      -96.4921875,
+      -261.4000244140625,
+      -703.7899780273438
+    ],
+    "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "coordinate_system": "LPS",
+    "unit": "mm"
+  },
+  "per_class": {
+    "nasal_cavity_left": {
+      "found": true,
+      "geometry_matches_ct": true,
+      "array_shape_matches_ct": true,
+      "scalar_label": true,
+      "voxels": 339274,
+      "semantic_volume_mL": 14.514,
+      "air_voxels_HU_lt_minus300": 294216,
+      "air_fraction_HU_lt_minus300": 0.86719,
+      "raw_semantic_HU": {
+        "sample_voxels": 339274,
+        "nonfinite_voxels": 0,
+        "HU_gt0_voxels": 24620,
+        "interpretation": "original semantic label before HU threshold intersection",
+        "min": -1024.0,
+        "p05": -1024.0,
+        "median": -986.0,
+        "p95": 95.0,
+        "max": 831.0,
+        "mean": -805.9383035540595
+      },
+      "bbox_zyx_inclusive": [
+        [
+          94,
+          225
+        ],
+        [
+          61,
+          284
+        ],
+        [
+          210,
+          280
+        ]
+      ],
+      "usable_on_ct_grid": true,
+      "fov_boundary_contact": {
+        "touches_image_boundary": false,
+        "index_faces": [],
+        "interpretation": "label reaches acquisition grid boundary; anatomical truncation not proven"
+      },
+      "HU_statistics_status": "measured_before_threshold"
+    },
+    "nasal_cavity_right": {
+      "found": true,
+      "geometry_matches_ct": true,
+      "array_shape_matches_ct": true,
+      "scalar_label": true,
+      "voxels": 270876,
+      "semantic_volume_mL": 11.588,
+      "air_voxels_HU_lt_minus300": 215323,
+      "air_fraction_HU_lt_minus300": 0.79491,
+      "raw_semantic_HU": {
+        "sample_voxels": 270876,
+        "nonfinite_voxels": 0,
+        "HU_gt0_voxels": 31730,
+        "interpretation": "original semantic label before HU threshold intersection",
+        "min": -1024.0,
+        "p05": -1024.0,
+        "median": -959.0,
+        "p95": 169.0,
+        "max": 1218.0,
+        "mean": -710.9542225963171
+      },
+      "bbox_zyx_inclusive": [
+        [
+          94,
+          225
+        ],
+        [
+          65,
+          290
+        ],
+        [
+          171,
+          239
+        ]
+      ],
+      "usable_on_ct_grid": true,
+      "fov_boundary_contact": {
+        "touches_image_boundary": false,
+        "index_faces": [],
+        "interpretation": "label reaches acquisition grid boundary; anatomical truncation not proven"
+      },
+      "HU_statistics_status": "measured_before_threshold"
+    },
+    "nasopharynx": {
+      "found": true,
+      "geometry_matches_ct": true,
+      "array_shape_matches_ct": true,
+      "scalar_label": true,
+      "voxels": 82727,
+      "semantic_volume_mL": 3.539,
+      "air_voxels_HU_lt_minus300": 76154,
+      "air_fraction_HU_lt_minus300": 0.92055,
+      "raw_semantic_HU": {
+        "sample_voxels": 82727,
+        "nonfinite_voxels": 0,
+        "HU_gt0_voxels": 3924,
+        "interpretation": "original semantic label before HU threshold intersection",
+        "min": -1024.0,
+        "p05": -1024.0,
+        "median": -987.0,
+        "p95": -22.0,
+        "max": 605.0,
+        "mean": -875.4067474947719
+      },
+      "bbox_zyx_inclusive": [
+        [
+          105,
+          147
+        ],
+        [
+          270,
+          320
+        ],
+        [
+          199,
+          286
+        ]
+      ],
+      "usable_on_ct_grid": true,
+      "fov_boundary_contact": {
+        "touches_image_boundary": false,
+        "index_faces": [],
+        "interpretation": "label reaches acquisition grid boundary; anatomical truncation not proven"
+      },
+      "HU_statistics_status": "measured_before_threshold"
+    },
+    "oropharynx": {
+      "found": true,
+      "geometry_matches_ct": true,
+      "array_shape_matches_ct": true,
+      "scalar_label": true,
+      "voxels": 148837,
+      "semantic_volume_mL": 6.367,
+      "air_voxels_HU_lt_minus300": 131684,
+      "air_fraction_HU_lt_minus300": 0.88475,
+      "raw_semantic_HU": {
+        "sample_voxels": 148837,
+        "nonfinite_voxels": 0,
+        "HU_gt0_voxels": 9767,
+        "interpretation": "original semantic label before HU threshold intersection",
+        "min": -1024.0,
+        "p05": -1024.0,
+        "median": -983.0,
+        "p95": 76.0,
+        "max": 637.0,
+        "mean": -829.8614255863797
+      },
+      "bbox_zyx_inclusive": [
+        [
+          0,
+          107
+        ],
+        [
+          272,
+          340
+        ],
+        [
+          214,
+          293
+        ]
+      ],
+      "usable_on_ct_grid": true,
+      "fov_boundary_contact": {
+        "touches_image_boundary": true,
+        "index_faces": [
+          "z_min"
+        ],
+        "interpretation": "label reaches acquisition grid boundary; anatomical truncation not proven"
+      },
+      "HU_statistics_status": "measured_before_threshold"
+    },
+    "soft_palate": {
+      "found": true,
+      "geometry_matches_ct": true,
+      "array_shape_matches_ct": true,
+      "scalar_label": true,
+      "voxels": 67606,
+      "semantic_volume_mL": 2.892,
+      "air_voxels_HU_lt_minus300": 32,
+      "air_fraction_HU_lt_minus300": 0.00047,
+      "raw_semantic_HU": {
+        "sample_voxels": 67606,
+        "nonfinite_voxels": 0,
+        "HU_gt0_voxels": 44657,
+        "interpretation": "original semantic label before HU threshold intersection",
+        "min": -396.0,
+        "p05": -121.0,
+        "median": 40.0,
+        "p95": 201.0,
+        "max": 535.0,
+        "mean": 39.871771736236425
+      },
+      "bbox_zyx_inclusive": [
+        [
+          36,
+          107
+        ],
+        [
+          239,
+          309
+        ],
+        [
+          210,
+          273
+        ]
+      ],
+      "usable_on_ct_grid": true,
+      "fov_boundary_contact": {
+        "touches_image_boundary": false,
+        "index_faces": [],
+        "interpretation": "label reaches acquisition grid boundary; anatomical truncation not proven"
+      },
+      "HU_statistics_status": "measured_before_threshold"
+    },
+    "hard_palate": {
+      "found": true,
+      "geometry_matches_ct": true,
+      "array_shape_matches_ct": true,
+      "scalar_label": true,
+      "voxels": 59011,
+      "semantic_volume_mL": 2.524,
+      "air_voxels_HU_lt_minus300": 568,
+      "air_fraction_HU_lt_minus300": 0.00963,
+      "raw_semantic_HU": {
+        "sample_voxels": 59011,
+        "nonfinite_voxels": 0,
+        "HU_gt0_voxels": 52567,
+        "interpretation": "original semantic label before HU threshold intersection",
+        "min": -805.0,
+        "p05": -128.0,
+        "median": 965.0,
+        "p95": 1764.0,
+        "max": 2311.0,
+        "mean": 872.0493297859721
+      },
+      "bbox_zyx_inclusive": [
+        [
+          79,
+          110
+        ],
+        [
+          151,
+          253
+        ],
+        [
+          191,
+          275
+        ]
+      ],
+      "usable_on_ct_grid": true,
+      "fov_boundary_contact": {
+        "touches_image_boundary": false,
+        "index_faces": [],
+        "interpretation": "label reaches acquisition grid boundary; anatomical truncation not proven"
+      },
+      "HU_statistics_status": "measured_before_threshold"
+    }
+  },
+  "semantic_air_candidate": {
+    "voxels": 585693,
+    "volume_mL": 25.056,
+    "HU_gt0_voxels": 0,
+    "HU_purity_pass": true,
+    "HU_purity_interpretation": "construction invariant of semantic AND CT<-300; not independent validation",
+    "threshold_intersection_invariant_pass": true,
+    "raw_semantic_HU_before_threshold": {
+      "sample_voxels": 692877,
+      "nonfinite_voxels": 0,
+      "HU_gt0_voxels": 60274,
+      "interpretation": "original semantic label before HU threshold intersection",
+      "min": -1024.0,
+      "p05": -1024.0,
+      "median": -979.0,
+      "p95": 129.0,
+      "max": 1218.0,
+      "mean": -777.099141694702
+    },
+    "components_6_connected": {
+      "count": 4,
+      "largest_voxels": 585690,
+      "nonlargest_voxels": 3,
+      "largest_fraction": 0.99999488,
+      "sizes_mL_largest_first": [
+        25.0554,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bbox_zyx_inclusive": [
+        [
+          94,
+          225
+        ],
+        [
+          61,
+          320
+        ],
+        [
+          171,
+          286
+        ]
+      ],
+      "connectivity": 6
+    },
+    "components_26_connected": {
+      "count": 3,
+      "largest_voxels": 585691,
+      "nonlargest_voxels": 2,
+      "largest_fraction": 0.99999659,
+      "sizes_mL_largest_first": [
+        25.0554,
+        0.0,
+        0.0
+      ],
+      "bbox_zyx_inclusive": [
+        [
+          94,
+          225
+        ],
+        [
+          61,
+          320
+        ],
+        [
+          171,
+          286
+        ]
+      ],
+      "connectivity": 26
+    },
+    "volume_reference_mL": [
+      15,
+      40
+    ],
+    "volume_is_warning_only": true
+  },
+  "nasal_to_nasopharynx_contact": {
+    "interpretation": "voxel label contact only; 26-neighbor contact can be only an edge or corner",
+    "left_touches_nasopharynx_6_neighborhood": true,
+    "left_touches_nasopharynx_26_neighborhood": true,
+    "right_touches_nasopharynx_6_neighborhood": true,
+    "right_touches_nasopharynx_26_neighborhood": true
+  },
+  "nasal_to_nasopharynx_paths": {
+    "interpretation": "discrete ipsilateral label paths; no nostril/outlet endpoints or finite-caliber lumen validation",
+    "left": {
+      "connectivity_6": {
+        "connectivity": 6,
+        "source_voxels": 294216,
+        "target_voxels": 76154,
+        "direct_contact": true,
+        "direct_contact_target_voxels": 1179,
+        "shared_path_exists": true,
+        "source_voxels_reaching_target": 294215,
+        "source_fraction_reaching_target": 0.999997,
+        "largest_source_component_voxels": 294215,
+        "largest_source_component_reaches_target": true,
+        "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+        "status": "voxel_path_observed"
+      },
+      "connectivity_26": {
+        "connectivity": 26,
+        "source_voxels": 294216,
+        "target_voxels": 76154,
+        "direct_contact": true,
+        "direct_contact_target_voxels": 1392,
+        "shared_path_exists": true,
+        "source_voxels_reaching_target": 294215,
+        "source_fraction_reaching_target": 0.999997,
+        "largest_source_component_voxels": 294215,
+        "largest_source_component_reaches_target": true,
+        "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+        "status": "voxel_path_observed"
+      },
+      "diagonal_only_contact": false,
+      "inlet_to_outlet_patency": "not_assessed"
+    },
+    "right": {
+      "connectivity_6": {
+        "connectivity": 6,
+        "source_voxels": 215323,
+        "target_voxels": 76154,
+        "direct_contact": true,
+        "direct_contact_target_voxels": 1289,
+        "shared_path_exists": true,
+        "source_voxels_reaching_target": 215321,
+        "source_fraction_reaching_target": 0.999991,
+        "largest_source_component_voxels": 215321,
+        "largest_source_component_reaches_target": true,
+        "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+        "status": "voxel_path_observed"
+      },
+      "connectivity_26": {
+        "connectivity": 26,
+        "source_voxels": 215323,
+        "target_voxels": 76154,
+        "direct_contact": true,
+        "direct_contact_target_voxels": 1664,
+        "shared_path_exists": true,
+        "source_voxels_reaching_target": 215322,
+        "source_fraction_reaching_target": 0.999995,
+        "largest_source_component_voxels": 215322,
+        "largest_source_component_reaches_target": true,
+        "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+        "status": "voxel_path_observed"
+      },
+      "diagonal_only_contact": false,
+      "inlet_to_outlet_patency": "not_assessed"
+    }
+  },
+  "oral_exclusion_reference": {
+    "voxels": 131684,
+    "volume_mL": 5.633,
+    "overlap_with_candidate_voxels": 0,
+    "components_26_connected": {
+      "count": 2,
+      "largest_voxels": 131683,
+      "nonlargest_voxels": 1,
+      "largest_fraction": 0.99999241,
+      "sizes_mL_largest_first": [
+        5.6333,
+        0.0
+      ],
+      "bbox_zyx_inclusive": [
+        [
+          0,
+          107
+        ],
+        [
+          272,
+          340
+        ],
+        [
+          214,
+          293
+        ]
+      ],
+      "connectivity": 26
+    },
+    "components_6_connected": {
+      "count": 2,
+      "largest_voxels": 131683,
+      "nonlargest_voxels": 1,
+      "largest_fraction": 0.99999241,
+      "sizes_mL_largest_first": [
+        5.6333,
+        0.0
+      ],
+      "bbox_zyx_inclusive": [
+        [
+          0,
+          107
+        ],
+        [
+          272,
+          340
+        ],
+        [
+          214,
+          293
+        ]
+      ],
+      "connectivity": 6
+    },
+    "separation_status": "not_proven_without_reviewed_oral_cut_plane"
+  },
+  "palate_reference_checks": {
+    "soft_palate": {
+      "overlap_with_candidate_voxels": 0,
+      "note": "reference anatomy only; does not define a CFD cut plane"
+    },
+    "hard_palate": {
+      "overlap_with_candidate_voxels": 0,
+      "note": "reference anatomy only; does not define a CFD cut plane"
+    }
+  },
+  "bilateral_reference": {
+    "left_air_mL": 12.586,
+    "right_air_mL": 9.211,
+    "smaller_over_larger": 0.7319,
+    "status": "warning_only_no_symmetry_pass_threshold"
+  },
+  "openings": {
+    "nostril_L": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "nostril_R": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "nasopharynx_outlet": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "maxillary_sinus_left": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "maxillary_sinus_right": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "frontal_sinus": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "ethmoid_sinus_left": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "ethmoid_sinus_right": {
+      "status": "unknown",
+      "review_required": true
+    },
+    "sphenoid_sinus": {
+      "status": "unknown",
+      "review_required": true
+    }
+  },
+  "cfd_geometry_status": "provisional_requires_reviewed_opening_planes_and_ostia_status",
+  "overlay_png": "work\\09_coarse_localization\\qc_uas_check\\p0\\gate_p0.png",
+  "data_integrity_status": "pass"
+}

@@ -1,0 +1,384 @@
+{
+  "schema": "tube_axial_pressure_diagnostic/v1",
+  "generated_at": "2026-10-02T13:02:53+00:00",
+  "method": "Area-weighted cell fields on nine exact z cuts; least-squares fit on 30-70 percent of tube length.",
+  "scope": "Synthetic circular tubes only. Interior gradient is diagnostic; boundary delta_p remains the strict acceptance metric.",
+  "cases": [
+    {
+      "case": "case_h0p4",
+      "length_mm": 40.0,
+      "diameter_mm": 4.0,
+      "target_flow_m3_s": 0.00025,
+      "analytic_pressure_gradient_pa_per_m": 720.1761174908263,
+      "interior_pressure_gradient_pa_per_m": 352.52512945918227,
+      "interior_gradient_rel_error": 0.5105014997061843,
+      "fit_region_fraction": [
+        0.3,
+        0.7
+      ],
+      "max_fit_residual_pa": 0.20082499460012215,
+      "profile_record": {
+        "imposed_Q_m3_s": 0.00025,
+        "inlet_faces": 316,
+        "patch_area_m2": 1.2387822430942671e-05,
+        "patch_radius_m": 0.0019589841125138897,
+        "profile_midpoint_normalization": 1.0254119642259163,
+        "u_center_m_s": 41.38790210879242,
+        "u_mean_m_s": 20.18110942368229
+      },
+      "stations": [
+        {
+          "z_mm": 4.0,
+          "area_mm2": 12.519187866120168,
+          "pressure_pa": 10.224828414970114,
+          "axial_flow_m3_s": 0.0002498585569153856,
+          "peak_velocity_m_s": 40.1973991981035
+        },
+        {
+          "z_mm": 8.0,
+          "area_mm2": 12.519175710747204,
+          "pressure_pa": 10.456263629941557,
+          "axial_flow_m3_s": 0.00024993350826041144,
+          "peak_velocity_m_s": 40.13610079340433
+        },
+        {
+          "z_mm": 12.000000000000002,
+          "area_mm2": 12.519173734672156,
+          "pressure_pa": 9.82600014252595,
+          "axial_flow_m3_s": 0.00024993104907677005,
+          "peak_velocity_m_s": 40.08560183709545
+        },
+        {
+          "z_mm": 16.0,
+          "area_mm2": 12.519181993489122,
+          "pressure_pa": 8.771998914344532,
+          "axial_flow_m3_s": 0.0002499294102851511,
+          "peak_velocity_m_s": 40.043998753028774
+        },
+        {
+          "z_mm": 20.0,
+          "area_mm2": 12.519177819285535,
+          "pressure_pa": 7.319778801304694,
+          "axial_flow_m3_s": 0.00024990048575029806,
+          "peak_velocity_m_s": 40.00460055930051
+        },
+        {
+          "z_mm": 24.0,
+          "area_mm2": 12.51917350203451,
+          "pressure_pa": 5.907691277146639,
+          "axial_flow_m3_s": 0.00024992760610960635,
+          "peak_velocity_m_s": 39.976200135282824
+        },
+        {
+          "z_mm": 28.000000000000004,
+          "area_mm2": 12.519182091870185,
+          "pressure_pa": 4.207651371941258,
+          "axial_flow_m3_s": 0.0002499269989313794,
+          "peak_velocity_m_s": 39.94770052781301
+        },
+        {
+          "z_mm": 32.0,
+          "area_mm2": 12.51918170411185,
+          "pressure_pa": 2.3734332168373604,
+          "axial_flow_m3_s": 0.0002499265150168611,
+          "peak_velocity_m_s": 39.92200090814536
+        },
+        {
+          "z_mm": 36.00000000000001,
+          "area_mm2": 12.519181787444605,
+          "pressure_pa": 0.3094504613718193,
+          "axial_flow_m3_s": 0.0002499098963269653,
+          "peak_velocity_m_s": 39.89849855497259
+        }
+      ],
+      "source_sha256": {
+        "VTK/case_h0p4_292/internal.vtu": "7bbb10b48100b3d68a4c46ebdfb729cbebfb0a5270a907a880930c6174caf433",
+        "case_manifest.json": "19425978703d32998fed25a5e3496f6667b539b5198d6dba1193c90907b0596f",
+        "run_manifest.json": "f552710c10b6c3d5e047c091ccadffe62a8edd551bd93a3036f619e6830a33b0",
+        "0/p": "46c9b391463dbb5798686f74bfc54c538081bb4be6b96fd1979fbd0f99d77f10"
+      }
+    },
+    {
+      "case": "case_h0p2",
+      "length_mm": 40.0,
+      "diameter_mm": 4.0,
+      "target_flow_m3_s": 0.00025,
+      "analytic_pressure_gradient_pa_per_m": 720.1761174908263,
+      "interior_pressure_gradient_pa_per_m": 582.7461368655031,
+      "interior_gradient_rel_error": 0.19082829503447649,
+      "fit_region_fraction": [
+        0.3,
+        0.7
+      ],
+      "max_fit_residual_pa": 0.07806869200843103,
+      "profile_record": {
+        "imposed_Q_m3_s": 0.00025,
+        "inlet_faces": 1264,
+        "patch_area_m2": 1.2456693246500892e-05,
+        "patch_radius_m": 0.0019850553394000913,
+        "profile_midpoint_normalization": 1.006044392730528,
+        "u_center_m_s": 40.38167966499166,
+        "u_mean_m_s": 20.06953170097734
+      },
+      "stations": [
+        {
+          "z_mm": 4.0,
+          "area_mm2": 12.57304742408988,
+          "pressure_pa": 20.00662933116889,
+          "axial_flow_m3_s": 0.0002499882954548361,
+          "peak_velocity_m_s": 40.060298927774326
+        },
+        {
+          "z_mm": 8.0,
+          "area_mm2": 12.573043040977826,
+          "pressure_pa": 18.68489964910716,
+          "axial_flow_m3_s": 0.00024999325194617226,
+          "peak_velocity_m_s": 40.02799987988859
+        },
+        {
+          "z_mm": 12.000000000000002,
+          "area_mm2": 12.573043407424791,
+          "pressure_pa": 16.734682623194253,
+          "axial_flow_m3_s": 0.00024999241323482937,
+          "peak_velocity_m_s": 40.00680160611629
+        },
+        {
+          "z_mm": 16.0,
+          "area_mm2": 12.57304355296952,
+          "pressure_pa": 14.551813352592474,
+          "axial_flow_m3_s": 0.0002499919452394903,
+          "peak_velocity_m_s": 39.99050140439112
+        },
+        {
+          "z_mm": 20.0,
+          "area_mm2": 12.573043405247834,
+          "pressure_pa": 12.139979765765892,
+          "axial_flow_m3_s": 0.00024999089282850634,
+          "peak_velocity_m_s": 39.9761009221322
+        },
+        {
+          "z_mm": 24.0,
+          "area_mm2": 12.57304522940713,
+          "pressure_pa": 9.863316523754223,
+          "axial_flow_m3_s": 0.00024999159558421885,
+          "peak_velocity_m_s": 39.96459960980837
+        },
+        {
+          "z_mm": 28.000000000000004,
+          "area_mm2": 12.573043448562153,
+          "pressure_pa": 7.424008300303318,
+          "axial_flow_m3_s": 0.0002499916223517782,
+          "peak_velocity_m_s": 39.95360183754889
+        },
+        {
+          "z_mm": 32.0,
+          "area_mm2": 12.573042976570486,
+          "pressure_pa": 4.94174862181132,
+          "axial_flow_m3_s": 0.0002499914666227109,
+          "peak_velocity_m_s": 39.94359970125107
+        },
+        {
+          "z_mm": 36.00000000000001,
+          "area_mm2": 12.573043558011014,
+          "pressure_pa": 2.3102301876876576,
+          "axial_flow_m3_s": 0.0002499912558221645,
+          "peak_velocity_m_s": 39.933799743951546
+        }
+      ],
+      "source_sha256": {
+        "VTK/case_h0p2_304/internal.vtu": "e987aec9defccd636172a918c3ff21ec8d48ec475f508aeaa97403e38244bb2b",
+        "case_manifest.json": "e57e2976bc6d7cb4c773d0c6c7abf1ae1873e610774f0bd5e76ebb8f5fdb507f",
+        "run_manifest.json": "459269ab9c36d6b841dd6d1fd52733861cab1648d7adf1fc4448da58f52937c4",
+        "0/p": "46c9b391463dbb5798686f74bfc54c538081bb4be6b96fd1979fbd0f99d77f10"
+      }
+    },
+    {
+      "case": "case_h0p4",
+      "length_mm": 160.0,
+      "diameter_mm": 4.0,
+      "target_flow_m3_s": 0.00025,
+      "analytic_pressure_gradient_pa_per_m": 720.1761174908263,
+      "interior_pressure_gradient_pa_per_m": 613.5925549060182,
+      "interior_gradient_rel_error": 0.14799652473364025,
+      "fit_region_fraction": [
+        0.3,
+        0.7
+      ],
+      "max_fit_residual_pa": 0.33446422082121785,
+      "profile_record": {
+        "imposed_Q_m3_s": 0.00025,
+        "inlet_faces": 316,
+        "patch_area_m2": 1.238782227645166e-05,
+        "patch_radius_m": 0.0019589806547446954,
+        "profile_midpoint_normalization": 1.0254157539737712,
+        "u_center_m_s": 41.38805558758343,
+        "u_mean_m_s": 20.181109675364947
+      },
+      "stations": [
+        {
+          "z_mm": 16.0,
+          "area_mm2": 12.51918605154443,
+          "pressure_pa": 83.7374138804954,
+          "axial_flow_m3_s": 0.00024992955354941277,
+          "peak_velocity_m_s": 40.04410175092123
+        },
+        {
+          "z_mm": 32.0,
+          "area_mm2": 12.519173832240336,
+          "pressure_pa": 77.33922741420955,
+          "axial_flow_m3_s": 0.0002499263138598627,
+          "peak_velocity_m_s": 39.92210009095011
+        },
+        {
+          "z_mm": 48.00000000000001,
+          "area_mm2": 12.51917580003333,
+          "pressure_pa": 69.06448500298573,
+          "axial_flow_m3_s": 0.0002499250226853021,
+          "peak_velocity_m_s": 39.83860017122011
+        },
+        {
+          "z_mm": 64.0,
+          "area_mm2": 12.519177713355795,
+          "pressure_pa": 59.86143578074075,
+          "axial_flow_m3_s": 0.0002499241661310827,
+          "peak_velocity_m_s": 39.77389908575221
+        },
+        {
+          "z_mm": 80.0,
+          "area_mm2": 12.519171735977588,
+          "pressure_pa": 49.93519025167181,
+          "axial_flow_m3_s": 0.0002499062980400828,
+          "peak_velocity_m_s": 39.718799595922015
+        },
+        {
+          "z_mm": 96.0,
+          "area_mm2": 12.519177656474167,
+          "pressure_pa": 40.102055595597996,
+          "axial_flow_m3_s": 0.0002499232101004783,
+          "peak_velocity_m_s": 39.672599795809504
+        },
+        {
+          "z_mm": 112.00000000000001,
+          "area_mm2": 12.51917358712156,
+          "pressure_pa": 29.85677070307566,
+          "axial_flow_m3_s": 0.000249923018820377,
+          "peak_velocity_m_s": 39.62939834820759
+        },
+        {
+          "z_mm": 128.0,
+          "area_mm2": 12.51917801303486,
+          "pressure_pa": 19.46499061540833,
+          "axial_flow_m3_s": 0.0002499228708922399,
+          "peak_velocity_m_s": 39.58919906771289
+        },
+        {
+          "z_mm": 144.00000000000003,
+          "area_mm2": 12.519185933131947,
+          "pressure_pa": 8.745660959780666,
+          "axial_flow_m3_s": 0.0002499072249067514,
+          "peak_velocity_m_s": 39.55030059914787
+        }
+      ],
+      "source_sha256": {
+        "VTK/case_h0p4_276/internal.vtu": "686002e05eb67dd550e87f124bfe83f844fec90b39d50025d8765b0e0adf9a07",
+        "case_manifest.json": "2f2b2acf4dd53cbe8b06a4bc300beb424aae7adcf7cd74260f67a3e5ae2b2208",
+        "run_manifest.json": "fd3005a92b822e07ab8acd5dfd8a6c3ff60f73f6a209f2a1b14fde98b902de04",
+        "0/p": "46c9b391463dbb5798686f74bfc54c538081bb4be6b96fd1979fbd0f99d77f10"
+      }
+    },
+    {
+      "case": "case_h0p2",
+      "length_mm": 160.0,
+      "diameter_mm": 4.0,
+      "target_flow_m3_s": 0.00025,
+      "analytic_pressure_gradient_pa_per_m": 720.1761174908263,
+      "interior_pressure_gradient_pa_per_m": 670.0941502826421,
+      "interior_gradient_rel_error": 0.0695412774623454,
+      "fit_region_fraction": [
+        0.3,
+        0.7
+      ],
+      "max_fit_residual_pa": 0.10886403154040636,
+      "profile_record": {
+        "imposed_Q_m3_s": 0.00025,
+        "inlet_faces": 1264,
+        "patch_area_m2": 1.2456693271764825e-05,
+        "patch_radius_m": 0.0019850553454415607,
+        "profile_midpoint_normalization": 1.0060443885962795,
+        "u_center_m_s": 40.381679417147055,
+        "u_mean_m_s": 20.069531660273498
+      },
+      "stations": [
+        {
+          "z_mm": 16.0,
+          "area_mm2": 12.57305104290266,
+          "pressure_pa": 95.5643528463633,
+          "axial_flow_m3_s": 0.00024999193094732983,
+          "peak_velocity_m_s": 39.990501404391026
+        },
+        {
+          "z_mm": 32.0,
+          "area_mm2": 12.573044484354135,
+          "pressure_pa": 85.95431725330245,
+          "axial_flow_m3_s": 0.0002499914686487816,
+          "peak_velocity_m_s": 39.94359970124984
+        },
+        {
+          "z_mm": 48.00000000000001,
+          "area_mm2": 12.573044774782097,
+          "pressure_pa": 75.73590475786278,
+          "axial_flow_m3_s": 0.00024999136222969223,
+          "peak_velocity_m_s": 39.909301758068466
+        },
+        {
+          "z_mm": 64.0,
+          "area_mm2": 12.573043515012277,
+          "pressure_pa": 65.22862535881647,
+          "axial_flow_m3_s": 0.00024999119384947616,
+          "peak_velocity_m_s": 39.881000519000345
+        },
+        {
+          "z_mm": 80.0,
+          "area_mm2": 12.573042746023175,
+          "pressure_pa": 54.42631648870409,
+          "axial_flow_m3_s": 0.00024999140100148253,
+          "peak_velocity_m_s": 39.85599899309047
+        },
+        {
+          "z_mm": 96.0,
+          "area_mm2": 12.573047448931046,
+          "pressure_pa": 43.75049576350049,
+          "axial_flow_m3_s": 0.0002499912439016811,
+          "peak_velocity_m_s": 39.83409881606737
+        },
+        {
+          "z_mm": 112.00000000000001,
+          "area_mm2": 12.573046028522109,
+          "pressure_pa": 32.86743753290942,
+          "axial_flow_m3_s": 0.00024999115928423486,
+          "peak_velocity_m_s": 39.8135986329458
+        },
+        {
+          "z_mm": 128.0,
+          "area_mm2": 12.573044412137323,
+          "pressure_pa": 21.918862896331948,
+          "axial_flow_m3_s": 0.0002499912402043364,
+          "peak_velocity_m_s": 39.79449844372326
+        },
+        {
+          "z_mm": 144.00000000000003,
+          "area_mm2": 12.573045442305377,
+          "pressure_pa": 10.793265766938307,
+          "axial_flow_m3_s": 0.0002499914563192573,
+          "peak_velocity_m_s": 39.77629852306004
+        }
+      ],
+      "source_sha256": {
+        "VTK/case_h0p2_305/internal.vtu": "02fa0e5864f98322ddfe9236a660b6780e7b4707203fe1155fba35bc969514ff",
+        "case_manifest.json": "92c1311aca93539a533f6602dc6212c3d7331c8bbfa37eeb3e6a7b4569eb52e6",
+        "run_manifest.json": "5e7b538401debd6c80980b12cac429da5942d39b5492e8e55450d5fa2fae88f8",
+        "0/p": "46c9b391463dbb5798686f74bfc54c538081bb4be6b96fd1979fbd0f99d77f10"
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "nasal_cfd_contract_validation/v1",
+  "configuration_files": [
+    {
+      "file": "recording_total0_staticplus18_laminar_medium.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    },
+    {
+      "file": "static_pressure_difference_laminar_medium.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    },
+    {
+      "file": "total_flow_kOmegaSST_medium_I01.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    },
+    {
+      "file": "total_flow_kOmegaSST_medium_I05.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    },
+    {
+      "file": "total_flow_laminar_coarse.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    },
+    {
+      "file": "total_flow_laminar_fine.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    },
+    {
+      "file": "total_flow_laminar_medium.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    },
+    {
+      "file": "total_flow_laminar_medium_equal_split_baseline.json",
+      "schema": "nasal_cfd_config/v1",
+      "valid": true,
+      "execution_allowed": false,
+      "review_status": "pending",
+      "adapter_status": "not_implemented"
+    }
+  ],
+  "all_templates_valid": true,
+  "any_execution_allowed": false,
+  "patient_solver_runs": 0,
+  "result_files_generated_by_contract_module": 0,
+  "synthetic_regression_tests": {
+    "count": 36,
+    "failures": 0,
+    "errors": 0,
+    "observed_test_output": "Ran 36 tests in 0.217s; OK",
+    "test_file": "work/lib/test_cfd_contract.py"
+  },
+  "notes": [
+    "Test fixtures do not describe real patient results or reviews.",
+    "Validation checks metadata and inline arrays, not external file authenticity."
+  ]
+}

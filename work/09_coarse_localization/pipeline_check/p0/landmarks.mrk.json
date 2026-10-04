@@ -1,0 +1,145 @@
+{
+  "@schema": "https://raw.githubusercontent.com/Slicer/Slicer/master/Modules/Loadable/Markups/Resources/Schema/markups-schema-v1.0.3.json",
+  "markups": [
+    {
+      "type": "Fiducial",
+      "coordinateSystem": "LPS",
+      "coordinateUnits": "mm",
+      "locked": true,
+      "labelFormat": "%N-%d",
+      "controlPoints": [
+        {
+          "id": "1",
+          "label": "nostril_L",
+          "description": "proposed",
+          "associatedNodeID": "",
+          "position": [
+            -14.23892636399821,
+            -234.66605581608877,
+            -668.7812194994518
+          ],
+          "orientation": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "selected": true,
+          "locked": true,
+          "visibility": true,
+          "positionStatus": "defined"
+        },
+        {
+          "id": "2",
+          "label": "posterior_choana_L",
+          "description": "proposed",
+          "associatedNodeID": "",
+          "position": [
+            -6.691918397033718,
+            -165.74633159482363,
+            -659.0591225993355
+          ],
+          "orientation": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "selected": true,
+          "locked": true,
+          "visibility": true,
+          "positionStatus": "defined"
+        },
+        {
+          "id": "3",
+          "label": "nostril_R",
+          "description": "proposed",
+          "associatedNodeID": "",
+          "position": [
+            -31.96022610617594,
+            -231.20129686104153,
+            -669.4075820062977
+          ],
+          "orientation": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "selected": true,
+          "locked": true,
+          "visibility": true,
+          "positionStatus": "defined"
+        },
+        {
+          "id": "4",
+          "label": "posterior_choana_R",
+          "description": "proposed",
+          "associatedNodeID": "",
+          "position": [
+            -18.207581541873157,
+            -164.26871330017192,
+            -658.9309345321483
+          ],
+          "orientation": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "selected": true,
+          "locked": true,
+          "visibility": true,
+          "positionStatus": "defined"
+        },
+        {
+          "id": "5",
+          "label": "nasopharynx_outlet",
+          "description": "proposed",
+          "associatedNodeID": "",
+          "position": [
+            -11.516358289822167,
+            -158.33160182579724,
+            -666.2174786671997
+          ],
+          "orientation": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "selected": true,
+          "locked": true,
+          "visibility": true,
+          "positionStatus": "defined"
+        }
+      ],
+      "measurements": []
+    }
+  ]
+}

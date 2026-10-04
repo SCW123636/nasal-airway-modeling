@@ -1,0 +1,522 @@
+{
+  "schema_note": "manifest 字段定义来自外部策略文档(GPT 吸收)，单位固定 mm，坐标系 default LPS",
+  "global": {
+    "unit": "mm",
+    "coordinate_system_default": "LPS",
+    "slicer_internal": "RAS (加载时 x,y 取反)",
+    "thresholds_HU": {
+      "T300": -300,
+      "T350": -350,
+      "T400": -400,
+      "primary": "T300"
+    },
+    "phi_warning": "本 manifest 几何来自原始 B 块(含 PHI：患者/医生真名+医院地址)。对外交付的 CFD 网格/结果必须改用 资料/脱敏数据_clean/ (B') 同源几何。"
+  },
+  "series": [
+    {
+      "label": "例0_Bone_0.35mm",
+      "role": "CFD-primary",
+      "source_series_uid": "1.2.826.0.1.3680043.8.498.16148240650051698915864202078781670203",
+      "manufacturer": "Philips",
+      "institution": "",
+      "modality": "CT",
+      "convolution_kernel": "YB",
+      "unit": "mm",
+      "coordinate_system": "LPS",
+      "spacing_xyz": [
+        0.3496,
+        0.3496,
+        0.35
+      ],
+      "origin_xyz": [
+        -96.4922,
+        -261.4,
+        -703.79
+      ],
+      "affine_4x4_LPS": [
+        [
+          0.3496,
+          0.0,
+          -0.0,
+          -96.4922
+        ],
+        [
+          0.0,
+          0.3496,
+          0.0,
+          -261.4
+        ],
+        [
+          0.0,
+          -0.0,
+          0.35,
+          -703.79
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "ipp_first": [
+        -96.4922,
+        -261.4,
+        -703.79
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -0.0
+      ],
+      "normal_unit": [
+        -0.0,
+        0.0,
+        1.0
+      ],
+      "tag_slice_thickness": 0.35,
+      "dz_verified_by_ipp": 0.35,
+      "rescale_intercept": -1024.0,
+      "hu_range": [
+        -1024,
+        3716
+      ],
+      "is_isotropic_for_cfd": true,
+      "cfd_export_fields_to_fill": {
+        "resample_spacing_mm": "<填，建议各向同性，如 0.3>",
+        "smoothing_mm": "<填实际毫米数，谨慎>",
+        "decimation_ratio": "<填，如 0.5>",
+        "clip_plane_position": "<解剖裁剪面：后鼻孔/鼻咽，须 ENT 确认>",
+        "inlets": [
+          {
+            "name": "nostril_L",
+            "status": "open"
+          },
+          {
+            "name": "nostril_R",
+            "status": "open"
+          }
+        ],
+        "outlet": {
+          "name": "nasopharynx",
+          "status": "open",
+          "bc": "0 Pa gauge (主)"
+        },
+        "sinus_ostia_status": [
+          {
+            "sinus": "<额窦/上颌窦/筛窦/蝶窦>",
+            "status": "open|closed|unknown",
+            "note": "开口状态清单：有意保留 or 误封闭"
+          }
+        ]
+      }
+    },
+    {
+      "label": "患者3_t2_0.6x0.6_BONE",
+      "role": "CFD-primary",
+      "source_series_uid": "1.2.156.112605.137174099561709.260217021922.3.10336.67633",
+      "manufacturer": "UIH",
+      "institution": "中南大学湘雅三医院",
+      "modality": "CT",
+      "convolution_kernel": "H_VSHARP_C",
+      "unit": "mm",
+      "coordinate_system": "LPS",
+      "spacing_xyz": [
+        0.3672,
+        0.3672,
+        0.6
+      ],
+      "origin_xyz": [
+        -93.8164,
+        -148.7083,
+        281.2904
+      ],
+      "affine_4x4_LPS": [
+        [
+          0.3672,
+          0.0,
+          0.0,
+          -93.8164
+        ],
+        [
+          0.0,
+          0.3672,
+          0.0,
+          -148.7083
+        ],
+        [
+          0.0,
+          0.0,
+          0.6,
+          281.2904
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "ipp_first": [
+        -93.8164,
+        -148.7083,
+        392.2904
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tag_slice_thickness": 0.6,
+      "dz_verified_by_ipp": 0.6,
+      "rescale_intercept": -1024.0,
+      "hu_range": [
+        -1024,
+        8825
+      ],
+      "is_isotropic_for_cfd": false,
+      "cfd_export_fields_to_fill": {
+        "resample_spacing_mm": "<填，建议各向同性，如 0.3>",
+        "smoothing_mm": "<填实际毫米数，谨慎>",
+        "decimation_ratio": "<填，如 0.5>",
+        "clip_plane_position": "<解剖裁剪面：后鼻孔/鼻咽，须 ENT 确认>",
+        "inlets": [
+          {
+            "name": "nostril_L",
+            "status": "open"
+          },
+          {
+            "name": "nostril_R",
+            "status": "open"
+          }
+        ],
+        "outlet": {
+          "name": "nasopharynx",
+          "status": "open",
+          "bc": "0 Pa gauge (主)"
+        },
+        "sinus_ostia_status": [
+          {
+            "sinus": "<额窦/上颌窦/筛窦/蝶窦>",
+            "status": "open|closed|unknown",
+            "note": "开口状态清单：有意保留 or 误封闭"
+          }
+        ]
+      }
+    },
+    {
+      "label": "患者3_t1_1.0x0.5_bone",
+      "role": "eval-longitudinal",
+      "source_series_uid": "1.2.156.112605.189250954619708.250709063732.3.5564.53258",
+      "manufacturer": "UIH",
+      "institution": "中南大学湘雅三医院",
+      "modality": "CT",
+      "convolution_kernel": "H_VSHARP_C",
+      "unit": "mm",
+      "coordinate_system": "LPS",
+      "spacing_xyz": [
+        0.4668,
+        0.4668,
+        0.5
+      ],
+      "origin_xyz": [
+        -119.2666,
+        -147.9636,
+        775.0284
+      ],
+      "affine_4x4_LPS": [
+        [
+          0.4668,
+          0.0,
+          0.0,
+          -119.2666
+        ],
+        [
+          0.0,
+          0.4668,
+          0.0,
+          -147.9636
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          775.0284
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "ipp_first": [
+        -119.2666,
+        -147.9636,
+        890.5284
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tag_slice_thickness": 1.0,
+      "dz_verified_by_ipp": 0.5,
+      "rescale_intercept": -1024.0,
+      "hu_range": [
+        -1023,
+        40487
+      ],
+      "is_isotropic_for_cfd": true,
+      "cfd_export_fields_to_fill": {
+        "resample_spacing_mm": "<填，建议各向同性，如 0.3>",
+        "smoothing_mm": "<填实际毫米数，谨慎>",
+        "decimation_ratio": "<填，如 0.5>",
+        "clip_plane_position": "<解剖裁剪面：后鼻孔/鼻咽，须 ENT 确认>",
+        "inlets": [
+          {
+            "name": "nostril_L",
+            "status": "open"
+          },
+          {
+            "name": "nostril_R",
+            "status": "open"
+          }
+        ],
+        "outlet": {
+          "name": "nasopharynx",
+          "status": "open",
+          "bc": "0 Pa gauge (主)"
+        },
+        "sinus_ostia_status": [
+          {
+            "sinus": "<额窦/上颌窦/筛窦/蝶窦>",
+            "status": "open|closed|unknown",
+            "note": "开口状态清单：有意保留 or 误封闭"
+          }
+        ]
+      }
+    },
+    {
+      "label": "患者1_1.0x0.8_Bone",
+      "role": "eval-robustness",
+      "source_series_uid": "1.2.156.112605.66988329202957.260127070552.3.6012.103316",
+      "manufacturer": "UIH",
+      "institution": "Shenzhen Second People's Hospital",
+      "modality": "CT",
+      "convolution_kernel": "H_SHARP_C",
+      "unit": "mm",
+      "coordinate_system": "LPS",
+      "spacing_xyz": [
+        0.3477,
+        0.3477,
+        0.8
+      ],
+      "origin_xyz": [
+        -96.0762,
+        -120.2537,
+        139.3293
+      ],
+      "affine_4x4_LPS": [
+        [
+          0.3477,
+          0.0,
+          0.0,
+          -96.0762
+        ],
+        [
+          0.0,
+          0.3477,
+          0.0,
+          -120.2537
+        ],
+        [
+          0.0,
+          0.0,
+          0.8,
+          139.3293
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "ipp_first": [
+        -96.0762,
+        -120.2537,
+        139.3293
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tag_slice_thickness": 1.0,
+      "dz_verified_by_ipp": 0.8,
+      "rescale_intercept": -1024.0,
+      "hu_range": [
+        -1023,
+        64511
+      ],
+      "is_isotropic_for_cfd": false,
+      "cfd_export_fields_to_fill": {
+        "resample_spacing_mm": "<填，建议各向同性，如 0.3>",
+        "smoothing_mm": "<填实际毫米数，谨慎>",
+        "decimation_ratio": "<填，如 0.5>",
+        "clip_plane_position": "<解剖裁剪面：后鼻孔/鼻咽，须 ENT 确认>",
+        "inlets": [
+          {
+            "name": "nostril_L",
+            "status": "open"
+          },
+          {
+            "name": "nostril_R",
+            "status": "open"
+          }
+        ],
+        "outlet": {
+          "name": "nasopharynx",
+          "status": "open",
+          "bc": "0 Pa gauge (主)"
+        },
+        "sinus_ostia_status": [
+          {
+            "sinus": "<额窦/上颌窦/筛窦/蝶窦>",
+            "status": "open|closed|unknown",
+            "note": "开口状态清单：有意保留 or 误封闭"
+          }
+        ]
+      }
+    },
+    {
+      "label": "患者2_Sinus0.75_H40s",
+      "role": "eval-robustness",
+      "source_series_uid": "1.3.12.2.1107.5.1.4.74406.30000025090200282732400005700",
+      "manufacturer": "SIEMENS",
+      "institution": "EENT Hospital of Fudan Univ.",
+      "modality": "CT",
+      "convolution_kernel": "H40s",
+      "unit": "mm",
+      "coordinate_system": "LPS",
+      "spacing_xyz": [
+        0.459,
+        0.459,
+        0.5
+      ],
+      "origin_xyz": [
+        -117.2705,
+        -271.2705,
+        -650.5
+      ],
+      "affine_4x4_LPS": [
+        [
+          0.459,
+          0.0,
+          0.0,
+          -117.2705
+        ],
+        [
+          0.0,
+          0.459,
+          0.0,
+          -271.2705
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -650.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "ipp_first": [
+        -117.2705,
+        -271.2705,
+        -508.0
+      ],
+      "iop_first": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "normal_unit": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tag_slice_thickness": 0.75,
+      "dz_verified_by_ipp": 0.5,
+      "rescale_intercept": -1024.0,
+      "hu_range": [
+        -1024,
+        3071
+      ],
+      "is_isotropic_for_cfd": true,
+      "cfd_export_fields_to_fill": {
+        "resample_spacing_mm": "<填，建议各向同性，如 0.3>",
+        "smoothing_mm": "<填实际毫米数，谨慎>",
+        "decimation_ratio": "<填，如 0.5>",
+        "clip_plane_position": "<解剖裁剪面：后鼻孔/鼻咽，须 ENT 确认>",
+        "inlets": [
+          {
+            "name": "nostril_L",
+            "status": "open"
+          },
+          {
+            "name": "nostril_R",
+            "status": "open"
+          }
+        ],
+        "outlet": {
+          "name": "nasopharynx",
+          "status": "open",
+          "bc": "0 Pa gauge (主)"
+        },
+        "sinus_ostia_status": [
+          {
+            "sinus": "<额窦/上颌窦/筛窦/蝶窦>",
+            "status": "open|closed|unknown",
+            "note": "开口状态清单：有意保留 or 误封闭"
+          }
+        ]
+      }
+    }
+  ]
+}

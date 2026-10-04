@@ -1,0 +1,574 @@
+{
+  "schema": "auto_anatomy_summary/v1",
+  "generated_at": "2026-10-03T11:03:15.170804+08:00",
+  "base_dir": "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_check",
+  "qc_base": "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\qc_check",
+  "assembly_status": "complete",
+  "input_problems": [],
+  "expected_cohort": {
+    "patients": 4,
+    "scans": 5
+  },
+  "selected_cases": [
+    "p0"
+  ],
+  "case_subset_requested": true,
+  "known_cases_not_selected": [
+    "p1",
+    "p2",
+    "p3",
+    "p3t1"
+  ],
+  "loaded_scan_count": 1,
+  "loaded_known_patient_count": 1,
+  "source_schemas": [
+    "auto_anatomy_landmarks/v2"
+  ],
+  "landmark_status_counts": {
+    "proposed": 5
+  },
+  "cases": {
+    "p0": {
+      "case": "p0",
+      "patient": "患者0",
+      "timepoint": "单次扫描",
+      "input_errors": [],
+      "source_landmarks": "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\pipeline_check\\p0\\landmarks.json",
+      "source_qc": "D:\\项目\\鼻腔建模\\work\\09_coarse_localization\\qc_check\\p0\\gate_p0.json",
+      "landmarks": {
+        "nostril_L": {
+          "label": "左鼻孔入口 (left nostril inlet)",
+          "status": "proposed",
+          "point_lps_mm": [
+            -14.23892636399821,
+            -234.66605581608877,
+            -668.7812194994518
+          ],
+          "normal_lps": [
+            0.05254286626437159,
+            0.34250093981592405,
+            0.9380470955287551
+          ],
+          "palate_frame_left_posterior_superior_mm": [
+            6.136850477378833,
+            -40.16375442539503,
+            8.888630877631256
+          ],
+          "threshold_drift_mm": 0.05309644075867632,
+          "threshold_normal_change_deg": 0.29722740120319613,
+          "secondary_patch_ratio_base": 0.0,
+          "secondary_patch_ratio_max_across_thresholds": 0.0,
+          "patch_count_base": 1,
+          "threshold_variants_found": 3,
+          "samples_base": 959,
+          "plane_rms_mm": 0.4385027028234135,
+          "consistency_checks": {
+            "all_three_thresholds_found": true,
+            "enough_patch_samples": true,
+            "plane_residual_within_engineering_limit": true,
+            "threshold_position_stable": true,
+            "threshold_direction_stable": true,
+            "no_competing_large_patch": true
+          },
+          "review_reasons": [],
+          "clinical_validation": "not_validated",
+          "is_human_confirmed": false,
+          "source_clinical_validation": "not_validated"
+        },
+        "nostril_R": {
+          "label": "右鼻孔入口 (right nostril inlet)",
+          "status": "proposed",
+          "point_lps_mm": [
+            -31.96022610617594,
+            -231.20129686104153,
+            -669.4075820062977
+          ],
+          "normal_lps": [
+            0.13515789971652484,
+            0.10054565511992941,
+            0.9857093452842587
+          ],
+          "palate_frame_left_posterior_superior_mm": [
+            -11.868401962254763,
+            -38.86046441586567,
+            8.144541571969485
+          ],
+          "threshold_drift_mm": 0.047090082714951194,
+          "threshold_normal_change_deg": 0.15151512064132525,
+          "secondary_patch_ratio_base": 0.0,
+          "secondary_patch_ratio_max_across_thresholds": 0.0,
+          "patch_count_base": 1,
+          "threshold_variants_found": 3,
+          "samples_base": 943,
+          "plane_rms_mm": 0.403949009214024,
+          "consistency_checks": {
+            "all_three_thresholds_found": true,
+            "enough_patch_samples": true,
+            "plane_residual_within_engineering_limit": true,
+            "threshold_position_stable": true,
+            "threshold_direction_stable": true,
+            "no_competing_large_patch": true
+          },
+          "review_reasons": [],
+          "clinical_validation": "not_validated",
+          "is_human_confirmed": false,
+          "source_clinical_validation": "not_validated"
+        },
+        "posterior_choana_L": {
+          "label": "左后鼻孔候选 (left posterior choana)",
+          "status": "proposed",
+          "point_lps_mm": [
+            -6.691918397033718,
+            -165.74633159482363,
+            -659.0591225993355
+          ],
+          "normal_lps": [
+            0.02703115023677018,
+            -0.9625500195353549,
+            0.2697531775704691
+          ],
+          "palate_frame_left_posterior_superior_mm": [
+            5.846327782079464,
+            29.758565602677272,
+            5.397264013597413
+          ],
+          "threshold_drift_mm": 0.01854787920060287,
+          "threshold_normal_change_deg": 0.05167624426278362,
+          "secondary_patch_ratio_base": 0.0,
+          "secondary_patch_ratio_max_across_thresholds": 0.0,
+          "patch_count_base": 1,
+          "threshold_variants_found": 3,
+          "samples_base": 1349,
+          "plane_rms_mm": 0.7006006449577746,
+          "consistency_checks": {
+            "all_three_thresholds_found": true,
+            "enough_patch_samples": true,
+            "plane_residual_within_engineering_limit": true,
+            "threshold_position_stable": true,
+            "threshold_direction_stable": true,
+            "no_competing_large_patch": true
+          },
+          "review_reasons": [],
+          "clinical_validation": "not_validated",
+          "is_human_confirmed": false,
+          "source_clinical_validation": "not_validated"
+        },
+        "posterior_choana_R": {
+          "label": "右后鼻孔候选 (right posterior choana)",
+          "status": "proposed",
+          "point_lps_mm": [
+            -18.207581541873157,
+            -164.26871330017192,
+            -658.9309345321483
+          ],
+          "normal_lps": [
+            -0.2228704247504877,
+            -0.9414144607617161,
+            0.2531157577873496
+          ],
+          "palate_frame_left_posterior_superior_mm": [
+            -5.761370327947469,
+            29.95094786387259,
+            5.583326698535966
+          ],
+          "threshold_drift_mm": 0.008016230975024704,
+          "threshold_normal_change_deg": 0.06486187980774413,
+          "secondary_patch_ratio_base": 0.0,
+          "secondary_patch_ratio_max_across_thresholds": 0.0,
+          "patch_count_base": 1,
+          "threshold_variants_found": 3,
+          "samples_base": 1559,
+          "plane_rms_mm": 0.873575317084408,
+          "consistency_checks": {
+            "all_three_thresholds_found": true,
+            "enough_patch_samples": true,
+            "plane_residual_within_engineering_limit": true,
+            "threshold_position_stable": true,
+            "threshold_direction_stable": true,
+            "no_competing_large_patch": true
+          },
+          "review_reasons": [],
+          "clinical_validation": "not_validated",
+          "is_human_confirmed": false,
+          "source_clinical_validation": "not_validated"
+        },
+        "nasopharynx_outlet": {
+          "label": "鼻咽出口候选 (nasopharynx outlet)",
+          "status": "proposed",
+          "point_lps_mm": [
+            -11.516358289822167,
+            -158.33160182579724,
+            -666.2174786671997
+          ],
+          "normal_lps": [
+            -0.0170798987760283,
+            0.0004106188129102961,
+            0.9998540435733564
+          ],
+          "palate_frame_left_posterior_superior_mm": [
+            0.1515399261053544,
+            35.1143869288966,
+            -2.871960171185957
+          ],
+          "threshold_drift_mm": 0.03308662280696572,
+          "threshold_normal_change_deg": 0.05923582223353894,
+          "secondary_patch_ratio_base": 0.0,
+          "secondary_patch_ratio_max_across_thresholds": 0.0,
+          "patch_count_base": 1,
+          "threshold_variants_found": 3,
+          "samples_base": 2130,
+          "plane_rms_mm": 0.1929179769165822,
+          "consistency_checks": {
+            "all_three_thresholds_found": true,
+            "enough_patch_samples": true,
+            "plane_residual_within_engineering_limit": true,
+            "threshold_position_stable": true,
+            "threshold_direction_stable": true,
+            "no_competing_large_patch": true
+          },
+          "review_reasons": [],
+          "clinical_validation": "not_validated",
+          "is_human_confirmed": false,
+          "source_clinical_validation": "not_validated"
+        }
+      },
+      "review_queue": [],
+      "source_landmarks_sha256": "29f98f91dc281ec4494189dee67549021ef40a1c817fa1176c5f132af409d585",
+      "source_schema": "auto_anatomy_landmarks/v2",
+      "proposal_hash": "df9568ebdaa148f619a5977d48332b1e360977b78c929e67c6d02257cb40a094",
+      "source_qc_sha256": "d833819749416ae6c84172e9de7ae68740d1c31a8b6b14ffbe4057b100436466",
+      "palate_local_frame": {
+        "usable": true,
+        "origin_lps_mm": [
+          -15.634430988096314,
+          -193.11663499765285,
+          -670.0035364389432
+        ],
+        "basis_rows_left_posterior_superior": [
+          [
+            0.9934380756630385,
+            -0.1141038352036061,
+            0.00781694407984277
+          ],
+          [
+            0.11060917413461212,
+            0.9758991323020555,
+            0.188112982458294
+          ],
+          [
+            -0.029092961694852263,
+            -0.1860139735716746,
+            0.9821162870128457
+          ]
+        ],
+        "orthonormal_error": 2.220446049250313e-16,
+        "axes": [
+          "left",
+          "posterior",
+          "superior"
+        ],
+        "unit": "mm",
+        "reason": null
+      },
+      "qc_geometry_consistent_with_landmark_source": true,
+      "data_integrity": {
+        "status": "pass",
+        "qc_overall_status": "provisional",
+        "audit_version": "2.0",
+        "hard_failures": [],
+        "warnings": [
+          "label touches image boundary: oropharynx (z_min)",
+          "left nasal air contains components disconnected from nasopharynx in 6-neighborhood",
+          "right nasal air contains components disconnected from nasopharynx in 6-neighborhood"
+        ],
+        "fov_boundary_contacts": {
+          "oropharynx": {
+            "touches_image_boundary": true,
+            "index_faces": [
+              "z_min"
+            ],
+            "interpretation": "label reaches acquisition grid boundary; anatomical truncation not proven"
+          }
+        },
+        "candidate_volume_mL": 25.056,
+        "components_6_connected": {
+          "count": 4,
+          "largest_voxels": 585690,
+          "nonlargest_voxels": 3,
+          "largest_fraction": 0.99999488,
+          "sizes_mL_largest_first": [
+            25.0554,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "bbox_zyx_inclusive": [
+            [
+              94,
+              225
+            ],
+            [
+              61,
+              320
+            ],
+            [
+              171,
+              286
+            ]
+          ],
+          "connectivity": 6
+        },
+        "components_26_connected": {
+          "count": 3,
+          "largest_voxels": 585691,
+          "nonlargest_voxels": 2,
+          "largest_fraction": 0.99999659,
+          "sizes_mL_largest_first": [
+            25.0554,
+            0.0,
+            0.0
+          ],
+          "bbox_zyx_inclusive": [
+            [
+              94,
+              225
+            ],
+            [
+              61,
+              320
+            ],
+            [
+              171,
+              286
+            ]
+          ],
+          "connectivity": 26
+        },
+        "nasal_to_nasopharynx_paths": {
+          "interpretation": "discrete ipsilateral label paths; no nostril/outlet endpoints or finite-caliber lumen validation",
+          "left": {
+            "connectivity_6": {
+              "connectivity": 6,
+              "source_voxels": 294216,
+              "target_voxels": 76154,
+              "direct_contact": true,
+              "direct_contact_target_voxels": 1179,
+              "shared_path_exists": true,
+              "source_voxels_reaching_target": 294215,
+              "source_fraction_reaching_target": 0.999997,
+              "largest_source_component_voxels": 294215,
+              "largest_source_component_reaches_target": true,
+              "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+              "status": "voxel_path_observed"
+            },
+            "connectivity_26": {
+              "connectivity": 26,
+              "source_voxels": 294216,
+              "target_voxels": 76154,
+              "direct_contact": true,
+              "direct_contact_target_voxels": 1392,
+              "shared_path_exists": true,
+              "source_voxels_reaching_target": 294215,
+              "source_fraction_reaching_target": 0.999997,
+              "largest_source_component_voxels": 294215,
+              "largest_source_component_reaches_target": true,
+              "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+              "status": "voxel_path_observed"
+            },
+            "diagonal_only_contact": false,
+            "inlet_to_outlet_patency": "not_assessed"
+          },
+          "right": {
+            "connectivity_6": {
+              "connectivity": 6,
+              "source_voxels": 215323,
+              "target_voxels": 76154,
+              "direct_contact": true,
+              "direct_contact_target_voxels": 1289,
+              "shared_path_exists": true,
+              "source_voxels_reaching_target": 215321,
+              "source_fraction_reaching_target": 0.999991,
+              "largest_source_component_voxels": 215321,
+              "largest_source_component_reaches_target": true,
+              "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+              "status": "voxel_path_observed"
+            },
+            "connectivity_26": {
+              "connectivity": 26,
+              "source_voxels": 215323,
+              "target_voxels": 76154,
+              "direct_contact": true,
+              "direct_contact_target_voxels": 1664,
+              "shared_path_exists": true,
+              "source_voxels_reaching_target": 215322,
+              "source_fraction_reaching_target": 0.999995,
+              "largest_source_component_voxels": 215322,
+              "largest_source_component_reaches_target": true,
+              "domain": "ipsilateral_nasal_air_union_nasopharynx_air",
+              "status": "voxel_path_observed"
+            },
+            "diagonal_only_contact": false,
+            "inlet_to_outlet_patency": "not_assessed"
+          }
+        },
+        "medical_or_cfd_validation_pass": false
+      },
+      "source_review_queue": [],
+      "status_counts": {
+        "proposed": 5
+      },
+      "unresolved_anatomy": [
+        "鼻阀 (nasal valve)",
+        "鼻阈 (limen nasi)",
+        "嗅裂 (olfactory cleft)",
+        "鼻甲 (turbinate) 间隙",
+        "鼻窦 (paranasal sinus) 自然开口状态"
+      ]
+    }
+  },
+  "p3_timepoint_descriptors": {
+    "status": "unavailable_requires_p3t1_and_p3",
+    "patient": "患者3",
+    "scan_t1": "p3t1",
+    "scan_t2": "p3",
+    "axes": [
+      "left",
+      "posterior",
+      "superior"
+    ],
+    "unit": "mm",
+    "scans": {
+      "p3t1": {
+        "palate_frame_coordinates_mm": {},
+        "within_scan_distances": {
+          "left_inlet_to_choana": {
+            "distance_mm": null,
+            "endpoints": [
+              "nostril_L",
+              "posterior_choana_L"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          },
+          "right_inlet_to_choana": {
+            "distance_mm": null,
+            "endpoints": [
+              "nostril_R",
+              "posterior_choana_R"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          },
+          "bilateral_inlet_separation": {
+            "distance_mm": null,
+            "endpoints": [
+              "nostril_L",
+              "nostril_R"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          },
+          "bilateral_choana_separation": {
+            "distance_mm": null,
+            "endpoints": [
+              "posterior_choana_L",
+              "posterior_choana_R"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          }
+        }
+      },
+      "p3": {
+        "palate_frame_coordinates_mm": {},
+        "within_scan_distances": {
+          "left_inlet_to_choana": {
+            "distance_mm": null,
+            "endpoints": [
+              "nostril_L",
+              "posterior_choana_L"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          },
+          "right_inlet_to_choana": {
+            "distance_mm": null,
+            "endpoints": [
+              "nostril_R",
+              "posterior_choana_R"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          },
+          "bilateral_inlet_separation": {
+            "distance_mm": null,
+            "endpoints": [
+              "nostril_L",
+              "nostril_R"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          },
+          "bilateral_choana_separation": {
+            "distance_mm": null,
+            "endpoints": [
+              "posterior_choana_L",
+              "posterior_choana_R"
+            ],
+            "endpoint_statuses": [
+              null,
+              null
+            ],
+            "definition": "same-scan Euclidean candidate-point distance; not centerline length"
+          }
+        }
+      }
+    },
+    "raw_cross_scan_LPS_subtraction_performed": false,
+    "independent_registration_performed": false,
+    "longitudinal_accuracy_estimated": false,
+    "treatment_effect_inferred": false,
+    "limitations": [
+      "分别投影至各自硬腭 (hard palate) 局部框架；并非独立影像配准。",
+      "局部框架仍依赖本次语义分割和鼻腔/鼻咽相对位置，不能当作稳定金标准。",
+      "同扫描候选点间欧氏距离不是中心线长度或气流阻力。",
+      "扫描协议、阈值、框架估计和候选定义可产生差异；不据此推断手术疗效。"
+    ],
+    "available_timepoints": []
+  },
+  "validation": {
+    "human_reference_annotations_available": false,
+    "initial_clinical_validation_performed": false,
+    "accuracy_estimated": false,
+    "medical_or_cfd_validation_pass": false,
+    "interpretation": "threshold stability is repeatability evidence, not anatomical accuracy"
+  },
+  "unresolved_anatomy": [
+    "鼻阀 (nasal valve)",
+    "鼻阈 (limen nasi)",
+    "嗅裂 (olfactory cleft)",
+    "鼻甲 (turbinate) 间隙",
+    "鼻窦 (paranasal sinus) 自然开口状态"
+  ]
+}

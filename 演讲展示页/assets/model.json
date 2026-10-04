@@ -1,0 +1,75 @@
+{
+  "case": "p0",
+  "status": "unreviewed_candidate_preview",
+  "display_geometry_only": true,
+  "cfd_ready": false,
+  "vertices": 57453,
+  "triangles": 114906,
+  "positions": "airway-positions.bin",
+  "indices": "airway-indices.bin",
+  "landmarks": [
+    {
+      "key": "nostril_L",
+      "label": "左鼻孔入口",
+      "status": "proposed",
+      "position": [
+        0.07032629327669607,
+        -0.618315435117077,
+        1.1841764514449844
+      ]
+    },
+    {
+      "key": "posterior_choana_L",
+      "label": "左后鼻孔候选",
+      "status": "proposed",
+      "position": [
+        0.2944989405528084,
+        -0.3295350060100767,
+        -0.8629814548205851
+      ]
+    },
+    {
+      "key": "nostril_R",
+      "label": "右鼻孔入口",
+      "status": "proposed",
+      "position": [
+        -0.45605855933865275,
+        -0.6369206018174144,
+        1.0812609396916613
+      ]
+    },
+    {
+      "key": "posterior_choana_R",
+      "label": "右后鼻孔候选",
+      "status": "proposed",
+      "position": [
+        -0.047556706349725655,
+        -0.32572737012359576,
+        -0.9068719086568114
+      ]
+    },
+    {
+      "key": "nasopharynx_outlet",
+      "label": "鼻咽出口候选",
+      "status": "proposed",
+      "position": [
+        0.15119612874646723,
+        -0.5421633266508404,
+        -1.0832249749593605
+      ]
+    }
+  ],
+  "source_sha256": "0677de382f5eccc42b191cf1fdf13a1aedb3ed2924b8a2ce040448b6c49efb7f",
+  "display_transform": {
+    "source_coordinate_system": "LPS",
+    "source_unit": "mm",
+    "center_lps_mm": [
+      -16.606535,
+      -194.79951,
+      -647.96498
+    ],
+    "uniform_scale": 0.029703512737416324,
+    "mapping": "(x-center_x, z-center_z, -(y-center_y))*scale"
+  },
+  "note": "Display mesh, unreviewed; all added particle paths are concept animation, not CFD."
+}

@@ -1,0 +1,293 @@
+{
+  "schema": "coarse_anatomy_prior/v1",
+  "coordinate_system": "LPS",
+  "unit": "mm",
+  "status": "available",
+  "target_descriptor": {
+    "schema": "coarse_anatomy_descriptor/v1",
+    "coordinate_system": "LPS",
+    "unit": "mm",
+    "frame": {
+      "origin_lps_mm": [
+        15.15941906577758,
+        -67.19415162204584,
+        796.0535506423175
+      ],
+      "superior_lps": [
+        0.04314546436620452,
+        -0.10024923374433829,
+        0.9940264382994537
+      ],
+      "posterior_lps": [
+        -0.16484757591619154,
+        0.9806011328231361,
+        0.1060504362109728
+      ],
+      "left_lps": [
+        0.9853749264209944,
+        0.16843844406683167,
+        -0.02578264806347057
+      ],
+      "palate_fit": {
+        "point_lps_mm": [
+          15.15941906577758,
+          -67.19415162204584,
+          796.0535506423175
+        ],
+        "normal_lps": [
+          0.04314546436620452,
+          -0.10024923374433829,
+          0.9940264382994537
+        ],
+        "samples": 25171,
+        "rms_mm": 1.2263064765396434,
+        "p95_residual_mm": 2.3796411852245383,
+        "planarity_ratio": 0.16377176646978003,
+        "roi_lps_mm": {
+          "min": [
+            -4.1005859375,
+            -86.012451171875,
+            788.0284423828125
+          ],
+          "max": [
+            32.5751953125,
+            -41.867919921875,
+            801.5284423828125
+          ]
+        }
+      },
+      "note": "Palate plane defines coordinates only; it is not an oral barrier."
+    },
+    "structure": "bilateral semantic nasal cavity",
+    "axes": [
+      "patient_left",
+      "posterior",
+      "superior"
+    ],
+    "bounds_quantiles": [
+      0.005,
+      0.995
+    ],
+    "local_bounds_mm": {
+      "min": [
+        -16.436556510978065,
+        -50.83145158668074,
+        -0.6877420879925388
+      ],
+      "max": [
+        15.517568090972553,
+        36.39322291571408,
+        47.20060772103643
+      ]
+    },
+    "span_mm": [
+      31.954124601950618,
+      87.22467450239482,
+      47.888349809028966
+    ],
+    "exact_extrema_local_mm": {
+      "min": [
+        -17.85610782317785,
+        -53.74832520330814,
+        -2.2112019293236855
+      ],
+      "max": [
+        17.160377267090873,
+        44.061264681308835,
+        51.09392488809411
+      ]
+    },
+    "exact_extrema_lps_mm": {
+      "min": [
+        -4.9013671875,
+        -121.356201171875,
+        797.0284423828125
+      ],
+      "max": [
+        34.3095703125,
+        -26.596435546875,
+        845.5284423828125
+      ]
+    },
+    "fov_truncated_labels": {
+      "nasal_cavity_left": false,
+      "nasal_cavity_right": false,
+      "nasopharynx": false,
+      "oropharynx": true,
+      "hard_palate": false,
+      "soft_palate": true
+    },
+    "eligible": true,
+    "reasons": []
+  },
+  "parameters": {
+    "bounds_quantiles": [
+      0.005,
+      0.995
+    ],
+    "scale_range": [
+      0.7,
+      1.4
+    ],
+    "minimum_independent_patients": 2,
+    "search_margin_mm": 10.0,
+    "maximum_reference_spread_mm": 12.0,
+    "minimum_span_mm": 1.0,
+    "maximum_palate_rms_mm": 1.5,
+    "note": "Engineering settings; search boxes are not confidence intervals."
+  },
+  "accepted_references": [
+    {
+      "case": "p0",
+      "patient_id": "p0",
+      "scale_left_posterior_superior": [
+        1.0553033998945818,
+        1.1704362479512236,
+        1.0943131263433024
+      ]
+    },
+    {
+      "case": "p1",
+      "patient_id": "p1",
+      "scale_left_posterior_superior": [
+        1.2369282223685256,
+        1.2701338903325603,
+        1.0906549547896458
+      ]
+    }
+  ],
+  "excluded_references": [
+    {
+      "case": "p2",
+      "reason": "incomplete reference structure/frame"
+    },
+    {
+      "case": "p3",
+      "reason": "same case, patient or CT content"
+    },
+    {
+      "case": "p3t1",
+      "reason": "same case, patient or CT content"
+    }
+  ],
+  "landmarks": {
+    "nostril_L": {
+      "point_lps_mm": [
+        32.01325208291189,
+        -112.77543093283055,
+        798.8349697106914
+      ],
+      "independent_patients": 2,
+      "reference_spread_local_mm": [
+        2.3332354314073687,
+        0.7363860047313153,
+        1.6146528290788869
+      ],
+      "status": "search_prior",
+      "local_search_box_mm": {
+        "min": [
+          -3.475243076878078,
+          -57.91678294469888,
+          -3.5531939632574296
+        ],
+        "max": [
+          21.19122778593666,
+          -36.44401093523625,
+          19.676111694900342
+        ]
+      },
+      "normal_lps": null,
+      "clinical_validation": "not_validated",
+      "confidence_probability": null
+    },
+    "nostril_R": {
+      "point_lps_mm": [
+        12.108205847397704,
+        -115.27075752161869,
+        799.0133659784071
+      ],
+      "independent_patients": 2,
+      "reference_spread_local_mm": [
+        1.2953976209462343,
+        0.06426567869004884,
+        1.2317134127122946
+      ],
+      "status": "search_prior",
+      "local_search_box_mm": {
+        "min": [
+          -22.47624719238364,
+          -56.39136507595306,
+          -3.6015818248816336
+        ],
+        "max": [
+          0.11454804950882824,
+          -36.26283371857296,
+          18.861845000542957
+        ]
+      },
+      "normal_lps": null,
+      "clinical_validation": "not_validated",
+      "confidence_probability": null
+    },
+    "posterior_choana_L": {
+      "point_lps_mm": [
+        15.889079715326126,
+        -32.678490039752845,
+        805.2535267898294
+      ],
+      "independent_patients": 2,
+      "reference_spread_local_mm": [
+        0.07738655949035778,
+        0.7786405849884446,
+        0.139130662606207
+      ],
+      "status": "search_prior",
+      "local_search_box_mm": {
+        "min": [
+          -3.781832664974038,
+          23.922834957002728,
+          -4.422798218504324
+        ],
+        "max": [
+          16.372940454006674,
+          45.48011612697962,
+          15.855463106708088
+        ]
+      },
+      "normal_lps": null,
+      "clinical_validation": "not_validated",
+      "confidence_probability": null
+    },
+    "posterior_choana_R": {
+      "point_lps_mm": [
+        3.2236182403533054,
+        -35.17282548095823,
+        805.597961034472
+      ],
+      "independent_patients": 2,
+      "reference_spread_local_mm": [
+        0.5822207366456071,
+        0.23191927763524234,
+        0.296766755694458
+      ],
+      "status": "search_prior",
+      "local_search_box_mm": {
+        "min": [
+          -17.195917418726584,
+          24.148006128968554,
+          -4.534459566229948
+        ],
+        "max": [
+          3.9685240545646288,
+          44.61184468423904,
+          16.059073945158968
+        ]
+      },
+      "normal_lps": null,
+      "clinical_validation": "not_validated",
+      "confidence_probability": null
+    }
+  },
+  "purpose": "Initial search position only; target CT evidence remains required.",
+  "usage": "exploratory comparison only; unconfirmed candidates excluded from production library"
+}

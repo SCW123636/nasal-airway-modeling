@@ -1,0 +1,135 @@
+{
+  "schema": "anatomy_barrier_review/v2",
+  "coordinate_system": "LPS",
+  "unit": "mm",
+  "generated_by": "auto_anatomy_landmarks",
+  "proposal_hash": "df9568ebdaa148f619a5977d48332b1e360977b78c929e67c6d02257cb40a094",
+  "planes_lps": {
+    "nostril_L": {
+      "status": "proposed",
+      "point_lps_mm": [
+        -14.23892636399821,
+        -234.66605581608877,
+        -668.7812194994518
+      ],
+      "normal_lps": [
+        0.05254286626437159,
+        0.34250093981592405,
+        0.9380470955287551
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -21.22860124707222,
+          -241.37465819716454,
+          -672.8899785876274
+        ],
+        "max": [
+          -6.740331619977951,
+          -225.83756160736084,
+          -663.9899786710739
+        ]
+      },
+      "keep_positive": true,
+      "localization_checks": {
+        "all_three_thresholds_found": true,
+        "enough_patch_samples": true,
+        "plane_residual_within_engineering_limit": true,
+        "threshold_position_stable": true,
+        "threshold_direction_stable": true,
+        "no_competing_large_patch": true
+      },
+      "source_proposal_hash": "df9568ebdaa148f619a5977d48332b1e360977b78c929e67c6d02257cb40a094"
+    },
+    "nostril_R": {
+      "status": "proposed",
+      "point_lps_mm": [
+        -31.96022610617594,
+        -231.20129686104153,
+        -669.4075820062977
+      ],
+      "normal_lps": [
+        0.13515789971652484,
+        0.10054565511992941,
+        0.9857093452842587
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -38.70905062556267,
+          -238.92739528417587,
+          -671.8399786055088
+        ],
+        "max": [
+          -24.919998973608017,
+          -222.69108071923256,
+          -665.0399786531925
+        ]
+      },
+      "keep_positive": true,
+      "localization_checks": {
+        "all_three_thresholds_found": true,
+        "enough_patch_samples": true,
+        "plane_residual_within_engineering_limit": true,
+        "threshold_position_stable": true,
+        "threshold_direction_stable": true,
+        "no_competing_large_patch": true
+      },
+      "source_proposal_hash": "df9568ebdaa148f619a5977d48332b1e360977b78c929e67c6d02257cb40a094"
+    },
+    "nasopharynx_outlet": {
+      "status": "proposed",
+      "point_lps_mm": [
+        -11.516358289822167,
+        -158.33160182579724,
+        -666.2174786671997
+      ],
+      "normal_lps": [
+        -0.0170798987760283,
+        0.0004106188129102961,
+        0.9998540435733564
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -23.675864160060883,
+          -168.30637979507446,
+          -669.2149786502123
+        ],
+        "max": [
+          0.9510661065578461,
+          -147.52514839172363,
+          -664.1649786680937
+        ]
+      },
+      "keep_positive": true,
+      "localization_checks": {
+        "all_three_thresholds_found": true,
+        "enough_patch_samples": true,
+        "plane_residual_within_engineering_limit": true,
+        "threshold_position_stable": true,
+        "threshold_direction_stable": true,
+        "no_competing_large_patch": true
+      },
+      "source_proposal_hash": "df9568ebdaa148f619a5977d48332b1e360977b78c929e67c6d02257cb40a094"
+    },
+    "oral_exclusion": {
+      "status": "unknown",
+      "same_boundary_as": "nasopharynx_outlet"
+    }
+  },
+  "openings": {
+    "nostril_L": {
+      "status": "unknown",
+      "localization_status": "proposed"
+    },
+    "nostril_R": {
+      "status": "unknown",
+      "localization_status": "proposed"
+    },
+    "nasopharynx_outlet": {
+      "status": "unknown",
+      "localization_status": "proposed"
+    }
+  },
+  "sinus_ostia": {},
+  "review_checklist": {},
+  "note": "Proposed planes only. Loading this config into the existing barrier tool performs no crop."
+}

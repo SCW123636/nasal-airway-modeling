@@ -1,0 +1,53 @@
+{
+  "params": {
+    "hu_air_max": -300,
+    "x_center": 256,
+    "x_tol": 58,
+    "min_size": 120,
+    "max_size": 8000,
+    "max_fill": 0.42,
+    "min_aspect": 1.4,
+    "nasal_x_min": 175,
+    "nasal_x_max": 292,
+    "per_layer_max": 4,
+    "min_comp_size": 20000
+  },
+  "n_components_3d": 16,
+  "kept_components": 2,
+  "kept_detail": [
+    {
+      "label": 5,
+      "size": 328934,
+      "z": [
+        129,
+        221
+      ]
+    },
+    {
+      "label": 9,
+      "size": 26973,
+      "z": [
+        197,
+        221
+      ]
+    }
+  ],
+  "total_voxels": 355907,
+  "bbox": {
+    "z": [
+      129,
+      221
+    ],
+    "y": [
+      88,
+      323
+    ],
+    "x": [
+      184,
+      280
+    ]
+  },
+  "left_voxels": 302834,
+  "right_voxels": 53073,
+  "symmetry_ratio": 0.175
+}
