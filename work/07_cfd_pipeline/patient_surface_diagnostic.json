@@ -1,0 +1,358 @@
+{
+  "schema": "patient_surface_diagnostic/v1",
+  "generated_at": "2026-10-05T14:32:35.721112+00:00",
+  "status": "blocked",
+  "patient_cfd_allowed": false,
+  "patient_cfd_results": 0,
+  "inputs": {
+    "surface": {
+      "path": "D:\\项目\\鼻腔建模\\work\\04_cfd_ready\\airway_cfd_ready.stl",
+      "sha256": "476376e531de1461d8f981c5041c9c9dcc3ee73d458792e9aa5ce3eeebf14030",
+      "points": 45002,
+      "triangles": 90004,
+      "components": [
+        90004
+      ],
+      "bounds_lps_or_surface_mm": {
+        "min": [
+          -16.149394989013672,
+          -40.243133544921875,
+          -16.21630859375
+        ],
+        "max": [
+          16.148860931396484,
+          40.243133544921875,
+          16.221956253051758
+        ]
+      },
+      "extent_mm": [
+        32.298255920410156,
+        80.48626708984375,
+        32.43826484680176
+      ],
+      "center_mm": [
+        -2.3839185784830357,
+        -0.10087106942151411,
+        -0.46710622484875575
+      ],
+      "surface_area_mm2": 11765.577176076851,
+      "closed_by_edge_counts": true,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "duplicate_triangles": 0,
+      "degenerate_triangles": 0,
+      "triangle_area_percentiles_mm2": [
+        0.0002779697733665176,
+        0.024752924624619546,
+        0.04742979478598062,
+        0.09978427507929424,
+        0.28472632455547486,
+        0.4667533469057336,
+        32.739041894728445
+      ],
+      "edge_length_percentiles_mm": [
+        0.035539395811747976,
+        0.20473447809057918,
+        0.3360146538961174,
+        0.5045461013901485,
+        1.122828785576324,
+        1.6067669550484014,
+        12.692203191172554
+      ],
+      "minimum_angle_percentiles_deg": [
+        0.22691768428273681,
+        9.283303988621576,
+        16.456754800273846,
+        37.81902968836069,
+        52.91572363703931,
+        57.159537442522776,
+        59.92498456488201
+      ],
+      "enclosed_volume_mm3": 14355.818816379993,
+      "volume_method": "vtkMassProperties; numerical estimate, self-intersection checked separately",
+      "self_intersection_check": "not_performed_by_this_script"
+    },
+    "current_mask": {
+      "path": "D:\\项目\\鼻腔建模\\work\\05_ts_seg\\p0\\anatomy\\main_nasal_airway_T300_provisional.nii.gz",
+      "sha256": "d483e085a248c13a626199b17da12a4c0f8f008a5ac131f7b0d47c11c1ccd37f",
+      "size_xyz": [
+        512,
+        512,
+        394
+      ],
+      "spacing_xyz_mm": [
+        0.34960898756980896,
+        0.34960898756980896,
+        0.3499999940395355
+      ],
+      "origin_xyz_mm": [
+        -96.4921875,
+        -261.4000244140625,
+        -703.7899780273438
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "coordinate_system": "LPS",
+      "unit": "mm",
+      "nonzero_voxels": 585693,
+      "voxel_volume_mm3": 0.042779254737829016,
+      "volume_mm3": 25055.51004516329,
+      "index_bounds_inclusive_xyz": {
+        "min": [
+          171,
+          61,
+          94
+        ],
+        "max": [
+          286,
+          320,
+          225
+        ]
+      },
+      "bounds_lps_mm": {
+        "min": [
+          -36.88385511934757,
+          -240.24868066608906,
+          -671.0649785846472
+        ],
+        "max": [
+          3.670787438750267,
+          -149.35034389793873,
+          -624.8649793714285
+        ]
+      },
+      "diagnostic_surface": {
+        "path": "C:\\ts_work\\patient_surface_audit_20261005\\p0_T300_provisional_envelope.stl",
+        "sha256": "2bd95573890491948406b5cec00d2d072d79a30eb9a935341316d1348198828a",
+        "scope": "unreviewed envelope only; not a CFD input"
+      }
+    },
+    "manifest": "D:\\项目\\鼻腔建模\\work\\05_ts_seg\\p0\\anatomy\\manifest.json",
+    "review": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\review_config_proposed.json",
+    "gate": "D:\\项目\\鼻腔建模\\work\\05_ts_seg\\p0\\gate_p0.json",
+    "metadata_sha256": {
+      "manifest": "e445485b3cb415df35e470f9e12b1cadd8ba8023c7055c5d8e59ed1d3a6f76f7",
+      "review": "64897dfa35a2368f8ecb8682dfd37a8dca051ba21972f4d5b941ce7019e9f0e1",
+      "gate": "26306f48843b7c8e5427f49365e48222ea791e3f6a81cb04598eea9d4b053cc6"
+    }
+  },
+  "geometry_comparison": {
+    "surface_extent_mm": [
+      32.298255920410156,
+      80.48626708984375,
+      32.43826484680176
+    ],
+    "mask_extent_mm": [
+      40.55464255809784,
+      90.89833676815033,
+      46.19999921321869
+    ],
+    "extent_relative_difference": [
+      -0.2035867194701503,
+      -0.11454631678095613,
+      -0.2978730433068804
+    ],
+    "surface_center_mm": [
+      -2.3839185784830357,
+      -0.10087106942151411,
+      -0.46710622484875575
+    ],
+    "mask_center_mm": [
+      -16.606533840298653,
+      -194.7995122820139,
+      -647.9649789780378
+    ],
+    "center_distance_mm": 676.2864325822458,
+    "surface_to_mask_volume_ratio": 0.5729605500148753,
+    "comparison_scope": "Descriptive only; numerical similarity cannot certify provenance or registration"
+  },
+  "surface_topology": {
+    "closed_surface_is_not_a_cfd_boundary_pass": true,
+    "interpretation": "Closure alone is not a failure: a closed CFD boundary needs separately labelled inlet/outlet caps and wall. This STL has no supplied patch mapping."
+  },
+  "review_state": {
+    "gate_status": "provisional",
+    "manual_review_required": true,
+    "medical_or_cfd_validation_pass": false,
+    "opening_statuses": {
+      "nostril_L": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "nostril_R": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "nasopharynx_outlet": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "maxillary_sinus_left": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "maxillary_sinus_right": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "frontal_sinus": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "ethmoid_sinus_left": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "ethmoid_sinus_right": {
+        "status": "unknown",
+        "review_required": true
+      },
+      "sphenoid_sinus": {
+        "status": "unknown",
+        "review_required": true
+      }
+    },
+    "proposed_plane_statuses": {
+      "nostril_L": "proposed",
+      "nostril_R": "proposed",
+      "nasopharynx_outlet": "proposed"
+    }
+  },
+  "proposed_plane_probe": {
+    "nostril_L": {
+      "status": "exploratory_only",
+      "signed_vertex_distance_percentiles_mm": [
+        -2.321233352324213,
+        0.04826735376645127,
+        5.639964389895887,
+        29.3300323922712,
+        48.41436620944167,
+        53.91312271141286,
+        58.6631446906945
+      ],
+      "positive_vertex_fraction": 0.9903864583228253,
+      "global_crossing_triangles_reference_only": 750,
+      "roi_cut_polyline_cells": 3,
+      "roi_cut_polyline_lengths_mm_desc": [
+        60.84453945313135,
+        6.056416302467846,
+        3.231808966258984
+      ],
+      "roi_cut_polyline_total_length_mm": 70.13276472185818,
+      "roi_lps_mm": {
+        "min": [
+          -21.22860124707222,
+          -241.37465819716454,
+          -672.8899785876274
+        ],
+        "max": [
+          -6.740331619977951,
+          -225.83756160736084,
+          -663.9899786710739
+        ]
+      },
+      "warning": "proposal has not been medically confirmed and was not applied",
+      "predicted_removed_voxels_in_roi": 681,
+      "predicted_removed_volume_mm3": 29.13267247646156
+    },
+    "nostril_R": {
+      "status": "exploratory_only",
+      "signed_vertex_distance_percentiles_mm": [
+        -0.8965957312210032,
+        1.3771114246140783,
+        5.598212715370987,
+        21.75331622165379,
+        42.327113958415374,
+        47.119445256658786,
+        50.49092009148985
+      ],
+      "positive_vertex_fraction": 0.9956774369268947,
+      "global_crossing_triangles_reference_only": 318,
+      "roi_cut_polyline_cells": 3,
+      "roi_cut_polyline_lengths_mm_desc": [
+        39.74827942234509,
+        5.018969695214731,
+        0.027211561506103116
+      ],
+      "roi_cut_polyline_total_length_mm": 44.79446067906593,
+      "roi_lps_mm": {
+        "min": [
+          -38.70905062556267,
+          -238.92739528417587,
+          -671.8399786055088
+        ],
+        "max": [
+          -24.919998973608017,
+          -222.69108071923256,
+          -665.0399786531925
+        ]
+      },
+      "warning": "proposal has not been medically confirmed and was not applied",
+      "predicted_removed_voxels_in_roi": 678,
+      "predicted_removed_volume_mm3": 29.004334712248074
+    },
+    "nasopharynx_outlet": {
+      "status": "exploratory_only",
+      "signed_vertex_distance_percentiles_mm": [
+        -4.888498502486359,
+        -3.1750683276773355,
+        -0.9462323348027464,
+        12.43050235648753,
+        34.283097517872825,
+        39.10750556998129,
+        41.502069655955566
+      ],
+      "positive_vertex_fraction": 0.9095439368108866,
+      "global_crossing_triangles_reference_only": 2718,
+      "roi_cut_polyline_cells": 3,
+      "roi_cut_polyline_lengths_mm_desc": [
+        44.332520528853806,
+        20.64899104556084,
+        15.800372519245212
+      ],
+      "roi_cut_polyline_total_length_mm": 80.78188409365985,
+      "roi_lps_mm": {
+        "min": [
+          -23.675864160060883,
+          -168.30637979507446,
+          -669.2149786502123
+        ],
+        "max": [
+          0.9510661065578461,
+          -147.52514839172363,
+          -664.1649786680937
+        ]
+      },
+      "warning": "proposal has not been medically confirmed and was not applied",
+      "predicted_removed_voxels_in_roi": 695,
+      "predicted_removed_volume_mm3": 29.731582042791167
+    },
+    "oral_exclusion": {
+      "status": "alias",
+      "same_boundary_as": "nasopharynx_outlet"
+    }
+  },
+  "blockers": [
+    "surface_source_and_transform_binding_not_supplied",
+    "boundary_patch_semantics_not_supplied",
+    "medical_or_cfd_review_not_passed",
+    "nostril_and_nasopharynx_planes_not_confirmed",
+    "one_or_more_opening_semantics_unknown"
+  ],
+  "next_action": [
+    "Use 3D Slicer 5.12.4 Segmentations/Markups to review the p0 CT, T300 candidate and the three proposed planes.",
+    "Record confirmed nostril_L, nostril_R and nasopharynx_outlet planes plus oral exclusion and sinus policy.",
+    "Generate a new geometry from the reviewed mask; do not reuse airway_cfd_ready.stl.",
+    "Attach patch labels, run external volume meshing, repair only proven boundary tetrahedra, then run OpenFOAM checkMesh."
+  ]
+}

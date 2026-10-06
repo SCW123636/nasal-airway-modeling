@@ -18,9 +18,26 @@ import numpy as np
 
 
 FACE_VERTICES = ((0, 1, 2), (0, 1, 3), (0, 2, 3), (1, 2, 3))
+BOUNDARY_LAYOUTS = {
+    "tube": {"inlet": 1, "outlet": 2, "wall": 3, "fluid": 4},
+    "nasal": {"nostril_L": 1, "nostril_R": 2, "nasopharynx_outlet": 3,
+              "wall": 4, "fluid": 5},
+}
+
+
+def physical_layout(mesh):
+    for layout in BOUNDARY_LAYOUTS.values():
+        if set(mesh.field_data) == set(layout) and all(
+                np.array_equal(mesh.field_data[name], [tag, 3 if name == "fluid" else 2])
+                for name, tag in layout.items()):
+            return layout
+    raise ValueError("expected tube or nasal physical names and tags")
 
 
 def repair(source: Path, target: Path) -> dict:
+    if (source.resolve() == target.resolve() or target.exists()
+            or target.with_suffix(".repair.json").exists()):
+        raise ValueError("use a new output path; input and previous results are preserved")
     mesh = meshio.read(source)
     if set(mesh.cells_dict) != {"triangle", "tetra"}:
         raise ValueError("expected only boundary triangles and linear tetrahedra")
@@ -29,17 +46,18 @@ def repair(source: Path, target: Path) -> dict:
     tets = mesh.cells_dict["tetra"]
     if not np.isfinite(points).all() or not len(tets):
         raise ValueError("expected finite coordinates and a nonempty volume mesh")
+    for cells in (triangles, tets):
+        if not len(cells) or cells.min() < 0 or cells.max() >= len(points):
+            raise ValueError("connectivity index outside points")
     tags = mesh.cell_data_dict.get("gmsh:physical", {})
     if set(tags) != {"triangle", "tetra"}:
         raise ValueError("missing physical boundary or volume labels")
-    if set(tags["triangle"]) != {1, 2, 3}:
-        raise ValueError("expected inlet/outlet/wall physical tags 1/2/3")
-    if set(tags["tetra"]) != {4}:
-        raise ValueError("expected fluid volume tag 4")
-    for name, tag in (("inlet", 1), ("outlet", 2), ("wall", 3), ("fluid", 4)):
-        dimension = 3 if name == "fluid" else 2
-        if not np.array_equal(mesh.field_data.get(name), [tag, dimension]):
-            raise ValueError(f"missing or inconsistent physical name: {name}")
+    layout = physical_layout(mesh)
+    volume_tag = layout["fluid"]
+    if set(tags["triangle"]) != {tag for name, tag in layout.items() if name != "fluid"}:
+        raise ValueError("surface physical tags do not match the boundary layout")
+    if set(tags["tetra"]) != {volume_tag}:
+        raise ValueError("expected a single fluid volume tag")
 
     def face_keys(tet):
         return [tuple(sorted(tet[list(ids)])) for ids in FACE_VERTICES]
@@ -58,8 +76,8 @@ def repair(source: Path, target: Path) -> dict:
                          xyz[:, 3] - xyz[:, 0])
 
     original_signed = signed_six_volumes(points, tets)
-    if np.any(original_signed == 0.0):
-        raise ValueError("zero-volume input tetrahedron")
+    if not np.isfinite(original_signed).all() or np.any(original_signed == 0.0):
+        raise ValueError("zero-volume or nonfinite input tetrahedron")
     split_ids = [i for i, tet in enumerate(tets)
                  if sum(face in boundary for face in face_keys(tet)) >= 2]
     split_set = set(split_ids)
@@ -76,8 +94,8 @@ def repair(source: Path, target: Path) -> dict:
     output_points = np.asarray(output_points)
     output_tets = np.asarray(output_tets)
     signed = signed_six_volumes(output_points, output_tets)
-    if np.any(signed == 0.0):
-        raise ValueError("zero-volume output tetrahedron")
+    if not np.isfinite(signed).all() or np.any(signed == 0.0):
+        raise ValueError("zero-volume or nonfinite output tetrahedron")
     inverted = signed < 0.0
     output_tets[inverted, :2] = output_tets[inverted, :2][:, ::-1]
     original_volume = float(np.abs(original_signed).sum() / 6.0)
@@ -93,7 +111,7 @@ def repair(source: Path, target: Path) -> dict:
                     for tet in output_tets)
     if remaining:
         raise ValueError("cells with multiple external faces remain")
-    out_tags = [tags["triangle"], np.full(len(output_tets), 4, dtype=int)]
+    out_tags = [tags["triangle"], np.full(len(output_tets), volume_tag, dtype=int)]
     output = meshio.Mesh(output_points, [("triangle", triangles), ("tetra", output_tets)],
                          cell_data={"gmsh:physical": out_tags, "gmsh:geometrical": out_tags},
                          field_data=mesh.field_data)
@@ -108,6 +126,7 @@ def repair(source: Path, target: Path) -> dict:
         "relative_volume_change": relative_change,
         "original_boundary_points_unchanged": bool(np.array_equal(output_points[:len(points)], points)),
         "boundary_faces_and_tags_unchanged": True,
+        "physical_layout": layout,
         "nonmanifold_faces": 0, "cells_with_multiple_boundary_faces_remaining": remaining,
     }
     target.with_suffix(".repair.json").write_text(json.dumps(report, indent=2) + "\n", encoding="ascii")
