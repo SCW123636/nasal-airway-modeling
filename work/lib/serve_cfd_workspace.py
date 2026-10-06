@@ -10,6 +10,7 @@ import webbrowser
 import re
 
 from ct_case_pipeline import CaseManager, case_dir
+from medical_review import MedicalReviewStore
 
 ROOT=Path(__file__).resolve().parents[2]
 BASE=ROOT/'work'/'07_cfd_pipeline'
@@ -19,6 +20,7 @@ METHOD=ROOT/'work'/'08_method_explanation'
 BOUNDARY_REVIEW=BASE/'workspace'/'boundary-review'
 CASE_ROOT=Path('C:/ts_work/project_cases')
 CASE_MANAGER=None
+MEDICAL_REVIEW=None
 
 
 def json_bytes(value):
@@ -89,6 +91,22 @@ class Handler(SimpleHTTPRequestHandler):
                 self.reply({'service': 'nasal-cfd-local-workspace/v1', 'ct_import': True})
             elif path == '/api/cases':
                 self.reply({'cases': CASE_MANAGER.list()})
+            elif path == '/api/medical-review/catalog':
+                self.reply(MEDICAL_REVIEW.catalog())
+            elif re.fullmatch(r'/api/cases/(p[0-3]|p3t1|u_[0-9a-f]{16})/medical-feedback', path):
+                case = path.split('/')[3]
+                self.reply(MEDICAL_REVIEW.list_feedback(case))
+            elif re.fullmatch(r'/api/cases/(p[0-3]|p3t1|u_[0-9a-f]{16})/medical-review-export', path):
+                from urllib.parse import parse_qs
+                case = path.split('/')[3]
+                stage = parse_qs(urlsplit(self.path).query).get('stage', ['landmarks'])[0]
+                payload, digest = MEDICAL_REVIEW.export(case, stage)
+                self.send_response(200)
+                self.send_header('Content-Type', 'text/html; charset=utf-8')
+                self.send_header('Content-Disposition', f'attachment; filename="medical_review_{case}_{stage}.html"')
+                self.send_header('Content-Length', str(len(payload)))
+                self.end_headers()
+                self.wfile.write(payload)
             elif re.fullmatch(r'/api/cases/u_[0-9a-f]{16}/boundary-preview/d_[0-9a-f]{16}', path):
                 preview_match = re.fullmatch(r'/api/cases/(u_[0-9a-f]{16})/boundary-preview/(d_[0-9a-f]{16})', path)
                 case, draft = preview_match.groups()
@@ -106,7 +124,7 @@ class Handler(SimpleHTTPRequestHandler):
                 self.reply(CASE_MANAGER.public(CASE_MANAGER.get(path[len('/api/cases/'):])) )
             else:
                 super().do_GET()
-        except (ValueError, FileNotFoundError) as exc:
+        except (ValueError, FileNotFoundError, KeyError) as exc:
             self.reply({'error': str(exc)}, 404)
 
     def reply(self, value, status=200):
@@ -150,6 +168,17 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             match = re.fullmatch(r'/api/cases/(u_[0-9a-f]{16})/(start|review|regenerate)', path)
             boundary = re.fullmatch(r'/api/cases/(u_[0-9a-f]{16})/(boundary-preview|boundary-review)', path)
+            external_feedback = re.fullmatch(r'/api/cases/(p[0-3]|p3t1|u_[0-9a-f]{16})/medical-feedback', path)
+            export_feedback = re.fullmatch(r'/api/cases/(p[0-3]|p3t1|u_[0-9a-f]{16})/medical-feedback/(f_[0-9a-f]{24})/decisions', path)
+            if external_feedback:
+                case = external_feedback[1]
+                self.reply(MEDICAL_REVIEW.import_feedback(case, payload), 201)
+                return
+            if export_feedback:
+                case, record_id = export_feedback.groups()
+                decisions = MEDICAL_REVIEW.decisions(case, record_id, payload.get('items'))
+                self.reply(decisions)
+                return
             if boundary:
                 case, action = boundary.groups()
                 if action == 'boundary-preview':
@@ -213,7 +242,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main():
-    global CASE_MANAGER, CASE_ROOT
+    global CASE_MANAGER, CASE_ROOT, MEDICAL_REVIEW
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port',type=int,default=8768)
     parser.add_argument('--open',action='store_true')
@@ -234,6 +263,7 @@ def main():
         return
     CASE_ROOT=args.case_root.resolve()
     CASE_MANAGER=CaseManager(CASE_ROOT)
+    MEDICAL_REVIEW=MedicalReviewStore(CASE_MANAGER, REVIEW)
     print('Local workspace: '+url,flush=True)
     if args.open:webbrowser.open(url)
     server.serve_forever()

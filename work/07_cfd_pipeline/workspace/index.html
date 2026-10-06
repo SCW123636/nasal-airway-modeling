@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>鼻腔建模 · 处理工作台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="workspace.css">
+  <script src="workspace.js" defer></script>
+  <script src="ct-import.js" defer></script>
+  <script src="medical-feedback.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>鼻腔建模 <span>处理工作台</span></h1>
+    <span class="project-status" id="project-status">CT → 分割 → 粗定位/精标定 → 人工检验 → 计算</span>
+  </header>
+  <div class="app-layout">
+    <aside class="process-sidebar">
+      <p class="nav-label">病例处理流程</p>
+      <nav aria-label="病例处理流程">
+        <a href="#import" data-step="import"><span class="step-number">01</span><span>CT 导入<small>上传与自动处理</small></span></a>
+        <a href="#overview" data-step="overview"><span class="step-number">02</span><span>病例总览<small>状态与下一步</small></span></a>
+        <a href="#geometry" data-step="geometry"><span class="step-number">03</span><span>三维检查<small>结构与候选位置</small></span></a>
+        <a href="#review" data-step="review"><span class="step-number">04</span><span>切片审核<small>逐点检验与记录</small></span></a>
+        <a href="#feedback" data-step="feedback"><span class="step-number">05</span><span>意见核对<small>对照意见与原 CT</small></span></a>
+        <a href="#boundary" data-step="boundary"><span class="step-number">06</span><span>边界草稿<small>口腔与鼻窦复核</small></span></a>
+        <a href="#validation" data-step="validation"><span class="step-number">07</span><span>计算与结果<small>准入与验证</small></span></a>
+      </nav>
+      <div class="project-totals" aria-label="项目摘要">
+        <div><span>扫描</span><strong id="total-scans">读取中</strong></div>
+        <div><span>候选点</span><strong id="total-points">读取中</strong></div>
+        <div><span>意见记录</span><strong id="total-feedback">读取中</strong></div>
+        <div><span>患者流场</span><strong id="total-results">读取中</strong></div>
+      </div>
+    </aside>
+    <main class="process-main">
+      <div class="case-context"><label for="active-case">当前病例</label><select id="active-case"><option value="existing">已有五组扫描</option></select><span id="active-case-state">可查看候选</span><button id="regenerate-case" hidden>按当前粗标定重新生成</button><button id="save-case-review" hidden>保存本例审核</button><button id="medical-export">导出医学复核包</button><button id="medical-import">导入朋友反馈</button><input id="medical-feedback-file" type="file" accept=".json,application/json" hidden></div>
+      <div class="process-heading">
+        <div><p id="step-label">01 / 项目流程</p><h2 id="step-title">项目总览</h2></div>
+        <div class="step-actions"><button id="previous-step" disabled>上一流程</button><button id="next-step">下一流程</button></div>
+      </div>
+      <div class="process-content">
+        <section class="process-panel import-page" id="panel-import" aria-label="CT 导入">
+          <div class="import-inner">
+            <section class="case-run" id="case-run" hidden>
+              <div class="run-heading"><div><h3 id="run-title">本例处理</h3><p id="run-message" role="status"></p></div><div><button id="regenerate-case-inline" hidden>重新生成新版候选</button><button id="retry-case" hidden>重新处理</button></div></div>
+              <ol class="pipeline-stages" id="pipeline-stages" aria-label="本例流程状态"></ol>
+              <p id="run-localization" class="muted" hidden></p>
+              <div id="series-choice" hidden><h4>选择一套 CT 序列</h4><p class="muted">每次处理一套扫描，避免混用不同重建序列。</p><div id="series-options"></div><button id="confirm-series">使用所选序列继续</button></div>
+              <p id="case-error" class="case-error" hidden role="alert"></p>
+              <div id="case-open-actions" hidden><button id="open-case-geometry">检验三维候选</button><button id="open-case-review">进入切片复核</button></div>
+              <details id="review-handoff" hidden><summary>审核与后续处理</summary><p>在切片审核填写复核人、逐点记录决定，并保存本例审核。口腔排除、鼻窦范围与边界几何需单独确认。</p></details><div id="run-facts" class="run-facts"></div>
+            </section>
+            <div class="upload-box"><div class="section-heading"><h3>导入新 CT</h3><p>本机处理 · DICOM 文件夹 / ZIP / NIfTI</p></div>
+              <div class="upload-choices"><label class="file-choice">选择 DICOM 文件夹<input id="ct-folder" type="file" webkitdirectory multiple></label><label class="file-choice secondary">选择 ZIP / NIfTI<input id="ct-file" type="file" accept=".zip,.nii,.nii.gz"></label></div>
+              <p id="upload-selection" class="muted">先检查序列，再自动分割。最多 8 GB。</p>
+              <label id="hu-option" hidden><input id="hu-confirmed" type="checkbox">我确认这份 NIfTI 来自 CT，强度单位保留为 HU</label>
+              <div class="upload-actions"><button id="upload-start" disabled>上传并开始处理</button><span id="upload-message" role="status" aria-live="polite"></span></div>
+              <progress id="upload-progress" value="0" max="100" hidden aria-label="上传进度"></progress>
+            </div>
+
+            <section class="case-history"><div class="section-heading"><h3>最近导入</h3><p>点击记录切换病例</p></div><div id="case-history" role="list"><p class="muted">正在读取…</p></div></section>
+          </div>
+        </section>
+        <section class="process-panel overview-page" id="panel-overview" aria-label="病例总览" hidden>
+          <div class="overview-inner">
+            <section class="overview-focus"><span class="eyebrow">当前病例</span><h3 id="overview-case">已有扫描</h3><p id="overview-state">候选等待人工检验</p><div class="focus-actions"><button id="overview-next">开始切片审核</button><a href="#geometry" data-workflow="geometry">查看三维</a></div></section>
+            <div class="overview-grid">
+              <section class="surface"><h3>本例进度</h3><div id="overview-stages" class="overview-stages"></div></section>
+              <section class="surface"><h3>检验顺序</h3><a href="#geometry" data-workflow="geometry" class="task-link"><span>01</span><div><strong>检查三维结构</strong><small>鼻腔范围、候选点与边界位置</small></div><b>→</b></a><a href="#review" data-workflow="review" class="task-link"><span>02</span><div><strong>逐点检查 CT 切片</strong><small>记录接受、拒绝或调整</small></div><b>→</b></a><a href="#validation" data-workflow="validation" class="task-link"><span>03</span><div><strong>确认后续计算条件</strong><small>几何、网格与求解验证</small></div><b>→</b></a></section>
+            </div>
+            <details class="surface localization-detail"><summary>本例粗标定记录</summary><p id="overview-localization">正在读取本例定位记录…</p><a href="#review" data-workflow="review">检查精调候选与 CT 切片</a></details>
+            <details id="project-report" class="surface"><summary>项目记录与技术进展 <span>展开详细报告</span></summary><div id="overview-report"></div></details>
+          </div>
+        </section>
+        <section class="process-panel" id="panel-geometry" aria-label="三维检查" hidden></section>
+        <section class="process-panel" id="panel-review" aria-label="标定审核" hidden></section>
+        <section class="process-panel feedback-page" id="panel-feedback" aria-label="意见核对" hidden>
+          <div class="feedback-inner">
+            <div class="section-heading"><h3>医学复核反馈</h3></div>
+            <label class="feedback-case-label" for="medical-feedback-case">反馈病例</label><select id="medical-feedback-case"><option value="p0">p0 · 已有扫描</option><option value="p1">p1 · 已有扫描</option><option value="p2">p2 · 已有扫描</option><option value="p3">p3 · 已有扫描</option><option value="p3t1">p3t1 · 已有扫描</option></select>
+            <div id="medical-feedback-list" role="list"><p class="muted">正在读取反馈…</p></div>
+            <p id="medical-feedback-message" class="muted" role="status"></p>
+            <details class="historical-feedback"><summary>原有意见与 CT 对照</summary><div id="historical-feedback-view"></div></details>
+          </div>
+        </section>
+        <section class="process-panel" id="panel-boundary" aria-label="边界草稿" hidden></section>
+        <section class="process-panel validation-page" id="panel-validation" aria-label="计算验证" hidden>
+          <div class="validation-inner">
+            <div class="validation-status"><span class="status-dot"></span><div><h3>患者计算条件尚未齐备</h3><p>正式解剖审核、口腔排除、鼻窦策略与边界几何仍待确认。</p></div><strong id="validation-result-count">患者流场：读取中</strong></div>
+            <section class="validation-band"><h3>患者计算准备</h3><table><thead><tr><th>流程</th><th>当前状态</th></tr></thead><tbody>
+              <tr><td>解剖与标定确认</td><td><a href="#review" data-workflow="review">待正式审核记录</a></td></tr>
+              <tr><td>人工意见</td><td><a href="#feedback" data-workflow="feedback" id="validation-feedback">待核对</a></td></tr>
+              <tr><td>口腔排除与鼻窦策略</td><td>待确认</td></tr>
+              <tr><td>入口、出口、壁面与体网格</td><td>患者几何尚未获批</td></tr>
+              <tr><td>网格敏感性、守恒与求解检查</td><td>患者未执行</td></tr>
+              <tr><td>患者流速、压力与湍流强度</td><td>暂无患者结果</td></tr>
+            </tbody></table></section>
+            <details class="validation-band"><summary>工程验证 · 圆管闭环 <span class="summary-state">严格压降检查未通过</span></summary><p id="phantom-state" role="status">正在读取验证报告…</p><div class="table-scroll"><table><thead><tr><th>网格尺度</th><th>计算压降</th><th>解析压降</th><th>相对误差</th><th>收敛</th></tr></thead><tbody id="phantom-levels"></tbody></table></div><div id="phantom-checks" class="check-list"></div><details><summary>原始验证报告</summary><pre id="phantom-report"></pre></details></details>
+            <details class="validation-band"><summary>工程验证 · 误差定位对照</summary><p id="diagnostic-state" role="status">正在读取独立对照…</p><div class="table-scroll"><table><thead><tr><th>对照</th><th>控制变化</th><th>细网格压降误差</th><th>管内压力梯度误差</th><th>网格检查</th></tr></thead><tbody id="diagnostic-rows"></tbody></table></div><p class="muted">这些运行只用于定位误差来源，严格验收仍以原始圆管闭环为准；不代表患者结果。</p></details>
+
+            <details class="validation-band"><summary>标准参考结果</summary><p>圆管解析参考与平行板数值参考可在三维检查中查看。</p><a href="#geometry" data-workflow="geometry">查看参考模型</a><p class="muted">参考算例属于独立的非患者几何，不能替代患者结果或正式解剖审核。</p></details>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <dialog id="medical-export-dialog" aria-labelledby="medical-export-title">
+    <form id="medical-export-form">
+      <div class="dialog-heading"><h2 id="medical-export-title">导出医学复核包</h2><button type="button" id="medical-export-close" title="关闭" aria-label="关闭">×</button></div>
+      <label for="medical-export-case">病例</label><select id="medical-export-case" required></select>
+      <label for="medical-export-stage">复核阶段</label><select id="medical-export-stage"><option value="landmarks">切片点位复核</option><option value="boundary">边界与后续人工核验</option></select>
+      <p class="muted">将导出的 HTML 发给复核人，他用浏览器打开即可逐项填写，再把导出的反馈文件发回给你。</p>
+      <p id="medical-export-message" class="muted" role="status" aria-live="polite"></p>
+      <div class="dialog-actions"><button type="submit" id="medical-export-download">导出 HTML</button></div>
+    </form>
+  </dialog>
+  <p id="medical-toast" class="medical-toast" role="status" aria-live="polite" hidden></p>
+</body>
+</html>

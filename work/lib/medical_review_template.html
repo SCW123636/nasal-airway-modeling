@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>鼻腔建模 · 医学复核</title><link rel="icon" href="data:,">
+<style>
+:root{--ink:#23302c;--muted:#64736e;--line:#d8dfdc;--green:#237450;--red:#a03d43;--amber:#8b6119;--bg:#f5f7f6}*{box-sizing:border-box;letter-spacing:0}body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif}button,input,textarea,select{font:inherit;color:inherit}button{border:1px solid var(--line);border-radius:6px;padding:7px 12px;background:#fff;cursor:pointer}button:disabled{opacity:.45;cursor:default}button.active,button.primary{background:var(--green);border-color:var(--green);color:#fff}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #75acbe;outline-offset:2px}input,textarea,select{border:1px solid var(--line);border-radius:5px;padding:8px;background:#fff;min-width:0}h1{font-size:21px;margin:0}h2{font-size:18px;margin:0}p{margin:6px 0}.muted{color:var(--muted);font-size:12px}.top{background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.toolbar input{width:150px}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1560px;margin:auto;min-height:calc(100dvh - 108px)}aside{padding:22px 14px;border-right:1px solid var(--line)}#item-list{display:grid;gap:5px}#item-list button{text-align:left;padding:10px;background:transparent;border:0;border-radius:5px;white-space:normal}#item-list button.active{background:#e4f0e9;color:var(--green)}#item-list small{display:block;font-size:11px;color:var(--muted)}main{min-width:0;padding:22px 28px}.item-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.badge{font-size:12px;color:var(--amber);padding:3px 8px;background:#fff0d7;border-radius:4px;flex:none}.badge.ready{background:#e4f0e9;color:var(--green)}.review-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);gap:24px;margin-top:20px}.evidence{min-width:0}figure{margin:0 0 16px}figure img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);cursor:zoom-in}figcaption{font-size:12px;color:var(--muted);padding:5px 0}.empty{padding:36px 20px;border:1px dashed var(--line);text-align:center;color:var(--muted)}.record{align-self:start;position:sticky;top:20px}.field{display:block;margin:14px 0 5px;font-size:12px;color:var(--muted)}#decision{width:100%}textarea{width:100%;min-height:150px;resize:vertical}.triplet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.triplet input{width:100%}.coords{font:12px/1.7 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}pre{font:12px/1.6 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}ul{font-size:12px;padding-left:18px;color:var(--amber)}.pager{display:flex;justify-content:space-between;gap:10px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}#message{font-size:12px;color:var(--red);margin:0;padding:0 24px;overflow-wrap:anywhere}#save-state{min-height:20px}.lightbox{position:fixed;inset:0;z-index:10;background:#171c1df5;overflow:auto;padding:60px 20px 20px;text-align:center}.lightbox img{max-width:100%;height:auto}.lightbox.actual img{max-width:none}.lightbox-tools{position:fixed;top:12px;right:18px;display:flex;gap:8px}#progress{margin:0 0 14px}[hidden]{display:none!important}@media(max-width:900px){.review-grid{grid-template-columns:1fr}.record{position:static}.layout{grid-template-columns:180px minmax(0,1fr)}main{padding:18px}}@media(max-width:600px){.top{padding:14px}.layout{display:block}aside{border-right:0;border-bottom:1px solid var(--line);padding:12px}#item-list{display:flex;overflow:auto;gap:4px}#item-list button{min-width:140px;max-width:170px;flex:none}#progress{margin:0 0 5px}main{padding:16px}.toolbar{width:100%}.toolbar input{flex:1}.item-heading{align-items:start}#message{padding:8px 14px}.lightbox{padding-left:8px;padding-right:8px}}@media print{.toolbar,aside,.pager,.lightbox{display:none}.layout,.review-grid{display:block}.record{position:static}.top,main{padding:12px}}
+.handoff{max-width:760px}@media(max-width:600px){.toolbar input{flex:1 1 170px;min-width:150px}}
+</style>
+</head>
+<body>
+<header class="top"><div><h1>鼻腔建模 · 医学复核</h1><p id="case-label" class="muted"></p><p class="muted handoff">填写复核人，逐项查看图像并记录结论与意见；完成后点击“导出反馈”，将下载的 JSON 文件发回。</p></div><div class="toolbar"><label for="reviewer">复核人</label><input id="reviewer" maxlength="120" autocomplete="off"><button id="resume">导入反馈草稿</button><input id="resume-file" type="file" accept=".json,application/json" hidden><button id="download" class="primary">导出反馈</button></div></header>
+<p id="message" role="status" aria-live="polite"></p>
+<div class="layout"><aside><p id="progress" class="muted"></p><nav id="item-list" aria-label="逐项复核"></nav><p id="save-state" class="muted"></p></aside><main><div class="item-heading"><h2 id="item-title"></h2><span id="evidence-state" class="badge"></span></div><p id="question" class="muted"></p><div class="review-grid"><section class="evidence" id="images" aria-label="切片证据"></section><section class="record" aria-label="逐项反馈"><div id="coords" class="coords"></div><ul id="reasons"></ul><label class="field" for="decision">复核结论</label><select id="decision"><option value="pending">未审核</option><option value="accept">通过</option><option value="reject">不通过</option><option value="adjust">需要调整</option><option value="insufficient">无法判断 / 证据不足</option></select><div id="adjust" hidden><span class="field">建议坐标 L / P / S（mm）</span><div class="triplet" id="point-inputs"></div><span class="field">建议法向 L / P / S（可留空）</span><div class="triplet" id="normal-inputs"></div></div><label class="field" for="note">意见与修改建议</label><textarea id="note" maxlength="5000"></textarea><details id="controls-box" hidden><summary>当前边界参数</summary><pre id="controls"></pre></details><div class="pager"><button id="previous" title="上一项" aria-label="上一项">←</button><span id="position" class="muted"></span><button id="next" title="下一项" aria-label="下一项">→</button></div></section></div></main></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="切片放大" hidden><div class="lightbox-tools"><button id="actual">原始像素</button><button id="close">关闭</button></div><img id="large-image" alt="切片放大"></div>
+<script id="package-data" type="application/json">__PACKAGE_DATA__</script>
+<script>
+'use strict';
+const PACKAGE = JSON.parse(document.getElementById('package-data').textContent);
+const MANIFEST = PACKAGE.manifest;
+const $ = id => document.getElementById(id);
+const LABELS = {pending:'未审核',accept:'通过',reject:'不通过',adjust:'需要调整',insufficient:'无法判断'};
+const key = 'nasal_medical_feedback_' + PACKAGE.package_sha256;
+let index = 0, records = {}, focusBefore = null;
+function el(tag, text) {const node=document.createElement(tag);if(text!==undefined)node.textContent=text;return node;}
+function finite(v, normal=false) {return Array.isArray(v)&&v.length===3&&v.every(x=>typeof x==='number'&&Number.isFinite(x)&&Math.abs(x)<1e6)&&(!normal||Math.hypot(...v)>1e-8);}
+function record(item) {return records[item.id] || {id:item.id,decision:'pending',note:'',adjusted_point_lps_mm:null,adjusted_normal_lps:null};}
+function persist() {try{localStorage.setItem(key,JSON.stringify({reviewer:$('reviewer').value,records}));$('save-state').textContent='草稿已在此浏览器保存';}catch{$('save-state').textContent='浏览器未保存草稿，请导出反馈';}}
+function progress() {const count=MANIFEST.items.filter(i=>record(i).decision!=='pending').length;$('progress').textContent=`已填写 ${count} / ${MANIFEST.items.length} 项`;const nav=$('item-list');nav.replaceChildren();MANIFEST.items.forEach((item,i)=>{const button=el('button');button.classList.toggle('active',i===index);button.append(el('span',item.label),el('small',LABELS[record(item).decision]||'未审核'));button.onclick=()=>{index=i;render();};nav.append(button);});}
+function update() {
+  const item=MANIFEST.items[index],r=record(item);
+  r.decision=$('decision').value;r.note=$('note').value;
+  r.adjusted_point_lps_mm=null;r.adjusted_normal_lps=null;
+  if(r.decision==='adjust'&&item.kind==='landmark') {
+    const values=id=>[...$(id).querySelectorAll('input')].map(n=>n.value);
+    const point=values('point-inputs'),normal=values('normal-inputs');
+    r.point_inputs=point;r.normal_inputs=normal;
+    r.adjusted_point_lps_mm=point.every(x=>x.trim()!=='')?point.map(Number):null;
+    r.adjusted_normal_lps=normal.every(x=>x.trim()==='')?null:normal.map(x=>x.trim()===''?null:Number(x));
+  }
+  records[item.id]=r;$('adjust').hidden=!(r.decision==='adjust'&&item.kind==='landmark');persist();progress();
+}
+function vector(v) {return finite(v)?v.map(x=>x.toFixed(3)).join(', '):'未定位';}
+function render() {
+  const item=MANIFEST.items[index],r=record(item);
+  $('item-title').textContent=item.label;$('question').textContent=item.question;
+  $('evidence-state').textContent=item.reviewable?'证据已附':'证据未齐';$('evidence-state').classList.toggle('ready',item.reviewable);
+  $('coords').textContent=item.kind==='landmark'?`候选坐标 LPS/mm：${vector(item.point_lps_mm)}\n候选法向：${vector(item.normal_lps)}`:'';$('coords').style.whiteSpace='pre-line';
+  $('reasons').replaceChildren();(item.reasons||[]).forEach(reason=>$('reasons').append(el('li',reason)));
+  $('images').replaceChildren();
+  for(const view of item.evidence) {
+    const figure=el('figure'),img=el('img');img.src=PACKAGE.images[view.sha256];img.alt=item.label+' · '+view.title;
+    img.onclick=()=>{focusBefore=document.activeElement;$('large-image').src=img.src;$('large-image').alt=img.alt;$('lightbox').classList.remove('actual');$('lightbox').hidden=false;document.body.style.overflow='hidden';$('close').focus();};
+    figure.append(img,el('figcaption',view.title));$('images').append(figure);
+  }
+  if(!item.evidence.length){const empty=el('p','尚无当前版本证据');empty.className='empty';$('images').append(empty);}
+  $('decision').value=r.decision;
+  for(const option of $('decision').options)option.disabled=!item.reviewable&&['accept','adjust'].includes(option.value);
+  $('note').value=r.note;$('adjust').hidden=!(r.decision==='adjust'&&item.kind==='landmark');
+  for(const [id,v] of [['point-inputs',r.point_inputs||r.adjusted_point_lps_mm],['normal-inputs',r.normal_inputs||r.adjusted_normal_lps]])[...$(id).children].forEach((input,i)=>input.value=v?.[i]??'');
+  $('controls-box').hidden=!item.controls;$('controls').textContent=JSON.stringify(item.controls,null,2);
+  $('previous').disabled=index===0;$('next').disabled=index===MANIFEST.items.length-1;$('position').textContent=`${index+1} / ${MANIFEST.items.length}`;progress();
+}
+for(const id of ['point-inputs','normal-inputs'])for(const axis of ['L','P','S']){const input=el('input');input.type='number';input.step='any';input.placeholder=axis;input.setAttribute('aria-label',(id==='point-inputs'?'建议坐标 ':'建议法向 ')+axis);input.addEventListener('input',update);$(id).append(input);}
+function inspect(data, draft=false) {
+  if(!data||data.schema!=='medical_review_feedback/v1'||data.package_sha256!==PACKAGE.package_sha256||data.case!==MANIFEST.case||data.stage!==MANIFEST.stage||data.coordinate_system!=='LPS'||data.unit!=='mm'||!Array.isArray(data.items)||data.items.length!==MANIFEST.items.length)throw Error('反馈与此复核包不匹配');
+  if(typeof data.reviewer!=='string'||data.reviewer.length>120||(!draft&&!data.reviewer.trim()))throw Error('请填写复核人');
+  const seen=new Set();
+  for(const r of data.items) {
+    const item=MANIFEST.items.find(i=>i.id===r?.id);
+    if(!item||seen.has(r.id)||!Object.hasOwn(LABELS,r.decision)||typeof r.note!=='string'||r.note.length>5000)throw Error('反馈条目格式无效');
+    seen.add(r.id);
+    if(['accept','adjust'].includes(r.decision)&&!item.reviewable)throw Error(item.label+'：证据未齐');
+    if(draft) {
+      for(const name of ['point_inputs','normal_inputs'])if(r[name]!==undefined&&(!Array.isArray(r[name])||r[name].length!==3||r[name].some(x=>typeof x!=='string'||x.length>64)))throw Error('草稿坐标格式无效');
+      continue;
+    }
+    if(['reject','adjust'].includes(r.decision)&&!r.note.trim())throw Error(item.label+'：请填写意见与修改建议');
+    if(r.decision==='adjust'&&item.kind==='landmark') {
+      if(!finite(r.adjusted_point_lps_mm)||(r.adjusted_normal_lps!==null&&!finite(r.adjusted_normal_lps,true)))throw Error(item.label+'：请补全有效坐标和法向');
+    } else if(r.adjusted_point_lps_mm!==null||r.adjusted_normal_lps!==null)throw Error(item.label+'：非点位调整项不能携带坐标');
+  }
+  return data;
+}
+function exportFeedback(returnData=false) {
+  update();
+  const items=MANIFEST.items.map(item=>{const r=record(item);return {id:r.id,decision:r.decision,note:r.note,adjusted_point_lps_mm:r.adjusted_point_lps_mm,adjusted_normal_lps:r.adjusted_normal_lps};});
+  const data=inspect({schema:'medical_review_feedback/v1',case:MANIFEST.case,stage:MANIFEST.stage,package_sha256:PACKAGE.package_sha256,coordinate_system:'LPS',unit:'mm',reviewer:$('reviewer').value.trim(),reviewed_at:new Date().toISOString(),items});
+  if(returnData===true)return data;
+  const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json;charset=utf-8'})),a=el('a');
+  a.href=url;a.download=MANIFEST.case+'_'+MANIFEST.stage+'_医学反馈.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  $('message').textContent=`反馈已导出，${data.items.filter(i=>i.decision==='pending').length} 项仍未审核`;
+}
+$('download').onclick=()=>{try{exportFeedback();}catch(error){$('message').textContent=error.message;}};
+$('resume').onclick=()=>{$('resume-file').value='';$('resume-file').click();};
+$('resume-file').onchange=async()=>{const file=$('resume-file').files[0];if(!file)return;try{if(file.size>2*1024**2)throw Error('反馈文件超过 2 MB');const data=inspect(JSON.parse(await file.text()));records=Object.fromEntries(data.items.map(r=>[r.id,r]));$('reviewer').value=data.reviewer;persist();render();$('message').textContent='反馈草稿已导入';}catch(error){$('message').textContent=error.message;}};
+$('decision').onchange=update;$('note').oninput=update;$('reviewer').oninput=persist;
+$('previous').onclick=()=>{index--;render();};$('next').onclick=()=>{index++;render();};
+function closeImage() {$('lightbox').hidden=true;$('large-image').removeAttribute('src');document.body.style.overflow='';focusBefore?.focus();}
+$('close').onclick=closeImage;$('actual').onclick=()=>$('lightbox').classList.toggle('actual');document.addEventListener('keydown',e=>{if(!$('lightbox').hidden&&e.key==='Escape')closeImage();});
+try{const saved=JSON.parse(localStorage.getItem(key)||'null');if(saved){const draft={schema:'medical_review_feedback/v1',case:MANIFEST.case,stage:MANIFEST.stage,package_sha256:PACKAGE.package_sha256,coordinate_system:'LPS',unit:'mm',reviewer:saved.reviewer||'',items:MANIFEST.items.map(i=>saved.records?.[i.id]||record(i))};inspect(draft,true);records=Object.fromEntries(draft.items.map(r=>[r.id,r]));$('reviewer').value=saved.reviewer||'';}}catch{$('save-state').textContent='未恢复浏览器草稿';}
+$('case-label').textContent=`${MANIFEST.case} · ${MANIFEST.stage==='landmarks'?'切片点位':'边界与后续核验'} · ${MANIFEST.identity.revision} · LPS/mm`;
+render();
+</script></body></html>

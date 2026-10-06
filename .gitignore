@@ -18,9 +18,20 @@ work/00_dicom/
 work/05_ts_seg/
 work/06_auto_landmarks/
 work/07_cfd_pipeline/solver_install/
-work/07_cfd_pipeline/workspace/
+work/07_cfd_pipeline/workspace/*
+!work/07_cfd_pipeline/workspace/index.html
+!work/07_cfd_pipeline/workspace/*.js
+!work/07_cfd_pipeline/workspace/*.css
+!work/07_cfd_pipeline/workspace/boundary-review/
+work/07_cfd_pipeline/workspace/boundary-review/*
+!work/07_cfd_pipeline/workspace/boundary-review/index.html
+!work/07_cfd_pipeline/workspace/boundary-review/boundary-review.js
 
 # Large archives and local exports
+medical_exports/
+*_医学复核.html
+*_医学反馈.json
+*_所选审核记录.json
 *.zip
 *.7z
 *.rar
