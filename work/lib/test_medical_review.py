@@ -6,12 +6,14 @@ from http.server import ThreadingHTTPServer
 import io
 import json
 from pathlib import Path
+import re
 import tempfile
 import threading
 import unittest
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from unittest.mock import patch
+import zipfile
 
 from build_auto_landmark_review import build_review
 import ct_case_pipeline as pipeline
@@ -43,7 +45,7 @@ class MedicalFeedbackTests(unittest.TestCase):
             'schema':'ct_case_receipt/v1', 'case':self.case,
             'output_sha256':{p.relative_to(public).as_posix():pipeline.sha256(p) for p in public.rglob('*') if p.is_file()},
             'identity':{'input_sha256':{'ct.nii.gz':pipeline.sha256(directory / 'ct.nii.gz')}}})
-        pipeline.update(directory, status='awaiting_review')
+        pipeline.update(directory, status='awaiting_review', artifacts={'review':f'/case-assets/{self.case}/review/index.html'})
 
     def tearDown(self):
         self.manager.pool.shutdown(wait=True)
@@ -89,6 +91,68 @@ class MedicalFeedbackTests(unittest.TestCase):
                 records = self.store.list_feedback(case)['records']
                 self.assertEqual(len(records), 1)
                 self.assertTrue(records[0]['current'])
+
+    def test_batch_has_standalone_pages_and_independent_feedback_bindings(self):
+        archive = self.store.export_batch(['p0', self.case], ['landmarks', 'boundary'])
+        with zipfile.ZipFile(io.BytesIO(archive)) as package:
+            expected = {f'{case}_{label}_医学复核.html' for case in ('p0', self.case) for label in ('切片', '边界')}
+            self.assertEqual(set(package.namelist()), expected | {'医学复核使用说明.txt'})
+            self.assertIsNone(package.testzip())
+            for filename in expected:
+                html = package.read(filename).decode('utf-8')
+                payload = json.loads(re.search(r'<script id="package-data" type="application/json">(.*?)</script>', html, re.S)[1])
+                manifest = payload['manifest']
+                self.assertIn("connect-src 'none'", html)
+                self.assertNotIn(str(self.root), html)
+                self.assertEqual(len(manifest['items']), 2 if manifest['stage'] == 'landmarks' else 9)
+                if manifest['stage'] == 'landmarks':
+                    self.assertIn('data:image/png;base64,', html)
+                stored = pipeline.read_json(self.store.storage(manifest['case']) / 'packages' / (payload['package_sha256'] + '.json'))
+                self.assertEqual(stored, manifest)
+                reply = {'schema':'medical_review_feedback/v1', 'case':manifest['case'], 'stage':manifest['stage'],
+                         'package_sha256':payload['package_sha256'], 'coordinate_system':'LPS', 'unit':'mm',
+                         'reviewer':'Synthetic batch QA', 'reviewed_at':'2026-10-06T12:00:00+08:00',
+                         'items':[{'id':i['id'], 'decision':'pending', 'note':'',
+                                   'adjusted_point_lps_mm':None, 'adjusted_normal_lps':None} for i in manifest['items']]}
+                record = self.store.import_feedback(manifest['case'], reply)
+                saved = next(r for r in self.store.list_feedback(manifest['case'])['records'] if r['id'] == record['id'])
+                self.assertTrue(saved['current'])
+                self.assertEqual(saved['feedback']['stage'], manifest['stage'])
+        for case in ('p0', self.case):
+            self.assertEqual(len(self.store.list_feedback(case)['records']), 2)
+
+    def test_batch_rejects_empty_duplicate_and_invalid_selections(self):
+        for cases, stages in [(None,['landmarks']), ([],['landmarks']), ('p0',['landmarks']),
+                              (['p0','p0'],['landmarks']), ([{}],['landmarks']), (['unknown'],['landmarks']),
+                              (['p0'],[]), (['p0'],None), (['p0'],['landmarks','landmarks']),
+                              (['p0'],[{}]), (['p0'],['unknown'])]:
+            with self.subTest(cases=cases, stages=stages):
+                with self.assertRaises(ValueError): self.store.export_batch(cases, stages)
+
+    def test_batch_failure_or_changed_evidence_does_not_register_partial_packages(self):
+        original = self.store.build
+        def fail_second(case, stage):
+            if case == self.case: raise ValueError('不可用的证据')
+            return original(case, stage)
+        with patch.object(self.store, 'build', side_effect=fail_second):
+            with self.assertRaisesRegex(ValueError, self.case):
+                self.store.export_batch(['p0', self.case], ['landmarks'])
+        self.assertFalse(list(self.manager.root.rglob('packages/*.json')))
+        write = zipfile.ZipFile.writestr
+        def change_after_compression(archive, filename, data, *args, **kwargs):
+            result = write(archive, filename, data, *args, **kwargs)
+            if filename.endswith('.txt'):
+                (self.review / 'p0/review.png').write_bytes(PNG + b'changed while compressing')
+            return result
+        with patch.object(zipfile.ZipFile, 'writestr', change_after_compression):
+            with self.assertRaisesRegex(ValueError, '发生变化'):
+                self.store.export_batch(['p0', self.case], ['landmarks'])
+        self.assertFalse(list(self.manager.root.rglob('packages/*.json')))
+
+    def test_batch_compression_failure_does_not_register_packages(self):
+        with patch.object(zipfile.ZipFile, 'writestr', side_effect=OSError('isolated zip failure')):
+            with self.assertRaises(OSError): self.store.export_batch(['p0', self.case], ['landmarks'])
+        self.assertFalse(list(self.manager.root.rglob('packages/*.json')))
 
     def test_wrong_case_stage_version_and_units_are_rejected(self):
         reply = self.reply()
@@ -200,6 +264,14 @@ class MedicalFeedbackTests(unittest.TestCase):
             self.assertEqual(call('/api/medical-review/catalog')[0],200)
             status,html = call('/api/cases/p0/medical-review-export?stage=landmarks')
             self.assertEqual(status,200); self.assertIn(b'data:image/png;base64,',html)
+            selection = {'cases':['p0',self.case], 'stages':['landmarks','boundary']}
+            self.assertEqual(call('/api/medical-review/export', selection, 'http://example.com')[0], 400)
+            status,archive = call('/api/medical-review/export', selection, url)
+            self.assertEqual(status, 200)
+            with zipfile.ZipFile(io.BytesIO(archive)) as package:
+                self.assertEqual(len(package.namelist()), 5)
+                self.assertIsNone(package.testzip())
+            self.assertEqual(call('/api/medical-review/export', {'cases':[], 'stages':['landmarks']}, url)[0], 400)
             reply = self.reply(); path = '/api/cases/p0/medical-feedback'
             self.assertEqual(call(path,reply,'http://example.com')[0],400)
             status,body = call(path,reply,url); self.assertEqual(status,201)

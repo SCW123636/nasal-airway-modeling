@@ -2,6 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const {execFileSync} = require('node:child_process');
 const {pathToFileURL} = require('node:url');
 const {chromium} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
@@ -20,8 +21,10 @@ async function main() {
     await page.goto(url+'/workspace/index.html#review');
     await page.locator('#medical-export').click();
     await page.waitForFunction(()=>document.getElementById('medical-export-message').textContent==='');
-    await page.locator('#medical-export-case').selectOption('p0');
-    await page.locator('#medical-export-stage').selectOption('landmarks');
+    await page.locator('#medical-export-clear').click();
+    await page.locator('#medical-export-cases input[value="p0"]').check();
+    await page.locator('#medical-export-stages input[value="landmarks"]').check();
+    await page.locator('#medical-export-stages input[value="boundary"]').uncheck();
     const exported = page.waitForEvent('download');
     await page.locator('#medical-export-download').click();
     const downloaded = await exported;
@@ -30,7 +33,76 @@ async function main() {
     await page.locator('#medical-export-close').click();
     check('real p0 exported from workspace');
 
+    assert.equal(await page.locator('#medical-import').innerText(), '导入医学复核反馈');
+    await page.locator('#medical-export').click();
+    await page.waitForFunction(()=>document.getElementById('medical-export-message').textContent==='');
+    await page.locator('#medical-export-all').click();
+    assert.equal(await page.locator('#medical-export-cases input:checked').count(), 5);
+    await page.locator('#medical-export-clear').click();
+    assert.ok(await page.locator('#medical-export-download').isDisabled());
+    await page.locator('#medical-export-cases input[value="p0"]').check();
+    await page.locator('#medical-export-cases input[value="p1"]').check();
+    await page.locator('#medical-export-stages input[value="landmarks"]').uncheck();
+    assert.ok(await page.locator('#medical-export-download').isDisabled());
+    await page.locator('#medical-export-stages input[value="landmarks"]').check();
+    await page.locator('#medical-export-stages input[value="boundary"]').check();
+    assert.ok((await page.locator('#medical-export-summary').innerText()).includes('共 4 份'));
+    await page.screenshot({path:path.join(out,'batch-export-desktop.png'),fullPage:true});
+    for (const width of [390,320]) {
+      await page.setViewportSize({width,height:844});
+      const dialog = await page.locator('#medical-export-dialog').boundingBox();
+      assert.ok(dialog.x >= 0 && dialog.x + dialog.width <= width);
+      assert.ok(await page.locator('#medical-export-dialog').evaluate(node=>node.scrollWidth<=node.clientWidth));
+      await page.screenshot({path:path.join(out,`batch-export-mobile-${width}.png`),fullPage:true});
+    }
+    await page.setViewportSize({width:1440,height:1000});
+    const batchDownload = page.waitForEvent('download');
+    await page.locator('#medical-export-download').click();
+    const batch = await batchDownload;
+    assert.equal(batch.suggestedFilename(), '医学复核_2例_4份.zip');
+    const zipPath = path.join(out,'batch.zip'), batchDir = path.join(out,'batch');
+    await batch.saveAs(zipPath);
+    const entries = JSON.parse(execFileSync(process.env.PROJECT_PYTHON || 'python', ['-c',
+      'import sys,json,zipfile; z=zipfile.ZipFile(sys.argv[1]); assert z.testzip() is None; z.extractall(sys.argv[2]); print(json.dumps(z.namelist()))', zipPath, batchDir], {encoding:'utf8'}));
+    assert.deepEqual(entries.sort(), ['p0_切片_医学复核.html','p0_边界_医学复核.html','p1_切片_医学复核.html','p1_边界_医学复核.html','医学复核使用说明.txt'].sort());
+    await page.locator('#medical-export-close').click();
+    check('multi-case and multi-stage selection, empty-selection prevention and single ZIP download pass');
+    check('batch selection dialog fits desktop, 390px and 320px layouts');
+
     const offline = await browser.newContext({viewport:{width:1440,height:1000},offline:true,acceptDownloads:true});
+    const batchReview = await offline.newPage();
+    batchReview.on('pageerror', error => report.errors.push(error.message));
+    const batchRequests = [];
+    batchReview.on('request', request => {if (/^https?:/.test(request.url())) batchRequests.push(request.url());});
+    for (const [caseId,stage,label] of [['p0','landmarks','切片'],['p1','landmarks','切片'],['p1','boundary','边界']]) {
+      await batchReview.goto(pathToFileURL(path.join(batchDir,`${caseId}_${label}_医学复核.html`)).href);
+      assert.equal(await batchReview.evaluate(()=>MANIFEST.case),caseId);
+      assert.equal(await batchReview.evaluate(()=>MANIFEST.stage),stage);
+      assert.equal(await batchReview.locator('#item-list button').count(),stage==='landmarks'?5:9);
+      if (stage==='landmarks') {
+        await batchReview.locator('#images img').first().waitFor();
+        assert.ok(await batchReview.locator('#images img').first().evaluate(img=>img.complete&&img.naturalWidth>100));
+      }
+      if (caseId==='p1') {
+        await batchReview.locator('#reviewer').fill('Synthetic batch UI QA');
+        await batchReview.locator('#decision').selectOption('insufficient');
+        const downloadedReply = batchReview.waitForEvent('download');
+        await batchReview.locator('#download').click();
+        const replyFile = path.join(out,`batch_${caseId}_${stage}_feedback.json`);
+        await (await downloadedReply).saveAs(replyFile);
+        const imported = page.waitForResponse(response=>response.url()===url+`/api/cases/${caseId}/medical-feedback`&&response.request().method()==='POST');
+        await page.locator('#medical-feedback-file').setInputFiles(replyFile);
+        assert.equal((await imported).status(),201);
+        await page.locator('#medical-feedback-message').filter({hasText:'医学复核反馈已导入'}).waitFor();
+        const replyData = JSON.parse(await fs.readFile(replyFile,'utf8'));
+        assert.equal(replyData.case,caseId); assert.equal(replyData.stage,stage);
+        const result = await context.request.get(url+`/api/cases/${caseId}/medical-feedback`);
+        assert.ok((await result.json()).records.some(record=>record.feedback.stage===stage&&record.current));
+      }
+    }
+    assert.equal(batchRequests.length,0);
+    await batchReview.close();
+    check('extracted ZIP pages open offline and separate case/stage feedback returns through the workspace');
     const review = await offline.newPage();
     review.on('pageerror', error => report.errors.push(error.message));
     const network = [];
@@ -99,8 +171,10 @@ async function main() {
     }
     check('390px and 320px offline layouts, image enlargement and closing pass');
 
+    const imported = page.waitForResponse(response=>response.url()===url+'/api/cases/p0/medical-feedback'&&response.request().method()==='POST');
     await page.locator('#medical-feedback-file').setInputFiles(replyPath);
-    await page.locator('#medical-feedback-message').filter({hasText:'朋友反馈已导入'}).waitFor();
+    assert.equal((await imported).status(),201);
+    await page.locator('#medical-feedback-message').filter({hasText:'医学复核反馈已导入'}).waitFor();
     const feedbackRecord=page.locator('.feedback-record').first();
     assert.ok((await feedbackRecord.innerText()).includes('Synthetic UI QA'));
     await page.screenshot({path:path.join(out,'feedback-desktop.png'),fullPage:true});
@@ -154,8 +228,10 @@ async function main() {
 
     await page.locator('#medical-export').click();
     await page.waitForFunction(()=>document.getElementById('medical-export-message').textContent==='');
-    await page.locator('#medical-export-case').selectOption('p0');
-    await page.locator('#medical-export-stage').selectOption('boundary');
+    await page.locator('#medical-export-clear').click();
+    await page.locator('#medical-export-cases input[value="p0"]').check();
+    await page.locator('#medical-export-stages input[value="landmarks"]').uncheck();
+    await page.locator('#medical-export-stages input[value="boundary"]').check();
     const boundaryDownload=page.waitForEvent('download');
     await page.locator('#medical-export-download').click();
     const boundaryPath=path.join(out,'p0_boundary.html');

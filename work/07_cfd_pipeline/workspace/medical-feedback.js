@@ -4,6 +4,7 @@
   const decisions = {pending:'未审核',accept:'通过',reject:'不通过',adjust:'需要调整',insufficient:'证据不足'};
   const stages = {landmarks:'切片点位复核',boundary:'边界与后续人工核验'};
   let catalog = [], uploaded = null, requestNumber = 0, catalogRequest = 0, toastTimer;
+  let exporting = false, catalogLoading = false;
   function node(tag, text, className) {
     const element = document.createElement(tag);
     if (text !== undefined) element.textContent = text;
@@ -35,14 +36,35 @@
     }
     if (catalog.some(entry => entry.case === before)) select.value = before;
   }
-  async function loadCatalog(preferred) {
+  const selected = id => [...$(id).querySelectorAll('input:checked')].map(input => input.value);
+  function updateExportSelection() {
+    const cases = selected('medical-export-cases').length, phases = selected('medical-export-stages').length;
+    const count = cases * phases;
+    $('medical-export-summary').textContent = `已选 ${cases} 个病例 · ${phases} 个阶段 · 共 ${count} 份复核材料`;
+    $('medical-export-download').disabled = exporting || catalogLoading || count === 0;
+    $('medical-export-download').textContent = count > 1 ? `批量导出（${count} 份）` : '导出复核包';
+    $('medical-export-case-group').disabled = exporting || catalogLoading;
+    $('medical-export-stage-group').disabled = exporting || catalogLoading;
+  }
+  function fillExportCases(preferred, reset) {
+    const before = new Set(selected('medical-export-cases'));
+    if (reset || !before.size) {
+      before.clear(); before.add(catalog.some(entry => entry.case === preferred) ? preferred : catalog[0]?.case);
+    }
+    const box = $('medical-export-cases'); box.replaceChildren();
+    for (const entry of catalog) {
+      const label = node('label'), input = node('input'); input.type = 'checkbox'; input.value = entry.case;
+      input.checked = before.has(entry.case); label.append(input, node('span', entry.label)); box.append(label);
+    }
+    updateExportSelection();
+  }
+  async function loadCatalog(preferred, resetExport = false) {
     const serial = ++catalogRequest;
     const result = await api('/api/medical-review/catalog');
     if (serial !== catalogRequest) return;
     catalog = result.cases;
     fillCases($('medical-feedback-case'), preferred || uploaded?.id);
-    fillCases($('medical-export-case'), preferred || uploaded?.id);
-    $('medical-export-download').disabled = !catalog.length;
+    fillExportCases(preferred || uploaded?.id, resetExport);
   }
   function date(value) {
     const time = new Date(value);
@@ -114,35 +136,49 @@
   }
   $('medical-export').onclick = async () => {
     $('medical-export-message').textContent = '正在读取病例…';
-    $('medical-export-download').disabled = true;
+    catalogLoading = true; updateExportSelection();
     $('medical-export-dialog').showModal();
     try {
       let preferred = uploaded?.id;
       const frame = window.nasalWorkspace.activeFrame('review');
       if (!preferred && frame?.contentDocument) preferred = frame.contentDocument.getElementById('case-title')?.textContent.split(' · ')[0];
-      await loadCatalog(preferred);
-      $('medical-export-stage').value = location.hash === '#boundary' ? 'boundary' : 'landmarks';
+      await loadCatalog(preferred, true);
+      for (const input of $('medical-export-stages').querySelectorAll('input')) input.checked = input.value === (location.hash === '#boundary' ? 'boundary' : 'landmarks');
       $('medical-export-message').textContent = catalog.length ? '' : '尚无已生成候选的病例。';
-    } catch (error) {$('medical-export-message').textContent = error.message; $('medical-export-download').disabled = true;}
+    } catch (error) {$('medical-export-message').textContent = error.message; $('medical-export-cases').replaceChildren();}
+    finally {catalogLoading = false; updateExportSelection();}
   };
+  $('medical-export-cases').onchange = $('medical-export-stages').onchange = () => { $('medical-export-message').textContent = ''; updateExportSelection(); };
+  for (const [id, checked] of [['medical-export-all', true], ['medical-export-clear', false]]) {
+    $(id).onclick = () => {
+      for (const input of $('medical-export-cases').querySelectorAll('input')) input.checked = checked;
+      $('medical-export-message').textContent = ''; updateExportSelection();
+    };
+  }
   $('medical-export-close').onclick = () => $('medical-export-dialog').close();
   $('medical-export-form').onsubmit = async event => {
     event.preventDefault();
-    const caseId = $('medical-export-case').value, stage = $('medical-export-stage').value;
-    const button = $('medical-export-download'); button.disabled = true;
-    $('medical-export-message').textContent = '正在打包切片证据…';
+    const cases = selected('medical-export-cases'), phases = selected('medical-export-stages');
+    if (exporting || catalogLoading || !cases.length || !phases.length) return;
+    exporting = true; updateExportSelection();
+    const count = cases.length * phases.length;
+    $('medical-export-message').textContent = `正在打包 ${count} 份医学复核材料…`;
     try {
-      const response = await fetch(`/api/cases/${caseId}/medical-review-export?stage=${stage}`);
+      const single = count === 1;
+      const response = single
+        ? await fetch(`/api/cases/${cases[0]}/medical-review-export?stage=${phases[0]}`)
+        : await fetch('/api/medical-review/export', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({cases, stages:phases})});
       if (!response.ok) {const result = await response.json(); throw Error(result.error || '导出失败');}
-      download(await response.blob(), `${caseId}_${stage === 'landmarks' ? '切片' : '边界'}_医学复核.html`);
-      $('medical-export-message').textContent = '复核包已导出。';
+      download(await response.blob(), single ? `${cases[0]}_${phases[0] === 'landmarks' ? '切片' : '边界'}_医学复核.html` : `医学复核_${cases.length}例_${count}份.zip`);
+      $('medical-export-message').textContent = `${count} 份医学复核材料已导出。`;
     } catch (error) {$('medical-export-message').textContent = error.message;}
-    finally {button.disabled = false;}
+    finally {exporting = false; updateExportSelection();}
   };
   $('medical-import').onclick = () => {$('medical-feedback-file').value = ''; $('medical-feedback-file').click();};
   $('medical-feedback-file').onchange = async () => {
     const file = $('medical-feedback-file').files[0]; if (!file) return;
     $('medical-import').disabled = true;
+    $('medical-feedback-message').textContent = '';
     try {
       if (file.size > 2 * 1024**2) throw Error('反馈文件超过 2 MB');
       const feedback = JSON.parse(await file.text());
@@ -150,7 +186,7 @@
       await api(`/api/cases/${feedback.case}/medical-feedback`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(feedback)});
       await loadCatalog(feedback.case);
       window.nasalWorkspace.navigate('feedback'); await loadFeedback();
-      $('medical-feedback-message').textContent = '朋友反馈已导入，等待逐项核对。'; toast('朋友反馈已导入');
+      $('medical-feedback-message').textContent = '医学复核反馈已导入，等待逐项核对。'; toast('医学复核反馈已导入');
     } catch (error) {toast(error.message);}
     finally {$('medical-import').disabled = false;}
   };

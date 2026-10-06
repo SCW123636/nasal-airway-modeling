@@ -35,7 +35,7 @@
       </div>
     </aside>
     <main class="process-main">
-      <div class="case-context"><label for="active-case">当前病例</label><select id="active-case"><option value="existing">已有五组扫描</option></select><span id="active-case-state">可查看候选</span><button id="regenerate-case" hidden>按当前粗标定重新生成</button><button id="save-case-review" hidden>保存本例审核</button><button id="medical-export">导出医学复核包</button><button id="medical-import">导入朋友反馈</button><input id="medical-feedback-file" type="file" accept=".json,application/json" hidden></div>
+      <div class="case-context"><label for="active-case">当前病例</label><select id="active-case"><option value="existing">已有五组扫描</option></select><span id="active-case-state">可查看候选</span><button id="regenerate-case" hidden>按当前粗标定重新生成</button><button id="save-case-review" hidden>保存本例审核</button><button id="medical-export">导出医学复核包</button><button id="medical-import">导入医学复核反馈</button><input id="medical-feedback-file" type="file" accept=".json,application/json" hidden></div>
       <div class="process-heading">
         <div><p id="step-label">01 / 项目流程</p><h2 id="step-title">项目总览</h2></div>
         <div class="step-actions"><button id="previous-step" disabled>上一流程</button><button id="next-step">下一流程</button></div>
@@ -109,9 +109,10 @@
   <dialog id="medical-export-dialog" aria-labelledby="medical-export-title">
     <form id="medical-export-form">
       <div class="dialog-heading"><h2 id="medical-export-title">导出医学复核包</h2><button type="button" id="medical-export-close" title="关闭" aria-label="关闭">×</button></div>
-      <label for="medical-export-case">病例</label><select id="medical-export-case" required></select>
-      <label for="medical-export-stage">复核阶段</label><select id="medical-export-stage"><option value="landmarks">切片点位复核</option><option value="boundary">边界与后续人工核验</option></select>
-      <p class="muted">将导出的 HTML 发给复核人，他用浏览器打开即可逐项填写，再把导出的反馈文件发回给你。</p>
+      <fieldset id="medical-export-case-group"><legend>选择病例（可多选）</legend><div class="export-selection-actions"><button type="button" id="medical-export-all">全选病例</button><button type="button" id="medical-export-clear">取消选择</button></div><div id="medical-export-cases" class="export-choices"></div></fieldset>
+      <fieldset id="medical-export-stage-group"><legend>复核阶段（可多选）</legend><div id="medical-export-stages" class="export-choices"><label><input type="checkbox" value="landmarks" checked>切片点位复核</label><label><input type="checkbox" value="boundary">边界与后续人工核验</label></div></fieldset>
+      <p id="medical-export-summary" class="muted" aria-live="polite"></p>
+      <p class="muted">多份材料会合并为一个压缩包。医学复核人解压后，用浏览器逐份打开、填写并导出反馈。</p>
       <p id="medical-export-message" class="muted" role="status" aria-live="polite"></p>
       <div class="dialog-actions"><button type="submit" id="medical-export-download">导出 HTML</button></div>
     </form>

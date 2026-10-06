@@ -5,10 +5,12 @@ import base64
 import copy
 from datetime import datetime
 import hashlib
+import io
 import json
 import math
 from pathlib import Path
 import re
+import zipfile
 from urllib.parse import unquote
 
 from build_auto_landmark_review import read_case, script_json, sha256_json
@@ -203,17 +205,70 @@ class MedicalReviewStore:
         return {'manifest': manifest, 'package_sha256': sha256_json(manifest), 'images': images,
                 'exported_at': now()}, bundle, current
 
-    def export(self, case, stage):
-        with self.manager.lock:
-            payload, _, _ = self.build(case, stage)
-            template = Path(__file__).with_name('medical_review_template.html').read_text(encoding='utf-8')
-            html = template.replace('__PACKAGE_DATA__', script_json(payload))
-            # Verify again before publishing the exported package registration.
-            after, _, _ = self.build(case, stage)
+    def _prepare_export(self, case, stage, template):
+        payload, _, _ = self.build(case, stage)
+        html = template.replace('__PACKAGE_DATA__', script_json(payload)).encode('utf-8')
+        return payload, html
+
+    def _check_exports(self, prepared):
+        for payload, _ in prepared:
+            manifest = payload['manifest']
+            after, _, _ = self.build(manifest['case'], manifest['stage'])
             if payload['package_sha256'] != after['package_sha256']:
                 raise ValueError('导出期间复核材料发生变化，请重试')
-            write_json(self.storage(case) / 'packages' / (payload['package_sha256'] + '.json'), payload['manifest'])
-            return html.encode('utf-8'), payload['package_sha256']
+
+    def _register_exports(self, prepared):
+        for payload, _ in prepared:
+            write_json(self.storage(payload['manifest']['case']) / 'packages' /
+                       (payload['package_sha256'] + '.json'), payload['manifest'])
+
+    def export(self, case, stage):
+        with self.manager.lock:
+            template = Path(__file__).with_name('medical_review_template.html').read_text(encoding='utf-8')
+            payload, html = self._prepare_export(case, stage, template)
+            self._check_exports([(payload, html)])
+            self._register_exports([(payload, html)])
+            return html, payload['package_sha256']
+
+    def export_batch(self, cases, stages):
+        with self.manager.lock:
+            for values, name in ((cases, '病例'), (stages, '复核阶段')):
+                if (not isinstance(values, list) or not values
+                        or any(not isinstance(value, str) for value in values)
+                        or len(values) != len(set(values))):
+                    raise ValueError('请选择有效且不重复的' + name)
+            available = {entry['case'] for entry in self.catalog()['cases']}
+            if any(case not in available for case in cases):
+                raise ValueError('所选病例不存在或尚未生成候选')
+            if any(stage not in ('landmarks', 'boundary') for stage in stages):
+                raise ValueError('复核阶段无效')
+            template = Path(__file__).with_name('medical_review_template.html').read_text(encoding='utf-8')
+            prepared, total = [], 0
+            for case in cases:
+                for stage in stages:
+                    try:
+                        item = self._prepare_export(case, stage, template)
+                    except (ValueError, FileNotFoundError, KeyError) as exc:
+                        raise ValueError(f'{case}：{exc}') from exc
+                    total += len(item[1])
+                    if total > 200 * 1024**2:
+                        raise ValueError('所选复核材料超过 200 MB，请分批导出')
+                    prepared.append(item)
+            output = io.BytesIO()
+            with zipfile.ZipFile(output, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+                for payload, html in prepared:
+                    manifest = payload['manifest']
+                    label = '切片' if manifest['stage'] == 'landmarks' else '边界'
+                    archive.writestr(f"{manifest['case']}_{label}_医学复核.html", html)
+                archive.writestr('医学复核使用说明.txt',
+                                 '先解压，再用浏览器逐份打开 HTML。图像已内嵌，可离线填写。\n'
+                                 '填写复核人，逐项记录结论和意见，点击“导出反馈”保存 JSON。\n'
+                                 '每个病例、每个阶段的反馈分别保存，将反馈文件交回项目负责人。\n'
+                                 '项目负责人在工作台使用“导入医学复核反馈”，核对后单独保存审核。\n'
+                                 '证据未齐项目无法判定通过或调整，需补充证据后重新复核。\n')
+            self._check_exports(prepared)
+            self._register_exports(prepared)
+            return output.getvalue()
 
     def validate(self, reply, manifest, digest):
         if not isinstance(reply, dict) or reply.get('schema') != 'medical_review_feedback/v1':
