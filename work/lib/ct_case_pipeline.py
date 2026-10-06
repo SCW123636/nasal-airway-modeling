@@ -691,6 +691,25 @@ class CaseManager:
     def list(self):
         return sorted([self.public(read_json(p)) for p in self.root.glob('u_*/case.json')], key=lambda d: d['created_at'], reverse=True)
 
+    def delete(self, case):
+        """Delete one imported case after confirming no worker can still write to it."""
+        with self.lock:
+            directory = case_dir(self.root, case)
+            data = self.get(case)
+            if case in self.pending or data.get('status') in ('queued', 'running') or process_alive(data.get('worker_pid')):
+                raise ValueError('病例正在处理，请等待任务结束后再删除')
+            if not directory.is_dir() or directory.is_symlink():
+                raise FileNotFoundError('未找到病例')
+            tombstone = self.root / ('.deleting-' + case + '-' + uuid.uuid4().hex)
+            os.replace(directory, tombstone)
+            try:
+                shutil.rmtree(tombstone)
+            except Exception:
+                if not directory.exists() and tombstone.exists():
+                    os.replace(tombstone, directory)
+                raise
+            return {'id': case, 'deleted': True}
+
     def create(self, payload):
         entries = payload.get('files')
         kind = payload.get('kind')

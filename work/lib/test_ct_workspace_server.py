@@ -67,6 +67,27 @@ class LocalHTTPTests(unittest.TestCase):
         self.assertEqual(self.call('/api/cases',payload,'POST',{'Host':'example.com'})[0],400)
         self.assertEqual(self.call('/api/cases',payload,'POST',{'Origin':self.url})[0],201)
 
+    def test_delete_case_removes_private_case_and_requires_local_origin(self):
+        case = self.create()
+        raw = server.CASE_ROOT / case / 'raw' / '000000.dcm'
+        raw.write_bytes(b'CT')
+        status, body = self.call('/api/cases/' + case, method='DELETE')
+        self.assertEqual(status, 200)
+        self.assertEqual(json.loads(body), {'id': case, 'deleted': True})
+        self.assertFalse((server.CASE_ROOT / case).exists())
+        self.assertEqual(self.call('/api/cases/' + case)[0], 404)
+        self.assertNotIn(case, [item['id'] for item in json.loads(self.call('/api/cases')[1])['cases']])
+        self.assertEqual(self.call('/api/cases/' + case, method='DELETE', headers={'Origin':'http://example.com'})[0], 400)
+
+    def test_delete_rejects_processing_case_and_invalid_id(self):
+        case = self.create()
+        server.CASE_MANAGER.pending.add(case)
+        try:
+            self.assertEqual(self.call('/api/cases/' + case, method='DELETE')[0], 400)
+        finally:
+            server.CASE_MANAGER.pending.discard(case)
+        self.assertEqual(self.call('/api/cases/not-a-case', method='DELETE')[0], 404)
+
     def test_start_and_review_fail_until_candidate_exists(self):
         case = self.create()
         self.assertEqual(self.call('/api/cases/'+case+'/start',{},'POST')[0],400)

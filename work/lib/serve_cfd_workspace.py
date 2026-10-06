@@ -196,6 +196,21 @@ class Handler(SimpleHTTPRequestHandler):
         except Exception:
             self.reply({'error': '文件上传中断，可重试'}, 500)
 
+    def do_DELETE(self):
+        try:
+            self.check_local_write()
+            match = re.fullmatch(r'/api/cases/(u_[0-9a-f]{16})', urlsplit(self.path).path)
+            if not match:
+                self.reply({'error': '接口不存在'}, 404)
+                return
+            self.reply(CASE_MANAGER.delete(match[1]))
+        except FileNotFoundError as exc:
+            self.reply({'error': str(exc)}, 404)
+        except (ValueError, TypeError) as exc:
+            self.reply({'error': str(exc)}, 400)
+        except Exception:
+            self.reply({'error': '本机删除出错，请稍后重试'}, 500)
+
 
 def main():
     global CASE_MANAGER, CASE_ROOT
