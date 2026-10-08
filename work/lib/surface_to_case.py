@@ -88,7 +88,7 @@ def parse_stl_ascii(path):
 
 
 def parse_vtp_regions(path):
-    """Read a VTP with a string cell array ('solid'/'region'/'patch') into named triangles."""
+    """Read a VTP with consistent string region arrays into named triangles."""
     try:
         import vtk
     except ImportError:
@@ -98,14 +98,23 @@ def parse_vtp_regions(path):
     reader.Update()
     data = reader.GetOutput()
     cell_data = data.GetCellData()
-    names = None
+    arrays = []
     for index in range(cell_data.GetNumberOfArrays()):
         array = cell_data.GetAbstractArray(index)
-        if array.GetName() and array.GetName().lower() in ("solid", "region", "patch"):
-            names = array
-            break
-    if names is None:
-        fail(f"{path}: VTP needs a string cell array named solid/region/patch to identify regions")
+        if array.GetName() and array.GetName().lower() in ("solid", "region", "patch", "boundary_patch"):
+            if (not isinstance(array, vtk.vtkStringArray)
+                    or array.GetNumberOfComponents() != 1
+                    or array.GetNumberOfValues() != data.GetNumberOfPolys()):
+                fail(f"{path}: region array must contain one string per triangle")
+            arrays.append(array)
+    if not arrays:
+        fail(f"{path}: VTP needs solid/region/patch/boundary_patch string cell labels")
+    names = arrays[0]
+    if any(any(array.GetValue(i) != names.GetValue(i) for i in range(data.GetNumberOfPolys()))
+           for array in arrays[1:]):
+        fail(f"{path}: conflicting region arrays")
+    if data.GetNumberOfCells() != data.GetNumberOfPolys():
+        fail(f"{path}: VTP must contain triangle polygons only")
     points = data.GetPoints()
     polys = data.GetPolys()
     polys.InitTraversal()
@@ -117,6 +126,8 @@ def parse_vtp_regions(path):
         if ids.GetNumberOfIds() != 3:
             fail(f"{path}: cell {cell} is not a triangle; triangulate the VTP first")
         name = names.GetValue(cell)
+        if not PATCH_NAME_RE.fullmatch(name):
+            fail(f"{path}: invalid region name")
         triangle = tuple(tuple(points.GetPoint(ids.GetId(k))) for k in range(3))
         solids.setdefault(name, []).append(triangle)
     if not solids:
