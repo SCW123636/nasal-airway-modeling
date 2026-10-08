@@ -1,0 +1,2 @@
+# Isolated geometry components; Shapely wheels bundle GEOS >= 3.10.
+shapely==2.2.0

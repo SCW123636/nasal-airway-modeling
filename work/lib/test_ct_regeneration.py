@@ -108,5 +108,16 @@ class RegenerationTests(unittest.TestCase):
         self.assertEqual(data['artifacts']['viewer'],'old-viewer')
         with self.assertRaises(ValueError):self.manager.regenerate(self.directory.name)
 
+    def test_success_invalidates_old_boundary_preview_and_keeps_record(self):
+        previous = {'status': 'generated', 'revision': 'original',
+                    'draft_id': 'd_0123456789abcdef', 'sha256': 'a' * 64}
+        pipeline.update(self.directory, boundary_preview=previous,
+                        boundary_review={'status': 'confirmed', 'sha256': 'b' * 64})
+        self.assertEqual(self.regenerate(), 0)
+        current = self.manager.get(self.directory.name)
+        self.assertEqual(current['boundary_preview'], previous | {'status': 'stale'})
+        self.assertEqual(current['boundary_review']['status'], 'stale')
+        self.assertEqual(current['stages']['solver'], 'pending')
+
 
 if __name__=='__main__':unittest.main()

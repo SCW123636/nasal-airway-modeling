@@ -608,6 +608,7 @@ def regenerate_artifacts(directory):
                          'proposal_hash':report['proposal_hash'], 'reference_library_sha256':sha256(reference)})
         update(directory, current_revision=revision, versions=versions, status='awaiting_review', error=None,
                boundary_review=invalidate_boundary_review(previous),
+               boundary_preview=invalidate_boundary_preview(previous),
                localization_summary=summarize_localization(report),
                active_stage='review', message='新版粗标定已生成，等待切片复核',
                artifacts={'viewer':'/viewer/index.html?manifest=' + prefix + '/viewer.json', 'review':prefix+'/review/index.html'},
