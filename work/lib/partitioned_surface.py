@@ -114,7 +114,15 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7):
         if not affected.any():
             raise ValueError(name + ': plane does not cut the selected surface')
         if np.any(patches[affected] != 'wall'):
-            raise ValueError(name + ': cutting plane intersects an earlier cap')
+            collision = affected & (patches != 'wall')
+            cap_points = xyz[collision]
+            raise SurfaceClipError(name + ': cutting plane intersects an earlier cap',
+                                   {'plane': name, 'conflicting_triangles': int(collision.sum()),
+                                    'earlier_patch_counts': dict(Counter(patches[collision].tolist())),
+                                    'triangle_centers_lps_mm': cap_points.mean(axis=1).tolist(),
+                                    'bounds_lps_mm': {'min': cap_points.min(axis=(0, 1)).tolist(),
+                                                      'max': cap_points.max(axis=(0, 1)).tolist()},
+                                    'roi_lps_mm': roi})
         new_points = points.tolist()
         cache = {}
 
