@@ -1,0 +1,170 @@
+{
+  "schema": "surface_diagnostic_evidence/v1",
+  "cases": [
+    {
+      "case": "p2_source",
+      "baseline_hits": 117,
+      "translated_hits": 593,
+      "native_status": "fail",
+      "unresolved_native_hits": 117,
+      "unperturbed_edge_matches": 0,
+      "candidate_patch_counts": {
+        "wall": 556
+      },
+      "components_retained": 2,
+      "native_coordinate_set_verified": true,
+      "translation_roundtrip_error_m": 6.938893903907228e-18,
+      "patch_quality_source_double": {
+        "wall": {
+          "triangles": 220812,
+          "minimum_edge_mm": 0.3245509640211586,
+          "minimum_edge_triangle": 0,
+          "minimum_quality_equilateral_1": 0.5721514507397112,
+          "minimum_quality_triangle": 1617
+        }
+      },
+      "candidate_provenance": null,
+      "localization_sha256": "a1f922309b154f30a23e6a199a1f78df487c88ef8b833fc9499d88a5c618f679",
+      "translated_localization_sha256": "947e5635b484b10c2ce94a5bb94d619a34101697b8d4583657af761042659526",
+      "origin_report_sha256": "22aac1bc13c785c266110bf930b6dc9ea5ca732126d32c9fb1c484d7217e1ed2"
+    },
+    {
+      "case": "p2",
+      "baseline_hits": 115,
+      "translated_hits": 590,
+      "native_status": "fail",
+      "unresolved_native_hits": 115,
+      "unperturbed_edge_matches": 0,
+      "candidate_patch_counts": {
+        "wall": 552
+      },
+      "components_retained": 2,
+      "native_coordinate_set_verified": true,
+      "translation_roundtrip_error_m": 2.7755575615628914e-17,
+      "patch_quality_source_double": {
+        "nasopharynx_outlet": {
+          "triangles": 857,
+          "minimum_edge_mm": 0.0003032985909668663,
+          "minimum_edge_triangle": 218181,
+          "minimum_quality_equilateral_1": 0.0003819703775446048,
+          "minimum_quality_triangle": 218181
+        },
+        "nostril_L": {
+          "triangles": 215,
+          "minimum_edge_mm": 0.002357427231951564,
+          "minimum_edge_triangle": 217152,
+          "minimum_quality_equilateral_1": 0.005199930352152462,
+          "minimum_quality_triangle": 217262
+        },
+        "nostril_R": {
+          "triangles": 187,
+          "minimum_edge_mm": 0.0005515483309836786,
+          "minimum_edge_triangle": 217355,
+          "minimum_quality_equilateral_1": 0.00034100793676480087,
+          "minimum_quality_triangle": 217355
+        },
+        "wall": {
+          "triangles": 217105,
+          "minimum_edge_mm": 0.0003032985909668663,
+          "minimum_edge_triangle": 217091,
+          "minimum_quality_equilateral_1": 0.0006076666105116499,
+          "minimum_quality_triangle": 217091
+        }
+      },
+      "candidate_provenance": {
+        "unchanged_source_face": 552
+      },
+      "localization_sha256": "8135922abd18b9c415bf5a62925a8c314406a9b390283be42ff76aaf852fd555",
+      "translated_localization_sha256": "e00c0597d0eb3ac8eab9513b65c42e85877bacfa9b1ff0fa9c86514a5a94a490",
+      "origin_report_sha256": "e30e8fe1576e24c398396bf6beef16df6da7ea499878f060130ef54587c79669"
+    },
+    {
+      "case": "p3t1_source",
+      "baseline_hits": 179,
+      "translated_hits": 717,
+      "native_status": "fail",
+      "unresolved_native_hits": 179,
+      "unperturbed_edge_matches": 0,
+      "candidate_patch_counts": {
+        "wall": 729
+      },
+      "components_retained": 7,
+      "native_coordinate_set_verified": true,
+      "translation_roundtrip_error_m": 1.3877787807814457e-17,
+      "patch_quality_source_double": {
+        "wall": {
+          "triangles": 271180,
+          "minimum_edge_mm": 0.3300752357491804,
+          "minimum_edge_triangle": 1721,
+          "minimum_quality_equilateral_1": 0.5777093404716747,
+          "minimum_quality_triangle": 13388
+        }
+      },
+      "candidate_provenance": null,
+      "localization_sha256": "243959217c02b4a0ca9798830576e109c4beefd53a566b4766f2feeb2d9eaf50",
+      "translated_localization_sha256": "260586fc32d228a4376ec8bdf7f1dac9e721dea2d3e49cbf3ce4f455cf43d6f0",
+      "origin_report_sha256": "708bd01dbd2503637bb5cdcffe7249a1a114270d88cb0a3912d820802c8bf6e3"
+    },
+    {
+      "case": "p3t1",
+      "baseline_hits": 194,
+      "translated_hits": 757,
+      "native_status": "fail",
+      "unresolved_native_hits": 194,
+      "unperturbed_edge_matches": 0,
+      "candidate_patch_counts": {
+        "wall": 916
+      },
+      "components_retained": 7,
+      "native_coordinate_set_verified": true,
+      "translation_roundtrip_error_m": 1.3877787807814457e-17,
+      "patch_quality_source_double": {
+        "nasopharynx_outlet": {
+          "triangles": 986,
+          "minimum_edge_mm": 0.00041188139454845826,
+          "minimum_edge_triangle": 267291,
+          "minimum_quality_equilateral_1": 0.0002936650525717499,
+          "minimum_quality_triangle": 267291
+        },
+        "nostril_L": {
+          "triangles": 374,
+          "minimum_edge_mm": 0.002810849392731621,
+          "minimum_edge_triangle": 266055,
+          "minimum_quality_equilateral_1": 0.0020657550222736914,
+          "minimum_quality_triangle": 266055
+        },
+        "nostril_R": {
+          "triangles": 454,
+          "minimum_edge_mm": 0.0007329989046376674,
+          "minimum_edge_triangle": 266530,
+          "minimum_quality_equilateral_1": 0.0005873683434585511,
+          "minimum_quality_triangle": 266530
+        },
+        "wall": {
+          "triangles": 265816,
+          "minimum_edge_mm": 0.00036963587272710857,
+          "minimum_edge_triangle": 264360,
+          "minimum_quality_equilateral_1": 0.0014136125999090479,
+          "minimum_quality_triangle": 264533
+        }
+      },
+      "candidate_provenance": {
+        "unchanged_source_face": 912,
+        "new_or_modified_face": 4
+      },
+      "localization_sha256": "324890cd0d8bf0c9c82032e3a3ef40c5db5ba9bb08cf61f17f184a97eb70060d",
+      "translated_localization_sha256": "13875274fd4b4c7859284d3d37214ea410609ed38083a3f533392ae424c2c3b1",
+      "origin_report_sha256": "bfbfb9dc2348d8ccb65872cb7e722f75758774b3b9c18e525e3db0add107f8c4"
+    }
+  ],
+  "evidence_paths": {
+    "localization": ".tools\\surface-intersection-final-20261009-r17",
+    "translated_localization": ".tools\\surface-intersection-translated-final-20261009-r18",
+    "origin_control": ".tools\\surface-origin-control-20261008-r13"
+  },
+  "interpretation": "Native failure retained; no confirmed intersecting triangle pair; origin sensitivity demonstrated",
+  "volume_mesh_generated": false,
+  "geometry_repaired": false,
+  "patient_solver_allowed": false,
+  "patient_cfd_results": 0
+}
