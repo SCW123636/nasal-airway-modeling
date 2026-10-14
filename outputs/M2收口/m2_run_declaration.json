@@ -1,0 +1,62 @@
+{
+  "schema": "nasal_cfd_m2_engineering_closure/v1",
+  "clinical_status": "generalisation_test_only_no_human_review",
+  "interpretation": "Linkage validation only. Not a patient triage or clinical conclusion.",
+  "milestone": "M2",
+  "closure_type": "dual_track_user_ruled_A",
+  "ruled_at": "2026-10-14",
+  "ruling_source": "plan/M2出口判据重议.md section 7 option A",
+  "run": {
+    "task_card": "T-006",
+    "run_id": "T006_Run1_laminar_numerics_fixed",
+    "case_path_wsl": "/home/lenovo2/patient_cfd/t004_diag",
+    "solver": "simpleFoam",
+    "solver_version": "OpenFOAM v1912 (build 200626)",
+    "execution_mode": "direct_solver_call_outside_prescribed_wrapper",
+    "wrapper_used": false,
+    "force_unsanctioned_used": false,
+    "case_manifest_modified": false,
+    "termination": "manual_kill_at_time_533",
+    "termination_reason": "residual floor reached at T~460 then crept +27%; residualControl 1e-6 unreachable; all primary criteria already decidable",
+    "log_lines": 5924,
+    "log_file": "outputs/T-006/logs/log.simpleFoam"
+  },
+  "operating_condition": {
+    "total_inspiratory_flow_lpm": 15.0,
+    "flow_split": "imposed_equal_split_baseline_0.5_0.5",
+    "nasopharynx_outlet": {"quantity": "static", "value_Pa": 0.0, "reference": "gauge"},
+    "turbulence_model": "laminar",
+    "mesh": "b15 patient surface, Netgen maxh=1.0 repaired, 1161194 cells, 585 det<0.001, 114 low-interpolation-weight faces, max non-orthogonality 87.3 deg"
+  },
+  "primary_criteria": {
+    "stable_no_crash": {"met": true, "evidence": "533 steps, no FOAM FATAL / sigFPE, passed T-004 crash point (T=260) by 273 steps"},
+    "delta_p_in_band_Pa": {"met": true, "value_Pa": 10.29, "band_Pa": [10, 100], "note": "area-weighted kinematic dp 8.5709 m2/s2 x rho 1.2; sits on lower band edge; sensitivity deferred to M3 matrix"},
+    "mass_imbalance_fraction_max": {"met": true, "value": 7.1966e-07, "screen": 0.005, "basis": "steady-state tail (t>=213); startup transient max 6.3324e-03 at t=2 reported separately, not counted"},
+    "monitor_relative_change": {"met": true, "value": 7.9e-05, "screen": 0.005, "basis": "max window-to-window relative change of area-weighted delta-p; last 40% samples, window length 20"}
+  },
+  "recorded_items": {
+    "residual_convergence": {"achieved": false, "residual_max_Ux": 9.796e-05, "residual_p": 2.597e-04, "screen_target_residual_max": 1e-05, "note": "residual floor at T~460 (Ux 7.71e-05) then crept +27% to T=532; plateau causes H1-H4 undiscriminated"},
+    "numerical_validation": "unchecked",
+    "converged_log_line_present": false,
+    "mesh_ok_claimed": false
+  },
+  "plateau_hypotheses": [
+    {"id": "H1", "text": "585 slivers + 114 low-weight faces + 198 severe non-orthogonal faces cap achievable precision", "discriminator": "M3 matrix (mesh factor) or maxh=0.4 rerun"},
+    {"id": "H2", "text": "Re~5276 transitional; steady laminar assumption itself invalid", "discriminator": "kOmegaSST run or transient segment"},
+    {"id": "H3", "text": "numerics still optimizable (relaxation / non-orthogonal correctors / momentum predictor)", "discriminator": "more conservative settings on same mesh"},
+    {"id": "H4", "text": "consistent SIMPLE + cellLimited combination already at config limit", "discriminator": "same as H3"}
+  ],
+  "open_items": [
+    "T-008: contract definitions for mass_imbalance_fraction basis and monitor_relative_change (screen values unchanged)",
+    "M3: 36-cell verification matrix (3 thresholds x 2 geometries x 3 meshes x 2 solvers); delta-p sensitivity on lower band edge",
+    "Contract-valid patient cfd_result still blocked by medical review gates (oral_exclusion_confirmed / sinus_boundary_policy_confirmed pending) and solver_adapter not_implemented"
+  ],
+  "provenance": {
+    "all_numbers_extracted_by": "main conversation (segment lead), independently from artifacts",
+    "artifacts": [
+      "outputs/T-006/logs/log.simpleFoam",
+      "outputs/T-006/logs/T006_FINAL_STATUS.txt",
+      "postProcessing/*/0/surfaceFieldValue.dat (532 samples per function, t=1..532)"
+    ]
+  }
+}
