@@ -1,0 +1,40 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:                                        |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : OPENFOAM=1912 patch=200626
+Arch   : "LSB;label=32;scalar=64"
+Exec   : foamToVTK -latestTime -ascii -fields (p U)
+Date   : Oct 14 2026
+Time   : 18:38:52
+Host   : LAPTOP-44R13S8U
+PID    : 14137
+I/O    : uncollated
+Case   : /home/lenovo2/patient_cfd/t004_diag
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Initial memory 140824 kB
+Create mesh for time = 400
+
+VTK mesh topology: 1.59 s, 280480 kB
+Time: 400
+    volScalar    : p
+    volVector    : U
+    Internal  : "VTK/t004_diag_400/internal.vtu"
+    Boundary  : "VTK/t004_diag_400/boundary/nostril_L.vtp"
+    Boundary  : "VTK/t004_diag_400/boundary/wall.vtp"
+    Boundary  : "VTK/t004_diag_400/boundary/nostril_R.vtp"
+    Boundary  : "VTK/t004_diag_400/boundary/nasopharynx_outlet.vtp"
+Wrote in 5.11 s, 721768 kB
+
+End: 6.7 s, 776200 kB (peak)
+

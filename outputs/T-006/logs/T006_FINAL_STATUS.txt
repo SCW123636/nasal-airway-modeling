@@ -1,0 +1,35 @@
+=== simpleFoam exited at 18:21:44 ===
+--- grep converged/End/FATAL/sigFpe ---
+18:trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+--- wc -l ---
+5924 /home/lenovo2/patient_cfd/t004_diag/log.simpleFoam
+--- tail 25 ---
+
+Time = 531
+
+smoothSolver:  Solving for Ux, Initial residual = 9.76968100734e-05, Final residual = 3.57912445238e-07, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 5.42401425408e-05, Final residual = 1.95238493721e-07, No Iterations 5
+smoothSolver:  Solving for Uz, Initial residual = 5.41858712411e-05, Final residual = 4.99965953861e-07, No Iterations 4
+GAMG:  Solving for p, Initial residual = 0.000259865594149, Final residual = 1.71053924671e-06, No Iterations 4
+GAMG:  Solving for p, Initial residual = 8.82127642557e-05, Final residual = 5.73401115693e-07, No Iterations 3
+GAMG:  Solving for p, Initial residual = 1.36007143825e-05, Final residual = 1.27683562843e-07, No Iterations 4
+time step continuity errors : sum local = 0.000224485044381, global = 1.16591395039e-05, cumulative = -0.150847797923
+ExecutionTime = 2657.49 s  ClockTime = 2662 s
+
+Time = 532
+
+smoothSolver:  Solving for Ux, Initial residual = 9.79617855855e-05, Final residual = 3.60892121475e-07, No Iterations 5
+smoothSolver:  Solving for Uy, Initial residual = 5.40866537947e-05, Final residual = 1.96531312626e-07, No Iterations 5
+smoothSolver:  Solving for Uz, Initial residual = 5.41797152027e-05, Final residual = 5.01217292592e-07, No Iterations 4
+GAMG:  Solving for p, Initial residual = 0.000259674113837, Final residual = 1.69034939584e-06, No Iterations 4
+GAMG:  Solving for p, Initial residual = 8.78061601258e-05, Final residual = 5.58253244114e-07, No Iterations 3
+GAMG:  Solving for p, Initial residual = 1.34177886717e-05, Final residual = 1.28483011377e-07, No Iterations 4
+time step continuity errors : sum local = 0.000225892965815, global = 9.10083553621e-06, cumulative = -0.150838697088
+ExecutionTime = 2662.66 s  ClockTime = 2667 s
+
+Time = 533
+
+--- time dirs ---
+/home/lenovo2/patient_cfd/t004_diag/0
+/home/lenovo2/patient_cfd/t004_diag/200
+/home/lenovo2/patient_cfd/t004_diag/400
