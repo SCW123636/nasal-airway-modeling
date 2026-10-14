@@ -1,0 +1,773 @@
+diff --git a/work/07_cfd_pipeline/solver/run_openfoam_case.py b/work/07_cfd_pipeline/solver/run_openfoam_case.py
+index 12a0d0f..6df600e 100644
+--- a/work/07_cfd_pipeline/solver/run_openfoam_case.py
++++ b/work/07_cfd_pipeline/solver/run_openfoam_case.py
+@@ -15,6 +15,19 @@ inlet flowRateInletVelocity entries written by surface_to_case.py are replaced
+ (after meshing, before simpleFoam) by an area-normalized parabolic fixedValue
+ profile, using the same midpoint-normalization approach as run_reference.py.
+ 
++Engineering bonuses (all opt-in, default behaviour unchanged):
++    --status-file <name>     stream run_status.json after every sub-step so long
++                             runs are observable (defaults to run_status.json)
++    --archive-before-run     move stale numeric time dirs + prior manifests into
++                             .archive/<utc>/ so a previous latestTime is never
++                             reused as a starting solution
++    --parallel N             run snappyHexMesh and simpleFoam under MPI with N
++                             ranks (needs mpirun/decomposePar/reconstructPar;
++                             auto-falls back to serial if any is missing)
++    --skip-mesh-if-cached    reuse a previously checked mesh when its content
++                             signature still matches (drops blockMesh/snappyHexMesh,
++                             keeps checkMesh for revalidation)
++
+ No patient data: this executor is geometry-agnostic.
+ """
+ import argparse
+@@ -22,14 +35,76 @@ from datetime import datetime, timezone
+ import json
+ import math
+ import os
+-from pathlib import Path
+ import re
++import shutil
+ import sys
++import time
++import uuid
++from pathlib import Path
+ 
+ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "solver_reference"))
+ from run_reference import execute, foam_list_text
+ 
+-SCRIPT_VERSION = "1.1.0"
++sys.path.insert(0, str(Path(__file__).resolve().parent))
++import mesh_cache
++
++# --- contract gate (T-003 R10) ------------------------------------------------
++# The contract module lives in work/lib; on WSL `Path(__file__).resolve().
++# parents[2] / "lib"` resolves there. Imported up front so a missing module
++# fails loudly and clearly instead of surfacing as a bare ImportError traceback.
++sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "lib"))
++try:
++    import cfd_contract
++except ImportError as exc:
++    _lib_dir = Path(__file__).resolve().parents[2] / "lib"
++    print("run_openfoam_case error: cannot import contract module 'cfd_contract' "
++          "from %s: %s" % (_lib_dir, exc), file=sys.stderr)
++    raise SystemExit(2)
++
++
++class ContractRefusal(Exception):
++    """Raised when a --config is supplied but is not execution-allowed."""
++
++    def __init__(self, reasons):
++        super().__init__("unsanctioned configuration")
++        self.reasons = list(reasons)
++
++
++def evaluate_contract(args):
++    """Load + validate the optional --config and return run_manifest['contract'].
++
++    Returns a dict with ``checked`` set False when no --config is given (so the
++    script keeps running exactly as before). Raises ``ContractRefusal`` -- before
++    any solver step runs -- when ``execution_allowed`` is False and
++    --force-unsanctioned was not supplied. The refusal message names the concrete
++    blocking reasons (they live in the contract ``warnings`` for our 8 configs).
++    """
++    if not args.config:
++        return {"config_id": None, "checked": False}
++    path = Path(args.config)
++    if not path.is_file():
++        raise ContractRefusal(["--config file not found: %s" % path])
++    try:
++        cfg = json.loads(path.read_text(encoding="utf-8"))
++    except (OSError, json.JSONDecodeError) as exc:
++        raise ContractRefusal(["--config is not readable/valid JSON (%s): %s" % (path, exc)])
++    report = cfd_contract.validate_config(cfg)
++    contract = {
++        "config_id": cfg.get("config_id"),
++        "execution_allowed": bool(report["execution_allowed"]),
++        "errors": report["errors"],
++        "warnings": report["warnings"],
++        "forced": bool(args.force_unsanctioned),
++        "checked": True,
++    }
++    if not report["execution_allowed"] and not args.force_unsanctioned:
++        # Concrete blocking reasons: errors first, then readiness warnings
++        # (e.g. "solver adapter has not been implemented and verified ...").
++        raise ContractRefusal(list(report["errors"]) + list(report["warnings"]))
++    return contract
++
++
++SCRIPT_VERSION = "1.2.0"
+ ENV_OVERRIDES = {"WM_PROJECT_DIR": "/usr/share/openfoam",
+                  "FOAM_ETC": "/usr/share/openfoam/etc",
+                  "WM_PROJECT_VERSION": "v1912"}
+@@ -38,6 +113,7 @@ TOOLS = ["blockMesh", "snappyHexMesh", "checkMesh", "simpleFoam", "foamToVTK", "
+ REQUIRED_COMMON = ["0/p", "0/U", "constant/transportProperties", "constant/turbulenceProperties",
+                    "system/controlDict", "system/fvSchemes", "system/fvSolution"]
+ REQUIRED_SST = ["0/k", "0/omega", "0/nut"]
++MESH_STEPS = ["blockMesh", "snappyHexMesh", "checkMesh"]
+ 
+ 
+ def utc_now():
+@@ -224,6 +300,114 @@ def set_parabolic_inlet(case, manifest):
+     return record
+ 
+ 
++# --- engineering-bonus helpers -------------------------------------------------
++
++def write_status(path, payload):
++    """Atomic status write so a poller never reads a half-written JSON file."""
++    temp = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
++    text = json.dumps(payload, ensure_ascii=False, indent=2)
++    temp.write_text(text, encoding="utf-8")
++    for delay in (0.03, 0.08, 0.18):
++        try:
++            temp.replace(path)
++            return
++        except PermissionError:
++            time.sleep(delay)
++    temp.unlink(missing_ok=True)
++
++
++def _ensure_decompose_par_dict(case, nproc):
++    """Write (or repair) a decomposeParDict usable on this machine.
++
++    Two environment facts drive the content:
++      * OpenFOAM's default ``method scotch`` aborts here -- this v1912 build ships a
++        dummy scotchDecomp stub, so it raises "Attempted to use <scotch> without the
++        scotchDecomp library loaded". ``hierarchical`` is built in and needs no library.
++      * ``hierarchical`` reads the vector entry ``n``, not just ``numberOfSubdomains``;
++        without ``n`` it aborts with "Entry 'n' not found in dictionary".
++    Splitting along x suits the long thin duct cases (length >> cross-section).
++    An existing dictionary is only touched when it is one of those two broken forms.
++    """
++    path = case / "system" / "decomposeParDict"
++    header = ("FoamFile\n{\n version 2.0;\n format ascii;\n class dictionary;\n"
++              " object decomposeParDict;\n}\n")
++    body = (f"numberOfSubdomains {nproc};\n"
++            f"n ({nproc} 1 1);\n"
++            "method hierarchical;\ndistributed no;\nroots ();\n")
++    if not path.is_file():
++        path.write_text(header + body, encoding="ascii")
++        return
++    try:
++        text = path.read_text(encoding="utf-8", errors="replace")
++    except OSError:
++        return
++    if re.search(r"\bmethod\s+scotch\s*;", text, re.I):
++        fixed = re.sub(r"\bmethod\s+scotch\s*;", "method hierarchical;", text, flags=re.I)
++        if not re.search(r"^\s*n\s*\(", fixed, re.M | re.I):
++            fixed = re.sub(r"(numberOfSubdomains\s+\d+\s*;)", r"\1\nn (%d 1 1);" % nproc,
++                           fixed, count=1, flags=re.I)
++        path.write_text(fixed, encoding="ascii")
++        print("run_openfoam_case note: system/decomposeParDict selected scotch, but this OpenFOAM "
++              "build has no libscotch.so; rewritten to hierarchical with an explicit n vector.",
++              file=sys.stderr)
++        return
++    if re.search(r"\bmethod\s+hierarchical\s*;", text, re.I) and not re.search(r"^\s*n\s*\(", text, re.M | re.I):
++        fixed = re.sub(r"(numberOfSubdomains\s+\d+\s*;)", r"\1\nn (%d 1 1);" % nproc,
++                       text, count=1, flags=re.I)
++        path.write_text(fixed, encoding="ascii")
++        print("run_openfoam_case note: system/decomposeParDict used hierarchical without an n "
++              "vector; added n (%d 1 1)." % nproc, file=sys.stderr)
++
++
++def _archive_before_run(case):
++    """Move stale numeric time dirs + prior manifests so no old latestTime is reused.
++
++    The ``0/`` initial-conditions directory is preserved (it is solver input,
++    not a previous solution); only strictly-positive time directories and the
++    prior run manifests are moved under ``.archive/<utc>/``.
++    """
++    stamp = utc_now().replace(":", "").replace("-", "").replace("+", "Z")
++    dest = case / ".archive" / stamp
++    moved = []
++    for child in sorted(case.iterdir()):
++        if child.name in ("0", "constant", "system", ".archive"):
++            continue
++        if child.is_dir() and re.fullmatch(r"\d+(\.\d+)?", child.name) and float(child.name) > 0:
++            dest.mkdir(parents=True, exist_ok=True)
++            child.replace(dest / child.name)
++            moved.append(child.name)
++        elif child.name in ("run_manifest.json", "run_status.json"):
++            # mesh_cache.json is deliberately NOT archived: it is the cross-run
++            # mesh-reuse record, and archiving it would defeat --skip-mesh-if-cached.
++            dest.mkdir(parents=True, exist_ok=True)
++            child.replace(dest / child.name)
++            moved.append(child.name)
++    return {"archived_to": str(dest), "moved": moved}
++
++
++def _effective_sequence(step, commands, parallel, nproc):
++    """Expand a requested step into the actual command sequence.
++
++    Parallel mode injects decomposePar / reconstructPar around the two
++    mesh-heavy tools. Serial mode is a single pass-through (default behaviour).
++    """
++    if not parallel:
++        return [(step, commands[step])]
++    if step == "snappyHexMesh":
++        return [("decomposePar", ["decomposePar", "-force", "-noFields"]),
++                ("snappyHexMesh", ["mpirun", "-np", str(nproc), "snappyHexMesh", "-parallel", "-overwrite"]),
++                ("reconstructPar", ["reconstructPar", "-constant", "-noFields", "-time", "0"])]
++    if step == "simpleFoam":
++        return [("decomposePar", ["decomposePar", "-force", "-time", "0"]),
++                ("simpleFoam", ["mpirun", "-np", str(nproc), "simpleFoam", "-parallel"]),
++                ("reconstructPar", ["reconstructPar", "-latestTime"])]
++    return [(step, commands[step])]
++
++
++def _expanded_total(steps, commands, parallel, nproc):
++    return sum(len(_effective_sequence(s, commands, parallel, nproc)) for s in steps)
++
++
+ def main(argv=None):
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--case", help="case directory produced by surface_to_case.py")
+@@ -233,9 +417,35 @@ def main(argv=None):
+                         help="only verify environment variables and tool availability")
+     parser.add_argument('--allow-failed-mesh-for-diagnostic', action='store_true',
+                         help='Allow failed mesh checks only for synthetic tube.stl diagnostics; never mark engineering acceptance')
++    parser.add_argument('--status-file', default='run_status.json',
++                        help='streaming status file name written after each sub-step')
++    parser.add_argument('--archive-before-run', action='store_true',
++                        help='archive stale time dirs + prior manifests before running')
++    parser.add_argument('--parallel', type=int, default=0,
++                        help='MPI ranks for snappyHexMesh/simpleFoam (>=2 enables; 0/1 = serial)')
++    parser.add_argument('--skip-mesh-if-cached', action='store_true',
++                        help='reuse a previously checked mesh when its content signature matches')
++    parser.add_argument('--dry-run', action='store_true',
++                        help='print the planned command sequence and exit without executing or writing')
++    parser.add_argument('--config', default=None,
++                        help='path to a nasal_cfd_config/v1 json; enforces the contract gate '
++                             '(refuses to run unless execution_allowed, override with --force-unsanctioned)')
++    parser.add_argument('--force-unsanctioned', action='store_true',
++                        help='explicitly run an execution_allowed=false config anyway; '
++                             'recorded in run_manifest.contract.forced for audit (never lifts engineering_acceptance)')
+     args = parser.parse_args(argv)
+     if args.env_check:
+         return env_check(build_environment())
++    # --- contract gate (T-003 R10): evaluate before any step executes ---------
++    try:
++        contract = evaluate_contract(args)
++    except ContractRefusal as ref:
++        print("run_openfoam_case error: refusing to run an unsanctioned configuration "
++              "(pass --force-unsanctioned to override explicitly, recorded for audit):",
++              file=sys.stderr)
++        for reason in ref.reasons:
++            print("  - " + str(reason), file=sys.stderr)
++        return 3
+     if not args.case:
+         parser.error("--case is required unless --env-check")
+     case = Path(args.case).resolve()
+@@ -267,6 +477,57 @@ def main(argv=None):
+                 "checkMesh": ["checkMesh", "-allGeometry", "-allTopology"],
+                 "simpleFoam": ["simpleFoam"],
+                 "foamToVTK": ["foamToVTK", "-latestTime", "-ascii", "-fields", fields]}
++
++    backend_identity = mesh_cache.detect_backend_identity()
++    mesh_requested = any(s in MESH_STEPS for s in steps)
++    signature = (mesh_cache.mesh_inputs_signature(case, backend_identity)
++                 if mesh_requested else {"valid": False, "reason": "no mesh steps requested"})
++    skipped_mesh = False
++    if args.skip_mesh_if_cached and mesh_requested and signature.get("valid"):
++        reuse = mesh_cache.inspect_reuse(case, signature)
++        if reuse.get("reusable"):
++            steps = [s for s in steps if s not in ("blockMesh", "snappyHexMesh")]
++            skipped_mesh = True
++
++    parallel = args.parallel >= 2
++    nproc = args.parallel if parallel else 0
++    parallel_missing = []
++    if parallel:
++        # shutil.which has no env parameter: pass the OpenFOAM PATH explicitly so the
++        # preflight searches the same directories the solver will use.
++        search_path = environment.get("PATH") or os.environ.get("PATH")
++        parallel_missing = [t for t in ("mpirun", "decomposePar", "reconstructPar")
++                            if not shutil.which(t, path=search_path)]
++        if parallel_missing:
++            print("run_openfoam_case warning: --parallel requested but missing tools %s; "
++                  "falling back to serial" % ", ".join(parallel_missing), file=sys.stderr)
++            parallel = False
++
++    if args.dry_run:
++        plan = {"schema": "nasal_cfd_dry_run/v1", "case": str(case), "steps": steps,
++                "parallel": parallel, "nproc": nproc,
++                "parallel_missing_tools": parallel_missing,
++                "would_write_decomposeParDict": bool(parallel and not (case / "system" / "decomposeParDict").is_file()),
++                "mesh_skipped": skipped_mesh,
++                "archive_before_run": bool(args.archive_before_run),
++                "signature_valid": bool(signature.get("valid")),
++                "signature": signature.get("signature"),
++                "signature_reason": signature.get("reason"),
++                "commands": []}
++        for s in steps:
++            for subname, cmd in _effective_sequence(s, commands, parallel, nproc):
++                plan["commands"].append({"step": s, "sub_step": subname, "command": cmd})
++        print(json.dumps(plan, indent=2, sort_keys=True))
++        return 0
++
++    archived = None
++    if args.archive_before_run:
++        archived = _archive_before_run(case)
++    if parallel:
++        _ensure_decompose_par_dict(case, nproc)
++
++    status_path = case / args.status_file
++    total = _expanded_total(steps, commands, parallel, nproc)
+     run_manifest = {"schema": "nasal_cfd_run/v1",
+                     "script": {"name": "run_openfoam_case.py", "version": SCRIPT_VERSION},
+                     "started_at": utc_now(), "finished_at": None,
+@@ -274,10 +535,21 @@ def main(argv=None):
+                     "openfoam_version": ENV_OVERRIDES["WM_PROJECT_VERSION"],
+                     "environment_overrides": dict(ENV_OVERRIDES),
+                     "steps": [], "case_manifest": case_manifest,
+-                    "execution_status": None}
++                    "execution_status": None,
++                    "parallel": parallel, "nproc": nproc,
++                    "mesh_signature": signature if signature.get("valid") else None,
++                    "mesh_skipped": skipped_mesh,
++                    "archived_before_run": archived,
++                    "contract": contract}
+     run_manifest['engineering_acceptance'] = False
++    write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
++                              "started_at": run_manifest["started_at"], "status": "running",
++                              "current_step_index": 0, "total_steps": total,
++                              "current_command": None, "last_log_tail": None, "updated_at": utc_now()})
+     profile_done = False
++    mesh_completed = []
+     try:
++        idx = 0
+         for step in steps:
+             if step == 'simpleFoam':
+                 quality = mesh_quality(case)
+@@ -292,20 +564,78 @@ def main(argv=None):
+                                               "exit_code": 0, "started_at": begin,
+                                               "finished_at": utc_now(), "patches": record})
+                 profile_done = True
+-            run_manifest["steps"].append(execute(commands[step], case, environment, "log." + step))
+-            (case / "run_manifest.json").write_text(
+-                json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++            for subname, cmd in _effective_sequence(step, commands, parallel, nproc):
++                idx += 1
++                log_name = "log." + subname
++                tail = None
++                if (case / log_name).is_file():
++                    tail = "".join((case / log_name).read_text(encoding="utf-8", errors="replace").splitlines()[-8:])
++                write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
++                                          "started_at": run_manifest["started_at"], "status": "running",
++                                          "current_step_index": idx, "total_steps": total,
++                                          "current_command": cmd, "last_log_tail": tail,
++                                          "updated_at": utc_now()})
++                run_manifest["steps"].append(execute(cmd, case, environment, log_name))
++                write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
++                                          "started_at": run_manifest["started_at"], "status": "completed",
++                                          "current_step_index": idx, "total_steps": total,
++                                          "current_command": cmd, "last_log_tail": tail,
++                                          "updated_at": utc_now()})
++                # mesh_cache.record_mesh requires the sequence it receives to END with
++                # checkMesh. Passing the full step list can never satisfy that (it ends
++                # with foamToVTK, or reconstructPar in parallel mode), so freeze the
++                # steps completed up to and including checkMesh. Snapshotted here rather
++                # than filtered later because parallel reconstruction of simpleFoam also
++                # emits reconstructPar, which must not be mistaken for mesh generation.
++                if step == "checkMesh":
++                    mesh_completed = [{"name": s["command"][0],
++                                       "returncode": s.get("exit_code", 0),
++                                       "timed_out": False}
++                                      for s in run_manifest["steps"]]
+         run_manifest["execution_status"] = "completed"
+     except Exception as exc:
+         run_manifest["execution_status"] = "failed"
+         run_manifest["error"] = repr(exc)
++        write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
++                                  "started_at": run_manifest["started_at"], "status": "failed",
++                                  "current_step_index": idx, "total_steps": total,
++                                  "current_command": run_manifest["steps"][-1]["command"] if run_manifest["steps"] else None,
++                                  "failed_step": run_manifest["steps"][-1]["command"][0] if run_manifest["steps"] else None,
++                                  "last_log_tail": None, "updated_at": utc_now(), "error": repr(exc)})
+         raise
+     finally:
+         run_manifest["finished_at"] = utc_now()
+         (case / "run_manifest.json").write_text(
+             json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++        write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
++                                  "started_at": run_manifest["started_at"],
++                                  "status": run_manifest["execution_status"],
++                                  "current_step_index": total, "total_steps": total,
++                                  "current_command": None, "last_log_tail": None,
++                                  "updated_at": utc_now()})
++    # Record a mesh cache entry only after a complete, checked mesh this run.
++    if mesh_requested and run_manifest["execution_status"] == "completed":
++        # mesh_completed freezes the step list at checkMesh; fall back to the mesh steps
++        # only so a caller that skipped checkMesh still gets a coherent (and rejected)
++        # sequence rather than one ending in foamToVTK.
++        completed = mesh_completed or [{"name": s["command"][0],
++                                        "returncode": s.get("exit_code", 0), "timed_out": False}
++                                       for s in run_manifest["steps"]
++                                       if s["command"][0] in mesh_cache.MESH_STEPS]
++        check_log = case / "log.checkMesh"
++        if check_log.is_file():
++            output = check_log.read_text(encoding="utf-8", errors="replace")
++            rec = mesh_cache.record_mesh(
++                case, signature, run_manifest.get("started_at") or utc_now(),
++                check_result={"returncode": 0, "output": output, "timed_out": False},
++                completed_steps=completed,
++                generation={"mode": "parallel" if parallel else "serial", "nproc": nproc})
++            run_manifest["mesh_cache"] = rec
++            (case / "run_manifest.json").write_text(
++                json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+     print(json.dumps({"case": str(case), "execution_status": run_manifest["execution_status"],
+-                      "steps": [s["command"][0] for s in run_manifest["steps"]]}, indent=2))
++                      "steps": [s["command"][0] for s in run_manifest["steps"]],
++                      "mesh_skipped": skipped_mesh, "parallel": parallel}, indent=2))
+     return 0
+ 
+ 
+diff --git a/work/lib/test_run_openfoam_case.py b/work/lib/test_run_openfoam_case.py
+index e4885f1..76156a9 100644
+--- a/work/lib/test_run_openfoam_case.py
++++ b/work/lib/test_run_openfoam_case.py
+@@ -1,7 +1,10 @@
+ """Synthetic tests for circular inlet radius and mesh quality gating."""
++import contextlib
+ import importlib.util
++import io
+ import json
+ import math
++import re
+ from pathlib import Path
+ import tempfile
+ import unittest
+@@ -15,6 +18,11 @@ _spec = importlib.util.spec_from_file_location('openfoam_executor_test', _path)
+ executor = importlib.util.module_from_spec(_spec)
+ _spec.loader.exec_module(executor)
+ 
++_mesh_path = Path(__file__).resolve().parents[1]/'07_cfd_pipeline'/'solver'/'mesh_cache.py'
++_mesh_spec = importlib.util.spec_from_file_location('mesh_cache_test', _mesh_path)
++mesh_cache = importlib.util.module_from_spec(_mesh_spec)
++_mesh_spec.loader.exec_module(mesh_cache)
++
+ 
+ class SolverBoundaryTests(unittest.TestCase):
+     def disk(self, root):
+@@ -90,5 +98,319 @@ class SolverBoundaryTests(unittest.TestCase):
+         self.assertEqual(phantom.L_MM,length)
+ 
+ 
++class SolverEngineeringTests(unittest.TestCase):
++    def _run(self, root, argv):
++        with mock.patch.object(executor, 'check_case_complete'), \
++             mock.patch.object(executor, 'is_sst', return_value=False), \
++             mock.patch.object(executor, 'mesh_quality', return_value={'passed': True, 'failed_checks': None, 'log': 'log.checkMesh'}), \
++             mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log: {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}):
++            return executor.main(argv)
++
++    def test_status_file_streams_to_completed(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            status = root / 'run_status.json'
++            self._run(root, ['--case', str(root), '--steps', 'simpleFoam'])
++            self.assertTrue(status.is_file())
++            payload = json.loads(status.read_text())
++            self.assertEqual(payload['status'], 'completed')
++            self.assertEqual(payload['total_steps'], 1)
++            self.assertEqual(payload['current_step_index'], 1)
++
++    def test_parallel_falls_back_to_serial_when_mpirun_missing(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            with mock.patch.object(executor.shutil, 'which', return_value=None):
++                self._run(root, ['--case', str(root), '--steps', 'simpleFoam', '--parallel', '4'])
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertFalse(manifest['parallel'])
++
++    def test_archive_before_run_preserves_mesh_cache_and_initial_time(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / 'mesh_cache.json').write_text('{"keep": true}')
++            (root / 'run_manifest.json').write_text('{"old": true}')
++            (root / '500').mkdir()
++            (root / '500' / 'U').write_text('stale field')
++            (root / '0').mkdir()
++            (root / '0' / 'U').write_text('boundary conditions')
++            executor._archive_before_run(root)
++            # the cross-run mesh record must survive archiving, or --skip-mesh-if-cached breaks
++            self.assertTrue((root / 'mesh_cache.json').is_file())
++            self.assertFalse((root / 'run_manifest.json').exists())
++            self.assertFalse((root / '500').exists())
++            self.assertTrue((root / '0' / 'U').is_file())
++
++    def test_skip_mesh_if_cached_drops_blockmesh_and_snappy(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / 'constant' / 'triSurface').mkdir(parents=True)
++            (root / 'constant' / 'triSurface' / 'nasal.stl').write_text(
++                "solid s\n facet normal 0 0 1\n  outer loop\n"
++                "   vertex 0 0 0\n   vertex 1 0 0\n   vertex 0 1 0\n  endloop\n endfacet\nendsolid s\n", encoding='ascii')
++            for name in ('blockMeshDict', 'snappyHexMeshDict', 'fvSchemes', 'fvSolution', 'controlDict'):
++                (root / 'system').mkdir(parents=True, exist_ok=True)
++                (root / 'system' / name).write_text(
++                    "FoamFile { version 2.0; format ascii; class dictionary; object %s; }\nkey value;\n" % name, encoding='ascii')
++            (root / 'constant' / 'polyMesh').mkdir(parents=True)
++            for name in ('points', 'faces', 'owner', 'neighbour', 'boundary'):
++                (root / 'constant' / 'polyMesh' / name).write_text('mesh %s\n' % name, encoding='ascii')
++            (root / 'log.checkMesh').write_text('Mesh OK.\n', encoding='ascii')
++            identity = mesh_cache.detect_backend_identity()
++            sig = mesh_cache.mesh_inputs_signature(root, identity)
++            rec = mesh_cache.record_mesh(root, sig, 'run-1',
++                                        check_result={'returncode': 0, 'output': 'Mesh OK.\n', 'timed_out': False},
++                                        completed_steps=[{'name': 'blockMesh', 'returncode': 0, 'timed_out': False},
++                                                        {'name': 'snappyHexMesh', 'returncode': 0, 'timed_out': False},
++                                                        {'name': 'checkMesh', 'returncode': 0, 'timed_out': False}])
++            self.assertTrue(rec['recorded'])
++            self._run(root, ['--case', str(root), '--steps', 'blockMesh,snappyHexMesh,checkMesh,simpleFoam', '--skip-mesh-if-cached'])
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            names = [s['command'][0] for s in manifest['steps']]
++            self.assertNotIn('blockMesh', names)
++            self.assertNotIn('snappyHexMesh', names)
++            self.assertTrue(manifest['mesh_skipped'])
++
++    def test_parallel_preflight_calls_real_shutil_which_without_crashing(self):
++        """Regression: shutil.which has no `env` parameter.
++
++        The mock in test_parallel_falls_back_to_serial_when_mpirun_missing accepts any
++        keyword, so it never caught `shutil.which(t, env=environment)` raising TypeError
++        on every real --parallel run. This test calls the real shutil.which.
++        """
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            rc = self._run(root, ['--case', str(root), '--steps', 'simpleFoam', '--parallel', '4'])
++            self.assertEqual(rc, 0)
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertIsInstance(manifest['parallel'], bool)
++
++    def test_parallel_expands_simplefoam_into_decompose_solve_reconstruct(self):
++        commands = {'simpleFoam': ['simpleFoam'], 'checkMesh': ['checkMesh']}
++        seq = executor._effective_sequence('simpleFoam', commands, True, 4)
++        names = [name for name, _ in seq]
++        self.assertEqual(names, ['decomposePar', 'simpleFoam', 'reconstructPar'])
++        self.assertEqual(seq[0][1], ['decomposePar', '-force', '-time', '0'])
++        self.assertEqual(seq[1][1], ['mpirun', '-np', '4', 'simpleFoam', '-parallel'])
++        self.assertEqual(seq[2][1], ['reconstructPar', '-latestTime'])
++        # mesh tooling stays serial: decomposing it would corrupt the mesh
++        self.assertEqual([n for n, _ in executor._effective_sequence('checkMesh', commands, True, 4)],
++                         ['checkMesh'])
++        # serial mode must not silently grow MPI steps
++        self.assertEqual([n for n, _ in executor._effective_sequence('simpleFoam', commands, False, 0)],
++                         ['simpleFoam'])
++
++    def test_parallel_expands_snappy_with_constant_reconstruction(self):
++        commands = {'snappyHexMesh': ['snappyHexMesh', '-overwrite']}
++        seq = executor._effective_sequence('snappyHexMesh', commands, True, 8)
++        self.assertEqual([n for n, _ in seq], ['decomposePar', 'snappyHexMesh', 'reconstructPar'])
++        self.assertEqual(seq[0][1], ['decomposePar', '-force', '-noFields'])
++        self.assertEqual(seq[1][1], ['mpirun', '-np', '8', 'snappyHexMesh', '-parallel', '-overwrite'])
++        self.assertEqual(seq[2][1], ['reconstructPar', '-constant', '-noFields', '-time', '0'])
++
++    def test_mesh_cache_is_recorded_after_a_blockmesh_only_run(self):
++        """Regression: record_mesh requires the step sequence to END with checkMesh.
++
++        The executor used to hand it the full step list, which ends with foamToVTK
++        (or reconstructPar in parallel mode). That made every record attempt fail
++        silently with "前序步骤失败或检查记录缺失", so --skip-mesh-if-cached never hit
++        on blockMesh-only cases -- the feature was dead on arrival.
++        """
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / 'system').mkdir()
++            for name in ('blockMeshDict', 'fvSchemes', 'fvSolution', 'controlDict'):
++                (root / 'system' / name).write_text(
++                    "FoamFile { version 2.0; format ascii; class dictionary; object %s; }\nkey value;\n" % name,
++                    encoding='ascii')
++            (root / 'constant' / 'polyMesh').mkdir(parents=True)
++            for name in ('points', 'faces', 'owner', 'neighbour', 'boundary'):
++                (root / 'constant' / 'polyMesh' / name).write_text('mesh %s\n' % name, encoding='ascii')
++            (root / 'log.checkMesh').write_text('Mesh OK.\n', encoding='ascii')
++            self._run(root, ['--case', str(root), '--steps', 'blockMesh,checkMesh,simpleFoam,foamToVTK'])
++            self.assertTrue((root / 'mesh_cache.json').is_file(),
++                            'blockMesh-only case must still register a reusable mesh')
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertTrue(manifest['mesh_cache']['recorded'])
++            # and the next run must actually skip mesh generation
++            self._run(root, ['--case', str(root), '--steps', 'blockMesh,checkMesh,simpleFoam,foamToVTK',
++                             '--skip-mesh-if-cached'])
++            names = [s['command'][0] for s in
++                     json.loads((root / 'run_manifest.json').read_text())['steps']]
++            self.assertNotIn('blockMesh', names)
++
++    def test_decompose_par_dict_avoids_scotch_and_declares_n_vector(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / 'system').mkdir()
++            executor._ensure_decompose_par_dict(root, 4)
++            text = (root / 'system' / 'decomposeParDict').read_text()
++            # scotch aborts on this build (dummy scotchDecomp stub)
++            self.assertIn('method hierarchical;', text)
++            self.assertNotIn('scotch', text)
++            # hierarchical reads the vector entry n, not just numberOfSubdomains
++            self.assertIn('n (4 1 1);', text)
++            self.assertIn('numberOfSubdomains 4;', text)
++
++    def test_existing_scotch_or_n_vectorless_dict_is_repaired(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / 'system').mkdir()
++            target = root / 'system' / 'decomposeParDict'
++            target.write_text(
++                'FoamFile { version 2.0; format ascii; class dictionary; '
++                'object decomposeParDict; }\nnumberOfSubdomains 2;\nmethod scotch;\n'
++                'distributed no;\nroots ();\n', encoding='ascii')
++            executor._ensure_decompose_par_dict(root, 8)
++            text = target.read_text()
++            self.assertNotIn('scotch', text)
++            self.assertIn('method hierarchical;', text)
++            self.assertIn('n (8 1 1);', text)
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / 'system').mkdir()
++            target = root / 'system' / 'decomposeParDict'
++            target.write_text('numberOfSubdomains 2;\nmethod hierarchical;\n', encoding='ascii')
++            executor._ensure_decompose_par_dict(root, 5)
++            self.assertIn('n (5 1 1);', target.read_text())
++
++    def test_untouched_decompose_par_dict_is_left_alone(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / 'system').mkdir()
++            target = root / 'system' / 'decomposeParDict'
++            original = 'numberOfSubdomains 6;\nmethod simple;\ndistributed no;\nroots ();\n'
++            target.write_text(original, encoding='ascii')
++            executor._ensure_decompose_par_dict(root, 4)
++            self.assertEqual(target.read_text(), original)
++
++
++class ContractGateTests(unittest.TestCase):
++    """T-003 R10: the contract gate must refuse unsanctioned configs and stay
++    byte-for-byte compatible when --config is absent. Configs are synthesized in
++    temp dirs; the 8 catalog configs are never touched.
++    """
++
++    def _write_config(self, root, payload):
++        path = root / 'contract_config.json'
++        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
++        return str(path)
++
++    def _authorized_config(self):
++        """A synthetic, fully execution-ready idealized config (no patient review)."""
++        return {
++            "schema": "nasal_cfd_config/v1",
++            "config_id": "synthetic_authorized_idealized",
++            "physics": {"flow_regime": "incompressible", "time_mode": "steady",
++                        "rho_kg_m3": 1.2, "mu_Pa_s": 1.81e-5, "turbulence_model": "laminar"},
++            "boundary_conditions": {
++                "mode": "total_flow",
++                "total_inspiratory_flow_m3_s": 2.5e-4,
++                "flow_split": {"policy": "imposed_equal_split_baseline",
++                               "left_fraction": 0.5, "right_fraction": 0.5,
++                               "interpretation": "imposed_baseline_not_patient_split"},
++                "nostril_pressure": None,
++                "nasopharynx_pressure": {"value": 0.0, "unit": "Pa", "quantity": "static", "reference": "gauge"},
++                "static_pressure_difference_Pa": None,
++                "direction_policy": "inspiration_nostrils_to_nasopharynx",
++                "walls": "rigid_no_slip"},
++            "turbulence": {"inlet_intensity_fraction": None, "length_scale_Dh_fraction": None,
++                           "low_speed_threshold_m_s": None, "low_speed_threshold_basis": None,
++                           "definition": None, "report_status": "not_applicable"},
++            "mesh": {"level": "medium", "bulk_target_mm": 0.4, "local_initial_target_mm": 0.25,
++                     "minimum_cells_across_gap": 6,
++                     "local_resolution_rule": "h <= min(local_initial_target_mm, measured_gap_mm/6)",
++                     "prism_layers": None},
++            "geometry": {"kind": "idealized", "case_id": None, "source_file": "phantom_tube.stl",
++                         "sha256": None, "units": "mm", "solver_units": "m", "scale_to_m": 0.001,
++                         "coordinate_system": "LPS", "review": None},
++            "solver_adapter": {"status": "implemented_and_verified", "name": None, "version": None,
++                               "desired_strategy": None, "flow_target_role": None, "strategy_description": None},
++            "engineering_screen": {"maximum_mass_imbalance_fraction": 0.005,
++                                   "maximum_monitor_relative_change": 0.005,
++                                   "target_residual_max": 1e-5, "medium_to_fine_change_screen_fraction": 0.05},
++            "notes": ["synthetic authorized config for T-003 contract-gate tests"]}
++
++    def _unsanctioned_config(self):
++        cfg = self._authorized_config()
++        cfg["config_id"] = "synthetic_unsanctioned"
++        # Readiness issue -> execution_allowed False (reason surfaces in warnings).
++        cfg["solver_adapter"]["status"] = "not_implemented"
++        return cfg
++
++    def test_no_config_behaves_identically_to_baseline(self):
++        """No --config: nothing is refused, steps run, manifest carries the stub."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            with mock.patch.object(executor, 'check_case_complete'), \
++                 mock.patch.object(executor, 'is_sst', return_value=False), \
++                 mock.patch.object(executor, 'mesh_quality', return_value={'passed': True}), \
++                 mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log:
++                                   {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}) as run:
++                rc = executor.main(['--case', str(root), '--steps', 'simpleFoam'])
++            self.assertEqual(rc, 0)
++            run.assert_called()
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertEqual(manifest['contract'], {"config_id": None, "checked": False})
++            self.assertFalse(manifest['engineering_acceptance'])
++
++    def test_unsanctioned_without_force_is_refused_naming_reason(self):
++        """execution_allowed=False and no --force -> non-zero exit, named cause, no step run."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            cfg_path = self._write_config(root, self._unsanctioned_config())
++            err = io.StringIO()
++            with contextlib.redirect_stderr(err), \
++                 mock.patch.object(executor, 'check_case_complete') as cc, \
++                 mock.patch.object(executor, 'execute') as run:
++                rc = executor.main(['--case', str(root), '--config', cfg_path, '--steps', 'simpleFoam'])
++            self.assertNotEqual(rc, 0)
++            run.assert_not_called()
++            cc.assert_not_called()
++            text = err.getvalue()
++            self.assertIn('refusing to run an unsanctioned configuration', text)
++            self.assertIn('solver adapter has not been implemented and verified', text)
++
++    def test_unsanctioned_with_force_is_allowed_and_logged(self):
++        """execution_allowed=False + --force-unsanctioned -> runs, contract.forced recorded."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            cfg_path = self._write_config(root, self._unsanctioned_config())
++            with contextlib.redirect_stderr(io.StringIO()), \
++                 mock.patch.object(executor, 'check_case_complete'), \
++                 mock.patch.object(executor, 'is_sst', return_value=False), \
++                 mock.patch.object(executor, 'mesh_quality', return_value={'passed': True}), \
++                 mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log:
++                                   {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}):
++                rc = executor.main(['--case', str(root), '--config', cfg_path,
++                                    '--force-unsanctioned', '--steps', 'simpleFoam'])
++            self.assertEqual(rc, 0)
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertTrue(manifest['contract']['forced'])
++            self.assertFalse(manifest['contract']['execution_allowed'])
++            # Force only lifts the gate; it must never mark engineering acceptance.
++            self.assertFalse(manifest['engineering_acceptance'])
++
++    def test_authorized_config_is_allowed_and_checked(self):
++        """A synthetic execution-ready config passes the gate (contract.checked True)."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            cfg_path = self._write_config(root, self._authorized_config())
++            with contextlib.redirect_stderr(io.StringIO()), \
++                 mock.patch.object(executor, 'check_case_complete'), \
++                 mock.patch.object(executor, 'is_sst', return_value=False), \
++                 mock.patch.object(executor, 'mesh_quality', return_value={'passed': True}), \
++                 mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log:
++                                   {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}):
++                rc = executor.main(['--case', str(root), '--config', cfg_path, '--steps', 'simpleFoam'])
++            self.assertEqual(rc, 0)
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertTrue(manifest['contract']['checked'])
++            self.assertTrue(manifest['contract']['execution_allowed'])
++            self.assertFalse(manifest['contract']['forced'])
++            self.assertEqual(manifest['contract']['config_id'], 'synthetic_authorized_idealized')
++            self.assertFalse(manifest['engineering_acceptance'])
++
++
+ if __name__=='__main__':
+     unittest.main()
