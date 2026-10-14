@@ -1,0 +1,89 @@
+{
+  "archived_before_run": null,
+  "case": "/home/lenovo2/patient_cfd/t004_diag",
+  "case_manifest": {
+    "boundary": {
+      "inlet_profile": "plug",
+      "mode": "flow_driven_total_flow",
+      "outlet_static_pressure_Pa_gauge": 0.0,
+      "per_inlet_flow_m3_s": {
+        "nostril_L": 0.000125,
+        "nostril_R": 0.000125
+      },
+      "total_flow_m3_s": 0.00025
+    },
+    "note": "truthful manifest; source is patient msh, NOT tube.stl; diagnostic override therefore cannot apply per run_openfoam_case.py:469-472",
+    "patch_map": {
+      "nasopharynx_outlet": "outlet",
+      "nostril_L": "inlet",
+      "nostril_R": "inlet",
+      "wall": "wall"
+    },
+    "schema": "nasal_cfd_case/v1",
+    "solver": "laminar",
+    "surface": {
+      "source_file": "b15_patient_maxh1_repaired.msh",
+      "source_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+      "units": "mm"
+    }
+  },
+  "contract": {
+    "checked": true,
+    "config_id": "total_flow_laminar_medium_equal_split_baseline",
+    "errors": [],
+    "execution_allowed": false,
+    "forced": true,
+    "warnings": [
+      "geometry.case_id is required for patient execution",
+      "geometry.source_file is required for patient execution",
+      "geometry.sha256 must bind the reviewed geometry",
+      "patient geometry requires human confirmed review",
+      "geometry.review.reviewer is required",
+      "geometry.review.reviewed_at is required",
+      "geometry.review.record_file is required",
+      "review must reference the same geometry sha256",
+      "both nostrils and nasopharynx outlet must be confirmed",
+      "oral exclusion must be confirmed",
+      "sinus boundary policy must be confirmed",
+      "solver adapter has not been implemented and verified for these boundary conditions"
+    ]
+  },
+  "engineering_acceptance": false,
+  "environment_overrides": {
+    "FOAM_ETC": "/usr/share/openfoam/etc",
+    "WM_PROJECT_DIR": "/usr/share/openfoam",
+    "WM_PROJECT_VERSION": "v1912"
+  },
+  "error": "RuntimeError('Mesh quality did not pass; refusing to solve (see log.checkMesh)')",
+  "execution_status": "failed",
+  "failed_mesh_diagnostic_override": false,
+  "finished_at": "2026-10-14T08:32:41+00:00",
+  "mesh_quality": {
+    "failed_checks": 2,
+    "log": "log.checkMesh",
+    "passed": false
+  },
+  "mesh_signature": null,
+  "mesh_skipped": false,
+  "nproc": 0,
+  "openfoam_version": "v1912",
+  "parallel": false,
+  "schema": "nasal_cfd_run/v1",
+  "script": {
+    "name": "run_openfoam_case.py",
+    "version": "1.2.0"
+  },
+  "started_at": "2026-10-14T08:32:28+00:00",
+  "steps": [
+    {
+      "command": [
+        "checkMesh",
+        "-allGeometry",
+        "-allTopology"
+      ],
+      "elapsed_seconds": 13.578471968999999,
+      "exit_code": 0,
+      "log": "/home/lenovo2/patient_cfd/t004_diag/log.checkMesh"
+    }
+  ]
+}
