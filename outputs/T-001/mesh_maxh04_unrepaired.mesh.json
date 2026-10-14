@@ -1,0 +1,66 @@
+{
+  "input_unit": "mm",
+  "output_unit": "m",
+  "physical_layout": {
+    "nostril_L": 1,
+    "nostril_R": 2,
+    "nasopharynx_outlet": 3,
+    "wall": 4,
+    "fluid": 5
+  },
+  "descriptor_mapping": {
+    "1": "nostril_L",
+    "2": "nostril_R",
+    "3": "nasopharynx_outlet",
+    "4": "wall"
+  },
+  "points": 373494,
+  "tetrahedra": 2016945,
+  "volume_m3": 1.9768945923715527e-05,
+  "patch_triangle_counts": {
+    "nostril_L": 5020,
+    "wall": 86822,
+    "nostril_R": 3431,
+    "nasopharynx_outlet": 17545
+  },
+  "status": "converted_requires_repair_and_openfoam_check",
+  "medical_approval_granted": false,
+  "patient_solver_allowed": false,
+  "source": "b15_patches_ascii.stl",
+  "source_sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+  "export_json": "b15_patches_ascii.export.json",
+  "output": "t001b_maxh04/b15_patient_maxh04.msh",
+  "output_sha256": "7943926888424796964115b6cd8aa417e9161ada2af196d0e8a942cc0a0dbc48",
+  "maxh": 0.4,
+  "grading": 0.1,
+  "plane_tol_mm": 0.054802534257130914,
+  "plane_tol_rule": "0.1 x median boundary face edge",
+  "median_boundary_edge_mm": 0.548025,
+  "boundary_patch_areas_mm2": {
+    "nostril_L": 82.052632,
+    "wall": 18023.934332,
+    "nostril_R": 81.154544,
+    "nasopharynx_outlet": 487.674667
+  },
+  "boundary_patch_face_counts": {
+    "nostril_L": 5020,
+    "wall": 86822,
+    "nostril_R": 3431,
+    "nasopharynx_outlet": 17545
+  },
+  "opening_stage_areas_mm2": {
+    "nostril_L": 80.03741,
+    "nostril_R": 80.057289,
+    "nasopharynx_outlet": 439.179236
+  },
+  "cap_area_deviation_pct": {
+    "nostril_L": 2.518,
+    "nostril_R": 1.371,
+    "nasopharynx_outlet": 11.042
+  },
+  "cap_area_deviation_caveat": "The surface optimiser bends the cap near the rim, so the cap is not exactly planar and no single plane tolerance reproduces the opening area exactly (measured, not fitted). These deviations are therefore the honest resolution of this labelling, not a precision claim; the gate only rejects misidentification.",
+  "labelling": "geometric (centroid on the opening plane)",
+  "labelling_verified_against_areas": true,
+  "descriptor_semantics_used": false,
+  "next_step": "repair_boundary_tetrahedra.py then gmshToFoam + checkMesh"
+}

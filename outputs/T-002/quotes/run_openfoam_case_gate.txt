@@ -1,0 +1,32 @@
+# run_openfoam_case.py —— 实际求解执行器，关键：它不读 config 门禁
+
+## 1) 链式步骤与求解前硬门禁
+run_openfoam_case.py:55  ALL_STEPS = ["blockMesh", "snappyHexMesh", "checkMesh", "simpleFoam", "foamToVTK"]
+run_openfoam_case.py:405 checkMesh 调用：["checkMesh", "-allGeometry", "-allTopology"]
+run_openfoam_case.py:481-486
+```
+            if step == 'simpleFoam':
+                quality = mesh_quality(case)
+                run_manifest['mesh_quality'] = quality
+                ...
+                if not quality['passed'] and not args.allow_failed_mesh_for_diagnostic:
+                    raise RuntimeError('Mesh quality did not pass; refusing to solve (see log.checkMesh)')
+```
+=> simpleFoam 求解前强制要求 checkMesh 报 Mesh OK（除 tube.stl 诊断覆盖外）。
+
+## 2) 执行器根本不导入 cfd_contract / config_catalog
+run_openfoam_case.py:45-49
+```
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "solver_reference"))
+from run_reference import execute, foam_list_text
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import mesh_cache
+```
+=> 运行态只依赖 case_manifest.json + mesh_cache；config_catalog.json 的 execution_allowed 是「契约/纪律门禁」，
+   由校验脚本 cfd_contract.py 单独把关，**未被运行代码强制**。M2 产流场在代码上不受 config 门禁阻止。
+
+## 3) 环境覆盖（不依赖 source bashrc）
+run_openfoam_case.py:52-54
+ENV_OVERRIDES = {"WM_PROJECT_DIR": "/usr/share/openfoam",
+                 "FOAM_ETC": "/usr/share/openfoam/etc",
+                 "WM_PROJECT_VERSION": "v1912"}

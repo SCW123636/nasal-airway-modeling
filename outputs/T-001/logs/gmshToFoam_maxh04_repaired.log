@@ -1,0 +1,78 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:                                        |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : OPENFOAM=1912 patch=200626
+Arch   : "LSB;label=32;scalar=64"
+Exec   : gmshToFoam b15_patient_maxh04_repaired.msh
+Date   : Oct 14 2026
+Time   : 11:06:59
+Host   : LAPTOP-44R13S8U
+PID    : 1332
+I/O    : uncollated
+Case   : /home/lenovo2/patient_cfd/t001b_maxh04/foam_repaired
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Starting to read mesh format at line 2
+Read format version 2.2  ascii 0
+
+Starting to read physical names at line 5
+Physical names:5
+    Surface 1	nostril_L
+    Surface 2	nostril_R
+    Surface 3	nasopharynx_outlet
+    Surface 4	wall
+    Volume 5	fluid
+
+Starting to read points at line 13
+Vertices to be read: 377180
+Vertices read:377180
+
+Starting to read cells at line 377196
+Cells to be read: 2140821
+
+Mapping region 1 to Foam patch 0
+Mapping region 4 to Foam patch 1
+Mapping region 2 to Foam patch 2
+Mapping region 3 to Foam patch 3
+Mapping region 5 to Foam cellZone 0
+Cells:
+    total:2028003
+    hex  :0
+    prism:0
+    pyr  :0
+    tet  :2028003
+
+CellZones:
+Zone	Size
+    0	2028003
+
+Patch 0 gets name nostril_L
+Patch 1 gets name wall
+Patch 2 gets name nostril_R
+Patch 3 gets name nasopharynx_outlet
+
+--> FOAM Warning : 
+    From function Foam::polyMesh::polyMesh(const Foam::IOobject&, Foam::pointField&&, const cellShapeList&, const faceListList&, const wordList&, const wordList&, const Foam::word&, const Foam::word&, const wordList&, bool)
+    in file meshes/polyMesh/polyMeshFromShapeMesh.C at line 593
+    Found 112818 undefined faces in mesh; adding to default patch defaultFaces
+Finding faces of patch 0
+Finding faces of patch 1
+Finding faces of patch 2
+Finding faces of patch 3
+
+FaceZones:
+Zone	Size
+
+Writing zone 0 to cellZone fluid and cellSet
+End
+

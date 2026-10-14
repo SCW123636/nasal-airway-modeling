@@ -1,0 +1,47 @@
+# cfd_contract.py —— execution_allowed 的判定逻辑（最小充分条件分析的关键依据）
+
+## 1) execution_allowed 由 readiness 决定（无论有无 errors）
+cfd_contract.py:40-43
+```
+def _report(errors, warnings, execution_allowed=False):
+    return {"valid": not errors, "errors": errors, "warnings": warnings,
+            "execution_allowed": bool(execution_allowed and not errors),
+            "validation_scope": "contract_metadata_and_inline_values_only"}
+```
+cfd_contract.py:278-298（节选）
+```
+    readiness = []
+    if geometry.get("kind") == "patient":
+        readiness += _patient_geometry_issues(geometry)
+    ...
+    adapter = config.get("solver_adapter", {})
+    if not isinstance(adapter, dict) or adapter.get("status") != "implemented_and_verified":
+        readiness.append("solver adapter has not been implemented and verified for these boundary conditions")
+    if mode == "total_flow" and isinstance(bc.get("flow_split"), dict) and bc["flow_split"].get("policy") == "solver_determined":
+        if not isinstance(adapter, dict) or adapter.get("desired_strategy") != "common_inlet_pressure_feedback":
+            errors.append("solver-determined split requires the explicit common_inlet_pressure_feedback strategy")
+        ...
+    if require_execution_ready:
+        errors.extend(readiness)
+    else:
+        warnings.extend(readiness)
+    return _report(errors, warnings, not readiness)
+```
+=> 结论：只要 readiness 非空（即使零 errors），`execution_allowed = not readiness = False`。
+readiness 来自两类：(a) 患者几何审核元数据；(b) solver_adapter.status != "implemented_and_verified"。
+
+## 2) 患者几何审核元数据要求
+cfd_contract.py:115-142 （_patient_geometry_issues，节选关键项）
+- geometry.case_id / source_file 必填
+- geometry.sha256 须为 64 位 hex
+- review.status == "confirmed" 且 method == "human"
+- review.reviewer / reviewed_at / record_file 必填
+- review.reviewed_geometry_sha256 == digest
+- confirmed_boundaries 须含 {nostril_L, nostril_R, nasopharynx_outlet}
+- oral_exclusion_confirmed == True
+- sinus_boundary_policy_confirmed == True
+
+## 3) total_flow + solver_determined 必须声明 common_inlet_pressure_feedback
+cfd_contract.py:289-293（仅在 require_execution_ready=True 时报 ERROR；默认只放 warning）
+- 默认 validate 下该策略只要 desired_strategy 字段==common_inlet_pressure_feedback 就不报 error，
+  但 adapter.status != implemented_and_verified 仍把配置挡在 execution_allowed=False。

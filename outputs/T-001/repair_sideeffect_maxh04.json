@@ -1,0 +1,9 @@
+{
+  "mesh": "b15_patient_maxh04_repaired.msh",
+  "input_cells": 2016945,
+  "output_cells": 2028003,
+  "split_cells": 3686,
+  "flagged_total": 494,
+  "flagged_repair_created": 400,
+  "flagged_original": 94
+}

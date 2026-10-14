@@ -1,0 +1,42 @@
+# surface_to_case.py —— 求解链路入口，主工况边界条件到底实现了没有
+
+## 1) 文档自述：common_inlet_pressure_feedback 未实现
+surface_to_case.py:13-17
+```
+Batch-1 scope: the common-inlet-pressure outer feedback loop is NOT
+implemented (recorded as status not_implemented). Inlets get
+flowRateInletVelocity; with multiple inlets the total flow is split equally,
+which is an imposed baseline and never a patient flow split. No patient data
+is accessed and no solver is run by this script.
+```
+
+## 2) 两种边界模式都已写在代码里（write_fields）
+surface_to_case.py:287-309（节选）
+```
+def write_fields(case, patches_by_role, solver, per_inlet_flow, inlet_areas_m2,
+                 boundary_mode="flow_driven_total_flow", inlet_pressure_pa=0.0):
+    ...
+    for patch in patches_by_role["inlet"]:
+        if boundary_mode == "common_inlet_pressure":
+            p_kin = inlet_pressure_pa / RHO
+            boundary_p.append(f" {patch} {{ type fixedValue; value uniform {fmt(p_kin)}; }}")
+            boundary_u.append(f" {patch} {{ type pressureInletOutletVelocity; value uniform (0 0 0); }}")
+        else:
+            boundary_p.append(f" {patch} {{ type zeroGradient; }}")
+            boundary_u.append(f" {patch} {{ type flowRateInletVelocity; volumetricFlowRate constant {fmt(per_inlet_flow[patch])}; }}")
+    for patch in patches_by_role["outlet"]:
+        boundary_p.append(f" {patch} {{ type fixedValue; value uniform 0; }}")   # 出口 0 Pa
+```
+=> flow_driven_total_flow（直接强加 15 L/min、等分、出口 0 Pa）**代码已实现**；
+common_inlet_pressure（两鼻孔共用静压 + 外层调压）**仅模板，未实现外层控制器**。
+
+## 3) 等分分流被显式标注为「人为对照，非患者分流」
+surface_to_case.py:564-569（case_manifest 中）
+```
+"common_inlet_pressure_feedback": {
+    "status": ("case_template_only" if args.boundary_mode == "common_inlet_pressure"
+                else "not_implemented"),
+    "reason": (... "this case is one fixed pressure evaluation"
+                else "fixed flow inlet boundary conditions")}
+```
+surface_to_case.py:507 及 manifest split_note：多入口时 per_inlet_flow = total_flow / len(inlets)（强制等分）。
