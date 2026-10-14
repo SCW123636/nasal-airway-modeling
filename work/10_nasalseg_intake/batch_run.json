@@ -1,0 +1,55 @@
+{
+  "schema": "batch27_run/v1",
+  "stages_implemented": [
+    "seg",
+    "proposal"
+  ],
+  "stages_missing": [
+    "surface_extraction"
+  ],
+  "cases": {
+    "b01": {
+      "case": "b01",
+      "segmentation": {
+        "returncode": 0,
+        "elapsed_s": 159.5,
+        "stderr_tail": "",
+        "stdout_tail": "canal_right.nii.gz', 'eye_left.nii.gz', 'eye_lens_left.nii.gz', 'eye_lens_right.nii.gz', 'eye_right.nii.gz', 'hard_palate.nii.gz', 'hypopharynx.nii.gz', 'nasal_cavity_left.nii.gz', 'nasal_cavity_right.nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "mask_check": {
+        "ok": true,
+        "missing_labels": [],
+        "empty_labels": [],
+        "voxels": {
+          "nasal_cavity_left": 68508,
+          "nasal_cavity_right": 68508,
+          "nasopharynx": 40153
+        },
+        "shape_zyx": {
+          "nasal_cavity_left": [
+            195,
+            512,
+            512
+          ],
+          "nasal_cavity_right": [
+            195,
+            512,
+            512
+          ],
+          "nasopharynx": [
+            195,
+            512,
+            512
+          ]
+        }
+      },
+      "proposal": {
+        "returncode": 0,
+        "elapsed_s": 7.6,
+        "stderr_tail": "",
+        "stdout_tail": "_choana_R\": {\n        \"status\": \"proposed\",\n        \"point_lps_mm\": [\n          -9.99959931786729,\n          -18.595276189544215,\n          -38.81100088452536\n        ],\n        \"review_reasons\": []\n      },\n      \"nasopharynx_outlet\": {\n        \"status\": \"proposed\",\n        \"point_lps_mm\": [\n          -5.750508318690829,\n          -8.787626173072784,\n          -47.87719704340962\n        ],\n        \"review_reasons\": []\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b01\"\n  }\n]\n"
+      },
+      "proposal_json": null
+    }
+  }
+}

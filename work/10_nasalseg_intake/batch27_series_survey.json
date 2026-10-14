@@ -1,0 +1,1842 @@
+{
+  "schema": "batch27_series_survey/v1",
+  "cases": {
+    "1": {
+      "dcm_files": 195,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.71699833149036599117499877636346898678",
+          "n": 195,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "2": {
+      "dcm_files": 173,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.98113657157776284411079071076064473280",
+          "n": 173,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "3": {
+      "dcm_files": 154,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.41901658294695288667198777221600972238",
+          "n": 154,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "4": {
+      "dcm_files": 157,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.57558140780477853357192159388271302889",
+          "n": 157,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "5": {
+      "dcm_files": 126,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.86710460290357758892566481839183240853",
+          "n": 126,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "6": {
+      "dcm_files": 145,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.25223784697408066947706292229891128750",
+          "n": 145,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "7": {
+      "dcm_files": 146,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.96777258010723529255632725530746233608",
+          "n": 146,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "8": {
+      "dcm_files": 184,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.85541416007142396071317485973720109325",
+          "n": 184,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "9": {
+      "dcm_files": 166,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.86877324031439014433724631467321549682",
+          "n": 166,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "10": {
+      "dcm_files": 146,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.49430134636901387029894753697370297812",
+          "n": 146,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "11": {
+      "dcm_files": 175,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.75508931538428636052382988483470084446",
+          "n": 175,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "12": {
+      "dcm_files": 156,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.82903112028044532555124451097288436550",
+          "n": 156,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "13": {
+      "dcm_files": 176,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.38943826494607497385388326010571942271",
+          "n": 176,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "14": {
+      "dcm_files": 155,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.11712299235901846546766198149714783362",
+          "n": 155,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "15": {
+      "dcm_files": 148,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.7350765511490190120382575698073928410",
+          "n": 148,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "16": {
+      "dcm_files": 147,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.93355184471235592211482044259040099289",
+          "n": 147,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "17": {
+      "dcm_files": 145,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.43100077715673408446987803689919695604",
+          "n": 145,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "18": {
+      "dcm_files": 145,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.68756459046413969048994697344258985174",
+          "n": 145,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "19": {
+      "dcm_files": 156,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.77953196391686963628032140838157744527",
+          "n": 156,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "20": {
+      "dcm_files": 176,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.74449434674991940787331023480071869380",
+          "n": 176,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "21": {
+      "dcm_files": 158,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.44344133223574469205086779356602093567",
+          "n": 158,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "22": {
+      "dcm_files": 134,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.58181625081882523377571822299243550467",
+          "n": 134,
+          "series_descriptions": [
+            "0.625mm C-"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "23": {
+      "dcm_files": 155,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.36552078896393390512306042968038214486",
+          "n": 155,
+          "series_descriptions": [
+            "C- 0.625mm"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "24": {
+      "dcm_files": 145,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.59394593060609714037993124676980916174",
+          "n": 145,
+          "series_descriptions": [
+            "C- 0.625mm"
+          ],
+          "in_plane": [
+            [
+              0.488281,
+              0.488281
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.625
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "25": {
+      "dcm_files": 514,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.2658270159171582512356778397149230097",
+          "n": 40,
+          "series_descriptions": [
+            "3D_Sinus^_1"
+          ],
+          "in_plane": [
+            [
+              0.348233,
+              0.348233
+            ]
+          ],
+          "rows_cols": [
+            [
+              547,
+              547
+            ]
+          ],
+          "slice_thickness": [
+            3.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.86058664701112811363338201827778668370",
+          "n": 49,
+          "series_descriptions": [
+            "3D_Sinus^_2"
+          ],
+          "in_plane": [
+            [
+              0.348233,
+              0.348233
+            ]
+          ],
+          "rows_cols": [
+            [
+              547,
+              547
+            ]
+          ],
+          "slice_thickness": [
+            3.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.8317303662960158058240385470522132413",
+          "n": 35,
+          "series_descriptions": [
+            "3D_Sinus^_3"
+          ],
+          "in_plane": [
+            [
+              0.347748,
+              0.347748
+            ]
+          ],
+          "rows_cols": [
+            [
+              577,
+              577
+            ]
+          ],
+          "slice_thickness": [
+            3.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.58184237093595904869624878230426102366",
+          "n": 44,
+          "series_descriptions": [
+            "3D_Sinus^_4"
+          ],
+          "in_plane": [
+            [
+              0.347748,
+              0.347748
+            ]
+          ],
+          "rows_cols": [
+            [
+              577,
+              577
+            ]
+          ],
+          "slice_thickness": [
+            3.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.63617294044771561843698710498919644572",
+          "n": 2,
+          "series_descriptions": [
+            ""
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.677526176,
+              0.677526176
+            ]
+          ],
+          "rows_cols": [
+            [
+              341,
+              768
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "LOCALIZER"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.35081729378221275987520383927859103468",
+          "n": 36,
+          "series_descriptions": [
+            "3.0 x 3.0 Bone"
+          ],
+          "in_plane": [
+            [
+              0.34765625,
+              0.34765625
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            3.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.85826062399550456863990579062049986974",
+          "n": 136,
+          "series_descriptions": [
+            "1.0 x 0.8 Bone"
+          ],
+          "in_plane": [
+            [
+              0.34765625,
+              0.34765625
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            1.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.51531014792692005868733780541750395576",
+          "n": 36,
+          "series_descriptions": [
+            "3.0 x 3.0 Soft"
+          ],
+          "in_plane": [
+            [
+              0.34765625,
+              0.34765625
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            3.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.67899508746979557526385664904725613024",
+          "n": 136,
+          "series_descriptions": [
+            "1.0 x 0.8 Soft-3D"
+          ],
+          "in_plane": [
+            [
+              0.34765625,
+              0.34765625
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            1.2
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "26": {
+      "dcm_files": 1555,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.64710224668257583390085760389093897896",
+          "n": 1,
+          "series_descriptions": [
+            "Dose Report"
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "rows_cols": [
+            [
+              257,
+              675
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [
+            "DERIVED",
+            "SECONDARY",
+            "DOSE_INFO"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.31857769991614840173476317250223156108",
+          "n": 50,
+          "series_descriptions": [
+            "3D_AB_1"
+          ],
+          "in_plane": [
+            [
+              0.46664,
+              0.46664
+            ],
+            [
+              0.466659,
+              0.466659
+            ]
+          ],
+          "rows_cols": [
+            [
+              562,
+              562
+            ],
+            [
+              662,
+              953
+            ]
+          ],
+          "slice_thickness": [
+            0.466797,
+            2.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.15409121304160213152871769378632789118",
+          "n": 45,
+          "series_descriptions": [
+            "3D_AB_2"
+          ],
+          "in_plane": [
+            [
+              0.450943,
+              0.450943
+            ],
+            [
+              0.467018,
+              0.467018
+            ]
+          ],
+          "rows_cols": [
+            [
+              530,
+              764
+            ],
+            [
+              545,
+              545
+            ]
+          ],
+          "slice_thickness": [
+            0.466797,
+            2.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.36670868671351266451302706442883379689",
+          "n": 86,
+          "series_descriptions": [
+            "3D_AB_5"
+          ],
+          "in_plane": [
+            [
+              0.450943,
+              0.450943
+            ],
+            [
+              0.46697,
+              0.46697
+            ]
+          ],
+          "rows_cols": [
+            [
+              530,
+              764
+            ],
+            [
+              560,
+              560
+            ]
+          ],
+          "slice_thickness": [
+            0.466797,
+            2.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.54684498176329898243958933327587868327",
+          "n": 2,
+          "series_descriptions": [
+            ""
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.677525818,
+              0.677525818
+            ]
+          ],
+          "rows_cols": [
+            [
+              369,
+              768
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [
+            "DERIVED",
+            "SECONDARY",
+            "LOCALIZER"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.9728681145409943168887895796210799076",
+          "n": 232,
+          "series_descriptions": [
+            "1.0 x 0.5_stand"
+          ],
+          "in_plane": [
+            [
+              0.466796875,
+              0.466796875
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            1.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.72373996534272939133930860914591040829",
+          "n": 232,
+          "series_descriptions": [
+            "1.0 x 0.5_bone"
+          ],
+          "in_plane": [
+            [
+              0.466796875,
+              0.466796875
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            1.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.37719459527083392629301911706570568349",
+          "n": 232,
+          "series_descriptions": [
+            "1.0 x 0.5_soft"
+          ],
+          "in_plane": [
+            [
+              0.466796875,
+              0.466796875
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            1.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.59246269839814765702551132258509775433",
+          "n": 1,
+          "series_descriptions": [
+            "Dose Report"
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "rows_cols": [
+            [
+              257,
+              675
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [
+            "DERIVED",
+            "SECONDARY",
+            "DOSE_INFO"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.27676219189030340095386421512990852850",
+          "n": 57,
+          "series_descriptions": [
+            "CH"
+          ],
+          "in_plane": [
+            [
+              0.366838,
+              0.366838
+            ],
+            [
+              0.367236,
+              0.367236
+            ]
+          ],
+          "rows_cols": [
+            [
+              515,
+              515
+            ],
+            [
+              814,
+              1247
+            ]
+          ],
+          "slice_thickness": [
+            0.734375,
+            2.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.15425513886431103570199015641901351652",
+          "n": 56,
+          "series_descriptions": [
+            "CH_4"
+          ],
+          "in_plane": [
+            [
+              0.366877,
+              0.366877
+            ],
+            [
+              0.367236,
+              0.367236
+            ]
+          ],
+          "rows_cols": [
+            [
+              517,
+              517
+            ],
+            [
+              814,
+              1247
+            ]
+          ],
+          "slice_thickness": [
+            0.734375,
+            2.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "MPR"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.6842527906474777805568523797449752429",
+          "n": 3,
+          "series_descriptions": [
+            "Scout"
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.67615217,
+              0.67615217
+            ]
+          ],
+          "rows_cols": [
+            [
+              434,
+              768
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [
+            "DERIVED",
+            "SECONDARY",
+            "LOCALIZER"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.73590147325477305283002939510624082504",
+          "n": 186,
+          "series_descriptions": [
+            "0.6 x 0.6_SINUS"
+          ],
+          "in_plane": [
+            [
+              0.3671875,
+              0.3671875
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.6
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.86037222175877320726672672525682064599",
+          "n": 186,
+          "series_descriptions": [
+            "0.6 x 0.6_BONE"
+          ],
+          "in_plane": [
+            [
+              0.3671875,
+              0.3671875
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.6
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.2231787181887006105154150525825562165",
+          "n": 186,
+          "series_descriptions": [
+            "0.6 x 0.6_BONE"
+          ],
+          "in_plane": [
+            [
+              0.3671875,
+              0.3671875
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.6
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    },
+    "27": {
+      "dcm_files": 380,
+      "read_errors": 0,
+      "groups": [
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.93965607991025459753531577320332685078",
+          "n": 1,
+          "series_descriptions": [
+            "Report Data"
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "rows_cols": [
+            [
+              0,
+              0
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.83749982859014452188779347819178290330",
+          "n": 2,
+          "series_descriptions": [
+            "Topogram  0.6  T20f"
+          ],
+          "in_plane": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "LOCALIZER"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.2030674880553159359257045083880237224",
+          "n": 30,
+          "series_descriptions": [
+            "MPR 3.0mm"
+          ],
+          "in_plane": [
+            [
+              0.4296875,
+              0.42968741059303
+            ],
+            [
+              0.4296875,
+              0.42968744039536
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            3.0
+          ],
+          "image_type_head": [
+            "DERIVED",
+            "SECONDARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.59756463052045602212708754727279984295",
+          "n": 1,
+          "series_descriptions": [
+            "Evidence Documents Viewing"
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "rows_cols": [
+            [
+              0,
+              0
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.93186428145344918404956325862456183145",
+          "n": 30,
+          "series_descriptions": [
+            "Sinus  5.0  H41s"
+          ],
+          "in_plane": [
+            [
+              0.458984375,
+              0.458984375
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            5.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.63141704151776117063696022200376514045",
+          "n": 29,
+          "series_descriptions": [
+            "Sinus  5.0  H70h"
+          ],
+          "in_plane": [
+            [
+              0.458984375,
+              0.458984375
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            5.0
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.56752748601203851342859962951689870057",
+          "n": 286,
+          "series_descriptions": [
+            "Sinus  0.75  H40s"
+          ],
+          "in_plane": [
+            [
+              0.458984375,
+              0.458984375
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.75
+          ],
+          "image_type_head": [
+            "ORIGINAL",
+            "PRIMARY",
+            "AXIAL"
+          ],
+          "axial_original": false
+        },
+        {
+          "uid": "1.2.826.0.1.3680043.8.498.70247057972078594144239228378512525414",
+          "n": 1,
+          "series_descriptions": [
+            "Patient Protocol"
+          ],
+          "in_plane": [
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "rows_cols": [
+            [
+              512,
+              512
+            ]
+          ],
+          "slice_thickness": [
+            0.0
+          ],
+          "image_type_head": [
+            "DERIVED",
+            "SECONDARY",
+            "OTHER"
+          ],
+          "axial_original": false
+        }
+      ],
+      "candidate_groups": 0,
+      "note": "not yet ranked; this is the inventory"
+    }
+  }
+}

@@ -1,0 +1,1108 @@
+{
+  "schema": "normal_path_run/v1",
+  "method": "work/07_cfd_pipeline/正常路径基本方法_v1.md",
+  "cases": 24,
+  "auto_pass": 17,
+  "jobs": 2,
+  "load_ceiling": 78.0,
+  "pre": {},
+  "rows": {
+    "b02": {
+      "case": "b02",
+      "s2_segment": {
+        "rc": 0,
+        "s": 239.4,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 62450,
+          "nasal_cavity_right": 66551,
+          "nasopharynx": 37849
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 10.7,
+        "tail": "    \"point_lps_mm\": [\n          -3.468920324337327,\n          -13.733050158123516,\n          -72.74480756690356\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b02\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 10.2,
+        "tail": "b02: OK  air=122359  pts=86682  tri=173444  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 61.0,
+        "tail": "b02: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 91.01,
+          "nostril_R": 81.68,
+          "nasopharynx_outlet": 177.44
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b01": {
+      "case": "b01",
+      "s2_segment": {
+        "rc": 0,
+        "s": 279.2,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 68508,
+          "nasal_cavity_right": 68508,
+          "nasopharynx": 40153
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.3,
+        "tail": "     },\n      \"nasopharynx_outlet\": {\n        \"status\": \"proposed\",\n        \"point_lps_mm\": [\n          -5.750508318690829,\n          -8.787626173072784,\n          -47.87719704340962\n        ],\n        \"review_reasons\": []\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b01\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.6,
+        "tail": "b01: OK  air=142558  pts=80410  tri=160820  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 99.5,
+        "tail": "b01: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.12,
+          "nostril_R": 83.33,
+          "nasopharynx_outlet": 299.43
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b03": {
+      "case": "b03",
+      "s2_segment": {
+        "rc": 0,
+        "s": 131.4,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 55691,
+          "nasal_cavity_right": 73047,
+          "nasopharynx": 34900
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 7.9,
+        "tail": "      \"point_lps_mm\": [\n          3.329330463553162,\n          -20.81310347038984,\n          -36.56252712784713\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b03\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.1,
+        "tail": "b03: OK  air=127776  pts=72910  tri=145872  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 102.1,
+        "tail": "b03: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 93.33,
+          "nostril_R": 93.58,
+          "nasopharynx_outlet": 254.64
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b04": {
+      "case": "b04",
+      "s2_segment": {
+        "rc": 0,
+        "s": 165.3,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 79400,
+          "nasal_cavity_right": 78866,
+          "nasopharynx": 24003
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.5,
+        "tail": " \"point_lps_mm\": [\n          -0.09373936796546879,\n          -23.412783609595813,\n          -38.320499420166016\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b04\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.4,
+        "tail": "b04: OK  air=137440  pts=98376  tri=196776  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 12.3,
+        "tail": "b04: escalated <- [{'opening': 'nasopharynx_outlet', 'reason': 'onset_outlier', 'detail': 'onset -7.25 mm outside the band [-4.0, 1.0] mm'}, {'opening': None, 'reason': 'clip_failed', 'detail': 'nasopharynx_outlet: unexpected boundary outside cutting plane or ROI'}]\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": "nasopharynx_outlet",
+            "reason": "onset_outlier",
+            "detail": "onset -7.25 mm outside the band [-4.0, 1.0] mm"
+          },
+          {
+            "opening": null,
+            "reason": "clip_failed",
+            "detail": "nasopharynx_outlet: unexpected boundary outside cutting plane or ROI"
+          }
+        ]
+      },
+      "final": "escalated"
+    },
+    "b05": {
+      "case": "b05",
+      "s2_segment": {
+        "rc": 0,
+        "s": 123.3,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 65025,
+          "nasal_cavity_right": 72945,
+          "nasopharynx": 33237
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.6,
+        "tail": "   \"point_lps_mm\": [\n          -6.839862422909297,\n          -31.811847386630713,\n          -21.496595058035343\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b05\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.5,
+        "tail": "b05: OK  air=136060  pts=83798  tri=167600  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 15.8,
+        "tail": "b05: escalated <- [{'opening': None, 'reason': 'gate_failed', 'detail': 'nasopharynx_outlet: opening area 54.87 mm2 outside the anatomical band [120.0, 500.0] mm2'}]\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": null,
+            "reason": "gate_failed",
+            "detail": "nasopharynx_outlet: opening area 54.87 mm2 outside the anatomical band [120.0, 500.0] mm2"
+          }
+        ]
+      },
+      "final": "escalated"
+    },
+    "b06": {
+      "case": "b06",
+      "s2_segment": {
+        "rc": 0,
+        "s": 142.8,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 65900,
+          "nasal_cavity_right": 77753,
+          "nasopharynx": 21737
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.6,
+        "tail": "    \"point_lps_mm\": [\n          -1.962665662080228,\n          -31.01523974514905,\n          -26.939979226901247\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b06\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.4,
+        "tail": "b06: OK  air=119907  pts=91102  tri=182312  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 128.4,
+        "tail": "b06: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.26,
+          "nostril_R": 84.92,
+          "nasopharynx_outlet": 289.54
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b07": {
+      "case": "b07",
+      "s2_segment": {
+        "rc": 0,
+        "s": 99.8,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 68526,
+          "nasal_cavity_right": 87411,
+          "nasopharynx": 26888
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.2,
+        "tail": "  \"point_lps_mm\": [\n          -2.0649024380885255,\n          -22.019806065397123,\n          -29.426407721829985\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b07\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.3,
+        "tail": "b07: OK  air=150121  pts=90640  tri=181352  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 30.7,
+        "tail": "b07: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 112.87,
+          "nostril_R": 107.46,
+          "nasopharynx_outlet": 388.37
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b09": {
+      "case": "b09",
+      "s2_segment": {
+        "rc": 0,
+        "s": 207.5,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 84024,
+          "nasal_cavity_right": 63331,
+          "nasopharynx": 34469
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.9,
+        "tail": "   \"point_lps_mm\": [\n          -3.4447009491096017,\n          -12.973859636061782,\n          -37.62591071926378\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b09\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.7,
+        "tail": "b09: OK  air=135814  pts=79036  tri=158052  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 59.8,
+        "tail": "b09: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 97.7,
+          "nostril_R": 99.39,
+          "nasopharynx_outlet": 201.94
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b08": {
+      "case": "b08",
+      "s2_segment": {
+        "rc": 0,
+        "s": 209.2,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 83243,
+          "nasal_cavity_right": 91685,
+          "nasopharynx": 38776
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.5,
+        "tail": "     \"point_lps_mm\": [\n          -6.469529972412835,\n          -40.70556191308367,\n          -41.33794852414746\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b08\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.0,
+        "tail": "b08: OK  air=164699  pts=97240  tri=194524  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 71.0,
+        "tail": "b08: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 95.37,
+          "nostril_R": 98.43,
+          "nasopharynx_outlet": 247.28
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b10": {
+      "case": "b10",
+      "s2_segment": {
+        "rc": 0,
+        "s": 179.1,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 74595,
+          "nasal_cavity_right": 68917,
+          "nasopharynx": 20473
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.4,
+        "tail": "     \"point_lps_mm\": [\n          -8.982422437374845,\n          -2.246385805079911,\n          -41.42151092514174\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b10\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.5,
+        "tail": "b10: OK  air=123580  pts=83900  tri=167816  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 111.8,
+        "tail": "b10: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 83.64,
+          "nostril_R": 87.9,
+          "nasopharynx_outlet": 262.02
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b11": {
+      "case": "b11",
+      "s2_segment": {
+        "rc": 0,
+        "s": 171.4,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 71217,
+          "nasal_cavity_right": 62472,
+          "nasopharynx": 23876
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.1,
+        "tail": "   },\n      \"nasopharynx_outlet\": {\n        \"status\": \"proposed\",\n        \"point_lps_mm\": [\n          -2.0018590427901164,\n          -14.18542396478905,\n          -47.264736415477046\n        ],\n        \"review_reasons\": []\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b11\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.3,
+        "tail": "b11: OK  air=116828  pts=81558  tri=163320  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 185.6,
+        "tail": "b11: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.38,
+          "nostril_R": 91.21,
+          "nasopharynx_outlet": 161.67
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b12": {
+      "case": "b12",
+      "s2_segment": {
+        "rc": 0,
+        "s": 123.9,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 76352,
+          "nasal_cavity_right": 78182,
+          "nasopharynx": 37116
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.5,
+        "tail": "     \"point_lps_mm\": [\n          7.143256200792195,\n          -50.726885114503894,\n          -77.47677661957819\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b12\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.9,
+        "tail": "b12: OK  air=130746  pts=74772  tri=149692  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 31.7,
+        "tail": "b12: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 117.79,
+          "nostril_R": 116.18,
+          "nasopharynx_outlet": 444.79
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b13": {
+      "case": "b13",
+      "s2_segment": {
+        "rc": 0,
+        "s": 157.2,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 76320,
+          "nasal_cavity_right": 70994,
+          "nasopharynx": 17013
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 7.3,
+        "tail": "   \"point_lps_mm\": [\n          -4.079641840500148,\n          -39.342136915563195,\n          -23.913293301003375\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b13\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.7,
+        "tail": "b13: OK  air=114847  pts=89724  tri=179508  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 95.8,
+        "tail": "b13: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 92.2,
+          "nostril_R": 114.96,
+          "nasopharynx_outlet": 270.72
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b14": {
+      "case": "b14",
+      "s2_segment": {
+        "rc": 0,
+        "s": 133.7,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 106453,
+          "nasal_cavity_right": 91929,
+          "nasopharynx": 27786
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.4,
+        "tail": "     \"point_lps_mm\": [\n          3.198876512265949,\n          -44.761670329104895,\n          -42.27411500652044\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b14\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.2,
+        "tail": "b14: OK  air=191103  pts=91786  tri=183568  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 95.6,
+        "tail": "b14: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 100.57,
+          "nostril_R": 92.34,
+          "nasopharynx_outlet": 257.74
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b15": {
+      "case": "b15",
+      "s2_segment": {
+        "rc": 0,
+        "s": 122.9,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 76850,
+          "nasal_cavity_right": 72452,
+          "nasopharynx": 23218
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 7.7,
+        "tail": "   \"point_lps_mm\": [\n          -0.7432144262060498,\n          -25.615921597795438,\n          -49.31468272330192\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b15\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.4,
+        "tail": "b15: OK  air=134847  pts=86216  tri=172432  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 13.4,
+        "tail": "b15: escalated <- [{'opening': None, 'reason': 'clip_failed', 'detail': 'Cut boundaries must be closed degree-two loops'}]\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": null,
+            "reason": "clip_failed",
+            "detail": "Cut boundaries must be closed degree-two loops"
+          }
+        ]
+      },
+      "final": "escalated"
+    },
+    "b16": {
+      "case": "b16",
+      "s2_segment": {
+        "rc": 0,
+        "s": 193.0,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 66844,
+          "nasal_cavity_right": 69716,
+          "nasopharynx": 28335
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 7.7,
+        "tail": "    \"point_lps_mm\": [\n          -2.5762432786200544,\n          -24.511975859395033,\n          -32.9920958100463\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b16\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.7,
+        "tail": "b16: OK  air=123075  pts=88008  tri=176100  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 65.7,
+        "tail": "b16: escalated <- [{'opening': None, 'reason': 'gate_failed', 'detail': 'nasopharynx_outlet: opening area 50.98 mm2 outside the anatomical band [120.0, 500.0] mm2'}]\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": null,
+            "reason": "gate_failed",
+            "detail": "nasopharynx_outlet: opening area 50.98 mm2 outside the anatomical band [120.0, 500.0] mm2"
+          }
+        ]
+      },
+      "final": "escalated"
+    },
+    "b17": {
+      "case": "b17",
+      "s2_segment": {
+        "rc": 0,
+        "s": 175.5,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 83401,
+          "nasal_cavity_right": 94111,
+          "nasopharynx": 24915
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.7,
+        "tail": "     \"point_lps_mm\": [\n          0.7170836895343625,\n          -50.13511986268235,\n          -37.04028893146578\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b17\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.2,
+        "tail": "b17: OK  air=163444  pts=91664  tri=183332  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 61.8,
+        "tail": "b17: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 102.04,
+          "nostril_R": 102.85,
+          "nasopharynx_outlet": 240.53
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b18": {
+      "case": "b18",
+      "s2_segment": {
+        "rc": 0,
+        "s": 125.7,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 70590,
+          "nasal_cavity_right": 68005,
+          "nasopharynx": 28141
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 7.7,
+        "tail": "    \"point_lps_mm\": [\n          2.2566910580787893,\n          -31.156275366689833,\n          -51.39857055005748\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b18\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.3,
+        "tail": "b18: OK  air=121034  pts=90568  tri=181316  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 13.6,
+        "tail": "b18: escalated <- [{'opening': None, 'reason': 'clip_failed', 'detail': 'nasopharynx_outlet: unexpected boundary outside cutting plane or ROI'}]\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": null,
+            "reason": "clip_failed",
+            "detail": "nasopharynx_outlet: unexpected boundary outside cutting plane or ROI"
+          }
+        ]
+      },
+      "final": "escalated"
+    },
+    "b19": {
+      "case": "b19",
+      "s2_segment": {
+        "rc": 0,
+        "s": 183.3,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 79706,
+          "nasal_cavity_right": 80359,
+          "nasopharynx": 26110
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.3,
+        "tail": "    \"point_lps_mm\": [\n          7.387977097914357,\n          -55.113899621452454,\n          -53.852203909858304\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b19\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.2,
+        "tail": "b19: OK  air=135419  pts=96580  tri=193256  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 40.1,
+        "tail": "b19: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 114.26,
+          "nostril_R": 111.9,
+          "nasopharynx_outlet": 255.72
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b20": {
+      "case": "b20",
+      "s2_segment": {
+        "rc": 0,
+        "s": 183.2,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 54878,
+          "nasal_cavity_right": 70684,
+          "nasopharynx": 22055
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.6,
+        "tail": "     \"point_lps_mm\": [\n          -3.887485472743138,\n          -19.53568972855831,\n          -45.54854936133561\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b20\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.8,
+        "tail": "b20: OK  air=103727  pts=74904  tri=150004  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 1.4,
+        "tail": "b20: escalated <- b20/nostril_L: automatic proposal is unavailable, cannot build a plane\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": null,
+            "reason": "no_planes",
+            "detail": "b20/nostril_L: automatic proposal is unavailable, cannot build a plane"
+          }
+        ]
+      },
+      "final": "escalated"
+    },
+    "b21": {
+      "case": "b21",
+      "s2_segment": {
+        "rc": 0,
+        "s": 118.9,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 50968,
+          "nasal_cavity_right": 56157,
+          "nasopharynx": 15356
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 6.8,
+        "tail": "    \"point_lps_mm\": [\n          -3.310910547007421,\n          -47.766308051613485,\n          -51.45522201440896\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b21\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.2,
+        "tail": "b21: OK  air=88206  pts=72686  tri=145512  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 53.1,
+        "tail": "b21: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 85.28,
+          "nostril_R": 80.4,
+          "nasopharynx_outlet": 120.25
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b23": {
+      "case": "b23",
+      "s2_segment": {
+        "rc": 0,
+        "s": 132.2,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 79268,
+          "nasal_cavity_right": 76461,
+          "nasopharynx": 18477
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.5,
+        "tail": "   \"point_lps_mm\": [\n          -0.47901183632528704,\n          -50.84902371684457,\n          -44.43716027326644\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b23\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.2,
+        "tail": "b23: OK  air=127822  pts=90256  tri=180568  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 9.5,
+        "tail": "b23: escalated <- [{'opening': 'nasopharynx_outlet', 'reason': 'onset_outlier', 'detail': 'onset -5.00 mm outside the band [-4.0, 1.0] mm'}, {'opening': None, 'reason': 'clip_failed', 'detail': 'nasopharynx_outlet: unexpected boundary outside cutting plane or ROI'}]\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": "nasopharynx_outlet",
+            "reason": "onset_outlier",
+            "detail": "onset -5.00 mm outside the band [-4.0, 1.0] mm"
+          },
+          {
+            "opening": null,
+            "reason": "clip_failed",
+            "detail": "nasopharynx_outlet: unexpected boundary outside cutting plane or ROI"
+          }
+        ]
+      },
+      "final": "escalated"
+    },
+    "b22": {
+      "case": "b22",
+      "s2_segment": {
+        "rc": 0,
+        "s": 161.5,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 73851,
+          "nasal_cavity_right": 61657,
+          "nasopharynx": 10338
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.8,
+        "tail": "    \"point_lps_mm\": [\n          -2.553390236111248,\n          -40.338613260318255,\n          -62.38216220631319\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b22\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.2,
+        "tail": "b22: OK  air=100836  pts=76618  tri=153296  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 147.0,
+        "tail": "b22: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 81.33,
+          "nostril_R": 80.21,
+          "nasopharynx_outlet": 219.02
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    },
+    "b24": {
+      "case": "b24",
+      "s2_segment": {
+        "rc": 0,
+        "s": 112.3,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 63501,
+          "nasal_cavity_right": 84026,
+          "nasopharynx": 13380
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.4,
+        "tail": "   \"point_lps_mm\": [\n          0.5122429552558357,\n          -24.343718699514184,\n          -48.200704439281054\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b24\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.3,
+        "tail": "b24: OK  air=121663  pts=81788  tri=163632  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 23.9,
+        "tail": "b24: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 95.46,
+          "nostril_R": 110.9,
+          "nasopharynx_outlet": 265.1
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    }
+  }
+}

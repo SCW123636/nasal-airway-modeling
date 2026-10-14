@@ -1,0 +1,1243 @@
+{
+  "schema": "cap_target_sensitivity/v1",
+  "targets_tested": {
+    "nostril": [
+      60.0,
+      80.0,
+      100.0
+    ],
+    "outlet": [
+      150.0,
+      250.0,
+      350.0
+    ]
+  },
+  "passes": 3,
+  "bisect_steps": 9,
+  "sensitivity_summary": {
+    "nostril_L": {
+      "n": 36,
+      "min": 0.0,
+      "max": 4.76,
+      "max_abs": 4.76
+    },
+    "nostril_R": {
+      "n": 36,
+      "min": 0.0,
+      "max": 1.84,
+      "max_abs": 1.84
+    },
+    "nasopharynx_outlet": {
+      "n": 36,
+      "min": -0.03,
+      "max": 0.25,
+      "max_abs": 0.25
+    }
+  },
+  "convergence_last_pass_move_mm": {
+    "n": 15,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "sensitivity_rows": [
+    {
+      "case": "p0",
+      "nostril_target": 60.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 60.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 60.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 80.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 80.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 80.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 100.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 100.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "nostril_target": 100.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p1",
+      "nostril_target": 60.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.975
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -0.03
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 69.9,
+        "nostril_R": 71.3,
+        "nasopharynx_outlet": 160.3
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 60.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 1.159
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.16
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 69.9,
+        "nostril_R": 71.3,
+        "nasopharynx_outlet": 343.8
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 60.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 1.186
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.19
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 69.9,
+        "nostril_R": 71.3,
+        "nasopharynx_outlet": 359.8
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 80.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.764,
+        "nostril_R": 0.869,
+        "nasopharynx_outlet": 0.975
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.51,
+        "nostril_R": 0.62,
+        "nasopharynx_outlet": -0.03
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 160.3
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 80.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.764,
+        "nostril_R": 0.869,
+        "nasopharynx_outlet": 1.159
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.51,
+        "nostril_R": 0.62,
+        "nasopharynx_outlet": 0.16
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 343.8
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 80.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.764,
+        "nostril_R": 0.869,
+        "nasopharynx_outlet": 1.186
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.51,
+        "nostril_R": 0.62,
+        "nasopharynx_outlet": 0.19
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 359.8
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 100.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 5.009,
+        "nostril_R": 1.924,
+        "nasopharynx_outlet": 0.975
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 4.76,
+        "nostril_R": 1.67,
+        "nasopharynx_outlet": -0.03
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.1,
+        "nostril_R": 100.1,
+        "nasopharynx_outlet": 160.3
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 100.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 5.009,
+        "nostril_R": 1.924,
+        "nasopharynx_outlet": 1.159
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 4.76,
+        "nostril_R": 1.67,
+        "nasopharynx_outlet": 0.16
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.1,
+        "nostril_R": 100.1,
+        "nasopharynx_outlet": 343.8
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "nostril_target": 100.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 5.009,
+        "nostril_R": 1.924,
+        "nasopharynx_outlet": 1.186
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 4.76,
+        "nostril_R": 1.67,
+        "nasopharynx_outlet": 0.19
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.1,
+        "nostril_R": 100.1,
+        "nasopharynx_outlet": 359.8
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 60.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 79.1,
+        "nostril_R": 73.3,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 60.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 79.1,
+        "nostril_R": 73.3,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 60.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 79.1,
+        "nostril_R": 73.3,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 80.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.632,
+        "nostril_R": 1.423,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.63,
+        "nostril_R": 1.42,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 80.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.632,
+        "nostril_R": 1.423,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.63,
+        "nostril_R": 1.42,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 80.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.632,
+        "nostril_R": 1.423,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.63,
+        "nostril_R": 1.42,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 100.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 1.897,
+        "nostril_R": 1.845,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 1.9,
+        "nostril_R": 1.84,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.0,
+        "nostril_R": 100.7,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 100.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 1.897,
+        "nostril_R": 1.845,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 1.9,
+        "nostril_R": 1.84,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.0,
+        "nostril_R": 100.7,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "nostril_target": 100.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 1.897,
+        "nostril_R": 1.845,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 1.9,
+        "nostril_R": 1.84,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.0,
+        "nostril_R": 100.7,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 60.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 60.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 60.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 80.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 80.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 80.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 100.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.685,
+        "nostril_R": 0.843,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.18,
+        "nostril_R": 0.34,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.6,
+        "nostril_R": 100.5,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 100.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.685,
+        "nostril_R": 0.843,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.18,
+        "nostril_R": 0.34,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.6,
+        "nostril_R": 100.5,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "nostril_target": 100.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.685,
+        "nostril_R": 0.843,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.18,
+        "nostril_R": 0.34,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 100.6,
+        "nostril_R": 100.5,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 60.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 60.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 60.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 80.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 80.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 80.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 100.0,
+      "outlet_target": 150.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 100.0,
+      "outlet_target": 250.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "nostril_target": 100.0,
+      "outlet_target": 350.0,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    }
+  ],
+  "convergence_rows": [
+    {
+      "case": "p0",
+      "pass": 1,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "pass": 2,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "pass": 3,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": -0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": -3.25
+      },
+      "cap_areas_mm2": null,
+      "error": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p1",
+      "pass": 1,
+      "offsets_mm": {
+        "nostril_L": 0.764,
+        "nostril_R": 0.869,
+        "nasopharynx_outlet": 1.159
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.51,
+        "nostril_R": 0.62,
+        "nasopharynx_outlet": 0.16
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 343.8
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "pass": 2,
+      "offsets_mm": {
+        "nostril_L": 0.764,
+        "nostril_R": 0.869,
+        "nasopharynx_outlet": 1.159
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.51,
+        "nostril_R": 0.62,
+        "nasopharynx_outlet": 0.16
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 343.8
+      },
+      "error": null
+    },
+    {
+      "case": "p1",
+      "pass": 3,
+      "offsets_mm": {
+        "nostril_L": 0.764,
+        "nostril_R": 0.869,
+        "nasopharynx_outlet": 1.159
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.51,
+        "nostril_R": 0.62,
+        "nasopharynx_outlet": 0.16
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 343.8
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "pass": 1,
+      "offsets_mm": {
+        "nostril_L": 0.632,
+        "nostril_R": 1.423,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.63,
+        "nostril_R": 1.42,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "pass": 2,
+      "offsets_mm": {
+        "nostril_L": 0.632,
+        "nostril_R": 1.423,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.63,
+        "nostril_R": 1.42,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p2",
+      "pass": 3,
+      "offsets_mm": {
+        "nostril_L": 0.632,
+        "nostril_R": 1.423,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.63,
+        "nostril_R": 1.42,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 80.1,
+        "nostril_R": 80.2,
+        "nasopharynx_outlet": 441.9
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "pass": 1,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "pass": 2,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3",
+      "pass": 3,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.0,
+        "nostril_R": 0.0,
+        "nasopharynx_outlet": 0.25
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 94.1,
+        "nostril_R": 90.0,
+        "nasopharynx_outlet": 363.6
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "pass": 1,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "pass": 2,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    },
+    {
+      "case": "p3t1",
+      "pass": 3,
+      "offsets_mm": {
+        "nostril_L": 0.5,
+        "nostril_R": 0.5,
+        "nasopharynx_outlet": 0.5
+      },
+      "offset_from_reviewed_mm": {
+        "nostril_L": 0.25,
+        "nostril_R": 0.25,
+        "nasopharynx_outlet": 0.0
+      },
+      "cap_areas_mm2": {
+        "nostril_L": 115.2,
+        "nostril_R": 118.0,
+        "nasopharynx_outlet": 392.4
+      },
+      "error": null
+    }
+  ]
+}

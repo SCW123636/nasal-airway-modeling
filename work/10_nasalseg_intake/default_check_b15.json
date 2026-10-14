@@ -1,0 +1,56 @@
+{
+  "schema": "normal_path_run/v1",
+  "method": "work/07_cfd_pipeline/正常路径基本方法_v1.md",
+  "cases": 1,
+  "auto_pass": 1,
+  "jobs": 1,
+  "load_ceiling": 78.0,
+  "pre": {},
+  "rows": {
+    "b15": {
+      "case": "b15",
+      "s2_segment": {
+        "rc": 0,
+        "s": 123.8,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 76850,
+          "nasal_cavity_right": 72452,
+          "nasopharynx": 23218
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 5.6,
+        "tail": "   \"point_lps_mm\": [\n          -0.7432144262060498,\n          -25.615921597795438,\n          -49.31468272330192\n        ],\n        \"review_reasons\": [\n          \"软腭(soft palate)标签触及扫描边界，需检查参考结构是否完整；接触边界本身不证明解剖截断\"\n        ]\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\b15\"\n  }\n]\n"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.1,
+        "tail": "b15: OK  air=134847  pts=86216  tri=172432  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 228.3,
+        "tail": "b15: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.04,
+          "nostril_R": 80.06,
+          "nasopharynx_outlet": 439.18
+        },
+        "outside_band": null
+      },
+      "final": "auto_pass"
+    }
+  }
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鼻腔 CFD 项目 · 优化空间与后续设计 — 云端调研委托（2026-10-12）</title>
+<style>
+  :root {
+    --ink: #1a2332; --ink2: #3d4a5c; --muted: #6b7787;
+    --line: #d9e0ea; --bg: #ffffff; --panel: #f6f8fb;
+    --accent: #0b5fff; --accent-soft: #e8f0ff;
+    --warn: #b45309; --warn-soft: #fef3e2;
+    --bad: #b42318; --bad-soft: #fdecea;
+    --ok: #067647; --ok-soft: #e7f6ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    font-size: 15px; line-height: 1.75;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 40px 28px 80px; }
+  header.doc { border-bottom: 3px solid var(--accent); padding-bottom: 18px; margin-bottom: 8px; }
+  h1 { font-size: 24px; margin: 0 0 10px; letter-spacing: .2px; }
+  .meta { color: var(--muted); font-size: 13px; }
+  .meta b { color: var(--ink2); }
+  blockquote {
+    margin: 18px 0; padding: 12px 16px; background: var(--panel);
+    border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;
+    color: var(--ink2); font-size: 14px;
+  }
+  h2 {
+    font-size: 19px; margin: 42px 0 14px; padding: 8px 14px;
+    background: var(--accent-soft); border-radius: 8px; color: #0a3fae;
+  }
+  h3 { font-size: 16px; margin: 26px 0 8px; }
+  h3 .star { color: var(--warn); }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 4px; padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+    padding: 1px 5px; font-size: 13px; color: #0a3fae;
+  }
+  pre {
+    background: #0f172a; color: #e2e8f0; border-radius: 10px;
+    padding: 14px 16px; overflow-x: auto; font-size: 13px; line-height: 1.6;
+  }
+  pre code { background: none; border: none; color: inherit; padding: 0; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px;
+  }
+  th, td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--panel); font-weight: 600; color: var(--ink2); }
+  tr:nth-child(even) td { background: #fbfcfe; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 20px; margin-right: 6px; }
+  .t-ok { background: var(--ok-soft); color: var(--ok); }
+  .t-bad { background: var(--bad-soft); color: var(--bad); }
+  .t-warn { background: var(--warn-soft); color: var(--warn); }
+  .callout {
+    border: 1px solid var(--line); border-left: 4px solid var(--warn);
+    background: var(--warn-soft); border-radius: 0 8px 8px 0;
+    padding: 10px 14px; margin: 12px 0; font-size: 14px; color: #7c4a03;
+  }
+  .callout.info { border-left-color: var(--accent); background: var(--accent-soft); color: #0a3f7a; }
+  .q {
+    border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px;
+    margin: 12px 0; background: #fff;
+  }
+  .q .qh { font-weight: 700; color: #0a3fae; margin-bottom: 4px; }
+  .small { font-size: 13px; color: var(--muted); }
+  footer.doc { margin-top: 48px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
+  @media print {
+    body { font-size: 12.5px; }
+    .wrap { padding: 10px; }
+    h2 { page-break-after: avoid; }
+    table, .q, .callout { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc">
+  <h1>鼻腔 CFD 项目 · 优化空间与后续设计 — 云端调研委托</h1>
+  <div class="meta">
+    生成日期：<b>2026-10-12</b>　｜　委托方：鼻腔 CFD 空气域复核项目组（本机 AI 助手整理）<br>
+    读者：云端强模型（无任何本项目上下文）。本文档<b>自包含</b>，所有关键事实均带实测数字与出处。<br>
+    PHI 声明：本文不含任何患者姓名、医生姓名、医院实名与地址；医院仅以设备类型代称。
+  </div>
+</header>
+
+<blockquote>
+  <b>如何使用本文档（请先读）：</b>
+  <ol>
+    <li>本文回答两个问题：<b>① 当前链路哪些地方值得优化（§2）；② 几何链路跑通之后，后续应该怎么设计与推进（§3）。</b></li>
+    <li>§4 是按优先级排好的具体问题清单，请逐条回答；每条都写了"什么样算有用的回答"。</li>
+    <li><b>最有价值的回答类型</b>（按价值排序）：对 §5「已证伪路径」提出<b>反例</b>（最高价值）；给出<b>可执行</b>的替代方法（能写成代码或写进实验矩阵，而非原则性建议）；明确指出哪些是<b>文献共识</b>、哪些是<b>开放问题</b>。</li>
+    <li><b>请勿</b>重复建议 §5 中已证伪的路径。</li>
+    <li>工程纪律：所有建议必须标注<b>依据等级</b>（文献共识 / 行业惯例 / 个人推断）；凡要求"用真值回测"的，请明示"此为假设，待回测"；禁止编造函数名、行号、文献。</li>
+  </ol>
+</blockquote>
+
+<h2>1. 一页纸：项目是什么、现在到哪了</h2>
+
+<h3>1.1 目标与链路</h3>
+<p>把<b>鼻腔 CT</b> 做成可用于 <b>CFD 气流仿真</b>的干净几何与网格，服务于鼻科手术规划。</p>
+<pre><code>DICOM(CT) → 序列自动选择 → TotalSegmentator 分割 → 自动解剖点位提案
+  → marching cubes 建表面 → 开口平面自动定位(面积目标二分) → 表面门禁
+  → Netgen 体网格 → OpenFOAM v1912 求解 → 网页端可交互 3D(流速/压力/湍流强度)</code></pre>
+<p>规模：<b>27 例副鼻窦 CT</b>（b01–b27，24 例干净单序列 + 3 例多序列）+ <b>5 例试点</b>（p0–p3t1，含 1 例双时点）。</p>
+
+<h3>1.2 已验证的事实（全部实测，非设计推导）</h3>
+<table>
+<tr><th style="width:24%">环节</th><th style="width:14%">状态</th><th style="width:36%">关键数字</th><th>出处</th></tr>
+<tr><td>序列自动选择</td><td><span class="tag t-ok">✅ 27/27 全中</span></td><td>正确排除 3D 重建 / Scout / Dose Report / MPR</td><td><code>work/10_nasalseg_intake/batch27_series_choice.json</code></td></tr>
+<tr><td>分割（TS <code>head_glands_cavities</code>）</td><td><span class="tag t-ok">✅ 跑通</span></td><td>CPU ~136 s/例；标签内 HU&gt;0 体素 = 0</td><td>项目记忆 + TS 审计</td></tr>
+<tr><td>表面构建（三标签并集 ∩ HU&lt;−300 → MC）</td><td><span class="tag t-ok">✅</span></td><td>p2 218,364 三角形 / p3t1 267,630；全闭合流形</td><td><code>C:/ts_work/batch27_surfaces</code></td></tr>
+<tr><td>开口平面自动定位 v2</td><td><span class="tag t-ok">✅ 18/24 自动通过</span></td><td>面积目标二分；四例位置距人工位 0.00–1.42 mm</td><td><code>work/07_cfd_pipeline/正常路径验收报告_b01-b24_20261012.md</code></td></tr>
+<tr><td>表面门禁（四门禁替代 native 自相交）</td><td><span class="tag t-ok">✅</span></td><td>好几何 pass；人为打洞 fail（boundary_edges=32）</td><td><code>work/lib/surface_gate.py</code> + 测试</td></tr>
+<tr><td>隔离 CFD 基准（非患者圆管）</td><td><span class="tag t-ok">✅</span></td><td>wedge 5°×160mm：压降误差 1.312%、流量 6.4e-14、峰值 0.097%；2D Poiseuille 三档 2.17/0.61/0.18%</td><td><code>work/07_cfd_pipeline/执行状态.md</code></td></tr>
+<tr><td>体网格（隔离圆管）</td><td><span class="tag t-ok">✅ Mesh OK</span></td><td>Netgen maxh=0.4 → 双边界面四面体局部细分 → checkMesh 全门通过</td><td><code>work/07_cfd_pipeline/网格软件实测比较.md</code></td></tr>
+<tr><td>医学复核工作流（离线包+导回）</td><td><span class="tag t-ok">✅ 已实现验证</span></td><td>12 项后端 + 10 组 Chrome UI 测试，pageerror 0</td><td><code>work/lib/test_medical_review.py</code> 等</td></tr>
+<tr><td><b>患者 CFD</b></td><td><span class="tag t-bad">⛔ = 0</span></td><td>8 份配置 <code>execution_allowed=false</code></td><td><code>work/07_cfd_pipeline/configs/</code></td></tr>
+<tr><td>患者流场 → 网页图层</td><td><span class="tag t-bad">⛔ 恒 null</span></td><td>工作台骨架在，数据未接</td><td>127.0.0.1:8768/8769</td></tr>
+</table>
+
+<div class="callout info">
+<b>一句话现状判断：</b>几何链路已 75% 自动化（18/24），但患者 CFD 仍为 0。最大阻塞不是算力、不是模型能力，而是<b>三个判据/机制问题</b>（种子依赖手工 ROI 盒、扫描截断判据语义错误、体网格最后 1 项 checkMesh 门）+ <b>一个未完成的医学门</b>（三项边界复核 gate 全 pending）。
+</div>
+
+<h2>2. 优化空间（按优先级）</h2>
+
+<h3><span class="star">⭐</span> O1　开口平面"种子"机制依赖手工 ROI 盒 — 当前最大阻塞</h3>
+<p><b>现状（实测）</b>：b01–b24 中 6 例升级，其中 <b>4 例集中在鼻咽出口</b>（b04/b15/b18/b23，报 <code>seed_lost</code>），另 2 例鼻孔 <code>seed_lost</code>；b04/b23 另报 <code>onset_outlier</code>（−7.25 / −5.00 mm，观察带 [−4, +1]）。</p>
+<p><b>机制</b>（<code>work/lib/connectivity_opened_surface.py::flood_mask</code>，第 42–62 行）：种子 = 「平面负侧顶点 ∩ ROI 盒」，ROI 盒随平面平移；平面移到新位置后盒内无负侧顶点即失败。</p>
+<p><b>已排除的解释</b>：</p>
+<ul>
+  <li>ROI 盒太小？→ 24 例 × 3 开口逐开口对照：失败 4.0/5.2/5.9/5.9 vs 通过 4.6–10.2，<b>完全重叠、零区分力</b>（b02 出口 4.6 通过、b04 出口 4.0 失败）。不是尺寸问题。</li>
+  <li>ROI 平移？→ 专项探针 5 个 delta 全败（<code>p0_roi_translation_probe.py</code>）。</li>
+  <li>手抄裁切出错？→ 改用生产函数二分，已排除。</li>
+</ul>
+<p><b>诊断</b>：ROI 盒是试点 5 例手工调出来的产物，被当成通用机制。它同时承担两个<b>本不该合并</b>的职责：① 判定保留哪个连通分量（语义）；② 提供数值搜索种子。几何一换、平面一动，② 就随机失效。<b>出口系统性弱于鼻孔</b>（4/6 升级在出口），提示出口附近本身有解剖歧义（软腭/口咽交界）。</p>
+<p><b>候选方向</b>（请评估可行性并给出具体做法）：从开口中心沿平面法向<b>向内射线</b>取首个表面交点作种子；用<b>测地距离</b>从最近已知开口出发；用已有生产件 <code>section_loops</code>（边-平面交点构造的截面环）确定负侧内部点。</p>
+
+<h3><span class="star">⭐</span> O2　「扫描截断」判据把必要条件当成充分条件</h3>
+<p><b>现状</b>：b01–b24 首跑 auto_pass 仅 <b>2/24</b>，22 例全部同因 <code>no_planes</code>——不是 22 种失败，是<b>一条判据</b>挡的。</p>
+<p><b>根因</b>（<code>work/lib/auto_anatomy_landmarks.py:433</code>）：「标签掩膜任一体素触及 CT 立体六面之一」即判 truncated → <code>nasopharynx_outlet</code> 降级 <code>needs_review</code> → 下游硬阻塞。</p>
+<p><b>实测</b>：<code>oropharynx</code> 触边 <b>24/24</b>（口咽本就向下出扫描范围，判据恒真）；<code>soft_palate</code> 触边 <b>22/24</b>（全部触头侧 superior 面——颈部扫描里软腭本就在 FOV 上界）；未触边的 b01/b11 恰好就是通过的两例。点位质量<b>零影响</b>：24/24 点位全存在、平面拟合 RMS 0.00–0.41 mm、到软腭距离 4.95–11.68 mm，与通过组<b>分布完全重叠</b>。</p>
+<p><b>已处置（不彻底）</b>：加显式开关 <code>--allow-needs-review</code>（默认关、逐例记录），全批 2/24 → <b>18/24</b>。<b>判据本身未修。</b></p>
+<p><b>优化方向</b>：判据应回答「结构在扫描边界外是否还有延续」，而非「标签碰没碰到体素边界」。候选：沿结构主轴检查边界处是否<b>非自然终止</b>；检查该结构在边界面上的<b>截面是否与体内典型截面同量级</b>。另请给出"颈部 CT 中软腭触 FOV 上界是正常解剖表现"的<b>文献依据</b>。</p>
+
+<h3><span class="star">⭐</span> O3　体网格：最优候选仍差最后 1 项 checkMesh 门</h3>
+<p>6 种网格路线实测对照（同一份非患者圆管 STL，OpenFOAM v1912 <code>checkMesh -allGeometry -allTopology</code>）：</p>
+<table>
+<tr><th>网格器</th><th>结果</th></tr>
+<tr><td>snappyHexMesh（原生，含 4 组调参）</td><td>7920–9408 concave cells，全失败</td></tr>
+<tr><td>Gmsh Delaunay（含细化）</td><td>70 / 106 个小行列式单元，失败 2 项</td></tr>
+<tr><td>TetGen <code>-pq1.2a0.03</code></td><td>2059 个小行列式单元，失败 1 项</td></tr>
+<tr><td><b>Netgen <code>maxh=0.4, grading=0.1</code></b></td><td><b>当前最佳</b>：26,887 四面体，仅 8 个小行列式单元</td></tr>
+<tr><td>Netgen <code>maxh=0.2</code></td><td><b>恶化到 25 个</b>（非单调， unexplained）</td></tr>
+<tr><td>polyDualMesh</td><td>排除（skewness 648.84）</td></tr>
+</table>
+<p><b>已定位的根因</b>（读 OpenFOAM v1912 源码确认）：<code>cellDeterminant</code> 只用内部/耦合面向量；<b>有两个外边界的四面体</b>只剩两个内部面，面积张量秩不足 → determinant 按定义为 0 → 触发 <code>minDeterminant 0.001</code> 门。已验证修复：只对这类单元做局部中心细分（4→16），体积相对变化 2.2e-16，圆管 <code>checkMesh</code> <b>Mesh OK</b>（最小 determinant 0.0073794）。</p>
+<p><b>未解决</b>：患者表面尚未复验；「细化反而恶化」无解释；小行列式单元是表面 sliver 传入还是网格器固有行为，未知。</p>
+<p><b>优化方向</b>：成因与针对性修复；Netgen 对应参数（<code>optsteps</code> / <code>elperr</code> / 局部细化）；鼻腔这种<b>薄壁、狭窄、各向异性</b>腔体的工程最佳实践（边界层？六面体主导？polyhedral？附可落地做法与文献）；若 8 个单元确实无法消除，行业 <code>checkMesh</code> 容忍度是多少（我们不敢自行放宽，需要依据）。</p>
+
+<h3><span class="star">⭐</span> O4　表面自相交门禁的科学定性</h3>
+<p><b>已确定事实</b>（不依赖自研判据）：</p>
+<ul>
+  <li>native <code>surfaceCheck</code> 在<b>未裁切的干净 MC 原始面</b>上也报点：p2_source / p3t1_source 最短边 0.32/0.33 mm、最差质量 0.57、<b>全闭合流形</b>、最大边仅 0.68 mm，仍报 <b>117 / 179 个点</b>。</li>
+  <li>报点 <b>100% 落在 wall patch</b>、不成簇（最大簇 9–25）、到最近三角形距离中位数 <b>1.7–1.9e-4 m</b>（远大于 1e-6 m 容差）；报的是<b>点</b>不是面片对。</li>
+  <li>sliver 修复后 p2 117→115、<b>p3t1 179→194（恶化）</b>。</li>
+  <li>本项目自研的三套自相交判据<b>全部被证伪</b>（批大小决定结论：同一批 561,405 对，一次性得 39、分块得 1176）。</li>
+</ul>
+<p><b>已处置</b>：native 自相交降级为 advisory 记录项；改用四条替代门禁（更难通过）：<code>mesh_watertight</code> / <code>volume_conserved</code> / <code>openings_are_open</code>（≥10 mm²）/ <code>patch_areas_stable</code>（≤2%）。人为打洞可检出（boundary_edges=32）。</p>
+<p><b>优化方向</b>：MC 网格上的这些报点是<b>真穿插</b>还是<b>掠接触/容差伪命中</b>？可判定的做法？若需可信计数，成熟库（CGAL/libigl/trimesh+meshfix）的<b>具体调用方式与精度陷阱</b>（我们已知踩过 <code>abs(det)>=1e-9</code> 的量纲错误：det 单位 m³、典型值 ~8e-11）。<b>是否需要在意</b>——要文献或行业依据。</p>
+
+<h3>O5　判据自检机制（元层面，已发生 4 次同类事故）</h3>
+<p>本项目反复出现「<b>判据/解析代码自身坏掉，但输出看起来完全合法</b>」：</p>
+<table>
+<tr><th style="width:6%">#</th><th style="width:34%">事故</th><th>错法</th></tr>
+<tr><td>1</td><td><code>decide_selfintersection_precision.py</code></td><td><code>abs(det)&gt;=1e-9</code> 当相交判据，但 det 单位 m³、典型值 ~8e-11 → 真实相交被判退化</td></tr>
+<tr><td>2</td><td><code>opening_placement_candidates.py::refine</code></td><td>写 <code>area &gt;= 0</code>（对面积恒真）→ 全部候选压成同一位置</td></tr>
+<tr><td>3</td><td><code>batch27_series_survey.py</code></td><td>DICOM <code>ImageType</code> 索引猜错（AXIAL 在索引 2 不是 1）→ 27/27 全灭</td></tr>
+<tr><td>4</td><td>基准值跨管线混记</td><td>把 ROI-box 时代的 p2 出口 292.13 当 v2 基准（真值 441.87）→ 假"回归"</td></tr>
+</table>
+<p><b>现有对策只是流程约束</b>（每写新判据先用带出处的已知答案验一遍）。<b>优化方向</b>：是否有系统化工程手段——量纲/类型检查、不变量断言、"判据自证"测试模式？量纲类错误如何系统防御？</p>
+
+<h3>O6　分割类别覆盖缺口</h3>
+<p>TS <code>head_glands_cavities</code>（task 775，共 19 类）<b>无口腔空气标签、无筛窦/蝶窦</b>；上颌窦/额窦需第二 task <code>craniofacial_structures</code>（未跑）。当前口腔排除靠软腭/口咽屏障（解剖先验），窦策略靠人工 gate。<b>优化方向</b>：第二 task 的权重获取与推理成本；其他预训练气道模型对 sinonasal 区域的覆盖度；双 task 融合的冲突处理。</p>
+
+<h3>O7　各向异性处理口径</h3>
+<p>实测：例0 = 0.35³ 唯一真各向同性；p1 2.3×、p3_t2 1.6×、p2 1.09×、p3_t1 1.07×。当前口径（已弱化）：<b>保留正确 spacing/direction 提面即可处理各向异性</b>，重采样可选（不能恢复未采到的细节）。<b>优化方向</b>：这一口径在 CFD 前是否充分——鼻阀狭缝、边界层分辨率对 through-plane 0.6–0.8 mm 的敏感度；若需重采样，0.3–0.4 mm 目标值与插值核选择对后续体积/面积指标的影响（须可量化）。</p>
+
+<h3>O8　规模化与资源约束</h3>
+<ul>
+  <li>27 例中 24 例在方法范围内；<b>b25/b26/b27 多序列例明确不在当前范围</b>（含 3D 重建、Dose Report、Scout、MPR 混杂）。</li>
+  <li><b>CPU 硬约束：整机 ≤80%</b>（用户要求，违反过一次）。单例 TS 不限线程 = 35% of 24 核；<code>OMP_NUM_THREADS</code> 对 TS <b>无效</b>（nnU-Net 自调线程）；唯一有效杠杆 = <code>SetProcessAffinityMask</code>。定案 <code>--jobs 2 --threads 6 --load-ceiling 78</code> → 实测 peak 42% / mean 36%（限核反而更快：77.3s vs 102.9s）。</li>
+  <li><b>优化方向</b>：吞吐与约束的进一步优化空间；多序列例的序列选择后处理。</li>
+</ul>
+
+<h2>3. 后续设计：从"几何通了"到"交付"</h2>
+<div class="callout">以下为待云端评审的<b>候选路线</b>（我方设计草案，非已裁定）。每阶段标注了门禁与当前证据状态。</div>
+
+<h3>D1　患者 CFD 首例执行链（门禁顺序，缺一不可）</h3>
+<pre><code>医学边界三项 gate（口腔排除/鼻窦策略/最终几何；复核人：王湧瑞，五例全 pending）
+  → 从确认掩膜重新导出表面（绑定 CT/掩膜/审核哈希，拒绝旧 STL：旧 STL 与当前候选无坐标绑定，中心距 676 mm）
+  → 表面四门禁 + native advisory 记录
+  → Netgen maxh=0.4 体网格 → 双边界面四面体局部修复 → checkMesh 全门（圆管已 Mesh OK，患者表面待复验）
+  → icoFoam 短跑链路验证 → 层流主工况 → k-ω SST 敏感性
+  → 逐格记录 8 项指标 → 汇入验证矩阵 Phase A</code></pre>
+<p><b>当前证据状态</b>：隔离圆管全链通过（Mesh OK + icoFoam 50 步正常结束，Courant 0.2374、连续性误差 4.27e-12）；患者侧 0。</p>
+
+<h3>D2　验证矩阵执行设计（36 格/例）</h3>
+<p>维度：阈值 T300/T350/T400 × 几何 G_main/G_sinus × 网格 0.6/0.4/0.25–0.3mm × 求解 S_lam/S_sst。</p>
+<table>
+<tr><th style="width:14%">Phase</th><th style="width:46%">内容</th><th>门禁</th></tr>
+<tr><td>A（锚点）</td><td>例0（唯一 0.35³ 真各向同性）跑满 36 格</td><td>方法学可信基准</td></tr>
+<tr><td>B（主数据）</td><td>p3_t2 跑满 36 格（先各向同性重采样至 0.35–0.4mm）</td><td>双时点价值</td></tr>
+<tr><td>C（判定）</td><td>M_mid→M_fine 压降/峰值速度/流量分配变化 &lt;5% 且鼻阀最小面积、窦口状态稳定</td><td>达标才解锁 Phase D</td></tr>
+<tr><td>D（eval）</td><td>p1/p2/p3t1 各 36 格</td><td>重点评估分割与不确定性，非正式结论</td></tr>
+</table>
+<p>每格记录：鼻孔–后鼻孔连通、鼻阀最小面积（mm²）、窦口状态（open/closed/unknown）、总体积、压降（Pa）、峰值速度（m/s）、湍流强度（仅 S_sst）、流量分配。</p>
+<div class="callout">⚠️ 5% 收敛门是<b>工程验收门槛，非已证明结论</b>，需用本数据验证（见 Q7）。</div>
+
+<h3>D3　边界条件最终化</h3>
+<ul>
+  <li>主工况：两鼻孔入口总流量 <b>15 L/min</b>（=2.5×10⁻⁴ m³/s；5/30 L/min 为敏感工况）+ 鼻咽出口 <b>0 Pa 表压</b>；左右 50/50 起步，有实测再改。</li>
+  <li><b>未实现</b>：<code>common_inlet_pressure_feedback</code>——两鼻孔共用可调静压 + 外层调压使总流量达标，<b>左右分流由几何自然求</b>（主工况关键机制，尚未写代码）。</li>
+  <li><b>18 Pa 暂不使用</b>：已溯源为 SimScale 出口端 gauge 静压 +18 Pa（=0.18355 cmH₂O，历史记录写成 1.8 cmH₂O 差一个数量级，已修正），<b>严格不是 Δp</b>；且实测证明「定流量 + 18 Pa 必然过约束」<b>不成立</b>（压力场整体平移 0.215879249155 → 18.215879249160 Pa、压降不变、偏离均匀平移最大 9.96e-11 Pa）。待向原始录屏/方法记录作者确认本意后再议。</li>
+  <li>入口速度 <code>U = Q/A_inlet</code>，<b>禁止固定未校准速度</b>。</li>
+</ul>
+
+<h3>D4　湍流模型与报告口径</h3>
+<ul>
+  <li><b>层流主结果 + k-ω SST 敏感性</b>。Re ≈ 5276（特征尺寸 + 15 L/min 估算；估算口径待云端核验，见 Q5）。</li>
+  <li><b>报告口径（重要）</b>：层流结果<b>显式标注"无湍流模型"，不报湍流强度</b>；SST 结果报模型计算的湍流强度（入口 I=1%，敏感 5%；长度尺度 ~0.1·Dh）。网页三 layer 中的"湍流强度"维度必须与此口径一致——层流工况下该维度显示"不适用/无模型"，<b>不得</b>用层流速度场伪造湍流强度。</li>
+</ul>
+
+<h3>D5　网页交付（三 layer，另立任务）</h3>
+<ul>
+  <li><b>已有骨架</b>：本地工作台（127.0.0.1:8768/8769）支持病例选择、三向切片、医学复核离线包导出/JSON 导回（版本绑定、去重、篡改拒绝，均已测试）。</li>
+  <li><b>缺口</b>：患者流场图层恒 null。需要设计 <b>CFD 结果 → web 的管线</b>（foamToVTK/VTK → 前端的数据组织、量级与配色、三场同屏交互）。</li>
+  <li>交付形态（外部需求）：网页端 + 可拖拽 3D + 流速/压力/湍流强度三维度。</li>
+  <li><b>PHI 红线</b>：对外 CFD 结果必须走脱敏副本（<code>资料/脱敏数据_clean/</code>）。</li>
+</ul>
+
+<h3>D6　医学复核工作流（已产品化，等真实反馈）</h3>
+<ul>
+  <li>已实现：五例批量导出（HTML 内嵌图 + ZIP）、逐份 JSON 导回、输入哈希绑定、过期版本拒绝、重复导入去重（12 项后端 + 10 组 Chrome 测试全过，离线 0 网络请求）。</li>
+  <li><b>待办</b>：复核人王湧瑞的真实反馈（2026-10-07 已完成五例 × 5 点位 25/25 accept，但<b>三项边界 gate 全 pending</b>）；<b>p0/p1/p3 的鼻咽出口平面高于鼻孔平面 1.5–7.8 mm</b>（解剖上应更低）需复核确认——这不是代码问题，是点位方向问题。</li>
+</ul>
+
+<h3>D7　从试点到产品化的里程碑设计（草案）</h3>
+<table>
+<tr><th style="width:22%">里程碑</th><th style="width:48%">判据</th><th>当前状态</th></tr>
+<tr><td>M1 几何自动化率</td><td>b01–b24 auto_pass ≥ 18/24（设计内 6 例转人工可接受）</td><td><span class="tag t-ok">✅ 18/24</span></td></tr>
+<tr><td>M2 判据修复</td><td>O1/O2 修复后全批复跑，升级原因只剩"真·无点位/真·解剖歧义"</td><td><span class="tag t-bad">⛔ 未修</span></td></tr>
+<tr><td>M3 患者首例 CFD</td><td>三项医学 gate + 表面四门禁 + Netgen+checkMesh 全门 + icoFoam 链路</td><td><span class="tag t-bad">⛔ 0</span></td></tr>
+<tr><td>M4 验证矩阵 Phase A+B</td><td>72 格跑完，收敛判定有结论</td><td><span class="tag t-bad">⛔ 0</span></td></tr>
+<tr><td>M5 网页三 layer</td><td>患者流场接入 + PHI 走 clean</td><td><span class="tag t-bad">⛔ 恒 null</span></td></tr>
+<tr><td>M6 27 例规模化</td><td>b25–27 纳入 + escalation 案例库 + 失败模式分析</td><td><span class="tag t-bad">⛔</span></td></tr>
+</table>
+<p><b>关于"要不要训练模型"的现有结论</b>：不需要。27 例用于验证泛化；真要学模型，缺的不是数据是<b>标注</b>——只有 5 例 15 个开口有人工位，27×3=81 个无标注样本对学习模型是<b>负资产</b>。先跑完 27 例收集 escalation 案例，若失败模式有规律，再用<b>已诊断的失败</b>当监督信号。（请云端挑战此结论。）</p>
+
+<h2>4. 请云端优先回答的问题（按优先级）</h2>
+<p class="small">格式要求：每条给出 <b>结论 / 依据等级（文献共识·行业惯例·个人推断）/ 可执行做法 / 风险</b>。不确定就明说。</p>
+
+<div class="q"><div class="qh">Q1（O1，最高优先）</div>
+开口平面种子如何摆脱手工 ROI 盒？候选：① 开口中心沿平面法向向内射线取首个表面交点；② 测地距离从最近已知开口出发；③ 用 <code>section_loops</code> 截面环定负侧内部点。请逐个评估<b>鲁棒性与对出口平面的适配性</b>，给出推荐与伪代码级做法。出口平面为何系统性弱于鼻孔？出口附近（软腭/口咽交界）是否本来就有解剖歧义，应如何利用而非对抗？</div>
+
+<div class="q"><div class="qh">Q2（O2）</div>
+「扫描是否真的把某解剖结构切断了」应如何判定才有意义又稳健？请给出可实施定义（如沿结构主轴检查边界处非自然终止；或比较边界面截面与体内典型截面的量级）。另：颈部 CT 中"软腭触 FOV 上界"是否为正常解剖表现？需要文献依据。</div>
+
+<div class="q"><div class="qh">Q3（O3）</div>
+小行列式单元（small determinant）的成因与针对性修复——是表面 sliver 传入还是体网格器固有行为？Netgen 是否有对应参数（<code>optsteps</code>/<code>elperr</code>/局部细化）？<b>为什么 <code>maxh=0.2</code> 细化反而恶化到 25 个</b>？薄壁、狭窄、各向异性解剖腔的体网格工程最佳实践是什么（边界层？六面体主导？polyhedral？）？若 Netgen 的 8 个单元确实无法消除，行业 <code>checkMesh</code> 容忍度是多少（要依据，我们不敢自行放宽）？</div>
+
+<div class="q"><div class="qh">Q4（O4）</div>
+native <code>surfaceCheck</code> 在 MC 网格上报出的这些点（报点非面片对、不成簇、到最近三角形距离 1.7–1.9e-4 m）是<b>真穿插</b>还是<b>掠接触/容差伪命中</b>？可判定的做法？若需可信计数，CGAL/libigl/trimesh+meshfix 的具体调用方式与精度陷阱？MC 输出在 0.2–0.35 mm 尺度上的这类报点是否为已知固有现象、对 CFD 无实质影响（要文献/行业依据）？</div>
+
+<div class="q"><div class="qh">Q5（D3/D4）</div>
+鼻腔 CFD 的文献最佳实践：入口条件（定流量 vs 定压力 vs 生理波形）、<b>左右自然分流在实务中如何施加</b>（是否有标准做法）、出口 0 Pa 表压的合理性边界、<b>Re≈5276 时应选层流还是 SST</b>（鼻腔转捩/湍流在文献中如何处理）、湍流强度的报告口径。另请核验我们的 Re 估算口径（特征尺寸 + 15 L/min）是否与文献一致。</div>
+
+<div class="q"><div class="qh">Q6（O5）</div>
+防止"判据自身坏但输出合法"的系统性工程手段？量纲类错误（如 det 单位 m³ 与容差 1e-9）如何系统防御？是否存在"判据自证"的测试模式（用已知答案自动验证新判据）？</div>
+
+<div class="q"><div class="qh">Q7（D2）</div>
+"压降/峰值速度/流量分配在中→细网格变化 &lt;5% 即收敛"对<b>鼻腔尺度（特征尺寸 1–2 mm，鼻阀狭缝更细）</b>是否适用？还是需要更严的 2% 或基于网格自适应 / Richardson 外推？</div>
+
+<div class="q"><div class="qh">Q8（D5）</div>
+CFD 结果 → 网页三 layer（流速/压力/湍流强度 + 可拖拽 3D）的后处理与呈现管线最佳实践？foamToVTK/VTK 数据如何组织进 web（VTK.js / three.js）？三场同屏的工程做法与常见坑？</div>
+
+<div class="q"><div class="qh">Q9（O6）</div>
+TS 类别缺口（无口腔空气/筛窦/蝶窦）的补全路线：第二 task <code>craniofacial_structures</code> 的权重与推理成本？其他预训练气道模型（如 AirwayNet、nnU-Net 公共气道模型）对 sinonasal 区域的覆盖度？双 task 融合的冲突如何处理？</div>
+
+<div class="q"><div class="qh">Q10（D7）</div>
+从 24 例 75% 自动化率到产品化的里程碑设计是否合理？escalation 案例驱动的方法改进闭环（收集已诊断失败 → 找规律 → 决定是否学习）是否有更优设计？请挑战我们"不需要训练"的结论。</div>
+
+<h2>5. 已证伪路径（请勿重复建议；如能提出反例请明确标注证据）</h2>
+<table>
+<tr><th style="width:44%">路径</th><th>证伪证据</th></tr>
+<tr><td>面积导数定鼻孔入口位置</td><td>三例全败，锚点落口腔/上颌窦</td></tr>
+<tr><td>对称比 ≥0.7 作判据</td><td>三例 0.986–0.998 但锚点全错 → 能证伪 ≠ 能证实</td></tr>
+<tr><td>替代形态判据（三条）</td><td>给 88–117 mm（成人鼻腔应 50–70 mm），全败</td></tr>
+<tr><td>纯几何/统计分离鼻腔 vs 口腔/上颌窦/筛窦</td><td><b>不可能</b>，必须解剖先验驱动</td></tr>
+<tr><td>SDF 重网格</td><td>退化三角形、不闭合（48 边界边）、outlet 面积 −23%</td></tr>
+<tr><td>snappyHexMesh 调参救 concave</td><td><code>nSmoothPatch=0</code>→8320、收紧 maxConcave→9408 + 48 非法面</td></tr>
+<tr><td>polyDualMesh</td><td>max skewness 648.84、2536 concave、fail 6 项</td></tr>
+<tr><td>自研自相交判据（三套）</td><td>批大小决定结论（39 vs 1176），不可信</td></tr>
+<tr><td>ROI 盒尺寸/平移解释 p0 失败</td><td>尺寸零区分力；5 个平移 delta 全败</td></tr>
+<tr><td>「定流量 + 18 Pa 必然过约束」</td><td>实测压力场整体平移、压降不变 → 不成立</td></tr>
+</table>
+<p class="small">更深的机制细节见项目内文件 <code>work/07_cfd_pipeline/待深度调研问题清单_20261012.md</code>（如需可另行提供）。</p>
+
+<h2>6. 复现入口与关键文件索引</h2>
+<p><b>主入口</b>：</p>
+<pre><code>python work/lib/nasal_pipeline.py --skip-series \
+  --jobs 2 --threads 6 --load-ceiling 78 --allow-needs-review \
+  --output work/10_nasalseg_intake/normal_run_allow.json</code></pre>
+<p><b>测试</b>（相关 7 个文件 52 项通过；2026-10-08 全量 287 项中 286 通过，1 项因 Windows 环境缺 meshio 无法导入，未计入通过）：</p>
+<pre><code>cd work/lib &amp;&amp; python -X utf8 -B -m unittest \
+  test_partitioned_surface test_surface_gate test_auto_anatomy_landmarks \
+  test_auto_opening_planes test_surface_scope_proposal -q</code></pre>
+<p><b>环境约束</b>：OpenFOAM 1912 在 WSL2 Ubuntu-22.04；<code>/usr/share/openfoam/etc/bashrc</code> 直接 source 会失败，须显式设置 <code>WM_PROJECT_DIR</code> / <code>FOAM_ETC</code> / <code>WM_PROJECT_VERSION</code>。CPU 整机占用 ≤80% 硬约束。</p>
+<table>
+<tr><th style="width:36%">用途</th><th>路径</th></tr>
+<tr><td>正常路径方法规范（权威）</td><td><code>work/07_cfd_pipeline/正常路径基本方法_v1.md</code></td></tr>
+<tr><td>b01–b24 验收报告</td><td><code>work/07_cfd_pipeline/正常路径验收报告_b01-b24_20261012.md</code></td></tr>
+<tr><td>开口自动定位 v2 判据</td><td><code>work/07_cfd_pipeline/开口自动定位_20261011.md</code></td></tr>
+<tr><td>网格软件实测比较</td><td><code>work/07_cfd_pipeline/网格软件实测比较.md</code></td></tr>
+<tr><td>执行状态（含隔离 CFD 全部证据）</td><td><code>work/07_cfd_pipeline/执行状态.md</code></td></tr>
+<tr><td>验证矩阵</td><td><code>work/04_cfd_ready/验证矩阵.md</code></td></tr>
+<tr><td>种子/连通域选择</td><td><code>work/lib/connectivity_opened_surface.py</code></td></tr>
+<tr><td>开口定位生产件</td><td><code>work/lib/auto_opening_pipeline.py</code></td></tr>
+<tr><td>提案生产件</td><td><code>work/lib/auto_anatomy_landmarks.py</code></td></tr>
+<tr><td>阻塞与证伪详情</td><td><code>work/07_cfd_pipeline/待深度调研问题清单_20261012.md</code></td></tr>
+</table>
+
+<h2>7. 对我方回答的引用要求（防止二次污染）</h2>
+<ol>
+  <li>云端回答回到项目后，<b>一律视为假设</b>，必须用 5 例试点真值回测才算数；未回测前不得写入任何对外材料。</li>
+  <li>若云端回答与 §5 证伪清单冲突，<b>优先信我们自己的实测证据</b>，并要求对方给出可复现实验。</li>
+  <li>所有数字进入对外材料前必须带出处（文件路径 + 管线名）——我们已因"基准值跨管线混记"造成过一次假失败。</li>
+</ol>
+
+<footer class="doc">
+  鼻腔 CFD 空气域复核项目 · 云端调研委托 · 2026-10-12 · 自包含文档（可整份发送）· 不含 PHI
+</footer>
+
+</div>
+</body>
+</html>

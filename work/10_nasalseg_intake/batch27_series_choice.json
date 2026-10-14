@@ -1,0 +1,611 @@
+{
+  "schema": "batch27_series_choice/v1",
+  "max_in_plane_mm": 0.8,
+  "cases": [
+    {
+      "case": "1",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 195,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\1"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "2",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 173,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\2"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "3",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 154,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\3"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "4",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 157,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\4"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "5",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 126,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\5"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "6",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 145,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\6"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "7",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 146,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\7"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "8",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 184,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\8"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "9",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 166,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\9"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "10",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 146,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\10"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "11",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 175,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\11"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "12",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 156,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\12"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "13",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 176,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\13"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "14",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 155,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\14"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "15",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 148,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\15"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "16",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 147,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\16"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "17",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 145,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\17"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "18",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 145,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\18"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "19",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 156,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\19"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "20",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 176,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\20"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "21",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 158,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\21"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "22",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "0.625mm C-",
+        "n": 134,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\22"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "23",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "C- 0.625mm",
+        "n": 155,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\23"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "24",
+      "series_total": 1,
+      "usable": 1,
+      "pick": {
+        "desc": "C- 0.625mm",
+        "n": 145,
+        "in_plane_mm": 0.488281,
+        "thickness_mm": 0.625,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\24"
+      },
+      "margin_vs_runner_up": null,
+      "rejected": []
+    },
+    {
+      "case": "25",
+      "series_total": 9,
+      "usable": 4,
+      "pick": {
+        "desc": "1.0 x 0.8 Bone",
+        "n": 136,
+        "in_plane_mm": 0.34765625,
+        "thickness_mm": 1.0,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\25\\Study1\\202-1.0 x 0.8 Bone"
+      },
+      "margin_vs_runner_up": {
+        "spacing_delta_mm": 0.0,
+        "thickness_delta_mm": -0.2,
+        "runner_up": "1.0 x 0.8 Soft-3D",
+        "runner_up_n": 136,
+        "runner_up_thickness": 1.2,
+        "decided_by": "slice_thickness"
+      },
+      "rejected": [
+        {
+          "desc": "3D_Sinus^_1",
+          "n": 40,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "3D_Sinus^_2",
+          "n": 49,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "3D_Sinus^_3",
+          "n": 35,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "3D_Sinus^_4",
+          "n": 44,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "",
+          "n": 2,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'LOCALIZER'] lacks ORIGINAL/AXIAL"
+        }
+      ]
+    },
+    {
+      "case": "26",
+      "series_total": 15,
+      "usable": 6,
+      "pick": {
+        "desc": "0.6 x 0.6_SINUS",
+        "n": 186,
+        "in_plane_mm": 0.3671875,
+        "thickness_mm": 0.6,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\26\\Study2\\201-0.6 x 0.6_SINUS"
+      },
+      "margin_vs_runner_up": {
+        "spacing_delta_mm": 0.0,
+        "thickness_delta_mm": 0.0,
+        "runner_up": "0.6 x 0.6_BONE",
+        "runner_up_n": 186,
+        "runner_up_thickness": 0.6,
+        "decided_by": "slice_count"
+      },
+      "rejected": [
+        {
+          "desc": "Dose Report",
+          "n": 1,
+          "reason": "rule1: ImageType ['DERIVED', 'SECONDARY', 'DOSE_INFO'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "3D_AB_1",
+          "n": 50,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "3D_AB_2",
+          "n": 45,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "3D_AB_5",
+          "n": 86,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "",
+          "n": 2,
+          "reason": "rule1: ImageType ['DERIVED', 'SECONDARY', 'LOCALIZER'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "Dose Report",
+          "n": 1,
+          "reason": "rule1: ImageType ['DERIVED', 'SECONDARY', 'DOSE_INFO'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "CH",
+          "n": 57,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "CH_4",
+          "n": 56,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'MPR'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "Scout",
+          "n": 3,
+          "reason": "rule1: ImageType ['DERIVED', 'SECONDARY', 'LOCALIZER'] lacks ORIGINAL/AXIAL"
+        }
+      ]
+    },
+    {
+      "case": "27",
+      "series_total": 8,
+      "usable": 3,
+      "pick": {
+        "desc": "Sinus  0.75  H40s",
+        "n": 286,
+        "in_plane_mm": 0.458984375,
+        "thickness_mm": 0.75,
+        "rows_cols": [
+          512,
+          512
+        ],
+        "dir": "D:\\项目\\鼻腔建模\\资料\\副鼻窦27例_脱敏完整\\副鼻窦27例_脱敏完整\\27\\Study1\\4-Sinus  0.75  H40s"
+      },
+      "margin_vs_runner_up": {
+        "spacing_delta_mm": 0.0,
+        "thickness_delta_mm": -4.25,
+        "runner_up": "Sinus  5.0  H41s",
+        "runner_up_n": 30,
+        "runner_up_thickness": 5.0,
+        "decided_by": "slice_thickness"
+      },
+      "rejected": [
+        {
+          "desc": "Report Data",
+          "n": 1,
+          "reason": "rule1: no pixel matrix (report or evidence document)"
+        },
+        {
+          "desc": "Topogram  0.6  T20f",
+          "n": 2,
+          "reason": "rule1: ImageType ['ORIGINAL', 'PRIMARY', 'LOCALIZER'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "MPR 3.0mm",
+          "n": 30,
+          "reason": "rule1: ImageType ['DERIVED', 'SECONDARY', 'AXIAL'] lacks ORIGINAL/AXIAL"
+        },
+        {
+          "desc": "Evidence Documents Viewing",
+          "n": 1,
+          "reason": "rule1: no pixel matrix (report or evidence document)"
+        },
+        {
+          "desc": "Patient Protocol",
+          "n": 1,
+          "reason": "rule1: ImageType ['DERIVED', 'SECONDARY', 'OTHER'] lacks ORIGINAL/AXIAL"
+        }
+      ]
+    }
+  ]
+}

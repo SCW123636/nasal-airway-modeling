@@ -1,0 +1,824 @@
+{
+  "schema": "auto_placement_validation/v1",
+  "threshold_sensitivity": {
+    "20.0": {
+      "found": 15,
+      "min": -3.75,
+      "max": -0.5
+    },
+    "35.0": {
+      "found": 15,
+      "min": -3.75,
+      "max": -0.25
+    },
+    "50.0": {
+      "found": 15,
+      "min": -3.75,
+      "max": 0.0
+    },
+    "75.0": {
+      "found": 15,
+      "min": -3.5,
+      "max": 0.5
+    },
+    "100.0": {
+      "found": 15,
+      "min": -3.5,
+      "max": 1.0
+    },
+    "150.0": {
+      "found": 15,
+      "min": -3.25,
+      "max": 2.0
+    }
+  },
+  "onset_drift_vs_50mm2": {
+    "n": 0,
+    "min": null,
+    "max": null
+  },
+  "sensitivity_rows": [
+    {
+      "case": "p0",
+      "opening": "nostril_L",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -1.25
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_R",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p0",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -3.75
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_L",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -1.0
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_R",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p0",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -3.75
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_L",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.75
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_R",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p0",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -3.75
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_L",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_R",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": 0.0
+    },
+    {
+      "case": "p0",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -3.5
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_L",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_R",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 0.5
+    },
+    {
+      "case": "p0",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": -3.5
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_L",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 0.25
+    },
+    {
+      "case": "p0",
+      "opening": "nostril_R",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 1.75
+    },
+    {
+      "case": "p0",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": -3.25
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_L",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_R",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -1.25
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_L",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_R",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -1.25
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_L",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_R",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -1.0
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_L",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": 0.25
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_R",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": 0.5
+    },
+    {
+      "case": "p1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -1.0
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_L",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 0.5
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_R",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 1.0
+    },
+    {
+      "case": "p1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": -1.0
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_L",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 1.25
+    },
+    {
+      "case": "p1",
+      "opening": "nostril_R",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 2.0
+    },
+    {
+      "case": "p1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": -0.75
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_L",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_R",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p2",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_L",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_R",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p2",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_L",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": 0.0
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_R",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": 0.0
+    },
+    {
+      "case": "p2",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_L",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": 0.25
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_R",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": 0.5
+    },
+    {
+      "case": "p2",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_L",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 1.0
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_R",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 0.75
+    },
+    {
+      "case": "p2",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_L",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 2.0
+    },
+    {
+      "case": "p2",
+      "opening": "nostril_R",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 1.5
+    },
+    {
+      "case": "p2",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 0.0
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_L",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -1.0
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_R",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -1.0
+    },
+    {
+      "case": "p3",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_L",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.75
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_R",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.75
+    },
+    {
+      "case": "p3",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_L",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_R",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_L",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_R",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_L",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 0.25
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_R",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 0.5
+    },
+    {
+      "case": "p3",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_L",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 1.5
+    },
+    {
+      "case": "p3",
+      "opening": "nostril_R",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 2.0
+    },
+    {
+      "case": "p3",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_L",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.75
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_R",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 20.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_L",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_R",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 35.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_L",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_R",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3t1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 50.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_L",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_R",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.25
+    },
+    {
+      "case": "p3t1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 75.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_L",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 0.0
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_R",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": 0.0
+    },
+    {
+      "case": "p3t1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 100.0,
+      "onset_offset_mm": -0.5
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_L",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 1.25
+    },
+    {
+      "case": "p3t1",
+      "opening": "nostril_R",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": 1.75
+    },
+    {
+      "case": "p3t1",
+      "opening": "nasopharynx_outlet",
+      "area_on_mm2": 150.0,
+      "onset_offset_mm": -0.25
+    }
+  ],
+  "end_to_end_rows": [
+    {
+      "case": "p0",
+      "delta_mm": 0.0,
+      "status": "fail",
+      "reason": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "delta_mm": 0.25,
+      "status": "fail",
+      "reason": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "delta_mm": 0.5,
+      "status": "fail",
+      "reason": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "delta_mm": 1.0,
+      "status": "fail",
+      "reason": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p0",
+      "delta_mm": 2.0,
+      "status": "fail",
+      "reason": "no negative-side seed inside the reviewed ROI"
+    },
+    {
+      "case": "p1",
+      "delta_mm": 0.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 50.54,
+        "nostril_R": 57.55,
+        "nasopharynx_outlet": 1.14
+      },
+      "signed_volume_mm3": 21468.6
+    },
+    {
+      "case": "p1",
+      "delta_mm": 0.25,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 62.75,
+        "nostril_R": 66.13,
+        "nasopharynx_outlet": 8.34
+      },
+      "signed_volume_mm3": 21437.2
+    },
+    {
+      "case": "p1",
+      "delta_mm": 0.5,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 69.92,
+        "nostril_R": 71.33,
+        "nasopharynx_outlet": 20.18
+      },
+      "signed_volume_mm3": 21400.2
+    },
+    {
+      "case": "p1",
+      "delta_mm": 1.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 85.95,
+        "nostril_R": 85.96,
+        "nasopharynx_outlet": 172.4
+      },
+      "signed_volume_mm3": 21283.7
+    },
+    {
+      "case": "p1",
+      "delta_mm": 2.0,
+      "status": "fail",
+      "reason": "Cut boundaries must be closed degree-two loops"
+    },
+    {
+      "case": "p2",
+      "delta_mm": 0.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 63.1,
+        "nostril_R": 56.99,
+        "nasopharynx_outlet": 134.35
+      },
+      "signed_volume_mm3": 26312.9
+    },
+    {
+      "case": "p2",
+      "delta_mm": 0.25,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 74.68,
+        "nostril_R": 66.68,
+        "nasopharynx_outlet": 292.13
+      },
+      "signed_volume_mm3": 26227.4
+    },
+    {
+      "case": "p2",
+      "delta_mm": 0.5,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 79.14,
+        "nostril_R": 73.35,
+        "nasopharynx_outlet": 441.87
+      },
+      "signed_volume_mm3": 26097.8
+    },
+    {
+      "case": "p2",
+      "delta_mm": 1.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 82.97,
+        "nostril_R": 77.02,
+        "nasopharynx_outlet": 628.71
+      },
+      "signed_volume_mm3": 25746.0
+    },
+    {
+      "case": "p2",
+      "delta_mm": 2.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 104.87,
+        "nostril_R": 107.98,
+        "nasopharynx_outlet": 764.41
+      },
+      "signed_volume_mm3": 24881.6
+    },
+    {
+      "case": "p3",
+      "delta_mm": 0.0,
+      "status": "fail",
+      "reason": "nostril_R: capped surface fails topology"
+    },
+    {
+      "case": "p3",
+      "delta_mm": 0.25,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 80.4,
+        "nostril_R": 77.66,
+        "nasopharynx_outlet": 248.17
+      },
+      "signed_volume_mm3": 31970.4
+    },
+    {
+      "case": "p3",
+      "delta_mm": 0.5,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 94.06,
+        "nostril_R": 89.98,
+        "nasopharynx_outlet": 363.56
+      },
+      "signed_volume_mm3": 31847.6
+    },
+    {
+      "case": "p3",
+      "delta_mm": 1.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 108.68,
+        "nostril_R": 104.29,
+        "nasopharynx_outlet": 815.92
+      },
+      "signed_volume_mm3": 31356.7
+    },
+    {
+      "case": "p3",
+      "delta_mm": 2.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 133.64,
+        "nostril_R": 116.32,
+        "nasopharynx_outlet": 1411.84
+      },
+      "signed_volume_mm3": 29794.3
+    },
+    {
+      "case": "p3t1",
+      "delta_mm": 0.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 76.25,
+        "nostril_R": 73.22,
+        "nasopharynx_outlet": 99.49
+      },
+      "signed_volume_mm3": 31347.8
+    },
+    {
+      "case": "p3t1",
+      "delta_mm": 0.25,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 97.74,
+        "nostril_R": 99.94,
+        "nasopharynx_outlet": 268.37
+      },
+      "signed_volume_mm3": 31259.0
+    },
+    {
+      "case": "p3t1",
+      "delta_mm": 0.5,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 115.18,
+        "nostril_R": 117.98,
+        "nasopharynx_outlet": 392.42
+      },
+      "signed_volume_mm3": 31122.3
+    },
+    {
+      "case": "p3t1",
+      "delta_mm": 1.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 132.59,
+        "nostril_R": 133.31,
+        "nasopharynx_outlet": 871.3
+      },
+      "signed_volume_mm3": 30637.1
+    },
+    {
+      "case": "p3t1",
+      "delta_mm": 2.0,
+      "status": "pass",
+      "patch_areas_mm2": {
+        "nostril_L": 162.07,
+        "nostril_R": 148.42,
+        "nasopharynx_outlet": 1300.31
+      },
+      "signed_volume_mm3": 29219.0
+    }
+  ]
+}
