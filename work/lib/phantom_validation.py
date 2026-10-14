@@ -115,6 +115,8 @@ def prepare(work_dir):
     import shutil
     shutil.copy2(SOLVER_DIR / "solver" / "run_openfoam_case.py",
                  work_dir / "_wsl" / "solver" / "run_openfoam_case.py")
+    shutil.copy2(SOLVER_DIR / "solver" / "mesh_cache.py",
+                 work_dir / "_wsl" / "solver" / "mesh_cache.py")
     shutil.copy2(SOLVER_DIR / "solver_reference" / "run_reference.py",
                  work_dir / "_wsl" / "solver_reference" / "run_reference.py")
     tube = work_dir / "tube.stl"

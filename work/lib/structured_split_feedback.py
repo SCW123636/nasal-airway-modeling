@@ -353,6 +353,8 @@ def run_scenario(work_dir: Path, name: str, left_width_mm=LEFT_WIDTH_MM,
     solver_copy = work_dir / "_solver"
     solver_copy.mkdir()
     shutil.copy2(SOLVER, solver_copy / "run_openfoam_case.py")
+    shutil.copy2(PIPELINE / "solver" / "mesh_cache.py",
+                 solver_copy / "mesh_cache.py")
     reference_copy = work_dir / "solver_reference"
     reference_copy.mkdir()
     shutil.copy2(PIPELINE / "solver_reference" / "run_reference.py",

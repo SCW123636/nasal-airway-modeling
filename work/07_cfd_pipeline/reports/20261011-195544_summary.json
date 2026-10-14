@@ -1,0 +1,21 @@
+{
+  "case": "/home/lenovo2/nasal_cfd_reference/poiseuille_v1912_verified/coarse",
+  "code_root": "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline",
+  "nproc": 4,
+  "stages": {
+    "1_cold_serial": {
+      "seconds": 1,
+      "exit": 0
+    },
+    "2_warm_serial": {
+      "seconds": 0,
+      "exit": 0
+    },
+    "3_warm_parallel": {
+      "seconds": 1,
+      "exit": 0
+    }
+  },
+  "speedup_warm_vs_cold": null,
+  "speedup_parallel_vs_warm": 0.0
+}

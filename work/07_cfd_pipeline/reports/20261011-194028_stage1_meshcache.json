@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "signature": "d4afbef6fa78443784c9a91cf498284ab700cf8645462e0332ebf07e49437208",
+  "inputs": {
+    "system/blockMeshDict": {
+      "size": 532,
+      "sha256": "80117539feac70fcb566f9fb037aa54eb13e040fb4251eba82d80d8d529c0609"
+    },
+    "system/fvSchemes": {
+      "size": 1555,
+      "sha256": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135"
+    },
+    "system/fvSolution": {
+      "size": 387,
+      "sha256": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e"
+    },
+    "system/controlDict": {
+      "size": 1242,
+      "sha256": "f3c2fe3e5b1fa7acd9751b1d7b9c7ca1dd9b8504e20f1167c1920a547701ee51"
+    }
+  },
+  "evidence": {
+    "schema_version": 1,
+    "backend_identity": {
+      "name": "wsl",
+      "version": "v1912",
+      "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+      "openfoam_flavour": "org"
+    },
+    "dictionaries": {
+      "blockMeshDict": "94a3d8c1a66de3d7c613be2674f9cf9f059e7ad96fd8ed152f79b09b7f49b300",
+      "snappyHexMeshDict": {
+        "absent": true
+      },
+      "fvSchemes": "49af12bc155eaf958aa3771583c44c18b46a991d1f67454f0a7e94377c5ec28b",
+      "fvSolution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "controlDict": "d13f7fa95e8328c6324b3d72a0bc6b223853baeb2cc4bac892d05fd1cb317a13"
+    },
+    "geometry": {},
+    "dependencies": {}
+  },
+  "backend_identity": {
+    "name": "wsl",
+    "version": "v1912",
+    "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+    "openfoam_flavour": "org"
+  },
+  "mesh_files": {
+    "constant/polyMesh/boundary": {
+      "size": 1403,
+      "sha256": "fb512783d76542664657d6aa68477edd107b9209620abea4f9df34a0cd352067"
+    },
+    "constant/polyMesh/faces": {
+      "size": 291391,
+      "sha256": "cacc6d7da89aa9da46ac6a53eb8ce7603725c9f98e45bd3272a5782facf22655"
+    },
+    "constant/polyMesh/neighbour": {
+      "size": 30120,
+      "sha256": "de21175ee6c538466efe1e9c76c49a9fa492500483fc9dcb7de042b43b390de0"
+    },
+    "constant/polyMesh/owner": {
+      "size": 61139,
+      "sha256": "210a6af5baa0cc96be0dd5c175643ccb1b3614fde6fd0fde7b9f9804848e1776"
+    },
+    "constant/polyMesh/points": {
+      "size": 135168,
+      "sha256": "b645cc8cc5dc09655f4ffc02584d7a9722c1aa5eae74c0c790e2b4c4a4d82e14"
+    },
+    "constant/polyMesh/sets/twoInternalFacesCells": {
+      "size": 904,
+      "sha256": "05b815e46fee30230019e28117fe855a465233021214a7b3a0aa5fe06436e1ca"
+    }
+  },
+  "check_mesh": {
+    "run_id": "2026-10-11T11:40:28+00:00",
+    "returncode": 0,
+    "log": {
+      "size": 4584,
+      "sha256": "d851ef98ae209ee29f94a198c2d964177dec72f15d2667db7c2b563a0afc8bf6"
+    },
+    "quality": {
+      "mesh_ok": true,
+      "failed_checks": null
+    }
+  },
+  "completed_mesh_steps": [
+    {
+      "name": "blockMesh",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "name": "checkMesh",
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "recorded_at": "2026-10-11T11:44:29+00:00",
+  "generation": {
+    "mode": "serial",
+    "nproc": 0
+  }
+}

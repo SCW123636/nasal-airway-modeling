@@ -1,0 +1,122 @@
+================ 环境 ================
+时间戳  : 20261011-193920
+算例    : /home/lenovo2/nasal_cfd_reference/poiseuille_v1912_verified/coarse
+并行核数: 4
+代码根  : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline
+执行器  : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py
+输出目录: /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/reports
+日志    : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/reports/mf_verify_20261011-193920.txt
+
+---- 预检（逐项，先打印再决定是否继续） ----
+  ok   算例目录 : /home/lenovo2/nasal_cfd_reference/poiseuille_v1912_verified/coarse
+  ok   执行器 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py
+  ok   缓存模块 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/mesh_cache.py
+  ok   依赖模块目录 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver_reference
+  ok   依赖模块 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver_reference/run_reference.py
+  ok   工具 blockMesh : /usr/bin/blockMesh
+  ok   工具 simpleFoam : /usr/bin/simpleFoam
+  ok   工具 mpirun : /usr/bin/mpirun
+  ok   工具 decomposePar : /usr/bin/decomposePar
+  ok   工具 reconstructPar : /usr/bin/reconstructPar
+  ok   python3 : /usr/bin/python3
+  CPU 核数: 24
+
+导入自检: ok
+
+工作副本: /home/lenovo2/mf_verify_work/case （原算例不被修改）
+
+================ 1/3 冷跑（串行，写缓存） ================
+{"command": ["blockMesh"], "exit_code": 0, "elapsed_seconds": 0.08109502600001406, "log": "/home/lenovo2/mf_verify_work/case/log.blockMesh"}
+{"command": ["checkMesh", "-allGeometry", "-allTopology"], "exit_code": 0, "elapsed_seconds": 0.034073572000011154, "log": "/home/lenovo2/mf_verify_work/case/log.checkMesh"}
+{"command": ["simpleFoam"], "exit_code": 0, "elapsed_seconds": 0.23169341499999518, "log": "/home/lenovo2/mf_verify_work/case/log.simpleFoam"}
+{"command": ["foamToVTK", "-latestTime", "-ascii", "-fields", "(p U)"], "exit_code": 0, "elapsed_seconds": 0.10387669799996502, "log": "/home/lenovo2/mf_verify_work/case/log.foamToVTK"}
+{
+  "case": "/home/lenovo2/mf_verify_work/case",
+  "execution_status": "completed",
+  "steps": [
+    "blockMesh",
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+  exit=0  耗时=0s
+  steps       = blockMesh,checkMesh,simpleFoam,foamToVTK
+  status      = completed
+  status_file = completed
+  step_times  = blockMesh=0.08s, checkMesh=0.03s, simpleFoam=0.23s, foamToVTK=0.10s
+  mesh_cache: signature=cf9794564cb2ddd31ac4f112a6389b2222ba3c0a2190e3293478913240ebe0a2
+              recorded_at=2026-10-11T11:39:21+00:00
+
+================ 2/3 暖跑（串行 + --skip-mesh-if-cached） ================
+{"command": ["checkMesh", "-allGeometry", "-allTopology"], "exit_code": 0, "elapsed_seconds": 0.03850578399999449, "log": "/home/lenovo2/mf_verify_work/case/log.checkMesh"}
+{"command": ["simpleFoam"], "exit_code": 0, "elapsed_seconds": 0.1880671970000094, "log": "/home/lenovo2/mf_verify_work/case/log.simpleFoam"}
+{"command": ["foamToVTK", "-latestTime", "-ascii", "-fields", "(p U)"], "exit_code": 0, "elapsed_seconds": 0.07608476499996186, "log": "/home/lenovo2/mf_verify_work/case/log.foamToVTK"}
+{
+  "case": "/home/lenovo2/mf_verify_work/case",
+  "execution_status": "completed",
+  "steps": [
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "mesh_skipped": true,
+  "parallel": false
+}
+  exit=0  耗时=0s
+  steps       = checkMesh,simpleFoam,foamToVTK
+  status      = completed
+  status_file = completed
+  step_times  = checkMesh=0.04s, simpleFoam=0.19s, foamToVTK=0.08s
+  缓存文件仍在: yes  ← 归档不得移走它
+  跳过了网格步: yes
+
+================ 3/3 暖跑（--parallel 4 + 缓存） ================
+{"command": ["checkMesh", "-allGeometry", "-allTopology"], "exit_code": 0, "elapsed_seconds": 0.0293629369999735, "log": "/home/lenovo2/mf_verify_work/case/log.checkMesh"}
+{"command": ["decomposePar", "-force", "-time", "0"], "exit_code": 1, "elapsed_seconds": 0.029214954999986276, "log": "/home/lenovo2/mf_verify_work/case/log.decomposePar"}
+Traceback (most recent call last):
+  File "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py", line 551, in <module>
+    raise SystemExit(main())
+  File "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py", line 486, in main
+    run_manifest["steps"].append(execute(cmd, case, environment, log_name))
+  File "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver_reference/run_reference.py", line 40, in execute
+    raise RuntimeError(f'{args[0]} failed: {case/logname}')
+RuntimeError: decomposePar failed: /home/lenovo2/mf_verify_work/case/log.decomposePar
+  exit=1  耗时=0s
+  steps       = checkMesh
+  status      = failed
+  status_file = failed
+  step_times  = checkMesh=0.03s
+
+================ 汇总 ================
+冷跑(串行)                 : 0s  exit=0
+暖跑(串行 + 缓存命中)      : 0s  exit=0
+暖跑(并行4 + 缓存命中)    : 0s  exit=1
+冷/暖加速比                : n/a
+并行/串行加速比            : n/a
+
+算例目录（归档目录应与缓存共存）:
+  0
+  VTK
+  constant
+  log.blockMesh
+  log.checkMesh
+  log.decomposePar
+  log.foamToVTK
+  log.simpleFoam
+  mesh_cache.json
+  postProcessing
+  run_manifest.json
+  run_status.json
+  system
+
+产物已落 Windows 盘（WSL 会话关闭后仍可读）:
+  日志     : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/reports/mf_verify_20261011-193920.txt
+  汇总 JSON: /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/reports/20261011-193920_summary.json
+  20261011-193920_stage1_manifest.json
+  20261011-193920_stage1_meshcache.json
+  20261011-193920_stage2_manifest.json
+  20261011-193920_stage3_manifest.json
+  mf_verify_20261011-193920.txt

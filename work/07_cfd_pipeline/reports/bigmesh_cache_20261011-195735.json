@@ -1,0 +1,18 @@
+{
+  "scenario": "blockMesh-only 600000 cells (300x100x20), steps=blockMesh,checkMesh",
+  "note": "checkMesh is intentionally NOT skipped by the cache; only mesh generation is reused",
+  "cold_seconds": 8,
+  "warm_seconds": 7,
+  "cold_exit": 0,
+  "warm_exit": 0,
+  "cache_speedup": 1.143,
+  "cold_step_seconds": {
+    "blockMesh": 2.456,
+    "checkMesh": 5.433
+  },
+  "warm_step_seconds": {
+    "checkMesh": 5.264
+  },
+  "blockMesh_skipped_in_warm": true,
+  "checkMesh_still_run_in_warm": true
+}

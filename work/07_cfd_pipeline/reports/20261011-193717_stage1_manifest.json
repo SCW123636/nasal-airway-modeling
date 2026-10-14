@@ -1,0 +1,128 @@
+{
+  "archived_before_run": {
+    "archived_to": "/home/lenovo2/mf_verify_work/case/.archive/20261011T113718Z0000",
+    "moved": [
+      "162"
+    ]
+  },
+  "case": "/home/lenovo2/mf_verify_work/case",
+  "case_manifest": null,
+  "engineering_acceptance": false,
+  "environment_overrides": {
+    "FOAM_ETC": "/usr/share/openfoam/etc",
+    "WM_PROJECT_DIR": "/usr/share/openfoam",
+    "WM_PROJECT_VERSION": "v1912"
+  },
+  "execution_status": "completed",
+  "failed_mesh_diagnostic_override": false,
+  "finished_at": "2026-10-11T11:37:18+00:00",
+  "mesh_cache": {
+    "input_changed": false,
+    "reason": "\u7f51\u683c\u7f13\u5b58\u672a\u8bb0\u5f55\uff1a\u672c\u6b21\u7f51\u683c\u524d\u5e8f\u6b65\u9aa4\u5931\u8d25\u6216\u68c0\u67e5\u8bb0\u5f55\u7f3a\u5931\uff0c\u4e0d\u8bb0\u5f55\u7f51\u683c\u7f13\u5b58",
+    "recorded": false
+  },
+  "mesh_quality": {
+    "failed_checks": null,
+    "log": "log.checkMesh",
+    "passed": true
+  },
+  "mesh_signature": {
+    "backend_identity": {
+      "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+      "name": "wsl",
+      "openfoam_flavour": "org",
+      "version": "v1912"
+    },
+    "evidence": {
+      "backend_identity": {
+        "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+        "name": "wsl",
+        "openfoam_flavour": "org",
+        "version": "v1912"
+      },
+      "dependencies": {},
+      "dictionaries": {
+        "blockMeshDict": "ffd8a2c6f206ea686028028941759714d272e1d7d957a250c7675dba4f694765",
+        "controlDict": "d13f7fa95e8328c6324b3d72a0bc6b223853baeb2cc4bac892d05fd1cb317a13",
+        "fvSchemes": "49af12bc155eaf958aa3771583c44c18b46a991d1f67454f0a7e94377c5ec28b",
+        "fvSolution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snappyHexMeshDict": {
+          "absent": true
+        }
+      },
+      "geometry": {},
+      "schema_version": 1
+    },
+    "inputs": {
+      "system/blockMeshDict": {
+        "sha256": "7d22d8f15ee86c8b2630b5511bee4ba7c57cd46cc190e3be2ce6dbee26e99287",
+        "size": 531
+      },
+      "system/controlDict": {
+        "sha256": "f3c2fe3e5b1fa7acd9751b1d7b9c7ca1dd9b8504e20f1167c1920a547701ee51",
+        "size": 1242
+      },
+      "system/fvSchemes": {
+        "sha256": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135",
+        "size": 1555
+      },
+      "system/fvSolution": {
+        "sha256": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e",
+        "size": 387
+      }
+    },
+    "reason": "\u51e0\u4f55\u3001\u7f51\u683c\u8bbe\u7f6e\u53ca\u540e\u7aef\u5185\u5bb9\u5df2\u6838\u5bf9",
+    "signature": "cf9794564cb2ddd31ac4f112a6389b2222ba3c0a2190e3293478913240ebe0a2",
+    "valid": true
+  },
+  "mesh_skipped": false,
+  "nproc": 0,
+  "openfoam_version": "v1912",
+  "parallel": false,
+  "schema": "nasal_cfd_run/v1",
+  "script": {
+    "name": "run_openfoam_case.py",
+    "version": "1.2.0"
+  },
+  "started_at": "2026-10-11T11:37:18+00:00",
+  "steps": [
+    {
+      "command": [
+        "blockMesh"
+      ],
+      "elapsed_seconds": 0.0958173180000017,
+      "exit_code": 0,
+      "log": "/home/lenovo2/mf_verify_work/case/log.blockMesh"
+    },
+    {
+      "command": [
+        "checkMesh",
+        "-allGeometry",
+        "-allTopology"
+      ],
+      "elapsed_seconds": 0.03304765600000792,
+      "exit_code": 0,
+      "log": "/home/lenovo2/mf_verify_work/case/log.checkMesh"
+    },
+    {
+      "command": [
+        "simpleFoam"
+      ],
+      "elapsed_seconds": 0.24306320800002368,
+      "exit_code": 0,
+      "log": "/home/lenovo2/mf_verify_work/case/log.simpleFoam"
+    },
+    {
+      "command": [
+        "foamToVTK",
+        "-latestTime",
+        "-ascii",
+        "-fields",
+        "(p U)"
+      ],
+      "elapsed_seconds": 0.08315550099999314,
+      "exit_code": 0,
+      "log": "/home/lenovo2/mf_verify_work/case/log.foamToVTK"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+================ 环境 ================
+时间戳  : 20261011-193647
+算例    : /home/lenovo2/nasal_cfd_reference/poiseuille_v1912_verified/coarse
+并行核数: 4
+代码根  : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline
+执行器  : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py
+输出目录: /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/reports
+日志    : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/reports/mf_verify_20261011-193647.txt
+
+---- 预检（逐项，先打印再决定是否继续） ----
+  ok   算例目录 : /home/lenovo2/nasal_cfd_reference/poiseuille_v1912_verified/coarse
+  ok   执行器 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py
+  ok   缓存模块 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/mesh_cache.py
+  ok   依赖模块目录 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver_reference
+  ok   依赖模块 : /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver_reference/run_reference.py
+  ok   工具 blockMesh : /usr/bin/blockMesh
+  ok   工具 simpleFoam : /usr/bin/simpleFoam
+  ok   工具 mpirun : /usr/bin/mpirun
+  ok   工具 decomposePar : /usr/bin/decomposePar
+  ok   工具 reconstructPar : /usr/bin/reconstructPar
+  ok   python3 : /usr/bin/python3
+  CPU 核数: 24
+
