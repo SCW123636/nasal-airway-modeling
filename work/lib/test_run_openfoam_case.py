@@ -2,6 +2,7 @@
 import importlib.util
 import json
 import math
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -14,6 +15,11 @@ _path = Path(__file__).resolve().parents[1]/'07_cfd_pipeline'/'solver'/'run_open
 _spec = importlib.util.spec_from_file_location('openfoam_executor_test', _path)
 executor = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(executor)
+
+_mesh_path = Path(__file__).resolve().parents[1]/'07_cfd_pipeline'/'solver'/'mesh_cache.py'
+_mesh_spec = importlib.util.spec_from_file_location('mesh_cache_test', _mesh_path)
+mesh_cache = importlib.util.module_from_spec(_mesh_spec)
+_mesh_spec.loader.exec_module(mesh_cache)
 
 
 class SolverBoundaryTests(unittest.TestCase):
@@ -88,6 +94,193 @@ class SolverBoundaryTests(unittest.TestCase):
         with developed.configured():
             self.assertEqual(phantom.L_MM,160)
         self.assertEqual(phantom.L_MM,length)
+
+
+class SolverEngineeringTests(unittest.TestCase):
+    def _run(self, root, argv):
+        with mock.patch.object(executor, 'check_case_complete'), \
+             mock.patch.object(executor, 'is_sst', return_value=False), \
+             mock.patch.object(executor, 'mesh_quality', return_value={'passed': True, 'failed_checks': None, 'log': 'log.checkMesh'}), \
+             mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log: {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}):
+            return executor.main(argv)
+
+    def test_status_file_streams_to_completed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            status = root / 'run_status.json'
+            self._run(root, ['--case', str(root), '--steps', 'simpleFoam'])
+            self.assertTrue(status.is_file())
+            payload = json.loads(status.read_text())
+            self.assertEqual(payload['status'], 'completed')
+            self.assertEqual(payload['total_steps'], 1)
+            self.assertEqual(payload['current_step_index'], 1)
+
+    def test_parallel_falls_back_to_serial_when_mpirun_missing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with mock.patch.object(executor.shutil, 'which', return_value=None):
+                self._run(root, ['--case', str(root), '--steps', 'simpleFoam', '--parallel', '4'])
+            manifest = json.loads((root / 'run_manifest.json').read_text())
+            self.assertFalse(manifest['parallel'])
+
+    def test_archive_before_run_preserves_mesh_cache_and_initial_time(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'mesh_cache.json').write_text('{"keep": true}')
+            (root / 'run_manifest.json').write_text('{"old": true}')
+            (root / '500').mkdir()
+            (root / '500' / 'U').write_text('stale field')
+            (root / '0').mkdir()
+            (root / '0' / 'U').write_text('boundary conditions')
+            executor._archive_before_run(root)
+            # the cross-run mesh record must survive archiving, or --skip-mesh-if-cached breaks
+            self.assertTrue((root / 'mesh_cache.json').is_file())
+            self.assertFalse((root / 'run_manifest.json').exists())
+            self.assertFalse((root / '500').exists())
+            self.assertTrue((root / '0' / 'U').is_file())
+
+    def test_skip_mesh_if_cached_drops_blockmesh_and_snappy(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'constant' / 'triSurface').mkdir(parents=True)
+            (root / 'constant' / 'triSurface' / 'nasal.stl').write_text(
+                "solid s\n facet normal 0 0 1\n  outer loop\n"
+                "   vertex 0 0 0\n   vertex 1 0 0\n   vertex 0 1 0\n  endloop\n endfacet\nendsolid s\n", encoding='ascii')
+            for name in ('blockMeshDict', 'snappyHexMeshDict', 'fvSchemes', 'fvSolution', 'controlDict'):
+                (root / 'system').mkdir(parents=True, exist_ok=True)
+                (root / 'system' / name).write_text(
+                    "FoamFile { version 2.0; format ascii; class dictionary; object %s; }\nkey value;\n" % name, encoding='ascii')
+            (root / 'constant' / 'polyMesh').mkdir(parents=True)
+            for name in ('points', 'faces', 'owner', 'neighbour', 'boundary'):
+                (root / 'constant' / 'polyMesh' / name).write_text('mesh %s\n' % name, encoding='ascii')
+            (root / 'log.checkMesh').write_text('Mesh OK.\n', encoding='ascii')
+            identity = mesh_cache.detect_backend_identity()
+            sig = mesh_cache.mesh_inputs_signature(root, identity)
+            rec = mesh_cache.record_mesh(root, sig, 'run-1',
+                                        check_result={'returncode': 0, 'output': 'Mesh OK.\n', 'timed_out': False},
+                                        completed_steps=[{'name': 'blockMesh', 'returncode': 0, 'timed_out': False},
+                                                        {'name': 'snappyHexMesh', 'returncode': 0, 'timed_out': False},
+                                                        {'name': 'checkMesh', 'returncode': 0, 'timed_out': False}])
+            self.assertTrue(rec['recorded'])
+            self._run(root, ['--case', str(root), '--steps', 'blockMesh,snappyHexMesh,checkMesh,simpleFoam', '--skip-mesh-if-cached'])
+            manifest = json.loads((root / 'run_manifest.json').read_text())
+            names = [s['command'][0] for s in manifest['steps']]
+            self.assertNotIn('blockMesh', names)
+            self.assertNotIn('snappyHexMesh', names)
+            self.assertTrue(manifest['mesh_skipped'])
+
+    def test_parallel_preflight_calls_real_shutil_which_without_crashing(self):
+        """Regression: shutil.which has no `env` parameter.
+
+        The mock in test_parallel_falls_back_to_serial_when_mpirun_missing accepts any
+        keyword, so it never caught `shutil.which(t, env=environment)` raising TypeError
+        on every real --parallel run. This test calls the real shutil.which.
+        """
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            rc = self._run(root, ['--case', str(root), '--steps', 'simpleFoam', '--parallel', '4'])
+            self.assertEqual(rc, 0)
+            manifest = json.loads((root / 'run_manifest.json').read_text())
+            self.assertIsInstance(manifest['parallel'], bool)
+
+    def test_parallel_expands_simplefoam_into_decompose_solve_reconstruct(self):
+        commands = {'simpleFoam': ['simpleFoam'], 'checkMesh': ['checkMesh']}
+        seq = executor._effective_sequence('simpleFoam', commands, True, 4)
+        names = [name for name, _ in seq]
+        self.assertEqual(names, ['decomposePar', 'simpleFoam', 'reconstructPar'])
+        self.assertEqual(seq[0][1], ['decomposePar', '-force', '-time', '0'])
+        self.assertEqual(seq[1][1], ['mpirun', '-np', '4', 'simpleFoam', '-parallel'])
+        self.assertEqual(seq[2][1], ['reconstructPar', '-latestTime'])
+        # mesh tooling stays serial: decomposing it would corrupt the mesh
+        self.assertEqual([n for n, _ in executor._effective_sequence('checkMesh', commands, True, 4)],
+                         ['checkMesh'])
+        # serial mode must not silently grow MPI steps
+        self.assertEqual([n for n, _ in executor._effective_sequence('simpleFoam', commands, False, 0)],
+                         ['simpleFoam'])
+
+    def test_parallel_expands_snappy_with_constant_reconstruction(self):
+        commands = {'snappyHexMesh': ['snappyHexMesh', '-overwrite']}
+        seq = executor._effective_sequence('snappyHexMesh', commands, True, 8)
+        self.assertEqual([n for n, _ in seq], ['decomposePar', 'snappyHexMesh', 'reconstructPar'])
+        self.assertEqual(seq[0][1], ['decomposePar', '-force', '-noFields'])
+        self.assertEqual(seq[1][1], ['mpirun', '-np', '8', 'snappyHexMesh', '-parallel', '-overwrite'])
+        self.assertEqual(seq[2][1], ['reconstructPar', '-constant', '-noFields', '-time', '0'])
+
+    def test_mesh_cache_is_recorded_after_a_blockmesh_only_run(self):
+        """Regression: record_mesh requires the step sequence to END with checkMesh.
+
+        The executor used to hand it the full step list, which ends with foamToVTK
+        (or reconstructPar in parallel mode). That made every record attempt fail
+        silently with "前序步骤失败或检查记录缺失", so --skip-mesh-if-cached never hit
+        on blockMesh-only cases -- the feature was dead on arrival.
+        """
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'system').mkdir()
+            for name in ('blockMeshDict', 'fvSchemes', 'fvSolution', 'controlDict'):
+                (root / 'system' / name).write_text(
+                    "FoamFile { version 2.0; format ascii; class dictionary; object %s; }\nkey value;\n" % name,
+                    encoding='ascii')
+            (root / 'constant' / 'polyMesh').mkdir(parents=True)
+            for name in ('points', 'faces', 'owner', 'neighbour', 'boundary'):
+                (root / 'constant' / 'polyMesh' / name).write_text('mesh %s\n' % name, encoding='ascii')
+            (root / 'log.checkMesh').write_text('Mesh OK.\n', encoding='ascii')
+            self._run(root, ['--case', str(root), '--steps', 'blockMesh,checkMesh,simpleFoam,foamToVTK'])
+            self.assertTrue((root / 'mesh_cache.json').is_file(),
+                            'blockMesh-only case must still register a reusable mesh')
+            manifest = json.loads((root / 'run_manifest.json').read_text())
+            self.assertTrue(manifest['mesh_cache']['recorded'])
+            # and the next run must actually skip mesh generation
+            self._run(root, ['--case', str(root), '--steps', 'blockMesh,checkMesh,simpleFoam,foamToVTK',
+                             '--skip-mesh-if-cached'])
+            names = [s['command'][0] for s in
+                     json.loads((root / 'run_manifest.json').read_text())['steps']]
+            self.assertNotIn('blockMesh', names)
+
+    def test_decompose_par_dict_avoids_scotch_and_declares_n_vector(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'system').mkdir()
+            executor._ensure_decompose_par_dict(root, 4)
+            text = (root / 'system' / 'decomposeParDict').read_text()
+            # scotch aborts on this build (dummy scotchDecomp stub)
+            self.assertIn('method hierarchical;', text)
+            self.assertNotIn('scotch', text)
+            # hierarchical reads the vector entry n, not just numberOfSubdomains
+            self.assertIn('n (4 1 1);', text)
+            self.assertIn('numberOfSubdomains 4;', text)
+
+    def test_existing_scotch_or_n_vectorless_dict_is_repaired(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'system').mkdir()
+            target = root / 'system' / 'decomposeParDict'
+            target.write_text(
+                'FoamFile { version 2.0; format ascii; class dictionary; '
+                'object decomposeParDict; }\nnumberOfSubdomains 2;\nmethod scotch;\n'
+                'distributed no;\nroots ();\n', encoding='ascii')
+            executor._ensure_decompose_par_dict(root, 8)
+            text = target.read_text()
+            self.assertNotIn('scotch', text)
+            self.assertIn('method hierarchical;', text)
+            self.assertIn('n (8 1 1);', text)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'system').mkdir()
+            target = root / 'system' / 'decomposeParDict'
+            target.write_text('numberOfSubdomains 2;\nmethod hierarchical;\n', encoding='ascii')
+            executor._ensure_decompose_par_dict(root, 5)
+            self.assertIn('n (5 1 1);', target.read_text())
+
+    def test_untouched_decompose_par_dict_is_left_alone(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'system').mkdir()
+            target = root / 'system' / 'decomposeParDict'
+            original = 'numberOfSubdomains 6;\nmethod simple;\ndistributed no;\nroots ();\n'
+            target.write_text(original, encoding='ascii')
+            executor._ensure_decompose_par_dict(root, 4)
+            self.assertEqual(target.read_text(), original)
 
 
 if __name__=='__main__':

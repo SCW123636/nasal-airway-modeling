@@ -15,6 +15,19 @@ inlet flowRateInletVelocity entries written by surface_to_case.py are replaced
 (after meshing, before simpleFoam) by an area-normalized parabolic fixedValue
 profile, using the same midpoint-normalization approach as run_reference.py.
 
+Engineering bonuses (all opt-in, default behaviour unchanged):
+    --status-file <name>     stream run_status.json after every sub-step so long
+                             runs are observable (defaults to run_status.json)
+    --archive-before-run     move stale numeric time dirs + prior manifests into
+                             .archive/<utc>/ so a previous latestTime is never
+                             reused as a starting solution
+    --parallel N             run snappyHexMesh and simpleFoam under MPI with N
+                             ranks (needs mpirun/decomposePar/reconstructPar;
+                             auto-falls back to serial if any is missing)
+    --skip-mesh-if-cached    reuse a previously checked mesh when its content
+                             signature still matches (drops blockMesh/snappyHexMesh,
+                             keeps checkMesh for revalidation)
+
 No patient data: this executor is geometry-agnostic.
 """
 import argparse
@@ -22,14 +35,20 @@ from datetime import datetime, timezone
 import json
 import math
 import os
-from pathlib import Path
 import re
+import shutil
 import sys
+import time
+import uuid
+from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "solver_reference"))
 from run_reference import execute, foam_list_text
 
-SCRIPT_VERSION = "1.1.0"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import mesh_cache
+
+SCRIPT_VERSION = "1.2.0"
 ENV_OVERRIDES = {"WM_PROJECT_DIR": "/usr/share/openfoam",
                  "FOAM_ETC": "/usr/share/openfoam/etc",
                  "WM_PROJECT_VERSION": "v1912"}
@@ -38,6 +57,7 @@ TOOLS = ["blockMesh", "snappyHexMesh", "checkMesh", "simpleFoam", "foamToVTK", "
 REQUIRED_COMMON = ["0/p", "0/U", "constant/transportProperties", "constant/turbulenceProperties",
                    "system/controlDict", "system/fvSchemes", "system/fvSolution"]
 REQUIRED_SST = ["0/k", "0/omega", "0/nut"]
+MESH_STEPS = ["blockMesh", "snappyHexMesh", "checkMesh"]
 
 
 def utc_now():
@@ -224,6 +244,114 @@ def set_parabolic_inlet(case, manifest):
     return record
 
 
+# --- engineering-bonus helpers -------------------------------------------------
+
+def write_status(path, payload):
+    """Atomic status write so a poller never reads a half-written JSON file."""
+    temp = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+    text = json.dumps(payload, ensure_ascii=False, indent=2)
+    temp.write_text(text, encoding="utf-8")
+    for delay in (0.03, 0.08, 0.18):
+        try:
+            temp.replace(path)
+            return
+        except PermissionError:
+            time.sleep(delay)
+    temp.unlink(missing_ok=True)
+
+
+def _ensure_decompose_par_dict(case, nproc):
+    """Write (or repair) a decomposeParDict usable on this machine.
+
+    Two environment facts drive the content:
+      * OpenFOAM's default ``method scotch`` aborts here -- this v1912 build ships a
+        dummy scotchDecomp stub, so it raises "Attempted to use <scotch> without the
+        scotchDecomp library loaded". ``hierarchical`` is built in and needs no library.
+      * ``hierarchical`` reads the vector entry ``n``, not just ``numberOfSubdomains``;
+        without ``n`` it aborts with "Entry 'n' not found in dictionary".
+    Splitting along x suits the long thin duct cases (length >> cross-section).
+    An existing dictionary is only touched when it is one of those two broken forms.
+    """
+    path = case / "system" / "decomposeParDict"
+    header = ("FoamFile\n{\n version 2.0;\n format ascii;\n class dictionary;\n"
+              " object decomposeParDict;\n}\n")
+    body = (f"numberOfSubdomains {nproc};\n"
+            f"n ({nproc} 1 1);\n"
+            "method hierarchical;\ndistributed no;\nroots ();\n")
+    if not path.is_file():
+        path.write_text(header + body, encoding="ascii")
+        return
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return
+    if re.search(r"\bmethod\s+scotch\s*;", text, re.I):
+        fixed = re.sub(r"\bmethod\s+scotch\s*;", "method hierarchical;", text, flags=re.I)
+        if not re.search(r"^\s*n\s*\(", fixed, re.M | re.I):
+            fixed = re.sub(r"(numberOfSubdomains\s+\d+\s*;)", r"\1\nn (%d 1 1);" % nproc,
+                           fixed, count=1, flags=re.I)
+        path.write_text(fixed, encoding="ascii")
+        print("run_openfoam_case note: system/decomposeParDict selected scotch, but this OpenFOAM "
+              "build has no libscotch.so; rewritten to hierarchical with an explicit n vector.",
+              file=sys.stderr)
+        return
+    if re.search(r"\bmethod\s+hierarchical\s*;", text, re.I) and not re.search(r"^\s*n\s*\(", text, re.M | re.I):
+        fixed = re.sub(r"(numberOfSubdomains\s+\d+\s*;)", r"\1\nn (%d 1 1);" % nproc,
+                       text, count=1, flags=re.I)
+        path.write_text(fixed, encoding="ascii")
+        print("run_openfoam_case note: system/decomposeParDict used hierarchical without an n "
+              "vector; added n (%d 1 1)." % nproc, file=sys.stderr)
+
+
+def _archive_before_run(case):
+    """Move stale numeric time dirs + prior manifests so no old latestTime is reused.
+
+    The ``0/`` initial-conditions directory is preserved (it is solver input,
+    not a previous solution); only strictly-positive time directories and the
+    prior run manifests are moved under ``.archive/<utc>/``.
+    """
+    stamp = utc_now().replace(":", "").replace("-", "").replace("+", "Z")
+    dest = case / ".archive" / stamp
+    moved = []
+    for child in sorted(case.iterdir()):
+        if child.name in ("0", "constant", "system", ".archive"):
+            continue
+        if child.is_dir() and re.fullmatch(r"\d+(\.\d+)?", child.name) and float(child.name) > 0:
+            dest.mkdir(parents=True, exist_ok=True)
+            child.replace(dest / child.name)
+            moved.append(child.name)
+        elif child.name in ("run_manifest.json", "run_status.json"):
+            # mesh_cache.json is deliberately NOT archived: it is the cross-run
+            # mesh-reuse record, and archiving it would defeat --skip-mesh-if-cached.
+            dest.mkdir(parents=True, exist_ok=True)
+            child.replace(dest / child.name)
+            moved.append(child.name)
+    return {"archived_to": str(dest), "moved": moved}
+
+
+def _effective_sequence(step, commands, parallel, nproc):
+    """Expand a requested step into the actual command sequence.
+
+    Parallel mode injects decomposePar / reconstructPar around the two
+    mesh-heavy tools. Serial mode is a single pass-through (default behaviour).
+    """
+    if not parallel:
+        return [(step, commands[step])]
+    if step == "snappyHexMesh":
+        return [("decomposePar", ["decomposePar", "-force", "-noFields"]),
+                ("snappyHexMesh", ["mpirun", "-np", str(nproc), "snappyHexMesh", "-parallel", "-overwrite"]),
+                ("reconstructPar", ["reconstructPar", "-constant", "-noFields", "-time", "0"])]
+    if step == "simpleFoam":
+        return [("decomposePar", ["decomposePar", "-force", "-time", "0"]),
+                ("simpleFoam", ["mpirun", "-np", str(nproc), "simpleFoam", "-parallel"]),
+                ("reconstructPar", ["reconstructPar", "-latestTime"])]
+    return [(step, commands[step])]
+
+
+def _expanded_total(steps, commands, parallel, nproc):
+    return sum(len(_effective_sequence(s, commands, parallel, nproc)) for s in steps)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case", help="case directory produced by surface_to_case.py")
@@ -233,6 +361,16 @@ def main(argv=None):
                         help="only verify environment variables and tool availability")
     parser.add_argument('--allow-failed-mesh-for-diagnostic', action='store_true',
                         help='Allow failed mesh checks only for synthetic tube.stl diagnostics; never mark engineering acceptance')
+    parser.add_argument('--status-file', default='run_status.json',
+                        help='streaming status file name written after each sub-step')
+    parser.add_argument('--archive-before-run', action='store_true',
+                        help='archive stale time dirs + prior manifests before running')
+    parser.add_argument('--parallel', type=int, default=0,
+                        help='MPI ranks for snappyHexMesh/simpleFoam (>=2 enables; 0/1 = serial)')
+    parser.add_argument('--skip-mesh-if-cached', action='store_true',
+                        help='reuse a previously checked mesh when its content signature matches')
+    parser.add_argument('--dry-run', action='store_true',
+                        help='print the planned command sequence and exit without executing or writing')
     args = parser.parse_args(argv)
     if args.env_check:
         return env_check(build_environment())
@@ -267,6 +405,57 @@ def main(argv=None):
                 "checkMesh": ["checkMesh", "-allGeometry", "-allTopology"],
                 "simpleFoam": ["simpleFoam"],
                 "foamToVTK": ["foamToVTK", "-latestTime", "-ascii", "-fields", fields]}
+
+    backend_identity = mesh_cache.detect_backend_identity()
+    mesh_requested = any(s in MESH_STEPS for s in steps)
+    signature = (mesh_cache.mesh_inputs_signature(case, backend_identity)
+                 if mesh_requested else {"valid": False, "reason": "no mesh steps requested"})
+    skipped_mesh = False
+    if args.skip_mesh_if_cached and mesh_requested and signature.get("valid"):
+        reuse = mesh_cache.inspect_reuse(case, signature)
+        if reuse.get("reusable"):
+            steps = [s for s in steps if s not in ("blockMesh", "snappyHexMesh")]
+            skipped_mesh = True
+
+    parallel = args.parallel >= 2
+    nproc = args.parallel if parallel else 0
+    parallel_missing = []
+    if parallel:
+        # shutil.which has no env parameter: pass the OpenFOAM PATH explicitly so the
+        # preflight searches the same directories the solver will use.
+        search_path = environment.get("PATH") or os.environ.get("PATH")
+        parallel_missing = [t for t in ("mpirun", "decomposePar", "reconstructPar")
+                            if not shutil.which(t, path=search_path)]
+        if parallel_missing:
+            print("run_openfoam_case warning: --parallel requested but missing tools %s; "
+                  "falling back to serial" % ", ".join(parallel_missing), file=sys.stderr)
+            parallel = False
+
+    if args.dry_run:
+        plan = {"schema": "nasal_cfd_dry_run/v1", "case": str(case), "steps": steps,
+                "parallel": parallel, "nproc": nproc,
+                "parallel_missing_tools": parallel_missing,
+                "would_write_decomposeParDict": bool(parallel and not (case / "system" / "decomposeParDict").is_file()),
+                "mesh_skipped": skipped_mesh,
+                "archive_before_run": bool(args.archive_before_run),
+                "signature_valid": bool(signature.get("valid")),
+                "signature": signature.get("signature"),
+                "signature_reason": signature.get("reason"),
+                "commands": []}
+        for s in steps:
+            for subname, cmd in _effective_sequence(s, commands, parallel, nproc):
+                plan["commands"].append({"step": s, "sub_step": subname, "command": cmd})
+        print(json.dumps(plan, indent=2, sort_keys=True))
+        return 0
+
+    archived = None
+    if args.archive_before_run:
+        archived = _archive_before_run(case)
+    if parallel:
+        _ensure_decompose_par_dict(case, nproc)
+
+    status_path = case / args.status_file
+    total = _expanded_total(steps, commands, parallel, nproc)
     run_manifest = {"schema": "nasal_cfd_run/v1",
                     "script": {"name": "run_openfoam_case.py", "version": SCRIPT_VERSION},
                     "started_at": utc_now(), "finished_at": None,
@@ -274,10 +463,21 @@ def main(argv=None):
                     "openfoam_version": ENV_OVERRIDES["WM_PROJECT_VERSION"],
                     "environment_overrides": dict(ENV_OVERRIDES),
                     "steps": [], "case_manifest": case_manifest,
-                    "execution_status": None}
+                    "execution_status": None,
+                    "parallel": parallel, "nproc": nproc,
+                    "mesh_signature": signature if signature.get("valid") else None,
+                    "mesh_skipped": skipped_mesh,
+                    "archived_before_run": archived,
+}
     run_manifest['engineering_acceptance'] = False
+    write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
+                              "started_at": run_manifest["started_at"], "status": "running",
+                              "current_step_index": 0, "total_steps": total,
+                              "current_command": None, "last_log_tail": None, "updated_at": utc_now()})
     profile_done = False
+    mesh_completed = []
     try:
+        idx = 0
         for step in steps:
             if step == 'simpleFoam':
                 quality = mesh_quality(case)
@@ -292,20 +492,78 @@ def main(argv=None):
                                               "exit_code": 0, "started_at": begin,
                                               "finished_at": utc_now(), "patches": record})
                 profile_done = True
-            run_manifest["steps"].append(execute(commands[step], case, environment, "log." + step))
-            (case / "run_manifest.json").write_text(
-                json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+            for subname, cmd in _effective_sequence(step, commands, parallel, nproc):
+                idx += 1
+                log_name = "log." + subname
+                tail = None
+                if (case / log_name).is_file():
+                    tail = "".join((case / log_name).read_text(encoding="utf-8", errors="replace").splitlines()[-8:])
+                write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
+                                          "started_at": run_manifest["started_at"], "status": "running",
+                                          "current_step_index": idx, "total_steps": total,
+                                          "current_command": cmd, "last_log_tail": tail,
+                                          "updated_at": utc_now()})
+                run_manifest["steps"].append(execute(cmd, case, environment, log_name))
+                write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
+                                          "started_at": run_manifest["started_at"], "status": "completed",
+                                          "current_step_index": idx, "total_steps": total,
+                                          "current_command": cmd, "last_log_tail": tail,
+                                          "updated_at": utc_now()})
+                # mesh_cache.record_mesh requires the sequence it receives to END with
+                # checkMesh. Passing the full step list can never satisfy that (it ends
+                # with foamToVTK, or reconstructPar in parallel mode), so freeze the
+                # steps completed up to and including checkMesh. Snapshotted here rather
+                # than filtered later because parallel reconstruction of simpleFoam also
+                # emits reconstructPar, which must not be mistaken for mesh generation.
+                if step == "checkMesh":
+                    mesh_completed = [{"name": s["command"][0],
+                                       "returncode": s.get("exit_code", 0),
+                                       "timed_out": False}
+                                      for s in run_manifest["steps"]]
         run_manifest["execution_status"] = "completed"
     except Exception as exc:
         run_manifest["execution_status"] = "failed"
         run_manifest["error"] = repr(exc)
+        write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
+                                  "started_at": run_manifest["started_at"], "status": "failed",
+                                  "current_step_index": idx, "total_steps": total,
+                                  "current_command": run_manifest["steps"][-1]["command"] if run_manifest["steps"] else None,
+                                  "failed_step": run_manifest["steps"][-1]["command"][0] if run_manifest["steps"] else None,
+                                  "last_log_tail": None, "updated_at": utc_now(), "error": repr(exc)})
         raise
     finally:
         run_manifest["finished_at"] = utc_now()
         (case / "run_manifest.json").write_text(
             json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
+                                  "started_at": run_manifest["started_at"],
+                                  "status": run_manifest["execution_status"],
+                                  "current_step_index": total, "total_steps": total,
+                                  "current_command": None, "last_log_tail": None,
+                                  "updated_at": utc_now()})
+    # Record a mesh cache entry only after a complete, checked mesh this run.
+    if mesh_requested and run_manifest["execution_status"] == "completed":
+        # mesh_completed freezes the step list at checkMesh; fall back to the mesh steps
+        # only so a caller that skipped checkMesh still gets a coherent (and rejected)
+        # sequence rather than one ending in foamToVTK.
+        completed = mesh_completed or [{"name": s["command"][0],
+                                        "returncode": s.get("exit_code", 0), "timed_out": False}
+                                       for s in run_manifest["steps"]
+                                       if s["command"][0] in mesh_cache.MESH_STEPS]
+        check_log = case / "log.checkMesh"
+        if check_log.is_file():
+            output = check_log.read_text(encoding="utf-8", errors="replace")
+            rec = mesh_cache.record_mesh(
+                case, signature, run_manifest.get("started_at") or utc_now(),
+                check_result={"returncode": 0, "output": output, "timed_out": False},
+                completed_steps=completed,
+                generation={"mode": "parallel" if parallel else "serial", "nproc": nproc})
+            run_manifest["mesh_cache"] = rec
+            (case / "run_manifest.json").write_text(
+                json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({"case": str(case), "execution_status": run_manifest["execution_status"],
-                      "steps": [s["command"][0] for s in run_manifest["steps"]]}, indent=2))
+                      "steps": [s["command"][0] for s in run_manifest["steps"]],
+                      "mesh_skipped": skipped_mesh, "parallel": parallel}, indent=2))
     return 0
 
 
