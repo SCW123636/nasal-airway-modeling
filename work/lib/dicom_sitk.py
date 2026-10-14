@@ -28,9 +28,13 @@ def load_series_sitk(dcm_dir, verbose=False):
     sx, sy, sz = img.GetSpacing()                # (x, y, z) mm
     org = img.GetOrigin()                        # (x, y, z) mm
 
-    # 元数据：从首帧读
+    # 元数据：从首帧读。扩展名大小写不可靠（同一批数据里 .dcm 与 .DCM 都出现过），
+    # 只按大小写不敏感匹配，否则 sorted(...)[0] 会越界。
     import pydicom
-    f0 = sorted([f for f in os.listdir(dcm_dir) if f.endswith(".dcm")])[0]
+    files = sorted(f for f in os.listdir(dcm_dir) if f.lower().endswith('.dcm'))
+    if not files:
+        files = sorted(str(f) for f in names)
+    f0 = files[0]
     ds = pydicom.dcmread(os.path.join(dcm_dir, f0), stop_before_pixels=True, force=True)
     meta = {
         "n_slices": int(vol.shape[0]),

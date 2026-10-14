@@ -65,9 +65,24 @@ def boundary_loops(edges):
     return loops
 
 
-def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7):
+def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7, selectors=None):
+    """Clip each named plane and cap it.
+
+    `selectors` optionally maps a plane name to a boolean per-vertex mask that
+    replaces the axis-aligned ROI box as the selection predicate. The box is a
+    rectangular proxy that cannot represent the nasopharyngeal wall, which keeps
+    extending past the box face; a connectivity-derived mask states the same
+    intent without inventing lateral walls. Passing None keeps the original
+    ROI-box behaviour byte for byte.
+
+    Selectors are indexed by vertex, not by face: clipping rewrites the face
+    array (dropping cut faces, adding intersection faces), so a face-indexed mask
+    would silently go stale after the first plane. Vertex indices are stable
+    across the whole loop because points are only ever appended.
+    """
     if not np.isfinite(tolerance_mm) or tolerance_mm <= 0:
         raise ValueError('Tolerance must be finite and positive')
+    selectors = selectors or {}
     points = np.asarray(vertices, dtype=float)
     faces = np.asarray(triangles)
     if (points.ndim != 2 or points.shape[1] != 3 or not np.isfinite(points).all()
@@ -97,20 +112,31 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7):
         signed = (points - origin) @ kept_normal
         signed[np.abs(signed) <= tolerance_mm] = 0
         xyz = points[faces]
-        overlap = ((xyz.max(axis=1) >= low) & (xyz.min(axis=1) <= high)).all(axis=1)
-        inside = ((xyz >= low) & (xyz <= high)).all(axis=(1, 2))
-        negative = np.any(signed[faces] < 0, axis=1)
-        conflicts = overlap & ~inside & negative
-        if np.any(conflicts):
-            conflicting = xyz[conflicts]
-            centers = conflicting.mean(axis=1)
-            raise SurfaceClipError(name + ': deleted wall crosses the configured ROI boundary',
-                                   {'plane': name, 'conflicting_triangles': int(conflicts.sum()),
-                                    'triangle_centers_lps_mm': centers.tolist(),
-                                    'bounds_lps_mm': {'min': conflicting.min(axis=(0, 1)).tolist(),
-                                                      'max': conflicting.max(axis=(0, 1)).tolist()},
-                                    'roi_lps_mm': roi})
-        affected = inside & negative
+        mask = selectors.get(name)
+        if mask is not None:
+            mask = np.asarray(mask, dtype=bool)
+            if len(mask) > len(points):
+                raise ValueError(name + ': selector mask is longer than the vertex array')
+            if len(mask) < len(points):
+                # Clipping appends intersection vertices; they belong to the cut
+                # boundary, never to the deleted selection, so pad with False.
+                mask = np.concatenate((mask, np.zeros(len(points) - len(mask), dtype=bool)))
+            inside = np.any(mask[faces], axis=1)
+        else:
+            overlap = ((xyz.max(axis=1) >= low) & (xyz.min(axis=1) <= high)).all(axis=1)
+            inside = ((xyz >= low) & (xyz <= high)).all(axis=(1, 2))
+            negative = np.any(signed[faces] < 0, axis=1)
+            conflicts = overlap & ~inside & negative
+            if np.any(conflicts):
+                conflicting = xyz[conflicts]
+                centers = conflicting.mean(axis=1)
+                raise SurfaceClipError(name + ': deleted wall crosses the configured ROI boundary',
+                                       {'plane': name, 'conflicting_triangles': int(conflicts.sum()),
+                                        'triangle_centers_lps_mm': centers.tolist(),
+                                        'bounds_lps_mm': {'min': conflicting.min(axis=(0, 1)).tolist(),
+                                                          'max': conflicting.max(axis=(0, 1)).tolist()},
+                                        'roi_lps_mm': roi})
+        affected = inside & np.any(signed[faces] < 0, axis=1)
         if not affected.any():
             raise ValueError(name + ': plane does not cut the selected surface')
         if np.any(patches[affected] != 'wall'):
@@ -166,9 +192,12 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7):
         interim, edges = topology(points, faces)
         loops = boundary_loops(edges)
         used = np.unique(edges)
-        if (np.max(np.abs((points[used] - origin) @ normal)) > tolerance_mm
-                or not ((points[used] >= low - tolerance_mm) &
-                        (points[used] <= high + tolerance_mm)).all()):
+        outside_plane = np.max(np.abs((points[used] - origin) @ normal)) > tolerance_mm
+        outside_roi = not ((points[used] >= low - tolerance_mm) &
+                           (points[used] <= high + tolerance_mm)).all()
+        if outside_plane or (outside_roi and mask is None):
+            # With a connectivity selector the boundary legitimately leaves the
+            # ROI box, so only coplanarity is enforced; the box is not the scope.
             raise ValueError(name + ': unexpected boundary outside cutting plane or ROI')
         caps, report = triangulate_cap(points, loops, -kept_normal, tolerance_mm=tolerance_mm)
         faces = np.vstack((faces, caps))

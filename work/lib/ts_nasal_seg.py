@@ -27,6 +27,7 @@ import subprocess
 VENV = r"C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd"
 TS_EXE = os.path.join(VENV, "Scripts", "TotalSegmentator.exe")
 HF_MIRROR = "https://hf-mirror.com"
+THREADS = 0    # 0 = unbounded (old behaviour); set by --threads
 
 # 环境由来（2026-09-30 修正）：
 #   nasal-gpu（Python 3.14 + --system-site-packages 复用现成 GPU torch）路线已废弃：
@@ -89,14 +90,57 @@ print(json.dumps(info))
                 "stderr": p.stderr.decode("utf-8", "replace")[-1500:]}
 
 
-def step2_totalsegmentator(nii_in, mask_dir, device):
-    """调 TotalSegmentator。权重走 hf-mirror。"""
+def _set_affinity(pid, cores):
+    """Bind a process (and, by inheritance, all its descendants) to `cores`
+    logical CPUs. Returns True when the mask was applied.
+
+    This is the only lever that actually worked. Measured on this box, one case
+    with the whole machine to itself:
+
+        unbounded            35.0% of 24 cores
+        OMP_NUM_THREADS=6    35.1%   (no effect - nnU-Net sets its own torch threads)
+        affinity, 6 cores    24.7%   (works)
+
+    The .exe launcher spawns python -> python -> python, so the mask goes on the
+    launcher and is inherited down that chain. Doing it here, not by hand, means
+    the cap travels with the run and cannot be forgotten."""
+    try:
+        import ctypes
+        k32 = ctypes.windll.kernel32
+        PROCESS_SET_INFORMATION = 0x0200
+        PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+        h = k32.OpenProcess(PROCESS_SET_INFORMATION | PROCESS_QUERY_LIMITED_INFORMATION,
+                            False, pid)
+        if not h:
+            return False
+        ok = k32.SetProcessAffinityMask(h, (1 << int(cores)) - 1)
+        k32.CloseHandle(h)
+        return bool(ok)
+    except Exception:
+        return False
+
+
+def step2_totalsegmentator(nii_in, mask_dir, device, threads=None):
+    """调 TotalSegmentator。权重走 hf-mirror。
+
+    threads caps how many logical CPUs this one case may use, via CPU affinity
+    (see _set_affinity for why the thread env vars are also set: they are
+    harmless and help the resampling step, but they do not bound inference).
+
+    Without a cap one case uses ~35% of this 24-core box (measured), so three
+    cases in flight saturate it no matter what --jobs says."""
     os.makedirs(mask_dir, exist_ok=True)
     env = os.environ.copy()
     env["HF_ENDPOINT"] = HF_MIRROR
     env["HF_HUB_DISABLE_TELEMETRY"] = "1"
     # 部分版本用 requests 直连 zenodo，不走 HF；两者都已验证可达
     env["PYTHONIOENCODING"] = "utf-8"
+    if threads:
+        n = str(int(threads))
+        for var in ("OMP_NUM_THREADS", "MKL_NUM_THREADS",
+                    "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS",
+                    "VECLIB_MAXIMUM_THREADS"):
+            env[var] = n
 
     cmd = [TS_EXE, "-i", nii_in, "-o", mask_dir,
            "-ta", "head_glands_cavities", "-d", device]
@@ -104,29 +148,98 @@ def step2_totalsegmentator(nii_in, mask_dir, device):
     t0 = time.time()
     with open(log_path, "w", encoding="utf-8") as lf:
         lf.write("CMD: " + " ".join(cmd) + "\n")
-        lf.write(f"HF_ENDPOINT={HF_MIRROR}\n\n")
+        lf.write(f"HF_ENDPOINT={HF_MIRROR}\n")
+        if threads:
+            lf.write(f"THREADS={threads} (env vars + CPU affinity)\n")
+        lf.write("\n")
         lf.flush()
-        p = subprocess.run(cmd, env=env, stdout=lf, stderr=subprocess.STDOUT,
-                           timeout=7200)
+        # Popen, not run, so the affinity mask can be applied to the launcher
+        # before it forks its python grandchildren.
+        p = subprocess.Popen(cmd, env=env, stdout=lf, stderr=subprocess.STDOUT)
+        if threads:
+            _set_affinity(p.pid, threads)
+        try:
+            p.wait(timeout=7200)
+        except subprocess.TimeoutExpired:
+            p.kill()
+            p.wait()
+            return {"ok": False, "returncode": None, "elapsed_s": round(time.time() - t0, 1),
+                    "log": log_path, "why": "timeout after 7200 s"}
     return {"ok": p.returncode == 0, "returncode": p.returncode,
             "elapsed_s": round(time.time() - t0, 1), "log": log_path}
 
 
+def split_argv(argv):
+    """Split "--opt value" style argv into (options, positionals).
+
+    Every value-taking option used to be peeled off by hand, and each one that
+    was forgotten leaked its value into the positional list: `--device cpu` once
+    ran a case literally named "cpu", and `--threads 6` did it again today.
+    Doing it once, from a fixed table, is the fix for the whole class."""
+    takes_value = {"--device", "--threads", "--batch-dir", "--batch-choice"}
+    opts, pos, i = {}, [], 0
+    while i < len(argv):
+        a = argv[i]
+        if a in takes_value:
+            if i + 1 >= len(argv):
+                raise SystemExit(f"{a} needs a value")
+            opts[a] = argv[i + 1]
+            i += 2
+            continue
+        if a.startswith("--"):
+            opts[a] = True
+            i += 1
+            continue
+        pos.append(a)
+        i += 1
+    return opts, pos
+
+
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    device = "cpu"
-    if "--device" in sys.argv:
-        device = sys.argv[sys.argv.index("--device") + 1]
-        # ★ 坑：--device 的值会混进 args，必须剔除（曾把 "cpu" 当患者键跑出一轮假 step1）
-        if device in args:
-            args.remove(device)
-    keys = [a for a in (args or ["p0"]) if a in PATIENTS] or ["p0"]
+    opts, args = split_argv(sys.argv[1:])
+    if not args and not opts.get("--batch-dir"):
+        raise SystemExit("give a case name, or --batch-dir <dir> to load the batch; "
+                         "refusing to fall back to p0 and burn ~2 min of CPU by "
+                         "accident (a bare --help used to do exactly that)")
+
+    # --threads caps the cores one case may use (see step2's docstring for why).
+    # Default 0 = leave it unset, which is the old unbounded behaviour, so this
+    # change cannot silently alter an existing run. The batch entry point passes
+    # a real number; callers that want the old behaviour just omit it.
+    global THREADS
+    if "--threads" in opts:
+        THREADS = int(opts["--threads"])
+
+    device = opts.get("--device", "cpu")
+
+    # 批次数据（DICOM 目录在项目里，不在硬编码 PATIENTS 里）。
+    # 由 batch27_series_choice.py 产出的选择结果提供，避免为每例改代码。
+    patients = dict(PATIENTS)
+    if "--batch-dir" in opts:
+        choice = opts["--batch-dir"]
+        import json as _json
+        obj = _json.load(open(os.path.join(choice, "batch27_series_choice.json"),
+                              encoding="utf-8"))
+        base = choice
+        n = 0
+        for row in obj["cases"]:
+            pick = row.get("pick")
+            if not pick:
+                continue
+            key = "b%02d" % int(row["case"])     # b01..b27, avoids clashing with p0..p3t1
+            patients[key] = pick["dir"]
+            n += 1
+        print(f"batch-dir: loaded {n} cases from {choice}")
+
+    keys = [a for a in args if a in patients]
+    if not keys:
+        raise SystemExit(f"no case matched {args}; known keys: {sorted(patients)}")
 
     os.makedirs(OUTBASE, exist_ok=True)
     summary = {"device": device, "roi": ROI, "patients": {}}
 
     for k in keys:
-        dcm = PATIENTS.get(k)
+        dcm = patients.get(k)
         entry = {"dcm_dir": dcm}
         pdir = os.path.join(OUTBASE, k)
         os.makedirs(pdir, exist_ok=True)
@@ -155,7 +268,7 @@ def main():
 
         mask_dir = os.path.join(pdir, "masks")
         print(f"[{k}] step2 TotalSegmentator ({device}) ... (首次会下载权重)")
-        s2 = step2_totalsegmentator(nii, mask_dir, device)
+        s2 = step2_totalsegmentator(nii, mask_dir, device, threads=THREADS)
         entry["step2"] = s2
         entry["ok"] = bool(s2.get("ok"))
         print(f"[{k}] step2 rc={s2['returncode']} {s2['elapsed_s']}s")
