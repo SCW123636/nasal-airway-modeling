@@ -1,0 +1,245 @@
+diff --git a/work/07_cfd_pipeline/solver/run_openfoam_case.py b/work/07_cfd_pipeline/solver/run_openfoam_case.py--- a/work/07_cfd_pipeline/solver/run_openfoam_case.py+++ b/work/07_cfd_pipeline/solver/run_openfoam_case.py--- 	(parallel-only baseline)
++++ 	(with T-003 R10 contract gate)
+@@ -48,7 +48,63 @@
+ sys.path.insert(0, str(Path(__file__).resolve().parent))
+ import mesh_cache
+ 
+-SCRIPT_VERSION = "1.1.0"
++# --- contract gate (T-003 R10) ------------------------------------------------
++# The contract module lives in work/lib; on WSL `Path(__file__).resolve().
++# parents[2] / "lib"` resolves there. Imported up front so a missing module
++# fails loudly and clearly instead of surfacing as a bare ImportError traceback.
++sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "lib"))
++try:
++    import cfd_contract
++except ImportError as exc:
++    _lib_dir = Path(__file__).resolve().parents[2] / "lib"
++    print("run_openfoam_case error: cannot import contract module 'cfd_contract' "
++          "from %s: %s" % (_lib_dir, exc), file=sys.stderr)
++    raise SystemExit(2)
++
++
++class ContractRefusal(Exception):
++    """Raised when a --config is supplied but is not execution-allowed."""
++
++    def __init__(self, reasons):
++        super().__init__("unsanctioned configuration")
++        self.reasons = list(reasons)
++
++
++def evaluate_contract(args):
++    """Load + validate the optional --config and return run_manifest['contract'].
++
++    Returns a dict with ``checked`` set False when no --config is given (so the
++    script keeps running exactly as before). Raises ``ContractRefusal`` -- before
++    any solver step runs -- when ``execution_allowed`` is False and
++    --force-unsanctioned was not supplied. The refusal message names the concrete
++    blocking reasons (they live in the contract ``warnings`` for our 8 configs).
++    """
++    if not args.config:
++        return {"config_id": None, "checked": False}
++    path = Path(args.config)
++    if not path.is_file():
++        raise ContractRefusal(["--config file not found: %s" % path])
++    try:
++        cfg = json.loads(path.read_text(encoding="utf-8"))
++    except (OSError, json.JSONDecodeError) as exc:
++        raise ContractRefusal(["--config is not readable/valid JSON (%s): %s" % (path, exc)])
++    report = cfd_contract.validate_config(cfg)
++    contract = {
++        "config_id": cfg.get("config_id"),
++        "execution_allowed": bool(report["execution_allowed"]),
++        "errors": report["errors"],
++        "warnings": report["warnings"],
++        "forced": bool(args.force_unsanctioned),
++        "checked": True,
++    }
++    if not report["execution_allowed"] and not args.force_unsanctioned:
++        # Concrete blocking reasons: errors first, then readiness warnings
++        # (e.g. "solver adapter has not been implemented and verified ...").
++        raise ContractRefusal(list(report["errors"]) + list(report["warnings"]))
++    return contract
++
++
++SCRIPT_VERSION = "1.2.0"
+ ENV_OVERRIDES = {"WM_PROJECT_DIR": "/usr/share/openfoam",
+                  "FOAM_ETC": "/usr/share/openfoam/etc",
+                  "WM_PROJECT_VERSION": "v1912"}
+@@ -371,9 +427,25 @@
+                         help='reuse a previously checked mesh when its content signature matches')
+     parser.add_argument('--dry-run', action='store_true',
+                         help='print the planned command sequence and exit without executing or writing')
++    parser.add_argument('--config', default=None,
++                        help='path to a nasal_cfd_config/v1 json; enforces the contract gate '
++                             '(refuses to run unless execution_allowed, override with --force-unsanctioned)')
++    parser.add_argument('--force-unsanctioned', action='store_true',
++                        help='explicitly run an execution_allowed=false config anyway; '
++                             'recorded in run_manifest.contract.forced for audit (never lifts engineering_acceptance)')
+     args = parser.parse_args(argv)
+     if args.env_check:
+         return env_check(build_environment())
++    # --- contract gate (T-003 R10): evaluate before any step executes ---------
++    try:
++        contract = evaluate_contract(args)
++    except ContractRefusal as ref:
++        print("run_openfoam_case error: refusing to run an unsanctioned configuration "
++              "(pass --force-unsanctioned to override explicitly, recorded for audit):",
++              file=sys.stderr)
++        for reason in ref.reasons:
++            print("  - " + str(reason), file=sys.stderr)
++        return 3
+     if not args.case:
+         parser.error("--case is required unless --env-check")
+     case = Path(args.case).resolve()
+@@ -468,7 +540,7 @@
+                     "mesh_signature": signature if signature.get("valid") else None,
+                     "mesh_skipped": skipped_mesh,
+                     "archived_before_run": archived,
+-}
++                    "contract": contract}
+     run_manifest['engineering_acceptance'] = False
+     write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
+                               "started_at": run_manifest["started_at"], "status": "running",
+diff --git a/work/lib/test_run_openfoam_case.py b/work/lib/test_run_openfoam_case.py--- a/work/lib/test_run_openfoam_case.py+++ b/work/lib/test_run_openfoam_case.py--- 	(parallel-only baseline)
++++ 	(with T-003 R10 ContractGateTests)
+@@ -1,5 +1,7 @@
+ """Synthetic tests for circular inlet radius and mesh quality gating."""
++import contextlib
+ import importlib.util
++import io
+ import json
+ import math
+ import re
+@@ -283,5 +285,132 @@
+             self.assertEqual(target.read_text(), original)
+ 
+ 
++class ContractGateTests(unittest.TestCase):
++    """T-003 R10: the contract gate must refuse unsanctioned configs and stay
++    byte-for-byte compatible when --config is absent. Configs are synthesized in
++    temp dirs; the 8 catalog configs are never touched.
++    """
++
++    def _write_config(self, root, payload):
++        path = root / 'contract_config.json'
++        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
++        return str(path)
++
++    def _authorized_config(self):
++        """A synthetic, fully execution-ready idealized config (no patient review)."""
++        return {
++            "schema": "nasal_cfd_config/v1",
++            "config_id": "synthetic_authorized_idealized",
++            "physics": {"flow_regime": "incompressible", "time_mode": "steady",
++                        "rho_kg_m3": 1.2, "mu_Pa_s": 1.81e-5, "turbulence_model": "laminar"},
++            "boundary_conditions": {
++                "mode": "total_flow",
++                "total_inspiratory_flow_m3_s": 2.5e-4,
++                "flow_split": {"policy": "imposed_equal_split_baseline",
++                               "left_fraction": 0.5, "right_fraction": 0.5,
++                               "interpretation": "imposed_baseline_not_patient_split"},
++                "nostril_pressure": None,
++                "nasopharynx_pressure": {"value": 0.0, "unit": "Pa", "quantity": "static", "reference": "gauge"},
++                "static_pressure_difference_Pa": None,
++                "direction_policy": "inspiration_nostrils_to_nasopharynx",
++                "walls": "rigid_no_slip"},
++            "turbulence": {"inlet_intensity_fraction": None, "length_scale_Dh_fraction": None,
++                           "low_speed_threshold_m_s": None, "low_speed_threshold_basis": None,
++                           "definition": None, "report_status": "not_applicable"},
++            "mesh": {"level": "medium", "bulk_target_mm": 0.4, "local_initial_target_mm": 0.25,
++                     "minimum_cells_across_gap": 6,
++                     "local_resolution_rule": "h <= min(local_initial_target_mm, measured_gap_mm/6)",
++                     "prism_layers": None},
++            "geometry": {"kind": "idealized", "case_id": None, "source_file": "phantom_tube.stl",
++                         "sha256": None, "units": "mm", "solver_units": "m", "scale_to_m": 0.001,
++                         "coordinate_system": "LPS", "review": None},
++            "solver_adapter": {"status": "implemented_and_verified", "name": None, "version": None,
++                               "desired_strategy": None, "flow_target_role": None, "strategy_description": None},
++            "engineering_screen": {"maximum_mass_imbalance_fraction": 0.005,
++                                   "maximum_monitor_relative_change": 0.005,
++                                   "target_residual_max": 1e-5, "medium_to_fine_change_screen_fraction": 0.05},
++            "notes": ["synthetic authorized config for T-003 contract-gate tests"]}
++
++    def _unsanctioned_config(self):
++        cfg = self._authorized_config()
++        cfg["config_id"] = "synthetic_unsanctioned"
++        # Readiness issue -> execution_allowed False (reason surfaces in warnings).
++        cfg["solver_adapter"]["status"] = "not_implemented"
++        return cfg
++
++    def test_no_config_behaves_identically_to_baseline(self):
++        """No --config: nothing is refused, steps run, manifest carries the stub."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            with mock.patch.object(executor, 'check_case_complete'), \
++                 mock.patch.object(executor, 'is_sst', return_value=False), \
++                 mock.patch.object(executor, 'mesh_quality', return_value={'passed': True}), \
++                 mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log:
++                                   {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}) as run:
++                rc = executor.main(['--case', str(root), '--steps', 'simpleFoam'])
++            self.assertEqual(rc, 0)
++            run.assert_called()
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertEqual(manifest['contract'], {"config_id": None, "checked": False})
++            self.assertFalse(manifest['engineering_acceptance'])
++
++    def test_unsanctioned_without_force_is_refused_naming_reason(self):
++        """execution_allowed=False and no --force -> non-zero exit, named cause, no step run."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            cfg_path = self._write_config(root, self._unsanctioned_config())
++            err = io.StringIO()
++            with contextlib.redirect_stderr(err), \
++                 mock.patch.object(executor, 'check_case_complete') as cc, \
++                 mock.patch.object(executor, 'execute') as run:
++                rc = executor.main(['--case', str(root), '--config', cfg_path, '--steps', 'simpleFoam'])
++            self.assertNotEqual(rc, 0)
++            run.assert_not_called()
++            cc.assert_not_called()
++            text = err.getvalue()
++            self.assertIn('refusing to run an unsanctioned configuration', text)
++            self.assertIn('solver adapter has not been implemented and verified', text)
++
++    def test_unsanctioned_with_force_is_allowed_and_logged(self):
++        """execution_allowed=False + --force-unsanctioned -> runs, contract.forced recorded."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            cfg_path = self._write_config(root, self._unsanctioned_config())
++            with contextlib.redirect_stderr(io.StringIO()), \
++                 mock.patch.object(executor, 'check_case_complete'), \
++                 mock.patch.object(executor, 'is_sst', return_value=False), \
++                 mock.patch.object(executor, 'mesh_quality', return_value={'passed': True}), \
++                 mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log:
++                                   {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}):
++                rc = executor.main(['--case', str(root), '--config', cfg_path,
++                                    '--force-unsanctioned', '--steps', 'simpleFoam'])
++            self.assertEqual(rc, 0)
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertTrue(manifest['contract']['forced'])
++            self.assertFalse(manifest['contract']['execution_allowed'])
++            # Force only lifts the gate; it must never mark engineering acceptance.
++            self.assertFalse(manifest['engineering_acceptance'])
++
++    def test_authorized_config_is_allowed_and_checked(self):
++        """A synthetic execution-ready config passes the gate (contract.checked True)."""
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            cfg_path = self._write_config(root, self._authorized_config())
++            with contextlib.redirect_stderr(io.StringIO()), \
++                 mock.patch.object(executor, 'check_case_complete'), \
++                 mock.patch.object(executor, 'is_sst', return_value=False), \
++                 mock.patch.object(executor, 'mesh_quality', return_value={'passed': True}), \
++                 mock.patch.object(executor, 'execute', side_effect=lambda cmd, case, env, log:
++                                   {'command': cmd, 'exit_code': 0, 'elapsed_seconds': 0.0, 'log': str(case / log)}):
++                rc = executor.main(['--case', str(root), '--config', cfg_path, '--steps', 'simpleFoam'])
++            self.assertEqual(rc, 0)
++            manifest = json.loads((root / 'run_manifest.json').read_text())
++            self.assertTrue(manifest['contract']['checked'])
++            self.assertTrue(manifest['contract']['execution_allowed'])
++            self.assertFalse(manifest['contract']['forced'])
++            self.assertEqual(manifest['contract']['config_id'], 'synthetic_authorized_idealized')
++            self.assertFalse(manifest['engineering_acceptance'])
++
++
+ if __name__=='__main__':
+     unittest.main()
