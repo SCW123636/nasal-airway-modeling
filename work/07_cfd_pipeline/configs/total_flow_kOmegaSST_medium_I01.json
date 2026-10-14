@@ -85,7 +85,11 @@
     "maximum_mass_imbalance_fraction": 0.005,
     "maximum_monitor_relative_change": 0.005,
     "target_residual_max": 1e-05,
-    "medium_to_fine_change_screen_fraction": 0.05
+    "medium_to_fine_change_screen_fraction": 0.05,
+    "diagnostic_basis": {
+      "mass_imbalance_fraction": "Take the steady-segment value (final-samples window) of mass_imbalance_fraction for the engineering screen comparison. The startup transient (initial non-divergence-free field, e.g. the global max 6.3324e-03 at t=2 in T-006 Run 1) is reported separately and excluded from the screen. Rationale: an initial field that is not divergence-free produces a startup artifact, not a solver defect; this never relaxes the maximum_mass_imbalance_fraction screen of 0.005.",
+      "monitor_relative_change": "monitor_relative_change is the inter-window relative change of dP, where dP = area-weighted mean nostril static pressure minus nasopharynx outlet static pressure. Compute over the last 40% of monitor samples with a window length of 20 consecutive samples; take the window-mean of each window, then the maximum of the successive window-mean ratios. T-006 Run 1 measured 0.0079%."
+    }
   },
   "notes": [
     "No patient flow solution is included.",

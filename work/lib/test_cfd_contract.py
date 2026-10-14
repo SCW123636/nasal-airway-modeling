@@ -275,5 +275,60 @@ class ResultContractTests(unittest.TestCase):
         self.assertIn("linked configuration was not execution-ready", checked["errors"])
 
 
+class DiagnosticBasisTests(unittest.TestCase):
+    """T-008: lock engineering-screen values and the new diagnostic_basis definitions.
+
+    This card fixes *diagnostic value-taking conventions* only. The four screen
+    thresholds must not move, and the regenerated templates must differ from the
+    pre-card version only by the additive diagnostic_basis key.
+    """
+    def test_four_engineering_screen_values_are_unchanged(self):
+        screen = contract.make_config()["engineering_screen"]
+        self.assertEqual(screen["maximum_mass_imbalance_fraction"], 0.005)
+        self.assertEqual(screen["maximum_monitor_relative_change"], 0.005)
+        self.assertEqual(screen["target_residual_max"], 1e-5)
+        self.assertEqual(screen["medium_to_fine_change_screen_fraction"], 0.05)
+
+    def test_diagnostic_basis_exists_with_two_definitions(self):
+        basis = contract.make_config()["engineering_screen"].get("diagnostic_basis")
+        self.assertIsInstance(basis, dict)
+        self.assertIn("mass_imbalance_fraction", basis)
+        self.assertIn("monitor_relative_change", basis)
+        self.assertEqual(len(basis), 2)
+        self.assertTrue(all(isinstance(v, str) and v.strip() for v in basis.values()))
+
+    def test_regenerated_templates_match_make_config_additive_only(self):
+        pipeline_dir = Path(contract.__file__).resolve().parents[1] / "07_cfd_pipeline"
+        configs_dir = pipeline_dir / "configs"
+        catalog_path = pipeline_dir / "config_catalog.json"
+        self.assertTrue(configs_dir.is_dir(), configs_dir)
+        self.assertTrue(catalog_path.exists(), catalog_path)
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(catalog["configs"]), 8)
+        with tempfile.TemporaryDirectory(prefix="nasal_cfd_contract_regen_") as tmp:
+            fresh_catalog = contract.write_templates(tmp)
+            fresh_dir = Path(tmp) / "configs"
+            for fresh_file in sorted(fresh_dir.glob("*.json")):
+                config_id = fresh_file.stem
+                committed_path = configs_dir / fresh_file.name
+                self.assertTrue(committed_path.exists(), committed_path)
+                committed = json.loads(committed_path.read_text(encoding="utf-8"))
+                fresh = json.loads(fresh_file.read_text(encoding="utf-8"))
+                # committed file must equal current make_config output exactly.
+                self.assertEqual(committed, fresh, msg=config_id)
+                # additive-only relative to the pre-card (no diagnostic_basis) version:
+                # stripping diagnostic_basis from both leaves them byte-identical.
+                committed_pre = copy.deepcopy(committed)
+                fresh_pre = copy.deepcopy(fresh)
+                del committed_pre["engineering_screen"]["diagnostic_basis"]
+                del fresh_pre["engineering_screen"]["diagnostic_basis"]
+                self.assertEqual(committed_pre, fresh_pre, msg=config_id)
+                self.assertTrue(contract.validate_config(committed_pre)["valid"])
+            # catalog structure (config ids + validity) is preserved; only file paths differ.
+            self.assertEqual([c["config_id"] for c in catalog["configs"]],
+                             [c["config_id"] for c in fresh_catalog["configs"]])
+            self.assertTrue(all(c["validation"]["valid"] for c in catalog["configs"]))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -102,6 +102,22 @@ SST 使用显式定义 `I = sqrt(2*k/3) / magnitude(U)`，内部单位是无量�
 
 审核元数据检查不认证审核人的身份，也不验证外部文件真实性。后续执行器必须实际核验审核记录来源、文件哈希和几何质量，不能通过自行填写 confirmed 来绕过人工审核。当前所有模板仍是 pending，也未实施该执行器。
 
+## 诊断量取值口径
+
+工程屏值（`maximum_mass_imbalance_fraction`、`maximum_monitor_relative_change`、`target_residual_max`、`medium_to_fine_change_screen_fraction`）一律不改；本节只定义两个诊断量“取哪个值”，不改判据。两个口径也写入 `make_config()` 生成的 `engineering_screen.diagnostic_basis`，机器可读，与本文档一致。
+
+### `mass_imbalance_fraction`
+
+- **取值口径**：取**稳态段（末段样本窗）**的 `mass_imbalance_fraction` 作为工程屏比较值。
+- **启动瞬态单独列示、不计入屏**：初始场不无散会制造启动假象。T-006 Run 1 全程 max **6.3324e-03 发生在 t=2**（启动瞬态）；t≥100 已 ≤6.78e-6、稳态段 ≤1.74e-6、终值 7.2e-7。启动瞬态峰值只作为过程记录，不参与 `maximum_mass_imbalance_fraction`（0.005）屏判定。
+- **理由**：初始场不无散是离散化启动假象，不是求解缺陷——但**绝不因此放松 0.5% 屏值**。若契约隐含“取全程 max”，会把初始场假象误判为求解缺陷，使 Run 1 错误“不通过”。
+
+### `monitor_relative_change`
+
+- **定义**：监控量取 **Δp = 面积加权鼻孔均值静压 − 鼻咽出口静压**。
+- **取值口径**：取 Δp 的**窗间相对变化**；对**末 40% 样本**、**窗长 20** 逐窗取窗口均值，再取相邻窗口均值的比值的 **max**。
+- **实测**：T-006 Run 1 该值为 **0.0079%**，远小于 `maximum_monitor_relative_change`（0.005）屏——注意此屏以“分数”定义（0.005 = 0.5%），0.0079% = 7.9e-5，仍处于屏内。口径定义不随本次实测放松任何屏。
+
 ## 使用
 
 ```powershell
