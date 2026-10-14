@@ -12,6 +12,7 @@ __pycache__/
 # Patient data and other medical imaging assets
 资料/脱敏数据/
 资料/脱敏数据_clean/
+资料/副鼻窦27例_脱敏完整/
 NasalSeg/
 NasalSeg_按患者/
 work/00_dicom/
