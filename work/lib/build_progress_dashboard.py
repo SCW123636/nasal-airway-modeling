@@ -53,6 +53,34 @@ def num(v, nd=3, suffix=""):
     return f"{v:.{nd}f}{suffix}"
 
 
+def sci(v, nd=2):
+    """小数量级（如 7.2e-07）用科学计数法，避免渲染成 0.000。"""
+    if v is None:
+        return "—"
+    return f"{v:.{nd}e}"
+
+
+M2_ZH = {
+    "imposed_equal_split_baseline_0.5_0.5": "等分 0.5/0.5（施加）",
+    "laminar": "层流",
+    "direct_solver_call_outside_prescribed_wrapper": "带外直调 simpleFoam（不走 prescribed 封装器）",
+}
+
+
+def zh_or_raw(value, table=M2_ZH):
+    return table.get(value, value)
+
+
+def mesh_zh(raw):
+    """M2 声明里的网格描述英译中；声明变更导致对不上时原样返回，不静默错译。"""
+    if raw == ("b15 patient surface, Netgen maxh=1.0 repaired, 1161194 cells, "
+               "585 det<0.001, 114 low-interpolation-weight faces, "
+               "max non-orthogonality 87.3 deg"):
+        return ("b15 患者表面，Netgen maxh=1.0 修复版，1,161,194 cells，"
+                "585 个 det<0.001，114 个低插值权面，最大非正交 87.3°")
+    return raw
+
+
 def cell(v, cls=""):
     return f'<td class="{cls}">{v}</td>' if cls else f"<td>{v}</td>"
 
@@ -101,6 +129,67 @@ def load_phantom_validation():
         "checks": report.get("checks", {}),
         "errors": errors,
     }
+
+
+def load_m2_declaration():
+    """读患者网格工程实证的机器可读声明（M2 双轨收口，T-006 Run 1）。
+
+    红线沿用本脚本总则：只读已有 JSON；clinical_status 恒显，禁止把
+    工程实证渲染成患者分流结论。
+    """
+    path = os.path.join(os.path.dirname(WORK), "outputs", "M2收口", "m2_run_declaration.json")
+    decl = load(path)
+    if not isinstance(decl, dict) or decl.get("schema") != "nasal_cfd_m2_engineering_closure/v1":
+        return {"status": "not_generated", "path": path}
+    criteria = decl.get("primary_criteria", {})
+    recorded = decl.get("recorded_items", {})
+    return {
+        "status": "closure_declared",
+        "path": path,
+        "clinical_status": decl.get("clinical_status"),
+        "ruled_at": decl.get("ruled_at"),
+        "closure_type": decl.get("closure_type"),
+        "run": decl.get("run", {}),
+        "condition": decl.get("operating_condition", {}),
+        "criteria": criteria,
+        "recorded": recorded,
+    }
+
+
+def m2_criteria_rows(m2):
+    """四条主判据 + 一条记录项，逐条带实测值；数字全部来自声明 JSON。"""
+    c = m2["criteria"]
+    r = m2["recorded"]
+    dp = c.get("delta_p_in_band_Pa", {})
+    band = dp.get("band_Pa") or [None, None]
+    mass = c.get("mass_imbalance_fraction_max", {})
+    mon = c.get("monitor_relative_change", {})
+    res = r.get("residual_convergence", {})
+    stable = c.get("stable_no_crash", {}).get("evidence") or ""
+    stable_zh = ("533 步无 FOAM FATAL / sigFPE，越过 T-004 崩溃点（T=260）273 步"
+                 if stable.startswith("533 steps") else e(stable))
+    rows = [
+        ("稳定不崩（越过 T-004 崩溃点）", "—", stable_zh,
+         bool(c.get("stable_no_crash", {}).get("met"))),
+        ("Δp 入带（贴下限）",
+         f'{num(band[0], 0)}–{num(band[1], 0)} Pa',
+         num(dp.get("value_Pa"), 2, " Pa"),
+         bool(dp.get("met"))),
+        ("质量不平衡（稳态段）", num(mass.get("screen"), 3),
+         sci(mass.get("value")), bool(mass.get("met"))),
+        ("监测量稳定（Δp 窗间相对变化）", num(mon.get("screen") * 100, 2, "%"),
+         num(mon.get("value") * 100, 4, "%"), bool(mon.get("met"))),
+        ("残差收敛（记录项）", sci(res.get("screen_target_residual_max")),
+         sci(res.get("residual_max_Ux")) + "（Ux 终值）",
+         bool(res.get("achieved"))),
+    ]
+    out = []
+    for name, screen, value, met in rows:
+        verdict = ('<span class="ok">过</span>' if met
+                   else '<span class="warn">未达（记录项）</span>')
+        out.append("<tr>" + cell(e(name)) + cell(e(screen))
+                   + cell(value) + cell(verdict) + "</tr>")
+    return "".join(out)
 
 
 def build_rows():
@@ -179,6 +268,7 @@ def sinus_cell(sin):
 
 def render(rows, feedback=None):
     feedback = feedback or load_feedback_audit()
+    m2 = load_m2_declaration()
     phantom = load_phantom_validation()
     now = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M")
     entry_sides = [s for r in rows if r.get("entry_schema") == "entry_plane_check/v2"
@@ -259,6 +349,38 @@ def render(rows, feedback=None):
                            + cell(num(summary['max_refinement_delta_mm'], 2, ' mm')
                                   + f"<br><span class=\"small muted\">{summary['compared_points']} 点可比较</span>")
                            + cell(f'<a href="/landmark-review/{e(r["case"])}/coarse_adjustment.json">坐标与搜索框</a>') + '</tr>')
+    if m2["status"] == "closure_declared":
+        crit = m2["criteria"]
+        m2_all_met = all(isinstance(v, dict) and v.get("met") for v in crit.values())
+        m2_class = "done" if m2_all_met else "block"
+        m2_title = "四条主判据全部满足" if m2_all_met else "存在未满足主判据"
+        cond = m2["condition"]
+        run = m2["run"]
+        m2_card = f"""
+<div class="card {m2_class}">
+<h2>③b 患者网格工程实证（T-006 Run 1，M2 双轨收口）：{m2_title}</h2>
+<p><span class="tag">链路验证</span>网格：{e(mesh_zh(cond.get("mesh")))}。工况：{num(cond.get("total_inspiratory_flow_lpm"), 0)} L/min {e(zh_or_raw(cond.get("flow_split")))} ＋ 鼻咽出口 {num((cond.get("nasopharynx_outlet") or {}).get("value_Pa"), 0)} Pa（gauge 静压，非 Δp）＋ {e(zh_or_raw(cond.get("turbulence_model")))}。执行方式：{e(zh_or_raw(run.get("execution_mode")))}，人工终止于 T=533（残差触底后缓升，核心判据已可判）。</p>
+<div class="table-scroll"><table>
+<tr><th>判据</th><th>屏值</th><th>Run 1 实测</th><th>判定</th></tr>
+{m2_criteria_rows(m2)}
+</table></div>
+<div class="small muted" style="margin-top:8px">
+残差收敛未达 → <code>numerical_validation: {e(m2["recorded"].get("numerical_validation"))}</code>（契约合法声明，不宣称收敛）；
+平台期候选成因 H1–H4 与 Δp 贴带下限的灵敏度，留给 M3 36 格矩阵判别。
+</div>
+<p class="small" style="margin-top:8px"><b>恒带标注</b>：<code>clinical_status: {e(m2["clinical_status"])}</code>——
+链路验证证据，<b>不得报告为患者分流结论</b>；契约有效患者 <code>cfd_result</code> 仍为 0（医学门 + solver adapter 未就绪）。<br>
+来源：<code>outputs/M2收口/m2_run_declaration.json</code>（用户 {e(m2["ruled_at"])} 裁定双轨收口）；
+过程说明 <code>outputs/M2收口/M2收口说明.md</code>；判据重议 <code>plan/M2出口判据重议.md</code>。</p>
+</div>
+"""
+    else:
+        m2_card = """
+<div class="card todo">
+<h2>③b 患者网格工程实证：未生成</h2>
+<p>未找到患者网格工程实证的机器可读声明；工作台不渲染任何患者试算数字。</p>
+</div>
+"""
     html_doc = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -298,7 +420,11 @@ border-radius:4px;padding:1px 7px;font-size:12px;margin-right:6px}}
 <div class="card" style="border-left:4px solid var(--acc)">
 <h2>项目主线已确定</h2>
 <p>本项目按“匿名 CT → 自动分割 → UAS 粗定位 → 本例 CT 精标定 → 可视人工检验 → 版本化几何 → CFD → 实际结果”推进。阶段一只做患者原始鼻腔建模和气流分析；结构修改、二次模拟和鼻塞设计留到后续阶段。</p>
-<p class="small" style="margin-top:8px">主线版本：2026-10-03 ｜ 下一项：让 p0 自动走到待复核，并将人工决定接到新几何。求解组件验证在等待复核期间推进。</p>
+<p class="small" style="margin-top:8px">主线版本：2026-10-14 ｜ 当前里程碑：<b>M3 验证矩阵与交付</b>。
+M1（体网格）与 M2（患者求解）已于 2026-10-14 按用户裁定的双轨收口；
+两道前置门已裁定：医学复核门选 B（先跑矩阵，产物恒标
+<code>generalisation_test_only_no_human_review</code>），solver adapter 门选 A（派卡 T-009 实现）。
+下一项：派发 T-009 / T-010，随后开 M3 36 格矩阵 Phase A（例0 先行）。</p>
 </div>
 
 <div class="card" id="coarse-localization">
@@ -337,15 +463,22 @@ border-radius:4px;padding:1px 7px;font-size:12px;margin-right:6px}}
 <p class="small muted" style="margin-top:8px">报告：<a href="/solver_reference/phantom_validation/validation.json"><code>solver_reference/phantom_validation/validation.json</code></a> ｜ 仅用于工程链路验收，不含患者结果</p>
 </div>
 
+{m2_card}
+
 <div class="card block">
-<h2>④ 拿到正式签字后仍然锁住的两项</h2>
+<h2>④ 医学复核进度与仍锁住的 gate</h2>
+<p>点位复核已完成：复核人王湧瑞 2026-10-07 对五例 ×5 点位给出 <b>25/25 accept</b>（记录于
+<code>state/状态.md</code> R11 与 <code>plan/主计划.md</code> M3-S1 节）。
+但点位正确 ≠ 契约门禁解锁——以下三项独立 gate 五例全 pending：</p>
 <ul>
 <li><b>口腔排除确认</b> —— 口咽/软腭那道屏障是否真的把口腔隔开了</li>
 <li><b>鼻窦边界策略确认</b> —— G_sinus 里鼻窦按什么口径保留</li>
+<li><b>最终几何确认</b> —— 进出口与壁面几何是否按复核版本定稿</li>
 </ul>
 <div class="small muted">
-5 个标点全部正确 ≠ 契约门禁解锁。这两项是独立于标点定位的判断，
-脚本默认 false，只有你确认后才置 true。
+三项 gate 脚本默认 false，只有复核人确认后才置 true。用户 2026-10-14 裁定（R11 选 B）：
+先跑 M3 矩阵做工程验证，产物恒标 <code>generalisation_test_only_no_human_review</code>，
+契约有效患者 <code>cfd_result</code> 保持 0 直到三项 gate 关闭。
 </div>
 </div>
 
@@ -377,6 +510,26 @@ MCA = 最小截面积，跳过入口 3 mm 后测得；亚洲成人声反射参�
 上颌窦通到 k=1（宽约 0.7–1.05 mm，候选开放），额窦仅 k=0（亚体素，不可判定）</li>
 <li><b>签字链路最后一公里</b> <code>work/lib/confirm_landmark_review.py</code> ——
 网页导出的决定 → 求解管线确认件，含哈希校验与门禁剩余项清单</li>
+<li><b>医学点位复核 25/25 accept</b>（2026-10-07，王湧瑞）——
+五例 ×5 点位全部接受；三项解剖 gate 仍 pending（见 ④）</li>
+<li><b>M1 体网格双轨收口</b>（2026-10-14 用户裁定）——
+患者 b15 网格已建成（maxh=1.0 修复版 1,161,194 cells）；出口主判据改为
+「求解不崩 + Δp 入 10–100 Pa 带 + 质量不平衡 ≤1e-4」，<code>Mesh OK</code> 降为记录项，
+<b>对外不得宣称 Mesh OK</b></li>
+<li><b>T-004 / T-006 患者网格求解实证</b>（2026-10-14）——
+同一网格唯一变量为数值设置：全项目模板（nNonOrthCorr 0 + p 无松弛）在 T=260
+<code>sigFPE</code> 崩（T-004，其「网格致命」判定受混淆变量污染）；
+改标定后 T-006 Run 1 <b>533 步无崩</b>、Δp <b>10.29 Pa 入带</b>（贴下限）、
+质量不平衡 7.2e-7、监测量窗间变化 0.0079%（见 ③b）</li>
+<li><b>M2 双轨收口 + T-008 契约口径</b>（2026-10-14）——
+用户裁定 A：四条主判据过、residualControl 收敛降记录项
+（<code>numerical_validation: unchecked</code>）；T-008 给契约补了两个诊断量取值口径，
+四个屏值逐位未动，39 项测试全过（commit <code>0674fb7</code>）</li>
+<li><b>换届接手与 WIP 处置</b>（2026-10-14 深夜，M3-S1）——
+推翻黑板旧记录（「并行会话 5 个改动文件」实为 10-11/12 无任务卡遗留）；
+4 个 commit 归档 WIP（网格缓存特性、CPU 亲和、连通性选择器、DICOM 扩展名）；
+按 G6 保护性例外快照入库 90 个未跟踪文件；<code>.gitignore</code> 补医疗数据目录漏洞。
+结论卡：<code>knowledge/20261014-nasal-cfd-M3-S1接手与WIP处置.md</code></li>
 </ul>
 </div>
 
@@ -384,14 +537,22 @@ MCA = 最小截面积，跳过入口 3 mm 后测得；亚洲成人声反射参�
 <h2>⑦ 还差什么</h2>
 <div class="table-scroll"><table>
 <tr><th>项</th><th>状态</th><th>卡在谁</th></tr>
-<tr><td>5 点人工复核落成文件</td><td class="bad">尚待正式审核记录</td><td>解剖审核</td></tr>
-<tr><td>口腔排除 / 鼻窦边界策略</td><td class="bad">未确认</td><td>你</td></tr>
+<tr><td>5 点人工复核</td><td class="ok">已 25/25 accept（2026-10-07，王湧瑞）</td><td>—</td></tr>
+<tr><td>口腔排除 / 鼻窦策略 / 最终几何（三项 gate）</td><td class="bad">五例全 pending（R11；已裁定先跑矩阵不阻塞工程验证）</td><td>复核人／你</td></tr>
+<tr><td>solver adapter 实现</td><td class="warn">契约 not_implemented → 已派 T-009（零 CPU）</td><td>我</td></tr>
+<tr><td>网格缓存 WIP 转正</td><td class="warn">已派 T-010（端到端验证 + 矩阵接线）</td><td>我</td></tr>
+<tr><td>M3 36 格验证矩阵（3 阈值 × 2 几何 × 3 网格 × 2 求解）</td><td class="warn">未跑；Phase A 例0 先行，CPU 独占车道以天计</td><td>我</td></tr>
+<tr><td>K2 量化对照报告</td><td class="bad">外部阻塞：需求方阈值裁定 + 人工金标准</td><td>需求方</td></tr>
 <tr><td>筛窦 / 蝶窦标签</td><td class="bad">TS 41 个 task 全无</td><td>人工标注</td></tr>
 <tr><td>窦口通道位置确认</td><td class="bad">未验证（可能绕经筛窦）</td><td>人工看图</td></tr>
 <tr><td>其余 4 例鼻窦推理</td><td class="warn">未跑</td><td>我（每例约 7 分钟）</td></tr>
-<tr><td>真实表面 → 体网格（E 段 S1/S2）</td><td class="warn">脚本已具备，患者未执行</td><td>待正式边界与体网格门禁</td></tr>
-<tr><td>网页三 layer（流速/压力/湍流）</td><td class="warn">参考算例已支持，患者待结果</td><td>患者 CFD 解锁后</td></tr>
+<tr><td>真实表面 → 体网格 → 试算</td><td class="warn">工程链已通（b15 网格 + T-006 实证，见 ③b）；契约有效结果仍为 0</td><td>三项 gate + adapter</td></tr>
+<tr><td>网页三 layer（流速/压力/湍流）</td><td class="warn">参考算例已支持，患者待契约解锁</td><td>医学门 / adapter</td></tr>
 </table></div>
+<div class="small muted" style="margin-top:8px">
+状态口径：契约有效患者 <code>cfd_result</code> = 0（医学门 + <code>solver_adapter</code> 未就绪）；
+③b 的工程实证数字恒带 <code>generalisation_test_only_no_human_review</code>，不计入患者结果。
+</div>
 </div>
 
 <div class="card">
@@ -402,7 +563,12 @@ MCA = 最小截面积，跳过入口 3 mm 后测得；亚洲成人声反射参�
 MCA 汇总 <code>work/05_ts_seg/MCA测量汇总.md</code> ｜
 鼻窦实测 <code>work/05_ts_seg/鼻窦标签与窦口连通性实测.md</code><br>
 E 段脚本规格 <code>work/脚本编写方案-E段自动化.md</code> ｜
-方案陈述 <code>work/方案陈述-鼻腔CFD空气域复核.md</code>
+方案陈述 <code>work/方案陈述-鼻腔CFD空气域复核.md</code><br>
+M2 收口 <code>outputs/M2收口/M2收口说明.md</code> ＋ <code>m2_run_declaration.json</code> ｜
+判据重议 <code>plan/M2出口判据重议.md</code><br>
+协作黑板 <code>plan/主计划.md</code>（M3-S1 排期）＋ <code>state/状态.md</code>（R11/R12 已裁定）｜
+契约 <code>work/lib/cfd_contract.py</code><br>
+结论卡 <code>knowledge/20261014-nasal-cfd-M3-S1接手与WIP处置.md</code>
 </div>
 </div>
 

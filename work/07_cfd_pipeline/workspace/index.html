@@ -88,16 +88,17 @@
         <section class="process-panel" id="panel-boundary" aria-label="边界草稿" hidden></section>
         <section class="process-panel validation-page" id="panel-validation" aria-label="计算验证" hidden>
           <div class="validation-inner">
-            <div class="validation-status"><span class="status-dot"></span><div><h3>患者计算条件尚未齐备</h3><p>正式解剖审核、口腔排除、鼻窦策略与边界几何仍待确认。</p></div><strong id="validation-result-count">患者流场：读取中</strong></div>
+            <div class="validation-status"><span class="status-dot"></span><div><h3>患者计算条件尚未齐备</h3><p>点位复核已 25/25 accept（2026-10-07）；口腔排除、鼻窦策略与最终几何三项 gate 仍待确认，solver adapter 实现中（T-009）——契约有效患者流场仍为 0。</p></div><strong id="validation-result-count">患者流场：读取中</strong></div>
             <section class="validation-band"><h3>患者计算准备</h3><table><thead><tr><th>流程</th><th>当前状态</th></tr></thead><tbody>
-              <tr><td>解剖与标定确认</td><td><a href="#review" data-workflow="review">待正式审核记录</a></td></tr>
+              <tr><td>解剖与标定确认</td><td><a href="#review" data-workflow="review">25/25 点位 accept（2026-10-07）；三项 gate 仍 pending</a></td></tr>
               <tr><td>人工意见</td><td><a href="#feedback" data-workflow="feedback" id="validation-feedback">待核对</a></td></tr>
-              <tr><td>口腔排除与鼻窦策略</td><td>待确认</td></tr>
-              <tr><td>入口、出口、壁面与体网格</td><td>患者几何尚未获批</td></tr>
-              <tr><td>网格敏感性、守恒与求解检查</td><td>患者未执行</td></tr>
-              <tr><td>患者流速、压力与湍流强度</td><td>暂无患者结果</td></tr>
+              <tr><td>口腔排除与鼻窦策略</td><td>待确认（R11，阻塞契约有效患者结果）</td></tr>
+              <tr><td>入口、出口、壁面与体网格</td><td>体网格已建成并试算（工程证据）；最终几何 gate pending，契约未获批</td></tr>
+              <tr><td>网格敏感性、守恒与求解检查</td><td>工程实证已执行（T-006，见下方患者试算）；M3 敏感性矩阵未跑</td></tr>
+              <tr><td>患者流速、压力与湍流强度</td><td>契约有效结果 0；工程实证数据不得报告为患者分流</td></tr>
             </tbody></table></section>
             <details class="validation-band"><summary>工程验证 · 圆管闭环 <span class="summary-state">严格压降检查未通过</span></summary><p id="phantom-state" role="status">正在读取验证报告…</p><div class="table-scroll"><table><thead><tr><th>网格尺度</th><th>计算压降</th><th>解析压降</th><th>相对误差</th><th>收敛</th></tr></thead><tbody id="phantom-levels"></tbody></table></div><div id="phantom-checks" class="check-list"></div><details><summary>原始验证报告</summary><pre id="phantom-report"></pre></details></details>
+            <details class="validation-band"><summary>工程验证 · 患者网格试算（T-006） <span class="summary-state">四条主判据满足 · 链路验证</span></summary><p id="patient-engineering-state" role="status">正在读取工程实证声明…</p><div class="table-scroll"><table><thead><tr><th>判据</th><th>屏值</th><th>Run 1 实测</th><th>判定</th></tr></thead><tbody id="patient-engineering-rows"></tbody></table></div><p class="muted">恒带标注 <code>clinical_status: generalisation_test_only_no_human_review</code>——链路验证，不得报告为患者分流结论。来源：<code>outputs/M2收口/m2_run_declaration.json</code>（2026-10-14 用户裁定 A 双轨收口）。</p></details>
             <details class="validation-band"><summary>工程验证 · 误差定位对照</summary><p id="diagnostic-state" role="status">正在读取独立对照…</p><div class="table-scroll"><table><thead><tr><th>对照</th><th>控制变化</th><th>细网格压降误差</th><th>管内压力梯度误差</th><th>网格检查</th></tr></thead><tbody id="diagnostic-rows"></tbody></table></div><p class="muted">这些运行只用于定位误差来源，严格验收仍以原始圆管闭环为准；不代表患者结果。</p></details>
 
             <details class="validation-band"><summary>标准参考结果</summary><p>圆管解析参考与平行板数值参考可在三维检查中查看。</p><a href="#geometry" data-workflow="geometry">查看参考模型</a><p class="muted">参考算例属于独立的非患者几何，不能替代患者结果或正式解剖审核。</p></details>

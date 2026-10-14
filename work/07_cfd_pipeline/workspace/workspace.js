@@ -219,6 +219,34 @@ async function loadDiagnostics() {
     $('diagnostic-state').textContent = '独立对照报告未读取，不能判断误差来源。';
   }
 }
+async function loadPatientEngineering() {
+  const rows = $('patient-engineering-rows');
+  try {
+    const data = await readJson('/m2_closure/declaration.json');
+    if (data.schema !== 'nasal_cfd_m2_engineering_closure/v1' || !data.primary_criteria) throw Error('工程实证声明格式无效');
+    const criteria = data.primary_criteria, recorded = data.recorded_items || {};
+    const res = recorded.residual_convergence || {};
+    const dp = criteria.delta_p_in_band_Pa || {};
+    const band = (dp.band_Pa || []).map(v => Number.isFinite(v) ? v : '—').join('–');
+    const num = (v, digits) => Number.isFinite(v) ? v.toFixed(digits) : '未获得';
+    const sci = (v, digits) => Number.isFinite(v) ? v.toExponential(digits) : '未获得';
+    const entries = [
+      ['稳定不崩', '—', '533 步无 FATAL/sigFPE，越过 T-004 崩溃点 273 步', criteria.stable_no_crash?.met === true],
+      ['Δp 入带（贴下限）', band + ' Pa', num(dp.value_Pa, 2) + ' Pa', dp.met === true],
+      ['质量不平衡（稳态段）', num(criteria.mass_imbalance_fraction_max?.screen, 3), sci(criteria.mass_imbalance_fraction_max?.value, 2), criteria.mass_imbalance_fraction_max?.met === true],
+      ['监测量稳定（Δp 窗间相对变化）', num((criteria.monitor_relative_change?.screen ?? 0) * 100, 2) + '%', num((criteria.monitor_relative_change?.value ?? 0) * 100, 4) + '%', criteria.monitor_relative_change?.met === true],
+      ['残差收敛（记录项）', sci(res.screen_target_residual_max, 1), sci(res.residual_max_Ux, 2) + '（Ux 终值）', res.achieved === true]
+    ];
+    for (const [name, screen, value, met] of entries) {
+      const row = document.createElement('tr');
+      [name, screen, value, met ? '过' : '未达'].forEach(text => {const cell = document.createElement('td'); cell.textContent = text; row.append(cell);});
+      rows.append(row);
+    }
+    $('patient-engineering-state').textContent = '患者网格（b15 maxh=1.0 修复版，1,161,194 cells）主工况 15 L/min 等分 + 出口 0 Pa + 层流：T-006 Run 1 人工终止于 T=533，四条主判据全部满足；残差收敛未达，numerical_validation=' + (recorded.numerical_validation || 'unchecked') + '。工程证据，不构成契约有效患者结果。';
+  } catch (error) {
+    $('patient-engineering-state').textContent = '工程实证声明未读取，不渲染任何患者试算数字。';
+  }
+}
 selectStep(location.hash.slice(1) || 'import');
-loadSummary(); loadValidation(); loadDiagnostics();
+loadSummary(); loadValidation(); loadDiagnostics(); loadPatientEngineering();
 renderOverview();

@@ -60,6 +60,8 @@ class Handler(SimpleHTTPRequestHandler):
         path=unquote(urlsplit(path).path)
         if path == '/progress/index.html':
             return str(PROGRESS)
+        if path == '/m2_closure/declaration.json':
+            return str(ROOT/'outputs'/'M2收口'/'m2_run_declaration.json')
         if path in ('/', '/index.html'):
             return str(BASE/'workspace'/'index.html')
         if path.startswith('/case-assets/'):
