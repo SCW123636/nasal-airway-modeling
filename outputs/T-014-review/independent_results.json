@@ -1,0 +1,268 @@
+{
+  "recorded_at": "2026-10-15T17:46:35.307497+08:00",
+  "identity": [
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py",
+      "expected": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+      "actual": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+      "matches_T013": true
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\auto_opening_pipeline.py",
+      "expected": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+      "actual": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+      "matches_T013": true
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py",
+      "expected": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+      "actual": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+      "matches_T013": true
+    },
+    {
+      "path": "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp",
+      "expected": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+      "actual": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+      "matches_T013": true
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json",
+      "expected": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+      "actual": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+      "matches_T013": true
+    }
+  ],
+  "parameter_chain": {
+    "plane_source": "automatic_proposal",
+    "human_review_store_used": false,
+    "clinical_status": "generalisation_test_only_no_human_review",
+    "source_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+    "search_origin": "reviewed",
+    "base_offset_mm": {
+      "nostril_L": 0.0,
+      "nostril_R": 0.0,
+      "nasopharynx_outlet": 0.0
+    },
+    "offset_from_reviewed_mm": {
+      "nostril_L": 0.0,
+      "nostril_R": 0.0,
+      "nasopharynx_outlet": 0.0
+    },
+    "entered_bisection": {
+      "nostril_L": false,
+      "nostril_R": false,
+      "nasopharynx_outlet": false
+    },
+    "seed_mode": "roi",
+    "admitted_needs_review": [],
+    "load_planes_with_or_without_allow_needs_review_identical": true,
+    "placed_zero_equals_frozen_landmark_and_T013_planes": true,
+    "outlet_passed_to_clip_and_flood": {
+      "normal_lps": [
+        -0.01707989877602829,
+        0.0004106188129102406,
+        0.9998540435733564
+      ],
+      "keep_positive": true,
+      "point_lps_mm": [
+        -11.516358289822167,
+        -158.33160182579724,
+        -666.2174786671997
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -23.675864160060883,
+          -168.30637979507446,
+          -669.2149786502123
+        ],
+        "max": [
+          0.9510661065578461,
+          -147.52514839172363,
+          -664.1649786680937
+        ]
+      }
+    },
+    "landmark_input_provenance": null,
+    "scope": "calls load_planes/search_base/build_placed only; actual p0 process report reused"
+  },
+  "independent_known_answer": {
+    "source": "independent_check.py literal points/faces and analytic negative-edge sets",
+    "points": [
+      [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      [
+        -1.0,
+        3.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        1.0
+      ],
+      [
+        -1.0,
+        20.0,
+        0.0
+      ],
+      [
+        -1.0,
+        23.0,
+        0.0
+      ],
+      [
+        0.0,
+        20.0,
+        1.0
+      ]
+    ],
+    "faces": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        4,
+        5
+      ]
+    ],
+    "spec": {
+      "point_lps_mm": [
+        0,
+        0,
+        0
+      ],
+      "normal_lps": [
+        1,
+        0,
+        0
+      ],
+      "keep_positive": true,
+      "roi_lps_mm": {
+        "min": [
+          -1.1,
+          -0.1,
+          -0.1
+        ],
+        "max": [
+          -0.9,
+          0.1,
+          0.1
+        ]
+      }
+    },
+    "expected": [
+      true,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "actual": [
+      true,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "production_note": {
+      "seed_mode": "roi",
+      "seed_vertices": 1,
+      "negative_components_reached": 1,
+      "selected_vertices": 2,
+      "selected_faces": 1,
+      "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+    },
+    "broader_seed_roi_expected": [
+      true,
+      true,
+      false,
+      true,
+      true,
+      false
+    ],
+    "broader_seed_roi_actual": [
+      true,
+      true,
+      false,
+      true,
+      true,
+      false
+    ],
+    "broader_seed_roi_note": {
+      "seed_mode": "roi",
+      "seed_vertices": 3,
+      "negative_components_reached": 2,
+      "selected_vertices": 4,
+      "selected_faces": 2,
+      "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+    },
+    "reverse_keep_side_error": "no negative-side seed inside the reviewed ROI",
+    "signed_tolerance_expected_and_actual": [
+      -1.0,
+      1.0,
+      0.0
+    ],
+    "passed": true
+  },
+  "existing_collision_artifact_recheck": {
+    "artifact_sha256": "aa18dbb81d7086aab906c0fb08f46297f2b4cd1c6e956f2d94ab7721a5d4f76c",
+    "triangles": 774,
+    "patch_counts": {
+      "nostril_L": 458,
+      "nostril_R": 316
+    },
+    "all_vertices_negative_triangles": 774,
+    "strict_straddling_triangles": 0,
+    "all_vertices_inside_roi_triangles": 0,
+    "recalculated_min_mm": -4.521841993711903,
+    "recalculated_max_mm": -0.35086036136400556,
+    "stored_signed_matches_production_definition": true,
+    "saved_spec_matches_actual_zero_offset_plane": true
+  },
+  "fingerprints_before": {
+    "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+    "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+    "D:\\项目\\鼻腔建模\\work\\lib\\auto_opening_pipeline.py": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+    "D:\\项目\\鼻腔建模\\work\\lib\\auto_anatomy_landmarks.py": "c800678b80ded10594a985262f0a9b7abba325a476dce2c8b7780e9f136a112a",
+    "D:\\项目\\鼻腔建模\\work\\lib\\nasal_pipeline.py": "f6907a25fbf1e47874bb888e6060a7d63bb04653dbe0057504759a56f9fa1aa9",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "C:\\ts_work\\batch27_opening\\p0.json": "6ff1114173c486e7b0d2665e108559d000cb3b487677315703fa69bbee7f4b75",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\start_fingerprints.json": "d685b5bf26445131bd301465843edce262c0524e23f8acc61210c2a212f103d7",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\real_cases_results.json": "2bf3fe14e523c7f8a82e7206715fa07c672c22b24b0e9eabc33d4210af0196cc",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\mask_scope_results.json": "74f4ebc0f68178a55517c2f48e29dccce879e11a2d08072c510230f266e4f1d1",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\synthetic_results.json": "569519290b562eefda56776b47232754d9c60723849d97e98bdd152694ee8b40",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\collision_nasopharynx_outlet.npz": "aa18dbb81d7086aab906c0fb08f46297f2b4cd1c6e956f2d94ab7721a5d4f76c",
+    "D:\\项目\\鼻腔建模\\outputs\\T-014-review\\independent_check.py": "8479169c1e6d5a1d344629ee309fe7739d0a5ea8ad245231b863ef58b30f632e"
+  },
+  "fingerprints_after": {
+    "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+    "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+    "D:\\项目\\鼻腔建模\\work\\lib\\auto_opening_pipeline.py": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+    "D:\\项目\\鼻腔建模\\work\\lib\\auto_anatomy_landmarks.py": "c800678b80ded10594a985262f0a9b7abba325a476dce2c8b7780e9f136a112a",
+    "D:\\项目\\鼻腔建模\\work\\lib\\nasal_pipeline.py": "f6907a25fbf1e47874bb888e6060a7d63bb04653dbe0057504759a56f9fa1aa9",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "C:\\ts_work\\batch27_opening\\p0.json": "6ff1114173c486e7b0d2665e108559d000cb3b487677315703fa69bbee7f4b75",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\start_fingerprints.json": "d685b5bf26445131bd301465843edce262c0524e23f8acc61210c2a212f103d7",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\real_cases_results.json": "2bf3fe14e523c7f8a82e7206715fa07c672c22b24b0e9eabc33d4210af0196cc",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\mask_scope_results.json": "74f4ebc0f68178a55517c2f48e29dccce879e11a2d08072c510230f266e4f1d1",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\synthetic_results.json": "569519290b562eefda56776b47232754d9c60723849d97e98bdd152694ee8b40",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\collision_nasopharynx_outlet.npz": "aa18dbb81d7086aab906c0fb08f46297f2b4cd1c6e956f2d94ab7721a5d4f76c",
+    "D:\\项目\\鼻腔建模\\outputs\\T-014-review\\independent_check.py": "8479169c1e6d5a1d344629ee309fe7739d0a5ea8ad245231b863ef58b30f632e"
+  },
+  "all_read_inputs_unchanged": true,
+  "full_patient_mesh_loaded": false,
+  "patient_flood_or_clipper_rerun": false,
+  "production_modified": false,
+  "anatomy_approved": false,
+  "task_status_assigned": false
+}
