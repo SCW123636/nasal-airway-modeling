@@ -1,0 +1,64 @@
+test_boundary_routes_are_explicit_and_local_only (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:24] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] "POST /api/cases/u_2678a250f6884f73/boundary-preview HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] "PUT /api/cases/u_2678a250f6884f73/boundary-mask HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] "POST /api/cases/u_2678a250f6884f73/boundary-review HTTP/1.1" 200 -
+ok
+test_create_upload_and_persist_private_files (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:24] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] "PUT /api/cases/u_bffd4c0eb39c450d/files/0 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] "GET /api/cases/u_bffd4c0eb39c450d HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:24] "GET /case-assets/u_bffd4c0eb39c450d/raw/000000.dcm HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:24] "GET /case-assets/u_bffd4c0eb39c450d/case.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:24] "GET /case-assets/u_bffd4c0eb39c450d/../raw/000000.dcm HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] "GET /case-assets/u_bffd4c0eb39c450d/test.json HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:24] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:24] "GET /case-assets/u_bffd4c0eb39c450d/../case.json HTTP/1.1" 404 -
+ok
+test_cross_origin_and_wrong_host_writes_are_rejected (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:25] "POST /api/cases HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:25] "POST /api/cases HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:25] "POST /api/cases HTTP/1.1" 201 -
+ok
+test_delete_case_removes_private_case_and_requires_local_origin (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:25] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:36:25] "DELETE /api/cases/u_974e9c5f045d4126 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:25] "GET /api/cases/u_974e9c5f045d4126 HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:25] "GET /api/cases HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:25] "DELETE /api/cases/u_974e9c5f045d4126 HTTP/1.1" 400 -
+ok
+test_delete_rejects_processing_case_and_invalid_id (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:26] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:36:26] "DELETE /api/cases/u_d1d3c7fefb734146 HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:26] "DELETE /api/cases/not-a-case HTTP/1.1" 404 -
+ok
+test_simulation_catalog_jobs_local_write_and_assets_are_explicit (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:26] "GET /api/simulation/catalog HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:26] "POST /api/simulation/jobs HTTP/1.1" 202 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] "GET /api/simulation/jobs/s_bc2a610a64434dea803d75ab HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] "GET /api/simulation/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] "POST /api/simulation/jobs HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] "POST /api/simulation/jobs HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:27] "GET /simulation-assets/s_bc2a610a64434dea803d75ab/job.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:27] "GET /simulation-assets/s_bc2a610a64434dea803d75ab/../job.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:27] "GET /simulation-assets/s_bc2a610a64434dea803d75ab/%2e%2e%2fjob.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:36:27] "GET /simulation-assets/s_bc2a610a64434dea803d75ab/worker.log HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] "GET /api/simulation/jobs/not-a-job HTTP/1.1" 404 -
+ok
+test_simulation_patient_run_reports_specific_rejection (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:27] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:36:27] "POST /api/simulation/jobs HTTP/1.1" 400 -
+ok
+test_start_and_review_fail_until_candidate_exists (test_ct_workspace_server.LocalHTTPTests) ... 127.0.0.1 - - [15/Oct/2026 16:36:28] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:36:28] "POST /api/cases/u_669550bfeedb47ce/start HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:28] "POST /api/cases/u_669550bfeedb47ce/review HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:28] "POST /api/cases/u_669550bfeedb47ce/regenerate HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:36:28] "GET /api/cases/not-a-case HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:28] "POST /api/cases/u_669550bfeedb47ce/unknown HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:36:28] "GET /health.json HTTP/1.1" 200 -
+ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 4.646s
+
+OK

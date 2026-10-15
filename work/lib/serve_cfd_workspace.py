@@ -11,6 +11,7 @@ import re
 
 from ct_case_pipeline import CaseManager, case_dir
 from medical_review import MedicalReviewStore
+from cfd_workspace_jobs import SimulationJobs
 
 ROOT=Path(__file__).resolve().parents[2]
 BASE=ROOT/'work'/'07_cfd_pipeline'
@@ -21,6 +22,7 @@ BOUNDARY_REVIEW=BASE/'workspace'/'boundary-review'
 CASE_ROOT=Path('C:/ts_work/project_cases')
 CASE_MANAGER=None
 MEDICAL_REVIEW=None
+SIMULATION_JOBS=None
 
 
 def json_bytes(value):
@@ -70,6 +72,13 @@ class Handler(SimpleHTTPRequestHandler):
         if path.startswith('/boundary-assets/'):
             asset = boundary_asset_path(path.lstrip('/'))
             return str(asset or BASE/'__not_found__')
+        if path.startswith('/simulation-assets/'):
+            parts = path.strip('/').split('/')
+            try:
+                asset = SIMULATION_JOBS.asset(parts[1], parts[2]) if len(parts) == 3 and SIMULATION_JOBS else None
+            except (ValueError, FileNotFoundError, KeyError):
+                asset = None
+            return str(asset or BASE/'__not_found__')
         if path.startswith('/landmark-review/'):
             base, relative = REVIEW, path[len('/landmark-review/'):]
         elif path.startswith('/boundary-review/'):
@@ -90,7 +99,16 @@ class Handler(SimpleHTTPRequestHandler):
         path = urlsplit(self.path).path
         try:
             if path == '/health.json':
-                self.reply({'service': 'nasal-cfd-local-workspace/v1', 'ct_import': True})
+                self.reply({'service': 'nasal-cfd-local-workspace/v1', 'ct_import': True,
+                            'simulation_jobs': SIMULATION_JOBS is not None})
+            elif path == '/api/simulation/catalog':
+                self.reply(SIMULATION_JOBS.catalog())
+            elif path == '/api/simulation/jobs':
+                self.reply({'jobs': SIMULATION_JOBS.list()})
+            elif re.fullmatch(r'/api/simulation/jobs/s_[0-9a-f]{24}', path):
+                self.reply(SIMULATION_JOBS.get(path.split('/')[-1]))
+            elif path.startswith('/api/simulation/'):
+                self.reply({'error': '计算接口不存在'}, 404)
             elif path == '/api/cases':
                 self.reply({'cases': CASE_MANAGER.list()})
             elif path == '/api/medical-review/catalog':
@@ -165,6 +183,9 @@ class Handler(SimpleHTTPRequestHandler):
             path = urlsplit(self.path).path
             payload = self.payload()
             self.check_local_write()
+            if path == '/api/simulation/jobs':
+                self.reply(SIMULATION_JOBS.start(payload), 202)
+                return
             if path == '/api/medical-review/export':
                 archive = MEDICAL_REVIEW.export_batch(payload.get('cases'), payload.get('stages'))
                 self.send_response(200)
@@ -253,7 +274,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main():
-    global CASE_MANAGER, CASE_ROOT, MEDICAL_REVIEW
+    global CASE_MANAGER, CASE_ROOT, MEDICAL_REVIEW, SIMULATION_JOBS
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port',type=int,default=8768)
     parser.add_argument('--open',action='store_true')
@@ -275,6 +296,7 @@ def main():
     CASE_ROOT=args.case_root.resolve()
     CASE_MANAGER=CaseManager(CASE_ROOT)
     MEDICAL_REVIEW=MedicalReviewStore(CASE_MANAGER, REVIEW)
+    SIMULATION_JOBS=SimulationJobs(CASE_MANAGER, REVIEW)
     print('Local workspace: '+url,flush=True)
     if args.open:webbrowser.open(url)
     server.serve_forever()

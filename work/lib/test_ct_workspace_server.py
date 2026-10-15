@@ -13,14 +13,18 @@ from unittest.mock import patch
 
 import serve_cfd_workspace as server
 from ct_case_pipeline import CaseManager
+from cfd_workspace_jobs import SimulationJobs
 
 
 class LocalHTTPTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='ct_http_')
         self.old_manager, self.old_root = server.CASE_MANAGER, server.CASE_ROOT
+        self.old_jobs = server.SIMULATION_JOBS
         server.CASE_ROOT = Path(self.temp.name)
         server.CASE_MANAGER = CaseManager(server.CASE_ROOT)
+        server.SIMULATION_JOBS = SimulationJobs(server.CASE_MANAGER, Path(self.temp.name) / 'reviews',
+                                               environment_probe=lambda: {'available': False, 'error': 'isolated HTTP test fixture', 'source': 'test'})
         self.server = ThreadingHTTPServer(('127.0.0.1', 0), partial(server.Handler, directory=str(server.BASE)))
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True);self.thread.start()
         self.url = f'http://127.0.0.1:{self.server.server_port}'
@@ -29,6 +33,7 @@ class LocalHTTPTests(unittest.TestCase):
         self.server.shutdown();self.thread.join();self.server.server_close()
         server.CASE_MANAGER.pool.shutdown(wait=True)
         server.CASE_MANAGER, server.CASE_ROOT = self.old_manager, self.old_root
+        server.SIMULATION_JOBS = self.old_jobs
         self.temp.cleanup()
 
     def call(self, path, payload=None, method='GET', headers=None):
@@ -119,6 +124,30 @@ class LocalHTTPTests(unittest.TestCase):
             self.assertEqual(status, 200)
             self.assertEqual(json.loads(body)['id'], case)
             save.assert_called_once_with(case, 'd_0123456789abcdef', {})
+
+    def test_simulation_catalog_jobs_local_write_and_assets_are_explicit(self):
+        status, body = self.call('/api/simulation/catalog')
+        self.assertEqual(status, 200)
+        self.assertEqual(json.loads(body)['schema'], 'nasal_simulation_catalog/v1')
+        payload = {'case_id': 'reference_channel', 'action': 'preflight', 'settings': {}}
+        with patch.object(server.SIMULATION_JOBS, '_spawn'):
+            status, body = self.call('/api/simulation/jobs', payload, 'POST')
+        self.assertEqual(status, 202)
+        created = json.loads(body)
+        self.assertEqual(self.call('/api/simulation/jobs/' + created['id'])[0], 200)
+        self.assertEqual(len(json.loads(self.call('/api/simulation/jobs')[1])['jobs']), 1)
+        for headers in ({'Origin': 'https://foreign.example'}, {'Host': 'foreign.example'}):
+            self.assertEqual(self.call('/api/simulation/jobs', payload, 'POST', headers)[0], 400)
+        for suffix in ('job.json', '../job.json', '%2e%2e%2fjob.json', 'worker.log'):
+            self.assertEqual(self.call('/simulation-assets/' + created['id'] + '/' + suffix)[0], 404)
+        self.assertEqual(self.call('/api/simulation/jobs/not-a-job')[0], 404)
+
+    def test_simulation_patient_run_reports_specific_rejection(self):
+        case = self.create()
+        status, body = self.call('/api/simulation/jobs', {'case_id': case, 'action': 'run_reference'}, 'POST')
+        self.assertEqual(status, 400)
+        self.assertIn('患者运行拒绝', json.loads(body)['error'])
+        self.assertIn('最终 CFD 表面', json.loads(body)['error'])
 
 
 if __name__ == '__main__':
