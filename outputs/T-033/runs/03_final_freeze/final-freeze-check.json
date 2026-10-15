@@ -1,0 +1,445 @@
+{
+  "created": "2026-10-15T19:53:48.441529+08:00",
+  "author_commit": "e6874b314b0b7edb05092847cf8a9985c7a06b6c",
+  "checks": [
+    {
+      "name": "direct_array_verification_passed",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "reviewed_source_still_same_D:\\项目\\鼻腔建模\\outputs\\T-032\\run_isolated_semantic.py",
+      "actual": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "expected": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "pass": true
+    },
+    {
+      "name": "reviewed_source_still_same_D:\\项目\\鼻腔建模\\outputs\\T-032\\inspect_lower_coverage.py",
+      "actual": "92759a6d8ed9fe50dd74bc0cfe2b4ed96f173a23a0a6504a6ca473f0e191173f",
+      "expected": "92759a6d8ed9fe50dd74bc0cfe2b4ed96f173a23a0a6504a6ca473f0e191173f",
+      "pass": true
+    },
+    {
+      "name": "reviewed_source_still_same_D:\\项目\\鼻腔建模\\outputs\\T-032\\review_no_crop_result.py",
+      "actual": "d97e828cf222a0a9e4f315d819bf1e108e9637639355a847945e4a9edf3dfd57",
+      "expected": "d97e828cf222a0a9e4f315d819bf1e108e9637639355a847945e4a9edf3dfd57",
+      "pass": true
+    },
+    {
+      "name": "reviewed_source_still_same_D:\\项目\\鼻腔建模\\outputs\\T-032\\runs\\01_lower_coverage\\coverage.json",
+      "actual": "969fbbc8b098ddc524e7ba526ba8883fe7f2df26d725bd16c7917c0428af77d6",
+      "expected": "969fbbc8b098ddc524e7ba526ba8883fe7f2df26d725bd16c7917c0428af77d6",
+      "pass": true
+    },
+    {
+      "name": "reviewed_source_still_same_D:\\项目\\鼻腔建模\\outputs\\T-032\\runs\\02_p2_no_crop_result\\exact_result_check.json",
+      "actual": "8c7f1e69b4784d7dd43b8e89a11f0854dd3e664813dea33d2427ca199f991746",
+      "expected": "8c7f1e69b4784d7dd43b8e89a11f0854dd3e664813dea33d2427ca199f991746",
+      "pass": true
+    },
+    {
+      "name": "reviewed_source_still_same_C:\\ts_work\\t032_hypopharynx\\01_p2_no_crop\\run_status.json",
+      "actual": "0bb70e81eacabac0b748cd038cd2b8e24c77abb700fbaf358f12cf15fdcb8436",
+      "expected": "0bb70e81eacabac0b748cd038cd2b8e24c77abb700fbaf358f12cf15fdcb8436",
+      "pass": true
+    },
+    {
+      "name": "frozen_text_outputs/T-032/.gitattributes",
+      "actual": "13037e1e8101fbfbbfa12502178dc09fd1d16e9b621c6409ff3882992dd04b93",
+      "expected": "13037e1e8101fbfbbfa12502178dc09fd1d16e9b621c6409ff3882992dd04b93",
+      "pass": true
+    },
+    {
+      "name": "frozen_text_outputs/T-032/.gitignore",
+      "actual": "6461fb568cb889551b95cc2e4f22819a06cb8c64599fff5f53c3e05be9d81eeb",
+      "expected": "6461fb568cb889551b95cc2e4f22819a06cb8c64599fff5f53c3e05be9d81eeb",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/capture_source_evidence.py",
+      "actual": "e35faf9dbb28e2c2b30e77e4c840fd1c435915a2fafcf83550fb031a3215fce5",
+      "expected": "e35faf9dbb28e2c2b30e77e4c840fd1c435915a2fafcf83550fb031a3215fce5",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/inspect_lower_coverage.py",
+      "actual": "92759a6d8ed9fe50dd74bc0cfe2b4ed96f173a23a0a6504a6ca473f0e191173f",
+      "expected": "92759a6d8ed9fe50dd74bc0cfe2b4ed96f173a23a0a6504a6ca473f0e191173f",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/known_answers.log",
+      "actual": "26a139d6cc662a1ac35fe8b72f8e8dea9f598d03add6335532e5fa12771e40ee",
+      "expected": "26a139d6cc662a1ac35fe8b72f8e8dea9f598d03add6335532e5fa12771e40ee",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/p2_no_crop_inference.log",
+      "actual": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "expected": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/resource_samples.jsonl",
+      "actual": "92090ce902ea32dc3118fc098f9562b445ed71a8476aee23483a43d70ea7d50e",
+      "expected": "92090ce902ea32dc3118fc098f9562b445ed71a8476aee23483a43d70ea7d50e",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/review_no_crop_result.py",
+      "actual": "d97e828cf222a0a9e4f315d819bf1e108e9637639355a847945e4a9edf3dfd57",
+      "expected": "d97e828cf222a0a9e4f315d819bf1e108e9637639355a847945e4a9edf3dfd57",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/run_isolated_semantic.py",
+      "actual": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "expected": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/runs/01_lower_coverage/coverage.json",
+      "actual": "969fbbc8b098ddc524e7ba526ba8883fe7f2df26d725bd16c7917c0428af77d6",
+      "expected": "969fbbc8b098ddc524e7ba526ba8883fe7f2df26d725bd16c7917c0428af77d6",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/runs/02_p2_no_crop_result/exact_result_check.json",
+      "actual": "8c7f1e69b4784d7dd43b8e89a11f0854dd3e664813dea33d2427ca199f991746",
+      "expected": "8c7f1e69b4784d7dd43b8e89a11f0854dd3e664813dea33d2427ca199f991746",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/runs/02_p2_no_crop_result/p2_no_crop_inference.log",
+      "actual": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "expected": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/runs/02_p2_no_crop_result/run_status.json",
+      "actual": "0bb70e81eacabac0b748cd038cd2b8e24c77abb700fbaf358f12cf15fdcb8436",
+      "expected": "0bb70e81eacabac0b748cd038cd2b8e24c77abb700fbaf358f12cf15fdcb8436",
+      "pass": true
+    },
+    {
+      "name": "frozen_text_outputs/T-032/sample_resources.ps1",
+      "actual": "739b8816df133d95d8abe5c24afb1f618337b3518290d56bcec9d6d3b41c14bb",
+      "expected": "739b8816df133d95d8abe5c24afb1f618337b3518290d56bcec9d6d3b41c14bb",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/source_evidence.json",
+      "actual": "e161de694dfe1cc8d4026348447124db924c60113095e8d7dd3a7689bd4bd29b",
+      "expected": "e161de694dfe1cc8d4026348447124db924c60113095e8d7dd3a7689bd4bd29b",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/source_evidence_v2.json",
+      "actual": "fdcd091ff8c3db092211f7b8e6a166ffbebbe4b0b3e6b3332c0f875b6c0dfe5c",
+      "expected": "fdcd091ff8c3db092211f7b8e6a166ffbebbe4b0b3e6b3332c0f875b6c0dfe5c",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes_outputs/T-032/test_t032_known_answers.py",
+      "actual": "105e27112c4ee18781bfcd5bacf263eaa631f2309be4b292932642fc7db7980d",
+      "expected": "105e27112c4ee18781bfcd5bacf263eaa631f2309be4b292932642fc7db7980d",
+      "pass": true
+    },
+    {
+      "name": "frozen_text_outputs/T-032/交付与缺口.md",
+      "actual": "841221dbe006e8a30686e605d34ad583399b71756c6ab4ddf600d56f9f6b9cc4",
+      "expected": "841221dbe006e8a30686e605d34ad583399b71756c6ab4ddf600d56f9f6b9cc4",
+      "pass": true
+    },
+    {
+      "name": "frozen_text_outputs/T-032/方法与试验依据.md",
+      "actual": "1e45073d4776584ff3f4395f154c68e82284fd2198403c71b49423e21fa652f7",
+      "expected": "1e45073d4776584ff3f4395f154c68e82284fd2198403c71b49423e21fa652f7",
+      "pass": true
+    },
+    {
+      "name": "installed_task_cfg_matches_run",
+      "actual": {
+        "resample": [
+          0.75,
+          0.75,
+          1.0
+        ],
+        "crop": [
+          "skull"
+        ],
+        "crop_model": null,
+        "crop_addon": [
+          10,
+          10,
+          10
+        ],
+        "robust_crop": false,
+        "cascade": null,
+        "remove_outside": null,
+        "remove_outside_dilation": null,
+        "remove_mask": null,
+        "modality": null,
+        "plans": null,
+        "model": "3d_fullres_high",
+        "folds": [
+          0
+        ],
+        "disallow_fast": true,
+        "commercial": false,
+        "task_id": 775,
+        "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring"
+      },
+      "expected": {
+        "resample": [
+          0.75,
+          0.75,
+          1.0
+        ],
+        "crop": [
+          "skull"
+        ],
+        "crop_model": null,
+        "crop_addon": [
+          10,
+          10,
+          10
+        ],
+        "robust_crop": false,
+        "cascade": null,
+        "remove_outside": null,
+        "remove_outside_dilation": null,
+        "remove_mask": null,
+        "modality": null,
+        "plans": null,
+        "model": "3d_fullres_high",
+        "folds": [
+          0
+        ],
+        "disallow_fast": false,
+        "commercial": false,
+        "task_id": 775,
+        "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring"
+      },
+      "pass": false
+    },
+    {
+      "name": "effective_task_cfg_task_id",
+      "actual": 775,
+      "expected": 775,
+      "pass": true
+    },
+    {
+      "name": "effective_task_cfg_trainer",
+      "actual": "nnUNetTrainer_DASegOrd0_NoMirroring",
+      "expected": "nnUNetTrainer_DASegOrd0_NoMirroring",
+      "pass": true
+    },
+    {
+      "name": "effective_task_cfg_model",
+      "actual": "3d_fullres_high",
+      "expected": "3d_fullres_high",
+      "pass": true
+    },
+    {
+      "name": "effective_task_cfg_resample",
+      "actual": [
+        0.75,
+        0.75,
+        1.0
+      ],
+      "expected": [
+        0.75,
+        0.75,
+        1.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "effective_task_cfg_folds",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "model_config_skull_crop",
+      "actual": [
+        "skull"
+      ],
+      "expected": [
+        "skull"
+      ],
+      "pass": true
+    },
+    {
+      "name": "isolated_effective_crop_none",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "report_scope_no_nonempty_hypopharynx",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "report_scope_no_absence_claim",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "report_scope_no_workbench_surface",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "report_scope_class12_not_hypopharynx",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "report_scope_scope_limited_to_p2",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "report_scope_CPU_monitor_limit_disclosed",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "raw_run_identity_unknown",
+      "actual": "unknown",
+      "expected": "unknown",
+      "pass": true
+    },
+    {
+      "name": "raw_run_CFD_not_admitted",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    }
+  ],
+  "snapshots": {
+    "outputs/T-032/.gitattributes": {
+      "frozen_sha256": "13037e1e8101fbfbbfa12502178dc09fd1d16e9b621c6409ff3882992dd04b93",
+      "disk_sha256": "13037e1e8101fbfbbfa12502178dc09fd1d16e9b621c6409ff3882992dd04b93",
+      "exact_bytes": true
+    },
+    "outputs/T-032/.gitignore": {
+      "frozen_sha256": "6461fb568cb889551b95cc2e4f22819a06cb8c64599fff5f53c3e05be9d81eeb",
+      "disk_sha256": "6461fb568cb889551b95cc2e4f22819a06cb8c64599fff5f53c3e05be9d81eeb",
+      "exact_bytes": true
+    },
+    "outputs/T-032/capture_source_evidence.py": {
+      "frozen_sha256": "e35faf9dbb28e2c2b30e77e4c840fd1c435915a2fafcf83550fb031a3215fce5",
+      "disk_sha256": "e35faf9dbb28e2c2b30e77e4c840fd1c435915a2fafcf83550fb031a3215fce5",
+      "exact_bytes": true
+    },
+    "outputs/T-032/inspect_lower_coverage.py": {
+      "frozen_sha256": "92759a6d8ed9fe50dd74bc0cfe2b4ed96f173a23a0a6504a6ca473f0e191173f",
+      "disk_sha256": "92759a6d8ed9fe50dd74bc0cfe2b4ed96f173a23a0a6504a6ca473f0e191173f",
+      "exact_bytes": true
+    },
+    "outputs/T-032/known_answers.log": {
+      "frozen_sha256": "26a139d6cc662a1ac35fe8b72f8e8dea9f598d03add6335532e5fa12771e40ee",
+      "disk_sha256": "26a139d6cc662a1ac35fe8b72f8e8dea9f598d03add6335532e5fa12771e40ee",
+      "exact_bytes": true
+    },
+    "outputs/T-032/p2_no_crop_inference.log": {
+      "frozen_sha256": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "disk_sha256": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "exact_bytes": true
+    },
+    "outputs/T-032/resource_samples.jsonl": {
+      "frozen_sha256": "92090ce902ea32dc3118fc098f9562b445ed71a8476aee23483a43d70ea7d50e",
+      "disk_sha256": "92090ce902ea32dc3118fc098f9562b445ed71a8476aee23483a43d70ea7d50e",
+      "exact_bytes": true
+    },
+    "outputs/T-032/review_no_crop_result.py": {
+      "frozen_sha256": "d97e828cf222a0a9e4f315d819bf1e108e9637639355a847945e4a9edf3dfd57",
+      "disk_sha256": "d97e828cf222a0a9e4f315d819bf1e108e9637639355a847945e4a9edf3dfd57",
+      "exact_bytes": true
+    },
+    "outputs/T-032/run_isolated_semantic.py": {
+      "frozen_sha256": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "disk_sha256": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "exact_bytes": true
+    },
+    "outputs/T-032/runs/01_lower_coverage/coverage.json": {
+      "frozen_sha256": "969fbbc8b098ddc524e7ba526ba8883fe7f2df26d725bd16c7917c0428af77d6",
+      "disk_sha256": "969fbbc8b098ddc524e7ba526ba8883fe7f2df26d725bd16c7917c0428af77d6",
+      "exact_bytes": true
+    },
+    "outputs/T-032/runs/02_p2_no_crop_result/exact_result_check.json": {
+      "frozen_sha256": "8c7f1e69b4784d7dd43b8e89a11f0854dd3e664813dea33d2427ca199f991746",
+      "disk_sha256": "8c7f1e69b4784d7dd43b8e89a11f0854dd3e664813dea33d2427ca199f991746",
+      "exact_bytes": true
+    },
+    "outputs/T-032/runs/02_p2_no_crop_result/p2_no_crop_inference.log": {
+      "frozen_sha256": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "disk_sha256": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "exact_bytes": true
+    },
+    "outputs/T-032/runs/02_p2_no_crop_result/run_status.json": {
+      "frozen_sha256": "0bb70e81eacabac0b748cd038cd2b8e24c77abb700fbaf358f12cf15fdcb8436",
+      "disk_sha256": "0bb70e81eacabac0b748cd038cd2b8e24c77abb700fbaf358f12cf15fdcb8436",
+      "exact_bytes": true
+    },
+    "outputs/T-032/sample_resources.ps1": {
+      "frozen_sha256": "739b8816df133d95d8abe5c24afb1f618337b3518290d56bcec9d6d3b41c14bb",
+      "disk_sha256": "739b8816df133d95d8abe5c24afb1f618337b3518290d56bcec9d6d3b41c14bb",
+      "exact_bytes": true
+    },
+    "outputs/T-032/source_evidence.json": {
+      "frozen_sha256": "e161de694dfe1cc8d4026348447124db924c60113095e8d7dd3a7689bd4bd29b",
+      "disk_sha256": "e161de694dfe1cc8d4026348447124db924c60113095e8d7dd3a7689bd4bd29b",
+      "exact_bytes": true
+    },
+    "outputs/T-032/source_evidence_v2.json": {
+      "frozen_sha256": "fdcd091ff8c3db092211f7b8e6a166ffbebbe4b0b3e6b3332c0f875b6c0dfe5c",
+      "disk_sha256": "fdcd091ff8c3db092211f7b8e6a166ffbebbe4b0b3e6b3332c0f875b6c0dfe5c",
+      "exact_bytes": true
+    },
+    "outputs/T-032/test_t032_known_answers.py": {
+      "frozen_sha256": "105e27112c4ee18781bfcd5bacf263eaa631f2309be4b292932642fc7db7980d",
+      "disk_sha256": "105e27112c4ee18781bfcd5bacf263eaa631f2309be4b292932642fc7db7980d",
+      "exact_bytes": true
+    },
+    "outputs/T-032/交付与缺口.md": {
+      "frozen_sha256": "841221dbe006e8a30686e605d34ad583399b71756c6ab4ddf600d56f9f6b9cc4",
+      "disk_sha256": "841221dbe006e8a30686e605d34ad583399b71756c6ab4ddf600d56f9f6b9cc4",
+      "exact_bytes": true
+    },
+    "outputs/T-032/方法与试验依据.md": {
+      "frozen_sha256": "1e45073d4776584ff3f4395f154c68e82284fd2198403c71b49423e21fa652f7",
+      "disk_sha256": "1e45073d4776584ff3f4395f154c68e82284fd2198403c71b49423e21fa652f7",
+      "exact_bytes": true
+    },
+    "author_preview_lower_MPR": {
+      "sha256": "a2f6e6eaff782ad9a6ba8a34b5e16d2e1ceed5f5c82db9d4387578f18024154f"
+    },
+    "author_preview_new_old": {
+      "sha256": "53407d23b3fbc4484188ceb70e9605ac424f08c1203f2f19c7989b83a4daa482"
+    },
+    "installed_config_source": {
+      "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\map_tasks_config.py",
+      "sha256": "e85b7e1d96484ebbaadadbe44a7436e7537157f701c85070188a39d798227478"
+    }
+  },
+  "summary": {
+    "checks": 42,
+    "failures": 1
+  }
+}

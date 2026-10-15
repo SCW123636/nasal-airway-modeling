@@ -1,0 +1,6357 @@
+{
+  "created": "2026-10-15T19:50:45.255153+08:00",
+  "role": "fresh independent verifier; read-only; no inference",
+  "checks": [
+    {
+      "name": "known_answer_class13_strict_lt_minus300",
+      "actual": [
+        [
+          [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "known_answer_empty_label",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "known_answer_shape_mismatch_rejected",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "known_answer_oblique_LPS_index_xyz",
+      "actual": [
+        4.0,
+        22.0,
+        42.0
+      ],
+      "expected": [
+        4.0,
+        22.0,
+        42.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "known_answer_bbox_xyz_not_numpy_zyx",
+      "actual": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "known_answer_bbox_LPS",
+      "actual": [
+        [
+          4.0,
+          22.0,
+          42.0
+        ],
+        [
+          4.0,
+          22.0,
+          42.0
+        ]
+      ],
+      "expected": [
+        [
+          4.0,
+          22.0,
+          42.0
+        ],
+        [
+          4.0,
+          22.0,
+          42.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "known_answer_voxel_count",
+      "actual": 1,
+      "expected": 1,
+      "pass": true
+    },
+    {
+      "name": "known_answer_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "copied_status_matches_raw",
+      "actual": {
+        "task": "T-032",
+        "created": "2026-10-15T19:40:06.307652+08:00",
+        "status": "diagnostic_completed",
+        "case": "p2",
+        "purpose": "Controlled no-skull-crop context contrast, not a production/anatomical claim",
+        "symptom_patient_mapping": "unknown",
+        "threshold_hu": -300.0,
+        "medical_review": "pending",
+        "cfd_admission": false,
+        "affinity_mask": 63,
+        "logical_core_cap": 6,
+        "known_answers": {
+          "strict_HU_threshold_known_answer": "pass",
+          "class13_not_class12": "pass",
+          "empty_is_empty": "pass",
+          "shape_rejected": "pass"
+        },
+        "preflight": {
+          "at": "2026-10-15T19:40:06.432698+08:00",
+          "jobs": [
+            {
+              "id": "s_942fdbebfffd433c8fcec956",
+              "status": "failed",
+              "stage": "failed"
+            },
+            {
+              "id": "s_45964544c6364c29bfd59216",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_1811f735241e4d75b5fdf10e",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_251c0b7d9d544e90ab1179ed",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_3a80ca3475e34bcdb2b80302",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_6b14b9614f674c92b8cbb4c1",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_9b849c25310344fba7ee7b83",
+              "status": "failed",
+              "stage": "failed"
+            },
+            {
+              "id": "s_af6c8ddfc3ea4806abb5d45b",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_4aa5ec068dd544b59ce0098b",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_c8356e3623fb49b9bfb06dc9",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_970bd197fb3b41d289170ceb",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_dc66b40a112c493d8b00c066",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_a39ea9ea86c34f04b2bb0ed6",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_7dc6eb58cad24de48d3da028",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_764aac081b2d40f790a4e7fa",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_e7795ff7a79b4fda9be67704",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_f54840c17c264fa89c9c0722",
+              "status": "completed",
+              "stage": "completed"
+            }
+          ],
+          "cases": [
+            {
+              "id": "u_fbca9137690e4837",
+              "status": "awaiting_review"
+            },
+            {
+              "id": "u_ccf06624879c403a",
+              "status": "awaiting_review"
+            },
+            {
+              "id": "u_b39e51153cda46d7",
+              "status": "awaiting_review"
+            },
+            {
+              "id": "u_74a998a9fd274288",
+              "status": "failed"
+            },
+            {
+              "id": "u_a3d2534c7d534b36",
+              "status": "failed"
+            },
+            {
+              "id": "u_531c98ca241b4232",
+              "status": "interrupted"
+            },
+            {
+              "id": "u_e41f17339e7a4ee5",
+              "status": "awaiting_review"
+            }
+          ],
+          "wsl_uptime": "19:40:06 up 0 min,  1 user,  load average: 0.00, 0.00, 0.00",
+          "wsl_compute_processes": []
+        },
+        "lock_acquired_at": "2026-10-15T19:40:06.599360+08:00",
+        "inputs": {
+          "ct": {
+            "path": "C:\\ts_work\\p2\\ct.nii.gz",
+            "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+          },
+          "installed_nnunet": {
+            "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\nnunet.py",
+            "sha256": "f1b40e66bbc43661dfac4f76f769dc82e7acbab957c9761694d8d607ed752cf5"
+          },
+          "dataset": {
+            "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\dataset.json",
+            "sha256": "db731804f24eeaf531097082f279319f333a296388918a2426483e30c647995d"
+          },
+          "plans": {
+            "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\plans.json",
+            "sha256": "cbb807f4af0fd5b8f0974e9fddeef08b9157c750d4133d98e69cbfb359789785"
+          },
+          "weights": {
+            "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\fold_0\\checkpoint_final.pth",
+            "sha256": "8d7a9ef4ff8455b9f0c2926fa11b507c05d83ebd016e64a772fec814271767ab"
+          },
+          "runner": {
+            "path": "D:\\项目\\鼻腔建模\\outputs\\T-032\\run_isolated_semantic.py",
+            "sha256": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6"
+          }
+        },
+        "installed_version": "2.18.0",
+        "installed_task_config": {
+          "resample": [
+            0.75,
+            0.75,
+            1.0
+          ],
+          "crop": [
+            "skull"
+          ],
+          "crop_model": null,
+          "crop_addon": [
+            10,
+            10,
+            10
+          ],
+          "robust_crop": false,
+          "cascade": null,
+          "remove_outside": null,
+          "remove_outside_dilation": null,
+          "remove_mask": null,
+          "modality": null,
+          "plans": null,
+          "model": "3d_fullres_high",
+          "folds": [
+            0
+          ],
+          "disallow_fast": false,
+          "commercial": false,
+          "task_id": 775,
+          "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring"
+        },
+        "inference_parameters": {
+          "task_id": 775,
+          "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring",
+          "model": "3d_fullres_high",
+          "folds": [
+            0
+          ],
+          "resample": [
+            0.75,
+            0.75,
+            1.0
+          ],
+          "crop": null,
+          "tta": false,
+          "resampling_order": 1,
+          "roi_subset": null,
+          "device": "cpu",
+          "nr_threads_resampling": 1,
+          "nr_threads_saving": 1,
+          "multilabel_image": true
+        },
+        "thread_cap_method": "6 logical core process affinity inherited by child processes; isolated multiprocessing.cpu_count returns 6 so TS torch.set_num_threads requests 6; BLAS environment 6",
+        "inference_started": "2026-10-15T19:40:17.444994+08:00",
+        "inference_ended": "2026-10-15T19:42:35.864051+08:00",
+        "label_counts": {
+          "0": 74165602,
+          "1": 94300,
+          "2": 93228,
+          "3": 1568,
+          "4": 1984,
+          "5": 3116,
+          "6": 2992,
+          "7": 48406,
+          "8": 60122,
+          "9": 804,
+          "11": 56848,
+          "12": 116506,
+          "14": 128824,
+          "15": 115048,
+          "16": 10468,
+          "17": 9112,
+          "18": 29160,
+          "19": 35096
+        },
+        "hypopharynx_semantic_voxels": 0,
+        "hypopharynx_air_voxels": 0,
+        "oropharynx_old_new_comparison": {
+          "old_voxels": 115878,
+          "new_voxels": 116506,
+          "symmetric_difference": 7936,
+          "intersection": 112224
+        },
+        "hypopharynx_old_new_comparison": {
+          "old_voxels": 0,
+          "new_voxels": 0,
+          "symmetric_difference": 0,
+          "intersection": 0
+        },
+        "output_sha256": {
+          "hypopharynx_air_candidate.nii.gz": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+          "hypopharynx_semantic.nii.gz": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+          "semantic_775_nocrop.nii.gz": "a26af331bdaf01edb721c0febeb14203c1aef077693334e8de2602042958eb14"
+        },
+        "input_fingerprints_unchanged": {
+          "ct": true,
+          "installed_nnunet": true,
+          "dataset": true,
+          "plans": true,
+          "weights": true,
+          "runner": true
+        }
+      },
+      "expected": {
+        "task": "T-032",
+        "created": "2026-10-15T19:40:06.307652+08:00",
+        "status": "diagnostic_completed",
+        "case": "p2",
+        "purpose": "Controlled no-skull-crop context contrast, not a production/anatomical claim",
+        "symptom_patient_mapping": "unknown",
+        "threshold_hu": -300.0,
+        "medical_review": "pending",
+        "cfd_admission": false,
+        "affinity_mask": 63,
+        "logical_core_cap": 6,
+        "known_answers": {
+          "strict_HU_threshold_known_answer": "pass",
+          "class13_not_class12": "pass",
+          "empty_is_empty": "pass",
+          "shape_rejected": "pass"
+        },
+        "preflight": {
+          "at": "2026-10-15T19:40:06.432698+08:00",
+          "jobs": [
+            {
+              "id": "s_942fdbebfffd433c8fcec956",
+              "status": "failed",
+              "stage": "failed"
+            },
+            {
+              "id": "s_45964544c6364c29bfd59216",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_1811f735241e4d75b5fdf10e",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_251c0b7d9d544e90ab1179ed",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_3a80ca3475e34bcdb2b80302",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_6b14b9614f674c92b8cbb4c1",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_9b849c25310344fba7ee7b83",
+              "status": "failed",
+              "stage": "failed"
+            },
+            {
+              "id": "s_af6c8ddfc3ea4806abb5d45b",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_4aa5ec068dd544b59ce0098b",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_c8356e3623fb49b9bfb06dc9",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_970bd197fb3b41d289170ceb",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_dc66b40a112c493d8b00c066",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_a39ea9ea86c34f04b2bb0ed6",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_7dc6eb58cad24de48d3da028",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_764aac081b2d40f790a4e7fa",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_e7795ff7a79b4fda9be67704",
+              "status": "completed",
+              "stage": "completed"
+            },
+            {
+              "id": "s_f54840c17c264fa89c9c0722",
+              "status": "completed",
+              "stage": "completed"
+            }
+          ],
+          "cases": [
+            {
+              "id": "u_fbca9137690e4837",
+              "status": "awaiting_review"
+            },
+            {
+              "id": "u_ccf06624879c403a",
+              "status": "awaiting_review"
+            },
+            {
+              "id": "u_b39e51153cda46d7",
+              "status": "awaiting_review"
+            },
+            {
+              "id": "u_74a998a9fd274288",
+              "status": "failed"
+            },
+            {
+              "id": "u_a3d2534c7d534b36",
+              "status": "failed"
+            },
+            {
+              "id": "u_531c98ca241b4232",
+              "status": "interrupted"
+            },
+            {
+              "id": "u_e41f17339e7a4ee5",
+              "status": "awaiting_review"
+            }
+          ],
+          "wsl_uptime": "19:40:06 up 0 min,  1 user,  load average: 0.00, 0.00, 0.00",
+          "wsl_compute_processes": []
+        },
+        "lock_acquired_at": "2026-10-15T19:40:06.599360+08:00",
+        "inputs": {
+          "ct": {
+            "path": "C:\\ts_work\\p2\\ct.nii.gz",
+            "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+          },
+          "installed_nnunet": {
+            "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\nnunet.py",
+            "sha256": "f1b40e66bbc43661dfac4f76f769dc82e7acbab957c9761694d8d607ed752cf5"
+          },
+          "dataset": {
+            "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\dataset.json",
+            "sha256": "db731804f24eeaf531097082f279319f333a296388918a2426483e30c647995d"
+          },
+          "plans": {
+            "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\plans.json",
+            "sha256": "cbb807f4af0fd5b8f0974e9fddeef08b9157c750d4133d98e69cbfb359789785"
+          },
+          "weights": {
+            "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\fold_0\\checkpoint_final.pth",
+            "sha256": "8d7a9ef4ff8455b9f0c2926fa11b507c05d83ebd016e64a772fec814271767ab"
+          },
+          "runner": {
+            "path": "D:\\项目\\鼻腔建模\\outputs\\T-032\\run_isolated_semantic.py",
+            "sha256": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6"
+          }
+        },
+        "installed_version": "2.18.0",
+        "installed_task_config": {
+          "resample": [
+            0.75,
+            0.75,
+            1.0
+          ],
+          "crop": [
+            "skull"
+          ],
+          "crop_model": null,
+          "crop_addon": [
+            10,
+            10,
+            10
+          ],
+          "robust_crop": false,
+          "cascade": null,
+          "remove_outside": null,
+          "remove_outside_dilation": null,
+          "remove_mask": null,
+          "modality": null,
+          "plans": null,
+          "model": "3d_fullres_high",
+          "folds": [
+            0
+          ],
+          "disallow_fast": false,
+          "commercial": false,
+          "task_id": 775,
+          "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring"
+        },
+        "inference_parameters": {
+          "task_id": 775,
+          "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring",
+          "model": "3d_fullres_high",
+          "folds": [
+            0
+          ],
+          "resample": [
+            0.75,
+            0.75,
+            1.0
+          ],
+          "crop": null,
+          "tta": false,
+          "resampling_order": 1,
+          "roi_subset": null,
+          "device": "cpu",
+          "nr_threads_resampling": 1,
+          "nr_threads_saving": 1,
+          "multilabel_image": true
+        },
+        "thread_cap_method": "6 logical core process affinity inherited by child processes; isolated multiprocessing.cpu_count returns 6 so TS torch.set_num_threads requests 6; BLAS environment 6",
+        "inference_started": "2026-10-15T19:40:17.444994+08:00",
+        "inference_ended": "2026-10-15T19:42:35.864051+08:00",
+        "label_counts": {
+          "0": 74165602,
+          "1": 94300,
+          "2": 93228,
+          "3": 1568,
+          "4": 1984,
+          "5": 3116,
+          "6": 2992,
+          "7": 48406,
+          "8": 60122,
+          "9": 804,
+          "11": 56848,
+          "12": 116506,
+          "14": 128824,
+          "15": 115048,
+          "16": 10468,
+          "17": 9112,
+          "18": 29160,
+          "19": 35096
+        },
+        "hypopharynx_semantic_voxels": 0,
+        "hypopharynx_air_voxels": 0,
+        "oropharynx_old_new_comparison": {
+          "old_voxels": 115878,
+          "new_voxels": 116506,
+          "symmetric_difference": 7936,
+          "intersection": 112224
+        },
+        "hypopharynx_old_new_comparison": {
+          "old_voxels": 0,
+          "new_voxels": 0,
+          "symmetric_difference": 0,
+          "intersection": 0
+        },
+        "output_sha256": {
+          "hypopharynx_air_candidate.nii.gz": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+          "hypopharynx_semantic.nii.gz": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+          "semantic_775_nocrop.nii.gz": "a26af331bdaf01edb721c0febeb14203c1aef077693334e8de2602042958eb14"
+        },
+        "input_fingerprints_unchanged": {
+          "ct": true,
+          "installed_nnunet": true,
+          "dataset": true,
+          "plans": true,
+          "weights": true,
+          "runner": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "name": "actual_run_status",
+      "actual": "diagnostic_completed",
+      "expected": "diagnostic_completed",
+      "pass": true
+    },
+    {
+      "name": "symptom_identity_unknown",
+      "actual": "unknown",
+      "expected": "unknown",
+      "pass": true
+    },
+    {
+      "name": "medical_review_pending",
+      "actual": "pending",
+      "expected": "pending",
+      "pass": true
+    },
+    {
+      "name": "CFD_not_admitted",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "input_fingerprint_ct",
+      "actual": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "expected": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "pass": true
+    },
+    {
+      "name": "input_fingerprint_installed_nnunet",
+      "actual": "f1b40e66bbc43661dfac4f76f769dc82e7acbab957c9761694d8d607ed752cf5",
+      "expected": "f1b40e66bbc43661dfac4f76f769dc82e7acbab957c9761694d8d607ed752cf5",
+      "pass": true
+    },
+    {
+      "name": "input_fingerprint_dataset",
+      "actual": "db731804f24eeaf531097082f279319f333a296388918a2426483e30c647995d",
+      "expected": "db731804f24eeaf531097082f279319f333a296388918a2426483e30c647995d",
+      "pass": true
+    },
+    {
+      "name": "input_fingerprint_plans",
+      "actual": "cbb807f4af0fd5b8f0974e9fddeef08b9157c750d4133d98e69cbfb359789785",
+      "expected": "cbb807f4af0fd5b8f0974e9fddeef08b9157c750d4133d98e69cbfb359789785",
+      "pass": true
+    },
+    {
+      "name": "input_fingerprint_weights",
+      "actual": "8d7a9ef4ff8455b9f0c2926fa11b507c05d83ebd016e64a772fec814271767ab",
+      "expected": "8d7a9ef4ff8455b9f0c2926fa11b507c05d83ebd016e64a772fec814271767ab",
+      "pass": true
+    },
+    {
+      "name": "input_fingerprint_runner",
+      "actual": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "expected": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+      "pass": true
+    },
+    {
+      "name": "raw_output_fingerprint_hypopharynx_air_candidate.nii.gz",
+      "actual": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+      "expected": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+      "pass": true
+    },
+    {
+      "name": "raw_output_fingerprint_hypopharynx_semantic.nii.gz",
+      "actual": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+      "expected": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+      "pass": true
+    },
+    {
+      "name": "raw_output_fingerprint_semantic_775_nocrop.nii.gz",
+      "actual": "a26af331bdaf01edb721c0febeb14203c1aef077693334e8de2602042958eb14",
+      "expected": "a26af331bdaf01edb721c0febeb14203c1aef077693334e8de2602042958eb14",
+      "pass": true
+    },
+    {
+      "name": "model_dataset_hypopharynx_class",
+      "actual": 13,
+      "expected": 13,
+      "pass": true
+    },
+    {
+      "name": "model_dataset_oropharynx_class",
+      "actual": 12,
+      "expected": 12,
+      "pass": true
+    },
+    {
+      "name": "installed_map_class13",
+      "actual": "hypopharynx",
+      "expected": "hypopharynx",
+      "pass": true
+    },
+    {
+      "name": "installed_map_class12",
+      "actual": "oropharynx",
+      "expected": "oropharynx",
+      "pass": true
+    },
+    {
+      "name": "exactly_one_model_call",
+      "actual": 1,
+      "expected": 1,
+      "pass": true
+    },
+    {
+      "name": "actual_model_task775",
+      "actual": 775,
+      "expected": 775,
+      "pass": true
+    },
+    {
+      "name": "actual_crop_none",
+      "actual": "None",
+      "expected": "None",
+      "pass": true
+    },
+    {
+      "name": "actual_task_name",
+      "actual": "head_glands_cavities",
+      "expected": "head_glands_cavities",
+      "pass": true
+    },
+    {
+      "name": "actual_output_task_name",
+      "actual": "head_glands_cavities",
+      "expected": "head_glands_cavities",
+      "pass": true
+    },
+    {
+      "name": "actual_no_roi_subset_keyword",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "installed_crop_guard_contains_crop_to_mask",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "old_command_includes_full_head_glands_task",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "old_log_created_hypopharynx",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "old_crop_kept_all286_z_slices",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "new_resampled_full512x512x286",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "new_log_no_skull_crop_message",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "new_log_completed_tiles",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "new_log_export_completed",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "copied_log_exact_bytes",
+      "actual": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "expected": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce",
+      "pass": true
+    },
+    {
+      "name": "raw_semantic_exact_original_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "all_actual_label_counts_match_status",
+      "actual": {
+        "0": 74165602,
+        "1": 94300,
+        "2": 93228,
+        "3": 1568,
+        "4": 1984,
+        "5": 3116,
+        "6": 2992,
+        "7": 48406,
+        "8": 60122,
+        "9": 804,
+        "11": 56848,
+        "12": 116506,
+        "14": 128824,
+        "15": 115048,
+        "16": 10468,
+        "17": 9112,
+        "18": 29160,
+        "19": 35096
+      },
+      "expected": {
+        "0": 74165602,
+        "1": 94300,
+        "2": 93228,
+        "3": 1568,
+        "4": 1984,
+        "5": 3116,
+        "6": 2992,
+        "7": 48406,
+        "8": 60122,
+        "9": 804,
+        "11": 56848,
+        "12": 116506,
+        "14": 128824,
+        "15": 115048,
+        "16": 10468,
+        "17": 9112,
+        "18": 29160,
+        "19": 35096
+      },
+      "pass": true
+    },
+    {
+      "name": "raw_class13_nonzero_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_semantic.nii.gz_exact_CT_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_semantic.nii.gz_raw_values_only_zero",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_semantic.nii.gz_exact_voxel_equality",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_air_candidate.nii.gz_exact_CT_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_air_candidate.nii.gz_raw_values_only_zero",
+      "actual": [
+        0
+      ],
+      "expected": [
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_air_candidate.nii.gz_exact_voxel_equality",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "oropharynx_old_grid_matches_CT",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "oropharynx_new_old_comparison",
+      "actual": {
+        "old_voxels": 115878,
+        "new_voxels": 116506,
+        "symmetric_difference": 7936,
+        "intersection": 112224
+      },
+      "expected": {
+        "old_voxels": 115878,
+        "new_voxels": 116506,
+        "symmetric_difference": 7936,
+        "intersection": 112224
+      },
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_old_grid_matches_CT",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "hypopharynx_new_old_comparison",
+      "actual": {
+        "old_voxels": 0,
+        "new_voxels": 0,
+        "symmetric_difference": 0,
+        "intersection": 0
+      },
+      "expected": {
+        "old_voxels": 0,
+        "new_voxels": 0,
+        "symmetric_difference": 0,
+        "intersection": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p0\\ct.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p0\\ct.nii.gz",
+      "actual": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648",
+      "expected": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p0\\masks\\nasal_cavity_left.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p0\\masks\\nasal_cavity_left.nii.gz",
+      "actual": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72",
+      "expected": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p0\\masks\\nasal_cavity_right.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p0\\masks\\nasal_cavity_right.nii.gz",
+      "actual": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38",
+      "expected": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p0\\masks\\nasopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p0\\masks\\nasopharynx.nii.gz",
+      "actual": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7",
+      "expected": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p0\\masks\\oropharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p0\\masks\\oropharynx.nii.gz",
+      "actual": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+      "expected": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p0\\masks\\hypopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p0\\masks\\hypopharynx.nii.gz",
+      "actual": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "expected": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p0\\masks\\larynx_air.nii.gz",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p1\\ct.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p1\\ct.nii.gz",
+      "actual": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032",
+      "expected": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p1\\masks\\nasal_cavity_left.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p1\\masks\\nasal_cavity_left.nii.gz",
+      "actual": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612",
+      "expected": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p1\\masks\\nasal_cavity_right.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p1\\masks\\nasal_cavity_right.nii.gz",
+      "actual": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d",
+      "expected": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p1\\masks\\nasopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p1\\masks\\nasopharynx.nii.gz",
+      "actual": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8",
+      "expected": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p1\\masks\\oropharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p1\\masks\\oropharynx.nii.gz",
+      "actual": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065",
+      "expected": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p1\\masks\\hypopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p1\\masks\\hypopharynx.nii.gz",
+      "actual": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "expected": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p1\\masks\\larynx_air.nii.gz",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p2\\ct.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p2\\ct.nii.gz",
+      "actual": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "expected": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p2\\masks\\nasal_cavity_left.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p2\\masks\\nasal_cavity_left.nii.gz",
+      "actual": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e",
+      "expected": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p2\\masks\\nasal_cavity_right.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p2\\masks\\nasal_cavity_right.nii.gz",
+      "actual": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c",
+      "expected": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p2\\masks\\nasopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p2\\masks\\nasopharynx.nii.gz",
+      "actual": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996",
+      "expected": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p2\\masks\\oropharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p2\\masks\\oropharynx.nii.gz",
+      "actual": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2",
+      "expected": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p2\\masks\\hypopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p2\\masks\\hypopharynx.nii.gz",
+      "actual": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+      "expected": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p2\\masks\\larynx_air.nii.gz",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3\\ct.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3\\ct.nii.gz",
+      "actual": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4",
+      "expected": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3\\masks\\nasal_cavity_left.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3\\masks\\nasal_cavity_left.nii.gz",
+      "actual": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b",
+      "expected": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3\\masks\\nasal_cavity_right.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3\\masks\\nasal_cavity_right.nii.gz",
+      "actual": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261",
+      "expected": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3\\masks\\nasopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3\\masks\\nasopharynx.nii.gz",
+      "actual": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec",
+      "expected": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3\\masks\\oropharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3\\masks\\oropharynx.nii.gz",
+      "actual": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064",
+      "expected": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3\\masks\\hypopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3\\masks\\hypopharynx.nii.gz",
+      "actual": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "expected": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3\\masks\\larynx_air.nii.gz",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3t1\\ct.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3t1\\ct.nii.gz",
+      "actual": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2",
+      "expected": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3t1\\masks\\nasal_cavity_left.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3t1\\masks\\nasal_cavity_left.nii.gz",
+      "actual": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec",
+      "expected": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3t1\\masks\\nasal_cavity_right.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3t1\\masks\\nasal_cavity_right.nii.gz",
+      "actual": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7",
+      "expected": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3t1\\masks\\nasopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3t1\\masks\\nasopharynx.nii.gz",
+      "actual": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7",
+      "expected": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3t1\\masks\\oropharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3t1\\masks\\oropharynx.nii.gz",
+      "actual": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696",
+      "expected": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3t1\\masks\\hypopharynx.nii.gz",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "original_hash_C:\\ts_work\\p3t1\\masks\\hypopharynx.nii.gz",
+      "actual": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "expected": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "pass": true
+    },
+    {
+      "name": "original_exists_C:\\ts_work\\p3t1\\masks\\larynx_air.nii.gz",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "workbench_case_still_p3",
+      "actual": "p3",
+      "expected": "p3",
+      "pass": true
+    },
+    {
+      "name": "workbench_medical_not_reviewed",
+      "actual": "not_reviewed",
+      "expected": "not_reviewed",
+      "pass": true
+    },
+    {
+      "name": "workbench_outlet_not_selected",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "workbench_CFD_not_admitted",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "workbench_asset_hash_baseline.vertices.bin",
+      "actual": "a7195bcca703acc72437bdca772f0f3f54b935158c5bbe10394158c14e0eea01",
+      "expected": "a7195bcca703acc72437bdca772f0f3f54b935158c5bbe10394158c14e0eea01",
+      "pass": true
+    },
+    {
+      "name": "workbench_asset_hash_baseline.triangles.bin",
+      "actual": "345a37a6bed0b2776ec8bccb07c64a73c76bf9bba4d9993c12e35b4a6a9da6e5",
+      "expected": "345a37a6bed0b2776ec8bccb07c64a73c76bf9bba4d9993c12e35b4a6a9da6e5",
+      "pass": true
+    },
+    {
+      "name": "workbench_asset_hash_added.vertices.bin",
+      "actual": "07fb7ee6393a2a03fcbdabe9b96c1bcfe5d98ace534040bd45bc8a3f968db2dd",
+      "expected": "07fb7ee6393a2a03fcbdabe9b96c1bcfe5d98ace534040bd45bc8a3f968db2dd",
+      "pass": true
+    },
+    {
+      "name": "workbench_asset_hash_added.triangles.bin",
+      "actual": "de121595e63d4336090a54ccf8a651a3e47c652d4db3da4e56a4d63f6e3221c3",
+      "expected": "de121595e63d4336090a54ccf8a651a3e47c652d4db3da4e56a4d63f6e3221c3",
+      "pass": true
+    },
+    {
+      "name": "workbench_asset_hash_ct-comparison.png",
+      "actual": "d254c92256351f7de1c6c4b28c4bedb2f531654d56165512543b1cb7cfef9886",
+      "expected": "d254c92256351f7de1c6c4b28c4bedb2f531654d56165512543b1cb7cfef9886",
+      "pass": true
+    },
+    {
+      "name": "p0_coverage_geometry",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p0_identity_LPS_direction",
+      "actual": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "expected": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "p0_outer_bounds_LPS",
+      "actual": [
+        [
+          -96.6669919937849,
+          -261.5748289078474,
+          -703.9649780243635
+        ],
+        [
+          82.33280964195728,
+          -82.57502727210522,
+          -566.0649803727865
+        ]
+      ],
+      "expected": [
+        [
+          -96.6669919937849,
+          -261.5748289078474,
+          -703.9649780243635
+        ],
+        [
+          82.33280964195728,
+          -82.57502727210522,
+          -566.0649803727865
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p0_oropharynx_hash",
+      "actual": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+      "expected": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+      "pass": true
+    },
+    {
+      "name": "p0_oropharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p0_oropharynx_voxels",
+      "actual": 148837,
+      "expected": 148837,
+      "pass": true
+    },
+    {
+      "name": "p0_oropharynx_bbox_xyz",
+      "actual": [
+        [
+          214,
+          272,
+          0
+        ],
+        [
+          293,
+          340,
+          107
+        ]
+      ],
+      "expected": [
+        [
+          214,
+          272,
+          0
+        ],
+        [
+          293,
+          340,
+          107
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p0_oropharynx_bbox_LPS",
+      "actual": [
+        [
+          -21.675864160060883,
+          -166.30637979507446,
+          -703.7899780273438
+        ],
+        [
+          5.943245857954025,
+          -142.53296864032745,
+          -666.3399786651134
+        ]
+      ],
+      "expected": [
+        [
+          -21.675864160060883,
+          -166.30637979507446,
+          -703.7899780273438
+        ],
+        [
+          5.943245857954025,
+          -142.53296864032745,
+          -666.3399786651134
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p0_oropharynx_inferior_face",
+      "actual": 2236,
+      "expected": 2236,
+      "pass": true
+    },
+    {
+      "name": "p0_hypopharynx_hash",
+      "actual": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "expected": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "pass": true
+    },
+    {
+      "name": "p0_hypopharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p0_hypopharynx_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p0_hypopharynx_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p0_soft_palate_hash",
+      "actual": "423b75845dd1f5a0f7b5741b0d2d5c87e7f7ec87dd2324d47c421e92a3b52a74",
+      "expected": "423b75845dd1f5a0f7b5741b0d2d5c87e7f7ec87dd2324d47c421e92a3b52a74",
+      "pass": true
+    },
+    {
+      "name": "p0_soft_palate_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p0_soft_palate_voxels",
+      "actual": 67606,
+      "expected": 67606,
+      "pass": true
+    },
+    {
+      "name": "p0_soft_palate_bbox_xyz",
+      "actual": [
+        [
+          210,
+          239,
+          36
+        ],
+        [
+          273,
+          309,
+          107
+        ]
+      ],
+      "expected": [
+        [
+          210,
+          239,
+          36
+        ],
+        [
+          273,
+          309,
+          107
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p0_soft_palate_bbox_LPS",
+      "actual": [
+        [
+          -23.07430011034012,
+          -177.84347638487816,
+          -691.1899782419205
+        ],
+        [
+          -1.048933893442154,
+          -153.37084725499153,
+          -666.3399786651134
+        ]
+      ],
+      "expected": [
+        [
+          -23.07430011034012,
+          -177.84347638487816,
+          -691.1899782419205
+        ],
+        [
+          -1.048933893442154,
+          -153.37084725499153,
+          -666.3399786651134
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p0_soft_palate_inferior_face",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_left_hash",
+      "actual": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "expected": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_left_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_left_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_left_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_right_hash",
+      "actual": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "expected": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_right_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_right_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p0_submandibular_gland_right_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p0_display_plane_indices",
+      "actual": {
+        "sagittal_x": 249,
+        "coronal_y": 314,
+        "axial_z": 0
+      },
+      "expected": {
+        "sagittal_x": 249,
+        "coronal_y": 314,
+        "axial_z": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1_coverage_geometry",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p1_identity_LPS_direction",
+      "actual": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "expected": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "p1_outer_bounds_LPS",
+      "actual": [
+        [
+          -96.25,
+          -120.42753601074219,
+          138.92934569716454
+        ],
+        [
+          81.75,
+          57.57246398925781,
+          247.72934731841087
+        ]
+      ],
+      "expected": [
+        [
+          -96.25,
+          -120.42753601074219,
+          138.92934569716454
+        ],
+        [
+          81.75,
+          57.57246398925781,
+          247.72934731841087
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p1_oropharynx_hash",
+      "actual": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065",
+      "expected": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065",
+      "pass": true
+    },
+    {
+      "name": "p1_oropharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p1_oropharynx_voxels",
+      "actual": 34419,
+      "expected": 34419,
+      "pass": true
+    },
+    {
+      "name": "p1_oropharynx_bbox_xyz",
+      "actual": [
+        [
+          238,
+          292,
+          0
+        ],
+        [
+          295,
+          377,
+          26
+        ]
+      ],
+      "expected": [
+        [
+          238,
+          292,
+          0
+        ],
+        [
+          295,
+          377,
+          26
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p1_oropharynx_bbox_LPS",
+      "actual": [
+        [
+          -13.333984375,
+          -18.738082885742188,
+          139.329345703125
+        ],
+        [
+          6.482421875,
+          10.812698364257812,
+          160.12934601306915
+        ]
+      ],
+      "expected": [
+        [
+          -13.333984375,
+          -18.738082885742188,
+          139.329345703125
+        ],
+        [
+          6.482421875,
+          10.812698364257812,
+          160.12934601306915
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p1_oropharynx_inferior_face",
+      "actual": 1418,
+      "expected": 1418,
+      "pass": true
+    },
+    {
+      "name": "p1_hypopharynx_hash",
+      "actual": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "expected": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "pass": true
+    },
+    {
+      "name": "p1_hypopharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p1_hypopharynx_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p1_hypopharynx_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p1_soft_palate_hash",
+      "actual": "ebc65dd72e0f7ce59bd8c9ea37363a08b32ea851a02ef899e446d9cef27267aa",
+      "expected": "ebc65dd72e0f7ce59bd8c9ea37363a08b32ea851a02ef899e446d9cef27267aa",
+      "pass": true
+    },
+    {
+      "name": "p1_soft_palate_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p1_soft_palate_voxels",
+      "actual": 22157,
+      "expected": 22157,
+      "pass": true
+    },
+    {
+      "name": "p1_soft_palate_bbox_xyz",
+      "actual": [
+        [
+          238,
+          268,
+          0
+        ],
+        [
+          293,
+          338,
+          21
+        ]
+      ],
+      "expected": [
+        [
+          238,
+          268,
+          0
+        ],
+        [
+          293,
+          338,
+          21
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p1_soft_palate_bbox_LPS",
+      "actual": [
+        [
+          -13.333984375,
+          -27.081832885742188,
+          139.329345703125
+        ],
+        [
+          5.787109375,
+          -2.7458953857421875,
+          156.1293459534645
+        ]
+      ],
+      "expected": [
+        [
+          -13.333984375,
+          -27.081832885742188,
+          139.329345703125
+        ],
+        [
+          5.787109375,
+          -2.7458953857421875,
+          156.1293459534645
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p1_soft_palate_inferior_face",
+      "actual": 40,
+      "expected": 40,
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_left_hash",
+      "actual": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "expected": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_left_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_left_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_left_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_right_hash",
+      "actual": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "expected": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_right_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_right_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p1_submandibular_gland_right_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p1_display_plane_indices",
+      "actual": {
+        "sagittal_x": 266,
+        "coronal_y": 343,
+        "axial_z": 0
+      },
+      "expected": {
+        "sagittal_x": 266,
+        "coronal_y": 343,
+        "axial_z": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2_coverage_geometry",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p2_identity_LPS_direction",
+      "actual": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "expected": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_outer_bounds_LPS",
+      "actual": [
+        [
+          -117.5,
+          -271.5,
+          -650.75
+        ],
+        [
+          117.5,
+          -36.5,
+          -507.75
+        ]
+      ],
+      "expected": [
+        [
+          -117.5,
+          -271.5,
+          -650.75
+        ],
+        [
+          117.5,
+          -36.5,
+          -507.75
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_oropharynx_hash",
+      "actual": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2",
+      "expected": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2",
+      "pass": true
+    },
+    {
+      "name": "p2_oropharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p2_oropharynx_voxels",
+      "actual": 115878,
+      "expected": 115878,
+      "pass": true
+    },
+    {
+      "name": "p2_oropharynx_bbox_xyz",
+      "actual": [
+        [
+          239,
+          220,
+          0
+        ],
+        [
+          307,
+          277,
+          87
+        ]
+      ],
+      "expected": [
+        [
+          239,
+          220,
+          0
+        ],
+        [
+          307,
+          277,
+          87
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_oropharynx_bbox_LPS",
+      "actual": [
+        [
+          -7.5732421875,
+          -170.2939453125,
+          -650.5
+        ],
+        [
+          23.6376953125,
+          -144.1318359375,
+          -607.0
+        ]
+      ],
+      "expected": [
+        [
+          -7.5732421875,
+          -170.2939453125,
+          -650.5
+        ],
+        [
+          23.6376953125,
+          -144.1318359375,
+          -607.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_oropharynx_inferior_face",
+      "actual": 1068,
+      "expected": 1068,
+      "pass": true
+    },
+    {
+      "name": "p2_hypopharynx_hash",
+      "actual": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+      "expected": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+      "pass": true
+    },
+    {
+      "name": "p2_hypopharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p2_hypopharynx_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p2_hypopharynx_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p2_soft_palate_hash",
+      "actual": "f35b02438caa46c92899e554a289a1764fcb33c93c9e23ebbf3daccf49698e16",
+      "expected": "f35b02438caa46c92899e554a289a1764fcb33c93c9e23ebbf3daccf49698e16",
+      "pass": true
+    },
+    {
+      "name": "p2_soft_palate_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p2_soft_palate_voxels",
+      "actual": 29148,
+      "expected": 29148,
+      "pass": true
+    },
+    {
+      "name": "p2_soft_palate_bbox_xyz",
+      "actual": [
+        [
+          251,
+          203,
+          36
+        ],
+        [
+          300,
+          251,
+          81
+        ]
+      ],
+      "expected": [
+        [
+          251,
+          203,
+          36
+        ],
+        [
+          300,
+          251,
+          81
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_soft_palate_bbox_LPS",
+      "actual": [
+        [
+          -2.0654296875,
+          -178.0966796875,
+          -632.5
+        ],
+        [
+          20.4248046875,
+          -156.0654296875,
+          -610.0
+        ]
+      ],
+      "expected": [
+        [
+          -2.0654296875,
+          -178.0966796875,
+          -632.5
+        ],
+        [
+          20.4248046875,
+          -156.0654296875,
+          -610.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_soft_palate_inferior_face",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_left_hash",
+      "actual": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+      "expected": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_left_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_left_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_left_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_right_hash",
+      "actual": "8fcddb0c9d878adb23d17e3860104f6878255adc0b1f97375f81e3e6bee74387",
+      "expected": "8fcddb0c9d878adb23d17e3860104f6878255adc0b1f97375f81e3e6bee74387",
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_right_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_right_voxels",
+      "actual": 966,
+      "expected": 966,
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_right_bbox_xyz",
+      "actual": [
+        [
+          190,
+          228,
+          0
+        ],
+        [
+          207,
+          250,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          190,
+          228,
+          0
+        ],
+        [
+          207,
+          250,
+          3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_right_bbox_LPS",
+      "actual": [
+        [
+          -30.0634765625,
+          -166.6220703125,
+          -650.5
+        ],
+        [
+          -22.2607421875,
+          -156.5244140625,
+          -649.0
+        ]
+      ],
+      "expected": [
+        [
+          -30.0634765625,
+          -166.6220703125,
+          -650.5
+        ],
+        [
+          -22.2607421875,
+          -156.5244140625,
+          -649.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2_submandibular_gland_right_inferior_face",
+      "actual": 282,
+      "expected": 282,
+      "pass": true
+    },
+    {
+      "name": "p2_display_plane_indices",
+      "actual": {
+        "sagittal_x": 273,
+        "coronal_y": 258,
+        "axial_z": 0
+      },
+      "expected": {
+        "sagittal_x": 273,
+        "coronal_y": 258,
+        "axial_z": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3_coverage_geometry",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3_identity_LPS_direction",
+      "actual": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "expected": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3_outer_bounds_LPS",
+      "actual": [
+        [
+          -94.0,
+          -148.89193725585938,
+          280.99040526151657
+        ],
+        [
+          94.0,
+          39.108062744140625,
+          392.59040969610214
+        ]
+      ],
+      "expected": [
+        [
+          -94.0,
+          -148.89193725585938,
+          280.99040526151657
+        ],
+        [
+          94.0,
+          39.108062744140625,
+          392.59040969610214
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3_oropharynx_hash",
+      "actual": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064",
+      "expected": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064",
+      "pass": true
+    },
+    {
+      "name": "p3_oropharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3_oropharynx_voxels",
+      "actual": 55120,
+      "expected": 55120,
+      "pass": true
+    },
+    {
+      "name": "p3_oropharynx_bbox_xyz",
+      "actual": [
+        [
+          204,
+          283,
+          0
+        ],
+        [
+          287,
+          350,
+          29
+        ]
+      ],
+      "expected": [
+        [
+          204,
+          283,
+          0
+        ],
+        [
+          287,
+          350,
+          29
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3_oropharynx_bbox_LPS",
+      "actual": [
+        [
+          -18.91015625,
+          -44.794281005859375,
+          281.2904052734375
+        ],
+        [
+          11.56640625,
+          -20.192718505859375,
+          298.6904059648514
+        ]
+      ],
+      "expected": [
+        [
+          -18.91015625,
+          -44.794281005859375,
+          281.2904052734375
+        ],
+        [
+          11.56640625,
+          -20.192718505859375,
+          298.6904059648514
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3_oropharynx_inferior_face",
+      "actual": 1044,
+      "expected": 1044,
+      "pass": true
+    },
+    {
+      "name": "p3_hypopharynx_hash",
+      "actual": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "expected": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "pass": true
+    },
+    {
+      "name": "p3_hypopharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3_hypopharynx_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3_hypopharynx_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3_soft_palate_hash",
+      "actual": "72bbec059e3c8fcdda3b7a0aba1afec3f7b659d7f98788efaa29e5560aadb857",
+      "expected": "72bbec059e3c8fcdda3b7a0aba1afec3f7b659d7f98788efaa29e5560aadb857",
+      "pass": true
+    },
+    {
+      "name": "p3_soft_palate_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3_soft_palate_voxels",
+      "actual": 47955,
+      "expected": 47955,
+      "pass": true
+    },
+    {
+      "name": "p3_soft_palate_bbox_xyz",
+      "actual": [
+        [
+          212,
+          247,
+          0
+        ],
+        [
+          276,
+          327,
+          25
+        ]
+      ],
+      "expected": [
+        [
+          212,
+          247,
+          0
+        ],
+        [
+          276,
+          327,
+          25
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3_soft_palate_bbox_LPS",
+      "actual": [
+        [
+          -15.97265625,
+          -58.013031005859375,
+          281.2904052734375
+        ],
+        [
+          7.52734375,
+          -28.638031005859375,
+          296.29040586948395
+        ]
+      ],
+      "expected": [
+        [
+          -15.97265625,
+          -58.013031005859375,
+          281.2904052734375
+        ],
+        [
+          7.52734375,
+          -28.638031005859375,
+          296.29040586948395
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3_soft_palate_inferior_face",
+      "actual": 1098,
+      "expected": 1098,
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_left_hash",
+      "actual": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "expected": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_left_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_left_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_left_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_right_hash",
+      "actual": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "expected": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_right_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_right_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3_submandibular_gland_right_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3_display_plane_indices",
+      "actual": {
+        "sagittal_x": 240,
+        "coronal_y": 329,
+        "axial_z": 0
+      },
+      "expected": {
+        "sagittal_x": 240,
+        "coronal_y": 329,
+        "axial_z": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1_coverage_geometry",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1_identity_LPS_direction",
+      "actual": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "expected": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3t1_outer_bounds_LPS",
+      "actual": [
+        [
+          -119.5,
+          -148.197021484375,
+          774.7784423828125
+        ],
+        [
+          119.5,
+          90.802978515625,
+          890.7784423828125
+        ]
+      ],
+      "expected": [
+        [
+          -119.5,
+          -148.197021484375,
+          774.7784423828125
+        ],
+        [
+          119.5,
+          90.802978515625,
+          890.7784423828125
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3t1_oropharynx_hash",
+      "actual": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696",
+      "expected": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696",
+      "pass": true
+    },
+    {
+      "name": "p3t1_oropharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1_oropharynx_voxels",
+      "actual": 73014,
+      "expected": 73014,
+      "pass": true
+    },
+    {
+      "name": "p3t1_oropharynx_bbox_xyz",
+      "actual": [
+        [
+          238,
+          237,
+          0
+        ],
+        [
+          308,
+          297,
+          49
+        ]
+      ],
+      "expected": [
+        [
+          238,
+          237,
+          0
+        ],
+        [
+          308,
+          297,
+          49
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3t1_oropharynx_bbox_LPS",
+      "actual": [
+        [
+          -8.1689453125,
+          -37.332763671875,
+          775.0284423828125
+        ],
+        [
+          24.5068359375,
+          -9.324951171875,
+          799.5284423828125
+        ]
+      ],
+      "expected": [
+        [
+          -8.1689453125,
+          -37.332763671875,
+          775.0284423828125
+        ],
+        [
+          24.5068359375,
+          -9.324951171875,
+          799.5284423828125
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3t1_oropharynx_inferior_face",
+      "actual": 987,
+      "expected": 987,
+      "pass": true
+    },
+    {
+      "name": "p3t1_hypopharynx_hash",
+      "actual": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "expected": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "pass": true
+    },
+    {
+      "name": "p3t1_hypopharynx_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1_hypopharynx_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3t1_hypopharynx_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3t1_soft_palate_hash",
+      "actual": "8ba5a258b9ea8b84e9c40d87314d5453b30703c33ff7be7a545b0abf2105a8bb",
+      "expected": "8ba5a258b9ea8b84e9c40d87314d5453b30703c33ff7be7a545b0abf2105a8bb",
+      "pass": true
+    },
+    {
+      "name": "p3t1_soft_palate_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1_soft_palate_voxels",
+      "actual": 34786,
+      "expected": 34786,
+      "pass": true
+    },
+    {
+      "name": "p3t1_soft_palate_bbox_xyz",
+      "actual": [
+        [
+          253,
+          214,
+          0
+        ],
+        [
+          305,
+          275,
+          45
+        ]
+      ],
+      "expected": [
+        [
+          253,
+          214,
+          0
+        ],
+        [
+          305,
+          275,
+          45
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3t1_soft_palate_bbox_LPS",
+      "actual": [
+        [
+          -1.1669921875,
+          -48.069091796875,
+          775.0284423828125
+        ],
+        [
+          23.1064453125,
+          -19.594482421875,
+          797.5284423828125
+        ]
+      ],
+      "expected": [
+        [
+          -1.1669921875,
+          -48.069091796875,
+          775.0284423828125
+        ],
+        [
+          23.1064453125,
+          -19.594482421875,
+          797.5284423828125
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3t1_soft_palate_inferior_face",
+      "actual": 186,
+      "expected": 186,
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_left_hash",
+      "actual": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "expected": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_left_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_left_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_left_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_right_hash",
+      "actual": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "expected": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_right_grid",
+      "actual": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "expected": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_right_voxels",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3t1_submandibular_gland_right_empty_bbox",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3t1_display_plane_indices",
+      "actual": {
+        "sagittal_x": 271,
+        "coronal_y": 277,
+        "axial_z": 0
+      },
+      "expected": {
+        "sagittal_x": 271,
+        "coronal_y": 277,
+        "axial_z": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "exact_result_ct_hash",
+      "actual": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "expected": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "pass": true
+    },
+    {
+      "name": "exact_result_no_display_admission",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "exact_result_no_CFD_admission",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "exact_result_new_oropharynx_voxels",
+      "actual": 116506,
+      "expected": 116506,
+      "pass": true
+    },
+    {
+      "name": "exact_result_new_oropharynx_face",
+      "actual": 1053,
+      "expected": 1053,
+      "pass": true
+    },
+    {
+      "name": "exact_result_preview_hash",
+      "actual": "53407d23b3fbc4484188ceb70e9605ac424f08c1203f2f19c7989b83a4daa482",
+      "expected": "53407d23b3fbc4484188ceb70e9605ac424f08c1203f2f19c7989b83a4daa482",
+      "pass": true
+    }
+  ],
+  "facts": {
+    "installed_crop_guards_lines": [
+      481,
+      800
+    ],
+    "actual_model_keywords": {
+      "model": "cfg['model']",
+      "folds": "[0]",
+      "trainer": "cfg['trainer']",
+      "resample": "cfg['resample']",
+      "crop": "None",
+      "task_name": "'head_glands_cavities'",
+      "multilabel_image": "True",
+      "nr_threads_resampling": "1",
+      "nr_threads_saving": "1",
+      "device": "'cpu'",
+      "verbose": "True",
+      "output_task_name": "'head_glands_cavities'"
+    },
+    "old_crop_scope": "x/y changed 512x512 to 436x454; z remained286, so no evidence of inferior z truncation caused by old crop",
+    "logs_sha256": {
+      "old": "bffc4aaf77cbc3479bc503016b158adbb6c7a01042c16992f22bb946d7b6f801",
+      "new": "09bdb72ad2b459f984e639d32d31c1de969920079a4776bafa5e16b9417274ce"
+    },
+    "raw_label_counts": {
+      "0": 74165602,
+      "1": 94300,
+      "2": 93228,
+      "3": 1568,
+      "4": 1984,
+      "5": 3116,
+      "6": 2992,
+      "7": 48406,
+      "8": 60122,
+      "9": 804,
+      "11": 56848,
+      "12": 116506,
+      "14": 128824,
+      "15": 115048,
+      "16": 10468,
+      "17": 9112,
+      "18": 29160,
+      "19": 35096
+    },
+    "raw_comparisons": {
+      "oropharynx": {
+        "old_voxels": 115878,
+        "new_voxels": 116506,
+        "symmetric_difference": 7936,
+        "intersection": 112224
+      },
+      "hypopharynx": {
+        "old_voxels": 0,
+        "new_voxels": 0,
+        "symmetric_difference": 0,
+        "intersection": 0
+      }
+    },
+    "p2_new_oropharynx_inferior_face_voxels": 1053,
+    "original_integrity": [
+      {
+        "path": "C:\\ts_work\\p0\\ct.nii.gz",
+        "exists": true,
+        "sha256": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648"
+      },
+      {
+        "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_left.nii.gz",
+        "exists": true,
+        "sha256": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72"
+      },
+      {
+        "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_right.nii.gz",
+        "exists": true,
+        "sha256": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38"
+      },
+      {
+        "path": "C:\\ts_work\\p0\\masks\\nasopharynx.nii.gz",
+        "exists": true,
+        "sha256": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7"
+      },
+      {
+        "path": "C:\\ts_work\\p0\\masks\\oropharynx.nii.gz",
+        "exists": true,
+        "sha256": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8"
+      },
+      {
+        "path": "C:\\ts_work\\p0\\masks\\hypopharynx.nii.gz",
+        "exists": true,
+        "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+      },
+      {
+        "path": "C:\\ts_work\\p0\\masks\\larynx_air.nii.gz",
+        "exists": false
+      },
+      {
+        "path": "C:\\ts_work\\p1\\ct.nii.gz",
+        "exists": true,
+        "sha256": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032"
+      },
+      {
+        "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_left.nii.gz",
+        "exists": true,
+        "sha256": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612"
+      },
+      {
+        "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_right.nii.gz",
+        "exists": true,
+        "sha256": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d"
+      },
+      {
+        "path": "C:\\ts_work\\p1\\masks\\nasopharynx.nii.gz",
+        "exists": true,
+        "sha256": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8"
+      },
+      {
+        "path": "C:\\ts_work\\p1\\masks\\oropharynx.nii.gz",
+        "exists": true,
+        "sha256": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065"
+      },
+      {
+        "path": "C:\\ts_work\\p1\\masks\\hypopharynx.nii.gz",
+        "exists": true,
+        "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+      },
+      {
+        "path": "C:\\ts_work\\p1\\masks\\larynx_air.nii.gz",
+        "exists": false
+      },
+      {
+        "path": "C:\\ts_work\\p2\\ct.nii.gz",
+        "exists": true,
+        "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+      },
+      {
+        "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_left.nii.gz",
+        "exists": true,
+        "sha256": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e"
+      },
+      {
+        "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_right.nii.gz",
+        "exists": true,
+        "sha256": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c"
+      },
+      {
+        "path": "C:\\ts_work\\p2\\masks\\nasopharynx.nii.gz",
+        "exists": true,
+        "sha256": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996"
+      },
+      {
+        "path": "C:\\ts_work\\p2\\masks\\oropharynx.nii.gz",
+        "exists": true,
+        "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2"
+      },
+      {
+        "path": "C:\\ts_work\\p2\\masks\\hypopharynx.nii.gz",
+        "exists": true,
+        "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+      },
+      {
+        "path": "C:\\ts_work\\p2\\masks\\larynx_air.nii.gz",
+        "exists": false
+      },
+      {
+        "path": "C:\\ts_work\\p3\\ct.nii.gz",
+        "exists": true,
+        "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4"
+      },
+      {
+        "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_left.nii.gz",
+        "exists": true,
+        "sha256": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b"
+      },
+      {
+        "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_right.nii.gz",
+        "exists": true,
+        "sha256": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261"
+      },
+      {
+        "path": "C:\\ts_work\\p3\\masks\\nasopharynx.nii.gz",
+        "exists": true,
+        "sha256": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec"
+      },
+      {
+        "path": "C:\\ts_work\\p3\\masks\\oropharynx.nii.gz",
+        "exists": true,
+        "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064"
+      },
+      {
+        "path": "C:\\ts_work\\p3\\masks\\hypopharynx.nii.gz",
+        "exists": true,
+        "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+      },
+      {
+        "path": "C:\\ts_work\\p3\\masks\\larynx_air.nii.gz",
+        "exists": false
+      },
+      {
+        "path": "C:\\ts_work\\p3t1\\ct.nii.gz",
+        "exists": true,
+        "sha256": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2"
+      },
+      {
+        "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_left.nii.gz",
+        "exists": true,
+        "sha256": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec"
+      },
+      {
+        "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_right.nii.gz",
+        "exists": true,
+        "sha256": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7"
+      },
+      {
+        "path": "C:\\ts_work\\p3t1\\masks\\nasopharynx.nii.gz",
+        "exists": true,
+        "sha256": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7"
+      },
+      {
+        "path": "C:\\ts_work\\p3t1\\masks\\oropharynx.nii.gz",
+        "exists": true,
+        "sha256": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696"
+      },
+      {
+        "path": "C:\\ts_work\\p3t1\\masks\\hypopharynx.nii.gz",
+        "exists": true,
+        "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+      },
+      {
+        "path": "C:\\ts_work\\p3t1\\masks\\larynx_air.nii.gz",
+        "exists": false
+      }
+    ],
+    "workbench_manifest_sha256": "e53c905cc98aafa6777cfa85fd2fc441229e2ca07cfd40db381c6b35cd871dd5",
+    "five_case_direct_measurements": {
+      "p0": {
+        "geometry": {
+          "size_xyz": [
+            512,
+            512,
+            394
+          ],
+          "spacing_xyz": [
+            0.34960898756980896,
+            0.34960898756980896,
+            0.3499999940395355
+          ],
+          "origin_lps_mm": [
+            -96.4921875,
+            -261.4000244140625,
+            -703.7899780273438
+          ],
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "index0_center_lps_mm": [
+            -96.4921875,
+            -261.4000244140625,
+            -703.7899780273438
+          ],
+          "last_center_lps_mm": [
+            82.15800514817238,
+            -82.74983176589012,
+            -566.2399803698063
+          ]
+        },
+        "labels": {
+          "oropharynx": {
+            "voxels": 148837,
+            "inferior_face_voxels": 2236,
+            "bbox_xyz": [
+              [
+                214,
+                272,
+                0
+              ],
+              [
+                293,
+                340,
+                107
+              ]
+            ]
+          },
+          "hypopharynx": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "soft_palate": {
+            "voxels": 67606,
+            "inferior_face_voxels": 0,
+            "bbox_xyz": [
+              [
+                210,
+                239,
+                36
+              ],
+              [
+                273,
+                309,
+                107
+              ]
+            ]
+          },
+          "submandibular_gland_left": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "submandibular_gland_right": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          }
+        }
+      },
+      "p1": {
+        "geometry": {
+          "size_xyz": [
+            512,
+            512,
+            136
+          ],
+          "spacing_xyz": [
+            0.34765625,
+            0.34765625,
+            0.800000011920929
+          ],
+          "origin_lps_mm": [
+            -96.076171875,
+            -120.25370788574219,
+            139.329345703125
+          ],
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "index0_center_lps_mm": [
+            -96.076171875,
+            -120.25370788574219,
+            139.329345703125
+          ],
+          "last_center_lps_mm": [
+            81.576171875,
+            57.39863586425781,
+            247.3293473124504
+          ]
+        },
+        "labels": {
+          "oropharynx": {
+            "voxels": 34419,
+            "inferior_face_voxels": 1418,
+            "bbox_xyz": [
+              [
+                238,
+                292,
+                0
+              ],
+              [
+                295,
+                377,
+                26
+              ]
+            ]
+          },
+          "hypopharynx": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "soft_palate": {
+            "voxels": 22157,
+            "inferior_face_voxels": 40,
+            "bbox_xyz": [
+              [
+                238,
+                268,
+                0
+              ],
+              [
+                293,
+                338,
+                21
+              ]
+            ]
+          },
+          "submandibular_gland_left": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "submandibular_gland_right": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          }
+        }
+      },
+      "p2": {
+        "geometry": {
+          "size_xyz": [
+            512,
+            512,
+            286
+          ],
+          "spacing_xyz": [
+            0.458984375,
+            0.458984375,
+            0.5
+          ],
+          "origin_lps_mm": [
+            -117.2705078125,
+            -271.2705078125,
+            -650.5
+          ],
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "index0_center_lps_mm": [
+            -117.2705078125,
+            -271.2705078125,
+            -650.5
+          ],
+          "last_center_lps_mm": [
+            117.2705078125,
+            -36.7294921875,
+            -508.0
+          ]
+        },
+        "labels": {
+          "oropharynx": {
+            "voxels": 115878,
+            "inferior_face_voxels": 1068,
+            "bbox_xyz": [
+              [
+                239,
+                220,
+                0
+              ],
+              [
+                307,
+                277,
+                87
+              ]
+            ]
+          },
+          "hypopharynx": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "soft_palate": {
+            "voxels": 29148,
+            "inferior_face_voxels": 0,
+            "bbox_xyz": [
+              [
+                251,
+                203,
+                36
+              ],
+              [
+                300,
+                251,
+                81
+              ]
+            ]
+          },
+          "submandibular_gland_left": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "submandibular_gland_right": {
+            "voxels": 966,
+            "inferior_face_voxels": 282,
+            "bbox_xyz": [
+              [
+                190,
+                228,
+                0
+              ],
+              [
+                207,
+                250,
+                3
+              ]
+            ]
+          }
+        }
+      },
+      "p3": {
+        "geometry": {
+          "size_xyz": [
+            512,
+            512,
+            186
+          ],
+          "spacing_xyz": [
+            0.3671875,
+            0.3671875,
+            0.6000000238418579
+          ],
+          "origin_lps_mm": [
+            -93.81640625,
+            -148.70834350585938,
+            281.2904052734375
+          ],
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "index0_center_lps_mm": [
+            -93.81640625,
+            -148.70834350585938,
+            281.2904052734375
+          ],
+          "last_center_lps_mm": [
+            93.81640625,
+            38.924468994140625,
+            392.2904096841812
+          ]
+        },
+        "labels": {
+          "oropharynx": {
+            "voxels": 55120,
+            "inferior_face_voxels": 1044,
+            "bbox_xyz": [
+              [
+                204,
+                283,
+                0
+              ],
+              [
+                287,
+                350,
+                29
+              ]
+            ]
+          },
+          "hypopharynx": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "soft_palate": {
+            "voxels": 47955,
+            "inferior_face_voxels": 1098,
+            "bbox_xyz": [
+              [
+                212,
+                247,
+                0
+              ],
+              [
+                276,
+                327,
+                25
+              ]
+            ]
+          },
+          "submandibular_gland_left": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "submandibular_gland_right": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          }
+        }
+      },
+      "p3t1": {
+        "geometry": {
+          "size_xyz": [
+            512,
+            512,
+            232
+          ],
+          "spacing_xyz": [
+            0.466796875,
+            0.466796875,
+            0.5
+          ],
+          "origin_lps_mm": [
+            -119.2666015625,
+            -147.963623046875,
+            775.0284423828125
+          ],
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "index0_center_lps_mm": [
+            -119.2666015625,
+            -147.963623046875,
+            775.0284423828125
+          ],
+          "last_center_lps_mm": [
+            119.2666015625,
+            90.569580078125,
+            890.5284423828125
+          ]
+        },
+        "labels": {
+          "oropharynx": {
+            "voxels": 73014,
+            "inferior_face_voxels": 987,
+            "bbox_xyz": [
+              [
+                238,
+                237,
+                0
+              ],
+              [
+                308,
+                297,
+                49
+              ]
+            ]
+          },
+          "hypopharynx": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "soft_palate": {
+            "voxels": 34786,
+            "inferior_face_voxels": 186,
+            "bbox_xyz": [
+              [
+                253,
+                214,
+                0
+              ],
+              [
+                305,
+                275,
+                45
+              ]
+            ]
+          },
+          "submandibular_gland_left": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          },
+          "submandibular_gland_right": {
+            "voxels": 0,
+            "inferior_face_voxels": 0
+          }
+        }
+      }
+    }
+  },
+  "failures": [],
+  "source_snapshot": {
+    "D:\\项目\\鼻腔建模\\outputs\\T-032\\run_isolated_semantic.py": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6",
+    "D:\\项目\\鼻腔建模\\outputs\\T-032\\inspect_lower_coverage.py": "92759a6d8ed9fe50dd74bc0cfe2b4ed96f173a23a0a6504a6ca473f0e191173f",
+    "D:\\项目\\鼻腔建模\\outputs\\T-032\\review_no_crop_result.py": "d97e828cf222a0a9e4f315d819bf1e108e9637639355a847945e4a9edf3dfd57",
+    "D:\\项目\\鼻腔建模\\outputs\\T-032\\runs\\01_lower_coverage\\coverage.json": "969fbbc8b098ddc524e7ba526ba8883fe7f2df26d725bd16c7917c0428af77d6",
+    "D:\\项目\\鼻腔建模\\outputs\\T-032\\runs\\02_p2_no_crop_result\\exact_result_check.json": "8c7f1e69b4784d7dd43b8e89a11f0854dd3e664813dea33d2427ca199f991746",
+    "C:\\ts_work\\t032_hypopharynx\\01_p2_no_crop\\run_status.json": "0bb70e81eacabac0b748cd038cd2b8e24c77abb700fbaf358f12cf15fdcb8436"
+  },
+  "summary": {
+    "checks": 276,
+    "failures": 0,
+    "interpretation": "No nonempty hypopharynx candidate; actual full-field TS775 attempt completed. Does not establish anatomical absence or complete CT coverage."
+  }
+}
