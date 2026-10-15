@@ -1,0 +1,9 @@
+{
+  "fixture": "actual execution_lock, two OS processes, isolated output directory",
+  "blocked_while_parent_holds_lock": true,
+  "release_at": 1792054936.9850051,
+  "child_acquired_at": 1792054937.261007,
+  "exit_code": 0,
+  "passed": true,
+  "scope": "Verifies shared implementation exclusion, no CFD or workload scheduler run."
+}

@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "checks": [
+    "live catalog, six or more objects, obsolete adapter text removed",
+    "patient launch disabled with API blocking reasons",
+    "fixed actual reference physics displayed; editable mesh level only",
+    "real reference preflight created through UI and actual checks read",
+    "refresh restores persisted selected reference task",
+    "controlled HTTP 503 clears result and refresh recovers live task",
+    "real patient preflight fails admission honestly, no reference result leaks",
+    "task history supports all objects and selected object",
+    "390px and 320px narrow layouts show controls without overflow",
+    "import, slice review, feedback and export dialog still open",
+    "simulation polling stops outside visible page",
+    "Lead-created real reference numerical result and live three-dimensional link visible",
+    "input fingerprints unchanged; no unexpected browser errors"
+  ],
+  "created_jobs": [
+    {
+      "id": "s_c8356e3623fb49b9bfb06dc9",
+      "case_id": "reference_channel",
+      "action": "preflight"
+    },
+    {
+      "id": "s_4aa5ec068dd544b59ce0098b",
+      "case_id": "p0",
+      "action": "preflight"
+    }
+  ]
+}

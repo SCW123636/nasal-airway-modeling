@@ -1,0 +1,155 @@
+{
+  "base": "http://127.0.0.1:8769",
+  "checks": [
+    {
+      "name": "actual 8769 geometry panel loaded p0",
+      "passed": true,
+      "detail": {
+        "frameUrl": "http://127.0.0.1:8769/viewer/index.html?embedded=1",
+        "pixelRatio": 1.5,
+        "positionHash": "5c4251bb7ff1cc96c8bdbaf3c45fa034010c94937eeed965a873ed7255a00e76",
+        "indexHash": "d4b8e4ae78191ec0e91d49622b12257e1620ee77d771b8d3e70bc10e57964153"
+      }
+    },
+    {
+      "name": "actual mode keeps geometry and camera: smooth",
+      "passed": true
+    },
+    {
+      "name": "actual mode keeps geometry and camera: facets",
+      "passed": true
+    },
+    {
+      "name": "actual mode keeps geometry and camera: wireframe",
+      "passed": true
+    },
+    {
+      "name": "actual plane source and rigid normal: nostril_L",
+      "passed": true,
+      "detail": {
+        "caseId": "p0",
+        "landmarkId": "nostril_L",
+        "point_lps_mm": [
+          -14.23892636399821,
+          -234.66605581608877,
+          -668.7812194994518
+        ],
+        "normal_lps": [
+          0.05254286626437159,
+          0.34250093981592405,
+          0.9380470955287551
+        ],
+        "visible": true,
+        "viewPoint": [
+          2.3676086360017905,
+          -20.816239499451854,
+          39.866545816088774
+        ],
+        "viewNormal": [
+          0.052542866264371574,
+          0.938047095528755,
+          -0.34250093981592417
+        ]
+      }
+    },
+    {
+      "name": "actual plane source and rigid normal: nostril_R",
+      "passed": true,
+      "detail": {
+        "caseId": "p0",
+        "landmarkId": "nostril_R",
+        "point_lps_mm": [
+          -31.96022610617594,
+          -231.20129686104153,
+          -669.4075820062977
+        ],
+        "normal_lps": [
+          0.13515789971652484,
+          0.10054565511992941,
+          0.9857093452842587
+        ],
+        "visible": true,
+        "viewPoint": [
+          -15.35369110617594,
+          -21.44260200629776,
+          36.40178686104153
+        ],
+        "viewNormal": [
+          0.13515789971652487,
+          0.9857093452842589,
+          -0.10054565511992963
+        ]
+      }
+    },
+    {
+      "name": "actual plane source and rigid normal: nasopharynx_outlet",
+      "passed": true,
+      "detail": {
+        "caseId": "p0",
+        "landmarkId": "nasopharynx_outlet",
+        "point_lps_mm": [
+          -11.516358289822167,
+          -158.33160182579724,
+          -666.2174786671997
+        ],
+        "normal_lps": [
+          -0.0170798987760283,
+          0.0004106188129102961,
+          0.9998540435733564
+        ],
+        "visible": true,
+        "viewPoint": [
+          5.090176710177834,
+          -18.25249866719969,
+          -36.46790817420276
+        ],
+        "viewNormal": [
+          -0.0170798987760283,
+          0.9998540435733563,
+          -0.000410618812910343
+        ]
+      }
+    },
+    {
+      "name": "show/hide actual plane",
+      "passed": true
+    },
+    {
+      "name": "actual case switch clears old plane; patient fields stay disabled",
+      "passed": true
+    },
+    {
+      "name": "existing reference layers available: analytic_pipe",
+      "passed": true
+    },
+    {
+      "name": "existing reference layers available: numerical_channel",
+      "passed": true
+    },
+    {
+      "name": "return to p0 restores original geometry and no reference fields leak",
+      "passed": true
+    },
+    {
+      "name": "actual workspace and embedded viewer fit 390/320px",
+      "passed": true
+    },
+    {
+      "name": "actual browser has no errors or failed HTTP",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "httpFailures": [],
+  "widths": [
+    {
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "width": 320,
+      "scroll": 320
+    }
+  ],
+  "passed": true
+}

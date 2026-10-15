@@ -1,0 +1,12 @@
+{
+  "entry": "http://127.0.0.1:8769/viewer/index.html?manifest=/simulation-assets/s_970bd197fb3b41d289170ceb/viewer.json",
+  "finalUrl": "http://127.0.0.1:8769/workspace/index.html#geometry",
+  "expectedCase": "s_970bd197fb3b41d289170ceb",
+  "displayed": {
+    "url": "http://127.0.0.1:8769/viewer/index.html?embedded=1",
+    "caseId": "p0",
+    "title": "病例 0"
+  },
+  "errors": [],
+  "passed": false
+}

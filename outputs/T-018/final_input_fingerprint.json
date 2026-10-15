@@ -1,0 +1,66 @@
+{
+  "checked_at": "2026-10-15T17:34:22.7738483+08:00",
+  "git_head": "0646d8ce81454cf40cffd135e050c222cbbc100f",
+  "files": [
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\cfd_workspace_jobs.py",
+      "sha256": "1054d0682ac08f50b7fcaf0f513129ed429b4d34d9c1f856a49cfc6ca94501de",
+      "size": 30697
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py",
+      "sha256": "a298e16f14981a706182dcfcd6928d8b3cfe7df867d0907ecab0e32c62123333",
+      "size": 14568
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\workspace\\index.html",
+      "sha256": "177517a8ecd457bc1fabf59132dd3a8a262bcfa1e3ee63b04498acc9e6cd8332",
+      "size": 17396
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\workspace\\workspace.js",
+      "sha256": "c8880777f71c56fedf06691be5f521ffb9438e44acf81830c0caa9ad188f08bf",
+      "size": 20146
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\workspace\\simulation.js",
+      "sha256": "daf8a6620ab055dcf6df4a5d8041d70a9526f93832de74be9bd810dc62c65f13",
+      "size": 19498
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\workspace\\embed.js",
+      "sha256": "8c246397f98c7f7bb579093865fa77d5053e1df81a63c8c7eb1b23c6351bfc43",
+      "size": 7392
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\viewer\\viewer.js",
+      "sha256": "57fac0fe2f9970eae4947269f95099e26253961d3e80f9f03af22b02f5801d0b",
+      "size": 22006
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\viewer\\index.html",
+      "sha256": "8739d908d87b461d1a3e5b16fa2476e3d7d093a525e764d0335c1af4e9e9b048",
+      "size": 5010
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\viewer\\viewer.css",
+      "sha256": "950ee475f8793091594a3d2d7bed3fd50b7cdcd41109395321d6d301c4faa3ef",
+      "size": 6426
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\打开鼻腔建模工作台.cmd",
+      "sha256": "fe28c1d8070fafa6adb5d8ca2d4842ca2c8be05c1bffc5c4505e4cb5ce51cc63",
+      "size": 330
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\start_workspace.ps1",
+      "sha256": "7dd1df8fc7fec2e2e6389075c9505e3aac2331d0b04e47b0c45e56bc25f59655",
+      "size": 658
+    }
+  ],
+  "service": {
+    "service": "nasal-cfd-local-workspace/v1",
+    "ct_import": true,
+    "simulation_jobs": true
+  }
+}

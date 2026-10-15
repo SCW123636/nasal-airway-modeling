@@ -1,0 +1,306 @@
+{
+  "schema": "nasal_simulation_catalog/v1",
+  "cases": [
+    {
+      "id": "reference_channel",
+      "label": "平行板气流参考 · 非患者",
+      "kind": "reference",
+      "run_allowed": true,
+      "blocking_reasons": [],
+      "geometry_status": "runner_generated_reference",
+      "mesh_status": "generated_on_new_run",
+      "solver_status": "available",
+      "artifacts": [],
+      "fixed_parameters": {
+        "bulk_U_m_s": 0.1,
+        "gap_H_m": 0.002,
+        "empty_width_W_m": 0.001,
+        "L_m": 0.04,
+        "Q_m3_s": 2e-07,
+        "Q_L_min": 0.012,
+        "outlet_gauge_p_Pa": 0,
+        "model": "laminar"
+      },
+      "parameters": {
+        "bulk_U_m_s": 0.1,
+        "gap_H_m": 0.002,
+        "empty_width_W_m": 0.001,
+        "L_m": 0.04,
+        "Q_m3_s": 2e-07,
+        "Q_L_min": 0.012,
+        "outlet_gauge_p_Pa": 0,
+        "model": "laminar"
+      },
+      "recommended_settings": {
+        "levels": [
+          "coarse"
+        ]
+      }
+    },
+    {
+      "id": "p0",
+      "label": "p0 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "landmark_review",
+          "label": "候选点位与 CT 证据",
+          "url": "/landmark-review/index.html?case=p0"
+        }
+      ]
+    },
+    {
+      "id": "p1",
+      "label": "p1 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "landmark_review",
+          "label": "候选点位与 CT 证据",
+          "url": "/landmark-review/index.html?case=p1"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "label": "p2 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "landmark_review",
+          "label": "候选点位与 CT 证据",
+          "url": "/landmark-review/index.html?case=p2"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "label": "p3 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "landmark_review",
+          "label": "候选点位与 CT 证据",
+          "url": "/landmark-review/index.html?case=p3"
+        }
+      ]
+    },
+    {
+      "id": "p3t1",
+      "label": "p3t1 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "landmark_review",
+          "label": "候选点位与 CT 证据",
+          "url": "/landmark-review/index.html?case=p3t1"
+        }
+      ]
+    },
+    {
+      "id": "u_fbca9137690e4837",
+      "label": "u_fbca9137690e4837 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "当前点位审核未完成，病例状态：awaiting_review",
+        "边界审核未准入：边界审核缺失或已过期",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "review",
+          "label": "review",
+          "url": "/case-assets/u_fbca9137690e4837/review/index.html"
+        }
+      ]
+    },
+    {
+      "id": "u_ccf06624879c403a",
+      "label": "u_ccf06624879c403a · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "当前点位审核未完成，病例状态：awaiting_review",
+        "边界审核未准入：边界审核缺失或已过期",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "review",
+          "label": "review",
+          "url": "/case-assets/u_ccf06624879c403a/review/index.html"
+        }
+      ]
+    },
+    {
+      "id": "u_b39e51153cda46d7",
+      "label": "u_b39e51153cda46d7 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "当前点位审核未完成，病例状态：awaiting_review",
+        "边界审核未准入：边界审核缺失或已过期",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "review",
+          "label": "review",
+          "url": "/case-assets/u_b39e51153cda46d7/review/index.html"
+        }
+      ]
+    },
+    {
+      "id": "u_74a998a9fd274288",
+      "label": "u_74a998a9fd274288 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "当前点位审核未完成，病例状态：failed",
+        "边界审核未准入：边界审核缺失或已过期",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": []
+    },
+    {
+      "id": "u_a3d2534c7d534b36",
+      "label": "u_a3d2534c7d534b36 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "当前点位审核未完成，病例状态：failed",
+        "边界审核未准入：边界审核缺失或已过期",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": []
+    },
+    {
+      "id": "u_531c98ca241b4232",
+      "label": "u_531c98ca241b4232 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "当前点位审核未完成，病例状态：interrupted",
+        "边界审核未准入：边界审核缺失或已过期",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": []
+    },
+    {
+      "id": "u_e41f17339e7a4ee5",
+      "label": "u_e41f17339e7a4ee5 · 鼻腔患者预览",
+      "kind": "patient",
+      "run_allowed": false,
+      "blocking_reasons": [
+        "当前点位审核未完成，病例状态：awaiting_review",
+        "边界审核未准入：边界审核缺失或已过期",
+        "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+        "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+        "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+        "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      ],
+      "geometry_status": "candidate_only",
+      "mesh_status": "not_admitted",
+      "solver_status": "not_admitted",
+      "artifacts": [
+        {
+          "name": "review",
+          "label": "review",
+          "url": "/case-assets/u_e41f17339e7a4ee5/review/index.html"
+        }
+      ]
+    }
+  ]
+}

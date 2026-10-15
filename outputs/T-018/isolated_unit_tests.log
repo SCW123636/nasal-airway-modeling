@@ -1,0 +1,75 @@
+test_asset_allowlist_and_directory_escape (test_cfd_workspace_jobs.SimulationTests.test_asset_allowlist_and_directory_escape) ... ok
+test_catalog_separates_reference_and_patient_current_case (test_cfd_workspace_jobs.SimulationTests.test_catalog_separates_reference_and_patient_current_case) ... ok
+test_detached_launch_failure_and_dead_worker_are_persistent (test_cfd_workspace_jobs.SimulationTests.test_detached_launch_failure_and_dead_worker_are_persistent) ... ok
+test_environment_missing_cannot_be_reported_passed (test_cfd_workspace_jobs.SimulationTests.test_environment_missing_cannot_be_reported_passed) ... ok
+test_live_worker_not_misclassified_and_only_one_reference_queued (test_cfd_workspace_jobs.SimulationTests.test_live_worker_not_misclassified_and_only_one_reference_queued) ... ok
+test_new_run_viewer_fixture_units_identity_and_known_pressure (test_cfd_workspace_jobs.SimulationTests.test_new_run_viewer_fixture_units_identity_and_known_pressure) ... ok
+test_patient_preflight_is_completed_report_of_failed_admission (test_cfd_workspace_jobs.SimulationTests.test_patient_preflight_is_completed_report_of_failed_admission) ... ok
+test_patient_run_and_unknown_settings_are_rejected (test_cfd_workspace_jobs.SimulationTests.test_patient_run_and_unknown_settings_are_rejected) ... ok
+test_preflight_worker_completes_without_solver_and_restart_reads_disk (test_cfd_workspace_jobs.SimulationTests.test_preflight_worker_completes_without_solver_and_restart_reads_disk) ... ok
+test_real_runner_command_failure_preserves_exit_and_releases_ct_lock (test_cfd_workspace_jobs.SimulationTests.test_real_runner_command_failure_preserves_exit_and_releases_ct_lock) ... ok
+test_windows_wsl_paths_native_linux_requirement (test_cfd_workspace_jobs.SimulationTests.test_windows_wsl_paths_native_linux_requirement) ... ok
+test_boundary_routes_are_explicit_and_local_only (test_ct_workspace_server.LocalHTTPTests.test_boundary_routes_are_explicit_and_local_only) ... 127.0.0.1 - - [15/Oct/2026 16:52:09] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:52:09] "POST /api/cases/u_7ba9bc0607914d13/boundary-preview HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:52:09] "PUT /api/cases/u_7ba9bc0607914d13/boundary-mask HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:09] "POST /api/cases/u_7ba9bc0607914d13/boundary-review HTTP/1.1" 200 -
+ok
+test_create_upload_and_persist_private_files (test_ct_workspace_server.LocalHTTPTests.test_create_upload_and_persist_private_files) ... 127.0.0.1 - - [15/Oct/2026 16:52:10] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] "PUT /api/cases/u_75d951a6b23b4bdb/files/0 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] "GET /api/cases/u_75d951a6b23b4bdb HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:10] "GET /case-assets/u_75d951a6b23b4bdb/raw/000000.dcm HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:10] "GET /case-assets/u_75d951a6b23b4bdb/case.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:10] "GET /case-assets/u_75d951a6b23b4bdb/../raw/000000.dcm HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] "GET /case-assets/u_75d951a6b23b4bdb/test.json HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:10] "GET /case-assets/u_75d951a6b23b4bdb/../case.json HTTP/1.1" 404 -
+ok
+test_cross_origin_and_wrong_host_writes_are_rejected (test_ct_workspace_server.LocalHTTPTests.test_cross_origin_and_wrong_host_writes_are_rejected) ... 127.0.0.1 - - [15/Oct/2026 16:52:10] "POST /api/cases HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] "POST /api/cases HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:10] "POST /api/cases HTTP/1.1" 201 -
+ok
+test_delete_case_removes_private_case_and_requires_local_origin (test_ct_workspace_server.LocalHTTPTests.test_delete_case_removes_private_case_and_requires_local_origin) ... 127.0.0.1 - - [15/Oct/2026 16:52:11] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:52:11] "DELETE /api/cases/u_5412c1bf19d84534 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:11] "GET /api/cases/u_5412c1bf19d84534 HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:11] "GET /api/cases HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:11] "DELETE /api/cases/u_5412c1bf19d84534 HTTP/1.1" 400 -
+ok
+test_delete_rejects_processing_case_and_invalid_id (test_ct_workspace_server.LocalHTTPTests.test_delete_rejects_processing_case_and_invalid_id) ... 127.0.0.1 - - [15/Oct/2026 16:52:11] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:52:11] "DELETE /api/cases/u_3d348e38d78447d6 HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:11] "DELETE /api/cases/not-a-case HTTP/1.1" 404 -
+ok
+test_simulation_catalog_jobs_local_write_and_assets_are_explicit (test_ct_workspace_server.LocalHTTPTests.test_simulation_catalog_jobs_local_write_and_assets_are_explicit) ... 127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /api/simulation/catalog HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] "POST /api/simulation/jobs HTTP/1.1" 202 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /api/simulation/jobs/s_c7256fa8d4684a68b14ce397 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /api/simulation/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] "POST /api/simulation/jobs HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] "POST /api/simulation/jobs HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /simulation-assets/s_c7256fa8d4684a68b14ce397/job.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /simulation-assets/s_c7256fa8d4684a68b14ce397/../job.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /simulation-assets/s_c7256fa8d4684a68b14ce397/%2e%2e%2fjob.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /simulation-assets/s_c7256fa8d4684a68b14ce397/worker.log HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:12] "GET /api/simulation/jobs/not-a-job HTTP/1.1" 404 -
+ok
+test_simulation_patient_run_reports_specific_rejection (test_ct_workspace_server.LocalHTTPTests.test_simulation_patient_run_reports_specific_rejection) ... 127.0.0.1 - - [15/Oct/2026 16:52:13] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:52:13] "POST /api/simulation/jobs HTTP/1.1" 400 -
+ok
+test_start_and_review_fail_until_candidate_exists (test_ct_workspace_server.LocalHTTPTests.test_start_and_review_fail_until_candidate_exists) ... 127.0.0.1 - - [15/Oct/2026 16:52:13] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 16:52:13] "POST /api/cases/u_5a6bcfa5e57f4f60/start HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:13] "POST /api/cases/u_5a6bcfa5e57f4f60/review HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:13] "POST /api/cases/u_5a6bcfa5e57f4f60/regenerate HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 16:52:13] "GET /api/cases/not-a-case HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:13] "POST /api/cases/u_5a6bcfa5e57f4f60/unknown HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 16:52:13] "GET /health.json HTTP/1.1" 200 -
+ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 5.239s
+
+OK

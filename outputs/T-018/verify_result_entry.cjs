@@ -1,0 +1,6 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path');
+const {chromium}=require('playwright');
+const out=path.resolve(process.argv[2]||'outputs/T-018/entry-before-fix');
+const job='s_970bd197fb3b41d289170ceb';
+(async()=>{await fs.mkdir(out,{recursive:true});const browser=await chromium.launch({headless:true,channel:'chrome'});const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));const entry=`http://127.0.0.1:8769/viewer/index.html?manifest=/simulation-assets/${job}/viewer.json`;try{await page.goto(entry);await page.waitForTimeout(2000);const frame=page.frames().find(f=>f.url().includes('/viewer/index.html'));let displayed=null;if(frame){await frame.locator('#scene-state').waitFor({state:'hidden'});displayed={url:frame.url(),caseId:await frame.locator('#case-select').inputValue(),title:await frame.locator('#model-title').innerText()};}const r={entry,finalUrl:page.url(),expectedCase:job,displayed,errors,passed:displayed?.caseId===job};await page.screenshot({path:path.join(out,'entry.png'),fullPage:true});await fs.writeFile(path.join(out,'verification.json'),JSON.stringify(r,null,2));console.log(JSON.stringify(r));}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1});

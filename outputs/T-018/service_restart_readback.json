@@ -1,0 +1,15 @@
+{
+  "executable": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+  "job": {
+    "id": "s_7dc6eb58cad24de48d3da028",
+    "created_at": "2026-10-15T16:38:38+08:00",
+    "updated_at": "2026-10-15T16:38:41+08:00",
+    "status": "completed",
+    "exit_code": 0
+  },
+  "command": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8769",
+  "checked_at": "2026-10-15T17:34:55.2233743+08:00",
+  "creation_time": "2026-10-15T16:48:22.0762590+08:00",
+  "port": 8769,
+  "pid": 29640
+}

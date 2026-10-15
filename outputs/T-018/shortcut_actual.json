@@ -1,0 +1,6 @@
+{
+  "WorkingDirectory": "D:\\项目\\鼻腔建模",
+  "TargetPath": "D:\\项目\\鼻腔建模\\打开鼻腔建模工作台.cmd",
+  "Description": "启动鼻腔建模统一工作台",
+  "Arguments": ""
+}

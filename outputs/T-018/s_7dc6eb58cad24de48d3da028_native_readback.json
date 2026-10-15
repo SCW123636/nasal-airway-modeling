@@ -1,0 +1,41 @@
+{
+  "pid": 824,
+  "cwd": "/mnt/d/\u9879\u76ee/\u9f3b\u8154\u5efa\u6a21",
+  "files": [
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.blockMesh",
+      "exists": true,
+      "bytes": 2861,
+      "mtime_ns": 1792053519251666257,
+      "sha256": "cf4e3e334568de14fb517d273796cc3fc0d6d4554e263f16bb31ef34fbed2a25"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.checkMesh",
+      "exists": true,
+      "bytes": 4606,
+      "mtime_ns": 1792053519288001327,
+      "sha256": "371baf55b20dfbef01b6d73914aed010c5f708dd034ec9be3f8f6648b0453361"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.simpleFoam",
+      "exists": true,
+      "bytes": 87376,
+      "mtime_ns": 1792053519495596533,
+      "sha256": "a2d87b67abc25ca60bc4f53edf7d9642efc377b5466412138a2149a803841f01"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.foamToVTK",
+      "exists": true,
+      "bytes": 1934,
+      "mtime_ns": 1792053519571574816,
+      "sha256": "f2a4b809bf2f53ebc3b23d7cfd164639f184f42a7c2215add7d1a5f4bdddba49"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/VTK/coarse_162/internal.vtu",
+      "exists": true,
+      "bytes": 145864,
+      "mtime_ns": 1792053519571574816,
+      "sha256": "fa97c90149e5558772b3a6016a9f62385e6592a81a4dc3a5f90b2ca2652bf879"
+    }
+  ]
+}

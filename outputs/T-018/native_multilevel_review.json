@@ -1,0 +1,170 @@
+{
+  "checks": [
+    {
+      "name": "s_7dc6eb58cad24de48d3da028 coarse cells",
+      "passed": true,
+      "detail": 800
+    },
+    {
+      "name": "s_7dc6eb58cad24de48d3da028 coarse raw monitor reproduction",
+      "passed": true,
+      "detail": {
+        "delta_p_Pa": 0.21249294824592,
+        "mass_imbalance_fraction": 0.0
+      }
+    },
+    {
+      "name": "s_7dc6eb58cad24de48d3da028 coarse raw convergence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_7dc6eb58cad24de48d3da028 coarse raw mesh status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_7dc6eb58cad24de48d3da028 native readback succeeded",
+      "passed": true,
+      "detail": "w\u0000s\u0000l\u0000:\u0000 \u0000�hKm0R \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000�N\u0006tM�n\f�FO*g\\��P0R \u0000W\u0000S\u0000L\u0000\u00020N\u0000A\u0000T\u0000 \u0000!j\u000f_\u000bN�v \u0000W\u0000S\u0000L\u0000 \u0000\rN/e\u0001c \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000�N\u0006t\u00020\r\u0000\n\u0000"
+    },
+    {
+      "name": "s_7dc6eb58cad24de48d3da028 native logs and VTU hashes match exported copies",
+      "passed": true,
+      "detail": {
+        "files_compared": 5
+      }
+    },
+    {
+      "name": "s_7dc6eb58cad24de48d3da028 fresh manager reads persistent terminal state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb coarse cells",
+      "passed": true,
+      "detail": 800
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb coarse raw monitor reproduction",
+      "passed": true,
+      "detail": {
+        "delta_p_Pa": 0.21249294824592,
+        "mass_imbalance_fraction": 0.0
+      }
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb coarse raw convergence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb coarse raw mesh status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb medium cells",
+      "passed": true,
+      "detail": 3200
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb medium raw monitor reproduction",
+      "passed": true,
+      "detail": {
+        "delta_p_Pa": 0.21587924916228,
+        "mass_imbalance_fraction": 0.0
+      }
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb medium raw convergence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb medium raw mesh status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb fine cells",
+      "passed": true,
+      "detail": 12800
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb fine raw monitor reproduction",
+      "passed": true,
+      "detail": {
+        "delta_p_Pa": 0.21679864724472,
+        "mass_imbalance_fraction": 0.0
+      }
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb fine raw convergence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb fine raw mesh status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb native readback succeeded",
+      "passed": true,
+      "detail": "w\u0000s\u0000l\u0000:\u0000 \u0000�hKm0R \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000�N\u0006tM�n\f�FO*g\\��P0R \u0000W\u0000S\u0000L\u0000\u00020N\u0000A\u0000T\u0000 \u0000!j\u000f_\u000bN�v \u0000W\u0000S\u0000L\u0000 \u0000\rN/e\u0001c \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000�N\u0006t\u00020\r\u0000\n\u0000"
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb native logs and VTU hashes match exported copies",
+      "passed": true,
+      "detail": {
+        "files_compared": 15
+      }
+    },
+    {
+      "name": "s_970bd197fb3b41d289170ceb fresh manager reads persistent terminal state",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "cases": [
+    {
+      "job": "s_7dc6eb58cad24de48d3da028",
+      "level": "coarse",
+      "cells": 800,
+      "delta_p_Pa": 0.21249294824592,
+      "mass_imbalance_fraction": 0.0,
+      "vtu_sha256": "fa97c90149e5558772b3a6016a9f62385e6592a81a4dc3a5f90b2ca2652bf879",
+      "convergence": "SIMPLE solution converged in 162 iterations"
+    },
+    {
+      "job": "s_970bd197fb3b41d289170ceb",
+      "level": "coarse",
+      "cells": 800,
+      "delta_p_Pa": 0.21249294824592,
+      "mass_imbalance_fraction": 0.0,
+      "vtu_sha256": "fa97c90149e5558772b3a6016a9f62385e6592a81a4dc3a5f90b2ca2652bf879",
+      "convergence": "SIMPLE solution converged in 162 iterations"
+    },
+    {
+      "job": "s_970bd197fb3b41d289170ceb",
+      "level": "medium",
+      "cells": 3200,
+      "delta_p_Pa": 0.21587924916228,
+      "mass_imbalance_fraction": 0.0,
+      "vtu_sha256": "f2d44ed5b6a03d79c80858b30dab265c90a08c7ccba4c2003a816ff3370c2b59",
+      "convergence": "SIMPLE solution converged in 155 iterations"
+    },
+    {
+      "job": "s_970bd197fb3b41d289170ceb",
+      "level": "fine",
+      "cells": 12800,
+      "delta_p_Pa": 0.21679864724472,
+      "mass_imbalance_fraction": 0.0,
+      "vtu_sha256": "5102b7967aba961494d01e3ce9bd944c7a62de733cc7f12f952b2f682212ebed",
+      "convergence": "SIMPLE solution converged in 202 iterations"
+    }
+  ],
+  "failures": [],
+  "scope": "Readback only; no commands create mesh or run CFD. Native SHA confirms exported raw evidence belongs to isolated Linux cases; recorded scalar zeros retain original precision limitation."
+}

@@ -1,0 +1,131 @@
+{
+  "base": "http://127.0.0.1:8769",
+  "job": "s_970bd197fb3b41d289170ceb",
+  "checks": [
+    {
+      "name": "real task artifact click retains job despite saved uploaded case",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:8769/workspace/index.html?manifest=%2Fsimulation-assets%2Fs_970bd197fb3b41d289170ceb%2Fviewer.json&case=existing#geometry",
+        "iframe": "http://127.0.0.1:8769/viewer/index.html?manifest=%2Fsimulation-assets%2Fs_970bd197fb3b41d289170ceb%2Fviewer.json&embedded=1",
+        "savedCase": "u_fbca9137690e4837",
+        "displayedCase": "s_970bd197fb3b41d289170ceb"
+      }
+    },
+    {
+      "name": "fine result identity remains non-patient and unchecked",
+      "passed": true,
+      "detail": {
+        "label": "本次真实平行板参考 · fine",
+        "runId": "s_970bd197fb3b41d289170ceb/fine"
+      }
+    },
+    {
+      "name": "actual velocity layer uses current exported values",
+      "passed": true,
+      "detail": {
+        "min": 0,
+        "max": 0.14987599849700928,
+        "unit": "m/s"
+      }
+    },
+    {
+      "name": "actual pressure layer uses current exported values",
+      "passed": true,
+      "detail": {
+        "min": 0,
+        "max": 0.21682199835777283,
+        "unit": "Pa"
+      }
+    },
+    {
+      "name": "laminar reference has no invented turbulence or patient plane",
+      "passed": true
+    },
+    {
+      "name": "actual result refresh keeps same geometry/job",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:8769/workspace/index.html?manifest=%2Fsimulation-assets%2Fs_970bd197fb3b41d289170ceb%2Fviewer.json&case=existing#geometry",
+        "frame": "http://127.0.0.1:8769/viewer/index.html?manifest=%2Fsimulation-assets%2Fs_970bd197fb3b41d289170ceb%2Fviewer.json&embedded=1"
+      }
+    },
+    {
+      "name": "actual result fits 390/320px",
+      "passed": true
+    },
+    {
+      "name": "top-level result URL retains same job",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:8769/workspace/index.html?manifest=%2Fsimulation-assets%2Fs_970bd197fb3b41d289170ceb%2Fviewer.json&case=existing#geometry"
+      }
+    },
+    {
+      "name": "earlier independent coarse result keeps own identity",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:8769/workspace/index.html?manifest=%2Fsimulation-assets%2Fs_7dc6eb58cad24de48d3da028%2Fviewer.json&case=existing#geometry"
+      }
+    },
+    {
+      "name": "existing uploaded patient manifest route remains intact",
+      "passed": true,
+      "detail": {
+        "id": "u_fbca9137690e4837",
+        "url": "http://127.0.0.1:8769/workspace/index.html?case=u_fbca9137690e4837&manifest=%2Fcase-assets%2Fu_fbca9137690e4837%2Fviewer.json#geometry"
+      }
+    },
+    {
+      "name": "ordinary viewer route preserves previously selected uploaded case",
+      "passed": true,
+      "detail": {
+        "id": "u_fbca9137690e4837",
+        "url": "http://127.0.0.1:8769/workspace/index.html?case=u_fbca9137690e4837#geometry"
+      }
+    },
+    {
+      "name": "invalid manifest explicitly rejected without default patient fallback",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:8769/workspace/index.html?manifest=https%3A%2F%2Fexample.invalid%2Farbitrary.json&case=existing#geometry",
+        "text": "三维结果地址无效\n\n未加载默认病例。请从计算与结果中的真实任务产物重新打开三维结果。\n\n查看计算与结果"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "message": "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "expectedBad": false
+    },
+    {
+      "message": "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "expectedBad": false
+    },
+    {
+      "message": "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "expectedBad": false
+    },
+    {
+      "message": "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "expectedBad": false
+    },
+    {
+      "message": "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "expectedBad": false
+    },
+    {
+      "message": "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "expectedBad": false
+    },
+    {
+      "message": "Failed to read the 'localStorage' property from 'Window': Access is denied for this document.",
+      "expectedBad": true
+    }
+  ],
+  "httpFailures": [],
+  "scope": "Actual 8769 task artifact click and top-level paths; no mesh or CFD launched.",
+  "artifactUrl": "/viewer/index.html?manifest=/simulation-assets/s_970bd197fb3b41d289170ceb/viewer.json",
+  "passed": false,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     expectedBad: false,\n+     message: \"Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\"\n+   },\n+   {\n+     expectedBad: false,\n+     message: \"Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\"\n+   },\n+   {\n+     expectedBad: false,\n+     message: \"Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\"\n+   },\n+   {\n+     expectedBad: false,\n+     message: \"Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\"\n+   },\n+   {\n+     expectedBad: false,\n+     message: \"Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\"\n+   },\n+   {\n+     expectedBad: false,\n+     message: \"Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\"\n+   }\n+ ]\n- []\n\n    at D:\\项目\\鼻腔建模\\outputs\\T-018\\verify_actual_workflow.cjs:26:9"
+}

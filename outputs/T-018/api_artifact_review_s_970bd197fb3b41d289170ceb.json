@@ -1,0 +1,1210 @@
+{
+  "checked_at": "2026-10-15T17:02:17.497388+08:00",
+  "base": "http://127.0.0.1:8769",
+  "job": "s_970bd197fb3b41d289170ceb",
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health.json",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "f37ac99d648c199f290ad9f9b60decfacfb54eccf87c70b841fff7a9392270c3",
+      "bytes": 87
+    },
+    {
+      "method": "GET",
+      "path": "/api/simulation/catalog",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "f812697485c2b250ced344e99fe77ef9209320e7a302b16425b20dddbf145533",
+      "bytes": 9559
+    },
+    {
+      "method": "GET",
+      "path": "/api/simulation/jobs",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "cc602979066e78eda2f05991977963f1266bef44cedbb3212a4970565301fde1",
+      "bytes": 28032
+    },
+    {
+      "method": "GET",
+      "path": "/api/simulation/jobs/s_970bd197fb3b41d289170ceb",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "0ddfac05eea4ecf8742eb6871d47a65fb794d0cf3387dfd094abc0489a2cddb7",
+      "bytes": 10363
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/preflight.json",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "bd4c439b20b4b51afac317113eaf2996b8f20d006ca62eb85ecabd825af646b8",
+      "bytes": 2374
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/execution.log",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "f42506938d626dec39f0c3bc498ab55086948eb4c974d6d9f80e7377fad808fc",
+      "bytes": 3620
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/run_manifest.json",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "7ec05483064ab67fa1e9b62e13615955d27be6fbe21a0edc93a5a0570bec7e14",
+      "bytes": 10008
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.blockMesh",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "ce9a27e5b52425d95fe416468b577bff6ccd5300903cead98966317b7ad6bc30",
+      "bytes": 2861
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.checkMesh",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "d5ad26f64d1fab929e151c712b92433399dacf9e511f03c3e2ccc254a57ae82f",
+      "bytes": 4606
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.simpleFoam",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "8ce538307977c3059d782087090fe48459d83b5e6ab1ec83a25a8223dbed2662",
+      "bytes": 87389
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.foamToVTK",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "dbac29a5d976d7fea1fd82b598d75704626a6b83c5f2ff916d54003f4d7748a3",
+      "bytes": 1934
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.blockMesh",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "76be729bf67bcf27419d4a4aa18088895f64c607500e855edd70f993e043bd4f",
+      "bytes": 2865
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.checkMesh",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "7ede590d26652fdda6b8ee6c38da8466ab28374dfc6883bec67d93f64c8bef8c",
+      "bytes": 4623
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.simpleFoam",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "6bd41ce3419c8dc6da339d6c84f955f0a0b1c9aa610719a4866c8f1100ca1f2b",
+      "bytes": 83678
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.foamToVTK",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "9203c4bf0634e02dee71761ed212d131fa0e86a868ebb3ae7ac077da0e07bc37",
+      "bytes": 1937
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.blockMesh",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "08c7c8a6620d16790fc9ac464f21ea65832624668a959a3916c27912ececb461",
+      "bytes": 2869
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.checkMesh",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "bcd9c435e503ecdf96eddaaee4c65683a107c9b1b40cca684bce7e2e0797e7e0",
+      "bytes": 4631
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.simpleFoam",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "95d5a816e2a03ef6bd23f9159462cfc70ac80e17cfb17333730c57441b6ca0dc",
+      "bytes": 108326
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.foamToVTK",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "14f7d5327898d15e064459a982ea9c2991eb94222fc87f5c599dc0e76a764388",
+      "bytes": 1927
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/viewer_mesh.json",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "d1c516362fb0ad6e68ff3edef99b52d4b8d6f38af173b197ff5e1b77dfb68455",
+      "bytes": 3972811
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/viewer.json",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "ea53609cda1e04818a8f03a3af756809b417f9dea773aed2a7bc868794a996d0",
+      "bytes": 465
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/job.json",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+      "bytes": 335
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/worker.log",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+      "bytes": 335
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/private.txt",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+      "bytes": 335
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/../job.json",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+      "bytes": 335
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/%2e%2e%2fjob.json",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+      "bytes": 335
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/..%5cjob.json",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+      "bytes": 335
+    },
+    {
+      "method": "GET",
+      "path": "/api/simulation/jobs/not-a-job",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": "计算接口不存在",
+      "sha256": "5d91cff053c35252e4e13929429b9b9228109f2ba614c73fcc9260bd06e0445d",
+      "bytes": 34
+    },
+    {
+      "method": "GET",
+      "path": "/api/simulation/unknown",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": "计算接口不存在",
+      "sha256": "5d91cff053c35252e4e13929429b9b9228109f2ba614c73fcc9260bd06e0445d",
+      "bytes": 34
+    },
+    {
+      "method": "GET",
+      "path": "/simulation-assets/s_970bd197fb3b41d289170ceb/",
+      "status": 404,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+      "bytes": 335
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": null,
+      "payload": {
+        "case_id": "p0",
+        "action": "run_reference",
+        "settings": {}
+      },
+      "error": "患者运行拒绝：现有候选状态：proposals_not_clinically_validated；不等于最终几何批准；尚无与本例当前输入绑定且已验收的最终 CFD 表面；尚无与最终表面绑定的合格体网格和 checkMesh 记录；患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定；本接口当前只实现非患者参考求解；患者求解适配尚未准入",
+      "sha256": "f92c2febfd86a0fb8b50a91be9c68628a3ea5dced9d8fd6c8caffca9fa3a3636",
+      "bytes": 415
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": null,
+      "payload": {
+        "case_id": "reference_channel",
+        "action": "preflight",
+        "settings": {
+          "flow_L_min": 15
+        }
+      },
+      "error": "参考参数固定；settings 仅支持 levels，不接受流量或压力覆盖",
+      "sha256": "90b15f73947380e5ef10104f9861cf5939c24d7c791078ebf08246f316b0580c",
+      "bytes": 92
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": null,
+      "payload": {
+        "case_id": "reference_channel",
+        "action": "preflight",
+        "settings": {
+          "levels": [
+            "unknown"
+          ]
+        }
+      },
+      "error": "levels 仅支持不重复的 coarse、medium、fine",
+      "sha256": "f27af3e026a26712f2364b76f1816216f4020f2910472bacba3d2853510a1699",
+      "bytes": 64
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": null,
+      "payload": {
+        "case_id": "reference_channel",
+        "action": "preflight",
+        "settings": {
+          "levels": [
+            "coarse",
+            "coarse"
+          ]
+        }
+      },
+      "error": "levels 仅支持不重复的 coarse、medium、fine",
+      "sha256": "f27af3e026a26712f2364b76f1816216f4020f2910472bacba3d2853510a1699",
+      "bytes": 64
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": null,
+      "payload": {
+        "case_id": "reference_channel",
+        "action": "preflight",
+        "command": "anything"
+      },
+      "error": "只接受 case_id、action、settings",
+      "sha256": "7044c29262002e27b0a58b038fce40633bbc2cbc90999e63a248850061697e15",
+      "bytes": 50
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": null,
+      "payload": {
+        "case_id": "reference_channel",
+        "action": "anything"
+      },
+      "error": "action 只支持 preflight 或 run_reference",
+      "sha256": "ffa8eb7ed147f7f1fad58a7eda3773ff48bf748ff2c0d039136b874c33e50dea",
+      "bytes": 57
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": {
+        "Origin": "https://foreign.example"
+      },
+      "payload": {
+        "case_id": "reference_channel",
+        "action": "preflight"
+      },
+      "error": "写入必须来自本机工作台页面",
+      "sha256": "a57ff1386ce0efd6621c5551287b84d4f8c354e6588b5502ab066fd05a64b832",
+      "bytes": 52
+    },
+    {
+      "method": "POST",
+      "path": "/api/simulation/jobs",
+      "status": 400,
+      "headers_sent": {
+        "Host": "foreign.example"
+      },
+      "payload": {
+        "case_id": "reference_channel",
+        "action": "preflight"
+      },
+      "error": "写入仅允许本机工作台",
+      "sha256": "a4b7113cd51d320b3984df312f7f2f0047eddb7443a3168ce3a19a6e6c480763",
+      "bytes": 43
+    },
+    {
+      "method": "GET",
+      "path": "/api/simulation/jobs",
+      "status": 200,
+      "headers_sent": null,
+      "payload": null,
+      "error": null,
+      "sha256": "3eb36f6f8ac62160fb01cc38aa5c111975416e6a0cf5d64057483ca755f2e975",
+      "bytes": 28428
+    }
+  ],
+  "checks": [
+    {
+      "name": "live 8769 supports simulation jobs",
+      "passed": true,
+      "detail": {
+        "service": "nasal-cfd-local-workspace/v1",
+        "ct_import": true,
+        "simulation_jobs": true
+      }
+    },
+    {
+      "name": "catalog source and separation",
+      "passed": true,
+      "detail": {
+        "schema": "nasal_simulation_catalog/v1",
+        "cases": [
+          {
+            "id": "reference_channel",
+            "label": "平行板气流参考 · 非患者",
+            "kind": "reference",
+            "run_allowed": true,
+            "blocking_reasons": [],
+            "geometry_status": "runner_generated_reference",
+            "mesh_status": "generated_on_new_run",
+            "solver_status": "available",
+            "artifacts": [],
+            "fixed_parameters": {
+              "bulk_U_m_s": 0.1,
+              "gap_H_m": 0.002,
+              "empty_width_W_m": 0.001,
+              "L_m": 0.04,
+              "Q_m3_s": 2e-07,
+              "Q_L_min": 0.012,
+              "outlet_gauge_p_Pa": 0,
+              "model": "laminar"
+            },
+            "parameters": {
+              "bulk_U_m_s": 0.1,
+              "gap_H_m": 0.002,
+              "empty_width_W_m": 0.001,
+              "L_m": 0.04,
+              "Q_m3_s": 2e-07,
+              "Q_L_min": 0.012,
+              "outlet_gauge_p_Pa": 0,
+              "model": "laminar"
+            },
+            "recommended_settings": {
+              "levels": [
+                "coarse"
+              ]
+            }
+          },
+          {
+            "id": "p0",
+            "label": "p0 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "landmark_review",
+                "label": "候选点位与 CT 证据",
+                "url": "/landmark-review/index.html?case=p0"
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "label": "p1 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "landmark_review",
+                "label": "候选点位与 CT 证据",
+                "url": "/landmark-review/index.html?case=p1"
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "label": "p2 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "landmark_review",
+                "label": "候选点位与 CT 证据",
+                "url": "/landmark-review/index.html?case=p2"
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "label": "p3 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "landmark_review",
+                "label": "候选点位与 CT 证据",
+                "url": "/landmark-review/index.html?case=p3"
+              }
+            ]
+          },
+          {
+            "id": "p3t1",
+            "label": "p3t1 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "landmark_review",
+                "label": "候选点位与 CT 证据",
+                "url": "/landmark-review/index.html?case=p3t1"
+              }
+            ]
+          },
+          {
+            "id": "u_fbca9137690e4837",
+            "label": "u_fbca9137690e4837 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "当前点位审核未完成，病例状态：awaiting_review",
+              "边界审核未准入：边界审核缺失或已过期",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "review",
+                "label": "review",
+                "url": "/case-assets/u_fbca9137690e4837/review/index.html"
+              }
+            ]
+          },
+          {
+            "id": "u_ccf06624879c403a",
+            "label": "u_ccf06624879c403a · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "当前点位审核未完成，病例状态：awaiting_review",
+              "边界审核未准入：边界审核缺失或已过期",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "review",
+                "label": "review",
+                "url": "/case-assets/u_ccf06624879c403a/review/index.html"
+              }
+            ]
+          },
+          {
+            "id": "u_b39e51153cda46d7",
+            "label": "u_b39e51153cda46d7 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "当前点位审核未完成，病例状态：awaiting_review",
+              "边界审核未准入：边界审核缺失或已过期",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "review",
+                "label": "review",
+                "url": "/case-assets/u_b39e51153cda46d7/review/index.html"
+              }
+            ]
+          },
+          {
+            "id": "u_74a998a9fd274288",
+            "label": "u_74a998a9fd274288 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "当前点位审核未完成，病例状态：failed",
+              "边界审核未准入：边界审核缺失或已过期",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": []
+          },
+          {
+            "id": "u_a3d2534c7d534b36",
+            "label": "u_a3d2534c7d534b36 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "当前点位审核未完成，病例状态：failed",
+              "边界审核未准入：边界审核缺失或已过期",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": []
+          },
+          {
+            "id": "u_531c98ca241b4232",
+            "label": "u_531c98ca241b4232 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "当前点位审核未完成，病例状态：interrupted",
+              "边界审核未准入：边界审核缺失或已过期",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": []
+          },
+          {
+            "id": "u_e41f17339e7a4ee5",
+            "label": "u_e41f17339e7a4ee5 · 鼻腔患者预览",
+            "kind": "patient",
+            "run_allowed": false,
+            "blocking_reasons": [
+              "当前点位审核未完成，病例状态：awaiting_review",
+              "边界审核未准入：边界审核缺失或已过期",
+              "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+              "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+              "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+              "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+            ],
+            "geometry_status": "candidate_only",
+            "mesh_status": "not_admitted",
+            "solver_status": "not_admitted",
+            "artifacts": [
+              {
+                "name": "review",
+                "label": "review",
+                "url": "/case-assets/u_e41f17339e7a4ee5/review/index.html"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "new job read matches persisted identity",
+      "passed": true,
+      "detail": {
+        "created_at": "2026-10-15T16:51:55+08:00",
+        "updated_at": "2026-10-15T16:52:06+08:00",
+        "status": "completed",
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "public data omit private process/command paths",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "non-patient identity retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "manifest belongs to current native run",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual four stage execution commands",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: preflight.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: execution.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: run_manifest.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: coarse-log.blockMesh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: coarse-log.checkMesh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: coarse-log.simpleFoam",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: coarse-log.foamToVTK",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: medium-log.blockMesh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: medium-log.checkMesh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: medium-log.simpleFoam",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: medium-log.foamToVTK",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: fine-log.blockMesh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: fine-log.checkMesh",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: fine-log.simpleFoam",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: fine-log.foamToVTK",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: viewer_mesh.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset bytes match current run: viewer.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "private/traversal refused: job.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "private/traversal refused: worker.log",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "private/traversal refused: private.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "private/traversal refused: ../job.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "private/traversal refused: %2e%2e%2fjob.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "private/traversal refused: ..%5cjob.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown path refused: /api/simulation/jobs/not-a-job",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown path refused: /api/simulation/unknown",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown path refused: /simulation-assets/s_970bd197fb3b41d289170ceb/",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "invalid write rejected: patient run",
+      "passed": true,
+      "detail": {
+        "error": "患者运行拒绝：现有候选状态：proposals_not_clinically_validated；不等于最终几何批准；尚无与本例当前输入绑定且已验收的最终 CFD 表面；尚无与最终表面绑定的合格体网格和 checkMesh 记录；患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定；本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+      }
+    },
+    {
+      "name": "invalid write rejected: unknown setting",
+      "passed": true,
+      "detail": {
+        "error": "参考参数固定；settings 仅支持 levels，不接受流量或压力覆盖"
+      }
+    },
+    {
+      "name": "invalid write rejected: invalid level",
+      "passed": true,
+      "detail": {
+        "error": "levels 仅支持不重复的 coarse、medium、fine"
+      }
+    },
+    {
+      "name": "invalid write rejected: duplicate level",
+      "passed": true,
+      "detail": {
+        "error": "levels 仅支持不重复的 coarse、medium、fine"
+      }
+    },
+    {
+      "name": "invalid write rejected: unknown field",
+      "passed": true,
+      "detail": {
+        "error": "只接受 case_id、action、settings"
+      }
+    },
+    {
+      "name": "invalid write rejected: invalid action",
+      "passed": true,
+      "detail": {
+        "error": "action 只支持 preflight 或 run_reference"
+      }
+    },
+    {
+      "name": "invalid write rejected: cross origin",
+      "passed": true,
+      "detail": {
+        "error": "写入必须来自本机工作台页面"
+      }
+    },
+    {
+      "name": "invalid write rejected: wrong host",
+      "passed": true,
+      "detail": {
+        "error": "写入仅允许本机工作台"
+      }
+    },
+    {
+      "name": "rejected requests created no CFD jobs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "single current source VTU",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "raw source cells and arrays",
+      "passed": true,
+      "detail": {
+        "cells": 12800,
+        "points": 26322,
+        "point_arrays": [
+          "p",
+          "U"
+        ]
+      }
+    },
+    {
+      "name": "viewer retains source provenance and validation limits",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all viewer vectors from current VTU with rigid axis rotation",
+      "passed": true,
+      "detail": {
+        "max_abs_error_m_s": 4.1359030627651384e-25,
+        "points": 13161
+      }
+    },
+    {
+      "name": "all viewer pressures use rho times kinematic source",
+      "passed": true,
+      "detail": {
+        "max_abs_error_Pa": 0.0,
+        "range_Pa": [
+          0.0,
+          0.21682199835777283
+        ],
+        "range_U_m_s": [
+          0.0,
+          0.14987599849700928
+        ]
+      }
+    },
+    {
+      "name": "OpenFOAM source pressure is kinematic",
+      "passed": true,
+      "detail": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\202\\p"
+    },
+    {
+      "name": "raw monitors reproduce displayed pressure and mass values",
+      "passed": true,
+      "detail": {
+        "Qin_m3_s": -2e-07,
+        "Qout_m3_s": 2e-07,
+        "delta_p_Pa": 0.21679864724472,
+        "mass_imbalance_fraction": 0.0,
+        "recorded_precision_warning": "0 reflects serialized monitor precision"
+      }
+    },
+    {
+      "name": "raw solver log says converged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "checkMesh actual success evidence",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "runner frozen hash matches current source",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "failures": [],
+  "files": [
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\job.json",
+      "bytes": 10073,
+      "sha256": "e48064347c8b7c6215cb323843377647723945726cec98a13c5232ece7154411"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\input_fingerprint.json",
+      "bytes": 324,
+      "sha256": "b4e3944dde415637a13621689fc757a85c1c28affd261b5e0110a2f84ef4b09d"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\execution.log",
+      "bytes": 3620,
+      "sha256": "f42506938d626dec39f0c3bc498ab55086948eb4c974d6d9f80e7377fad808fc"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\run_manifest.json",
+      "bytes": 10008,
+      "sha256": "7ec05483064ab67fa1e9b62e13615955d27be6fbe21a0edc93a5a0570bec7e14"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\preflight.json",
+      "bytes": 2374,
+      "sha256": "bd4c439b20b4b51afac317113eaf2996b8f20d006ca62eb85ecabd825af646b8"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\coarse\\log.blockMesh",
+      "bytes": 2861,
+      "sha256": "ce9a27e5b52425d95fe416468b577bff6ccd5300903cead98966317b7ad6bc30"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\coarse\\log.checkMesh",
+      "bytes": 4606,
+      "sha256": "d5ad26f64d1fab929e151c712b92433399dacf9e511f03c3e2ccc254a57ae82f"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\coarse\\log.simpleFoam",
+      "bytes": 87389,
+      "sha256": "8ce538307977c3059d782087090fe48459d83b5e6ab1ec83a25a8223dbed2662"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\coarse\\log.foamToVTK",
+      "bytes": 1934,
+      "sha256": "dbac29a5d976d7fea1fd82b598d75704626a6b83c5f2ff916d54003f4d7748a3"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\medium\\log.blockMesh",
+      "bytes": 2865,
+      "sha256": "76be729bf67bcf27419d4a4aa18088895f64c607500e855edd70f993e043bd4f"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\medium\\log.checkMesh",
+      "bytes": 4623,
+      "sha256": "7ede590d26652fdda6b8ee6c38da8466ab28374dfc6883bec67d93f64c8bef8c"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\medium\\log.simpleFoam",
+      "bytes": 83678,
+      "sha256": "6bd41ce3419c8dc6da339d6c84f955f0a0b1c9aa610719a4866c8f1100ca1f2b"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\medium\\log.foamToVTK",
+      "bytes": 1937,
+      "sha256": "9203c4bf0634e02dee71761ed212d131fa0e86a868ebb3ae7ac077da0e07bc37"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\log.blockMesh",
+      "bytes": 2869,
+      "sha256": "08c7c8a6620d16790fc9ac464f21ea65832624668a959a3916c27912ececb461"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\log.checkMesh",
+      "bytes": 4631,
+      "sha256": "bcd9c435e503ecdf96eddaaee4c65683a107c9b1b40cca684bce7e2e0797e7e0"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\log.simpleFoam",
+      "bytes": 108326,
+      "sha256": "95d5a816e2a03ef6bd23f9159462cfc70ac80e17cfb17333730c57441b6ca0dc"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\log.foamToVTK",
+      "bytes": 1927,
+      "sha256": "14f7d5327898d15e064459a982ea9c2991eb94222fc87f5c599dc0e76a764388"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\viewer_mesh.json",
+      "bytes": 3972811,
+      "sha256": "d1c516362fb0ad6e68ff3edef99b52d4b8d6f38af173b197ff5e1b77dfb68455"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\viewer.json",
+      "bytes": 465,
+      "sha256": "ea53609cda1e04818a8f03a3af756809b417f9dea773aed2a7bc868794a996d0"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\VTK\\fine_202\\internal.vtu",
+      "bytes": 2471048,
+      "sha256": "5102b7967aba961494d01e3ce9bd944c7a62de733cc7f12f952b2f682212ebed"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\202\\p",
+      "bytes": 199584,
+      "sha256": "7270fab4b3360324178716257ad8ce27ea173f0e438497dc88c67a22c2a47b07"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\postProcessing\\flowIn\\0\\surfaceFieldValue.dat",
+      "bytes": 8451,
+      "sha256": "aaaa0a5ed0526d6e009c7cb7243954263bb1f48ad1cf302e73e50ecb85a5d404"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\postProcessing\\flowOut\\0\\surfaceFieldValue.dat",
+      "bytes": 8250,
+      "sha256": "a11bc6a829341827c7a78ef1218622eb7f83d5008a1faf2395bf5ae1abd257f8"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\postProcessing\\pressureIn\\0\\surfaceFieldValue.dat",
+      "bytes": 8255,
+      "sha256": "03572e987a53bfb3d81d1e3801fe741a7739595c7535be437275bd6cb6cef251"
+    },
+    {
+      "path": "C:\\ts_work\\project_cases\\simulation_jobs\\s_970bd197fb3b41d289170ceb\\export\\s_970bd197fb3b41d289170ceb\\fine\\postProcessing\\pressureOut\\0\\surfaceFieldValue.dat",
+      "bytes": 8256,
+      "sha256": "45190c5d9ef6522f9e0a9a6cd3d08cc39e99ef34f2dff903a4c8d3b394f8d5bd"
+    }
+  ],
+  "source_code": [
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\cfd_workspace_jobs.py",
+      "sha256": "1054d0682ac08f50b7fcaf0f513129ed429b4d34d9c1f856a49cfc6ca94501de"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py",
+      "sha256": "a298e16f14981a706182dcfcd6928d8b3cfe7df867d0907ecab0e32c62123333"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\workspace\\index.html",
+      "sha256": "177517a8ecd457bc1fabf59132dd3a8a262bcfa1e3ee63b04498acc9e6cd8332"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\workspace\\simulation.js",
+      "sha256": "daf8a6620ab055dcf6df4a5d8041d70a9526f93832de74be9bd810dc62c65f13"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\viewer\\viewer.js",
+      "sha256": "57fac0fe2f9970eae4947269f95099e26253961d3e80f9f03af22b02f5801d0b"
+    }
+  ],
+  "verification_script_sha256": "794f525303d9ba99a90111934354b3aff664667503ed5bfa9dde5d1dc14b2774"
+}

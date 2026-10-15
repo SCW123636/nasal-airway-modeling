@@ -1,0 +1,111 @@
+{
+  "pid": 935,
+  "cwd": "/mnt/d/\u9879\u76ee/\u9f3b\u8154\u5efa\u6a21",
+  "files": [
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.blockMesh",
+      "exists": true,
+      "bytes": 2861,
+      "mtime_ns": 1792054316619957184,
+      "sha256": "ce9a27e5b52425d95fe416468b577bff6ccd5300903cead98966317b7ad6bc30"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.checkMesh",
+      "exists": true,
+      "bytes": 4606,
+      "mtime_ns": 1792054316664083474,
+      "sha256": "d5ad26f64d1fab929e151c712b92433399dacf9e511f03c3e2ccc254a57ae82f"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.simpleFoam",
+      "exists": true,
+      "bytes": 87389,
+      "mtime_ns": 1792054316882611539,
+      "sha256": "8ce538307977c3059d782087090fe48459d83b5e6ab1ec83a25a8223dbed2662"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.foamToVTK",
+      "exists": true,
+      "bytes": 1934,
+      "mtime_ns": 1792054316958611519,
+      "sha256": "dbac29a5d976d7fea1fd82b598d75704626a6b83c5f2ff916d54003f4d7748a3"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/VTK/coarse_162/internal.vtu",
+      "exists": true,
+      "bytes": 145864,
+      "mtime_ns": 1792054316955353957,
+      "sha256": "fa97c90149e5558772b3a6016a9f62385e6592a81a4dc3a5f90b2ca2652bf879"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.blockMesh",
+      "exists": true,
+      "bytes": 2865,
+      "mtime_ns": 1792054316998611510,
+      "sha256": "76be729bf67bcf27419d4a4aa18088895f64c607500e855edd70f993e043bd4f"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.checkMesh",
+      "exists": true,
+      "bytes": 4623,
+      "mtime_ns": 1792054317069374297,
+      "sha256": "7ede590d26652fdda6b8ee6c38da8466ab28374dfc6883bec67d93f64c8bef8c"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.simpleFoam",
+      "exists": true,
+      "bytes": 83678,
+      "mtime_ns": 1792054317438611399,
+      "sha256": "6bd41ce3419c8dc6da339d6c84f955f0a0b1c9aa610719a4866c8f1100ca1f2b"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.foamToVTK",
+      "exists": true,
+      "bytes": 1937,
+      "mtime_ns": 1792054317518611380,
+      "sha256": "9203c4bf0634e02dee71761ed212d131fa0e86a868ebb3ae7ac077da0e07bc37"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/VTK/medium_155/internal.vtu",
+      "exists": true,
+      "bytes": 592809,
+      "mtime_ns": 1792054317514611380,
+      "sha256": "f2d44ed5b6a03d79c80858b30dab265c90a08c7ccba4c2003a816ff3370c2b59"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.blockMesh",
+      "exists": true,
+      "bytes": 2869,
+      "mtime_ns": 1792054317614611356,
+      "sha256": "08c7c8a6620d16790fc9ac464f21ea65832624668a959a3916c27912ececb461"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.checkMesh",
+      "exists": true,
+      "bytes": 4631,
+      "mtime_ns": 1792054317816882670,
+      "sha256": "bcd9c435e503ecdf96eddaaee4c65683a107c9b1b40cca684bce7e2e0797e7e0"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.simpleFoam",
+      "exists": true,
+      "bytes": 108326,
+      "mtime_ns": 1792054320026610750,
+      "sha256": "95d5a816e2a03ef6bd23f9159462cfc70ac80e17cfb17333730c57441b6ca0dc"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.foamToVTK",
+      "exists": true,
+      "bytes": 1927,
+      "mtime_ns": 1792054320182610711,
+      "sha256": "14f7d5327898d15e064459a982ea9c2991eb94222fc87f5c599dc0e76a764388"
+    },
+    {
+      "path": "/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/VTK/fine_202/internal.vtu",
+      "exists": true,
+      "bytes": 2471048,
+      "mtime_ns": 1792054320182610711,
+      "sha256": "5102b7967aba961494d01e3ce9bd944c7a62de733cc7f12f952b2f682212ebed"
+    }
+  ]
+}
