@@ -265,7 +265,7 @@ class CommonPressureAdapter:
                         "desired_strategy": DESIRED_STRATEGY,
                         "flow_target_role": FLOW_TARGET_ROLE,
                         "strategy_description": STRATEGY_DESCRIPTION},
-            "evaluation_backend": "injected_callback_not_a_solver",
+            "evaluation_backend": getattr(self.evaluate, "evaluation_backend", "injected_callback_not_a_solver"),
             "inlet_patches": list(self.inlet_patches),
             "outlet_patches": list(self.outlet_patches),
             "target_m3_s": solved["target_m3_s"],

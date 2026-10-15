@@ -411,6 +411,33 @@ class ContractGateTests(unittest.TestCase):
             self.assertEqual(manifest['contract']['config_id'], 'synthetic_authorized_idealized')
             self.assertFalse(manifest['engineering_acceptance'])
 
+    def test_bound_engineering_authorization_requires_configuration(self):
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stderr(io.StringIO()), mock.patch.object(executor,'execute') as execute:
+            self.assertEqual(executor.main(['--case',tmp,'--engineering-authorization','approval.json','--steps','simpleFoam']),3)
+            execute.assert_not_called()
+
+    def test_bound_engineering_trial_preserves_failed_mesh_and_readiness(self):
+        # The content validator is exercised with real files separately by
+        # test_patient_cfd_admission; this tests its executor integration.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            config = self._authorized_config();config['solver_adapter']['status']='not_implemented'
+            cfg = self._write_config(root,config)
+            bound = {'allowed':True,'case_id':'fixture_engineering','scope':'isolated_engineering_trial_not_clinical',
+                     'clinical_validation':'not_validated','source_record':'unit-test-only'}
+            with mock.patch('patient_cfd_admission.validate_engineering_authorization',return_value=bound), \
+                 mock.patch.object(executor,'check_case_complete'), mock.patch.object(executor,'is_sst',return_value=False), \
+                 mock.patch.object(executor,'mesh_quality',return_value={'passed':False,'failed_checks':2}), \
+                 mock.patch.object(executor,'execute',side_effect=lambda cmd,case,env,log:{'command':cmd,'exit_code':0,'log':str(case/log)}):
+                result = executor.main(['--case',str(root),'--config',cfg,'--engineering-authorization',str(root/'approval.json'),'--steps','simpleFoam'])
+            self.assertEqual(result,0)
+            manifest = json.loads((root/'run_manifest.json').read_text())
+            self.assertFalse(manifest['engineering_acceptance'])
+            self.assertFalse(manifest['contract']['execution_allowed'])
+            self.assertFalse(manifest['contract']['forced'])
+            self.assertTrue(manifest['contract']['warnings'])
+            self.assertTrue(manifest['failed_mesh_bound_engineering_trial'])
+
 
 if __name__=='__main__':
     unittest.main()

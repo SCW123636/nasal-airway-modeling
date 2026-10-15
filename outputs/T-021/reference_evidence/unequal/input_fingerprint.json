@@ -1,0 +1,16 @@
+{
+  "files": {
+    "0/U": "279b71c41968d045c3d55ad4c61431b0817be5e996804f9ccd6408cc197d6d18",
+    "0/p": "7e3825ea50503c0c1c8628bbec2d2bcae2c67ffdc7a745ea1285d7ff5fa6f29d",
+    "constant/transportProperties": "c68976a4b2b1f005b1e26ce110e4f3edbfba28730ca0aa2b7e6c3fe77a5cff48",
+    "constant/turbulenceProperties": "8fec78500aa8c5f8807135f0f7e2cf02f2a02c69c306fd12a899ce3abf57c269",
+    "system/blockMeshDict": "c454462dd7967e1f1898ea9564c35da7aafc9c8a6ea40e414d5469df488cb3c9",
+    "system/controlDict": "d5edb79ceadb9ca60e14222a8fb6073dc33166b7d9725654843bcf69eaeae27a",
+    "system/fvSchemes": "3e4f9b5ad4a1c9435f1156c74bb4384f747381600d4ba4c96296871442dc53f7",
+    "system/fvSolution": "f3d7bf22ead848ad446a6a248e64fbbf011a3d4eb680768a8c349c8fda2ed4fc",
+    "case_manifest.json": "9ebbee747a8a6c3efafe24f337d50f350ebd7d13e4a58a94bb7d124511af625c"
+  },
+  "solver_sha256": "a5b1381b9afd1dc4c2c2014ef8f45fa0a2f2c0c01f36aa4bda866a3ddc8c38ea",
+  "adapter_sha256": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+  "controller_sha256": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22"
+}

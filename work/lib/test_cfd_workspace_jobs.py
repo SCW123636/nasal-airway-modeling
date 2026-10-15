@@ -35,12 +35,15 @@ class SimulationTests(unittest.TestCase):
 
     def create(self, action='preflight', case='reference_channel'):
         with patch.object(self.jobs, '_spawn'):
-            return self.jobs.start({'case_id': case, 'action': action, 'settings': {'levels': ['coarse']}})
+            return self.jobs.start({'case_id': case, 'action': action, 'settings': {'levels': ['coarse']} if case == 'reference_channel' else {}})
 
     def test_catalog_separates_reference_and_patient_current_case(self):
         catalog = self.jobs.catalog()
         self.assertEqual(catalog['schema'], 'nasal_simulation_catalog/v1')
-        reference, patient = catalog['cases']
+        reference = next(c for c in catalog['cases'] if c['id']=='reference_channel')
+        patient = next(c for c in catalog['cases'] if c['id']=='p0')
+        split = next(c for c in catalog['cases'] if c['id']=='reference_split_feedback')
+        self.assertEqual(split['run_action'],'run_pressure_feedback')
         self.assertTrue(reference['run_allowed'])
         self.assertEqual(reference['fixed_parameters']['Q_L_min'], .012)
         self.assertFalse(patient['run_allowed'])
@@ -56,6 +59,21 @@ class SimulationTests(unittest.TestCase):
                 self.jobs.start({'case_id': 'reference_channel', 'action': 'run_reference', 'settings': settings})
         with self.assertRaises(ValueError):
             self.jobs.start({'case_id': 'reference_channel', 'action': 'run_reference', 'command': 'anything'})
+
+    def test_bound_fixed_plane_rejection_is_reflected_in_catalog_run_permission(self):
+        source = self.reviews / 'p0/landmarks.json'
+        diagnostic = self.root / 'outputs/T-020/fixed_clip_results.json'
+        write_json(diagnostic, {'cases': {'p0': {
+            'inputs': {str(source): jobs.sha256(source)},
+            'actual': {'passed': False, 'details': {'conflicting_triangles': 774,
+                                                  'strictly_crossing_plane_triangles': 0}}}}})
+        eligibility = {'passed': True, 'checks': [{'name': 'fixture_admission', 'passed': True,
+                                                  'detail': 'fixture only'}]}
+        with patch.object(jobs, 'ROOT', self.root), patch('patient_cfd_admission.admission', return_value=eligibility):
+            patient = self.jobs.patient('p0')
+        self.assertFalse(patient['run_allowed'])
+        self.assertEqual(patient['solver_status'], 'not_admitted')
+        self.assertIn('774', ' '.join(patient['blocking_reasons']))
 
     def test_preflight_worker_completes_without_solver_and_restart_reads_disk(self):
         created = self.create()
@@ -210,6 +228,16 @@ class SimulationTests(unittest.TestCase):
         pressure.write_text('dimensions [1 -1 -2 0 0 0 0];')
         with self.assertRaisesRegex(ValueError, '运动学压力'):
             jobs.export_reference_viewer(directory, manifest)
+
+    def test_pressure_feedback_schema_and_cross_action_refusal(self):
+        with patch.object(self.jobs,'_spawn'):
+            created = self.jobs.start({'case_id':'reference_split_feedback','action':'run_pressure_feedback',
+                                      'settings':{'scenarios':['unequal','symmetric','swapped_labels']}})
+        self.assertEqual(created['settings']['scenarios'],list(jobs.SCENARIOS))
+        with self.assertRaisesRegex(ValueError,'入口拒绝'):
+            self.jobs.start({'case_id':'reference_channel','action':'run_patient_engineering'})
+        with self.assertRaises(ValueError):
+            self.jobs.start({'case_id':'reference_split_feedback','action':'run_pressure_feedback','settings':{'scenarios':['bad']}})
 
 
 if __name__ == '__main__':

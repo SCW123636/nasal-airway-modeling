@@ -1,0 +1,883 @@
+test_ab_compare_runs (unittest.loader._FailedTest.test_ab_compare_runs) ... ERROR
+test_changed_input_or_artifact_refused (test_adopt_landmark_feedback.AdoptionTests.test_changed_input_or_artifact_refused) ... ok
+test_current_feedback_adopted_and_repeat_reuses_generation (test_adopt_landmark_feedback.AdoptionTests.test_current_feedback_adopted_and_repeat_reuses_generation) ... ok
+test_publish_failure_leaves_no_current_pointer (test_adopt_landmark_feedback.AdoptionTests.test_publish_failure_leaves_no_current_pointer) ... ok
+test_rejected_latest_feedback_cannot_inherit_older_pass (test_adopt_landmark_feedback.AdoptionTests.test_rejected_latest_feedback_cannot_inherit_older_pass) ... ok
+test_reused_generation_rechecks_input_before_publish (test_adopt_landmark_feedback.AdoptionTests.test_reused_generation_rechecks_input_before_publish) ... ok
+test_same_time_feedback_conflict_is_refused (test_adopt_landmark_feedback.AdoptionTests.test_same_time_feedback_conflict_is_refused) ... ok
+test_analyze_sliver_cells (unittest.loader._FailedTest.test_analyze_sliver_cells) ... ERROR
+test_crop_origin_preserves_global_physical_coordinates (test_auto_anatomy_landmarks.PhysicalCoordinateTests.test_crop_origin_preserves_global_physical_coordinates) ... ok
+test_equal_size_does_not_hide_wrong_direction (test_auto_anatomy_landmarks.PhysicalCoordinateTests.test_equal_size_does_not_hide_wrong_direction) ... ok
+test_known_lps_coordinate_keeps_patient_left_and_posterior_signs (test_auto_anatomy_landmarks.PhysicalCoordinateTests.test_known_lps_coordinate_keeps_patient_left_and_posterior_signs) ... ok
+test_linear_ct_sampling_has_independent_analytic_value (test_auto_anatomy_landmarks.PhysicalCoordinateTests.test_linear_ct_sampling_has_independent_analytic_value) ... ok
+test_oblique_forward_and_inverse_match_simpleitk (test_auto_anatomy_landmarks.PhysicalCoordinateTests.test_oblique_forward_and_inverse_match_simpleitk) ... ok
+test_outside_sampling_does_not_become_air (test_auto_anatomy_landmarks.PhysicalCoordinateTests.test_outside_sampling_does_not_become_air) ... ok
+test_all_oblique_display_lines_satisfy_original_physical_plane (test_auto_anatomy_landmarks.PlaneDisplayTests.test_all_oblique_display_lines_satisfy_original_physical_plane) ... ok
+test_empty_markups_is_valid_lps_json (test_auto_anatomy_landmarks.PlaneDisplayTests.test_empty_markups_is_valid_lps_json) ... ok
+test_no_candidate_still_writes_valid_png (test_auto_anatomy_landmarks.PlaneDisplayTests.test_no_candidate_still_writes_valid_png) ... ok
+test_parallel_slice_has_no_unique_intersection_line (test_auto_anatomy_landmarks.PlaneDisplayTests.test_parallel_slice_has_no_unique_intersection_line) ... ok
+test_rounding_slice_position_shifts_horizontal_intersection (test_auto_anatomy_landmarks.PlaneDisplayTests.test_rounding_slice_position_shifts_horizontal_intersection) ... ok
+test_rounding_slice_position_shifts_vertical_intersection (test_auto_anatomy_landmarks.PlaneDisplayTests.test_rounding_slice_position_shifts_vertical_intersection) ... ok
+test_absent_patch_measurement_cannot_be_reported_as_passed (test_auto_anatomy_landmarks.ProposalStatusTests.test_absent_patch_measurement_cannot_be_reported_as_passed) ... ok
+test_competing_patch_at_nonprimary_threshold_requires_review (test_auto_anatomy_landmarks.ProposalStatusTests.test_competing_patch_at_nonprimary_threshold_requires_review) ... ok
+test_missing_primary_threshold_does_not_silently_substitute_another (test_auto_anatomy_landmarks.ProposalStatusTests.test_missing_primary_threshold_does_not_silently_substitute_another) ... ok
+test_missing_secondary_threshold_requires_review (test_auto_anatomy_landmarks.ProposalStatusTests.test_missing_secondary_threshold_requires_review) ... ok
+test_positive_normal_scale_does_not_change_orientation (test_auto_anatomy_landmarks.ProposalStatusTests.test_positive_normal_scale_does_not_change_orientation) ... ok
+test_reversed_normal_is_180_degrees_not_stable (test_auto_anatomy_landmarks.ProposalStatusTests.test_reversed_normal_is_180_degrees_not_stable) ... ok
+test_sparse_secondary_threshold_cannot_be_hidden_by_dense_primary (test_auto_anatomy_landmarks.ProposalStatusTests.test_sparse_secondary_threshold_cannot_be_hidden_by_dense_primary) ... ok
+test_stable_proposal_never_becomes_clinically_confirmed (test_auto_anatomy_landmarks.ProposalStatusTests.test_stable_proposal_never_becomes_clinically_confirmed) ... ok
+test_warped_secondary_plane_cannot_be_hidden_by_primary_fit (test_auto_anatomy_landmarks.ProposalStatusTests.test_warped_secondary_plane_cannot_be_hidden_by_primary_fit) ... ok
+test_clear_finite_ray_is_a_proposal_without_exterior_claim (test_auto_anatomy_landmarks.RayProposalTests.test_clear_finite_ray_is_a_proposal_without_exterior_claim) ... ok
+test_ray_leaving_field_of_view_is_rejected (test_auto_anatomy_landmarks.RayProposalTests.test_ray_leaving_field_of_view_is_rejected) ... ok
+test_semantic_reentry_rejects_otherwise_clear_air_ray (test_auto_anatomy_landmarks.RayProposalTests.test_semantic_reentry_rejects_otherwise_clear_air_ray) ... ok
+test_tissue_along_ray_is_rejected (test_auto_anatomy_landmarks.RayProposalTests.test_tissue_along_ray_is_rejected) ... ok
+test_corner_only_coplanar_faces_remain_separate (test_auto_anatomy_landmarks.SharedFaceTests.test_corner_only_coplanar_faces_remain_separate) ... ok
+test_edge_and_corner_voxel_adjacency_are_not_finite_apertures (test_auto_anatomy_landmarks.SharedFaceTests.test_edge_and_corner_voxel_adjacency_are_not_finite_apertures) ... ok
+test_neighboring_coplanar_faces_share_an_edge (test_auto_anatomy_landmarks.SharedFaceTests.test_neighboring_coplanar_faces_share_an_edge) ... ok
+test_orthogonal_faces_sharing_full_edge_join_one_patch (test_auto_anatomy_landmarks.SharedFaceTests.test_orthogonal_faces_sharing_full_edge_join_one_patch) ... ok
+test_patch_ranking_uses_mm2_instead_of_face_count (test_auto_anatomy_landmarks.SharedFaceTests.test_patch_ranking_uses_mm2_instead_of_face_count) ... ok
+test_separate_patch_centroid_is_not_averaged_into_empty_gap (test_auto_anatomy_landmarks.SharedFaceTests.test_separate_patch_centroid_is_not_averaged_into_empty_gap) ... ok
+test_single_face_center_and_anisotropic_physical_area (test_auto_anatomy_landmarks.SharedFaceTests.test_single_face_center_and_anisotropic_physical_area) ... ok
+test_auto_opening_planes (unittest.loader._FailedTest.test_auto_opening_planes) ... ERROR
+test_failed_generation_does_not_publish_preview_pointer (test_boundary_pipeline_integration.BoundaryPipelineIntegrationTests.test_failed_generation_does_not_publish_preview_pointer) ... ok
+test_mask_preview_manifest_and_boundary_save (test_boundary_pipeline_integration.BoundaryPipelineIntegrationTests.test_mask_preview_manifest_and_boundary_save) ... ok
+test_controls_are_scoped_and_a_new_directory_is_required (test_boundary_preview.BoundaryPreviewTests.test_controls_are_scoped_and_a_new_directory_is_required) ... ok
+test_reviewable_draft_requires_sinus_mask_and_all_controls_stay_inside_ct (test_boundary_preview.BoundaryPreviewTests.test_reviewable_draft_requires_sinus_mask_and_all_controls_stay_inside_ct) ... ok
+test_rotated_physical_grid_generates_bound_manifest_and_real_images (test_boundary_preview.BoundaryPreviewTests.test_rotated_physical_grid_generates_bound_manifest_and_real_images) ... ok
+test_atomic_write_and_load (test_boundary_review.BoundaryReviewTests.test_atomic_write_and_load) ... ok
+test_hash_or_revision_mismatch_is_rejected (test_boundary_review.BoundaryReviewTests.test_hash_or_revision_mismatch_is_rejected) ... ok
+test_invalid_json_types_and_huge_numbers_are_validation_errors (test_boundary_review.BoundaryReviewTests.test_invalid_json_types_and_huge_numbers_are_validation_errors) ... ok
+test_missing_context_evidence_and_wrong_patient_are_rejected (test_boundary_review.BoundaryReviewTests.test_missing_context_evidence_and_wrong_patient_are_rejected) ... ok
+test_missing_oral_or_sinus_policy_is_rejected (test_boundary_review.BoundaryReviewTests.test_missing_oral_or_sinus_policy_is_rejected) ... ok
+test_nonfinite_boolean_and_naive_timestamp_are_rejected (test_boundary_review.BoundaryReviewTests.test_nonfinite_boolean_and_naive_timestamp_are_rejected) ... ok
+test_parameter_changes_require_new_preview (test_boundary_review.BoundaryReviewTests.test_parameter_changes_require_new_preview) ... ok
+test_replace_failure_preserves_previous_record_and_cleans_temp (test_boundary_review.BoundaryReviewTests.test_replace_failure_preserves_previous_record_and_cleans_temp) ... ok
+test_separate_oral_wall_is_explicit_and_sinus_scope_is_fixed (test_boundary_review.BoundaryReviewTests.test_separate_oral_wall_is_explicit_and_sinus_scope_is_fixed) ... ok
+test_valid_record_binds_all_inputs (test_boundary_review.BoundaryReviewTests.test_valid_record_binds_all_inputs) ... ok
+test_write_does_not_replace_existing_record_on_validation_failure (test_boundary_review.BoundaryReviewTests.test_write_does_not_replace_existing_record_on_validation_failure) ... ok
+test_zero_normal_and_reversed_roi_are_rejected (test_boundary_review.BoundaryReviewTests.test_zero_normal_and_reversed_roi_are_rejected) ... ok
+test_canonical_hash_ignores_dictionary_order (test_build_auto_landmark_review.ReviewBuilderTests.test_canonical_hash_ignores_dictionary_order) ... ok
+test_card_focus_and_decision_keep_selected_landmark (test_build_auto_landmark_review.ReviewBuilderTests.test_card_focus_and_decision_keep_selected_landmark) ... ok
+test_duplicate_cases_and_missing_sources_are_rejected (test_build_auto_landmark_review.ReviewBuilderTests.test_duplicate_cases_and_missing_sources_are_rejected) ... ok
+test_geometry_units_fail_closed (test_build_auto_landmark_review.ReviewBuilderTests.test_geometry_units_fail_closed) ... ok
+test_hash_changes_with_coordinates_or_anatomy (test_build_auto_landmark_review.ReviewBuilderTests.test_hash_changes_with_coordinates_or_anatomy) ... ok
+test_import_hash_coordinates_values_and_stale_storage (test_build_auto_landmark_review.ReviewBuilderTests.test_import_hash_coordinates_values_and_stale_storage) ... ok
+test_inline_javascript_syntax (test_build_auto_landmark_review.ReviewBuilderTests.test_inline_javascript_syntax) ... ok
+test_invalid_numbers_and_zero_normal_are_rejected (test_build_auto_landmark_review.ReviewBuilderTests.test_invalid_numbers_and_zero_normal_are_rejected) ... ok
+test_json_script_roundtrip_and_xss_escape (test_build_auto_landmark_review.ReviewBuilderTests.test_json_script_roundtrip_and_xss_escape) ... ok
+test_overlay_path_cannot_escape_case_directory (test_build_auto_landmark_review.ReviewBuilderTests.test_overlay_path_cannot_escape_case_directory) ... ok
+test_per_landmark_relative_image_is_encoded (test_build_auto_landmark_review.ReviewBuilderTests.test_per_landmark_relative_image_is_encoded) ... ok
+test_review_context_and_navigation_survive_regeneration (test_build_auto_landmark_review.ReviewBuilderTests.test_review_context_and_navigation_survive_regeneration) ... ok
+test_lps_to_display_is_single_centered_rigid_rotation (test_build_cfd_workspace.DisplayCoordinateTests.test_lps_to_display_is_single_centered_rigid_rotation) ... ok
+test_ti_fraction_is_displayed_as_percent_without_unmasking_null (test_build_cfd_workspace.DisplayCoordinateTests.test_ti_fraction_is_displayed_as_percent_without_unmasking_null) ... ok
+test_normal_and_review_routes_stay_in_their_roots (test_build_cfd_workspace.LocalServerScopeTests.test_normal_and_review_routes_stay_in_their_roots) ... ok
+test_server_binds_only_loopback (test_build_cfd_workspace.LocalServerScopeTests.test_server_binds_only_loopback) ... ok
+test_traversal_and_windows_paths_do_not_escape (test_build_cfd_workspace.LocalServerScopeTests.test_traversal_and_windows_paths_do_not_escape) ... ok
+test_analytic_pressure_gradient_and_field_contract (test_build_cfd_workspace.WorkspaceContractTests.test_analytic_pressure_gradient_and_field_contract) ... ok
+test_analytic_radial_integral_recovers_volume_and_mass_flow (test_build_cfd_workspace.WorkspaceContractTests.test_analytic_radial_integral_recovers_volume_and_mass_flow) ... ok
+test_landmark_identity_units_and_numbers_must_match_patient (test_build_cfd_workspace.WorkspaceContractTests.test_landmark_identity_units_and_numbers_must_match_patient) ... ok
+test_patient_mesh_cannot_carry_an_analytic_reference_result (test_build_cfd_workspace.WorkspaceContractTests.test_patient_mesh_cannot_carry_an_analytic_reference_result) ... ok
+test_patient_mesh_identity_and_units_must_match (test_build_cfd_workspace.WorkspaceContractTests.test_patient_mesh_identity_and_units_must_match) ... ok
+test_patient_result_contract_rejects_reference_fields (test_build_cfd_workspace.WorkspaceContractTests.test_patient_result_contract_rejects_reference_fields) ... ok
+test_patient_workspace_exposes_feedback_audit_without_unlocking_cfd (test_build_cfd_workspace.WorkspaceContractTests.test_patient_workspace_exposes_feedback_audit_without_unlocking_cfd) ... ok
+test_patient_workspace_keeps_all_flow_fields_null (test_build_cfd_workspace.WorkspaceContractTests.test_patient_workspace_keeps_all_flow_fields_null) ... ok
+test_missing_or_invalid_identity_fails_closed (test_build_progress_dashboard.ProgressDashboardTests.test_missing_or_invalid_identity_fails_closed) ... ok
+test_valid_audit_is_summarized_without_clinical_claim (test_build_progress_dashboard.ProgressDashboardTests.test_valid_audit_is_summarized_without_clinical_claim) ... ok
+test_15_lpm_is_2_5e_minus4_m3_s (test_cfd_contract.ConfigurationTests.test_15_lpm_is_2_5e_minus4_m3_s) ... ok
+test_all_templates_are_valid_but_none_can_execute (test_cfd_contract.ConfigurationTests.test_all_templates_are_valid_but_none_can_execute) ... ok
+test_equal_split_must_remain_imposed_baseline (test_cfd_contract.ConfigurationTests.test_equal_split_must_remain_imposed_baseline) ... ok
+test_fixed_flow_and_one_static_reference_are_valid_even_at_plus18_pa (test_cfd_contract.ConfigurationTests.test_fixed_flow_and_one_static_reference_are_valid_even_at_plus18_pa) ... ok
+test_mismatched_review_hash_invalidates_execution_metadata (test_cfd_contract.ConfigurationTests.test_mismatched_review_hash_invalidates_execution_metadata) ... ok
+test_mm_geometry_cannot_skip_or_double_the_metre_scale (test_cfd_contract.ConfigurationTests.test_mm_geometry_cannot_skip_or_double_the_metre_scale) ... ok
+test_pending_patient_geometry_cannot_execute_even_with_implemented_adapter (test_cfd_contract.ConfigurationTests.test_pending_patient_geometry_cannot_execute_even_with_implemented_adapter) ... ok
+test_pressure_driven_case_cannot_also_prescribe_total_flow (test_cfd_contract.ConfigurationTests.test_pressure_driven_case_cannot_also_prescribe_total_flow) ... ok
+test_pressure_feedback_target_is_not_a_simultaneous_pde_flow_boundary (test_cfd_contract.ConfigurationTests.test_pressure_feedback_target_is_not_a_simultaneous_pde_flow_boundary) ... ok
+test_recording_configuration_is_not_called_static_18pa_drop (test_cfd_contract.ConfigurationTests.test_recording_configuration_is_not_called_static_18pa_drop) ... ok
+test_sst_one_and_five_percent_are_stored_as_fractions (test_cfd_contract.ConfigurationTests.test_sst_one_and_five_percent_are_stored_as_fractions) ... ok
+test_static_delta_has_explicit_correct_sign_and_same_pressure_kind (test_cfd_contract.ConfigurationTests.test_static_delta_has_explicit_correct_sign_and_same_pressure_kind) ... ok
+test_three_mesh_levels_and_six_cell_gap_rule_are_preserved (test_cfd_contract.ConfigurationTests.test_three_mesh_levels_and_six_cell_gap_rule_are_preserved) ... ok
+test_total_flow_plus_prescribed_inlet_pressure_is_rejected (test_cfd_contract.ConfigurationTests.test_total_flow_plus_prescribed_inlet_pressure_is_rejected) ... ok
+test_unknown_extra_velocity_boundary_is_rejected (test_cfd_contract.ConfigurationTests.test_unknown_extra_velocity_boundary_is_rejected) ... ok
+test_diagnostic_basis_exists_with_two_definitions (test_cfd_contract.DiagnosticBasisTests.test_diagnostic_basis_exists_with_two_definitions) ... ok
+test_four_engineering_screen_values_are_unchanged (test_cfd_contract.DiagnosticBasisTests.test_four_engineering_screen_values_are_unchanged) ... ok
+test_regenerated_templates_match_make_config_additive_only (test_cfd_contract.DiagnosticBasisTests.test_regenerated_templates_match_make_config_additive_only) ... ok
+test_density_conversion_preserves_negative_gauge_and_zero (test_cfd_contract.PressureConversionTests.test_density_conversion_preserves_negative_gauge_and_zero) ... ok
+test_kinematic_pressure_requires_density (test_cfd_contract.PressureConversionTests.test_kinematic_pressure_requires_density) ... ok
+test_p_rgh_cannot_be_recovered_by_density_scaling_alone (test_cfd_contract.PressureConversionTests.test_p_rgh_cannot_be_recovered_by_density_scaling_alone) ... ok
+test_pa_values_are_not_rescaled_again (test_cfd_contract.PressureConversionTests.test_pa_values_are_not_rescaled_again) ... ok
+test_analytic_reference_cannot_be_attached_to_patient_geometry (test_cfd_contract.ResultContractTests.test_analytic_reference_cannot_be_attached_to_patient_geometry) ... ok
+test_automatic_confirmation_cannot_replace_human_review (test_cfd_contract.ResultContractTests.test_automatic_confirmation_cannot_replace_human_review) ... ok
+test_cfd_result_requires_solver_run_provenance (test_cfd_contract.ResultContractTests.test_cfd_result_requires_solver_run_provenance) ... ok
+test_claimed_numerical_pass_rejects_failed_mass_conservation (test_cfd_contract.ResultContractTests.test_claimed_numerical_pass_rejects_failed_mass_conservation) ... ok
+test_laminar_zero_ti_field_is_rejected (test_cfd_contract.ResultContractTests.test_laminar_zero_ti_field_is_rejected) ... ok
+test_linked_template_cannot_be_used_as_execution_ready_result (test_cfd_contract.ResultContractTests.test_linked_template_cannot_be_used_as_execution_ready_result) ... ok
+test_patient_preview_accepts_geometry_but_no_flow_fields (test_cfd_contract.ResultContractTests.test_patient_preview_accepts_geometry_but_no_flow_fields) ... ok
+test_pressure_conversion_density_must_match_fluid_density (test_cfd_contract.ResultContractTests.test_pressure_conversion_density_must_match_fluid_density) ... ok
+test_pressure_output_cannot_silently_publish_kinematic_values_as_pa (test_cfd_contract.ResultContractTests.test_pressure_output_cannot_silently_publish_kinematic_values_as_pa) ... ok
+test_real_patient_cfd_requires_review_even_when_solver_metadata_exists (test_cfd_contract.ResultContractTests.test_real_patient_cfd_requires_review_even_when_solver_metadata_exists) ... ok
+test_same_association_arrays_require_matching_length (test_cfd_contract.ResultContractTests.test_same_association_arrays_require_matching_length) ... ok
+test_sst_mask_must_match_recorded_velocity_threshold (test_cfd_contract.ResultContractTests.test_sst_mask_must_match_recorded_velocity_threshold) ... ok
+test_laminar_cannot_accept_an_sst_k_field (test_cfd_contract.TurbulenceFieldTests.test_laminar_cannot_accept_an_sst_k_field) ... ok
+test_laminar_ti_is_null (test_cfd_contract.TurbulenceFieldTests.test_laminar_ti_is_null) ... ok
+test_negative_k_and_missing_threshold_are_rejected (test_cfd_contract.TurbulenceFieldTests.test_negative_k_and_missing_threshold_are_rejected) ... ok
+test_sst_formula_is_fraction_and_uses_velocity_magnitude (test_cfd_contract.TurbulenceFieldTests.test_sst_formula_is_fraction_and_uses_velocity_magnitude) ... ok
+test_zero_and_threshold_speeds_are_null_not_zero_or_infinity (test_cfd_contract.TurbulenceFieldTests.test_zero_and_threshold_speeds_are_null_not_zero_or_infinity) ... ok
+test_asset_allowlist_and_directory_escape (test_cfd_workspace_jobs.SimulationTests.test_asset_allowlist_and_directory_escape) ... ok
+test_catalog_separates_reference_and_patient_current_case (test_cfd_workspace_jobs.SimulationTests.test_catalog_separates_reference_and_patient_current_case) ... ok
+test_detached_launch_failure_and_dead_worker_are_persistent (test_cfd_workspace_jobs.SimulationTests.test_detached_launch_failure_and_dead_worker_are_persistent) ... ok
+test_environment_missing_cannot_be_reported_passed (test_cfd_workspace_jobs.SimulationTests.test_environment_missing_cannot_be_reported_passed) ... ok
+test_live_worker_not_misclassified_and_only_one_reference_queued (test_cfd_workspace_jobs.SimulationTests.test_live_worker_not_misclassified_and_only_one_reference_queued) ... ok
+test_new_run_viewer_fixture_units_identity_and_known_pressure (test_cfd_workspace_jobs.SimulationTests.test_new_run_viewer_fixture_units_identity_and_known_pressure) ... ok
+test_patient_preflight_is_completed_report_of_failed_admission (test_cfd_workspace_jobs.SimulationTests.test_patient_preflight_is_completed_report_of_failed_admission) ... ok
+test_patient_run_and_unknown_settings_are_rejected (test_cfd_workspace_jobs.SimulationTests.test_patient_run_and_unknown_settings_are_rejected) ... ok
+test_preflight_worker_completes_without_solver_and_restart_reads_disk (test_cfd_workspace_jobs.SimulationTests.test_preflight_worker_completes_without_solver_and_restart_reads_disk) ... ok
+test_pressure_feedback_schema_and_cross_action_refusal (test_cfd_workspace_jobs.SimulationTests.test_pressure_feedback_schema_and_cross_action_refusal) ... ok
+test_real_runner_command_failure_preserves_exit_and_releases_ct_lock (test_cfd_workspace_jobs.SimulationTests.test_real_runner_command_failure_preserves_exit_and_releases_ct_lock) ... ok
+test_windows_wsl_paths_native_linux_requirement (test_cfd_workspace_jobs.SimulationTests.test_windows_wsl_paths_native_linux_requirement) ... ok
+test_an_isolated_mislabel_does_not_expand_the_scale_to_its_extreme (test_coarse_anatomy_prior.CoarsePriorTests.test_an_isolated_mislabel_does_not_expand_the_scale_to_its_extreme) ... ok
+test_bad_library_falls_back_without_inventing_points (test_coarse_anatomy_prior.CoarsePriorTests.test_bad_library_falls_back_without_inventing_points) ... ok
+test_coarse_adjustment_records_coarse_refined_and_delta (test_coarse_anatomy_prior.CoarsePriorTests.test_coarse_adjustment_records_coarse_refined_and_delta) ... ok
+test_duplicate_timepoints_do_not_outvote_a_second_person (test_coarse_anatomy_prior.CoarsePriorTests.test_duplicate_timepoints_do_not_outvote_a_second_person) ... ok
+test_failed_local_air_evidence_retries_original_search (test_coarse_anatomy_prior.CoarsePriorTests.test_failed_local_air_evidence_retries_original_search) ... ok
+test_image_disagreement_is_recorded_instead_of_moving_point (test_coarse_anatomy_prior.CoarsePriorTests.test_image_disagreement_is_recorded_instead_of_moving_point) ... ok
+test_incomplete_target_stops_prior_before_point_generation (test_coarse_anatomy_prior.CoarsePriorTests.test_incomplete_target_stops_prior_before_point_generation) ... ok
+test_reviewed_reference_import_binds_inputs_and_keeps_adjusted_point (test_coarse_anatomy_prior.CoarsePriorTests.test_reviewed_reference_import_binds_inputs_and_keeps_adjusted_point) ... ok
+test_same_ct_renamed_as_a_different_case_is_excluded (test_coarse_anatomy_prior.CoarsePriorTests.test_same_ct_renamed_as_a_different_case_is_excluded) ... ok
+test_same_patient_is_not_counted_as_independent_reference (test_coarse_anatomy_prior.CoarsePriorTests.test_same_patient_is_not_counted_as_independent_reference) ... ok
+test_single_person_or_disagreement_only_displays_expected_position (test_coarse_anatomy_prior.CoarsePriorTests.test_single_person_or_disagreement_only_displays_expected_position) ... ok
+test_target_ct_is_not_modified_by_prior_generation (test_coarse_anatomy_prior.CoarsePriorTests.test_target_ct_is_not_modified_by_prior_generation) ... ok
+test_template_never_fills_missing_image_evidence (test_coarse_anatomy_prior.CoarsePriorTests.test_template_never_fills_missing_image_evidence) ... ok
+test_transfer_uses_three_axis_anatomical_scale (test_coarse_anatomy_prior.CoarsePriorTests.test_transfer_uses_three_axis_anatomical_scale) ... ok
+test_two_people_create_search_prior_and_mad_style_spread (test_coarse_anatomy_prior.CoarsePriorTests.test_two_people_create_search_prior_and_mad_style_spread) ... ok
+test_unconfirmed_or_undated_library_is_rejected (test_coarse_anatomy_prior.CoarsePriorTests.test_unconfirmed_or_undated_library_is_rejected) ... ok
+test_unified_coordinate_roundtrip_and_normalized_position (test_coarse_anatomy_prior.CoarsePriorTests.test_unified_coordinate_roundtrip_and_normalized_position) ... ok
+test_unreasonable_size_ratio_does_not_create_a_search_region (test_coarse_anatomy_prior.CoarsePriorTests.test_unreasonable_size_ratio_does_not_create_a_search_region) ... ok
+test_counts_people_and_any_threshold_fallback_preserving_warning (test_coarse_localization_summary.LocalizationSummaryTests.test_counts_people_and_any_threshold_fallback_preserving_warning) ... ok
+test_missing_ct_or_foreign_adjustment_has_no_displacement (test_coarse_localization_summary.LocalizationSummaryTests.test_missing_ct_or_foreign_adjustment_has_no_displacement) ... ok
+test_missing_or_invalid_prior_does_not_claim_search (test_coarse_localization_summary.LocalizationSummaryTests.test_missing_or_invalid_prior_does_not_claim_search) ... ok
+test_case_state_change_during_save_does_not_publish_old_record (test_ct_boundary_review.CTBoundaryReviewTests.test_case_state_change_during_save_does_not_publish_old_record) ... ok
+test_changed_ct_labels_or_public_candidates_reject_old_review (test_ct_boundary_review.CTBoundaryReviewTests.test_changed_ct_labels_or_public_candidates_reject_old_review) ... ok
+test_changed_evidence_mask_or_review_record_is_rejected (test_ct_boundary_review.CTBoundaryReviewTests.test_changed_evidence_mask_or_review_record_is_rejected) ... ok
+test_confirmed_record_must_match_current_proposal_source (test_ct_boundary_review.CTBoundaryReviewTests.test_confirmed_record_must_match_current_proposal_source) ... ok
+test_missing_preview_or_incomplete_landmark_review_is_rejected (test_ct_boundary_review.CTBoundaryReviewTests.test_missing_preview_or_incomplete_landmark_review_is_rejected) ... ok
+test_point_rereview_invalidates_boundary_pointer_and_keeps_history (test_ct_boundary_review.CTBoundaryReviewTests.test_point_rereview_invalidates_boundary_pointer_and_keeps_history) ... ok
+test_preview_outputs_cannot_escape_draft_directory (test_ct_boundary_review.CTBoundaryReviewTests.test_preview_outputs_cannot_escape_draft_directory) ... ok
+test_save_load_and_server_restart_keep_solver_locked (test_ct_boundary_review.CTBoundaryReviewTests.test_save_load_and_server_restart_keep_solver_locked) ... ok
+test_versioned_case_uses_private_revision_and_rejects_original_draft (test_ct_boundary_review.CTBoundaryReviewTests.test_versioned_case_uses_private_revision_and_rejects_original_draft) ... ok
+test_write_failure_preserves_previous_pointer (test_ct_boundary_review.CTBoundaryReviewTests.test_write_failure_preserves_previous_pointer) ... ok
+test_wrong_identity_or_new_cutting_controls_do_not_replace_previous_review (test_ct_boundary_review.CTBoundaryReviewTests.test_wrong_identity_or_new_cutting_controls_do_not_replace_previous_review) ... ok
+test_bad_archive_member_cannot_escape (test_ct_case_pipeline.CTCaseTests.test_bad_archive_member_cannot_escape) ... ok
+test_bad_ids_never_resolve_outside_root (test_ct_case_pipeline.CTCaseTests.test_bad_ids_never_resolve_outside_root) ... ok
+test_exact_duplicate_instance_is_deduplicated (test_ct_case_pipeline.CTCaseTests.test_exact_duplicate_instance_is_deduplicated) ... ok
+test_incomplete_upload_and_length_mismatch_do_not_start (test_ct_case_pipeline.CTCaseTests.test_incomplete_upload_and_length_mismatch_do_not_start) ... ok
+test_inconsistent_orientation_and_multiframe_fail (test_ct_case_pipeline.CTCaseTests.test_inconsistent_orientation_and_multiframe_fail) ... ok
+test_live_worker_is_retained_across_server_restart (test_ct_case_pipeline.CTCaseTests.test_live_worker_is_retained_across_server_restart) ... ok
+test_missing_and_repeated_slice_positions_fail (test_ct_case_pipeline.CTCaseTests.test_missing_and_repeated_slice_positions_fail) ... ok
+test_multiple_series_waits_for_selection (test_ct_case_pipeline.CTCaseTests.test_multiple_series_waits_for_selection) ... ok
+test_nested_zip_decodes_ct_using_generated_names (test_ct_case_pipeline.CTCaseTests.test_nested_zip_decodes_ct_using_generated_names) ... ok
+test_nifti_requires_hu_confirmation_and_finite_volume (test_ct_case_pipeline.CTCaseTests.test_nifti_requires_hu_confirmation_and_finite_volume) ... ok
+test_pending_review_does_not_confirm_geometry_or_solver (test_ct_case_pipeline.CTCaseTests.test_pending_review_does_not_confirm_geometry_or_solver) ... ok
+test_restarts_are_explicit_and_duplicate_start_is_rejected (test_ct_case_pipeline.CTCaseTests.test_restarts_are_explicit_and_duplicate_start_is_rejected) ... ok
+test_sorts_physical_positions_and_keeps_ct_geometry (test_ct_case_pipeline.CTCaseTests.test_sorts_physical_positions_and_keeps_ct_geometry) ... ok
+test_changed_input_rejected_before_generating (test_ct_regeneration.RegenerationTests.test_changed_input_rejected_before_generating) ... ok
+test_failure_preserves_published_result_and_status (test_ct_regeneration.RegenerationTests.test_failure_preserves_published_result_and_status) ... ok
+test_new_bundle_old_review_rejected_and_surface_reused (test_ct_regeneration.RegenerationTests.test_new_bundle_old_review_rejected_and_surface_reused) ... ok
+test_regeneration_does_not_restart_import_or_segmentation (test_ct_regeneration.RegenerationTests.test_regeneration_does_not_restart_import_or_segmentation) ... ok
+test_success_invalidates_old_boundary_preview_and_keeps_record (test_ct_regeneration.RegenerationTests.test_success_invalidates_old_boundary_preview_and_keeps_record) ... ok
+test_boundary_routes_are_explicit_and_local_only (test_ct_workspace_server.LocalHTTPTests.test_boundary_routes_are_explicit_and_local_only) ... 127.0.0.1 - - [15/Oct/2026 18:22:03] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:03] "POST /api/cases/u_b38a6d7afae54c21/boundary-preview HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:03] "PUT /api/cases/u_b38a6d7afae54c21/boundary-mask HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:03] "POST /api/cases/u_b38a6d7afae54c21/boundary-review HTTP/1.1" 200 -
+ok
+test_create_upload_and_persist_private_files (test_ct_workspace_server.LocalHTTPTests.test_create_upload_and_persist_private_files) ... 127.0.0.1 - - [15/Oct/2026 18:22:04] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] "PUT /api/cases/u_9d6585d8372e4b37/files/0 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] "GET /api/cases/u_9d6585d8372e4b37 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:04] "GET /case-assets/u_9d6585d8372e4b37/raw/000000.dcm HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:04] "GET /case-assets/u_9d6585d8372e4b37/case.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:04] "GET /case-assets/u_9d6585d8372e4b37/../raw/000000.dcm HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] "GET /case-assets/u_9d6585d8372e4b37/test.json HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:04] "GET /case-assets/u_9d6585d8372e4b37/../case.json HTTP/1.1" 404 -
+ok
+test_cross_origin_and_wrong_host_writes_are_rejected (test_ct_workspace_server.LocalHTTPTests.test_cross_origin_and_wrong_host_writes_are_rejected) ... 127.0.0.1 - - [15/Oct/2026 18:22:04] "POST /api/cases HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] "POST /api/cases HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:04] "POST /api/cases HTTP/1.1" 201 -
+ok
+test_delete_case_removes_private_case_and_requires_local_origin (test_ct_workspace_server.LocalHTTPTests.test_delete_case_removes_private_case_and_requires_local_origin) ... 127.0.0.1 - - [15/Oct/2026 18:22:05] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:05] "DELETE /api/cases/u_bd9f5a2087a34173 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:05] "GET /api/cases/u_bd9f5a2087a34173 HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:05] "GET /api/cases HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:05] "DELETE /api/cases/u_bd9f5a2087a34173 HTTP/1.1" 400 -
+ok
+test_delete_rejects_processing_case_and_invalid_id (test_ct_workspace_server.LocalHTTPTests.test_delete_rejects_processing_case_and_invalid_id) ... 127.0.0.1 - - [15/Oct/2026 18:22:05] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:05] "DELETE /api/cases/u_918a5fd3d5fb478d HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:05] "DELETE /api/cases/not-a-case HTTP/1.1" 404 -
+ok
+test_simulation_catalog_jobs_local_write_and_assets_are_explicit (test_ct_workspace_server.LocalHTTPTests.test_simulation_catalog_jobs_local_write_and_assets_are_explicit) ... 127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /api/simulation/catalog HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] "POST /api/simulation/jobs HTTP/1.1" 202 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /api/simulation/jobs/s_81aa8802320a4f208c7b3e87 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /api/simulation/jobs HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] "POST /api/simulation/jobs HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] "POST /api/simulation/jobs HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /simulation-assets/s_81aa8802320a4f208c7b3e87/job.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /simulation-assets/s_81aa8802320a4f208c7b3e87/../job.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /simulation-assets/s_81aa8802320a4f208c7b3e87/%2e%2e%2fjob.json HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] code 404, message File not found
+127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /simulation-assets/s_81aa8802320a4f208c7b3e87/worker.log HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:06] "GET /api/simulation/jobs/not-a-job HTTP/1.1" 404 -
+ok
+test_simulation_patient_run_reports_specific_rejection (test_ct_workspace_server.LocalHTTPTests.test_simulation_patient_run_reports_specific_rejection) ... 127.0.0.1 - - [15/Oct/2026 18:22:06] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:07] "POST /api/simulation/jobs HTTP/1.1" 400 -
+ok
+test_start_and_review_fail_until_candidate_exists (test_ct_workspace_server.LocalHTTPTests.test_start_and_review_fail_until_candidate_exists) ... 127.0.0.1 - - [15/Oct/2026 18:22:07] "POST /api/cases HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:07] "POST /api/cases/u_1e58a5bd05ed4128/start HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:07] "POST /api/cases/u_1e58a5bd05ed4128/review HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:07] "POST /api/cases/u_1e58a5bd05ed4128/regenerate HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:07] "GET /api/cases/not-a-case HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:07] "POST /api/cases/u_1e58a5bd05ed4128/unknown HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:07] "GET /health.json HTTP/1.1" 200 -
+ok
+test_binary_mask_and_oblique_full_affine (test_diagnose_patient_surface.DiagnosticEvidenceTests.test_binary_mask_and_oblique_full_affine) ... ok
+test_components_include_two_disconnected_tetrahedra (test_diagnose_patient_surface.DiagnosticEvidenceTests.test_components_include_two_disconnected_tetrahedra) ... ok
+test_roi_removal_does_not_cut_unrelated_voxels_and_honors_sign (test_diagnose_patient_surface.DiagnosticEvidenceTests.test_roi_removal_does_not_cut_unrelated_voxels_and_honors_sign) ... ok
+test_topology_counts_duplicate_and_reversed_triangle (test_diagnose_patient_surface.DiagnosticEvidenceTests.test_topology_counts_duplicate_and_reversed_triangle) ... ok
+test_complete_export_preserves_input_and_stays_unreviewed (test_export_candidate_preview.CandidatePreviewGeometryTests.test_complete_export_preserves_input_and_stays_unreviewed) ... ok
+test_cropped_single_voxel_retains_original_index_coordinates (test_export_candidate_preview.CandidatePreviewGeometryTests.test_cropped_single_voxel_retains_original_index_coordinates) ... ok
+test_disconnected_islands_are_preserved_and_counted (test_export_candidate_preview.CandidatePreviewGeometryTests.test_disconnected_islands_are_preserved_and_counted) ... ok
+test_empty_and_multilabel_masks_fail (test_export_candidate_preview.CandidatePreviewGeometryTests.test_empty_and_multilabel_masks_fail) ... ok
+test_field_of_view_contact_is_reported (test_export_candidate_preview.CandidatePreviewGeometryTests.test_field_of_view_contact_is_reported) ... ok
+test_oblique_direction_and_translation_use_full_affine (test_export_candidate_preview.CandidatePreviewGeometryTests.test_oblique_direction_and_translation_use_full_affine) ... ok
+test_reflection_corrects_winding_and_preserves_scaled_signed_volume (test_export_candidate_preview.CandidatePreviewGeometryTests.test_reflection_corrects_winding_and_preserves_scaled_signed_volume) ... ok
+test_source_affine_mismatch_is_rejected (test_export_candidate_preview.CandidatePreviewGeometryTests.test_source_affine_mismatch_is_rejected) ... ok
+test_vtp_roundtrip_does_not_drop_direction_or_precision (test_export_candidate_preview.CandidatePreviewGeometryTests.test_vtp_roundtrip_does_not_drop_direction_or_precision) ... ok
+test_honesty_semantics (test_extract_cfd_metrics.ExtractMetricsTests.test_honesty_semantics) ... ok
+test_metric_identities_on_synthetic_fixture (test_extract_cfd_metrics.ExtractMetricsTests.test_metric_identities_on_synthetic_fixture) ... ok
+test_missing_vtk_fails_without_partial_json (test_extract_cfd_metrics.ExtractMetricsTests.test_missing_vtk_fails_without_partial_json) ... extract_cfd_metrics error: no VTK directory in case (run foamToVTK first): D:\Cache\Temp\ecm_test__4_0g7mu\case
+ok
+test_valve_slice_peak (test_extract_cfd_metrics.ExtractMetricsTests.test_valve_slice_peak) ... ok
+test_verified_case_regression (test_extract_cfd_metrics.ExtractMetricsTests.test_verified_case_regression) ... ok
+test_alias_requires_explicit_chinese_left_label (test_feedback_review.IdentityTests.test_alias_requires_explicit_chinese_left_label) ... ok
+test_coordinate_typo_stays_unbound (test_feedback_review.IdentityTests.test_coordinate_typo_stays_unbound) ... ok
+test_opposite_z_sign_does_not_get_auto_corrected (test_feedback_review.IdentityTests.test_opposite_z_sign_does_not_get_auto_corrected) ... ok
+test_rounding_only_match_does_not_modify_inputs (test_feedback_review.IdentityTests.test_rounding_only_match_does_not_modify_inputs) ... ok
+test_unknown_case_cannot_bind_to_identical_numeric_point (test_feedback_review.IdentityTests.test_unknown_case_cannot_bind_to_identical_numeric_point) ... ok
+test_browser_javascript_syntax (test_feedback_review.PageTests.test_browser_javascript_syntax) ... ok
+test_fov_missing_is_not_counted_as_air_or_tissue (test_feedback_review.PhysicalSamplingTests.test_fov_missing_is_not_counted_as_air_or_tissue) ... ok
+test_local_frame_translation_does_not_create_z_rule (test_feedback_review.PhysicalSamplingTests.test_local_frame_translation_does_not_create_z_rule) ... ok
+test_oblique_anisotropic_ct_samples_world_linear_field (test_feedback_review.PhysicalSamplingTests.test_oblique_anisotropic_ct_samples_world_linear_field) ... ok
+test_plane_basis_and_translations_preserve_physical_mm (test_feedback_review.PhysicalSamplingTests.test_plane_basis_and_translations_preserve_physical_mm) ... ok
+test_tissue_in_target_label_does_not_count_as_air (test_feedback_review.PhysicalSamplingTests.test_tissue_in_target_label_does_not_count_as_air) ... ok
+test_all_foreground_keeps_original_no_interface_result (test_geo_manifest_geometry.SurfaceAffineTests.test_all_foreground_keeps_original_no_interface_result) ... ok
+test_axis_aligned_anisotropic_geometry_keeps_previous_physical_positions (test_geo_manifest_geometry.SurfaceAffineTests.test_axis_aligned_anisotropic_geometry_keeps_previous_physical_positions) ... ok
+test_empty_mask_remains_empty (test_geo_manifest_geometry.SurfaceAffineTests.test_empty_mask_remains_empty) ... ok
+test_large_origin_does_not_round_points_to_float32_precision (test_geo_manifest_geometry.SurfaceAffineTests.test_large_origin_does_not_round_points_to_float32_precision) ... ok
+test_oblique_anisotropic_direction_and_origin_match_simpleitk (test_geo_manifest_geometry.SurfaceAffineTests.test_oblique_anisotropic_direction_and_origin_match_simpleitk) ... ok
+test_reflected_oblique_geometry_preserves_outward_triangle_winding (test_geo_manifest_geometry.SurfaceAffineTests.test_reflected_oblique_geometry_preserves_outward_triangle_winding) ... ok
+test_volume_touching_scan_edge_stays_open_without_external_padding (test_geo_manifest_geometry.SurfaceAffineTests.test_volume_touching_scan_edge_stays_open_without_external_padding) ... ok
+test_air_run_stops_at_first_unknown_sample (test_inspect_entry_plane.RayReportTests.test_air_run_stops_at_first_unknown_sample) ... ok
+test_first_tissue_hit_does_not_bridge_unknown_samples (test_inspect_entry_plane.RayReportTests.test_first_tissue_hit_does_not_bridge_unknown_samples) ... ok
+test_full_air_ray_ends_at_thirty_not_thirty_point_one (test_inspect_entry_plane.RayReportTests.test_full_air_ray_ends_at_thirty_not_thirty_point_one) ... ok
+test_observed_length_stops_at_first_gap (test_inspect_entry_plane.RayReportTests.test_observed_length_stops_at_first_gap) ... ok
+test_origin_outside_fov_does_not_claim_observation_after_entry (test_inspect_entry_plane.RayReportTests.test_origin_outside_fov_does_not_claim_observation_after_entry) ... ok
+test_profile_serializes_unknown_values_as_strict_json_null (test_inspect_entry_plane.RayReportTests.test_profile_serializes_unknown_values_as_strict_json_null) ... ok
+test_tissue_hit_has_no_anatomical_verdict (test_inspect_entry_plane.RayReportTests.test_tissue_hit_has_no_anatomical_verdict) ... ok
+test_truncated_air_ray_is_never_reported_as_full_length (test_inspect_entry_plane.RayReportTests.test_truncated_air_ray_is_never_reported_as_full_length) ... ok
+test_invalid_directions_raise_without_runtime_warnings (test_inspect_entry_plane.SamplingTests.test_invalid_directions_raise_without_runtime_warnings) ... ok
+test_invalid_origins_and_affines_are_rejected (test_inspect_entry_plane.SamplingTests.test_invalid_origins_and_affines_are_rejected) ... ok
+test_nonfinite_or_nonpositive_ray_dimensions_are_rejected (test_inspect_entry_plane.SamplingTests.test_nonfinite_or_nonpositive_ray_dimensions_are_rejected) ... ok
+test_oblique_anisotropic_sampling_uses_lps_millimeters (test_inspect_entry_plane.SamplingTests.test_oblique_anisotropic_sampling_uses_lps_millimeters) ... ok
+test_outside_fov_does_not_repeat_edge_tissue (test_inspect_entry_plane.SamplingTests.test_outside_fov_does_not_repeat_edge_tissue) ... ok
+test_outside_fov_samples_remain_nan_instead_of_edge_air (test_inspect_entry_plane.SamplingTests.test_outside_fov_samples_remain_nan_instead_of_edge_air) ... ok
+test_ray_ends_exactly_at_requested_length_without_overshoot (test_inspect_entry_plane.SamplingTests.test_ray_ends_exactly_at_requested_length_without_overshoot) ... ok
+test_changed_ct_and_geometry_rejected (test_mask_revision_store.MaskRevisionTests.test_changed_ct_and_geometry_rejected) ... ok
+test_content_change_rejected_even_if_revision_unchanged (test_mask_revision_store.MaskRevisionTests.test_content_change_rejected_even_if_revision_unchanged) ... ok
+test_failed_pointer_publish_preserves_current_and_history (test_mask_revision_store.MaskRevisionTests.test_failed_pointer_publish_preserves_current_and_history) ... ok
+test_history_undo_and_reset_always_require_review (test_mask_revision_store.MaskRevisionTests.test_history_undo_and_reset_always_require_review) ... ok
+test_invalid_masks_rejected (test_mask_revision_store.MaskRevisionTests.test_invalid_masks_rejected) ... ok
+test_record_tamper_rejected (test_mask_revision_store.MaskRevisionTests.test_record_tamper_rejected) ... ok
+test_reviewer_paths_and_restore_labels_rejected (test_mask_revision_store.MaskRevisionTests.test_reviewer_paths_and_restore_labels_rejected) ... ok
+test_stale_edit_and_undo_rejected (test_mask_revision_store.MaskRevisionTests.test_stale_edit_and_undo_rejected) ... ok
+test_adjustment_and_rejection_require_valid_details (test_medical_review.MedicalFeedbackTests.test_adjustment_and_rejection_require_valid_details) ... ok
+test_batch_compression_failure_does_not_register_packages (test_medical_review.MedicalFeedbackTests.test_batch_compression_failure_does_not_register_packages) ... ok
+test_batch_failure_or_changed_evidence_does_not_register_partial_packages (test_medical_review.MedicalFeedbackTests.test_batch_failure_or_changed_evidence_does_not_register_partial_packages) ... ok
+test_batch_has_standalone_pages_and_independent_feedback_bindings (test_medical_review.MedicalFeedbackTests.test_batch_has_standalone_pages_and_independent_feedback_bindings) ... ok
+test_batch_rejects_empty_duplicate_and_invalid_selections (test_medical_review.MedicalFeedbackTests.test_batch_rejects_empty_duplicate_and_invalid_selections) ... ok
+test_changed_evidence_and_inputs_cannot_accept_old_feedback (test_medical_review.MedicalFeedbackTests.test_changed_evidence_and_inputs_cannot_accept_old_feedback) ... ok
+test_export_is_standalone_and_escapes_untrusted_labels (test_medical_review.MedicalFeedbackTests.test_export_is_standalone_and_escapes_untrusted_labels) ... ok
+test_http_export_import_selection_and_cross_origin (test_medical_review.MedicalFeedbackTests.test_http_export_import_selection_and_cross_origin) ... 127.0.0.1 - - [15/Oct/2026 18:22:10] "GET /api/medical-review/catalog HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:10] "GET /api/cases/p0/medical-review-export?stage=landmarks HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:10] "POST /api/medical-review/export HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:10] "POST /api/medical-review/export HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:10] "POST /api/medical-review/export HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:10] "POST /api/cases/p0/medical-feedback HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:10] "POST /api/cases/p0/medical-feedback HTTP/1.1" 201 -
+127.0.0.1 - - [15/Oct/2026 18:22:11] "POST /api/cases/p0/medical-feedback/f_e02e069e0091cfbfa03c3b21/decisions HTTP/1.1" 200 -
+127.0.0.1 - - [15/Oct/2026 18:22:11] "POST /api/cases/p0/medical-feedback/f_e02e069e0091cfbfa03c3b21/decisions HTTP/1.1" 400 -
+127.0.0.1 - - [15/Oct/2026 18:22:11] "POST /api/cases/p0/medical-feedback/f_e02e069e0091cfbfa03c3b21/adopt HTTP/1.1" 404 -
+127.0.0.1 - - [15/Oct/2026 18:22:11] "GET /api/cases/p0/medical-feedback HTTP/1.1" 200 -
+ok
+test_incomplete_evidence_cannot_pass_or_adjust (test_medical_review.MedicalFeedbackTests.test_incomplete_evidence_cannot_pass_or_adjust) ... ok
+test_missing_and_duplicate_items_cannot_be_imported (test_medical_review.MedicalFeedbackTests.test_missing_and_duplicate_items_cannot_be_imported) ... ok
+test_paths_stay_in_evidence_directory (test_medical_review.MedicalFeedbackTests.test_paths_stay_in_evidence_directory) ... ok
+test_real_boundary_context_includes_each_generated_evidence (test_medical_review.MedicalFeedbackTests.test_real_boundary_context_includes_each_generated_evidence) ... ok
+test_registration_corruption_and_export_import_races_are_rejected (test_medical_review.MedicalFeedbackTests.test_registration_corruption_and_export_import_races_are_rejected) ... ok
+test_roundtrip_and_duplicate_import_are_idempotent (test_medical_review.MedicalFeedbackTests.test_roundtrip_and_duplicate_import_are_idempotent) ... ok
+test_selection_conversion_preserves_saved_review_and_rejects_invalid_ids (test_medical_review.MedicalFeedbackTests.test_selection_conversion_preserves_saved_review_and_rejects_invalid_ids) ... ok
+test_wrong_case_stage_version_and_units_are_rejected (test_medical_review.MedicalFeedbackTests.test_wrong_case_stage_version_and_units_are_rejected) ... ok
+test_deterministic_on_same_machine (test_mesh_cache.BackendIdentityTests.test_deterministic_on_same_machine) ... ok
+test_rejects_unverifiable_identity (test_mesh_cache.BackendIdentityTests.test_rejects_unverifiable_identity) ... ok
+test_blockmesh_only_signature_is_valid_without_trisurface (test_mesh_cache.BlockMeshOnlyTests.test_blockmesh_only_signature_is_valid_without_trisurface) ... ok
+test_record_and_reuse_blockmesh_only (test_mesh_cache.BlockMeshOnlyTests.test_record_and_reuse_blockmesh_only) ... ok
+test_snappy_dict_absence_is_part_of_signature (test_mesh_cache.BlockMeshOnlyTests.test_snappy_dict_absence_is_part_of_signature) ... ok
+test_no_manifest_is_not_reusable (test_mesh_cache.ReuseTests.test_no_manifest_is_not_reusable) ... ok
+test_record_rejects_failed_checkMesh (test_mesh_cache.ReuseTests.test_record_rejects_failed_checkMesh) ... ok
+test_record_then_reuse_roundtrip (test_mesh_cache.ReuseTests.test_record_then_reuse_roundtrip) ... ok
+test_controlDict_endTime_change_keeps_signature (test_mesh_cache.SignatureTests.test_controlDict_endTime_change_keeps_signature) ... ok
+test_signature_sensitive_to_geometry_not_to_endTime (test_mesh_cache.SignatureTests.test_signature_sensitive_to_geometry_not_to_endTime) ... ok
+test_snappyhexmesh_change_alters_signature (test_mesh_cache.SignatureTests.test_snappyhexmesh_change_alters_signature) ... ok
+test_netgen_conversion (unittest.loader._FailedTest.test_netgen_conversion) ... ERROR
+test_onset_outlier_advisory (unittest.loader._FailedTest.test_onset_outlier_advisory) ... ERROR
+test_equal_static_pressure_units_and_no_prescribed_split (test_openfoam_pressure_adapter.RealAdapterTests.test_equal_static_pressure_units_and_no_prescribed_split) ... ok
+test_fingerprint_changes_with_boundary_mesh_and_code (test_openfoam_pressure_adapter.RealAdapterTests.test_fingerprint_changes_with_boundary_mesh_and_code) ... ok
+test_known_signed_flux_quality_and_failed_residuals (test_openfoam_pressure_adapter.RealAdapterTests.test_known_signed_flux_quality_and_failed_residuals) ... ok
+test_missing_patch_and_wrong_dimensions_are_refused (test_openfoam_pressure_adapter.RealAdapterTests.test_missing_patch_and_wrong_dimensions_are_refused) ... ok
+test_native_linux_and_patch_contract (test_openfoam_pressure_adapter.RealAdapterTests.test_native_linux_and_patch_contract) ... ok
+test_bound_explicit_loop_keeps_analytic_cube_cap_and_volume (test_outlet_selection_constraints.ConstraintTests.test_bound_explicit_loop_keeps_analytic_cube_cap_and_volume) ... ok
+test_connected_negative_region_couples_two_known_u_shape_rims (test_outlet_selection_constraints.ConstraintTests.test_connected_negative_region_couples_two_known_u_shape_rims) ... ok
+test_other_closed_component_can_be_unselected_without_roi_guess (test_outlet_selection_constraints.ConstraintTests.test_other_closed_component_can_be_unselected_without_roi_guess) ... ok
+test_protected_or_partial_allowed_negative_component_refuses_instead_of_trimming (test_outlet_selection_constraints.ConstraintTests.test_protected_or_partial_allowed_negative_component_refuses_instead_of_trimming) ... ok
+test_stale_source_or_plane_binding_and_invalid_ids_refuse (test_outlet_selection_constraints.ConstraintTests.test_stale_source_or_plane_binding_and_invalid_ids_refuse) ... ok
+test_kept_side_semantics_follow_keep_positive (test_outlet_selection_lineage.LineageTests.test_kept_side_semantics_follow_keep_positive) ... ok
+test_mixed_edge_interpolates_delete_side_instead_of_or_and (test_outlet_selection_lineage.LineageTests.test_mixed_edge_interpolates_delete_side_instead_of_or_and) ... ok
+test_new_cap_edge_with_mixed_negative_membership_refuses (test_outlet_selection_lineage.LineageTests.test_new_cap_edge_with_mixed_negative_membership_refuses) ... ok
+test_connected_three_opening_airway_keeps_all_patch_labels (test_partitioned_surface.PartitionedSurfaceTests.test_connected_three_opening_airway_keeps_all_patch_labels) ... ok
+test_invalid_tolerance_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_invalid_tolerance_rejected) ... ok
+test_oblique_clip_volume_and_rotation (test_partitioned_surface.PartitionedSurfaceTests.test_oblique_clip_volume_and_rotation) ... ok
+test_open_source_or_absent_intersection_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_open_source_or_absent_intersection_rejected) ... ok
+test_roi_side_cut_is_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_roi_side_cut_is_rejected) ... ok
+test_selector_disjoint_caps_equal_roi_without_selector (test_partitioned_surface.PartitionedSurfaceTests.test_selector_disjoint_caps_equal_roi_without_selector) ... ok
+test_selector_lineage_exposes_strictly_crossing_earlier_cap (test_partitioned_surface.PartitionedSurfaceTests.test_selector_lineage_exposes_strictly_crossing_earlier_cap) ... ok
+test_selector_lineage_reports_wholly_deleted_cap_without_plane_crossing (test_partitioned_surface.PartitionedSurfaceTests.test_selector_lineage_reports_wholly_deleted_cap_without_plane_crossing) ... ok
+test_source_selector_length_type_and_ambiguous_edge_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_source_selector_length_type_and_ambiguous_edge_rejected) ... ok
+test_two_end_caps_closed_and_labelled (test_partitioned_surface.PartitionedSurfaceTests.test_two_end_caps_closed_and_labelled) ... ok
+test_changed_mesh_config_surface_and_evidence_refuse (test_patient_cfd_admission.AdmissionTests.test_changed_mesh_config_surface_and_evidence_refuse) ... ok
+test_configuration_errors_not_lifted_by_engineering_record (test_patient_cfd_admission.AdmissionTests.test_configuration_errors_not_lifted_by_engineering_record) ... ok
+test_current_uploaded_case_accepts_sixteen_hex_and_requires_current_binding (test_patient_cfd_admission.AdmissionTests.test_current_uploaded_case_accepts_sixteen_hex_and_requires_current_binding) ... ok
+test_frozen_package_admits_engineering_without_claiming_clinical (test_patient_cfd_admission.AdmissionTests.test_frozen_package_admits_engineering_without_claiming_clinical) ... ok
+test_path_traversal_and_missing_authority_refuse (test_patient_cfd_admission.AdmissionTests.test_path_traversal_and_missing_authority_refuse) ... ok
+test_scoped_authorization_keeps_readiness_warnings (test_patient_cfd_admission.AdmissionTests.test_scoped_authorization_keeps_readiness_warnings) ... ok
+test_placement_unverified_gate (unittest.loader._FailedTest.test_placement_unverified_gate) ... ERROR
+test_arbitrary_rotations_nested_contours (test_planar_cap.PlanarCapTests.test_arbitrary_rotations_nested_contours) ... ok
+test_bad_geometry_rejected (test_planar_cap.PlanarCapTests.test_bad_geometry_rejected) ... ok
+test_collinear_boundary_vertex_preserved (test_planar_cap.PlanarCapTests.test_collinear_boundary_vertex_preserved) ... ok
+test_concave_u (test_planar_cap.PlanarCapTests.test_concave_u) ... ok
+test_crossing_or_touching_contours_rejected (test_planar_cap.PlanarCapTests.test_crossing_or_touching_contours_rejected) ... ok
+test_disconnected_openings (test_planar_cap.PlanarCapTests.test_disconnected_openings) ... ok
+test_hole_and_nested_island_with_arbitrary_winding (test_planar_cap.PlanarCapTests.test_hole_and_nested_island_with_arbitrary_winding) ... ok
+test_rotation_translation_preserve_area (test_planar_cap.PlanarCapTests.test_rotation_translation_preserve_area) ... ok
+test_self_crossing_rejected (test_planar_cap.PlanarCapTests.test_self_crossing_rejected) ... ok
+test_square_and_reversed_normal (test_planar_cap.PlanarCapTests.test_square_and_reversed_normal) ... ok
+test_failed_quality_gate_stops_without_using_bad_point (test_pressure_feedback.PressureFeedbackTests.test_failed_quality_gate_stops_without_using_bad_point) ... ok
+test_signed_flux_is_converted_to_positive_inlet_and_outlet_flow (test_pressure_feedback.PressureFeedbackTests.test_signed_flux_is_converted_to_positive_inlet_and_outlet_flow) ... ok
+test_unbracketed_target_fails_at_pressure_limit (test_pressure_feedback.PressureFeedbackTests.test_unbracketed_target_fails_at_pressure_limit) ... ok
+test_unequal_branch_conductance_reaches_target_and_preserves_split (test_pressure_feedback.PressureFeedbackTests.test_unequal_branch_conductance_reaches_target_and_preserves_split) ... ok
+test_incomplete_or_failed_receipt_cannot_be_reused (test_run_auto_anatomy.ContentReuseTests.test_incomplete_or_failed_receipt_cannot_be_reused) ... ok
+test_only_exact_verified_successful_content_is_reused (test_run_auto_anatomy.ContentReuseTests.test_only_exact_verified_successful_content_is_reused) ... ok
+test_reference_library_change_invalidates_candidate_cache (test_run_auto_anatomy.ContentReuseTests.test_reference_library_change_invalidates_candidate_cache) ... ok
+test_authorized_config_is_allowed_and_checked (test_run_openfoam_case.ContractGateTests.test_authorized_config_is_allowed_and_checked)
+A synthetic execution-ready config passes the gate (contract.checked True). ... ok
+test_bound_engineering_authorization_requires_configuration (test_run_openfoam_case.ContractGateTests.test_bound_engineering_authorization_requires_configuration) ... ok
+test_bound_engineering_trial_preserves_failed_mesh_and_readiness (test_run_openfoam_case.ContractGateTests.test_bound_engineering_trial_preserves_failed_mesh_and_readiness) ... ok
+test_no_config_behaves_identically_to_baseline (test_run_openfoam_case.ContractGateTests.test_no_config_behaves_identically_to_baseline)
+No --config: nothing is refused, steps run, manifest carries the stub. ... ok
+test_unsanctioned_with_force_is_allowed_and_logged (test_run_openfoam_case.ContractGateTests.test_unsanctioned_with_force_is_allowed_and_logged)
+execution_allowed=False + --force-unsanctioned -> runs, contract.forced recorded. ... ok
+test_unsanctioned_without_force_is_refused_naming_reason (test_run_openfoam_case.ContractGateTests.test_unsanctioned_without_force_is_refused_naming_reason)
+execution_allowed=False and no --force -> non-zero exit, named cause, no step run. ... ok
+test_diagnostic_override_is_not_allowed_for_other_geometry (test_run_openfoam_case.SolverBoundaryTests.test_diagnostic_override_is_not_allowed_for_other_geometry) ... usage: python.exe -m unittest [-h] [--case CASE] [--steps STEPS] [--env-check]
+                              [--allow-failed-mesh-for-diagnostic]
+                              [--status-file STATUS_FILE]
+                              [--archive-before-run] [--parallel PARALLEL]
+                              [--skip-mesh-if-cached] [--dry-run]
+                              [--config CONFIG] [--force-unsanctioned]
+                              [--engineering-authorization ENGINEERING_AUTHORIZATION]
+python.exe -m unittest: error: Failed-mesh diagnostic override is restricted to the synthetic tube.stl phantom
+ok
+test_failed_mesh_blocks_solver_before_execution (test_run_openfoam_case.SolverBoundaryTests.test_failed_mesh_blocks_solver_before_execution) ... ok
+test_long_tube_configuration_does_not_change_baseline_globals (test_run_openfoam_case.SolverBoundaryTests.test_long_tube_configuration_does_not_change_baseline_globals) ... ok
+test_mesh_failure_is_detected_even_when_command_returns_zero (test_run_openfoam_case.SolverBoundaryTests.test_mesh_failure_is_detected_even_when_command_returns_zero) ... ok
+test_profile_preserves_target_flow_and_outer_faces_remain_positive (test_run_openfoam_case.SolverBoundaryTests.test_profile_preserves_target_flow_and_outer_faces_remain_positive) ... ok
+test_radius_comes_from_boundary_not_interior_face_centroids (test_run_openfoam_case.SolverBoundaryTests.test_radius_comes_from_boundary_not_interior_face_centroids) ... ok
+test_archive_before_run_preserves_mesh_cache_and_initial_time (test_run_openfoam_case.SolverEngineeringTests.test_archive_before_run_preserves_mesh_cache_and_initial_time) ... ok
+test_decompose_par_dict_avoids_scotch_and_declares_n_vector (test_run_openfoam_case.SolverEngineeringTests.test_decompose_par_dict_avoids_scotch_and_declares_n_vector) ... ok
+test_existing_scotch_or_n_vectorless_dict_is_repaired (test_run_openfoam_case.SolverEngineeringTests.test_existing_scotch_or_n_vectorless_dict_is_repaired) ... run_openfoam_case note: system/decomposeParDict selected scotch, but this OpenFOAM build has no libscotch.so; rewritten to hierarchical with an explicit n vector.
+run_openfoam_case note: system/decomposeParDict used hierarchical without an n vector; added n (5 1 1).
+ok
+test_mesh_cache_is_recorded_after_a_blockmesh_only_run (test_run_openfoam_case.SolverEngineeringTests.test_mesh_cache_is_recorded_after_a_blockmesh_only_run)
+Regression: record_mesh requires the step sequence to END with checkMesh. ... ok
+test_parallel_expands_simplefoam_into_decompose_solve_reconstruct (test_run_openfoam_case.SolverEngineeringTests.test_parallel_expands_simplefoam_into_decompose_solve_reconstruct) ... ok
+test_parallel_expands_snappy_with_constant_reconstruction (test_run_openfoam_case.SolverEngineeringTests.test_parallel_expands_snappy_with_constant_reconstruction) ... ok
+test_parallel_falls_back_to_serial_when_mpirun_missing (test_run_openfoam_case.SolverEngineeringTests.test_parallel_falls_back_to_serial_when_mpirun_missing) ... run_openfoam_case warning: --parallel requested but missing tools mpirun, decomposePar, reconstructPar; falling back to serial
+ok
+test_parallel_preflight_calls_real_shutil_which_without_crashing (test_run_openfoam_case.SolverEngineeringTests.test_parallel_preflight_calls_real_shutil_which_without_crashing)
+Regression: shutil.which has no `env` parameter. ... run_openfoam_case warning: --parallel requested but missing tools mpirun, decomposePar, reconstructPar; falling back to serial
+ok
+test_skip_mesh_if_cached_drops_blockmesh_and_snappy (test_run_openfoam_case.SolverEngineeringTests.test_skip_mesh_if_cached_drops_blockmesh_and_snappy) ... ok
+test_status_file_streams_to_completed (test_run_openfoam_case.SolverEngineeringTests.test_status_file_streams_to_completed) ... ok
+test_untouched_decompose_par_dict_is_left_alone (test_run_openfoam_case.SolverEngineeringTests.test_untouched_decompose_par_dict_is_left_alone) ... ok
+test_run_provenance (unittest.loader._FailedTest.test_run_provenance) ... ERROR
+test_cap_collision_exposes_patch_and_physical_bounds (test_scope_evidence.ScopeEvidenceTests.test_cap_collision_exposes_patch_and_physical_bounds) ... ok
+test_disconnected_closed_shell_not_hidden_by_global_topology (test_scope_evidence.ScopeEvidenceTests.test_disconnected_closed_shell_not_hidden_by_global_topology) ... ok
+{
+  "case": "D:\\Cache\\Temp\\tmphp0sqoxe",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpr36tdq4p",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpxv547y9_",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpb15oaxv8",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmp2pslp3sg",
+  "execution_status": "completed",
+  "steps": [
+    "blockMesh",
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmp2pslp3sg",
+  "execution_status": "completed",
+  "steps": [
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "mesh_skipped": true,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpsl4gya3s",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmp9i2rubry",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmp3s4pby2j",
+  "execution_status": "completed",
+  "steps": [
+    "checkMesh",
+    "simpleFoam"
+  ],
+  "mesh_skipped": true,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpj2g1h_sw",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+p0: 1 components; 0 images
+p1: 1 components; 0 images
+p2: 1 components; 0 images
+p3: 1 components; 0 images
+p3t1: 1 components; 0 images
+p0: 1 components; 0 images
+p1: 1 components; 0 images
+p2: 1 components; 0 images
+p3: 1 components; 0 images
+p3t1: 1 components; 0 images
+test_earlier_case_change_refuses_publication_and_cleans_stage (test_scope_evidence.ScopeEvidenceTests.test_earlier_case_change_refuses_publication_and_cleans_stage) ... ok
+test_one_patch_can_have_multiple_islands_on_one_surface (test_scope_evidence.ScopeEvidenceTests.test_one_patch_can_have_multiple_islands_on_one_surface) ... ok
+test_real_surface_render_and_html_escaping (test_scope_evidence.ScopeEvidenceTests.test_real_surface_render_and_html_escaping) ... ok
+test_search_origin (unittest.loader._FailedTest.test_search_origin) ... ERROR
+test_section_loops_seeding (unittest.loader._FailedTest.test_section_loops_seeding) ... ERROR
+test_from_config_accepts_manifest_patch_map (test_solver_adapter.AdapterInterfaceTests.test_from_config_accepts_manifest_patch_map) ... ok
+test_from_config_reads_contract_defaults (test_solver_adapter.AdapterInterfaceTests.test_from_config_reads_contract_defaults) ... ok
+test_from_config_rejects_imposed_equal_split_baseline (test_solver_adapter.AdapterInterfaceTests.test_from_config_rejects_imposed_equal_split_baseline) ... ok
+test_from_config_rejects_pressure_driven_mode (test_solver_adapter.AdapterInterfaceTests.test_from_config_rejects_pressure_driven_mode) ... ok
+test_non_callable_evaluate_is_rejected (test_solver_adapter.AdapterInterfaceTests.test_non_callable_evaluate_is_rejected) ... ok
+test_patch_map_without_inlet_or_outlet_is_rejected (test_solver_adapter.AdapterInterfaceTests.test_patch_map_without_inlet_or_outlet_is_rejected) ... ok
+test_run_propagates_pressure_feedback_error_unwrapped (test_solver_adapter.AdapterInterfaceTests.test_run_propagates_pressure_feedback_error_unwrapped) ... ok
+test_run_reports_identity_history_and_provenance (test_solver_adapter.AdapterInterfaceTests.test_run_reports_identity_history_and_provenance) ... ok
+test_total_flow_lpm_conversion_is_density_independent (test_solver_adapter.AdapterInterfaceTests.test_total_flow_lpm_conversion_is_density_independent) ... ok
+test_four_engineering_screen_values_are_unchanged (test_solver_adapter.ContractIntegrationTests.test_four_engineering_screen_values_are_unchanged) ... ok
+test_make_config_default_adapter_block_is_unchanged (test_solver_adapter.ContractIntegrationTests.test_make_config_default_adapter_block_is_unchanged) ... ok
+test_stamped_config_with_reviewed_geometry_is_execution_ready (test_solver_adapter.ContractIntegrationTests.test_stamped_config_with_reviewed_geometry_is_execution_ready) ... ok
+test_strategy_strings_are_bit_exact (test_solver_adapter.ContractIntegrationTests.test_strategy_strings_are_bit_exact) ... ok
+test_unstamped_solver_determined_config_is_not_execution_ready (test_solver_adapter.ContractIntegrationTests.test_unstamped_solver_determined_config_is_not_execution_ready) ... ok
+test_bracket_failure_at_pressure_ceiling_is_rejected (test_solver_adapter.RejectionPathTests.test_bracket_failure_at_pressure_ceiling_is_rejected) ... ok
+test_failed_mesh_quality_gate_is_rejected (test_solver_adapter.RejectionPathTests.test_failed_mesh_quality_gate_is_rejected) ... ok
+test_failed_residuals_gate_is_rejected (test_solver_adapter.RejectionPathTests.test_failed_residuals_gate_is_rejected) ... ok
+test_mass_imbalance_above_limit_is_rejected (test_solver_adapter.RejectionPathTests.test_mass_imbalance_above_limit_is_rejected) ... ok
+test_negative_outward_outlet_phi_is_rejected (test_solver_adapter.RejectionPathTests.test_negative_outward_outlet_phi_is_rejected) ... ok
+test_non_finite_evaluation_is_rejected (test_solver_adapter.RejectionPathTests.test_non_finite_evaluation_is_rejected) ... ok
+test_positive_outward_inlet_phi_is_rejected (test_solver_adapter.RejectionPathTests.test_positive_outward_inlet_phi_is_rejected) ... ok
+test_reverse_physical_inlet_flow_is_rejected (test_solver_adapter.RejectionPathTests.test_reverse_physical_inlet_flow_is_rejected) ... ok
+test_unconverged_quality_gate_is_rejected (test_solver_adapter.RejectionPathTests.test_unconverged_quality_gate_is_rejected) ... ok
+test_well_formed_signed_fluxes_are_conserved (test_solver_adapter.RejectionPathTests.test_well_formed_signed_fluxes_are_conserved) ... ok
+test_zero_total_flow_is_rejected (test_solver_adapter.RejectionPathTests.test_zero_total_flow_is_rejected) ... ok
+test_self_check_passes_for_the_shipped_adapter (test_solver_adapter.StampTests.test_self_check_passes_for_the_shipped_adapter) ... ok
+test_stamp_does_not_touch_make_config_defaults_or_screen (test_solver_adapter.StampTests.test_stamp_does_not_touch_make_config_defaults_or_screen) ... ok
+test_stamp_marks_config_implemented_and_verified (test_solver_adapter.StampTests.test_stamp_marks_config_implemented_and_verified) ... ok
+test_stamp_refuses_imposed_equal_split_baseline_config (test_solver_adapter.StampTests.test_stamp_refuses_imposed_equal_split_baseline_config) ... ok
+test_stamp_refuses_strategy_identity_mismatch (test_solver_adapter.StampTests.test_stamp_refuses_strategy_identity_mismatch) ... ok
+test_stamp_refuses_when_self_check_fails (test_solver_adapter.StampTests.test_stamp_refuses_when_self_check_fails) ... ok
+test_stamp_requires_non_empty_name_and_version (test_solver_adapter.StampTests.test_stamp_requires_non_empty_name_and_version) ... ok
+test_asymmetric_bilateral_split_is_reported_not_prescribed (test_solver_adapter.SyntheticResponseTests.test_asymmetric_bilateral_split_is_reported_not_prescribed) ... ok
+test_error_beyond_tolerance_never_converges (test_solver_adapter.SyntheticResponseTests.test_error_beyond_tolerance_never_converges) ... ok
+test_linear_response_converges_to_target (test_solver_adapter.SyntheticResponseTests.test_linear_response_converges_to_target) ... ok
+test_nonlinear_response_still_converges (test_solver_adapter.SyntheticResponseTests.test_nonlinear_response_still_converges) ... ok
+test_tolerance_edge_is_inclusive (test_solver_adapter.SyntheticResponseTests.test_tolerance_edge_is_inclusive) ... ok
+test_empty_hit_control_is_covered_without_gate_promotion (test_surface_intersection_localization.ContactTests.test_empty_hit_control_is_covered_without_gate_promotion) ... ok
+test_equilateral_quality_is_one (test_surface_intersection_localization.ContactTests.test_equilateral_quality_is_one) ... ok
+test_geometry_controls_under_translation_rotation_and_scale (test_surface_intersection_localization.ContactTests.test_geometry_controls_under_translation_rotation_and_scale) ... ok
+test_input_tampering_refused (test_surface_intersection_localization.ContactTests.test_input_tampering_refused) ... ok
+test_real_native_fixture_localization (test_surface_intersection_localization.ContactTests.test_real_native_fixture_localization) ... ok
+test_translation_retains_all_triangles_and_rejects_overwrite (test_surface_intersection_localization.ContactTests.test_translation_retains_all_triangles_and_rejects_overwrite) ... ok
+test_unperturbed_edge_query (test_surface_intersection_localization.ContactTests.test_unperturbed_edge_query) ... ok
+test_exact_patch_and_unit_handoff (test_surface_preflight.PreflightTests.test_exact_patch_and_unit_handoff) ... ok
+test_invalid_and_conflicting_region_arrays_refused (test_surface_preflight.PreflightTests.test_invalid_and_conflicting_region_arrays_refused) ... surface_to_case error: D:\Cache\Temp\tmp28wqyurh\cube.vtp: conflicting region arrays
+surface_to_case error: D:\Cache\Temp\tmprog8c72u\cube.vtp: region array must contain one string per triangle
+2026-10-15 18:22:15.950 (  29.575s) [96F590DFF9AB6804]   vtkXMLDataReader.cxx:463    ERR| vtkXMLPolyDataReader (000001E1BA9D8BE0): Cannot read cell data array "region" from CellData in piece 0.  The data array in the element may be too short.
+surface_to_case error: D:\Cache\Temp\tmpi_swnflz\cube.vtp: VTP needs solid/region/patch/boundary_patch string cell labels
+ok
+test_zero_exit_cannot_hide_intersections_or_missing_checks (test_surface_preflight.PreflightTests.test_zero_exit_cannot_hide_intersections_or_missing_checks) ... ok
+test_invalid_controls_and_no_seed_refused (test_surface_scope_proposal.ScopeProposalTests.test_invalid_controls_and_no_seed_refused) ... ok
+test_patch_labels_round_trip_and_length_contract (test_surface_scope_proposal.ScopeProposalTests.test_patch_labels_round_trip_and_length_contract) ... ok
+test_unrelated_components_not_used_to_expand_roi (test_surface_scope_proposal.ScopeProposalTests.test_unrelated_components_not_used_to_expand_roi) ... ok
+test_case_files_complete_and_convert_marker (test_surface_to_case.SurfaceToCaseTests.test_case_files_complete_and_convert_marker) ... ok
+test_determinism_except_timestamp (test_surface_to_case.SurfaceToCaseTests.test_determinism_except_timestamp) ... ok
+test_overwrite_protection (test_surface_to_case.SurfaceToCaseTests.test_overwrite_protection) ... surface_to_case error: output directory already exists (overwrite protection): D:\Cache\Temp\s2c_test_3bpmfvk6\case
+ok
+test_snappy_patches_all_in_patch_map (test_surface_to_case.SurfaceToCaseTests.test_snappy_patches_all_in_patch_map) ... ok
+test_trisurface_written_in_meters (test_surface_to_case.SurfaceToCaseTests.test_trisurface_written_in_meters) ... ok
+test_unmapped_solid_fails (test_surface_to_case.SurfaceToCaseTests.test_unmapped_solid_fails) ... surface_to_case error: surface solids missing from --patch-map (refusing to drop them silently): mystery
+ok
+test_corner_contact_is_not_a_face_connected_path (test_ts_quality_gate.ConnectivityTests.test_corner_contact_is_not_a_face_connected_path) ... ok
+test_edge_contact_is_not_a_face_connected_path (test_ts_quality_gate.ConnectivityTests.test_edge_contact_is_not_a_face_connected_path) ... ok
+test_empty_target_is_explicitly_unavailable (test_ts_quality_gate.ConnectivityTests.test_empty_target_is_explicitly_unavailable) ... ok
+test_face_contact_provides_discrete_path_evidence (test_ts_quality_gate.ConnectivityTests.test_face_contact_provides_discrete_path_evidence) ... ok
+test_tiny_connected_fragment_does_not_validate_dominant_source (test_ts_quality_gate.ConnectivityTests.test_tiny_connected_fragment_does_not_validate_dominant_source) ... ok
+test_full_pipeline_empty_required_label_writes_failure_report (test_ts_quality_gate.FilePipelineTests.test_full_pipeline_empty_required_label_writes_failure_report) ... ok
+test_full_pipeline_retains_old_fields_without_claiming_medical_pass (test_ts_quality_gate.FilePipelineTests.test_full_pipeline_retains_old_fields_without_claiming_medical_pass) ... ok
+test_full_pipeline_shape_mismatch_writes_failure_report (test_ts_quality_gate.FilePipelineTests.test_full_pipeline_shape_mismatch_writes_failure_report) ... ok
+test_empty_reference_label_is_a_warning (test_ts_quality_gate.LabelIntegrityTests.test_empty_reference_label_is_a_warning) ... ok
+test_empty_required_label_is_a_hard_failure (test_ts_quality_gate.LabelIntegrityTests.test_empty_required_label_is_a_hard_failure) ... ok
+test_raw_hu_is_measured_before_threshold_intersection (test_ts_quality_gate.LabelIntegrityTests.test_raw_hu_is_measured_before_threshold_intersection) ... ok
+test_required_label_without_air_is_a_hard_failure (test_ts_quality_gate.LabelIntegrityTests.test_required_label_without_air_is_a_hard_failure) ... ok
+test_same_shape_different_origin_is_not_usable (test_ts_quality_gate.LabelIntegrityTests.test_same_shape_different_origin_is_not_usable) ... ok
+test_shape_mismatch_fails_before_hu_indexing (test_ts_quality_gate.LabelIntegrityTests.test_shape_mismatch_fails_before_hu_indexing) ... ok
+
+======================================================================
+ERROR: test_ab_compare_runs (unittest.loader._FailedTest.test_ab_compare_runs)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_ab_compare_runs
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_ab_compare_runs.py", line 22, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_analyze_sliver_cells (unittest.loader._FailedTest.test_analyze_sliver_cells)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_analyze_sliver_cells
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_analyze_sliver_cells.py", line 24, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_auto_opening_planes (unittest.loader._FailedTest.test_auto_opening_planes)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_auto_opening_planes
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_auto_opening_planes.py", line 20, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_netgen_conversion (unittest.loader._FailedTest.test_netgen_conversion)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_netgen_conversion
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_netgen_conversion.py", line 7, in <module>
+    import meshio
+ModuleNotFoundError: No module named 'meshio'
+
+
+======================================================================
+ERROR: test_onset_outlier_advisory (unittest.loader._FailedTest.test_onset_outlier_advisory)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_onset_outlier_advisory
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_onset_outlier_advisory.py", line 23, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_placement_unverified_gate (unittest.loader._FailedTest.test_placement_unverified_gate)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_placement_unverified_gate
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_placement_unverified_gate.py", line 25, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_run_provenance (unittest.loader._FailedTest.test_run_provenance)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_run_provenance
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_run_provenance.py", line 13, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_search_origin (unittest.loader._FailedTest.test_search_origin)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_search_origin
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_search_origin.py", line 23, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_section_loops_seeding (unittest.loader._FailedTest.test_section_loops_seeding)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_section_loops_seeding
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_section_loops_seeding.py", line 19, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+----------------------------------------------------------------------
+Ran 430 tests in 27.999s
+
+FAILED (errors=9)
+{
+  "block_cells": [
+    29,
+    9,
+    9
+  ],
+  "out": "D:\\Cache\\Temp\\s2c_test_s0kvpowj\\case",
+  "patches": {
+    "inlet": [
+      "inlet"
+    ],
+    "outlet": [
+      "outlet"
+    ],
+    "wall": [
+      "wall"
+    ]
+  },
+  "split_note": null
+}
+{
+  "block_cells": [
+    29,
+    9,
+    9
+  ],
+  "out": "D:\\Cache\\Temp\\s2c_test_9_c1xg8j\\case_a",
+  "patches": {
+    "inlet": [
+      "inlet"
+    ],
+    "outlet": [
+      "outlet"
+    ],
+    "wall": [
+      "wall"
+    ]
+  },
+  "split_note": null
+}
+{
+  "block_cells": [
+    29,
+    9,
+    9
+  ],
+  "out": "D:\\Cache\\Temp\\s2c_test_9_c1xg8j\\case_b",
+  "patches": {
+    "inlet": [
+      "inlet"
+    ],
+    "outlet": [
+      "outlet"
+    ],
+    "wall": [
+      "wall"
+    ]
+  },
+  "split_note": null
+}
+{
+  "block_cells": [
+    29,
+    9,
+    9
+  ],
+  "out": "D:\\Cache\\Temp\\s2c_test_3bpmfvk6\\case",
+  "patches": {
+    "inlet": [
+      "inlet"
+    ],
+    "outlet": [
+      "outlet"
+    ],
+    "wall": [
+      "wall"
+    ]
+  },
+  "split_note": null
+}
+{
+  "block_cells": [
+    29,
+    9,
+    9
+  ],
+  "out": "D:\\Cache\\Temp\\s2c_test__zhf0nmr\\case",
+  "patches": {
+    "inlet": [
+      "inlet"
+    ],
+    "outlet": [
+      "outlet"
+    ],
+    "wall": [
+      "wall"
+    ]
+  },
+  "split_note": null
+}
+{
+  "block_cells": [
+    29,
+    9,
+    9
+  ],
+  "out": "D:\\Cache\\Temp\\s2c_test_4_kgitn7\\case",
+  "patches": {
+    "inlet": [
+      "inlet"
+    ],
+    "outlet": [
+      "outlet"
+    ],
+    "wall": [
+      "wall"
+    ]
+  },
+  "split_note": null
+}

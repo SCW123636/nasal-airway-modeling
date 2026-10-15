@@ -1,0 +1,265 @@
+{
+  "archived_before_run": null,
+  "case": "/home/lenovo2/nasal_t021_split_20261015/symmetric/evaluations/eval_001",
+  "case_manifest": {
+    "boundary": {
+      "inlet_static_pressure_Pa_gauge": 1.0,
+      "mode": "common_inlet_pressure_feedback",
+      "outlet_static_pressure_Pa_gauge": 0.0,
+      "target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary"
+    },
+    "generated_at": "2026-10-15T10:11:39+00:00",
+    "geometry": {
+      "branch_length_mm": 40.0,
+      "chamber_length_mm": 40.0,
+      "depth_mm": 10.0,
+      "dimensionality": "2D empty extrusion",
+      "labels_swapped": false,
+      "left_width_mm": 1.5,
+      "partition_thickness_mm": 0.5,
+      "right_width_mm": 1.5
+    },
+    "patch_map": {
+      "inlet_L": "inlet",
+      "inlet_R": "inlet",
+      "outlet": "outlet",
+      "walls": "wall"
+    },
+    "patient_data": false,
+    "physics": {
+      "mu_Pa_s": 1.81e-05,
+      "nu_m2_s": 1.5083333333333333e-05,
+      "rho_kg_m3": 1.2
+    },
+    "schema": "nasal_cfd_split_feedback_case/v1"
+  },
+  "contract": {
+    "checked": false,
+    "config_id": null
+  },
+  "engineering_acceptance": false,
+  "environment_overrides": {
+    "FOAM_ETC": "/usr/share/openfoam/etc",
+    "WM_PROJECT_DIR": "/usr/share/openfoam",
+    "WM_PROJECT_VERSION": "v1912"
+  },
+  "execution_status": "completed",
+  "failed_mesh_bound_engineering_trial": false,
+  "failed_mesh_diagnostic_override": false,
+  "finished_at": "2026-10-15T10:11:45+00:00",
+  "mesh_cache": {
+    "manifest": {
+      "backend_identity": {
+        "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+        "name": "wsl",
+        "openfoam_flavour": "org",
+        "version": "v1912"
+      },
+      "check_mesh": {
+        "log": {
+          "sha256": "4b30b3ded00ac0970d5088b4af8e23425dff1589e0904aae50099688e3dec94c",
+          "size": 4807
+        },
+        "quality": {
+          "failed_checks": null,
+          "mesh_ok": true
+        },
+        "returncode": 0,
+        "run_id": "2026-10-15T10:11:40+00:00"
+      },
+      "completed_mesh_steps": [
+        {
+          "name": "blockMesh",
+          "returncode": 0,
+          "timed_out": false
+        },
+        {
+          "name": "checkMesh",
+          "returncode": 0,
+          "timed_out": false
+        }
+      ],
+      "evidence": {
+        "backend_identity": {
+          "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+          "name": "wsl",
+          "openfoam_flavour": "org",
+          "version": "v1912"
+        },
+        "dependencies": {},
+        "dictionaries": {
+          "blockMeshDict": "93fe51344d5cdd137070622bfdcb05fec6ebdcee644c1fe83722fd3b7ba8bd26",
+          "controlDict": "d13f7fa95e8328c6324b3d72a0bc6b223853baeb2cc4bac892d05fd1cb317a13",
+          "fvSchemes": "3755e958319d503489d9bbffcfa1d9c2c897ab549db52ea3e2f587e2a1a012d9",
+          "fvSolution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "snappyHexMeshDict": {
+            "absent": true
+          }
+        },
+        "geometry": {},
+        "schema_version": 1
+      },
+      "generation": {
+        "mode": "serial",
+        "nproc": 0
+      },
+      "inputs": {
+        "system/blockMeshDict": {
+          "sha256": "2d3b9e8ceaaf1621c6e5a64ef17569694e36fb79b5c0c1118c88184a340d1f6f",
+          "size": 1232
+        },
+        "system/controlDict": {
+          "sha256": "d5edb79ceadb9ca60e14222a8fb6073dc33166b7d9725654843bcf69eaeae27a",
+          "size": 1714
+        },
+        "system/fvSchemes": {
+          "sha256": "3e4f9b5ad4a1c9435f1156c74bb4384f747381600d4ba4c96296871442dc53f7",
+          "size": 1543
+        },
+        "system/fvSolution": {
+          "sha256": "f3d7bf22ead848ad446a6a248e64fbbf011a3d4eb680768a8c349c8fda2ed4fc",
+          "size": 398
+        }
+      },
+      "mesh_files": {
+        "constant/polyMesh/boundary": {
+          "sha256": "afd7c29b7432fa19e095fa4e9522112a948438eee9e6f5fba1dc881ee62e05d0",
+          "size": 1524
+        },
+        "constant/polyMesh/faces": {
+          "sha256": "c73e1240d9bb354b6f0bcc5466554aa89d2cd7236cd5d37c6ce6dda5c47fce00",
+          "size": 829623
+        },
+        "constant/polyMesh/neighbour": {
+          "sha256": "f7161ae0693d6208b7f4e83423efbcc31298c5074136a56215c54cf8bd4acb72",
+          "size": 79683
+        },
+        "constant/polyMesh/owner": {
+          "sha256": "5a0905d9dee58d23a9a646e327bce073e3dbf3ecbcaaffe4faa4058663f07940",
+          "size": 165181
+        },
+        "constant/polyMesh/points": {
+          "sha256": "e39ae43009b809de00d9a75ee27d8a86f691284d7725fa7457ab8fab36aeef4c",
+          "size": 384808
+        },
+        "constant/polyMesh/sets/twoInternalFacesCells": {
+          "sha256": "d332d51171776ad6287b826f89590d609dcfdc7a18036e20f2763e04fc9cc30d",
+          "size": 915
+        }
+      },
+      "recorded_at": "2026-10-15T10:11:45+00:00",
+      "schema_version": 1,
+      "signature": "7c166d1ccaec69ec25dd009216c45c2618a3cc0dcfefb4066f89202094a07e72"
+    },
+    "quality": {
+      "failed_checks": null,
+      "mesh_ok": true
+    },
+    "reason": "\u5df2\u8bb0\u5f55\u672c\u6b21\u7f51\u683c\u5185\u5bb9\u53ca\u68c0\u67e5\u8bc1\u636e",
+    "recorded": true
+  },
+  "mesh_quality": {
+    "failed_checks": null,
+    "log": "log.checkMesh",
+    "passed": true
+  },
+  "mesh_signature": {
+    "backend_identity": {
+      "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+      "name": "wsl",
+      "openfoam_flavour": "org",
+      "version": "v1912"
+    },
+    "evidence": {
+      "backend_identity": {
+        "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+        "name": "wsl",
+        "openfoam_flavour": "org",
+        "version": "v1912"
+      },
+      "dependencies": {},
+      "dictionaries": {
+        "blockMeshDict": "93fe51344d5cdd137070622bfdcb05fec6ebdcee644c1fe83722fd3b7ba8bd26",
+        "controlDict": "d13f7fa95e8328c6324b3d72a0bc6b223853baeb2cc4bac892d05fd1cb317a13",
+        "fvSchemes": "3755e958319d503489d9bbffcfa1d9c2c897ab549db52ea3e2f587e2a1a012d9",
+        "fvSolution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snappyHexMeshDict": {
+          "absent": true
+        }
+      },
+      "geometry": {},
+      "schema_version": 1
+    },
+    "inputs": {
+      "system/blockMeshDict": {
+        "sha256": "2d3b9e8ceaaf1621c6e5a64ef17569694e36fb79b5c0c1118c88184a340d1f6f",
+        "size": 1232
+      },
+      "system/controlDict": {
+        "sha256": "d5edb79ceadb9ca60e14222a8fb6073dc33166b7d9725654843bcf69eaeae27a",
+        "size": 1714
+      },
+      "system/fvSchemes": {
+        "sha256": "3e4f9b5ad4a1c9435f1156c74bb4384f747381600d4ba4c96296871442dc53f7",
+        "size": 1543
+      },
+      "system/fvSolution": {
+        "sha256": "f3d7bf22ead848ad446a6a248e64fbbf011a3d4eb680768a8c349c8fda2ed4fc",
+        "size": 398
+      }
+    },
+    "reason": "\u51e0\u4f55\u3001\u7f51\u683c\u8bbe\u7f6e\u53ca\u540e\u7aef\u5185\u5bb9\u5df2\u6838\u5bf9",
+    "signature": "7c166d1ccaec69ec25dd009216c45c2618a3cc0dcfefb4066f89202094a07e72",
+    "valid": true
+  },
+  "mesh_skipped": false,
+  "nproc": 0,
+  "openfoam_version": "v1912",
+  "parallel": false,
+  "schema": "nasal_cfd_run/v1",
+  "script": {
+    "name": "run_openfoam_case.py",
+    "version": "1.2.0"
+  },
+  "started_at": "2026-10-15T10:11:40+00:00",
+  "steps": [
+    {
+      "command": [
+        "blockMesh"
+      ],
+      "elapsed_seconds": 0.06871142999997915,
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_t021_split_20261015/symmetric/evaluations/eval_001/log.blockMesh"
+    },
+    {
+      "command": [
+        "checkMesh",
+        "-allGeometry",
+        "-allTopology"
+      ],
+      "elapsed_seconds": 0.10136058300000172,
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_t021_split_20261015/symmetric/evaluations/eval_001/log.checkMesh"
+    },
+    {
+      "command": [
+        "simpleFoam"
+      ],
+      "elapsed_seconds": 5.23160013399999,
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_t021_split_20261015/symmetric/evaluations/eval_001/log.simpleFoam"
+    },
+    {
+      "command": [
+        "foamToVTK",
+        "-latestTime",
+        "-ascii",
+        "-fields",
+        "(p U)"
+      ],
+      "elapsed_seconds": 0.12168048099999851,
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_t021_split_20261015/symmetric/evaluations/eval_001/log.foamToVTK"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+Collecting meshio
+  Using cached meshio-5.3.5-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: numpy>=1.20.0 in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from meshio) (2.5.3)
+Requirement already satisfied: rich in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from meshio) (15.0.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from rich->meshio) (4.2.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from rich->meshio) (2.21.0)
+Requirement already satisfied: mdurl~=0.1 in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from markdown-it-py>=2.2.0->rich->meshio) (0.1.2)
+Using cached meshio-5.3.5-py3-none-any.whl (166 kB)
+Installing collected packages: meshio
+Successfully installed meshio-5.3.5
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Scripts\python.exe -m pip install --upgrade pip

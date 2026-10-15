@@ -1,0 +1,72 @@
+{
+  "schema": "nasal_real_pressure_evaluation/v1",
+  "pressure_pa": 1.7688857763694905,
+  "case": "/home/lenovo2/nasal_t021_split_20261015/swapped_labels/evaluations/eval_003",
+  "status": "accepted",
+  "started_at": "2026-10-15T10:12:50.258247+00:00",
+  "backend": "real_openfoam_v1912",
+  "clinical_validation": "not_validated",
+  "command": [
+    "/usr/bin/python3",
+    "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+    "--case",
+    "/home/lenovo2/nasal_t021_split_20261015/swapped_labels/evaluations/eval_003",
+    "--steps",
+    "blockMesh,checkMesh,simpleFoam,foamToVTK"
+  ],
+  "exit_code": 0,
+  "diagnostics": {
+    "signed_phi_m3_s": {
+      "inlet_L": -1.867938780989e-06,
+      "inlet_R": -1.468988128059e-05,
+      "outlet": 1.655782005436e-05
+    },
+    "flux": {
+      "q_in_by_patch": {
+        "inlet_L": 1.867938780989e-06,
+        "inlet_R": 1.468988128059e-05
+      },
+      "q_out_by_patch": {
+        "outlet": 1.655782005436e-05
+      },
+      "q_in_m3_s": 1.6557820061579e-05,
+      "q_out_m3_s": 1.655782005436e-05,
+      "mass_imbalance_frac": 4.359874003010649e-10
+    },
+    "pressure_Pa_gauge": {
+      "inlet_L": 1.7688857763696,
+      "inlet_R": 1.7688857763696,
+      "outlet": 0.0
+    },
+    "initial_residuals": {
+      "Ux": 1.3509643799e-07,
+      "Uy": 7.73831408919e-08,
+      "p": 9.99143140847e-09
+    },
+    "linear_final_residuals": {
+      "Ux": 6.42723444497e-13,
+      "Uy": 6.80248255216e-13,
+      "p": 8.35924578836e-11
+    },
+    "residual_max": 1.3509643799e-07,
+    "continuity_global": -2.77974952185e-09,
+    "monitor_relative_change": 0.0,
+    "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+    "flow_monitor_relative_change": 1.7019745548382244e-06,
+    "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+    "mesh_quality_passed": true,
+    "solver_ended": true,
+    "SIMPLE_convergence_banner": true,
+    "final_time": "1169"
+  },
+  "evaluation": {
+    "pressure_pa": 1.7688857763694905,
+    "q_left_m3_s": 1.867938780989e-06,
+    "q_right_m3_s": 1.468988128059e-05,
+    "q_out_m3_s": 1.655782005436e-05,
+    "converged": true,
+    "mesh_quality_passed": true,
+    "mass_imbalance_frac": 4.359874003010649e-10,
+    "residuals_passed": true
+  }
+}

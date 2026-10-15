@@ -97,7 +97,14 @@ def evaluate_contract(args):
         "forced": bool(args.force_unsanctioned),
         "checked": True,
     }
-    if not report["execution_allowed"] and not args.force_unsanctioned:
+    engineering_path = getattr(args, 'engineering_authorization', None)
+    if engineering_path:
+        try:
+            from patient_cfd_admission import validate_engineering_authorization
+            contract['bound_engineering_authorization'] = validate_engineering_authorization(args.case, path, engineering_path)
+        except (ValueError, KeyError, OSError, TypeError) as exc:
+            raise ContractRefusal(['bound engineering authorization refused: ' + str(exc)])
+    if not report["execution_allowed"] and not args.force_unsanctioned and not engineering_path:
         # Concrete blocking reasons: errors first, then readiness warnings
         # (e.g. "solver adapter has not been implemented and verified ...").
         raise ContractRefusal(list(report["errors"]) + list(report["warnings"]))
@@ -433,9 +440,15 @@ def main(argv=None):
     parser.add_argument('--force-unsanctioned', action='store_true',
                         help='explicitly run an execution_allowed=false config anyway; '
                              'recorded in run_manifest.contract.forced for audit (never lifts engineering_acceptance)')
+    parser.add_argument('--engineering-authorization', default=None,
+                        help='strictly case-bound, content-fingerprinted engineering allowance; '
+                             'requires --config and never grants clinical or numerical acceptance')
     args = parser.parse_args(argv)
     if args.env_check:
         return env_check(build_environment())
+    if args.engineering_authorization and not args.config:
+        print('run_openfoam_case error: --engineering-authorization requires --config', file=sys.stderr)
+        return 3
     # --- contract gate (T-003 R10): evaluate before any step executes ---------
     try:
         contract = evaluate_contract(args)
@@ -554,8 +567,10 @@ def main(argv=None):
             if step == 'simpleFoam':
                 quality = mesh_quality(case)
                 run_manifest['mesh_quality'] = quality
+                bound_engineering = bool(contract.get('bound_engineering_authorization', {}).get('allowed'))
                 run_manifest['failed_mesh_diagnostic_override'] = bool(not quality['passed'] and args.allow_failed_mesh_for_diagnostic)
-                if not quality['passed'] and not args.allow_failed_mesh_for_diagnostic:
+                run_manifest['failed_mesh_bound_engineering_trial'] = bool(not quality['passed'] and bound_engineering)
+                if not quality['passed'] and not args.allow_failed_mesh_for_diagnostic and not bound_engineering:
                     raise RuntimeError('Mesh quality did not pass; refusing to solve (see log.checkMesh)')
             if step == "simpleFoam" and parabolic and not profile_done:
                 begin = utc_now()

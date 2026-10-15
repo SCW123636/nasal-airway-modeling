@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "case_id": "b15_engineering",
+  "checks": [
+    {
+      "name": "admission_identity",
+      "passed": true,
+      "detail": "准入记录 schema 与病例身份匹配",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "current_source_binding",
+      "passed": true,
+      "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "final_surface_binding",
+      "passed": true,
+      "detail": "最终 CFD 表面内容哈希匹配",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "mesh_content_binding",
+      "passed": true,
+      "detail": "体网格所有文件内容指纹匹配",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "config_content_binding",
+      "passed": true,
+      "detail": "物性、边界、数值配置指纹匹配",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "surface_mesh_provenance",
+      "passed": true,
+      "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "configuration_contract",
+      "passed": true,
+      "detail": "配置语义有效；专业审核 readiness 独立保留",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "patient_config_identity",
+      "passed": true,
+      "detail": "配置绑定同一患者表面，不继承其他患者身份",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "engineering_authorization",
+      "passed": true,
+      "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+      "source": "受控患者工程输入与内容指纹"
+    },
+    {
+      "name": "mesh_diagnostics_present",
+      "passed": true,
+      "detail": "保留原 checkMesh；失败项作为工程风险记录",
+      "source": "受控患者工程输入与内容指纹"
+    }
+  ],
+  "blocking_reasons": [],
+  "clinical_validation": "not_validated",
+  "folder": "C:\\ts_work\\project_cases\\patient_cfd_inputs\\b15_engineering",
+  "template": "C:\\ts_work\\project_cases\\patient_cfd_inputs\\b15_engineering\\template",
+  "config_path": "C:\\ts_work\\project_cases\\patient_cfd_inputs\\b15_engineering\\template\\config.json",
+  "admission_path": "C:\\ts_work\\project_cases\\patient_cfd_inputs\\b15_engineering\\admission.json",
+  "admission_sha256": "f8e525cf579fe6d32fd55cdc9b6a0a21a74a9b0df08e158b6cfc0cbc63ea9bcc",
+  "clinical_readiness_reasons": [
+    "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+    "patient geometry requires human confirmed review",
+    "geometry.review.reviewer is required",
+    "geometry.review.reviewed_at is required",
+    "geometry.review.record_file is required",
+    "review must reference the same geometry sha256",
+    "both nostrils and nasopharynx outlet must be confirmed",
+    "oral exclusion must be confirmed",
+    "sinus boundary policy must be confirmed"
+  ]
+}

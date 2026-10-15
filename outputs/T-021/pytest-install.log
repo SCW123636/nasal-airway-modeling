@@ -1,0 +1,18 @@
+Collecting pytest
+  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: colorama>=0.4 in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from pytest) (0.4.6)
+Collecting iniconfig>=1.0.1 (from pytest)
+  Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Requirement already satisfied: packaging>=22 in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from pytest) (26.3)
+Collecting pluggy<2,>=1.5 (from pytest)
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Requirement already satisfied: pygments>=2.7.2 in C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages (from pytest) (2.21.0)
+Using cached pytest-9.1.1-py3-none-any.whl (386 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Installing collected packages: pluggy, iniconfig, pytest
+
+Successfully installed iniconfig-2.3.1 pluggy-1.7.0 pytest-9.1.1
+
+[notice] A new release of pip is available: 26.1.2 -> 26.2.1
+[notice] To update, run: C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Scripts\python.exe -m pip install --upgrade pip

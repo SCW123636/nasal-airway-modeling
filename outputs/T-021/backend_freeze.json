@@ -1,0 +1,32 @@
+{
+  "schema": "t021_backend_freeze/v1",
+  "source_sha256": {
+    "work/lib/openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+    "work/lib/test_openfoam_pressure_adapter.py": "552ee803c97ff56ffe8a8098737c0dfe1300f7a0d77afefd2ef2be0c12647072",
+    "work/lib/patient_cfd_admission.py": "252c282bcc0c8de3c2e4c39b6aed8ab9817d88a28d292efe3b711bbb5ce53a92",
+    "work/lib/test_patient_cfd_admission.py": "aa5a08d29b8ce1e95e2c64b6d2643311b30979f2ee040767bb2b429522a28486",
+    "work/lib/patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+    "work/lib/cfd_workspace_jobs.py": "3c6e294e543507bc3b31a0bbdc1d52d309d78af5cee82715e4206b174e53ef07",
+    "work/lib/test_cfd_workspace_jobs.py": "450c957b0d027ca25e603427b0c15fb19138bfbaa1cb7a73da2dcc1c6628f6e3",
+    "work/lib/solver_adapter.py": "df741bbf6707b4ce9492ef0c59d8614c6b077aa542d86ae77a9be04ff414d8df",
+    "work/07_cfd_pipeline/solver/run_openfoam_case.py": "a5b1381b9afd1dc4c2c2014ef8f45fa0a2f2c0c01f36aa4bda866a3ddc8c38ea",
+    "work/lib/test_run_openfoam_case.py": "157555857596949c8c39d2a4411f26f467d015706dbbc6e94222c6d29fcbf2ff"
+  },
+  "targeted_tests": {
+    "passed": 48,
+    "log": "outputs/T-021/targeted-tests-commit.log"
+  },
+  "full_library_tests": {
+    "passed": 507,
+    "failed": 3,
+    "subtests_passed": 229,
+    "production_diagnostic_defect_present": true,
+    "log": "outputs/T-021/full-pytest-deps-resolved.log"
+  },
+  "reference_native": "/home/lenovo2/nasal_t021_split_20261015",
+  "reference_adapter_fingerprint_unchanged": true,
+  "patient_input": "C:\\ts_work\\project_cases\\patient_cfd_inputs\\b15_engineering",
+  "patient_admission_sha256": "f8e525cf579fe6d32fd55cdc9b6a0a21a74a9b0df08e158b6cfc0cbc63ea9bcc",
+  "formal_api_validation": "pending",
+  "parallel_ranks": 0
+}

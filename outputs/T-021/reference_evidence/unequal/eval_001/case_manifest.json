@@ -1,0 +1,32 @@
+{
+  "schema": "nasal_cfd_split_feedback_case/v1",
+  "patient_data": false,
+  "generated_at": "2026-10-15T10:10:52+00:00",
+  "boundary": {
+    "mode": "common_inlet_pressure_feedback",
+    "inlet_static_pressure_Pa_gauge": 1.0,
+    "outlet_static_pressure_Pa_gauge": 0.0,
+    "target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary"
+  },
+  "physics": {
+    "rho_kg_m3": 1.2,
+    "mu_Pa_s": 1.81e-05,
+    "nu_m2_s": 1.5083333333333333e-05
+  },
+  "patch_map": {
+    "inlet_L": "inlet",
+    "inlet_R": "inlet",
+    "outlet": "outlet",
+    "walls": "wall"
+  },
+  "geometry": {
+    "branch_length_mm": 40.0,
+    "chamber_length_mm": 40.0,
+    "left_width_mm": 2.0,
+    "right_width_mm": 1.0,
+    "partition_thickness_mm": 0.5,
+    "depth_mm": 10.0,
+    "labels_swapped": false,
+    "dimensionality": "2D empty extrusion"
+  }
+}
