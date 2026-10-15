@@ -9,6 +9,7 @@ from collections import Counter, defaultdict
 import numpy as np
 
 from planar_cap import triangulate_cap
+from outlet_selection_lineage import SourceSelectorLineage
 
 
 class SurfaceClipError(ValueError):
@@ -75,10 +76,11 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7, selectors=No
     intent without inventing lateral walls. Passing None keeps the original
     ROI-box behaviour byte for byte.
 
-    Selectors are indexed by vertex, not by face: clipping rewrites the face
-    array (dropping cut faces, adding intersection faces), so a face-indexed mask
-    would silently go stale after the first plane. Vertex indices are stable
-    across the whole loop because points are only ever appended.
+    Selectors contain exactly one boolean per source vertex and describe
+    strict-delete-side connected components. New edge intersections inherit
+    membership from their parents and the selector's own plane. Selection may
+    not change across a wholly negative source edge. Ambiguous input is rejected
+    rather than silently treating all new vertices as unselected.
     """
     if not np.isfinite(tolerance_mm) or tolerance_mm <= 0:
         raise ValueError('Tolerance must be finite and positive')
@@ -94,6 +96,7 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7, selectors=No
     if any(qc[key] for key in ('boundary_edges', 'nonmanifold_edges', 'inconsistent_winding_edges',
                                 'duplicate_triangles', 'degenerate_triangles')) or qc['signed_volume_mm3'] <= 0:
         raise ValueError('Source must be a closed consistently outward triangle surface')
+    lineage = SourceSelectorLineage(points, faces, planes, selectors, tolerance_mm)
     patches = np.full(len(faces), 'wall', dtype=object)
     reports = {}
     for name, spec in planes.items():
@@ -112,15 +115,8 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7, selectors=No
         signed = (points - origin) @ kept_normal
         signed[np.abs(signed) <= tolerance_mm] = 0
         xyz = points[faces]
-        mask = selectors.get(name)
+        mask = lineage.get(name)
         if mask is not None:
-            mask = np.asarray(mask, dtype=bool)
-            if len(mask) > len(points):
-                raise ValueError(name + ': selector mask is longer than the vertex array')
-            if len(mask) < len(points):
-                # Clipping appends intersection vertices; they belong to the cut
-                # boundary, never to the deleted selection, so pad with False.
-                mask = np.concatenate((mask, np.zeros(len(points) - len(mask), dtype=bool)))
             inside = np.any(mask[faces], axis=1)
         else:
             overlap = ((xyz.max(axis=1) >= low) & (xyz.min(axis=1) <= high)).all(axis=1)
@@ -142,8 +138,13 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7, selectors=No
         if np.any(patches[affected] != 'wall'):
             collision = affected & (patches != 'wall')
             cap_points = xyz[collision]
-            raise SurfaceClipError(name + ': cutting plane intersects an earlier cap',
+            cap_signed = signed[faces[collision]]
+            crossing = (cap_signed.min(axis=1) < 0) & (cap_signed.max(axis=1) > 0)
+            raise SurfaceClipError(name + ': delete selection would remove an earlier cap',
                                    {'plane': name, 'conflicting_triangles': int(collision.sum()),
+                                    'strictly_crossing_plane_triangles': int(crossing.sum()),
+                                    'fully_in_delete_halfspace_triangles': int((cap_signed < 0).all(axis=1).sum()),
+                                    'collision_kind': 'selection_covers_earlier_cap',
                                     'earlier_patch_counts': dict(Counter(patches[collision].tolist())),
                                     'triangle_centers_lps_mm': cap_points.mean(axis=1).tolist(),
                                     'bounds_lps_mm': {'min': cap_points.min(axis=(0, 1)).tolist(),
@@ -164,6 +165,7 @@ def clip_and_cap(vertices, triangles, planes, *, tolerance_mm=1e-7, selectors=No
                 point = points[start] + fraction * (points[stop] - points[start])
                 cache[edge] = len(new_points)
                 new_points.append(point.tolist())
+                lineage.append_intersection(start, stop, point)
             return cache[edge]
 
         output = faces[~affected].tolist()

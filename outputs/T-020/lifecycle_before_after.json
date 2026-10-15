@@ -1,0 +1,79 @@
+{
+  "baseline_revision": "ca9c939",
+  "baseline_source_sha256": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+  "answer": "z=2 cap spans x=0..4; x=2 must reject cap deletion before off-plane topology",
+  "before": {
+    "passed": false,
+    "exception": "ValueError",
+    "error": "side: unexpected boundary outside cutting plane or ROI",
+    "details": null,
+    "elapsed_s": 0.0029094999918015674
+  },
+  "after": {
+    "passed": false,
+    "exception": "SurfaceClipError",
+    "error": "side: delete selection would remove an earlier cap",
+    "details": {
+      "plane": "side",
+      "conflicting_triangles": 5,
+      "strictly_crossing_plane_triangles": 4,
+      "fully_in_delete_halfspace_triangles": 1,
+      "collision_kind": "selection_covers_earlier_cap",
+      "earlier_patch_counts": {
+        "bottom": 5
+      },
+      "triangle_centers_lps_mm": [
+        [
+          1.0,
+          3.6666666666666665,
+          2.0
+        ],
+        [
+          0.3333333333333333,
+          1.0,
+          2.0
+        ],
+        [
+          3.0,
+          0.3333333333333333,
+          2.0
+        ],
+        [
+          2.3333333333333335,
+          2.6666666666666665,
+          2.0
+        ],
+        [
+          1.6666666666666667,
+          1.3333333333333333,
+          2.0
+        ]
+      ],
+      "bounds_lps_mm": {
+        "min": [
+          0.0,
+          0.0,
+          2.0
+        ],
+        "max": [
+          4.0,
+          4.0,
+          2.0
+        ]
+      },
+      "roi_lps_mm": {
+        "min": [
+          -10,
+          -10,
+          -10
+        ],
+        "max": [
+          10,
+          10,
+          20
+        ]
+      }
+    },
+    "elapsed_s": 0.0019116000039502978
+  }
+}

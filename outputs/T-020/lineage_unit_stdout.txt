@@ -1,0 +1,8 @@
+test_kept_side_semantics_follow_keep_positive (test_outlet_selection_lineage.LineageTests.test_kept_side_semantics_follow_keep_positive) ... ok
+test_mixed_edge_interpolates_delete_side_instead_of_or_and (test_outlet_selection_lineage.LineageTests.test_mixed_edge_interpolates_delete_side_instead_of_or_and) ... ok
+test_new_cap_edge_with_mixed_negative_membership_refuses (test_outlet_selection_lineage.LineageTests.test_new_cap_edge_with_mixed_negative_membership_refuses) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.135s
+
+OK

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "D:\��Ŀ\��ǻ��ģ\outputs\T-020\verify_frozen_clips.py", line 120, in <module>
+    if args.cases:real(args.cases)
+                  ~~~~^^^^^^^^^^^^
+  File "D:\��Ŀ\��ǻ��ģ\outputs\T-020\verify_frozen_clips.py", line 87, in real
+    path=next(Path(p) for p in old['frozen_inputs'] if p.endswith('/source_surface.vtp'))
+StopIteration

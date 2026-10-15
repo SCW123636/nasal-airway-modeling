@@ -1,0 +1,15 @@
+test_connected_three_opening_airway_keeps_all_patch_labels (test_partitioned_surface.PartitionedSurfaceTests.test_connected_three_opening_airway_keeps_all_patch_labels) ... ok
+test_invalid_tolerance_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_invalid_tolerance_rejected) ... ok
+test_oblique_clip_volume_and_rotation (test_partitioned_surface.PartitionedSurfaceTests.test_oblique_clip_volume_and_rotation) ... ok
+test_open_source_or_absent_intersection_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_open_source_or_absent_intersection_rejected) ... ok
+test_roi_side_cut_is_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_roi_side_cut_is_rejected) ... ok
+test_selector_disjoint_caps_equal_roi_without_selector (test_partitioned_surface.PartitionedSurfaceTests.test_selector_disjoint_caps_equal_roi_without_selector) ... ok
+test_selector_lineage_exposes_strictly_crossing_earlier_cap (test_partitioned_surface.PartitionedSurfaceTests.test_selector_lineage_exposes_strictly_crossing_earlier_cap) ... ok
+test_selector_lineage_reports_wholly_deleted_cap_without_plane_crossing (test_partitioned_surface.PartitionedSurfaceTests.test_selector_lineage_reports_wholly_deleted_cap_without_plane_crossing) ... ok
+test_source_selector_length_type_and_ambiguous_edge_rejected (test_partitioned_surface.PartitionedSurfaceTests.test_source_selector_length_type_and_ambiguous_edge_rejected) ... ok
+test_two_end_caps_closed_and_labelled (test_partitioned_surface.PartitionedSurfaceTests.test_two_end_caps_closed_and_labelled) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.054s
+
+OK

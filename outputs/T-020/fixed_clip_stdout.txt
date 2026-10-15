@@ -1,0 +1,6 @@
+{"case": "p0", "passed": false, "elapsed_s": 5.794153599999845, "arrays_equal": null, "historical_arrays_equal": null, "error": "nasopharynx_outlet: delete selection would remove an earlier cap"}
+{"case": "b01", "passed": true, "elapsed_s": 4.576939599995967, "arrays_equal": true, "historical_arrays_equal": false, "error": null}
+{"case": "b02", "passed": true, "elapsed_s": 4.452716600004351, "arrays_equal": true, "historical_arrays_equal": false, "error": null}
+{"case": "b21", "passed": true, "elapsed_s": 5.3380748000054155, "arrays_equal": true, "historical_arrays_equal": false, "error": null}
+{"case": "b22", "passed": true, "elapsed_s": 4.357782999999472, "arrays_equal": true, "historical_arrays_equal": false, "error": null}
+{"case": "b23", "passed": true, "elapsed_s": 4.85046699999657, "arrays_equal": true, "historical_arrays_equal": false, "error": null}

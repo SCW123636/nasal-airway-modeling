@@ -3,7 +3,8 @@ import unittest
 import numpy as np
 import SimpleITK as sitk
 
-from partitioned_surface import clip_and_cap
+from partitioned_surface import clip_and_cap, SurfaceClipError
+from connectivity_opened_surface import flood_mask
 from export_candidate_preview import mask_surface, triangle_arrays
 
 
@@ -22,6 +23,61 @@ def plane(point, normal, keep=True):
 
 
 class PartitionedSurfaceTests(unittest.TestCase):
+    def test_source_selector_length_type_and_ambiguous_edge_rejected(self):
+        v, f = cube()
+        specs = {'side': plane([2, 0, 0], [1, 0, 0])}
+        mask, _ = flood_mask(v, f, specs['side'])
+        for wrong in (mask[:-1], np.r_[mask, False], mask[:, None], mask.astype(int)):
+            with self.assertRaisesRegex(ValueError, 'exactly one value per source vertex'):
+                clip_and_cap(v, f, specs, selectors={'side': wrong})
+        wrong = mask.copy()
+        wrong[0] = False
+        with self.assertRaisesRegex(ValueError, 'ambiguous selector'):
+            clip_and_cap(v, f, specs, selectors={'side': wrong})
+        wrong = mask.copy()
+        wrong[1] = True
+        with self.assertRaisesRegex(ValueError, 'strict delete halfspace'):
+            clip_and_cap(v, f, specs, selectors={'side': wrong})
+
+    def test_selector_lineage_exposes_strictly_crossing_earlier_cap(self):
+        v, f = cube()
+        specs = {'bottom': plane([0, 0, 2], [0, 0, 1]),
+                 'side': plane([2, 0, 0], [1, 0, 0])}
+        masks = {k: flood_mask(v, f, s)[0] for k, s in specs.items()}
+        with self.assertRaises(SurfaceClipError) as context:
+            clip_and_cap(v, f, specs, selectors=masks)
+        details = context.exception.details
+        self.assertEqual(details['collision_kind'], 'selection_covers_earlier_cap')
+        self.assertGreater(details['strictly_crossing_plane_triangles'], 0)
+        self.assertEqual(details['earlier_patch_counts'].keys(), {'bottom'})
+        self.assertIn('delete selection', str(context.exception))
+
+    def test_selector_lineage_reports_wholly_deleted_cap_without_plane_crossing(self):
+        v, f = cube()
+        specs = {'bottom': plane([0, 0, 2], [0, 0, 1]),
+                 'higher_bottom': plane([0, 0, 4], [0, 0, 1])}
+        masks = {k: flood_mask(v, f, s)[0] for k, s in specs.items()}
+        with self.assertRaises(SurfaceClipError) as context:
+            clip_and_cap(v, f, specs, selectors=masks)
+        details = context.exception.details
+        self.assertEqual(details['strictly_crossing_plane_triangles'], 0)
+        self.assertGreater(details['fully_in_delete_halfspace_triangles'], 0)
+        self.assertEqual(details['fully_in_delete_halfspace_triangles'], details['conflicting_triangles'])
+
+    def test_selector_disjoint_caps_equal_roi_without_selector(self):
+        v, f = cube()
+        specs = {'bottom': plane([0, 0, 2], [0, 0, 1]),
+                 'top': plane([0, 0, 6], [0, 0, 1], False)}
+        masks = {k: flood_mask(v, f, s)[0] for k, s in specs.items()}
+        selected = clip_and_cap(v, f, specs, selectors=masks)
+        unselected = clip_and_cap(v, f, specs)
+        for a, b in zip(selected[:3], unselected[:3]):
+            np.testing.assert_array_equal(a, b)
+        self.assertEqual(selected[3], unselected[3])
+        self.assertAlmostEqual(selected[3]['technical_qc']['signed_volume_mm3'], 64)
+        self.assertAlmostEqual(selected[3]['caps']['bottom']['area_mm2'], 16)
+        self.assertAlmostEqual(selected[3]['caps']['top']['area_mm2'], 16)
+
     def test_invalid_tolerance_rejected(self):
         v, f = cube()
         for tolerance in (0, -1, np.nan, np.inf):

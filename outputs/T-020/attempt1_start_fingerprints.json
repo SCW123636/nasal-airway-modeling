@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-15T10:05:02.222936+00:00",
+  "files": {
+    "D:\\项目\\鼻腔建模\\outputs\\T-020\\verify_frozen_clips.py": "636de96a1d30175f5c9dd9223661a1b2e728c9d9966aef10733f67111ea7a704",
+    "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py": "b4c3ef5e5c6c89e1132e8a514c45be4ff2868e9c0ec7e4d414cd6e2ff5c669f4",
+    "D:\\项目\\鼻腔建模\\work\\lib\\outlet_selection_lineage.py": "2d379eaf3c2508028116f9532d24e09005c2bd8a5e1e138137b7e882dba64671",
+    "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+    "C:\\ts_work\\batch27_surfaces\\b01\\source_surface.vtp": "89fc084c8e6211a777bd5b16d9934e2f20277397da576a855ef05e05df33f7e9",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b01\\landmarks.json": "5c8096e2544cb45617257b3b94c40efe370a5e3a7cbb8c58f7d872bd1fc69afa",
+    "C:\\ts_work\\batch27_opening\\b01\\auto_placed.vtp": "a50a4122d1918ca20aa70f42fa31243c458db09c0672e4ed49caa8dce9a1fa52",
+    "C:\\ts_work\\batch27_surfaces\\b02\\source_surface.vtp": "53eb285def072f1d0d7d9c01d9300a0ebd8bee1565cfe39ada9dc0609172193f",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b02\\landmarks.json": "88dc59221ac03cb24eefb4136db3b4f60b71b622c5c4ae1a1abd7eb504376c99",
+    "C:\\ts_work\\batch27_opening\\b02\\auto_placed.vtp": "24b47b61c722c40af6680952caea23121cfd8afb4525dd9adfd43548e8b93654",
+    "C:\\ts_work\\batch27_surfaces\\b21\\source_surface.vtp": "33ae7eefd4ce8251c7bba832f1bae221a2eb52a9953b36bf77f840dd7a20b6d3",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b21\\landmarks.json": "7156dbc0b968ea518ad42e6f26a41f9001ba4c30103dd8cfba74896e153ec3e2",
+    "C:\\ts_work\\batch27_opening\\b21\\auto_placed.vtp": "c31d54396dd62ab68497ad534c7c35b2ea4dabc729c9b573a787af5324fec72b",
+    "C:\\ts_work\\batch27_surfaces\\b22\\source_surface.vtp": "c03b35ec66796ed53384307cbb0601b05ac85dc532844a0429a9c74c1298976d",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b22\\landmarks.json": "323bc2bc7bf71268c22e0731aa171c06b6e5538453a98120c1470b5e82eb4d48",
+    "C:\\ts_work\\batch27_opening\\b22\\auto_placed.vtp": "d20ca7137826859d53092b949513ab4b62f959886698fc981ed5c234d7eef7df",
+    "C:\\ts_work\\batch27_surfaces\\b23\\source_surface.vtp": "d2245ab8b5e7f04064f1ebc924cdf5134a7d8c894bffa5ae414005be217031d1",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b23\\landmarks.json": "5a9686696206c0384b8a89c056e34fd4f93e89a5131214256c54c6090f06e601",
+    "C:\\ts_work\\batch27_opening\\b23\\auto_placed.vtp": "2badd42968cbe7d439b9b00e68e6d21f5c37b3b1414305c22aa9ae442e78586a"
+  },
+  "thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "scope": "one sequential production clip per case; no N6 process, mesh or solver"
+}
