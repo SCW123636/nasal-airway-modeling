@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>鼻腔建模 · 工程工作台 PRO</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="pro.css">
+<script src="pro.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand">鼻腔建模<span class="brand-pro">工程工作台</span><span class="env">PRO · P1</span></div>
+  <div class="case-picker"><label for="case-select">病例</label><select id="case-select"><option>读取中…</option></select></div>
+  <div class="top-status" id="top-status">
+    <span class="chip warn" title="本工作台全部患者相关产出的统一临床状态">未临床复核</span>
+    <span class="chip" id="chip-cases">病例：读取中</span>
+    <span class="chip" id="chip-jobs">任务：读取中</span>
+  </div>
+  <a class="legacy" href="../index.html">旧版工作台 ↗</a>
+</header>
+
+<div class="shell">
+  <aside class="tree-panel">
+    <div class="panel-title">工作流</div>
+    <ul class="tree" id="flow-tree"></ul>
+    <div class="panel-title">CFD 任务 <button id="jobs-refresh" class="icon-btn" title="刷新任务列表">⟳</button></div>
+    <ul class="tree" id="job-tree"></ul>
+  </aside>
+
+  <main class="view-panel">
+    <div class="view-tabs" id="view-tabs"></div>
+    <div class="view-body" id="view-body"></div>
+  </main>
+
+  <aside class="prop-panel">
+    <div class="panel-title">属性</div>
+    <div id="prop-body"><p class="muted">在左侧树中选择对象，这里显示其真实参数。</p></div>
+  </aside>
+</div>
+
+<footer class="log-panel">
+  <div class="panel-title">消息与日志 <span class="muted" id="log-count"></span></div>
+  <div id="log-body" class="log-body"></div>
+</footer>
+</body>
+</html>

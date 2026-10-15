@@ -1,0 +1,109 @@
+/* ==========================================================================
+   workbench-pro.css · 工程软件皮肤（T-051）
+   叠加层：在 workspace.css 之后加载，只做呈现覆盖；不修改任何既有文件。
+   目标：专业精简但详细准确——密度、对齐、状态分级、等宽数字。
+   ========================================================================== */
+
+/* ---- 1. 全局密度与字体 ------------------------------------------------ */
+body{font-size:12.5px;line-height:1.5}
+h1{font-size:17px}
+h1 span{font-size:11px}
+.app-header{height:46px;padding:0 18px}
+.app-layout{height:calc(100dvh - 46px)}
+.process-heading{min-height:56px;padding:10px 20px}
+.process-heading h2{font-size:16.5px}
+.process-heading p{font-size:10.5px}
+.case-context{padding:7px 20px;min-height:40px}
+
+/* ---- 2. 扁平化：靠边框分区，不靠圆角阴影 ------------------------------ */
+.upload-box,.case-history,.surface,.case-run,.validation-status,.validation-band,
+.simulation-card,.case-notice,.overview-focus{border-radius:4px}
+.process-sidebar{border-right:1px solid var(--line)}
+.app-header{border-bottom:1px solid #d8e0da}
+button{border-radius:4px;padding:5px 10px;font-size:11.5px}
+button:hover:enabled{border-color:#9fc4ae;background:#f2f8f4}
+select,input{border-radius:4px}
+dialog{border-radius:5px}
+details summary{font-size:11.5px}
+
+/* ---- 3. 侧栏导航：更紧凑、步骤号等宽 ---------------------------------- */
+.process-sidebar{padding:16px 8px 12px}
+.nav-label{font-size:9.5px;letter-spacing:.09em;margin:0 8px 10px}
+nav{gap:3px}
+nav a{min-height:42px;padding:7px 9px;border-radius:4px;font-size:12px;gap:9px}
+nav a small{font-size:9.5px;margin-top:2px}
+.step-number{font:10px ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}
+.project-totals{padding:14px 8px 0;font-size:10.5px}
+.project-totals strong{font-family:ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}
+
+/* ---- 4. 卡片与面板密度 ------------------------------------------------- */
+.upload-box,.case-history,.surface,.validation-status,.validation-band{padding:16px}
+.case-run{padding:16px 18px}
+.simulation-card{padding:16px 18px;border-radius:4px}
+.simulation-grid{gap:14px}
+.section-heading{margin-bottom:14px}
+.section-heading h3,.surface h3{font-size:13.5px}
+.import-inner,.overview-inner,.validation-inner,.feedback-inner{padding:0 20px 22px}
+.overview-grid{gap:14px;margin-bottom:14px}
+.overview-focus{padding:18px;border-radius:5px}
+.overview-focus h3{font-size:20px}
+.pipeline-stages{margin:16px 0 12px}
+
+/* ---- 5. 数据表达：等宽 + 表格化数字 ----------------------------------- */
+code,pre{font-family:ui-monospace,Consolas,monospace}
+.history-item small,.history-select small,
+.simulation-job-row small{font-family:ui-monospace,Consolas,monospace;
+  font-variant-numeric:tabular-nums;font-size:10px;color:#8b948e}
+.run-facts span,.case-context,.muted{font-variant-numeric:tabular-nums}
+.simulation-facts dd,.simulation-feedback-facts dd,
+.overview-stage small,#active-case-state{font-variant-numeric:tabular-nums}
+.simulation-feedback-facts dd{font-family:ui-monospace,Consolas,monospace;
+  font-size:14px;font-weight:600}
+table{font-size:11.5px}
+th,td{padding:7px 10px}
+th{font-weight:600;color:#5d6a62;letter-spacing:.02em}
+.table-scroll table{min-width:480px}
+
+/* ---- 6. 状态徽章分级：形状收敛、语义清晰 ------------------------------- */
+.simulation-badge{border-radius:3px;font-size:9.5px;letter-spacing:.04em;
+  padding:3px 7px;font-weight:600;font-family:ui-monospace,Consolas,monospace}
+.badge,.feedback-version{border-radius:3px}
+.simulation-job-row{padding:9px 8px;gap:10px}
+.simulation-job-row strong{font-size:11.5px;font-weight:600}
+.simulation-job-row.is-active{background:#eef5f0;box-shadow:inset 2px 0 0 var(--accent)}
+.simulation-jobs{max-height:260px}
+.simulation-history-note>span{font-family:ui-monospace,Consolas,monospace;
+  font-variant-numeric:tabular-nums}
+
+/* ---- 7. 计算页专用：反馈事实区 = 属性面板 ------------------------------ */
+.simulation-feedback-facts{gap:6px;margin:10px 0}
+.simulation-feedback-facts>div{padding:8px 10px;border-radius:3px;background:#f4f8f5}
+.simulation-feedback-facts dt{font-size:9.5px;letter-spacing:.03em}
+.simulation-stages li{border-radius:3px;padding:5px 8px;font-size:11px}
+.simulation-check{padding:8px 0}
+.simulation-message{border-radius:4px;padding:8px 12px;font-size:11.5px}
+.simulation-diagnostic-failure{border-radius:3px;font-size:11.5px}
+.simulation-result details>summary{font-size:10.5px}
+.simulation-job pre{max-height:200px;font-size:10.5px;border-radius:3px}
+.simulation-asset{border-radius:3px;font-family:ui-monospace,Consolas,monospace;font-size:10.5px}
+.simulation-setup>label,.simulation-setup fieldset>label{font-size:10.5px;letter-spacing:.02em}
+.simulation-heading h3{font-size:19px}
+.simulation-heading p{font-size:11px}
+
+/* ---- 8. 流程与状态文本 -------------------------------------------------- */
+.case-run details{font-size:10.5px}
+.check-list{font-size:10.5px}
+.eyebrow{font-size:9.5px;letter-spacing:.06em}
+.task-link{padding:11px 0}
+.validation-band h3{font-size:13.5px}
+#hist,canvas{image-rendering:auto}
+
+/* ---- 9. 窄屏保持（不破版） --------------------------------------------- */
+@media(max-width:650px){
+  body{font-size:12px}
+  .app-header{height:44px}
+  .app-layout{height:calc(100dvh - 44px)}
+  .simulation-card{padding:13px}
+  .upload-box,.case-history,.surface,.validation-status,.validation-band{padding:13px}
+  th,td{padding:6px 8px}
+}

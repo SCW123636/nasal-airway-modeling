@@ -24,6 +24,7 @@ work/07_cfd_pipeline/workspace/*
 !work/07_cfd_pipeline/workspace/index.html
 !work/07_cfd_pipeline/workspace/*.js
 !work/07_cfd_pipeline/workspace/*.css
+!work/07_cfd_pipeline/workspace/pro/
 !work/07_cfd_pipeline/workspace/boundary-review/
 work/07_cfd_pipeline/workspace/boundary-review/*
 !work/07_cfd_pipeline/workspace/boundary-review/index.html
