@@ -1,0 +1,330 @@
+{
+ "schema": "t040_contract_known_answers/v1",
+ "purpose": "verify contract A (selector lifecycle bounded contract) is consistent with frozen known-answers and regression anchors",
+ "checks": [
+  {
+   "name": "C0_production_files_modified_false",
+   "pass": true,
+   "detail": {
+    "production_files_modified": false,
+    "meaning": "T-013 合成控制运行时未改生产代码（与 T-014 源码指纹一致）"
+   }
+  },
+  {
+   "name": "C3_overlap_refused_with_accurate_reason",
+   "pass": true,
+   "detail": {
+    "mode": "current_mesh_flood_control",
+    "passed": false,
+    "error": "side: cutting plane intersects an earlier cap",
+    "conflicting_triangles": 5,
+    "earlier_patch_counts": {
+     "bottom": 5
+    },
+    "meaning": "契约 C3 的诚实失败形态：相交场景给出『cutting plane intersects an earlier cap』而非误导性 outside_plane 文本"
+   }
+  },
+  {
+   "name": "C3_overlap_old_is_misleading",
+   "pass": true,
+   "detail": {
+    "old_error": "side: unexpected boundary outside cutting plane or ROI",
+    "meaning": "现状（未改生产）在相交场景给出误导文本 —— 契约要替换的目标"
+   }
+  },
+  {
+   "name": "C1C2_disjoint_invariant",
+   "pass": true,
+   "detail": {
+    "old_passed": true,
+    "control_passed": true,
+    "old_volume": 64.0,
+    "control_volume": 64.0,
+    "old_area": 95.99999999999999,
+    "control_area": 95.99999999999999,
+    "meaning": "契约在不相交场景零行为变更（体积 64 mm³、无边界边）"
+   }
+  },
+  {
+   "name": "C2_fivecase_b01_A_eq_B",
+   "pass": true,
+   "detail": {
+    "A_production": {
+     "nostril_L": 80.27,
+     "nostril_R": 80.08,
+     "nasopharynx_outlet": 252.79
+    },
+    "B_contract_direction": {
+     "nostril_L": 80.27,
+     "nostril_R": 80.08,
+     "nasopharynx_outlet": 252.79
+    },
+    "delta": {
+     "nostril_L": 0.0,
+     "nostril_R": 0.0,
+     "nasopharynx_outlet": 0.0
+    },
+    "meaning": "契约方向的掩码归属在 auto_pass 例上与生产逐位相同（差 0.0 mm²）"
+   }
+  },
+  {
+   "name": "C2_fivecase_b02_A_eq_B",
+   "pass": true,
+   "detail": {
+    "A_production": {
+     "nostril_L": 79.84,
+     "nostril_R": 80.37,
+     "nasopharynx_outlet": 253.08
+    },
+    "B_contract_direction": {
+     "nostril_L": 79.84,
+     "nostril_R": 80.37,
+     "nasopharynx_outlet": 253.08
+    },
+    "delta": {
+     "nostril_L": 0.0,
+     "nostril_R": 0.0,
+     "nasopharynx_outlet": 0.0
+    },
+    "meaning": "契约方向的掩码归属在 auto_pass 例上与生产逐位相同（差 0.0 mm²）"
+   }
+  },
+  {
+   "name": "C2_fivecase_b21_A_eq_B",
+   "pass": true,
+   "detail": {
+    "A_production": {
+     "nostril_L": 80.34,
+     "nostril_R": 80.01,
+     "nasopharynx_outlet": 456.08
+    },
+    "B_contract_direction": {
+     "nostril_L": 80.34,
+     "nostril_R": 80.01,
+     "nasopharynx_outlet": 456.08
+    },
+    "delta": {
+     "nostril_L": 0.0,
+     "nostril_R": 0.0,
+     "nasopharynx_outlet": 0.0
+    },
+    "meaning": "契约方向的掩码归属在 auto_pass 例上与生产逐位相同（差 0.0 mm²）"
+   }
+  },
+  {
+   "name": "C2_fivecase_b22_A_eq_B",
+   "pass": true,
+   "detail": {
+    "A_production": {
+     "nostril_L": 80.22,
+     "nostril_R": 80.09,
+     "nasopharynx_outlet": 301.98
+    },
+    "B_contract_direction": {
+     "nostril_L": 80.22,
+     "nostril_R": 80.09,
+     "nasopharynx_outlet": 301.98
+    },
+    "delta": {
+     "nostril_L": 0.0,
+     "nostril_R": 0.0,
+     "nasopharynx_outlet": 0.0
+    },
+    "meaning": "契约方向的掩码归属在 auto_pass 例上与生产逐位相同（差 0.0 mm²）"
+   }
+  },
+  {
+   "name": "C2_fivecase_b23_A_eq_B",
+   "pass": true,
+   "detail": {
+    "A_production": {
+     "nostril_L": 87.97,
+     "nostril_R": 80.72,
+     "nasopharynx_outlet": 276.55
+    },
+    "B_contract_direction": {
+     "nostril_L": 87.97,
+     "nostril_R": 80.72,
+     "nasopharynx_outlet": 276.55
+    },
+    "delta": {
+     "nostril_L": 0.0,
+     "nostril_R": 0.0,
+     "nasopharynx_outlet": 0.0
+    },
+    "meaning": "契约方向的掩码归属在 auto_pass 例上与生产逐位相同（差 0.0 mm²）"
+   }
+  },
+  {
+   "name": "R_b01_auto_pass_anchor",
+   "pass": true,
+   "detail": {
+    "decision": "auto_pass",
+    "areas_mm2": {
+     "nostril_L": 80.08,
+     "nostril_R": 80.08,
+     "nasopharynx_outlet": 251.73
+    }
+   }
+  },
+  {
+   "name": "R_b02_auto_pass_anchor",
+   "pass": true,
+   "detail": {
+    "decision": "auto_pass",
+    "areas_mm2": {
+     "nostril_L": 80.15,
+     "nostril_R": 80.22,
+     "nasopharynx_outlet": 254.1
+    }
+   }
+  },
+  {
+   "name": "R_b21_auto_pass_anchor",
+   "pass": true,
+   "detail": {
+    "decision": "auto_pass",
+    "areas_mm2": {
+     "nostril_L": 80.15,
+     "nostril_R": 80.01,
+     "nasopharynx_outlet": 456.08
+    }
+   }
+  },
+  {
+   "name": "R_b22_auto_pass_anchor",
+   "pass": true,
+   "detail": {
+    "decision": "auto_pass",
+    "areas_mm2": {
+     "nostril_L": 80.12,
+     "nostril_R": 80.07,
+     "nasopharynx_outlet": 301.98
+    }
+   }
+  },
+  {
+   "name": "R_b23_auto_pass_anchor",
+   "pass": true,
+   "detail": {
+    "decision": "auto_pass",
+    "areas_mm2": {
+     "nostril_L": 87.97,
+     "nostril_R": 80.45,
+     "nasopharynx_outlet": 276.87
+    }
+   }
+  },
+  {
+   "name": "p0_honest_refusal_preserved",
+   "pass": true,
+   "detail": {
+    "conflicting_triangles": 774,
+    "split": {
+     "nostril_L": 458,
+     "nostril_R": 316
+    },
+    "signed_range_mm": [
+     -4.521841993711903,
+     -0.35086036136400556
+    ],
+    "strict_cross_plane_triangles": 0,
+    "outlet_single_cap_area_mm2": 1090.4285307101518,
+    "area_band_mm2": [
+     120.0,
+     500.0
+    ],
+    "source": "T-013 collision_nasopharynx_outlet.npz + T-011 a0_clip_root_cause.md / T-014",
+    "contract_behavior": "拒绝（passed=false），理由改写为『outlet 删除区切进 nostril_L/R 加盖区』；仍不放行"
+   }
+  }
+ ],
+ "all_pass": true,
+ "regression_anchors": {
+  "b01": {
+   "decision": "auto_pass",
+   "areas_mm2": {
+    "nostril_L": 80.08,
+    "nostril_R": 80.08,
+    "nasopharynx_outlet": 251.73
+   },
+   "array_sha256": {
+    "points": "0593905699ab3cbec2cc9b36099b6d35244d756db7f5b2da3f8d1a37562afa22",
+    "faces": "c7871ebc802357ef0e3105903905884db57409ca4b71d7eb6c16cc8f2036c9af",
+    "labels": "1aac294ecaf663d5323d43e2498793c5ee9df8398e7ec344ae789b2f71e639b7"
+   }
+  },
+  "b02": {
+   "decision": "auto_pass",
+   "areas_mm2": {
+    "nostril_L": 80.15,
+    "nostril_R": 80.22,
+    "nasopharynx_outlet": 254.1
+   },
+   "array_sha256": {
+    "points": "f41bdc3346d4482f18c28ebfb1646de55d5660ba1661b86b3ed1295e213693ab",
+    "faces": "e95bafb22187e3059661a69f946f710c1bf73402e823946d4f61426ac96b5ec0",
+    "labels": "2ff25c07a70d919019d630de5f6d7e2996094bf34f77768fd2cf0cb42e05fb07"
+   }
+  },
+  "b21": {
+   "decision": "auto_pass",
+   "areas_mm2": {
+    "nostril_L": 80.15,
+    "nostril_R": 80.01,
+    "nasopharynx_outlet": 456.08
+   },
+   "array_sha256": {
+    "points": "d79aad132fa6f348ba9ca30031cc0c78717e060c04bba075519ba4be51e857dc",
+    "faces": "25ab5e3357fd839e19ca5c9765b5a8b86006fdc7d49528b3b8e91fef59e5a396",
+    "labels": "11b9d26dfdad460ba1f615e0be163a9b4021ef112cb39432c82be952a8279af0"
+   }
+  },
+  "b22": {
+   "decision": "auto_pass",
+   "areas_mm2": {
+    "nostril_L": 80.12,
+    "nostril_R": 80.07,
+    "nasopharynx_outlet": 301.98
+   },
+   "array_sha256": {
+    "points": "c8b0bed704c353425d5a2674ef189f54eafa759f6744539a213de105d34c5885",
+    "faces": "65291edef7f318f3d08457fee9423606622991afe83ae6f8d7d60cd1193f3cb4",
+    "labels": "fdada7595512eb8aff0576a7b2abb8591424eeca78202beac8478a0f50a122aa"
+   }
+  },
+  "b23": {
+   "decision": "auto_pass",
+   "areas_mm2": {
+    "nostril_L": 87.97,
+    "nostril_R": 80.45,
+    "nasopharynx_outlet": 276.87
+   },
+   "array_sha256": {
+    "points": "25d063c9b7b41308b6435dfdbde5be59f0ed353e29bcb0d35cf3fd25cced94e1",
+    "faces": "6ca47ca8c72f1d67faed61fa82a830ca8fc13d5900ac9312ffcd307b47efcdc2",
+    "labels": "d4164182de053fd7773ea5103fcdb31fbd96541b8652872866bd71c7270ec956"
+   }
+  }
+ },
+ "p0": {
+  "conflicting_triangles": 774,
+  "split": {
+   "nostril_L": 458,
+   "nostril_R": 316
+  },
+  "signed_range_mm": [
+   -4.521841993711903,
+   -0.35086036136400556
+  ],
+  "strict_cross_plane_triangles": 0,
+  "outlet_single_cap_area_mm2": 1090.4285307101518,
+  "area_band_mm2": [
+   120.0,
+   500.0
+  ],
+  "source": "T-013 collision_nasopharynx_outlet.npz + T-011 a0_clip_root_cause.md / T-014",
+  "contract_behavior": "拒绝（passed=false），理由改写为『outlet 删除区切进 nostril_L/R 加盖区』；仍不放行"
+ },
+ "conclusion": "CONSISTENT: 契约 A 与 T-013/T-011 全部已知答案与回归锚一致 —— 相交场景诚实拒绝(C3)、不相交场景零变更(C1/C2)、五例 auto_pass 逐位不变；p0 在契约下仍诚实拒绝(不放行)。契约只出规格，未实现、未端到端实测。"
+}
