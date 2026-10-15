@@ -1,0 +1,106 @@
+{
+  "review_id": "T-025-R",
+  "cutoff_local_date": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "full_text_sources": [
+    {
+      "pmcid": "PMC11890371",
+      "title": "Empty nose syndrome: new insights from a CFD approach",
+      "doi": "10.1007/s00405-024-09122-w",
+      "pmid": "39663223",
+      "pub_dates": [
+        {
+          "day": "11",
+          "month": "12",
+          "year": "2024"
+        }
+      ],
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11890371/fullTextXML",
+      "local_working_copy": "PMC11890371.xml",
+      "bytes": 73552,
+      "sha256": "3aee6242fb74fb03b353081aa898ef98b3557b483cecca88bc02b2e18bb6837b"
+    },
+    {
+      "pmcid": "PMC13078140",
+      "title": "Nasal Air‐Jet Sensitivity Differentiates Empty Nose Syndrome and Turbinate Reduction Patients: A Pilot Study",
+      "doi": "10.1002/lary.70398",
+      "pmid": "41618731",
+      "pub_dates": [
+        {
+          "day": "31",
+          "month": "1",
+          "year": "2026"
+        }
+      ],
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13078140/fullTextXML",
+      "local_working_copy": "PMC13078140.xml",
+      "bytes": 97008,
+      "sha256": "8a61708c2ece4c98dae7a4f774d894b7fd93eeb5a3798cbe4cb27be7f22be4cb"
+    },
+    {
+      "pmcid": "PMC13327433",
+      "title": "Does Total Inferior and Middle Turbinectomy Always Lead to Empty Nose Syndrome?",
+      "doi": "10.1002/ohn.70277",
+      "pmid": "42084302",
+      "pub_dates": [
+        {
+          "day": "5",
+          "month": "5",
+          "year": "2026"
+        }
+      ],
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13327433/fullTextXML",
+      "local_working_copy": "PMC13327433.xml",
+      "bytes": 70492,
+      "sha256": "bb89624ecc6472089d4d4df14a8fe409bd2227035196a947bc90f4158666b41e"
+    },
+    {
+      "pmcid": "PMC13638262",
+      "title": "Airflow Characteristics of Empty Nose Syndrome: Insights From Patient‐Specific Computational Modeling of Airflow Distribution Patterns and Nasal Air‐Conditioning",
+      "doi": "10.1002/lio2.70567",
+      "pmid": "42836257",
+      "pub_dates": [
+        {
+          "day": "5",
+          "month": "10",
+          "year": "2026"
+        }
+      ],
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13638262/fullTextXML",
+      "local_working_copy": "PMC13638262.xml",
+      "bytes": 88396,
+      "sha256": "5f93151b9a8238befc8c7c2a50f3f2a35200ef880b6288e00681da98e197f57a"
+    },
+    {
+      "pmcid": "PMC3199827",
+      "title": "Surgery of the turbinates and “empty nose” syndrome",
+      "doi": "10.3205/cto000067",
+      "pmid": "22073107",
+      "pub_dates": [
+        {
+          "day": "27",
+          "month": "4",
+          "year": "2011"
+        },
+        {
+          "year": "2010"
+        }
+      ],
+      "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3199827/fullTextXML",
+      "local_working_copy": "PMC3199827.xml",
+      "bytes": 318775,
+      "sha256": "71946a6a845c65682f061a78d2538642b73a1179c66b6a136e1964a565c3627f"
+    }
+  ],
+  "abstract_only_sources": [
+    {
+      "pmid": "40923216",
+      "doi": "10.4193/Rhin25.230",
+      "title": "Serpentine Sign: evidence of airway compensation in patients with empty nose syndrome.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40923216/",
+      "publisher_abstract": "https://www.rhinologyjournal.com/Abstract.php?id=3349",
+      "local_core_response": "PMID40923216_core.json"
+    }
+  ],
+  "review_notes": "Source IDs are accepted only after title and DOI checks; full text is local/ignored. Additional official sources and full text are independently catalogued under ../independent_review/."
+}

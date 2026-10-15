@@ -1,0 +1,6 @@
+# Public full-text working copies and API responses remain locally available.
+*.xml
+*_summary.json
+recent_search_metadata.json
+recent_search_core.json
+PMID40923216_core.json
