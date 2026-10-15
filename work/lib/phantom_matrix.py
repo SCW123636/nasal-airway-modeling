@@ -29,6 +29,8 @@ Subcommands:
   --run        run the full chain per case (idempotent: skips completed cases)
   --collect    run extract_cfd_metrics + parse residual floor, write matrix.json
   --analyze    read matrix.json, print structured H1-H4 discriminants (author judgment in analysis.md)
+  --prepare-degrade / --run-degrade / --collect-degrade   T-037 positive-control mode
+               (wavy-wall tube, 3 amplitudes, 0.4mm, t006) -> matrix_degrade.json
 """
 import argparse
 import json
@@ -331,6 +333,237 @@ def analyze(work_dir, out_dir):
     return 0
 
 
+# ---------------------------------------------------------------------------
+# T-037 degrade mode: positive control for H1 (patient residual floor = mesh defects)
+# ---------------------------------------------------------------------------
+# Degraded tube = straight tube whose wall radius is perturbed by a tapered
+# angular wave. The taper sin(pi*z/L) forces r -> R at both ends, so the inlet
+# and outlet disks stay planar (clean BCs); only the mid-wall is distorted, which
+# is exactly where snappyHexMesh produces non-orthogonal near-wall cells. This
+# mimics the patient b15 defect class (198 severe non-orth cells) in a controlled,
+# single-variable way.
+DEGRADE_AMPS_MM = (0.05, 0.15, 0.30)
+DEGRADE_KTH = 6
+DEGRADE_KZ = 3
+DEGRADE_NZ = 48
+DEGRADE_SEG = 64
+DEGRADE_SIZE_MM = 0.4
+DEGRADE_PRESET = "t006"
+
+
+def generate_degraded_tube_stl(path, amp_mm, kth=DEGRADE_KTH, kz=DEGRADE_KZ,
+                              nz=DEGRADE_NZ, seg=DEGRADE_SEG):
+    """Wavy-wall tube (mm). r(z,theta)=R + amp*sin(pi*z/L)*sin(kth*theta)*sin(kz*2pi*z/L)."""
+    R = D_MM / 2.0
+    zs = [L_MM * i / (nz - 1) for i in range(nz)]
+    rings = []
+    for z in zs:
+        taper = math.sin(math.pi * z / L_MM)
+        rad = []
+        for j in range(seg):
+            theta = 2.0 * math.pi * j / seg
+            rr = R + amp_mm * taper * math.sin(kth * theta) * math.sin(kz * 2.0 * math.pi * z / L_MM)
+            rad.append((rr * math.cos(theta), rr * math.sin(theta), z))
+        rings.append(rad)
+    solids = {"inlet": [], "outlet": [], "wall": []}
+    # inlet fan at z=0 (planar disk at R), outlet fan at z=L (planar disk at R)
+    for name, ring in (("inlet", rings[0]), ("outlet", rings[-1])):
+        for j in range(seg):
+            a = ring[j]
+            b = ring[(j + 1) % seg]
+            solids[name].append([(0.0, 0.0, a[2]), b, a])
+    # wall quads between consecutive rings
+    for i in range(nz - 1):
+        for j in range(seg):
+            a = rings[i][j]
+            b = rings[i][(j + 1) % seg]
+            c = rings[i + 1][(j + 1) % seg]
+            d = rings[i + 1][j]
+            solids["wall"] += [[a, b, c], [a, c, d]]
+    lines = []
+    for name in ("inlet", "outlet", "wall"):
+        lines.append("solid " + name)
+        for tri in solids[name]:
+            lines.append(" facet normal 0 0 0")
+            lines.append("  outer loop")
+            for v in tri:
+                lines.append("   vertex %.17g %.17g %.17g" % v)
+            lines.append("  endloop")
+            lines.append(" endfacet")
+        lines.append("endsolid " + name)
+    path.write_text("\n".join(lines) + "\n", encoding="ascii")
+
+
+def degrade_case_name(amp):
+    return "deg_%.3g_t006" % amp
+
+
+def prepare_degrade(work_dir):
+    work_dir = Path(work_dir)
+    work_dir.mkdir(parents=True, exist_ok=True)
+    (work_dir / "patch_map.json").write_text(
+        json.dumps({"inlet": "inlet", "outlet": "outlet", "wall": "wall"}, indent=2) + "\n",
+        encoding="utf-8")
+    built = []
+    for amp in DEGRADE_AMPS_MM:
+        tube = work_dir / ("tube_deg_%.3g.stl" % amp)
+        generate_degraded_tube_stl(tube, amp)
+        base = work_dir / ("base_deg_%.3g" % amp)
+        if base.exists():
+            shutil.rmtree(base)
+        res = subprocess.run([sys.executable, str(SURFACE_TO_CASE),
+                              "--surface", str(tube), "--patch-map", str(work_dir / "patch_map.json"),
+                              "--out", str(base), "--cell-size", str(DEGRADE_SIZE_MM),
+                              "--refine-level", "0 0",
+                              "--location-in-mesh", "0 0 %g" % (L_MM / 2.0),
+                              "--inlet-profile", "parabolic", "--flow-rate-m3s", "2.5e-4",
+                              "--solver", "laminar"])
+        if res.returncode != 0:
+            print("phantom_matrix error: surface_to_case failed for deg amp=%g" % amp, file=sys.stderr)
+            return 2
+        case = work_dir / degrade_case_name(amp)
+        if case.exists():
+            shutil.rmtree(case)
+        shutil.copytree(base, case)
+        patch_fv_solution(case, PRESETS[DEGRADE_PRESET])
+        patch_fv_schemes(case)
+        patch_control_dict(case)
+        (case / "degrade_applied.json").write_text(
+            json.dumps({"amp_mm": amp, "kth": DEGRADE_KTH, "kz": DEGRADE_KZ,
+                        "preset": DEGRADE_PRESET, "cell_size_mm": DEGRADE_SIZE_MM,
+                        "taper": "sin(pi*z/L) -> ends planar",
+                        "intent": "positive control for H1: inject near-wall distortion"}, indent=2) + "\n",
+            encoding="utf-8")
+        built.append(case.name)
+    print(json.dumps({"work_dir": str(work_dir), "cases": built, "next": "run with --run-degrade"}, indent=2))
+    return 0
+
+
+def run_degrade(work_dir):
+    work_dir = Path(work_dir)
+    outcomes = {}
+    for amp in DEGRADE_AMPS_MM:
+        case = work_dir / degrade_case_name(amp)
+        rm = case / "run_manifest.json"
+        if rm.is_file():
+            try:
+                if json.loads(rm.read_text(encoding="utf-8")).get("execution_status") == "completed":
+                    outcomes[case.name] = {"status": "skipped_completed"}
+                    continue
+            except Exception:
+                pass
+        command = wsl_solver_command(case)
+        try:
+            proc = subprocess.run(command, shell=False)
+            outcomes[case.name] = {"returncode": proc.returncode}
+        except OSError as exc:
+            outcomes[case.name] = {"status": "wsl_unavailable", "error": repr(exc)}
+    print(json.dumps(outcomes, indent=2))
+    return 0 if all(o.get("returncode") == 0 for o in outcomes.values()) else 1
+
+
+def parse_checkmesh(log_path):
+    if not log_path.is_file():
+        return None
+    t = log_path.read_text(encoding="utf-8", errors="replace")
+    def grab(pat):
+        m = re.search(pat, t)
+        return float(m.group(1)) if m else None
+    # OpenFOAM prints "Mesh non-orthogonality Max: 45.7 average: 7.4"
+    max_no = grab(r"Mesh non-orthogonality Max:\s*([0-9.eE+-]+)")
+    severe = grab(r"Number of severely non-orthogonal\s*\([^)]*\)\s*faces\s*=\s*([0-9.eE+-]+)")
+    det_bad_count = grab(r"determinant less than 0\.001 = ([0-9.eE+-]+)")
+    concave = grab(r"Concave cells \(using face planes\) found, number of cells:\s*([0-9.eE+-]+)")
+    bounded = "Mesh OK" in t
+    failed = "Failed" in t
+    return {"max_non_ortho_deg": max_no, "severe_non_ortho_faces": severe,
+            "det_lt_001_cells": det_bad_count, "concave_cells": concave,
+            "mesh_ok": bounded, "failed_any_check": failed}
+
+
+def collect_degrade(work_dir, out_dir):
+    work_dir = Path(work_dir)
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    analytic = analytic_solution()
+    rows = []
+    for amp in DEGRADE_AMPS_MM:
+        case = work_dir / degrade_case_name(amp)
+        rm = case / "run_manifest.json"
+        if not rm.is_file():
+            print("phantom_matrix error: %s missing run_manifest" % case, file=sys.stderr)
+            return 2
+        manifest = json.loads(rm.read_text(encoding="utf-8"))
+        cm = parse_checkmesh(case / "log.checkMesh")
+        if manifest.get("execution_status") != "completed":
+            # Tolerate mesh-gate refusals: the refusal itself is a result (records
+            # that this distortion level exceeds the pipeline's own quality gate).
+            err = manifest.get("error")
+            rejected = bool(err) and ("Mesh quality" in str(err) or "refusing to solve" in str(err))
+            rows.append({
+                "amp_mm": amp, "preset": DEGRADE_PRESET, "cell_size_mm": DEGRADE_SIZE_MM,
+                "case": case.name, "status": "rejected_mesh_gate" if rejected else "incomplete",
+                "reject_reason": str(err) if rejected else repr(err),
+                "delta_p_numeric_pa": None, "delta_p_rel_error": None,
+                "mass_imbalance_frac": None, "converged_extract": None,
+                "residuals": None, "checkmesh": cm,
+            })
+            continue
+        metrics_path = case / "metrics.json"
+        res = subprocess.run([sys.executable, str(EXTRACT), "--case", str(case), "--out", str(metrics_path)])
+        if res.returncode != 0:
+            print("phantom_matrix error: extract failed for " + str(case), file=sys.stderr)
+            return 2
+        m = json.loads(metrics_path.read_text(encoding="utf-8"))["metrics"]
+        dp = m["delta_p_pa"]["value"]
+        resd = parse_residuals(case / "log.simpleFoam")
+        rows.append({
+            "amp_mm": amp, "preset": DEGRADE_PRESET, "cell_size_mm": DEGRADE_SIZE_MM,
+            "case": case.name, "status": "completed",
+            "delta_p_numeric_pa": dp, "delta_p_analytic_pa": analytic["delta_p_pa"],
+            "delta_p_rel_error": abs(dp - analytic["delta_p_pa"]) / analytic["delta_p_pa"],
+            "mass_imbalance_frac": m["mass_imbalance_frac"],
+            "converged_extract": m["converged"],
+            "residuals": resd, "checkmesh": cm,
+        })
+    out = out_dir / "matrix_degrade.json"
+    # Attach the T-036 clean-tube (same 0.4mm / t006 baseline) as reference so the
+    # matrix is a self-contained clean-vs-degraded comparison.
+    ref_case = Path(WORK_DIR_DEFAULT) / "case_h0p4_t006"
+    if ref_case.is_dir():
+        try:
+            rm = json.loads((ref_case / "run_manifest.json").read_text(encoding="utf-8"))
+            ref_m = json.loads((ref_case / "metrics.json").read_text(encoding="utf-8"))["metrics"] \
+                if (ref_case / "metrics.json").is_file() else None
+            ref_resd = parse_residuals(ref_case / "log.simpleFoam")
+            ref_cm = parse_checkmesh(ref_case / "log.checkMesh")
+            rows.append({
+                "amp_mm": 0.0, "preset": DEGRADE_PRESET, "cell_size_mm": DEGRADE_SIZE_MM,
+                "case": ref_case.name, "status": "reference_clean",
+                "delta_p_numeric_pa": ref_m["delta_p_pa"]["value"] if ref_m else None,
+                "delta_p_analytic_pa": analytic["delta_p_pa"],
+                "delta_p_rel_error": (abs(ref_m["delta_p_pa"]["value"] - analytic["delta_p_pa"]) / analytic["delta_p_pa"]) if ref_m else None,
+                "mass_imbalance_frac": ref_m["mass_imbalance_frac"] if ref_m else None,
+                "converged_extract": ref_m["converged"] if ref_m else None,
+                "residuals": ref_resd, "checkmesh": ref_cm,
+            })
+        except Exception as exc:
+            print("phantom_matrix warn: reference_clean skipped: %r" % exc, file=sys.stderr)
+    payload = {
+        "schema": "nasal_cfd_phantom_degrade/v1",
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "geometry": {"kind": "wavy_wall_tube", "L_mm": L_MM, "D_mm": D_MM, "R_mm": D_MM / 2.0,
+                     "Q_m3_s": Q_M3_S, "reynolds": analytic["reynolds"],
+                     "amps_mm": list(DEGRADE_AMPS_MM), "kth": DEGRADE_KTH, "kz": DEGRADE_KZ,
+                     "intent": "positive control for H1: inject controlled near-wall distortion"},
+        "analytic": analytic, "rows": rows,
+    }
+    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                   encoding="utf-8")
+    print(json.dumps({"matrix": str(out), "rows": len(rows)}, indent=2))
+    return 0
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--work-dir", default=WORK_DIR_DEFAULT)
@@ -340,6 +573,9 @@ def main(argv=None):
     mode.add_argument("--run", action="store_true")
     mode.add_argument("--collect", action="store_true")
     mode.add_argument("--analyze", action="store_true")
+    mode.add_argument("--prepare-degrade", action="store_true")
+    mode.add_argument("--run-degrade", action="store_true")
+    mode.add_argument("--collect-degrade", action="store_true")
     args = parser.parse_args(argv)
     out_dir = args.out_dir or args.work_dir
     if args.prepare:
@@ -348,6 +584,12 @@ def main(argv=None):
         return run_cases(args.work_dir)
     if args.collect:
         return collect(args.work_dir, out_dir)
+    if args.prepare_degrade:
+        return prepare_degrade(args.work_dir)
+    if args.run_degrade:
+        return run_degrade(args.work_dir)
+    if args.collect_degrade:
+        return collect_degrade(args.work_dir, out_dir)
     return analyze(args.work_dir, out_dir)
 
 

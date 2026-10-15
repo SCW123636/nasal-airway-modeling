@@ -1,0 +1,136 @@
+{
+  "analytic": {
+    "delta_p_pa": 28.80704469963305,
+    "reynolds": 5275.854467134652,
+    "u_mean_m_s": 19.89436788648692,
+    "u_peak_m_s": 39.78873577297384
+  },
+  "generated_at": "2026-10-15T14:22:26+00:00",
+  "geometry": {
+    "D_mm": 4.0,
+    "L_mm": 40.0,
+    "Q_m3_s": 0.00025,
+    "R_mm": 2.0,
+    "amps_mm": [
+      0.05,
+      0.15,
+      0.3
+    ],
+    "intent": "positive control for H1: inject controlled near-wall distortion",
+    "kind": "wavy_wall_tube",
+    "kth": 6,
+    "kz": 3,
+    "reynolds": 5275.854467134652
+  },
+  "rows": [
+    {
+      "amp_mm": 0.05,
+      "case": "deg_0.05_t006",
+      "cell_size_mm": 0.4,
+      "checkmesh": {
+        "concave_cells": null,
+        "det_lt_001_cells": null,
+        "failed_any_check": false,
+        "max_non_ortho_deg": 40.2868284957,
+        "mesh_ok": true,
+        "severe_non_ortho_faces": null
+      },
+      "converged_extract": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 17.315783190348,
+      "delta_p_rel_error": 0.39890456064142626,
+      "mass_imbalance_frac": 0.0,
+      "preset": "t006",
+      "residuals": {
+        "converged_token": true,
+        "floor_p_final": 1.9956547461e-13,
+        "floor_p_initial": 1.53640603692e-12,
+        "floor_rise_ratio": 2.0799853037365015,
+        "floor_ux_final": 9.39156712524e-13,
+        "last_p_final": 6.14658728932e-13,
+        "n_steps": 453
+      },
+      "status": "completed"
+    },
+    {
+      "amp_mm": 0.15,
+      "case": "deg_0.15_t006",
+      "cell_size_mm": 0.4,
+      "checkmesh": {
+        "concave_cells": null,
+        "det_lt_001_cells": null,
+        "failed_any_check": false,
+        "max_non_ortho_deg": 44.6338547455,
+        "mesh_ok": true,
+        "severe_non_ortho_faces": null
+      },
+      "converged_extract": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 17.184876334044,
+      "delta_p_rel_error": 0.403448826034456,
+      "mass_imbalance_frac": 4.0007060164715114e-13,
+      "preset": "t006",
+      "residuals": {
+        "converged_token": true,
+        "floor_p_final": 1.44382768407e-13,
+        "floor_p_initial": 1.04772668059e-12,
+        "floor_rise_ratio": 2.5073072299980144,
+        "floor_ux_final": 1.17097496538e-12,
+        "last_p_final": 5.06394727521e-13,
+        "n_steps": 441
+      },
+      "status": "completed"
+    },
+    {
+      "amp_mm": 0.3,
+      "case": "deg_0.3_t006",
+      "cell_size_mm": 0.4,
+      "checkmesh": {
+        "concave_cells": 24.0,
+        "det_lt_001_cells": null,
+        "failed_any_check": true,
+        "max_non_ortho_deg": 45.7147123281,
+        "mesh_ok": false,
+        "severe_non_ortho_faces": null
+      },
+      "converged_extract": null,
+      "delta_p_numeric_pa": null,
+      "delta_p_rel_error": null,
+      "mass_imbalance_frac": null,
+      "preset": "t006",
+      "reject_reason": "RuntimeError('Mesh quality did not pass; refusing to solve (see log.checkMesh)')",
+      "residuals": null,
+      "status": "rejected_mesh_gate"
+    },
+    {
+      "amp_mm": 0.0,
+      "case": "case_h0p4_t006",
+      "cell_size_mm": 0.4,
+      "checkmesh": {
+        "concave_cells": null,
+        "det_lt_001_cells": null,
+        "failed_any_check": false,
+        "max_non_ortho_deg": 26.0991039926,
+        "mesh_ok": true,
+        "severe_non_ortho_faces": null
+      },
+      "converged_extract": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 17.765580562128,
+      "delta_p_rel_error": 0.3832904156824423,
+      "mass_imbalance_frac": 0.0,
+      "preset": "t006",
+      "residuals": {
+        "converged_token": true,
+        "floor_p_final": 1.04358451598e-13,
+        "floor_p_initial": 1.11919319971e-12,
+        "floor_rise_ratio": 4.58301961415999,
+        "floor_ux_final": 3.40609503769e-13,
+        "last_p_final": 5.82635282175e-13,
+        "n_steps": 433
+      },
+      "status": "reference_clean"
+    }
+  ],
+  "schema": "nasal_cfd_phantom_degrade/v1"
+}
