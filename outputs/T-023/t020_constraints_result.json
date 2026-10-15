@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "scope": "target-loop constraint software and frozen p0 mathematical feasibility only",
+  "checks": [
+    "two exact disjoint boxes select one whole component; protection/allowance conflict rejects without trim",
+    "source coordinates, face order, normal identity and kept side mutations reject frozen binding",
+    "independent cubical U has two rims sharing a negative component; one-loop selection rejects",
+    "all 774 p0 witnesses are complete exact parent-edge intersections; independent source graph confirms ring 0/1/2 cap conflict",
+    "only unprotected ring 3 has polygon area below 120mm2; this cannot grant final cap area/N6/anatomy"
+  ],
+  "p0_witness_count": 774,
+  "p0_loop_facts": [
+    {
+      "loop_id": 0,
+      "independent_3d_polygon_area_mm2": 587.5659466392113,
+      "independent_six_decimal_projected_area_mm2": 587.5659353397787,
+      "published_projected_area_mm2": 587.5659353397787,
+      "protected_root_conflict": true,
+      "component_roots": [
+        18180
+      ]
+    },
+    {
+      "loop_id": 1,
+      "independent_3d_polygon_area_mm2": 491.0018996879509,
+      "independent_six_decimal_projected_area_mm2": 491.00190316233784,
+      "published_projected_area_mm2": 491.00190316233784,
+      "protected_root_conflict": true,
+      "component_roots": [
+        16411
+      ]
+    },
+    {
+      "loop_id": 2,
+      "independent_3d_polygon_area_mm2": 0.357570367480018,
+      "independent_six_decimal_projected_area_mm2": 0.3575702470552642,
+      "published_projected_area_mm2": 0.3575702470552642,
+      "protected_root_conflict": true,
+      "component_roots": [
+        18180
+      ]
+    },
+    {
+      "loop_id": 3,
+      "independent_3d_polygon_area_mm2": 12.218254750477195,
+      "independent_six_decimal_projected_area_mm2": 12.21825501852436,
+      "published_projected_area_mm2": 12.21825501852436,
+      "protected_root_conflict": false,
+      "component_roots": [
+        12540
+      ]
+    }
+  ],
+  "source_hashes": {
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "D:\\项目\\鼻腔建模\\work\\lib\\outlet_selection_constraints.py": "42a4c85a8119d188fc1de4bca5b4708bd3ddad50115d1b634c1dd2183a358cd0"
+  }
+}

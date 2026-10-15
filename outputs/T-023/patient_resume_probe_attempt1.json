@@ -1,0 +1,20 @@
+{
+  "source_sha256": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+  "command": "python outputs/T-023/probe_patient_resume_fingerprint.py",
+  "scope": "isolated Windows guard probe; real b15 input package read-only, no solver, no synthetic CFD result",
+  "before": {
+    "admission_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "config_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "after": {
+    "admission_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "config_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "error": {
+    "type": "RuntimeError",
+    "message": "patient input/code fingerprint changed; refusing resume without overwriting prior evidence"
+  },
+  "old_fingerprint_overwritten": false,
+  "solver_started": false,
+  "failure_condition": "Old patient input fingerprint must be compared and refused before any replacement"
+}

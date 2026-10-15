@@ -1,0 +1,4 @@
+2026-10-15 independent target-loop audit attempt 1, exit code 1.
+Command: python outputs/T-023/audit_t020_constraints.py
+Failure: FileNotFoundError while opening the Chinese landmark path decoded with default pathlib.read_text().
+Environment check: locale.getencoding()=cp936, sys.flags.utf8_mode=0. The same frozen JSON read explicitly as UTF-8 resolves both source and landmark files and both exist. This was an independent audit parser encoding defect, not missing input or a production defect. The first analytic controls had already passed before this read. Repair: explicit UTF-8 for JSON source evidence. No source artifact changed.

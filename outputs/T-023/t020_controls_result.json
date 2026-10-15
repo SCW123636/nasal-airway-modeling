@@ -1,0 +1,73 @@
+{
+  "scope": "independent small analytic source controls; no patient anatomy or solver assertion",
+  "at": "2026-10-15T10:16:33.994741+00:00",
+  "checks": [
+    {
+      "name": "mixed-sign edge, sign normalization, keep orientation and descendant subdivision",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "strict source boolean/length/shape (2,)",
+      "passed": true,
+      "actual": "s: selector must be boolean with exactly one value per source vertex"
+    },
+    {
+      "name": "strict source boolean/length/shape (4,)",
+      "passed": true,
+      "actual": "s: selector must be boolean with exactly one value per source vertex"
+    },
+    {
+      "name": "strict source boolean/length/shape (3, 1)",
+      "passed": true,
+      "actual": "s: selector must be boolean with exactly one value per source vertex"
+    },
+    {
+      "name": "strict source boolean/length/shape (3,)",
+      "passed": true,
+      "actual": "s: selector must be boolean with exactly one value per source vertex"
+    },
+    {
+      "name": "kept-side selected source vertex",
+      "passed": true,
+      "actual": "s: selector contains a vertex outside the strict delete halfspace"
+    },
+    {
+      "name": "wholly-negative edge ambiguous membership",
+      "passed": true,
+      "actual": "s: ambiguous selector changes across a wholly negative source edge"
+    },
+    {
+      "name": "known z=2 cap crosses x=2 plane",
+      "passed": true,
+      "actual": "x2: delete selection would remove an earlier cap"
+    },
+    {
+      "name": "known z=2 cap wholly swallowed below z=4",
+      "passed": true,
+      "actual": "z4: delete selection would remove an earlier cap"
+    },
+    {
+      "name": "unrelated caps: volume 4*4*4=64 and each cap area 4*4=16; None/empty selector compatibility",
+      "passed": true,
+      "actual": null
+    },
+    {
+      "name": "same analytic crossing with frozen old source",
+      "passed": true,
+      "actual": "x2: unexpected boundary outside cutting plane or ROI"
+    },
+    {
+      "name": "frozen pre-change no-selector output arrays exactly equal",
+      "passed": true,
+      "actual": null
+    }
+  ],
+  "passed": true,
+  "source_sha256": {
+    "work\\lib\\partitioned_surface.py": "b4c3ef5e5c6c89e1132e8a514c45be4ff2868e9c0ec7e4d414cd6e2ff5c669f4",
+    "work\\lib\\outlet_selection_lineage.py": "2d379eaf3c2508028116f9532d24e09005c2bd8a5e1e138137b7e882dba64671",
+    "outputs\\T-023\\audit_t020_controls.py": "23102803ec8f61f6c8c1afba7e37229bf4c7bf1c261cf1828e29571a8d6c26a1",
+    "outputs\\T-023\\t020_frozen_before.py": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e"
+  }
+}

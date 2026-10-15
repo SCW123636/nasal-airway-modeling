@@ -1,0 +1,97 @@
+{
+  "mode": "mock_UI_contract_only",
+  "base": "http://127.0.0.1:8769",
+  "started_at": "2026-10-15T10:27:13.341Z",
+  "checks": [
+    "blocked patient retains reasons and explicit clinical status",
+    "feedback preflight posts scenarios and never synthesizes flow results",
+    "feedback shows common pressure, target/measured flow, natural split, diagnostics and raw iterations",
+    "persistent selected feedback task restores after reload",
+    "desktop, 390 and 320 pixel layouts remain within viewport",
+    "individual feedback scenario posts only the selected scenario",
+    "run_allowed patient posts engineering action with empty settings; failed single scenario retains diagnostics without claiming target success",
+    "backend admission rejection displayed with no successful new task",
+    "unknown run_action remains disabled",
+    "existing parallel plate reference levels and results remain usable",
+    "missing flow and residual values show unavailable, never fallback zero",
+    "mixed persistent history retains action labels and case filtering",
+    "3 second running-task polling updates actual step, evaluation, SIMPLE iteration, timestamp and raw log without inventing missing iterations"
+  ],
+  "requests": [
+    {
+      "case_id": "reference_split_feedback",
+      "action": "preflight",
+      "settings": {
+        "scenarios": [
+          "unequal",
+          "symmetric",
+          "swapped_labels"
+        ]
+      }
+    },
+    {
+      "case_id": "reference_split_feedback",
+      "action": "run_pressure_feedback",
+      "settings": {
+        "scenarios": [
+          "unequal",
+          "symmetric",
+          "swapped_labels"
+        ]
+      }
+    },
+    {
+      "case_id": "reference_split_feedback",
+      "action": "run_pressure_feedback",
+      "settings": {
+        "scenarios": [
+          "symmetric"
+        ]
+      }
+    },
+    {
+      "case_id": "patient_ready_fixture",
+      "action": "run_patient_engineering",
+      "settings": {}
+    },
+    {
+      "case_id": "patient_ready_fixture",
+      "action": "run_patient_engineering",
+      "settings": {}
+    },
+    {
+      "case_id": "reference_channel",
+      "action": "run_reference",
+      "settings": {
+        "levels": [
+          "coarse",
+          "medium",
+          "fine"
+        ]
+      }
+    }
+  ],
+  "real_solver_started": false,
+  "page_errors": [],
+  "screenshots": [
+    "desktop-feedback-mock.png",
+    "feedback-mock-390.png",
+    "feedback-result-mock-390.png",
+    "patient-mock-390.png",
+    "feedback-mock-320.png",
+    "feedback-result-mock-320.png",
+    "patient-mock-320.png",
+    "desktop-partial-feedback-mock.png",
+    "desktop-running-progress-mock.png",
+    "running-progress-mock-390.png",
+    "running-progress-mock-320.png"
+  ],
+  "progress_poll": {
+    "elapsed_ms": 2988,
+    "iteration_before": null,
+    "iteration_after": "533",
+    "real_solver_started": false
+  },
+  "passed": true,
+  "finished_at": "2026-10-15T10:27:17.861Z"
+}

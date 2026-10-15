@@ -1,0 +1,5 @@
+2026-10-15, independent raw-evidence parser attempt 1.
+Command: C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Scripts\python.exe outputs\T-023\audit_t021_raw_reference.py
+Exit code: 1.
+Failure: assert {'Ux','Uy','p'} <= residuals.keys(), audit_t021_raw_reference.py:61.
+Cause found by source inspection: log.rsplit('Time = ', 1) also matches the suffix in ExecutionTime =. The parser isolated the wrong log segment. This is an independent verification parser defect, not a solver failure. No original artifact changed. Repair uses an anchored multiline ^Time = pattern.
