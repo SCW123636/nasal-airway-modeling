@@ -1,0 +1,59 @@
+{
+  "delta_p": {
+    "t400": {
+      "p_kin_L": 7.375898106539,
+      "p_kin_R": 9.780951877597,
+      "flow_out": 0.0002499997201439,
+      "delta_p_Pa": 10.2941099904816
+    },
+    "t600": {
+      "p_kin_L": 7.375558044262,
+      "p_kin_R": 9.781046370923,
+      "flow_out": 0.0002499998681986,
+      "delta_p_Pa": 10.293962649111
+    }
+  },
+  "t400": {
+    "n_lines": 100,
+    "reasons": {
+      "reached_outlet": 31,
+      "exited_wall_region": 54,
+      "stall_near_wall": 15
+    },
+    "speed": {
+      "min": 0.0,
+      "median": 1.5308550596237183,
+      "max": 3.219104290008545
+    },
+    "n_points": 2519,
+    "length_mm": {
+      "median": 19.53,
+      "max": 77.82,
+      "p10": 1.736
+    }
+  },
+  "t600": {
+    "n_lines": 100,
+    "reasons": {
+      "reached_outlet": 31,
+      "exited_wall_region": 54,
+      "stall_near_wall": 15
+    },
+    "speed": {
+      "min": 0.0,
+      "median": 1.5287035703659058,
+      "max": 3.219059944152832
+    },
+    "n_points": 2514,
+    "length_mm": {
+      "median": 19.515,
+      "max": 77.7,
+      "p10": 1.736
+    }
+  },
+  "delta": {
+    "delta_p_Pa_change_frac": -1.4313172361253335e-05,
+    "reached_outlet_change": 0,
+    "speed_median_change_frac": -0.0014054166946029056
+  }
+}

@@ -40,6 +40,15 @@ APP_JS_PATH = ASSETS / "streamlines_app.js"
 DATA_ARRAY_RE = re.compile(r"<DataArray([^>]*)>(.*?)</DataArray>", re.S)
 
 
+def _patch_path(vtk_dir, name):
+    """patch vtp 路径：平铺或 foamToVTK 的 boundary/ 子目录布局。"""
+    vtk_dir = Path(vtk_dir)
+    for cand in (vtk_dir / (name + ".vtp"), vtk_dir / "boundary" / (name + ".vtp")):
+        if cand.is_file():
+            return cand
+    return vtk_dir / (name + ".vtp")
+
+
 # ---------------------------------------------------------------- 提取
 
 def block_arrays(path, section):
@@ -80,7 +89,7 @@ def extract_field(vtk_dir):
 
     field = {"pts": pts, "U": U, "p": p, "conn": conn}
     for nm in PATCH_FILES:
-        path = vtk_dir / (nm + ".vtp")
+        path = _patch_path(vtk_dir, nm)
         ppts = block_arrays(path, "Points")["Points"].astype(np.float64)
         polys = block_arrays(path, "Polys")
         tri = None
@@ -294,7 +303,7 @@ def trace_lines_vtk(vtk_dir, n_seed=N_SEED, seed=7, max_propagation=0.5,
     lines = []
     for side, pname in (("L", "nostril_L"), ("R", "nostril_R")):
         pr = _vtk.vtkXMLPolyDataReader()
-        pr.SetFileName(str(vtk_dir / (pname + ".vtp")))
+        pr.SetFileName(str(_patch_path(vtk_dir, pname)))
         pr.Update()
         patch_pts = vtk_to_numpy(pr.GetOutput().GetPoints().GetData()).astype(np.float64)
         sel = farthest_point_sample(patch_pts, min(n_seed, len(patch_pts)), rng)
@@ -537,7 +546,7 @@ def export_job_streamlines(directory, data, asset, export_root):
         return {"status": "no_vtu"}
     vtu = vtus[-1]
     vtk_dir = vtu.parent
-    missing = [n for n in PATCH_FILES if not (vtk_dir / (n + ".vtp")).is_file()]
+    missing = [n for n in PATCH_FILES if not _patch_path(vtk_dir, n).is_file()]
     if missing:
         return {"status": "missing_patches", "missing": missing, "vtk_dir": str(vtk_dir)}
 
