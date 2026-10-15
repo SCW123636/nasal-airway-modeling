@@ -1,0 +1,5 @@
+# Exact copied evidence must retain byte-level SHA across Windows checkouts.
+failed_actual/** -text
+t006_actual/** -text
+trial_actual/** -text
+v1912_official_examples/** -text
