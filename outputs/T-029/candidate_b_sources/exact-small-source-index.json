@@ -1,0 +1,60 @@
+{
+  "tag": "debian/1912.200626-1",
+  "source_records": [
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/src/finiteVolume/finiteVolume/laplacianSchemes/laplacianScheme/laplacianScheme.H",
+      "path": "salsa_laplacianScheme.H",
+      "bytes": 8768,
+      "sha256": "3c0f53d98ba364cb4b917f34880e347faa76786dd9cc02e770b711d0f8b48d33"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/src/finiteVolume/finiteVolume/laplacianSchemes/gaussLaplacianScheme/gaussLaplacianScheme.H",
+      "path": "salsa_gaussLaplacianScheme.H",
+      "bytes": 6289,
+      "sha256": "17eef5fb37076ce3f626ef9044956e169317e8769de142945c438992aec70115"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/src/finiteVolume/finiteVolume/fvc/fvcSnGrad.C",
+      "path": "salsa_fvcSnGrad.C",
+      "bytes": 3020,
+      "sha256": "45c2e587fcd23b261c69770b16ee9c7fcc0a378b3a6059c0f04d132fbac18b62"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/applications/solvers/incompressible/simpleFoam/pEqn.H",
+      "path": "salsa_simpleFoam_pEqn.H",
+      "bytes": 1226,
+      "sha256": "5c4d209051724fa640b6d8f760425499722d20a395e9afdd29eb2089e9fc45b0"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/applications/solvers/incompressible/simpleFoam/UEqn.H",
+      "path": "salsa_simpleFoam_UEqn.H",
+      "bytes": 423,
+      "sha256": "65c598a3b1761b8057dc7e55cd5da2ab3f45e8b43465eb0ef396e40fb3f75b9f"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/src/TurbulenceModels/turbulenceModels/linearViscousStress/linearViscousStress.C",
+      "path": "salsa_linearViscousStress.C",
+      "bytes": 3715,
+      "sha256": "2eb5cbb7ad13c97c494ddc111b0e015fc1efd94bd839ac4b41c6c75b039f2f9d"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/src/finiteVolume/finiteVolume/snGradSchemes/limitedSnGrad/limitedSnGrad.H",
+      "path": "salsa_limitedSnGrad.H",
+      "bytes": 5752,
+      "sha256": "8a6553d015723f2a02b545588ca2d63ea3f4b6e2d14fa94c80d64ab9134f69f9"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/src/finiteVolume/finiteVolume/snGradSchemes/limitedSnGrad/limitedSnGrad.C",
+      "path": "salsa_limitedSnGrad.C",
+      "bytes": 4065,
+      "sha256": "f585229d43c4afabb053d893ef98e7c0cdec06f3471e4ac4a7627f6c1c05efab"
+    },
+    {
+      "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/src/finiteVolume/finiteVolume/laplacianSchemes/gaussLaplacianScheme/gaussLaplacianScheme.C",
+      "path": "salsa_gaussLaplacianScheme.C",
+      "bytes": 7173,
+      "sha256": "71d6f720a91bd1bdf263269cf9fc5569f4ff050c5e72e1a2b0c687dab0ca70a6"
+    }
+  ],
+  "scope": "exact Debian package-tag source; no claim of a complete local source tree or full archive verification"
+}

@@ -1,0 +1,7 @@
+{
+  "scope": "first small-source fetch guard failure; no solver run",
+  "url": "https://salsa.debian.org/science-team/openfoam/-/raw/debian/1912.200626-1/applications/solvers/incompressible/simpleFoam/pEqn.H",
+  "cause": "generic C++ acceptance guard incorrectly required the word Foam in an equation snippet; pEqn.H has fvm::laplacian instead",
+  "correction": "use equation-specific original-source tokens fvm::laplacian and divDevReff for pEqn.H/UEqn.H while retaining non-HTML and length checks",
+  "scope_limit": "fetch guard corrected only; no production or trial settings changed"
+}

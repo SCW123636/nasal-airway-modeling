@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://www.openfoam.com/documentation/guides/v1912/api/limitedSnGrad_8H_source.html",
+    "accepted_source": false,
+    "error": "<HTTPError 403: 'Forbidden'>"
+  },
+  {
+    "url": "https://www.openfoam.com/documentation/guides/v1912/api/limitedSnGrad_8C_source.html",
+    "accepted_source": false,
+    "error": "<HTTPError 403: 'Forbidden'>"
+  },
+  {
+    "url": "https://www.openfoam.com/documentation/guides/v1912/api/gaussLaplacianScheme_8C_source.html",
+    "accepted_source": false,
+    "error": "<HTTPError 403: 'Forbidden'>"
+  }
+]
