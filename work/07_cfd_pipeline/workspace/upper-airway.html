@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>咽部扩展 · 鼻腔建模工作台</title><link rel="icon" href="data:,"><link rel="stylesheet" href="upper-airway.css"><script type="importmap">{"imports":{"three":"/viewer/vendor/three.module.js"}}</script><script type="module" src="upper-airway.js"></script></head>
+<body><main>
+  <header><div><span class="eyebrow">气道范围 · 工程候选</span><h1>咽部扩展</h1><p>对照原有鼻腔、鼻咽与新增口咽，检查扫描覆盖。</p></div><a class="return" href="/workspace/index.html#overview" target="_top">返回工作台</a></header>
+  <div class="warning" role="note"><strong>尚未进入正式 CFD</strong><span>解剖范围未审核 · 出口未确定 · 不能据此判断完整咽喉。需王湧瑞复核。</span></div>
+  <p id="upload-context" class="context" hidden></p>
+  <section class="selection"><label for="airway-case">工程扫描</label><select id="airway-case" disabled><option>正在读取…</option></select><span id="identity">症状患者对应关系：未知</span><button id="retry" type="button">重新读取</button></section>
+  <p id="message" role="status" aria-live="polite">正在读取冻结的工程候选…</p>
+  <section id="coverage" class="coverage" aria-label="扫描覆盖事实"></section>
+  <section id="candidate" hidden>
+    <div class="viewer-grid"><section class="viewer-card"><div class="card-heading"><h2>真实掩膜三维对照</h2><span>LPS · 毫米</span></div><div class="controls"><label><input id="show-base" type="checkbox" checked><i class="swatch base"></i>鼻腔＋鼻咽</label><label><input id="show-added" type="checkbox" checked><i class="swatch added"></i>新增口咽</label><button id="reset-view" type="button">复位视角</button><button id="side-view" type="button">侧面</button><button id="front-view" type="button">正面</button></div><div id="scene" tabindex="0" aria-label="真实口咽候选三维视图，可拖动旋转、滚轮缩放"></div><p class="viewer-help">拖动旋转 · 滚轮 / 双指缩放 · 右键平移；粉色框是 CT 最下层中心平面，仅标示扫描截断位置。</p><p id="geometry-facts" class="muted"></p></section>
+    <aside class="detail-card"><h2>当前候选范围</h2><dl id="candidate-facts"></dl><p>青色基线是未裁剪的标签与 CT 空气交集，不能等同于原生产最终 STL。橙色部分来自同源 CT 的口咽标签。</p><p>只读显示面：不插值补齐、不造桥、不平滑、不封闭扫描边缘，不生成正式 STL。</p><p class="critical">下方触及扫描边界；下咽标签为空、喉腔标签缺失。没有证据证明完整覆盖喉部或声门。</p></aside></div>
+    <section class="ct-card"><div class="card-heading"><h2>同源 CT 切片对照</h2><a id="ct-full" target="_blank" rel="noopener">打开原尺寸</a></div><p>同一 CT、同一切片、相同毫米比例。上排为未裁剪基线，下排叠加口咽；粉色边框为扫描边界。</p><div class="ct-scroll"><img id="ct-preview" alt="p3 同源 CT 矢状、冠状与轴向切片，青色原域，橙色新增口咽" loading="lazy"></div></section>
+  </section>
+  <section id="unavailable" class="empty" hidden><h2>本例尚未生成扩展候选</h2><p>目前仅可查看本例的覆盖审计。不会加载其他病例的三维或 CT。</p></section>
+  <details class="provenance"><summary>来源与显示方法</summary><p>来源：T-026 / 20261015_04_full，工程复核 T-027。候选按 CT &lt; −300 HU 探索阈值构建；该阈值尚未医学裁定。显示面直接由二值掩膜的 0.5 等值面提取，保持 LPS 坐标，不扩展到扫描外。</p><pre id="fingerprints"></pre></details>
+</main></body></html>

@@ -1,0 +1,37 @@
+{
+  "message": "p3 · 已载入真实鼻腔—口咽工程候选。症状患者对应关系未知。",
+  "canvas_count": 1,
+  "front_changed_image": true,
+  "added_unchecked": true,
+  "p1_message": "p1 · 本例扩展候选未生成；只显示本例审计，不回退其他病例。",
+  "p1_hidden": true,
+  "p1_ct_src": null,
+  "p1_reload": "p1",
+  "outer_desktop_width": {
+    "inner": 1440,
+    "scroll": 1440
+  },
+  "outer_p0_url": "http://127.0.0.1:8772/workspace/index.html?airwayCase=p0#upper-airway",
+  "outer_p0_reload": true,
+  "outer_width_390": {
+    "inner": 390,
+    "scroll": 390
+  },
+  "inner_width_390": {
+    "inner": 390,
+    "scroll": 390
+  },
+  "outer_width_320": {
+    "inner": 320,
+    "scroll": 320
+  },
+  "inner_width_320": {
+    "inner": 320,
+    "scroll": 320
+  },
+  "p2_no_fallback": true,
+  "unknown_message": "该病例没有冻结的咽部扩展候选；未加载默认病例",
+  "unknown_no_fallback": true,
+  "upload_context_no_auto_p3": true,
+  "errors": []
+}

@@ -12,6 +12,7 @@ import re
 from ct_case_pipeline import CaseManager, case_dir
 from medical_review import MedicalReviewStore
 from cfd_workspace_jobs import SimulationJobs
+from upper_airway_workspace import UpperAirwayWorkspace
 
 ROOT=Path(__file__).resolve().parents[2]
 BASE=ROOT/'work'/'07_cfd_pipeline'
@@ -23,6 +24,7 @@ CASE_ROOT=Path('C:/ts_work/project_cases')
 CASE_MANAGER=None
 MEDICAL_REVIEW=None
 SIMULATION_JOBS=None
+UPPER_AIRWAY=UpperAirwayWorkspace()
 
 
 def json_bytes(value):
@@ -100,7 +102,28 @@ class Handler(SimpleHTTPRequestHandler):
         try:
             if path == '/health.json':
                 self.reply({'service': 'nasal-cfd-local-workspace/v1', 'ct_import': True,
-                            'simulation_jobs': SIMULATION_JOBS is not None})
+                            'simulation_jobs': SIMULATION_JOBS is not None,
+                            'upper_airway': 'frozen-read-only-v1'})
+            elif path == '/api/upper-airway/catalog':
+                self.reply(UPPER_AIRWAY.catalog())
+            elif path.startswith('/api/upper-airway/cases/'):
+                parts = path.strip('/').split('/')
+                if len(parts) != 4:
+                    raise FileNotFoundError('咽部扩展接口不存在')
+                self.reply(UPPER_AIRWAY.case(parts[3]))
+            elif path.startswith('/upper-airway-assets/'):
+                parts = path.strip('/').split('/')
+                if len(parts) != 3:
+                    raise FileNotFoundError('咽部显示资产不存在')
+                value = UPPER_AIRWAY.asset_bytes(parts[1], parts[2])
+                self.send_response(200)
+                self.send_header('Content-Type', 'image/png' if parts[2].endswith('.png') else 'application/octet-stream')
+                self.send_header('Content-Length', str(len(value)))
+                self.send_header('X-Content-Type-Options', 'nosniff')
+                self.end_headers()
+                self.wfile.write(value)
+            elif path.startswith('/api/upper-airway/'):
+                self.reply({'error':'咽部扩展只读接口不存在'},404)
             elif path == '/api/simulation/catalog':
                 self.reply(SIMULATION_JOBS.catalog())
             elif path == '/api/simulation/jobs':

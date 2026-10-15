@@ -1,0 +1,10 @@
+{
+  "drag_rotates": true,
+  "wheel_zooms": true,
+  "reset_image_matches": true,
+  "baseline_toggle_changes": true,
+  "late_request_was_held": true,
+  "late_p3_never_reappears": true,
+  "client_hash_failure": "显示资产指纹不一致，已停止显示",
+  "hash_failure_clears_geometry_and_ct": true
+}

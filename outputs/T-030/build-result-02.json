@@ -1,0 +1,71 @@
+{
+  "manifest_sha256": "e53c905cc98aafa6777cfa85fd2fc441229e2ca07cfd40db381c6b35cd871dd5",
+  "surfaces": {
+    "baseline": {
+      "vertices": 162064,
+      "triangles": 324152,
+      "bounds_LPS_mm": [
+        [
+          -24.234375,
+          -127.96224975585938,
+          291.79040569067
+        ],
+        [
+          14.6875,
+          -24.415374755859375,
+          340.99040764570236
+        ]
+      ],
+      "float32_max_abs_error_mm": 1.4543533325195312e-05,
+      "open_boundary_edges": 0,
+      "source_voxels": 397783,
+      "extraction": "vtkFlyingEdges3D binary isovalue 0.5; original-grid coordinates; no padding/smoothing/closing/component filtering"
+    },
+    "added": {
+      "vertices": 13978,
+      "triangles": 27784,
+      "bounds_LPS_mm": [
+        [
+          -18.359375,
+          -44.977874755859375,
+          281.2904052734375
+        ],
+        [
+          11.75,
+          -20.009124755859375,
+          298.9904059767723
+        ]
+      ],
+      "float32_max_abs_error_mm": 1.2874603271484375e-05,
+      "open_boundary_edges": 170,
+      "source_voxels": 47809,
+      "extraction": "vtkFlyingEdges3D binary isovalue 0.5; original-grid coordinates; no padding/smoothing/closing/component filtering"
+    }
+  },
+  "assets": {
+    "baseline.vertices.bin": {
+      "sha256": "a7195bcca703acc72437bdca772f0f3f54b935158c5bbe10394158c14e0eea01",
+      "bytes": 1944768,
+      "dtype": "float32_le"
+    },
+    "baseline.triangles.bin": {
+      "sha256": "345a37a6bed0b2776ec8bccb07c64a73c76bf9bba4d9993c12e35b4a6a9da6e5",
+      "bytes": 3889824,
+      "dtype": "uint32_le"
+    },
+    "added.vertices.bin": {
+      "sha256": "07fb7ee6393a2a03fcbdabe9b96c1bcfe5d98ace534040bd45bc8a3f968db2dd",
+      "bytes": 167736,
+      "dtype": "float32_le"
+    },
+    "added.triangles.bin": {
+      "sha256": "de121595e63d4336090a54ccf8a651a3e47c652d4db3da4e56a4d63f6e3221c3",
+      "bytes": 333408,
+      "dtype": "uint32_le"
+    },
+    "ct-comparison.png": {
+      "sha256": "d254c92256351f7de1c6c4b28c4bedb2f531654d56165512543b1cb7cfef9886",
+      "bytes": 1685790
+    }
+  }
+}

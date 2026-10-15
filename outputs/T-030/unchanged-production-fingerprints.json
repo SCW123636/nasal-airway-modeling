@@ -1,0 +1,32 @@
+{
+  "work/lib/auto_opening_pipeline.py": {
+    "current_sha256": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+    "tracked_in_HEAD": true,
+    "head_blob_sha256": "d6499cfdbc9d45b45be41e53e6ee396a2e92a3250c46dcd8b581600d35c44ff3",
+    "same_text_as_HEAD": true
+  },
+  "work/lib/ct_case_pipeline.py": {
+    "current_sha256": "b36ed31402daa98c6ec01375e47de2c66e14805193d7b8ad0081b022a090feca",
+    "tracked_in_HEAD": true,
+    "head_blob_sha256": "b36ed31402daa98c6ec01375e47de2c66e14805193d7b8ad0081b022a090feca",
+    "same_text_as_HEAD": true
+  },
+  "work/lib/dicom_sitk.py": {
+    "current_sha256": "4b6f018cc961a67728a36e37cf6b0b10d50a61dc9b240743d439310999e115f1",
+    "tracked_in_HEAD": true,
+    "head_blob_sha256": "4b6f018cc961a67728a36e37cf6b0b10d50a61dc9b240743d439310999e115f1",
+    "same_text_as_HEAD": true
+  },
+  "work/lib/build_cfd_workspace.py": {
+    "current_sha256": "3c0a5eda9ce2e09116c3d843eeeb5d4df0bac035b69368b795c03a5bb3d00269",
+    "tracked_in_HEAD": true,
+    "head_blob_sha256": "3c0a5eda9ce2e09116c3d843eeeb5d4df0bac035b69368b795c03a5bb3d00269",
+    "same_text_as_HEAD": true
+  },
+  "work/07_cfd_pipeline/viewer/viewer.js": {
+    "current_sha256": "742467b7abccd3b3bb72d2b90ed9cdfe629f2b17810f81668067322a8221d964",
+    "tracked_in_HEAD": true,
+    "head_blob_sha256": "742467b7abccd3b3bb72d2b90ed9cdfe629f2b17810f81668067322a8221d964",
+    "same_text_as_HEAD": true
+  }
+}

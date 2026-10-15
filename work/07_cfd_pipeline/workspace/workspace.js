@@ -6,6 +6,7 @@ const STEPS = [
   {id:'review', title:'切片审核', hint:'点选候选、检查切片、记录决定', url:'/landmark-review/index.html'},
   {id:'feedback', title:'意见核对', hint:'医学复核与逐项意见'},
   {id:'boundary', title:'边界草稿', hint:'检查口腔排除、鼻窦掩膜与开口证据', url:'/boundary-review/index.html'},
+  {id:'upper-airway', title:'咽部扩展', hint:'工程候选 · 扫描覆盖与真实三维对照', url:'/workspace/upper-airway.html'},
   {id:'validation', title:'计算与结果', hint:'确认几何与计算条件'}
 ];
 const $ = id => document.getElementById(id);
@@ -75,6 +76,15 @@ function setUploadedCase(data) {
 }
 function toolUrl(step) {
   if (step.id === 'geometry' && requestedGeometryManifest !== null) return allowedGeometryManifest(requestedGeometryManifest) ? '/viewer/index.html?manifest=' + encodeURIComponent(requestedGeometryManifest) : null;
+  if (step.id === 'upper-airway') {
+    const query = new URLSearchParams();
+    const engineeringCase = new URLSearchParams(location.search).get('airwayCase');
+    if (engineeringCase !== null) query.set('case', engineeringCase);
+    const pendingCase = new URLSearchParams(location.search).get('case') || localStorage.getItem('nasal_active_uploaded_case');
+    const uploadContext = selectedUpload?.id || (/^u_[0-9a-f]{16}$/.test(pendingCase || '') ? pendingCase : null);
+    if (uploadContext) query.set('uploadContext', uploadContext);
+    return step.url + (query.size ? '?' + query : '');
+  }
   if (!selectedUpload) return step.url;
   if (step.id === 'geometry') return selectedUpload.artifacts?.viewer;
   if (step.id === 'review') return selectedUpload.artifacts?.review;
@@ -145,6 +155,9 @@ function navigate(id) { if (current !== id) location.hash = id; }
 window.addEventListener('hashchange', () => selectStep(location.hash.slice(1) || 'import'));
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || ![...frames.values()].some(frame => frame.contentWindow === event.source)) return;
+  if (event.data?.type === 'nasal-upper-airway-selected' && ['p0','p1','p2','p3','p3t1'].includes(event.data.case)) {
+    const url=new URL(location.href);url.searchParams.set('airwayCase',event.data.case);history.replaceState(null,'',url);
+  }
   if (event.data?.type === 'nasal-workspace-navigate' && STEPS.some(step => step.id === event.data.step)) {
     if (event.data.step === 'geometry' && typeof event.data.manifest === 'string') {setGeometryManifest(event.data.manifest); selectStep('geometry');}
     navigate(event.data.step);
