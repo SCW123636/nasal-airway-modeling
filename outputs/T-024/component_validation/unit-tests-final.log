@@ -1,0 +1,8 @@
+test_cell_fields_are_explicitly_averaged_not_replaced (test_patient_cfd_viewer.PatientViewerTests.test_cell_fields_are_explicitly_averaged_not_replaced) ... ok
+test_known_coordinates_components_pressure_and_failed_status (test_patient_cfd_viewer.PatientViewerTests.test_known_coordinates_components_pressure_and_failed_status) ... ok
+test_wrong_dimensions_or_stale_identity_never_publish_manifest (test_patient_cfd_viewer.PatientViewerTests.test_wrong_dimensions_or_stale_identity_never_publish_manifest) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.341s
+
+OK

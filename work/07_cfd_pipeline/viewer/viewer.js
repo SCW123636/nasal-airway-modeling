@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {OrbitControls} from './vendor/OrbitControls.js';
 
 const $=id=>document.getElementById(id);
-let scene,camera,renderer,controls,mesh,markers,cutPlane,active,meshData,meshCenter,extent=80,loadToken=0,currentLayer='geometry',displayMode='smooth';
+let scene,camera,renderer,controls,mesh,markers,cutPlane,active,meshData,meshCenter,requestedManifest=null,currentSampling='surface',extent=80,loadToken=0,currentLayer='geometry',displayMode='smooth';
 const titles={velocity:'流速',pressure:'压力',turbulence_intensity:'湍流强度'};
 const openingIds=['nostril_L','nostril_R','nasopharynx_outlet'];
 const modeNotes={smooth:'平滑着色仅改变光照，不移动顶点，也不提高 CT 分辨率。',facets:'面片着色显示原有三角面的方向；与平滑着色使用同一份顶点和面索引。',wireframe:'线框显示原有三角网格；显示抽稀模型不等于 CFD 计算几何或体网格。'};
@@ -73,7 +73,7 @@ function updatePlane(){
   $('plane-status').textContent=lm.label_zh+' · '+($('show-plane').checked?'显示原始候选平面':'切面已隐藏');
 }
 function setupPlanes(){
-  resetPlaneInfo();
+  resetPlaneInfo(active.type==='patient_engineering_diagnostic'?'本次工程试算未绑定解剖切面；内部流场剖面不改变进出口切面。':'此参考无患者解剖切面。');
   if(active.type!=='patient_preview')return;
   for(const id of openingIds){const lm=active.landmarks.find(candidate=>candidate.id===id);if(lm){const opt=textNode('option',lm.label_zh);opt.value=id;$('plane-select').append(opt);}}
   $('plane-select').disabled=!$('plane-select').options.length;
@@ -91,7 +91,25 @@ function resetView(which='reset'){
   controls.target.set(0,0,0);controls.update();
 }
 function colorAt(t){const stops=[[.267,.005,.329],[.231,.322,.545],[.129,.569,.549],[.369,.788,.384],[.992,.906,.145]];t=Math.max(0,Math.min(1,t))*4;const i=Math.min(3,Math.floor(t)),f=t-i;return stops[i].map((v,j)=>v+(stops[i+1][j]-v)*f);}
-function fieldValues(name){const field=meshData?.result?.fields?.[name];if(!field||field.association!=='point'||!Array.isArray(field.values))return null;const percent=name==='turbulence_intensity'&&field.unit==='1'&&field.display_unit==='%';return field.values.map(v=>v===null?null:(Array.isArray(v)?Math.hypot(...v):v)*(percent?100:1));}
+function sampledDataset(){return meshData?.interior_slices?.find(slice=>slice.id===currentSampling)||{geometry:meshData?.geometry,fields:meshData?.result?.fields};}
+function setSampling(id){
+  if(!mesh||active?.type!=='patient_engineering_diagnostic')return;
+  const slice=meshData.interior_slices.find(value=>value.id===id);if(id!=='surface'&&!slice)return;
+  currentSampling=id;$('field-sampling').value=id;const data=sampledDataset(),verts=data.geometry.vertices;
+  const positions=new Float32Array(verts.length);for(let i=0;i<verts.length;i+=3)lpsToView(verts.slice(i,i+3),meshCenter).toArray(positions,i);
+  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(positions,3));geometry.setIndex(data.geometry.indices);geometry.computeVertexNormals();mesh.geometry.dispose();mesh.geometry=geometry;
+  $('field-sampling-note').textContent=slice?`${slice.axis.toUpperCase()} = ${slice.position_lps_mm.toFixed(3)} mm（LPS包围盒中部）；本次VTU点字段线性采样，字段时间 ${meshData.result.provenance.field_time}。该显示剖面不改变进出口切面。`:'体网格外表面：noSlip壁面速度通常接近0，不能代表腔内速度；请切换内部剖面。';
+  setLayer(currentLayer);updateInfo();
+}
+function setupSampling(){
+  currentSampling='surface';$('field-sampling-controls').hidden=active.type!=='patient_engineering_diagnostic';
+  $('field-sampling').replaceChildren();if(active.type!=='patient_engineering_diagnostic')return;
+  const surface=textNode('option','体网格外表面（壁面速度通常≈0）');surface.value='surface';$('field-sampling').append(surface);
+  for(const slice of meshData.interior_slices){const option=textNode('option',`${slice.axis.toUpperCase()} = ${slice.position_lps_mm.toFixed(3)} mm · 内部中部剖面`);option.value=slice.id;$('field-sampling').append(option);}
+  const selected=meshData.interior_slices.find(slice=>slice.id==='y')||meshData.interior_slices[0];
+  $('field-sampling').value=selected.id;setSampling(selected.id);
+}
+function fieldValues(name){const field=sampledDataset()?.fields?.[name];if(!field||field.association!=='point'||!Array.isArray(field.values))return null;const percent=name==='turbulence_intensity'&&field.unit==='1'&&field.display_unit==='%';return field.values.map(v=>v===null?null:(Array.isArray(v)?Math.hypot(...v):v)*(percent?100:1));}
 function setLayer(name){
   if(!mesh)return;
   const values=name==='geometry'?null:fieldValues(name);
@@ -105,55 +123,95 @@ function setLayer(name){
     const min=finite.reduce((a,b)=>Math.min(a,b),Infinity),max=finite.reduce((a,b)=>Math.max(a,b),-Infinity);
     const rgb=new Float32Array(values.length*3);values.forEach((v,i)=>rgb.set(Number.isFinite(v)?colorAt((v-min)/(max-min||1)):[.7,.7,.7],3*i));
     mesh.geometry.setAttribute('color',new THREE.BufferAttribute(rgb,3));mesh.material.vertexColors=true;mesh.material.color.set('#ffffff');
-    $('legend').hidden=false;const field=meshData.result.fields[name];const unit=name==='turbulence_intensity'&&field.unit==='1'&&field.display_unit==='%'?'%':field.unit;
+    $('legend').hidden=false;const field=sampledDataset().fields[name];const unit=name==='turbulence_intensity'&&field.unit==='1'&&field.display_unit==='%'?'%':field.unit;
     $('legend-title').textContent=titles[name]+' · '+unit;$('legend-min').textContent=min.toPrecision(3);$('legend-max').textContent=max.toPrecision(3);
   }mesh.material.needsUpdate=true;
 }
 function updateInfo(){
-  const reference=active.type!=='patient_preview',numerical=active.type==='numerical_reference',fields=meshData.result?.fields||active.result?.fields||{};
+  const engineering=active.type==='patient_engineering_diagnostic',reference=['analytic_reference','numerical_reference'].includes(active.type),numerical=active.type==='numerical_reference',fields=meshData.result?.fields||active.result?.fields||{};
   $('model-title').textContent=active.label;$('model-note').textContent=active.note;
-  $('kind-badge').textContent=numerical?'数值求解 · 非患者':reference?'解析参考 · 非患者':'真实 CT · 待审核';$('kind-badge').classList.toggle('reference',reference);
-  $('model-status').textContent=numerical?'已完成标准算例求解':reference?'解析值，用于验证展示':'候选几何，尚未审核';
+  $('kind-badge').textContent=engineering?'患者工程试算 · 非临床':numerical?'数值求解 · 非患者':reference?'解析参考 · 非患者':'真实 CT · 待审核';$('kind-badge').classList.toggle('reference',reference);
+  $('kind-badge').classList.toggle('engineering',engineering);
+  $('model-status').textContent=engineering?'数值状态 '+meshData.result.numerical_validation+' · 解剖/临床未验证':numerical?'已完成标准算例求解':reference?'解析值，用于验证展示':'候选几何，尚未审核';
+  $('engineering-warning').hidden=!engineering;
+  $('engineering-warning').textContent=engineering?'患者工程试算，非临床；数值状态 '+meshData.result.numerical_validation+'。剖面来自本次真实体场；外壁速度不代表腔内速度。质量失败保留显示，不构成正式患者 CFD 结果。':'';
   $('coordinates').textContent=reference?'合成坐标 · mm':'LPS 物理坐标 · mm';
-  $('triangles').textContent=(meshData.geometry.indices.length/3).toLocaleString();
+  $('triangles').textContent=(sampledDataset().geometry.indices.length/3).toLocaleString();
   const sourceVertices=meshData.geometry.vertices;
   let modelSpan='未记录';
   if(Array.isArray(sourceVertices)&&sourceVertices.length%3===0&&sourceVertices.length){const lo=[Infinity,Infinity,Infinity],hi=[-Infinity,-Infinity,-Infinity];for(let i=0;i<sourceVertices.length;i+=3)for(let a=0;a<3;a++){lo[a]=Math.min(lo[a],sourceVertices[i+a]);hi[a]=Math.max(hi[a],sourceVertices[i+a]);}modelSpan=hi.map((v,a)=>(v-lo[a]).toFixed(3)).join(' × ')+' mm';}
   const spacing=meshData.source_geometry?.spacing_xyz_mm;
-  $('voxel-spacing').textContent=validVector(spacing)?spacing.map(v=>v.toFixed(3)).join(' × ')+' mm':reference?'不适用（参考几何）':'未记录';
+  $('voxel-spacing').textContent=validVector(spacing)?spacing.map(v=>v.toFixed(3)).join(' × ')+' mm':reference?'不适用（参考几何）':engineering?'本次体网格外表面，不代表 CT 体素':'未记录';
   const raw=meshData.qc?.raw_surface?.triangles,decimation=meshData.operations?.viewer_decimation;
   const parameters=meshData.result?.parameters,domain=numerical&&[parameters?.L_m,parameters?.gap_H_m,parameters?.empty_width_W_m].every(Number.isFinite)?`参考计算域：长 ${(parameters.L_m*1000).toFixed(1)} mm，间隙 ${(parameters.gap_H_m*1000).toFixed(1)} mm，宽 ${(parameters.empty_width_W_m*1000).toFixed(1)} mm；当前仅显示中间切片。 `:'';
-  $('geometry-detail').textContent=`显示范围（x × y × z）：${modelSpan}。 `+(reference?domain+'当前为参考展示几何；表面显示方式不改变流场数据。':`源表面面数：${Number.isInteger(raw)?raw.toLocaleString():'未记录'}；显示抽稀：${decimation||'未记录'}。当前表面仅供显示，不等于已验收计算几何。`);
-  $('landmark-count').textContent=reference?'不适用':String(active.landmarks.length)+' 个，均未确认';
-  $('scene-note').textContent=numerical?'通道中间切面 · 真实数值解 · 非患者 · 保留实际比例':reference?'圆管中心截面解析解 · 不代表患者流场':'待审核候选表面 · 暂无患者流场';
+  $('geometry-detail').textContent=`计算域范围（x × y × z）：${modelSpan}。 `+(engineering?'本次VTU外边界/内部剖面；LPS原轴，m→mm一次，速度分量不旋转。内部切片仅为体场显示，不改变原进出口面；几何审核及网格无关性尚未完成。':reference?domain+'当前为参考展示几何；表面显示方式不改变流场数据。':`源表面面数：${Number.isInteger(raw)?raw.toLocaleString():'未记录'}；显示抽稀：${decimation||'未记录'}。当前表面仅供显示，不等于已验收计算几何。`);
+  $('landmark-count').textContent=reference?'不适用':engineering?'本次流场不替代解剖候选审核':String(active.landmarks.length)+' 个，均未确认';
+  $('scene-note').textContent=engineering?'患者工程试算 · 非临床 · '+meshData.result.numerical_validation+' · '+(currentSampling==='surface'?'外表面（非腔内速度）':currentSampling.toUpperCase()+' 内部中部剖面'):numerical?'通道中间切面 · 真实数值解 · 非患者 · 保留实际比例':reference?'圆管中心截面解析解 · 不代表患者流场':'待审核候选表面 · 暂无患者流场';
   $('field-status').replaceChildren();
   for(const [key,name]of Object.entries(titles)){
     const available=!!fields[key];const row=textNode('div','', 'field-row');row.append(textNode('strong',name));
     const displayUnit=key==='turbulence_intensity'&&fields[key]?.unit==='1'&&fields[key]?.display_unit==='%'?'%':fields[key]?.unit;
-    row.append(textNode('span',available?(numerical?'OpenFOAM 求解值 · ':'解析参考值 · ')+displayUnit:reference&&key==='turbulence_intensity'?'层流参考：不适用，不填 0%':'尚未求解，无可用数值'));
+    row.append(textNode('span',available?(engineering?'本次工程诊断值 · ':numerical?'OpenFOAM 求解值 · ':'解析参考值 · ')+displayUnit:(reference||engineering)&&key==='turbulence_intensity'?'未导出/层流不适用，不填 0%':'尚未求解，无可用数值'));
     $('field-status').append(row);$('layer-'+key).disabled=!available;
   }
   $('landmarks').replaceChildren();
-  if(reference)$('landmarks').append(textNode('p','此参考没有患者解剖标定点。'));
+  if(reference||engineering)$('landmarks').append(textNode('p',engineering?'本次工程流场不创建或确认解剖标定点。':'此参考没有患者解剖标定点。'));
   for(const lm of active.landmarks){const row=textNode('div','', 'landmark'+(lm.status==='needs_review'?' alert':''));row.append(textNode('span',lm.label_zh),textNode('span',lm.status==='needs_review'?'重点复核':'待复核'));$('landmarks').append(row);}
-  $('show-landmarks').disabled=reference;
-  $('source-detail').textContent=JSON.stringify({status:meshData.status,coordinate_system:meshData.coordinate_system,unit:meshData.unit,source:meshData.source??meshData.sources??null,source_geometry:meshData.source_geometry??null,operations:meshData.operations??null,qc:meshData.qc??{},reference:meshData.result?.parameters??null},null,2);
+  $('show-landmarks').disabled=reference||engineering;
+  const sampling=engineering&&currentSampling!=='surface'?meshData.interior_slices.find(slice=>slice.id===currentSampling):null;
+  $('source-detail').textContent=JSON.stringify({status:meshData.status,coordinate_system:meshData.coordinate_system,unit:meshData.unit,source:meshData.source??meshData.sources??null,source_geometry:meshData.source_geometry??null,operations:meshData.operations??null,qc:meshData.qc??{},reference:meshData.result?.parameters??null,...(engineering?{job_id:meshData.job_id,case_id:meshData.case,clinical_validation:meshData.result.clinical_validation,numerical_validation:meshData.result.numerical_validation,provenance:meshData.result.provenance,input_fingerprint:meshData.result.input_fingerprint,diagnostics:meshData.result.diagnostics,display_sampling:sampling?{id:sampling.id,axis:sampling.axis,plane_lps_mm:sampling.plane_lps_mm,normal_lps:sampling.normal_lps,source_vtu_sha256:sampling.source_vtu_sha256,method:sampling.sampling}:{id:'surface',note:'outer boundary; wall speed does not represent internal flow'}}:{})},null,2);
+}
+function validateDiagnosticFields(fields,rho){
+  if(!fields||fields.velocity?.unit!=='m/s'||fields.pressure?.unit!=='Pa'||fields.pressure.source_unit!=='m2/s2'||fields.pressure.source_field!=='p'||fields.pressure.reference!=='gauge'||fields.pressure.quantity!=='static'||fields.pressure.rho_kg_m3!==rho||fields.turbulence_intensity!==null||Object.keys(fields).some(key=>!['velocity','pressure','turbulence_intensity'].includes(key)))throw Error('工程字段单位、压力转换或字段集合不符');
+}
+function validateSamplingDataset(geometry,fields){
+  const verts=geometry?.vertices,faces=geometry?.indices;
+  if(!Array.isArray(verts)||!Array.isArray(faces)||!verts.length||!faces.length||verts.length%3||faces.length%3||verts.some(v=>!Number.isFinite(v))||faces.some(i=>!Number.isInteger(i)||i<0||i>=verts.length/3))throw Error('工程采样几何或索引无效');
+  for(const [name,field]of Object.entries(fields)){
+    if(field===null)continue;
+    if(field.association!=='point'||!Array.isArray(field.values)||field.values.length!==verts.length/3||!field.values.every(v=>name==='velocity'?validVector(v):Number.isFinite(v)))throw Error('工程剖面字段长度、维度或数值无效：'+name);
+  }
+}
+function validateEngineeringDiagnostic(item,data){
+  const r=data.result,p=r?.provenance,job=item.id,source='/simulation-assets/'+job+'/';
+  const sha=value=>typeof value==='string'&&/^[0-9a-f]{64}$/.test(value);
+  if(!/^s_[0-9a-f]{24}$/.test(job)||requestedManifest!==source+'viewer.json'||item.job_id!==job||typeof item.case_id!=='string'||!item.case_id||item.mesh_url!==source+'viewer_mesh.json'||!Array.isArray(item.landmarks)||item.landmarks.length||data.schema!=='patient_engineering_surface/v1'||data.case!==item.case_id||data.job_id!==job||data.status!=='unvalidated_patient_engineering_diagnostic'||data.coordinate_system!=='LPS'||data.display_geometry_only!==true||data.cfd_ready!==false)throw Error('患者工程表面身份或受控资产路径不符');
+  if(r?.schema!=='nasal_patient_engineering_diagnostic/v1'||r.type!=='patient_engineering_diagnostic'||r.job_id!==job||r.case_id!==item.case_id||r.patient_data!==true||r.engineering_trial!==true||r.clinical_validation!=='not_validated'||!['unchecked','failed'].includes(r.numerical_validation)||!['completed','failed'].includes(r.execution_status)||r.execution_status==='failed'&&r.numerical_validation!=='failed'||r.geometry?.kind!=='patient'||r.geometry.case_id!==item.case_id||r.geometry.coordinate_system!=='LPS'||r.geometry.units!=='mm'||r.geometry.solver_units!=='m'||r.geometry.scale_to_m!==.001||!sha(r.geometry.sha256))throw Error('工程诊断不能替代已审核患者结果');
+  if(p?.method!=='cfd_solver'||p.job_id!==job||p.case_id!==item.case_id||p.source_vtu_url!==source+'patient-final-internal.vtu'||!sha(p.source_vtu_sha256)||!sha(p.config_sha256)||!sha(p.p_file_sha256)||!sha(p.U_file_sha256)||!Number.isFinite(Number(p.field_time))||!sha(r.input_fingerprint?.admission_sha256)||r.input_fingerprint.config_sha256!==p.config_sha256)throw Error('本次工程字段来源或内容指纹缺失');
+  if(!Number.isFinite(r.physics?.rho_kg_m3)||r.physics.rho_kg_m3<=0)throw Error('工程流体密度无效');
+  validateDiagnosticFields(r.fields,r.physics.rho_kg_m3);validateSamplingDataset(data.geometry,r.fields);
+  const vertices=data.geometry.vertices,lo=[Infinity,Infinity,Infinity],hi=[-Infinity,-Infinity,-Infinity];
+  for(let i=0;i<vertices.length;i+=3)for(let a=0;a<3;a++){lo[a]=Math.min(lo[a],vertices[i+a]);hi[a]=Math.max(hi[a],vertices[i+a]);}
+  const center=lo.map((value,a)=>(value+hi[a])/2),tolerance=Math.max(1e-5,...hi.map((value,a)=>(value-lo[a])*1e-7));
+  if(!Array.isArray(data.interior_slices)||!data.interior_slices.length||data.interior_slices.length>3)throw Error('本次体场缺少内部剖面，不能以外壁代替腔内速度');
+  const ids=new Set();
+  for(const slice of data.interior_slices){
+    const axis=['x','y','z'].indexOf(slice?.axis);
+    if(axis<0||slice.id!==slice.axis||ids.has(slice.id)||slice.source_vtu_sha256!==p.source_vtu_sha256||slice.sampling!=='vtkCutter linear interpolation of this volume VTU point field; no synthetic field'||!validVector(slice.plane_lps_mm)||!validVector(slice.normal_lps)||!Number.isFinite(slice.position_lps_mm)||slice.normal_lps.some((v,a)=>v!==(a===axis?1:0))||slice.plane_lps_mm.some((v,a)=>Math.abs(v-center[a])>tolerance)||Math.abs(slice.position_lps_mm-center[axis])>tolerance)throw Error('内部剖面的LPS位置、方向或本次VTU身份不符');
+    ids.add(slice.id);validateDiagnosticFields(slice.fields,r.physics.rho_kg_m3);validateSamplingDataset(slice.geometry,slice.fields);
+    for(let i=axis;i<slice.geometry.vertices.length;i+=3)if(Math.abs(slice.geometry.vertices[i]-slice.position_lps_mm)>tolerance)throw Error('内部剖面顶点不在声明的LPS平面');
+  }
 }
 async function loadCase(item){
   const token=++loadToken;$('scene-state').hidden=false;$('scene-state').textContent='正在读取 '+item.label+'…';
   clearObjects();meshData=null;active=null;$('legend').hidden=true;$('model-title').textContent=item.label;
+  $('engineering-warning').hidden=true;currentSampling='surface';currentLayer='geometry';$('field-sampling-controls').hidden=true;$('field-sampling').replaceChildren();$('field-sampling-note').textContent='';
+  document.querySelector('.view-panel').classList.toggle('engineering',item.type==='patient_engineering_diagnostic');
   $('model-note').textContent='正在核对模型身份与字段…';$('model-status').textContent='加载中';
   for(const id of ['coordinates','triangles','landmark-count','voxel-spacing'])$(id).textContent='—';
   $('geometry-detail').textContent='';resetPlaneInfo('正在读取当前病例切面…');
   $('field-status').replaceChildren();$('landmarks').replaceChildren();$('source-detail').textContent='';$('scene-note').textContent='';
   document.querySelectorAll('[data-layer]').forEach(b=>{b.disabled=true;b.classList.remove('selected');});
   try{
+    if(item.type==='patient_engineering_diagnostic'&&(!/^s_[0-9a-f]{24}$/.test(item.id)||requestedManifest!=='/simulation-assets/'+item.id+'/viewer.json'||item.mesh_url!=='/simulation-assets/'+item.id+'/viewer_mesh.json'))throw Error('工程流场只允许本次受控同源资产');
     const response=await fetch(item.mesh_url);if(!response.ok)throw Error('模型文件读取失败');const data=await response.json();if(token!==loadToken)return;
-    if(data.schema!=='candidate_surface_preview/v1'||data.unit!=='mm')throw Error('模型格式或单位不一致');
+    if((item.type==='patient_engineering_diagnostic'?data.schema!=='patient_engineering_surface/v1':data.schema!=='candidate_surface_preview/v1')||data.unit!=='mm')throw Error('模型格式或单位不一致');
     const emptyPatientResult=r=>r?.type==='patient_preview'&&r?.geometry?.kind==='patient'&&r?.geometry?.case_id===item.id&&r.fields&&['velocity','pressure','turbulence_intensity'].every(k=>r.fields[k]===null);
     if(item.type==='patient_preview'){
       if(data.case!==item.id||data.coordinate_system!=='LPS'||data.status!=='unreviewed_candidate_preview'||data.cfd_ready!==false||data.display_geometry_only!==true||!emptyPatientResult(item.result)||(data.result!=null&&!emptyPatientResult(data.result)))throw Error('患者预览身份不符或混入未允许的流场');
       data.result=item.result;
+    }else if(item.type==='patient_engineering_diagnostic'){
+      validateEngineeringDiagnostic(item,data);
     }else if(item.type==='analytic_reference'){
       if(data.status!=='analytic_reference'||data.coordinate_system!=='synthetic_Cartesian'||data.case!==null||data.result?.type!=='analytic_reference'||data.result.geometry?.kind!=='idealized'||data.result.geometry?.case_id!==null)throw Error('解析参考身份不符');
     }else if(item.type==='numerical_reference'){
@@ -174,7 +232,7 @@ async function loadCase(item){
     const opacity=Number($('opacity').value);const material=new THREE.MeshStandardMaterial({color:'#70a9b6',metalness:0,roughness:.65,side:THREE.DoubleSide,transparent:opacity<1,opacity});
     mesh=new THREE.Mesh(geometry,material);scene.add(mesh);markers=new THREE.Group();
     for(const lm of item.landmarks){const marker=new THREE.Mesh(new THREE.SphereGeometry(extent*.009,12,8),new THREE.MeshBasicMaterial({color:lm.status==='needs_review'?0xffa12f:0x395eb9,depthTest:false,depthWrite:false,transparent:true,opacity:1}));marker.position.copy(lpsToView(lm.point_lps_mm,ctr));marker.renderOrder=10;markers.add(marker);}
-    markers.visible=$('show-landmarks').checked;scene.add(markers);resetView(item.type==='numerical_reference'||item.type==='analytic_reference'?'reference':'reset');updateInfo();setupPlanes();setDisplayMode(displayMode);$('layer-geometry').disabled=false;setLayer(item.type!=='patient_preview'?'velocity':'geometry');$('scene-state').hidden=true;
+    markers.visible=$('show-landmarks').checked;scene.add(markers);resetView(item.type==='numerical_reference'||item.type==='analytic_reference'?'reference':'reset');setupSampling();updateInfo();setupPlanes();setDisplayMode(displayMode);$('layer-geometry').disabled=false;setLayer(item.type!=='patient_preview'?'velocity':'geometry');$('scene-state').hidden=true;
   }catch(error){if(token!==loadToken)return;clearObjects();meshData=null;active=null;$('model-status').textContent='加载失败';$('scene-state').textContent='无法显示：'+error.message;console.error(error);}
 }
 for(const id of ['front','side','top','reset'])$(id).addEventListener('click',()=>resetView(id));
@@ -182,21 +240,24 @@ document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',
 document.querySelectorAll('[data-display]').forEach(b=>b.addEventListener('click',()=>setDisplayMode(b.dataset.display)));
 $('plane-select').addEventListener('change',updatePlane);
 $('show-plane').addEventListener('change',updatePlane);
+$('field-sampling').addEventListener('change',()=>setSampling($('field-sampling').value));
 $('show-landmarks').addEventListener('change',()=>{if(markers)markers.visible=$('show-landmarks').checked;});
 $('opacity').addEventListener('input',()=>{if(mesh){mesh.material.opacity=Number($('opacity').value);mesh.material.transparent=mesh.material.opacity<1;mesh.material.needsUpdate=true;}});
 try{
   initScene();
   const manifest = new URLSearchParams(location.search).get('manifest');
   const allowedManifest=value=>/^\/case-assets\/u_[0-9a-f]{16}\/(?:versions\/v_[0-9a-f]{16}\/)?viewer\.json$/.test(value)||/^\/simulation-assets\/s_[0-9a-f]{24}\/viewer\.json$/.test(value);
-  if (manifest && !allowedManifest(manifest)) throw Error('病例索引地址无效');
+  if (manifest !== null && !allowedManifest(manifest)) throw Error('病例索引地址无效');
+  requestedManifest=manifest;
   const response=await fetch(manifest || './workspace_data.json');
   if(!response.ok)throw Error('工作台索引未生成');
   const data=await response.json();
   if(data.schema !== 'nasal_workspace/v1' || !Array.isArray(data.cases) || !data.cases.length)throw Error('病例索引格式无效');
+  if(data.cases.some(item=>item.type==='patient_engineering_diagnostic')&&(data.cases.length!==1||data.patient_scan_count!==0||data.patient_cfd_results!==0))throw Error('工程诊断索引不能增加正式患者结果或混入其他病例');
   $('scan-count').textContent=data.patient_scan_count;$('patient-result-count').textContent=data.patient_cfd_results;updateFeedbackAudit(data.feedback_audit);
   for(const item of data.cases){const opt=textNode('option',item.label);opt.value=item.id;$('case-select').append(opt);}
   $('case-select').addEventListener('change',()=>loadCase(data.cases.find(c=>c.id===$('case-select').value)));await loadCase(data.cases[0]);
 }catch(error){$('feedback-count').textContent='未生成';$('feedback-status').textContent='工作台未能读取人工意见摘要';$('feedback-detail').textContent=error.message;$('scene-state').textContent='工作台未能启动：'+error.message;console.error(error);}
 
 // Read-only browser verification: no geometry or patient state mutation.
-export function getDisplaySnapshot(){return mesh?{caseId:active.id,mode:displayMode,layer:currentLayer,positions:Array.from(mesh.geometry.attributes.position.array),indices:Array.from(mesh.geometry.index.array),center:[...meshCenter],camera:camera.position.toArray(),target:controls.target.toArray(),flatShading:mesh.material.flatShading,wireframe:mesh.material.wireframe,pixelRatio:renderer.getPixelRatio(),plane:cutPlane?{...cutPlane.userData,visible:cutPlane.visible,viewPoint:cutPlane.children[0].position.toArray(),viewNormal:new THREE.Vector3(0,0,1).applyQuaternion(cutPlane.children[0].quaternion).toArray()}:null}:null;}
+export function getDisplaySnapshot(){return mesh?{caseId:active.id,mode:displayMode,layer:currentLayer,sampling:currentSampling,positions:Array.from(mesh.geometry.attributes.position.array),indices:Array.from(mesh.geometry.index.array),center:[...meshCenter],camera:camera.position.toArray(),target:controls.target.toArray(),flatShading:mesh.material.flatShading,wireframe:mesh.material.wireframe,pixelRatio:renderer.getPixelRatio(),plane:cutPlane?{...cutPlane.userData,visible:cutPlane.visible,viewPoint:cutPlane.children[0].position.toArray(),viewNormal:new THREE.Vector3(0,0,1).applyQuaternion(cutPlane.children[0].quaternion).toArray()}:null}:null;}

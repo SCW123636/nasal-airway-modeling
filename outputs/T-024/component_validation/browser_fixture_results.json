@@ -1,0 +1,126 @@
+{
+  "scope": "synthetic_component_fixture_only_not_patient_solver",
+  "evidence": [
+    {
+      "check": "official_top_entry_preserves_diagnostic_manifest",
+      "passed": true,
+      "url": "http://127.0.0.1:8769/workspace/index.html?manifest=%2Fsimulation-assets%2Fs_aaaaaaaaaaaaaaaaaaaaaaaa%2Fviewer.json&case=existing#geometry",
+      "frame_url": "http://127.0.0.1:8769/viewer/index.html?manifest=%2Fsimulation-assets%2Fs_aaaaaaaaaaaaaaaaaaaaaaaa%2Fviewer.json&embedded=1",
+      "snapshot": {
+        "caseId": "s_aaaaaaaaaaaaaaaaaaaaaaaa",
+        "mode": "smooth",
+        "layer": "pressure",
+        "positions": [
+          -1,
+          -3,
+          2,
+          1,
+          -3,
+          2,
+          -1,
+          3,
+          2,
+          -1,
+          -3,
+          -2
+        ],
+        "indices": [
+          0,
+          1,
+          2,
+          0,
+          3,
+          1,
+          0,
+          2,
+          3,
+          1,
+          3,
+          2
+        ],
+        "center": [
+          2,
+          4,
+          6
+        ],
+        "camera": [
+          5.713252279004258,
+          3.656481458562724,
+          7.617669705339008
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "flatShading": false,
+        "wireframe": false,
+        "pixelRatio": 1.5,
+        "plane": null
+      }
+    },
+    {
+      "check": "refresh_keeps_exact_job_despite_uploaded_case_storage",
+      "passed": true
+    },
+    {
+      "check": "mobile_390_warning_and_no_overflow",
+      "passed": true,
+      "bounds": {
+        "width": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "check": "mobile_320_warning_and_no_overflow",
+      "passed": true,
+      "bounds": {
+        "width": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "check": "wrongUnit_rejected_without_preview_fallback",
+      "passed": true,
+      "error": "无法显示：工程字段单位、压力转换或字段集合不符"
+    },
+    {
+      "check": "formalForgery_rejected_without_preview_fallback",
+      "passed": true,
+      "error": "无法显示：工程诊断不能替代已审核患者结果"
+    },
+    {
+      "check": "foreignJob_rejected_without_preview_fallback",
+      "passed": true,
+      "error": "无法显示：本次工程字段来源或内容指纹缺失"
+    },
+    {
+      "check": "previewInjection_rejected_without_preview_fallback",
+      "passed": true,
+      "error": "无法显示：患者预览身份不符或混入未允许的流场"
+    },
+    {
+      "check": "invalid_manifest_rejected",
+      "manifest": "",
+      "passed": true,
+      "message": "三维结果地址无效未加载默认病例。请从计算与结果中的真实任务产物重新打开三维结果。查看计算与结果"
+    },
+    {
+      "check": "invalid_manifest_rejected",
+      "manifest": "https://example.invalid/viewer.json",
+      "passed": true,
+      "message": "三维结果地址无效未加载默认病例。请从计算与结果中的真实任务产物重新打开三维结果。查看计算与结果"
+    },
+    {
+      "check": "invalid_manifest_rejected",
+      "manifest": "/simulation-assets/not-a-job/viewer.json",
+      "passed": true,
+      "message": "三维结果地址无效未加载默认病例。请从计算与结果中的真实任务产物重新打开三维结果。查看计算与结果"
+    },
+    {
+      "check": "unexpected_page_errors",
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

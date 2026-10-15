@@ -1,0 +1,133 @@
+{
+  "kind": "synthetic_component_fixture_not_patient_solver",
+  "expected_points_mm": [
+    [
+      1.0,
+      2.0,
+      3.0
+    ],
+    [
+      3.0,
+      2.0,
+      3.0
+    ],
+    [
+      1.0,
+      6.0,
+      3.0
+    ],
+    [
+      1.0,
+      2.0,
+      9.0
+    ]
+  ],
+  "expected_U_m_s": [
+    [
+      1.0,
+      2.0,
+      3.0
+    ],
+    [
+      4.0,
+      5.0,
+      6.0
+    ],
+    [
+      7.0,
+      8.0,
+      9.0
+    ],
+    [
+      10.0,
+      11.0,
+      12.0
+    ]
+  ],
+  "expected_p_Pa": [
+    1.25,
+    2.5,
+    3.75,
+    5.0
+  ],
+  "export_result": {
+    "schema": "nasal_patient_engineering_diagnostic/v1",
+    "points": 4,
+    "triangles": 4,
+    "case_id": "synthetic_component_fixture",
+    "job_id": "s_aaaaaaaaaaaaaaaaaaaaaaaa",
+    "source_vtu_sha256": "aff87bc04379e2067977ae341d29aa3f1317c4f538b8addc45274f47e14dc020",
+    "field_time": "17",
+    "numerical_validation": "failed",
+    "clinical_validation": "not_validated",
+    "formal_patient_result": false
+  },
+  "job_state": {
+    "id": "s_aaaaaaaaaaaaaaaaaaaaaaaa",
+    "case_id": "synthetic_component_fixture",
+    "action": "run_patient_engineering",
+    "artifacts": [
+      {
+        "name": "patient-final-internal.vtu",
+        "url": "/simulation-assets/s_aaaaaaaaaaaaaaaaaaaaaaaa/patient-final-internal.vtu",
+        "label": "本次患者工程试算原始VTU（非临床）"
+      },
+      {
+        "name": "patient-final-config.json",
+        "url": "/simulation-assets/s_aaaaaaaaaaaaaaaaaaaaaaaa/patient-final-config.json",
+        "label": "本次患者工程试算配置与单位"
+      },
+      {
+        "name": "viewer_mesh.json",
+        "url": "/simulation-assets/s_aaaaaaaaaaaaaaaaaaaaaaaa/viewer_mesh.json",
+        "label": "本次患者工程诊断表面字段（非临床）"
+      },
+      {
+        "name": "viewer.json",
+        "url": "/simulation-assets/s_aaaaaaaaaaaaaaaaaaaaaaaa/viewer.json",
+        "label": "本次患者工程诊断三维索引"
+      },
+      {
+        "name": "viewer",
+        "label": "三维工程诊断 · 非临床 · failed",
+        "url": "/viewer/index.html?manifest=/simulation-assets/s_aaaaaaaaaaaaaaaaaaaaaaaa/viewer.json"
+      }
+    ],
+    "asset_paths": {
+      "patient-final-internal.vtu": "export/s_aaaaaaaaaaaaaaaaaaaaaaaa/evaluations/eval_001/VTK/fixture_17/internal.vtu",
+      "patient-final-config.json": "export/s_aaaaaaaaaaaaaaaaaaaaaaaa/evaluations/eval_001/config.json",
+      "viewer_mesh.json": "viewer_mesh.json",
+      "viewer.json": "viewer.json"
+    }
+  },
+  "report": {
+    "schema": "nasal_patient_engineering_trial/v1",
+    "case_id": "synthetic_component_fixture",
+    "patient_data": true,
+    "engineering_trial": true,
+    "backend": "real_openfoam_v1912",
+    "clinical_validation": "not_validated",
+    "numerical_validation": "unchecked",
+    "execution_status": "failed",
+    "scenario": {
+      "result": null,
+      "evaluations": [
+        {
+          "case": "/home/fixture/evaluations/eval_001",
+          "status": "failed",
+          "diagnostics": {
+            "residual_max": 0.1
+          }
+        }
+      ]
+    },
+    "input_fingerprint": {
+      "admission_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "config_sha256": "f7d005ce50f514acaac2af5d26f64119da9284903f208c429fbb06698c258d69",
+      "code_sha256": {},
+      "current_source_binding": {
+        "kind": "synthetic_fixture"
+      }
+    }
+  }
+}

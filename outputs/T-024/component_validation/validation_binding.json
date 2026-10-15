@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-10-15T18:48:07.056042+08:00",
+  "scope": "synthetic_component_fixture_and_existing_display_regressions_only_not_patient_CFD_acceptance",
+  "python": "3.13.14",
+  "numpy": "2.5.3",
+  "vtk": "9.7.1",
+  "unit_tests": {
+    "tests": 3,
+    "rejection_subcases": 12,
+    "result": "pass",
+    "log": "unit-tests-final.log"
+  },
+  "browser": {
+    "checks": 28,
+    "result": "pass",
+    "base_url": "http://127.0.0.1:8769",
+    "result_file": "presentation_verified/browser_fixture_results.json"
+  },
+  "sha256": {
+    "work/lib/patient_cfd_viewer.py": "1de15e1a06b219066ea3281315aeebeec1841f763893a60becc9eb1b4fa6fc16",
+    "work/lib/test_patient_cfd_viewer.py": "27370a2d77ec1b8ab930a60582c267efa80972ab889fffb790f76971513cdd04",
+    "work/07_cfd_pipeline/viewer/viewer.js": "742467b7abccd3b3bb72d2b90ed9cdfe629f2b17810f81668067322a8221d964",
+    "work/07_cfd_pipeline/viewer/index.html": "e07ffb3f0ce8b20c0be51d0397ba8ab1ce83f8fab7d5cc6ee21ec1f8e2768f2b",
+    "work/07_cfd_pipeline/viewer/viewer.css": "4e7a112a6ed05e9689c9abdf2f603f5ef33c2a5eacd4bad41260a6aae83c9e21",
+    "outputs/T-024/component_validation/make_fixture.py": "4c5bbf92e0b850e377b95752ff550a96682c2ad50ecf268c00d8b4277fd686c9",
+    "outputs/T-024/component_validation/check_viewer_fixture.cjs": "58e50a5ea70817fb8a3bfb60d5e7e19a75a318a3e54bee8d57f5614ef22aa150",
+    "outputs/T-024/component_validation/unit-tests-final.log": "649674daf2dc57951f48660bdabc0754351df0ff58e1d4f293b6e96356d9e749",
+    "outputs/T-024/component_validation/presentation_verified/browser_fixture_results.json": "2133d31f0db54906c2c884a26fcb008605ccb1a7a05fc97fbe946359bab8b891",
+    "outputs/T-024/component_validation/presentation_verified/fixture_evidence.json": "56da029db3429a8f0cca9a350dec3be58174385ce33dabfd325e6ff41575f262",
+    "outputs/T-024/component_validation/presentation_verified/scene-synthetic-internal-pressure.png": "6ded935334837b354accd8aed2fd69ccfcda59dd20a6101570797c707c8c55e9",
+    "outputs/T-024/component_validation/presentation_verified/desktop-synthetic-engineering-pressure.png": "431b732aa7585753646af055d139ac114c4205e6dae68d3abeb712e1403b7fa8",
+    "outputs/T-024/component_validation/presentation_verified/mobile-320-synthetic-engineering.png": "fb5055c8ea29258fda5f9281410c526f5d647bbbc4d8d2dac60e8a57596b32e9",
+    "outputs/T-024/component_validation/presentation_verified/mobile-390-synthetic-engineering.png": "d7ab9743d77c31560001e6564e8aa84bf4b7185bfd0a7994c46029c8f8c4b7b0"
+  }
+}
