@@ -1,0 +1,1200 @@
+{
+  "n_lines": 107,
+  "n_points_total": 9141,
+  "reasons": {
+    "reached_outlet": 36,
+    "exited_wall_region": 44,
+    "stall_near_wall": 27
+  },
+  "speed_mps": {
+    "min": 0.0,
+    "median": 1.5079245567321777,
+    "max": 3.231839895248413
+  },
+  "seed": 7,
+  "ds_mm": 0.3,
+  "max_steps": 1200,
+  "n_seed_per_side": 60,
+  "source_vtk_dir": "D:\\项目\\鼻腔建模\\outputs\\T-044\\vtk",
+  "interpolation": "linear barycentric inside located tetrahedron (visualisation grade)",
+  "rho_for_pressure_Pa": 1.2,
+  "lines": [
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 151,
+      "length_mm": 44.94,
+      "seed_mm": [
+        20.87,
+        -93.364,
+        -43.156
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 4,
+      "length_mm": 0.85,
+      "seed_mm": [
+        17.866,
+        -109.034,
+        -40.713
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 10,
+      "length_mm": 2.49,
+      "seed_mm": [
+        17.468,
+        -102.79,
+        -42.275
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 29,
+      "length_mm": 8.33,
+      "seed_mm": [
+        20.387,
+        -98.389,
+        -42.337
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 5,
+      "length_mm": 1.03,
+      "seed_mm": [
+        20.626,
+        -105.5,
+        -40.622
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 7,
+      "length_mm": 1.74,
+      "seed_mm": [
+        16.027,
+        -106.122,
+        -41.992
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 54,
+      "length_mm": 15.86,
+      "seed_mm": [
+        20.541,
+        -101.512,
+        -41.617
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 6,
+      "length_mm": 1.43,
+      "seed_mm": [
+        23.555,
+        -94.045,
+        -42.097
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 98,
+      "length_mm": 28.0,
+      "seed_mm": [
+        23.293,
+        -98.907,
+        -41.295
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 87,
+      "length_mm": 24.75,
+      "seed_mm": [
+        22.167,
+        -96.394,
+        -42.196
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 133,
+      "length_mm": 39.37,
+      "seed_mm": [
+        18.391,
+        -104.963,
+        -41.565
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 168,
+      "length_mm": 49.99,
+      "seed_mm": [
+        19.893,
+        -95.754,
+        -42.9
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 148,
+      "length_mm": 44.08,
+      "seed_mm": [
+        21.796,
+        -103.429,
+        -40.804
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 16,
+      "length_mm": 4.22,
+      "seed_mm": [
+        18.577,
+        -100.489,
+        -42.466
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 50,
+      "length_mm": 14.49,
+      "seed_mm": [
+        19.649,
+        -107.553,
+        -40.605
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 112,
+      "length_mm": 33.08,
+      "seed_mm": [
+        19.228,
+        -92.188,
+        -43.924
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 137,
+      "length_mm": 39.75,
+      "seed_mm": [
+        19.442,
+        -103.273,
+        -41.591
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 32,
+      "length_mm": 9.11,
+      "seed_mm": [
+        19.039,
+        -94.141,
+        -43.681
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 44,
+      "length_mm": 12.79,
+      "seed_mm": [
+        21.672,
+        -99.954,
+        -41.59
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 184,
+      "length_mm": 53.79,
+      "seed_mm": [
+        17.723,
+        -107.217,
+        -41.294
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 7,
+      "length_mm": 1.78,
+      "seed_mm": [
+        16.475,
+        -104.395,
+        -42.275
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 61,
+      "length_mm": 17.78,
+      "seed_mm": [
+        21.793,
+        -94.764,
+        -42.666
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 157,
+      "length_mm": 45.75,
+      "seed_mm": [
+        22.021,
+        -101.871,
+        -41.066
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 74,
+      "length_mm": 20.85,
+      "seed_mm": [
+        23.613,
+        -97.366,
+        -41.524
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 111,
+      "length_mm": 32.88,
+      "seed_mm": [
+        20.113,
+        -100.063,
+        -42.066
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 62,
+      "length_mm": 18.24,
+      "seed_mm": [
+        23.553,
+        -95.594,
+        -41.924
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 9,
+      "length_mm": 2.3,
+      "seed_mm": [
+        22.57,
+        -93.071,
+        -42.78
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 42,
+      "length_mm": 12.22,
+      "seed_mm": [
+        18.997,
+        -101.87,
+        -42.035
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 63,
+      "length_mm": 18.3,
+      "seed_mm": [
+        18.969,
+        -106.306,
+        -41.091
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 85,
+      "length_mm": 24.15,
+      "seed_mm": [
+        22.071,
+        -98.255,
+        -41.827
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 40,
+      "length_mm": 11.57,
+      "seed_mm": [
+        20.593,
+        -96.967,
+        -42.577
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 106,
+      "length_mm": 30.55,
+      "seed_mm": [
+        23.088,
+        -100.295,
+        -41.063
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 324,
+      "length_mm": 96.86,
+      "seed_mm": [
+        20.466,
+        -104.043,
+        -41.098
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 4,
+      "length_mm": 0.72,
+      "seed_mm": [
+        17.665,
+        -101.466,
+        -42.548
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 138,
+      "length_mm": 41.03,
+      "seed_mm": [
+        17.348,
+        -105.78,
+        -41.723
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 104,
+      "length_mm": 30.68,
+      "seed_mm": [
+        20.356,
+        -94.613,
+        -43.158
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 26,
+      "length_mm": 7.34,
+      "seed_mm": [
+        17.716,
+        -103.998,
+        -41.988
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 19,
+      "length_mm": 5.17,
+      "seed_mm": [
+        19.452,
+        -99.134,
+        -42.477
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 150,
+      "length_mm": 44.67,
+      "seed_mm": [
+        19.669,
+        -104.994,
+        -41.149
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 119,
+      "length_mm": 35.14,
+      "seed_mm": [
+        21.12,
+        -95.741,
+        -42.672
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 143,
+      "length_mm": 41.5,
+      "seed_mm": [
+        20.707,
+        -102.646,
+        -41.321
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 8,
+      "length_mm": 2.05,
+      "seed_mm": [
+        16.522,
+        -107.182,
+        -41.687
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 176,
+      "length_mm": 51.39,
+      "seed_mm": [
+        21.406,
+        -104.511,
+        -40.61
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 34,
+      "length_mm": 9.76,
+      "seed_mm": [
+        19.786,
+        -93.276,
+        -43.628
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 4,
+      "length_mm": 0.79,
+      "seed_mm": [
+        20.032,
+        -106.486,
+        -40.712
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 42,
+      "length_mm": 12.19,
+      "seed_mm": [
+        18.523,
+        -107.794,
+        -40.914
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 108,
+      "length_mm": 31.05,
+      "seed_mm": [
+        22.209,
+        -100.828,
+        -41.23
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 36,
+      "length_mm": 10.36,
+      "seed_mm": [
+        21.614,
+        -97.251,
+        -42.189
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 52,
+      "length_mm": 15.04,
+      "seed_mm": [
+        19.659,
+        -101.102,
+        -41.988
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "exited_wall_region",
+      "n": 59,
+      "length_mm": 17.31,
+      "seed_mm": [
+        22.952,
+        -94.823,
+        -42.282
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "stall_near_wall",
+      "n": 70,
+      "length_mm": 19.6,
+      "seed_mm": [
+        22.664,
+        -97.451,
+        -41.81
+      ]
+    },
+    {
+      "side": "L",
+      "reason": "reached_outlet",
+      "n": 119,
+      "length_mm": 35.39,
+      "seed_mm": [
+        20.137,
+        -92.188,
+        -43.584
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 136,
+      "length_mm": 39.45,
+      "seed_mm": [
+        9.498,
+        -105.112,
+        -41.507
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 5,
+      "length_mm": 1.13,
+      "seed_mm": [
+        2.53,
+        -96.206,
+        -42.068
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 6,
+      "length_mm": 1.47,
+      "seed_mm": [
+        2.803,
+        -102.686,
+        -39.781
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 34,
+      "length_mm": 9.73,
+      "seed_mm": [
+        7.35,
+        -99.676,
+        -42.773
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 7,
+      "length_mm": 1.62,
+      "seed_mm": [
+        5.733,
+        -106.104,
+        -39.616
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 82,
+      "length_mm": 24.27,
+      "seed_mm": [
+        6.515,
+        -102.85,
+        -41.199
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 78,
+      "length_mm": 22.15,
+      "seed_mm": [
+        3.854,
+        -99.619,
+        -41.399
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 107,
+      "length_mm": 31.69,
+      "seed_mm": [
+        8.684,
+        -108.209,
+        -39.972
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 22,
+      "length_mm": 6.04,
+      "seed_mm": [
+        9.832,
+        -101.935,
+        -42.882
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 33,
+      "length_mm": 9.43,
+      "seed_mm": [
+        5.411,
+        -97.474,
+        -42.859
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 22,
+      "length_mm": 6.05,
+      "seed_mm": [
+        11.104,
+        -107.127,
+        -41.278
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 229,
+      "length_mm": 68.34,
+      "seed_mm": [
+        4.695,
+        -103.997,
+        -40.025
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 139,
+      "length_mm": 40.45,
+      "seed_mm": [
+        7.365,
+        -104.911,
+        -40.734
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 10,
+      "length_mm": 2.63,
+      "seed_mm": [
+        2.071,
+        -100.498,
+        -40.343
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 115,
+      "length_mm": 33.15,
+      "seed_mm": [
+        4.556,
+        -101.68,
+        -40.874
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 10,
+      "length_mm": 2.46,
+      "seed_mm": [
+        10.899,
+        -103.907,
+        -42.538
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 77,
+      "length_mm": 22.76,
+      "seed_mm": [
+        8.433,
+        -103.046,
+        -41.889
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 214,
+      "length_mm": 63.87,
+      "seed_mm": [
+        6.159,
+        -100.809,
+        -41.855
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 136,
+      "length_mm": 39.45,
+      "seed_mm": [
+        4.353,
+        -95.96,
+        -42.9
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 34,
+      "length_mm": 9.66,
+      "seed_mm": [
+        8.185,
+        -101.269,
+        -42.484
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 137,
+      "length_mm": 39.7,
+      "seed_mm": [
+        8.26,
+        -106.517,
+        -40.464
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 74,
+      "length_mm": 21.77,
+      "seed_mm": [
+        3.854,
+        -97.885,
+        -42.076
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 230,
+      "length_mm": 68.41,
+      "seed_mm": [
+        5.439,
+        -99.142,
+        -42.218
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 34,
+      "length_mm": 9.66,
+      "seed_mm": [
+        11.283,
+        -105.555,
+        -42.047
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 55,
+      "length_mm": 16.14,
+      "seed_mm": [
+        6.986,
+        -107.081,
+        -39.735
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 28,
+      "length_mm": 7.94,
+      "seed_mm": [
+        10.805,
+        -108.751,
+        -40.607
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 133,
+      "length_mm": 38.55,
+      "seed_mm": [
+        9.773,
+        -106.496,
+        -41.076
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 133,
+      "length_mm": 39.42,
+      "seed_mm": [
+        5.985,
+        -104.637,
+        -40.289
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 98,
+      "length_mm": 28.05,
+      "seed_mm": [
+        3.377,
+        -100.856,
+        -40.725
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 85,
+      "length_mm": 25.13,
+      "seed_mm": [
+        8.413,
+        -104.291,
+        -41.394
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 50,
+      "length_mm": 14.69,
+      "seed_mm": [
+        9.657,
+        -103.671,
+        -42.134
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 141,
+      "length_mm": 40.95,
+      "seed_mm": [
+        5.28,
+        -102.995,
+        -40.65
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 136,
+      "length_mm": 39.45,
+      "seed_mm": [
+        10.026,
+        -107.731,
+        -40.695
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 76,
+      "length_mm": 21.55,
+      "seed_mm": [
+        4.804,
+        -100.478,
+        -41.443
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 297,
+      "length_mm": 88.75,
+      "seed_mm": [
+        7.44,
+        -102.22,
+        -41.815
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 188,
+      "length_mm": 55.05,
+      "seed_mm": [
+        3.947,
+        -102.605,
+        -40.27
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 6,
+      "length_mm": 1.22,
+      "seed_mm": [
+        3.536,
+        -103.907,
+        -39.597
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 85,
+      "length_mm": 24.1,
+      "seed_mm": [
+        5.783,
+        -101.843,
+        -41.301
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 268,
+      "length_mm": 80.03,
+      "seed_mm": [
+        2.646,
+        -97.503,
+        -41.743
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 51,
+      "length_mm": 14.98,
+      "seed_mm": [
+        2.725,
+        -99.54,
+        -40.979
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 32,
+      "length_mm": 9.05,
+      "seed_mm": [
+        6.216,
+        -98.463,
+        -42.794
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 67,
+      "length_mm": 19.6,
+      "seed_mm": [
+        2.629,
+        -101.564,
+        -40.15
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 114,
+      "length_mm": 33.84,
+      "seed_mm": [
+        7.352,
+        -103.82,
+        -41.155
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 67,
+      "length_mm": 19.53,
+      "seed_mm": [
+        3.505,
+        -96.729,
+        -42.389
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 139,
+      "length_mm": 40.35,
+      "seed_mm": [
+        8.516,
+        -105.424,
+        -40.993
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 8,
+      "length_mm": 1.82,
+      "seed_mm": [
+        9.151,
+        -100.977,
+        -42.9
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 50,
+      "length_mm": 14.57,
+      "seed_mm": [
+        3.083,
+        -98.631,
+        -41.477
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 223,
+      "length_mm": 66.33,
+      "seed_mm": [
+        4.503,
+        -96.985,
+        -42.687
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 139,
+      "length_mm": 41.34,
+      "seed_mm": [
+        7.006,
+        -105.759,
+        -40.259
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 5,
+      "length_mm": 1.15,
+      "seed_mm": [
+        5.001,
+        -105.372,
+        -39.609
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 42,
+      "length_mm": 12.01,
+      "seed_mm": [
+        10.611,
+        -104.785,
+        -42.08
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 55,
+      "length_mm": 15.9,
+      "seed_mm": [
+        10.392,
+        -105.78,
+        -41.603
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "stall_near_wall",
+      "n": 178,
+      "length_mm": 52.05,
+      "seed_mm": [
+        7.764,
+        -107.863,
+        -39.74
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "exited_wall_region",
+      "n": 130,
+      "length_mm": 38.43,
+      "seed_mm": [
+        6.297,
+        -103.81,
+        -40.737
+      ]
+    },
+    {
+      "side": "R",
+      "reason": "reached_outlet",
+      "n": 64,
+      "length_mm": 18.78,
+      "seed_mm": [
+        9.054,
+        -102.333,
+        -42.416
+      ]
+    }
+  ]
+}

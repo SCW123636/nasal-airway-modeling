@@ -1,0 +1,48 @@
+{
+  "C1_pass": true,
+  "checks": {
+    "n_lines": {
+      "new": 107,
+      "ref": 107,
+      "equal": true
+    },
+    "reached_outlet": {
+      "new": 36,
+      "ref": 36,
+      "equal": true
+    },
+    "reasons": {
+      "new": {
+        "reached_outlet": 36,
+        "exited_wall_region": 44,
+        "stall_near_wall": 27
+      },
+      "ref": {
+        "reached_outlet": 36,
+        "exited_wall_region": 44,
+        "stall_near_wall": 27
+      },
+      "equal": true
+    },
+    "speed_min": {
+      "new": 0.0,
+      "ref": 0.0,
+      "equal": true
+    },
+    "speed_median": {
+      "new": 1.5079245567321777,
+      "ref": 1.5079245567321777,
+      "equal": true
+    },
+    "speed_max": {
+      "new": 3.231839895248413,
+      "ref": 3.231839895248413,
+      "equal": true
+    },
+    "n_points_total": {
+      "new": 9141,
+      "ref": 9141,
+      "equal": true
+    }
+  }
+}

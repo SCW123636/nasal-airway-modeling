@@ -581,6 +581,15 @@ def run_pressure_job(data, directory, manager, save, asset):
                 data['result']['viewer_export'] = export_patient_trial_viewer(directory,data['result'],asset,data)
             except Exception as exc:
                 data['result']['viewer_export_error'] = str(exc)
+        try:
+            from flow_streamlines import export_job_streamlines
+        except ImportError:
+            data['result']['streamlines_export_status'] = 'streamlines_adapter_pending'
+        else:
+            try:
+                data['result']['streamlines_export'] = export_job_streamlines(directory, data, asset, export)
+            except Exception as exc:
+                data['result']['streamlines_export_error'] = str(exc)
     if code or not summary.is_file():
         raise RuntimeError('真实压力求解退出码：' + str(code) + '；失败点不会进入反馈，原始证据保留')
     save(status='completed',stage='completed')

@@ -1,0 +1,44 @@
+{
+  "hand": {
+    "n_lines": 107,
+    "reasons": {
+      "reached_outlet": 36,
+      "exited_wall_region": 44,
+      "stall_near_wall": 27
+    },
+    "speed": {
+      "min": 0.0,
+      "median": 1.5079245567321777,
+      "max": 3.231839895248413
+    },
+    "length_mm": {
+      "median": 19.6,
+      "max": 96.86,
+      "p10": 1.764
+    },
+    "n_points": 9141
+  },
+  "vtk": {
+    "n_lines": 100,
+    "reasons": {
+      "reached_outlet": 31,
+      "exited_wall_region": 54,
+      "stall_near_wall": 15
+    },
+    "speed": {
+      "min": 0.0,
+      "median": 1.5308550596237183,
+      "max": 3.219104290008545
+    },
+    "length_mm": {
+      "median": 19.53,
+      "max": 77.82,
+      "p10": 1.736
+    },
+    "n_points": 2519,
+    "vtk_termination_codes": {
+      "1": 85,
+      "6": 15
+    }
+  }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITLE__</title>
+<style>
+:root{--ink:#23332f;--muted:#78817e;--line:#e4e9e6;--accent:#257861;--soft:#edf5f0;--warn:#99691e;--bad:#b64e43;--bg:#f5f7f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif}
+code{font:11.5px ui-monospace,Consolas,monospace;background:var(--soft);padding:1px 5px;border-radius:4px}
+.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:16px 22px 10px}
+.crumb{font-size:11px;color:var(--muted);width:100%}
+.badges{margin-left:auto;display:flex;gap:6px}
+.badge{font-size:10px;padding:3px 8px;border-radius:5px;background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+.badge.warn{background:#fff4de;color:var(--warn);border-color:#ecd9b0}
+h1{font-size:19px;margin:0;font-weight:650}
+.sub{width:100%;font-size:12px;color:var(--muted);margin:2px 0 0}
+.honesty{margin:4px 22px 0;border:1px solid #ecd9b0;background:#fffaf0;border-radius:8px;font-size:12px;color:#7a6a45}
+.honesty summary{cursor:pointer;padding:9px 13px;font-weight:600;color:var(--warn)}
+.honesty ol{margin:0;padding:0 20px 12px 32px}
+.honesty li{margin:5px 0;line-height:1.7}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:14px;padding:12px 22px 20px;align-items:start}
+.stage{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.stage-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid var(--line)}
+.stage-bar .spacer{flex:1}
+button{background:#fff;border:1px solid var(--line);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;color:var(--ink)}
+button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+#view{height:min(70vh,760px);min-height:420px;background:#eef3f1}
+.stage-foot{padding:8px 12px;font-size:11px;color:var(--muted);border-top:1px solid var(--line)}
+aside{display:grid;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h2{font-size:13px;margin:0 0 10px;font-weight:650}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{background:var(--soft);border:1px solid #d9e9df;border-radius:7px;padding:9px 11px}
+.stat-v{font-size:16px;font-weight:650;color:#315342}
+.stat-k{font-size:10px;color:var(--muted);margin-top:2px}
+.stat-n{font-size:10px;color:#8fa398;margin-top:1px}
+.facts{margin:12px 0 0;display:grid;gap:0}
+.fr{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;padding:7px 0;border-bottom:1px solid #f0f3f0;font-size:12px}
+.fr:last-child{border-bottom:0}
+dt{color:var(--muted)}
+dd{margin:0;overflow-wrap:anywhere}
+.ctrl{display:grid;gap:10px}
+.ctrl .group{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ctrl .lbl{font-size:11px;color:var(--muted);width:52px;flex:none}
+label.sw{display:flex;gap:5px;align-items:center;font-size:12px;cursor:pointer}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.bar{height:11px;border-radius:6px;margin:8px 0 2px}
+.legend{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.swatches{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;margin-top:8px}
+.sw{display:flex;gap:5px;align-items:center}
+.sw i{width:10px;height:10px;border-radius:2px;display:inline-block}
+#hist{display:block;width:100%;height:auto;background:#fafcfb;border:1px solid var(--line);border-radius:6px}
+.hcap{font-size:11px;color:var(--muted);margin:6px 0 4px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header class="top">
+  <div class="crumb">__CRUMB__</div>
+  <h1>__TITLE__</h1>
+  <div class="badges">__BADGES__</div>
+  <p class="sub">__SUB__</p>
+</header>
+<details class="honesty">
+  <summary>诚实声明（务必先读）：__HONESTY_SUMMARY__</summary>
+  <ol>__HONESTY__</ol>
+</details>
+<main class="layout">
+  <section class="stage">
+    <div class="stage-bar">
+      <button id="bPersp" class="on">透视</button><button id="bFront">正视</button>
+      <button id="bSide">侧视</button><button id="bTop">俯视</button>
+      <button id="bSpin">自动旋转</button>
+      <span class="spacer"></span>
+      <button id="bSpeed" class="on">按速度着色</button><button id="bPress">按静压着色</button>
+    </div>
+    <div id="view"></div>
+    <div class="stage-foot">左键拖动旋转 · 滚轮缩放 · 右键拖动平移。__FOOTNOTE__</div>
+  </section>
+  <aside>
+    <section class="card"><h2>本次读数</h2><div class="stats">__STATS__</div><dl class="facts">__FACTS__</dl></section>
+    <section class="card"><h2>显示控制</h2>
+      <div class="ctrl">
+        <div class="group"><span class="lbl">开关</span>
+          <label class="sw"><input type="checkbox" id="cWall" checked>壁面</label>
+          <label class="sw"><input type="checkbox" id="cAxis" checked>坐标尺</label>
+          <label class="sw"><input type="checkbox" id="cL" checked>左</label>
+          <label class="sw"><input type="checkbox" id="cR" checked>右</label>
+          <label class="sw"><input type="checkbox" id="cOut" checked>出口加粗</label>
+        </div>
+        <div class="group"><span class="lbl">壁面透明</span><input type="range" id="rOpacity" min="2" max="60" value="20"></div>
+        <div class="group"><span class="lbl">流线比例</span><input type="range" id="rLines" min="10" max="100" value="100"></div>
+        <div class="bar" id="bar"></div>
+        <div class="legend"><span id="lgMin"></span><span id="cbarTitle">速度 |U| (m/s)</span><span id="lgMax"></span></div>
+      </div>
+    </section>
+    <section class="card"><h2>流线在腔内的长度分布</h2>
+      <div class="hcap">共 __NLINES__ 条，抵达鼻咽出口 __NREACH__ 条（占 __PCT__%）；纵轴 = 条数。</div>
+      <canvas id="hist"></canvas>
+      <div class="swatches">
+        <span class="sw"><i style="background:#d62728"></i>左鼻孔</span>
+        <span class="sw"><i style="background:#1f77b4"></i>右鼻孔</span>
+        <span class="sw"><i style="background:#2ca02c"></i>鼻咽出口</span>
+        <span class="sw"><i style="background:#8d9bab"></i>坐标尺(mm)</span>
+      </div>
+    </section>
+  </aside>
+</main>
+<script>__THREEJS__</script>
+<script>const DATA = __DATA__;</script>
+<script>__APP__</script>
+</body></html>
