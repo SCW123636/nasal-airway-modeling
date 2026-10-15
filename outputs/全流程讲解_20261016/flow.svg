@@ -1,0 +1,46 @@
+<svg viewBox="0 0 680 816" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>nasal-cfd 全链路流水线与三道闸门</title>
+<desc>从 DICOM 选序列、分割、点位提案、建表面、开口定位，经过入口验收与表面四门禁，进入体网格与 simpleFoam 求解，最后由 CFD 契约与双轨出口判据裁定。</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<rect x="40" y="40" width="600" height="264" rx="20" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="60" y="62" font-family="sans-serif" font-size="14" font-weight="500" fill="#0C447C">阶段一 · 几何流水线（DCM → 带开口的开表面）</text>
+<rect x="60" y="76" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="76" y="94" font-family="sans-serif" font-size="13" fill="#0C447C" dominant-baseline="central">① 选序列 · batch27_series_choice（N1：轴位原始 / in-plane ≤0.8mm）</text>
+<rect x="60" y="120" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="76" y="138" font-family="sans-serif" font-size="13" fill="#0C447C" dominant-baseline="central">② 分割 · TotalSegmentator head_glands_cavities（N2/N3：三标签非空）</text>
+<rect x="60" y="164" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="76" y="182" font-family="sans-serif" font-size="13" fill="#0C447C" dominant-baseline="central">③ 点位提案 · auto_anatomy_landmarks（坐标系 + 射线投票 + 共享面拟合）</text>
+<rect x="60" y="208" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="76" y="226" font-family="sans-serif" font-size="13" fill="#0C447C" dominant-baseline="central">④ 建表面 · 三标签并集 ∩ HU&lt;−300 → marching cubes（N4：boundary_edges=0）</text>
+<rect x="60" y="252" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#85B7EB" stroke-width="0.5"/>
+<text x="76" y="270" font-family="sans-serif" font-size="13" fill="#0C447C" dominant-baseline="central">⑤ 开口定位 v2 · 按生产 cap 面积二分（N6：鼻孔 80 / 出口 250 mm²）</text>
+<path d="M340 304 L340 330" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="336" width="290" height="88" rx="12" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text x="60" y="362" font-family="sans-serif" font-size="14" font-weight="500" fill="#854F0B" dominant-baseline="central">G1 · 入口验收 N1–N6</text>
+<text x="60" y="384" font-family="sans-serif" font-size="12" fill="#BA7517" dominant-baseline="central">任一不满足 → escalated 转人工</text>
+<text x="60" y="402" font-family="sans-serif" font-size="12" fill="#BA7517" dominant-baseline="central">b01–b24 默认 21 例 auto_pass</text>
+<rect x="350" y="336" width="290" height="88" rx="12" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text x="370" y="362" font-family="sans-serif" font-size="14" font-weight="500" fill="#854F0B" dominant-baseline="central">G2 · 表面四门禁 surface_gate</text>
+<text x="370" y="384" font-family="sans-serif" font-size="12" fill="#BA7517" dominant-baseline="central">watertight / volume_conserved</text>
+<text x="370" y="402" font-family="sans-serif" font-size="12" fill="#BA7517" dominant-baseline="central">openings ≥10 mm² / patch 变化 ≤2%</text>
+<path d="M340 424 L340 450" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="456" width="600" height="220" rx="20" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="60" y="478" font-family="sans-serif" font-size="14" font-weight="500" fill="#085041">阶段二 · 体网格与求解（WSL native FS，CPU 独占车道）</text>
+<rect x="60" y="492" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#5DCAA5" stroke-width="0.5"/>
+<text x="76" y="510" font-family="sans-serif" font-size="13" fill="#085041" dominant-baseline="central">⑥ Netgen 体网格 · maxh 1.0 → 1,161,194 cells（patch 按平面几何识别 + 面积对账）</text>
+<rect x="60" y="536" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#5DCAA5" stroke-width="0.5"/>
+<text x="76" y="554" font-family="sans-serif" font-size="13" fill="#085041" dominant-baseline="central">⑦ gmshToFoam → polyMesh</text>
+<rect x="60" y="580" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#5DCAA5" stroke-width="0.5"/>
+<text x="76" y="598" font-family="sans-serif" font-size="13" fill="#085041" dominant-baseline="central">⑧ checkMesh -allGeometry -allTopology（Mesh OK 已降为记录项）</text>
+<rect x="60" y="624" width="560" height="36" rx="8" fill="#FFFFFF" stroke="#5DCAA5" stroke-width="0.5"/>
+<text x="76" y="642" font-family="sans-serif" font-size="13" fill="#085041" dominant-baseline="central">⑨ simpleFoam · 预设 S-A（nNonOrthCorr 2 + U 0.7 + p 0.3 + grad cellLimited）</text>
+<path d="M340 676 L340 702" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="40" y="708" width="600" height="88" rx="12" fill="#FAEEDA" stroke="#BA7517" stroke-width="0.5"/>
+<text x="60" y="734" font-family="sans-serif" font-size="14" font-weight="500" fill="#854F0B" dominant-baseline="central">G3 · CFD 契约 + M1/M2 双轨出口判据</text>
+<text x="60" y="756" font-family="sans-serif" font-size="12" fill="#BA7517" dominant-baseline="central">主判据：不崩 / Δp 入 10–100 Pa / 不平衡 ≤0.5% / 监测量稳定</text>
+<text x="60" y="774" font-family="sans-serif" font-size="12" fill="#BA7517" dominant-baseline="central">记录项：residualControl 未达 → numerical_validation = unchecked</text>
+</svg>
