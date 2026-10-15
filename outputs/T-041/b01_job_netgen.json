@@ -1,0 +1,13 @@
+{
+  "stl": "C:\\ts_work\\t041_b01\\b01_patches_ascii.stl",
+  "out": "D:\\项目\\鼻腔建模\\outputs\\T-041\\b01_netgen",
+  "unit_scale": 1.0,
+  "target_edge_mm": 0.7,
+  "mesher": "netgen",
+  "volume_scale": 1.0,
+  "boundary_layer": false,
+  "remesh_surface": false,
+  "sublayers": 2,
+  "bl_factor": 0.25,
+  "note": "b01 (auto_pass). STL already in MILLIMETRES (vtp_to_stl docstring), so unit_scale=1.0 - NOT 1000 as for chali. remesh_surface=false: VMTK surface remesh proved non-robust on organic surfaces (non-manifold edges). mesher=netgen = project's preferred kernel. target_edge 0.7mm: on chali, 0.7 beat 1.0 (det<0.001 0.94%->0.58%, aspect 2107->130, Failed 6->5). Area anchors to verify labels after meshing: nostril_L 80.082608, nostril_R 80.081077, nasopharynx_outlet 251.733888 mm2 (bit-identical to project baseline b01 = 80.08/80.08/251.73)."
+}
