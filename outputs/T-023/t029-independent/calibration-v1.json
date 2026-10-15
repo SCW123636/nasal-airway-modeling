@@ -1,0 +1,447 @@
+{
+  "schema": "t023_terminal_checker_calibration/v1",
+  "at": "2026-10-15T11:21:19.654050+00:00",
+  "checker_sha256": "cf6624f9ddd26a81c6d4786ef78031cf283ce21acc2cb304aea9d269eeba9392",
+  "controls": [
+    {
+      "actual_steps": [
+        {
+          "command": [
+            "blockMesh"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001/log.blockMesh"
+        },
+        {
+          "command": [
+            "checkMesh",
+            "-allGeometry",
+            "-allTopology"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001/log.checkMesh"
+        },
+        {
+          "command": [
+            "simpleFoam"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001/log.simpleFoam"
+        },
+        {
+          "command": [
+            "foamToVTK",
+            "-latestTime",
+            "-ascii",
+            "-fields",
+            "(p U)"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001/log.foamToVTK"
+        }
+      ],
+      "planned_steps": [
+        "blockMesh",
+        "checkMesh",
+        "simpleFoam",
+        "foamToVTK"
+      ],
+      "not_executed_steps": [],
+      "failed_command": null,
+      "raw_failed_exit_code": null,
+      "execution_reconstructed": true,
+      "legacy_failed_step_missing_from_manifest": false,
+      "new_failed_step_recording_required": false,
+      "manifest_execution_status": "completed",
+      "source_case": "C:\\ts_work\\project_cases\\simulation_jobs\\s_1811f735241e4d75b5fdf10e\\export\\s_1811f735241e4d75b5fdf10e\\symmetric\\evaluations\\eval_001",
+      "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001",
+      "last_started_iteration": "396",
+      "last_started_is_not_asserted_completed": true,
+      "solver_End": true,
+      "SIMPLE_convergence_banner": true,
+      "numeric_field_directories": [
+        "0",
+        "396"
+      ],
+      "internal_vtu_paths": [
+        "VTK/eval_001_396/internal.vtu"
+      ],
+      "mesh_failed_checks": [],
+      "source_file_sha256": {
+        "run_manifest.json": "8323dfd38b0478d5f2ce0cc789cfff66bcad22695ce06d3d75d5c938b95d97a6",
+        "run_status.json": "51817364a0eb42843b9d74d47514f68d32b74ae15061cec5ab89e023c490f03a",
+        "execution.log": "b3de0860eb4564c9bd1bda11691a4f0b4f259bfdf854c91bd89f5b400048a9b7",
+        "log.blockMesh": "53b80fd1bf1e0e4dd7bab72b7c05561cd05ed44f4ddb57b77a535c091d4a9fb4",
+        "log.checkMesh": "308e723756798a85daa4fae8a760c5a138f87f2510a36bce061b20c93dd2f1a8",
+        "log.simpleFoam": "54cb27d465c7b7b62ecca88b4fc927b8eba254d953ef313ddeb7e2786cea11e0",
+        "log.foamToVTK": "19708009148017c5b3080c01121bee3547e2e5d6f38583702ff021821a81f7b1",
+        "396/p": "101d540e74750c93c97b0629611f676a6db6ae0ceabdfdb6c16e079988b45732",
+        "396/U": "c491df785bbad5f679b85f4cc419ea6d0d4c521b8694028b07a483617d0e8e02",
+        "396/phi": "ac5aa6a31a382ad14e0f26704dc76a9171c32e9417f0f761af48aa3aa668c223",
+        "VTK/eval_001_396/internal.vtu": "cf00598bf60c5da6e8c1d2575440372d4b4b2ae42e593211d14ba98e1d35af6d"
+      },
+      "patient_numerical_accepted": false,
+      "scope": "Read-only execution/absence/identity evidence; no convergence, patient target, clinical or Lead status grant",
+      "control_origin": {
+        "job_id": "s_1811f735241e4d75b5fdf10e",
+        "evaluation": "eval_001",
+        "patient_data": false
+      }
+    },
+    {
+      "actual_steps": [
+        {
+          "command": [
+            "blockMesh"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002/log.blockMesh"
+        },
+        {
+          "command": [
+            "checkMesh",
+            "-allGeometry",
+            "-allTopology"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002/log.checkMesh"
+        },
+        {
+          "command": [
+            "simpleFoam"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002/log.simpleFoam"
+        },
+        {
+          "command": [
+            "foamToVTK",
+            "-latestTime",
+            "-ascii",
+            "-fields",
+            "(p U)"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002/log.foamToVTK"
+        }
+      ],
+      "planned_steps": [
+        "blockMesh",
+        "checkMesh",
+        "simpleFoam",
+        "foamToVTK"
+      ],
+      "not_executed_steps": [],
+      "failed_command": null,
+      "raw_failed_exit_code": null,
+      "execution_reconstructed": true,
+      "legacy_failed_step_missing_from_manifest": false,
+      "new_failed_step_recording_required": false,
+      "manifest_execution_status": "completed",
+      "source_case": "C:\\ts_work\\project_cases\\simulation_jobs\\s_1811f735241e4d75b5fdf10e\\export\\s_1811f735241e4d75b5fdf10e\\symmetric\\evaluations\\eval_002",
+      "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002",
+      "last_started_iteration": "552",
+      "last_started_is_not_asserted_completed": true,
+      "solver_End": true,
+      "SIMPLE_convergence_banner": true,
+      "numeric_field_directories": [
+        "0",
+        "552"
+      ],
+      "internal_vtu_paths": [
+        "VTK/eval_002_552/internal.vtu"
+      ],
+      "mesh_failed_checks": [],
+      "source_file_sha256": {
+        "run_manifest.json": "602d895bc446202aa06fd2af667448a434ee74472cbc3c759e674f2990002888",
+        "run_status.json": "24ce224898368421a7ae628a21529de37e40aa647dfc866056fed4e1a3e09e07",
+        "execution.log": "86001d0b2b411785e1183727e7995863e198c760c90e6c891805959ee99a5330",
+        "log.blockMesh": "0c14c197e53b2ad03dca95f513256bea3b2e3b4c81eb50d582f60d78a63501d5",
+        "log.checkMesh": "c716f4959785383aec030728a13957493e271f1d42c68c761637a9dcea804526",
+        "log.simpleFoam": "98820a70da04bd4453bbf322e5200d84a678cc1bf1ae11d61e5a173565c9b90f",
+        "log.foamToVTK": "2c32a1ab46153d300b3e10a539a50c51f9ceb9b028f6fa690fa87864e2c60a63",
+        "552/p": "c85ea2f2841b4a3a7fb4e120801548cc3e277f3fffc30dac1db0a40abcbf918f",
+        "552/U": "4353261a3616b3a96f9930e8b8e52552db2c30d23321226c0b76c6074a2c42ae",
+        "552/phi": "2194741944d4bd8f543a3dcd347ae61e6ec686d941ec13a600fd68b1f811c16b",
+        "VTK/eval_002_552/internal.vtu": "1f7caa79af1f5aa3f3c3a7c5ed2a2a871054184e5e7cc81bc4887a7d66130250"
+      },
+      "patient_numerical_accepted": false,
+      "scope": "Read-only execution/absence/identity evidence; no convergence, patient target, clinical or Lead status grant",
+      "control_origin": {
+        "job_id": "s_1811f735241e4d75b5fdf10e",
+        "evaluation": "eval_002",
+        "patient_data": false
+      }
+    },
+    {
+      "actual_steps": [
+        {
+          "command": [
+            "blockMesh"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003/log.blockMesh"
+        },
+        {
+          "command": [
+            "checkMesh",
+            "-allGeometry",
+            "-allTopology"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003/log.checkMesh"
+        },
+        {
+          "command": [
+            "simpleFoam"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003/log.simpleFoam"
+        },
+        {
+          "command": [
+            "foamToVTK",
+            "-latestTime",
+            "-ascii",
+            "-fields",
+            "(p U)"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003/log.foamToVTK"
+        }
+      ],
+      "planned_steps": [
+        "blockMesh",
+        "checkMesh",
+        "simpleFoam",
+        "foamToVTK"
+      ],
+      "not_executed_steps": [],
+      "failed_command": null,
+      "raw_failed_exit_code": null,
+      "execution_reconstructed": true,
+      "legacy_failed_step_missing_from_manifest": false,
+      "new_failed_step_recording_required": false,
+      "manifest_execution_status": "completed",
+      "source_case": "C:\\ts_work\\project_cases\\simulation_jobs\\s_1811f735241e4d75b5fdf10e\\export\\s_1811f735241e4d75b5fdf10e\\symmetric\\evaluations\\eval_003",
+      "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003",
+      "last_started_iteration": "961",
+      "last_started_is_not_asserted_completed": true,
+      "solver_End": true,
+      "SIMPLE_convergence_banner": true,
+      "numeric_field_directories": [
+        "0",
+        "961"
+      ],
+      "internal_vtu_paths": [
+        "VTK/eval_003_961/internal.vtu"
+      ],
+      "mesh_failed_checks": [],
+      "source_file_sha256": {
+        "run_manifest.json": "3ff3bbaf2951a1b5ff80a59575b9122616806b9d6e74d4d0921d2b047e3a9ecd",
+        "run_status.json": "93b6cc86e47739b4c1bc5e11178c73e2d793cf68e7b91cc66ba6dc18630272d5",
+        "execution.log": "76a137a0b0088cd85f822c1f5da8ea0767b533460c3e5443d6285d454ae48584",
+        "log.blockMesh": "ea6b5a2c65e5e4cedf8df05073bb841b0faf9d969690f509e7ac3d21a7297f26",
+        "log.checkMesh": "eb8da678058edcd08cbf13482803dc45f1c7d54c8dbc83bb66faab9d5d188787",
+        "log.simpleFoam": "d948e91930ec07963ee1431f4c9b101ee3be18a9b34b49147ae839d59d5fa73e",
+        "log.foamToVTK": "2b22ceb852625522b96bf38ead0dd6a9c15f5b8b747061ee2101f443f1565afd",
+        "961/p": "f5ec3fcd3f800b15f2bbc4ec9cc41e867cdeb4ce766641ba2d7a2f96f3e1a29a",
+        "961/U": "52cccd571b9b64cdf166448ef22f5330661773f6c79e4e63ac4755682e4539b6",
+        "961/phi": "6c54695a57ae728b019a0adaf795a8aa01f23390ea9188b43a923278cee6ec9e",
+        "VTK/eval_003_961/internal.vtu": "9c80baea228e7a927f4a58eba9cf216fe44f9649d8e4099f89059c4c45f4f5da"
+      },
+      "patient_numerical_accepted": false,
+      "scope": "Read-only execution/absence/identity evidence; no convergence, patient target, clinical or Lead status grant",
+      "control_origin": {
+        "job_id": "s_1811f735241e4d75b5fdf10e",
+        "evaluation": "eval_003",
+        "patient_data": false
+      }
+    },
+    {
+      "actual_steps": [
+        {
+          "command": [
+            "blockMesh"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004/log.blockMesh"
+        },
+        {
+          "command": [
+            "checkMesh",
+            "-allGeometry",
+            "-allTopology"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004/log.checkMesh"
+        },
+        {
+          "command": [
+            "simpleFoam"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004/log.simpleFoam"
+        },
+        {
+          "command": [
+            "foamToVTK",
+            "-latestTime",
+            "-ascii",
+            "-fields",
+            "(p U)"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004/log.foamToVTK"
+        }
+      ],
+      "planned_steps": [
+        "blockMesh",
+        "checkMesh",
+        "simpleFoam",
+        "foamToVTK"
+      ],
+      "not_executed_steps": [],
+      "failed_command": null,
+      "raw_failed_exit_code": null,
+      "execution_reconstructed": true,
+      "legacy_failed_step_missing_from_manifest": false,
+      "new_failed_step_recording_required": false,
+      "manifest_execution_status": "completed",
+      "source_case": "C:\\ts_work\\project_cases\\simulation_jobs\\s_1811f735241e4d75b5fdf10e\\export\\s_1811f735241e4d75b5fdf10e\\symmetric\\evaluations\\eval_004",
+      "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004",
+      "last_started_iteration": "639",
+      "last_started_is_not_asserted_completed": true,
+      "solver_End": true,
+      "SIMPLE_convergence_banner": true,
+      "numeric_field_directories": [
+        "0",
+        "639"
+      ],
+      "internal_vtu_paths": [
+        "VTK/eval_004_639/internal.vtu"
+      ],
+      "mesh_failed_checks": [],
+      "source_file_sha256": {
+        "run_manifest.json": "725193928eff38114fdd8febade879878b43d75b1e4ccd28de1d38b62921db06",
+        "run_status.json": "7688a1086da27f5b26b3382f2d033ef808cb67e4aaf4abfe55e2db7ce40b5639",
+        "execution.log": "06b8f612195fde641ba97d083ffbe6237be6a064ff9e3962e06e0398a56e459d",
+        "log.blockMesh": "9234d051a48cefcf32f520008df85a9e2c2419e4d7f3f49ab91e0af5c728afa0",
+        "log.checkMesh": "90f353d5cc39bbddc09db5959b82853a779a7fb96888511926c7fd83de63ef3b",
+        "log.simpleFoam": "a0490df7b1d64c65c79b9801bb0c20011a91993933462154b597f90f26a0c8d4",
+        "log.foamToVTK": "93021e2688ae82488ff012f1f318649c837fea365dab7d3f09e3164e4071f27d",
+        "639/p": "4cebd9ca132a6f9f89f37c8f22e1ba75084faca469ec2d98b580266ecd143e55",
+        "639/U": "a2dc83af8acde68b67532ed1cd9a545fc6e0a528ddb591f05a8683285fa14c46",
+        "639/phi": "3fe6d9a4318d258f60dd965a11d343f7a16f3af52b7ccb7c8096466f50658b9b",
+        "VTK/eval_004_639/internal.vtu": "32cceff993428614b9caf4fda4845c4ddcb9631f63a853750e508b987eb75e75"
+      },
+      "patient_numerical_accepted": false,
+      "scope": "Read-only execution/absence/identity evidence; no convergence, patient target, clinical or Lead status grant",
+      "control_origin": {
+        "job_id": "s_1811f735241e4d75b5fdf10e",
+        "evaluation": "eval_004",
+        "patient_data": false
+      }
+    },
+    {
+      "actual_steps": [
+        {
+          "command": [
+            "checkMesh",
+            "-allGeometry",
+            "-allTopology"
+          ],
+          "exit_code": 0,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/log.checkMesh"
+        },
+        {
+          "command": [
+            "simpleFoam"
+          ],
+          "exit_code": -8,
+          "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/log.simpleFoam"
+        }
+      ],
+      "planned_steps": [
+        "checkMesh",
+        "simpleFoam",
+        "foamToVTK"
+      ],
+      "not_executed_steps": [
+        "foamToVTK"
+      ],
+      "failed_command": "simpleFoam",
+      "raw_failed_exit_code": -8,
+      "execution_reconstructed": true,
+      "legacy_failed_step_missing_from_manifest": true,
+      "new_failed_step_recording_required": false,
+      "manifest_execution_status": "failed",
+      "source_case": "C:\\ts_work\\project_cases\\simulation_jobs\\s_942fdbebfffd433c8fcec956\\export\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001",
+      "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+      "last_started_iteration": "223",
+      "last_started_is_not_asserted_completed": true,
+      "solver_End": false,
+      "SIMPLE_convergence_banner": false,
+      "numeric_field_directories": [
+        "0",
+        "200"
+      ],
+      "internal_vtu_paths": [],
+      "mesh_failed_checks": [
+        2
+      ],
+      "source_file_sha256": {
+        "run_manifest.json": "6ace3a98f84c09f798231553cc18e0a3ff68ef3f29ab4cef160fcf754cc92552",
+        "run_status.json": "796c669dfbf41e2a4f4eb63e1aaada29e3af3d729b7e8510cce65b97624a50b5",
+        "execution.log": "82e8d5d6fa2955475dcd1ea2359cecbec3f9b92c7c10a373c35627db50e891b3",
+        "log.checkMesh": "eb40d6f72fbb80cc5e16e2d5d214657e9015ac16f023085089b089bf19c15b29",
+        "log.simpleFoam": "4989d062c953098d773594e020b236c12fd1c6798b7eca9687e9e8715dde51e7"
+      },
+      "patient_numerical_accepted": false,
+      "scope": "Read-only execution/absence/identity evidence; no convergence, patient target, clinical or Lead status grant",
+      "control_origin": {
+        "job_id": "s_942fdbebfffd433c8fcec956",
+        "evaluation": "eval_001",
+        "patient_data": true,
+        "actual_patient_execution": "failed"
+      }
+    }
+  ],
+  "mutation_rejections": [
+    {
+      "name": "false_completed_status_on_actual_failure",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "name": "fabricated_post_failure_export_step",
+      "rejected": true,
+      "reason": "execution continued after failure"
+    },
+    {
+      "name": "manifest_exit_code_disagrees_with_raw",
+      "rejected": true,
+      "reason": "manifest/raw exit code disagreement"
+    },
+    {
+      "name": "omitted_successful_raw_step",
+      "rejected": true,
+      "reason": "manifest omits successful raw commands"
+    },
+    {
+      "name": "new_runner_cannot_omit_failed_step",
+      "rejected": true,
+      "reason": "new runner must record the failed command and its real exit code"
+    }
+  ],
+  "protected_originals_unchanged": {
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance.py": true,
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py": true,
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\patient-terminal-watch-v2\\final_audit.json": true,
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_942fdbebfffd433c8fcec956\\job.json": true
+  },
+  "calibration_passed": true,
+  "current_t029_job_bound": false,
+  "monitor_started": false,
+  "patient_numerical_accepted": false
+}
