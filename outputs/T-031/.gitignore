@@ -1,0 +1,3 @@
+# Fault fixtures copy already-frozen source/binary assets solely for refusal tests.
+# Keep them on disk; reproduce using independent_components.py rather than duplicate blobs in Git.
+runs/**/fixtures/

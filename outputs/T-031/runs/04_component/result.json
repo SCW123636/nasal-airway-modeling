@@ -1,0 +1,244 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "name": "exact five-case order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p0 known coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p0 not granted approval",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p0 generated identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p1 known coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p1 not granted approval",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p1 generated identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p2 known coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p2 not granted approval",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p2 generated identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p3 known coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p3 not granted approval",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p3 generated identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p3t1 known coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p3t1 not granted approval",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p3t1 generated identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unknown case 'p4'",
+      "passed": true,
+      "detail": "该病例没有冻结的咽部扩展候选；未加载默认病例"
+    },
+    {
+      "name": "unknown case 'p3t2'",
+      "passed": true,
+      "detail": "该病例没有冻结的咽部扩展候选；未加载默认病例"
+    },
+    {
+      "name": "unknown case 'u_fbca9137690e4837'",
+      "passed": true,
+      "detail": "该病例没有冻结的咽部扩展候选；未加载默认病例"
+    },
+    {
+      "name": "unknown case '../p3'",
+      "passed": true,
+      "detail": "该病例没有冻结的咽部扩展候选；未加载默认病例"
+    },
+    {
+      "name": "unknown case 'p3/../p0'",
+      "passed": true,
+      "detail": "该病例没有冻结的咽部扩展候选；未加载默认病例"
+    },
+    {
+      "name": "unknown case ''",
+      "passed": true,
+      "detail": "该病例没有冻结的咽部扩展候选；未加载默认病例"
+    },
+    {
+      "name": "asset allowlist ('p0', 'baseline.vertices.bin')",
+      "passed": true,
+      "detail": "显示资产不在只读允许清单中"
+    },
+    {
+      "name": "asset allowlist ('p3', '../manifest.json')",
+      "passed": true,
+      "detail": "显示资产不在只读允许清单中"
+    },
+    {
+      "name": "asset allowlist ('p3', 'ct-comparison.png/../../manifest.json')",
+      "passed": true,
+      "detail": "显示资产不在只读允许清单中"
+    },
+    {
+      "name": "asset allowlist ('p3', 'manifest.json')",
+      "passed": true,
+      "detail": "显示资产不在只读允许清单中"
+    },
+    {
+      "name": "asset allowlist ('p3', 'ct.nii.gz')",
+      "passed": true,
+      "detail": "显示资产不在只读允许清单中"
+    },
+    {
+      "name": "single voxel rotated LPS coordinates",
+      "passed": true,
+      "detail": [
+        [
+          8.800000190734863,
+          23.700000762939453,
+          42.75
+        ],
+        [
+          9.350000381469727,
+          23.700000762939453,
+          43.900001525878906
+        ],
+        [
+          8.800000190734863,
+          23.350000381469727,
+          43.900001525878906
+        ],
+        [
+          8.800000190734863,
+          24.049999237060547,
+          43.900001525878906
+        ],
+        [
+          8.25,
+          23.700000762939453,
+          43.900001525878906
+        ],
+        [
+          8.800000190734863,
+          23.700000762939453,
+          45.04999923706055
+        ]
+      ]
+    },
+    {
+      "name": "single voxel unaltered topology",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "inferior boundary remains open",
+      "passed": true,
+      "detail": {
+        "vertices": 36,
+        "triangles": 60,
+        "bounds_LPS_mm": [
+          [
+            12.05,
+            24.65,
+            37.0
+          ],
+          [
+            14.15,
+            26.85,
+            42.75
+          ]
+        ],
+        "float32_max_abs_error_mm": 1.5258789076710855e-06,
+        "open_boundary_edges": 10,
+        "source_voxels": 18,
+        "extraction": "vtkFlyingEdges3D binary isovalue 0.5; original-grid coordinates; no padding/smoothing/closing/component filtering"
+      }
+    },
+    {
+      "name": "empty mask",
+      "passed": true,
+      "detail": "空掩膜没有可显示的表面"
+    },
+    {
+      "name": "manifest pinned hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "p3 candidate fingerprints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline finite vertices and valid faces",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline original-grid half-index positions",
+      "passed": true,
+      "detail": 4.847844249411537e-05
+    },
+    {
+      "name": "baseline surface totals match manifest",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "baseline retains four components",
+      "passed": false,
+      "detail": {
+        "components": 7,
+        "open_edges": 0
+      }
+    }
+  ],
+  "exception": "Traceback (most recent call last):\n  File \"D:\\项目\\鼻腔建模\\outputs\\T-031\\independent_components.py\", line 76, in <module>\n    if name=='baseline':check('baseline retains four components',components==4 and len(open_edges)==0,{'components':components,'open_edges':len(open_edges)})\n  File \"D:\\项目\\鼻腔建模\\outputs\\T-031\\independent_components.py\", line 23, in check\n    if not condition: raise AssertionError(name)\nAssertionError: baseline retains four components\n"
+}

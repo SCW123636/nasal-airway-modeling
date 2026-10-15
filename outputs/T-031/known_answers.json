@@ -1,0 +1,33 @@
+{
+  "source": "T026 run04 frozen audit plus independently derived control coordinates",
+  "cases": {
+    "p0": {"inferior_air_voxels":2105,"hypopharynx_empty":true,"larynx_air_missing":true,"generated_candidate":false},
+    "p1": {"inferior_air_voxels":1348,"hypopharynx_empty":true,"larynx_air_missing":true,"generated_candidate":false},
+    "p2": {"inferior_air_voxels":926,"hypopharynx_empty":true,"larynx_air_missing":true,"generated_candidate":false},
+    "p3": {"inferior_air_voxels":930,"hypopharynx_empty":true,"larynx_air_missing":true,"generated_candidate":true},
+    "p3t1": {"inferior_air_voxels":905,"hypopharynx_empty":true,"larynx_air_missing":true,"generated_candidate":false}
+  },
+  "p3": {
+    "original_voxels":397783,
+    "extended_voxels":445592,
+    "added_voxels":47809,
+    "original_sha256":"c4b18d31fb55981d2d46e2695cc36b4a2e47a38cadf19286ecfd4c08bf8eff72",
+    "extended_sha256":"9e34656cd8cdc15fb06d2425d647940dba0bdf9761ebe27baeffac80282d6b52",
+    "patient_mapping":"unknown",
+    "coordinate_system":"LPS_mm",
+    "CFD_admitted":false,
+    "outlet_selected":false
+  },
+  "single_voxel_control": {
+    "note":"Expected coordinates derived algebraically, not with implementation under review. Interior voxel permits six axis half-index crossings for binary marching cubes.",
+    "array_axes":"zyx",
+    "size_xyz":[3,4,5],
+    "foreground_index_xyz":[1,2,3],
+    "spacing_xyz_mm":[0.7,1.1,2.3],
+    "origin_LPS_mm":[11,23,37],
+    "direction_row_major":[0,-1,0,1,0,0,0,0,1],
+    "center_LPS_mm":[8.8,23.7,43.9],
+    "axis_crossings_LPS_mm":[[8.8,23.35,43.9],[8.8,24.05,43.9],[9.35,23.7,43.9],[8.25,23.7,43.9],[8.8,23.7,42.75],[8.8,23.7,45.05]],
+    "bounds_LPS_mm":[[8.25,23.35,42.75],[9.35,24.05,45.05]]
+  }
+}
