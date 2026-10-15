@@ -1,0 +1,134 @@
+{
+  "case": {
+    "name": "t042_b15_extract"
+  },
+  "function_object_crosscheck": {
+    "nasopharynx_outlet": {
+      "flow_function": "flow_nasopharynx_outlet",
+      "pressure_function": "pressure_nasopharynx_outlet"
+    },
+    "nostril_L": {
+      "flow_function": "flow_nostril_L",
+      "pressure_function": "pressure_nostril_L"
+    },
+    "nostril_R": {
+      "flow_function": "flow_nostril_R",
+      "pressure_function": "pressure_nostril_R"
+    }
+  },
+  "generated_at": "2026-10-15T16:50:46+00:00",
+  "metrics": {
+    "converged": false,
+    "delta_p_pa": {
+      "p_in_kinematic": 8.571675559907064,
+      "p_out_kinematic": 0.0,
+      "source": "function_object_dat",
+      "value": 10.286010671888477
+    },
+    "magnitude_check": {
+      "band_pa": [
+        10.0,
+        20.0
+      ],
+      "value": "within_literature_band",
+      "warning": "sentinel band 10-20 Pa derives from an ENS (low-resistance) cohort (PMC8062271); it flags broken geometry/boundaries only and is NOT a pass criterion"
+    },
+    "mass_imbalance_frac": 5.272055999226699e-07,
+    "max_velocity_mps": {
+      "source": "vtk_internal_cell_U",
+      "value": 4.569027257461373
+    },
+    "nasal_valve_peak_mps": {
+      "reason": "no --valve-slice given; nasal valve plane is case-specific",
+      "status": "not_computed"
+    },
+    "outlet_flow_m3s": {
+      "value": 0.0002499998681986
+    },
+    "region_flow_fraction": {
+      "reason": "requires verified anatomic region labels; not available. Geometric proxies (z-slices, largest-component) are falsified and forbidden.",
+      "status": "not_computed"
+    },
+    "resistance_R": {
+      "value_pa_s_m3": 41144.042687553905,
+      "value_pa_s_ml": 0.04114404268755391
+    },
+    "split_ratio": {
+      "left_patch": "nostril_L",
+      "right_patch": "nostril_R",
+      "value": 0.5
+    },
+    "symmetry_phi": {
+      "left_patch": "nostril_L",
+      "right_patch": "nostril_R",
+      "value": 1.0
+    },
+    "total_flow_m3s": {
+      "source": "function_object_dat",
+      "value": 0.00025
+    },
+    "turbulence_intensity": {
+      "reason": "laminar run; no modeled turbulence intensity exists (never report 0%)",
+      "report_status": "not_applicable"
+    },
+    "wall_shear_force_n": {
+      "note": "wallShearStress is kinematic (m2/s2); multiplied by rho",
+      "value_n": 0.0
+    }
+  },
+  "per_patch": {
+    "nasopharynx_outlet": {
+      "area_m2": 0.0004876739730889718,
+      "p_area_weighted_kinematic": 0.0,
+      "role": "outlet",
+      "signed_flow_m3_s": 0.00024956028301971375
+    },
+    "nostril_L": {
+      "area_m2": 8.205240363280577e-05,
+      "p_area_weighted_kinematic": 7.375531132992683,
+      "role": "inlet",
+      "signed_flow_m3_s": -0.0001249999655880155
+    },
+    "nostril_R": {
+      "area_m2": 8.115320486652986e-05,
+      "p_area_weighted_kinematic": 9.781048325027774,
+      "role": "inlet",
+      "signed_flow_m3_s": -0.00012499772843918374
+    },
+    "wall": {
+      "area_m2": 0.01802393991162214,
+      "p_area_weighted_kinematic": 2.836349928403842,
+      "role": "wall",
+      "signed_flow_m3_s": 0.0
+    }
+  },
+  "pressure_note": "OpenFOAM p is kinematic (m2/s2); Pa values multiplied by rho",
+  "rho_kg_m3": 1.2,
+  "schema": "nasal_cfd_metrics/v1",
+  "script": {
+    "name": "extract_cfd_metrics.py",
+    "version": "1.0.0"
+  },
+  "solver": "laminar",
+  "source": {
+    "inputs_sha256": {
+      "VTK/b15_maxh1_600/boundary/nasopharynx_outlet.vtp": "9ab9f64be3f903996868de5ed554bf99327d6b755022eda2c8524480b3ff720d",
+      "VTK/b15_maxh1_600/boundary/nostril_L.vtp": "f28a262f55172a0258aab109017eb5e2ab518d2a2ae09a65e4cb2f55ca90cfc8",
+      "VTK/b15_maxh1_600/boundary/nostril_R.vtp": "5b27c4407406be12c59f0785b8edec6573a11d442ac47d186efa8f490494d535",
+      "VTK/b15_maxh1_600/boundary/wall.vtp": "39808b9416406eb196cc434bc18742143ff90d118aa592d0d6d2073ac41b20b2",
+      "VTK/b15_maxh1_600/internal.vtu": "4e25905d02c2e70ae9188c8ac4ce92fb6fb11095b39c8e22bbc4b07f19e4a6ae",
+      "log.simpleFoam": "ef66cd42702fd8ad7baa125e99339e3fbc1e6f3f5e970a82c57d1e612ddb0bbe"
+    },
+    "patches": [
+      "nasopharynx_outlet",
+      "nostril_L",
+      "nostril_R",
+      "wall"
+    ],
+    "run_manifest_present": false,
+    "vtk_time_dir": "b15_maxh1_600"
+  },
+  "warnings": [
+    "crosscheck flow on patch nasopharynx_outlet: vtk=0.00024956028301971375 vs functionObject=0.0002499998681986 (flow_nasopharynx_outlet)"
+  ]
+}

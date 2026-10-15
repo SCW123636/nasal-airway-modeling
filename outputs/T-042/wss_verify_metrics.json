@@ -1,0 +1,118 @@
+{
+  "case": {
+    "name": "poiseuille_ref"
+  },
+  "function_object_crosscheck": {
+    "inlet": {
+      "flow_function": "flowIn",
+      "pressure_function": "pressureIn"
+    },
+    "outlet": {
+      "flow_function": "flowOut",
+      "pressure_function": "pressureOut"
+    }
+  },
+  "generated_at": "2026-10-15T16:32:51+00:00",
+  "metrics": {
+    "converged": true,
+    "delta_p_pa": {
+      "p_in_kinematic": 0.1798993743019,
+      "p_out_kinematic": 0.0,
+      "source": "function_object_dat",
+      "value": 0.21587924916228
+    },
+    "magnitude_check": {
+      "band_pa": [
+        10.0,
+        20.0
+      ],
+      "value": "outside",
+      "warning": "sentinel band 10-20 Pa derives from an ENS (low-resistance) cohort (PMC8062271); it flags broken geometry/boundaries only and is NOT a pass criterion"
+    },
+    "mass_imbalance_frac": 0.0,
+    "max_velocity_mps": {
+      "source": "vtk_internal_cell_U",
+      "value": 0.1493810001045579
+    },
+    "nasal_valve_peak_mps": {
+      "reason": "no --valve-slice given; nasal valve plane is case-specific",
+      "status": "not_computed"
+    },
+    "outlet_flow_m3s": {
+      "value": 2e-07
+    },
+    "region_flow_fraction": {
+      "reason": "requires verified anatomic region labels; not available. Geometric proxies (z-slices, largest-component) are falsified and forbidden.",
+      "status": "not_computed"
+    },
+    "resistance_R": {
+      "value_pa_s_m3": 1079396.2458114,
+      "value_pa_s_ml": 1.0793962458114
+    },
+    "split_ratio": {
+      "reason": "single inlet patch; bilateral split undefined",
+      "status": "not_applicable"
+    },
+    "symmetry_phi": {
+      "reason": "single inlet patch; bilateral split undefined",
+      "status": "not_applicable"
+    },
+    "total_flow_m3s": {
+      "source": "function_object_dat",
+      "value": 2e-07
+    },
+    "turbulence_intensity": {
+      "reason": "laminar run; no modeled turbulence intensity exists (never report 0%)",
+      "report_status": "not_applicable"
+    },
+    "wall_shear_force_n": {
+      "note": "wallShearStress is kinematic (m2/s2); multiplied by rho",
+      "value_n": 4.321346295669202e-07
+    }
+  },
+  "per_patch": {
+    "inlet": {
+      "area_m2": 2.0000000000000008e-06,
+      "p_area_weighted_kinematic": 0.17989929999999998,
+      "role": "inlet",
+      "signed_flow_m3_s": -1.9999993999999999e-07
+    },
+    "outlet": {
+      "area_m2": 2.0000000000000008e-06,
+      "p_area_weighted_kinematic": 0.0,
+      "role": "outlet",
+      "signed_flow_m3_s": 2.0000024e-07
+    },
+    "walls": {
+      "area_m2": 8.000000000000035e-05,
+      "p_area_weighted_kinematic": 0.09005112800624968,
+      "role": "wall",
+      "signed_flow_m3_s": 0.0
+    }
+  },
+  "pressure_note": "OpenFOAM p is kinematic (m2/s2); Pa values multiplied by rho",
+  "rho_kg_m3": 1.2,
+  "schema": "nasal_cfd_metrics/v1",
+  "script": {
+    "name": "extract_cfd_metrics.py",
+    "version": "1.0.0"
+  },
+  "solver": "laminar",
+  "source": {
+    "inputs_sha256": {
+      "VTK/t042_wss_verify_155/boundary/inlet.vtp": "2706d1697fbe64be6346937d6e484fffc1a635657ac1e21c53ae0a99c1283145",
+      "VTK/t042_wss_verify_155/boundary/outlet.vtp": "a53bf45d9d84dd5cd73ce5ae7bfc6cb6797aa661672a89d90026a7afcd69e8fc",
+      "VTK/t042_wss_verify_155/boundary/walls.vtp": "9a6617a7af405986bea554c0b1e85e5a81dd2b09691de5cfa0f20ac163cdd6dc",
+      "VTK/t042_wss_verify_155/internal.vtu": "7c8a4b9a31a0223320e866440c089d2f21068c33a7d1ad9bbdea63e9e4800635",
+      "log.simpleFoam": "ec007d987c1479be426c29ec23361cbb93041ca3effca09ab4332d2356fae15e"
+    },
+    "patches": [
+      "inlet",
+      "outlet",
+      "walls"
+    ],
+    "run_manifest_present": false,
+    "vtk_time_dir": "t042_wss_verify_155"
+  },
+  "warnings": []
+}

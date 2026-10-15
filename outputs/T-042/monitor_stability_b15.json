@@ -1,0 +1,68 @@
+{
+  "case": "/home/lenovo2/patient_cfd/b15_maxh1",
+  "rho_kg_m3": 1.2,
+  "areas_m2": {
+    "nostril_L": 8.205240363280577e-05,
+    "nostril_R": 8.115320486652986e-05
+  },
+  "dp_definition": "area-weighted mean nostril static pressure minus nasopharmacy outlet static pressure, x rho",
+  "resume_only": {
+    "monitor_relative_change": 8.872163742761937e-05,
+    "n_samples": 400,
+    "n_tail": 160,
+    "n_windows": 8,
+    "window_means_pa": [
+      10.284775067457653,
+      10.285126928283876,
+      10.285489533401755,
+      10.286021114576418,
+      10.285108602900047,
+      10.285354040385975,
+      10.285228398669094,
+      10.285229705637834
+    ]
+  },
+  "concatenated": {
+    "status": "not_computable",
+    "reason": "pre-kill pressureOut/0/surfaceFieldValue.dat is empty; no aligned pre-kill dP series exists (adapter's concatenation path assumes a fresh single-segment run)"
+  },
+  "final_dp_pa": 10.286010671888477,
+  "final_nostril_p_kinematic": {
+    "L": 7.375558044262,
+    "R": 9.781046370923
+  },
+  "flow_monitors": [
+    {
+      "patch": "flowInL",
+      "prior_mean": -0.00012500000000000003,
+      "latest_mean": -0.00012500000000000003,
+      "relative_change": 0.0
+    },
+    {
+      "patch": "flowInR",
+      "prior_mean": -0.00012500000000000003,
+      "latest_mean": -0.00012500000000000003,
+      "relative_change": 0.0
+    },
+    {
+      "patch": "flowOut",
+      "prior_mean": 0.00024999989822583994,
+      "latest_mean": 0.00024999980919772005,
+      "relative_change": 3.561127513540591e-07
+    }
+  ],
+  "mass_imbalance": {
+    "final": 5.272055999226699e-07,
+    "max_over_resume": 1.7389504001260464e-06,
+    "max_time": 229.0,
+    "n_samples": 400,
+    "definition": "|q_in - q_out| / q_in from per-patch sum(phi) dats, signed"
+  },
+  "log_continuity_global": {
+    "n": 400,
+    "first": -9.01698980292e-06,
+    "last": -6.66709320479e-06,
+    "max_abs": 2.19909363073e-05,
+    "note": "per-time-step predictor continuity error from the solver log; distinct from the boundary-flow imbalance above"
+  }
+}

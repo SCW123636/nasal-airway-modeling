@@ -1,0 +1,119 @@
+{
+  "check": "steady whole-domain momentum closure, patient b15 maxh1 (T-041 arm)",
+  "identity": "-F_p + F_w = F_m  (outward normals, rho=1.2, kinematic p and tau)",
+  "F_pressure_N": [
+    0.00013750188475115165,
+    -0.0008370766304172248,
+    0.0007260895676834364
+  ],
+  "F_momentum_flux_N": [
+    5.614491672689376e-06,
+    1.4328017461368779e-05,
+    -0.0006083608654222411
+  ],
+  "F_wall_shear_vector_N": [
+    0.00014002913979964645,
+    -0.0008219896017819206,
+    0.00012026648865093897
+  ],
+  "F_wall_shear_magnitude_integral_N": 0.0011019165435884144,
+  "expected_wall_shear_N": [
+    0.00014311637642384103,
+    -0.000822748612955856,
+    0.00011772870226119526
+  ],
+  "residual_tau_on_fluid_N": [
+    3.0872366241945827e-06,
+    -7.590111739353908e-07,
+    -2.5377863897437078e-06
+  ],
+  "residual_tau_by_fluid_N": [
+    0.0002831455162234875,
+    -0.0016447382147377766,
+    0.00023799519091213423
+  ],
+  "closure_rel_to_Fp": {
+    "tau_as_force_on_fluid": 0.003643056235077314,
+    "tau_as_force_by_fluid": 1.5097676405452376
+  },
+  "per_patch": {
+    "nostril_L": {
+      "pressure_force_N": [
+        0.00021516661649776246,
+        -0.00014422229129567248,
+        -0.0006617999294663568
+      ],
+      "momentum_flux_N": [
+        6.781329012649219e-05,
+        -4.5413478706984e-05,
+        -0.00021015393078054046
+      ],
+      "wall_shear_vector_N": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "faces_with_wss": 5020
+    },
+    "nostril_R": {
+      "pressure_force_N": [
+        -0.00032706137882220697,
+        -0.0003199266040556001,
+        -0.0008288639382032643
+      ],
+      "momentum_flux_N": [
+        -7.937823468416964e-05,
+        -7.754434371209206e-05,
+        -0.00020132588711105497
+      ],
+      "wall_shear_vector_N": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "faces_with_wss": 3431
+    },
+    "nasopharynx_outlet": {
+      "pressure_force_N": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "momentum_flux_N": [
+        1.7179436230366824e-05,
+        0.00013728583988044485,
+        -0.0001968810475306456
+      ],
+      "wall_shear_vector_N": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "faces_with_wss": 17545
+    },
+    "wall": {
+      "pressure_force_N": [
+        0.00024939664707559616,
+        -0.00037292773506595223,
+        0.0022167534353530575
+      ],
+      "momentum_flux_N": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_shear_vector_N": [
+        0.00014002913979964645,
+        -0.0008219896017819206,
+        0.00012026648865093897
+      ],
+      "faces_with_wss": 86822
+    }
+  },
+  "caveats": [
+    "closure/sanity check only, not a pass criterion",
+    "field not fully converged (residualControl unmet; converged=false)",
+    "discrete face integration; pressure-velocity coupling residual",
+    "wall patch pressure axial contribution included via per-face p"
+  ]
+}

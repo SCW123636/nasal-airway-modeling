@@ -1,0 +1,75 @@
+{
+  "source_vtp": "/home/lenovo2/t042_b15_wssfix/VTK/t042_b15_wssfix_600/boundary/wall.vtp",
+  "rho_kg_m3": 1.2,
+  "n_faces": 86822,
+  "tau_min_pa": 2.1405353981418383e-09,
+  "tau_max_pa": 4.168506360197872,
+  "tau_mean_pa": 0.07520313619751944,
+  "tau_median_pa": 0.04734231176029849,
+  "tau_p90_pa": 0.1483091480281075,
+  "tau_p99_pa": 0.5955989980145567,
+  "all_zero": false,
+  "histogram_pa": [
+    {
+      "lo_pa": 0.0,
+      "hi_pa": 0.01,
+      "faces": 17399,
+      "fraction": 0.2003985165050333
+    },
+    {
+      "lo_pa": 0.01,
+      "hi_pa": 0.02,
+      "faces": 8491,
+      "fraction": 0.09779779318605883
+    },
+    {
+      "lo_pa": 0.02,
+      "hi_pa": 0.05,
+      "faces": 19047,
+      "fraction": 0.21937988067540484
+    },
+    {
+      "lo_pa": 0.05,
+      "hi_pa": 0.1,
+      "faces": 22490,
+      "fraction": 0.25903572827163623
+    },
+    {
+      "lo_pa": 0.1,
+      "hi_pa": 0.2,
+      "faces": 14980,
+      "fraction": 0.17253691460689688
+    },
+    {
+      "lo_pa": 0.2,
+      "hi_pa": 0.5,
+      "faces": 3341,
+      "fraction": 0.03848103015364769
+    },
+    {
+      "lo_pa": 0.5,
+      "hi_pa": 1.0,
+      "faces": 678,
+      "fraction": 0.007809080647762088
+    },
+    {
+      "lo_pa": 1.0,
+      "hi_pa": 2.0,
+      "faces": 317,
+      "fraction": 0.003651148326461035
+    },
+    {
+      "lo_pa": 2.0,
+      "hi_pa": 5.0,
+      "faces": 79,
+      "fraction": 0.0009099076270991224
+    },
+    {
+      "lo_pa": 5.0,
+      "hi_pa": 1000000000.0,
+      "faces": 0,
+      "fraction": 0.0
+    }
+  ],
+  "force_integral_n": null
+}

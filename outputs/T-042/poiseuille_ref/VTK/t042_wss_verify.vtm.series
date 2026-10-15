@@ -1,0 +1,7 @@
+{
+  "file-series-version" : "1.0",
+  "files" : [
+    { "name" : "t042_wss_verify_0.vtm", "time" : 0 },
+    { "name" : "t042_wss_verify_155.vtm", "time" : 155 }
+  ]
+}

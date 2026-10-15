@@ -1,0 +1,36 @@
+{
+  "status": "error",
+  "reason": "no metrics json produced",
+  "steps": [
+    {
+      "step": "confirm_solver_finished",
+      "rc": 0,
+      "tail": "End\n\n0 200 400 600 "
+    },
+    {
+      "step": "postProcess -func wallShearStress",
+      "rc": 0,
+      "tail": "RC=0\n"
+    },
+    {
+      "step": "foamToVTK -ascii",
+      "rc": 0,
+      "tail": "RC=0\n"
+    },
+    {
+      "step": "build_symlink_scratch",
+      "rc": 1,
+      "tail": "ed to create symbolic link '/home/lenovo2/t042_b15_extract/' -> '': No such file or directory\nln: failed to create symbolic link '/home/lenovo2/t042_b15_extract/' -> '': No such file or directory\nln: failed to create symbolic link '/home/lenovo2/t042_b15_extract/' -> '': No such file or directory\nln: failed to create symbolic link '/home/lenovo2/t042_b15_extract/' -> '': No such file or directory\n"
+    },
+    {
+      "step": "extract_cfd_metrics",
+      "rc": 0,
+      "tail": "extract_cfd_metrics error: missing required solver log: /home/lenovo2/t042_b15_extract/log.simpleFoam\n"
+    },
+    {
+      "step": "copy_json_back",
+      "rc": 1,
+      "tail": "cp: cannot stat '/home/lenovo2/t042_b15_metrics.json': No such file or directory\n"
+    }
+  ]
+}

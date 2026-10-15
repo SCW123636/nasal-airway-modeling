@@ -1,0 +1,11 @@
+{
+  "patch_map": {
+    "nostril_L": "inlet",
+    "nostril_R": "inlet",
+    "nasopharynx_outlet": "outlet",
+    "wall": "wall"
+  },
+  "note": "T-042 b15 maxh1 (T-041 fixed 50:50 arm). Roles verified from case 0/ boundary conditions: 0/U nostril_L and nostril_R are flowRateInletVelocity (volumetricFlowRate constant 0.000125 each = 7.5 L/min per side, 15 L/min total, 50:50); 0/p nasopharynx_outlet is fixedValue uniform 0 (gauge); wall is noSlip. Without this manifest extract_cfd_metrics.py name heuristics classify nostril_* as wall (no 'inlet' substring) and abort.",
+  "arm": "fixed_50_50_split",
+  "comparable_with": "T-006 only (not T-021/T-029 common-static-pressure arm)"
+}

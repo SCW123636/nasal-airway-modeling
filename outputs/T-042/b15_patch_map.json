@@ -1,0 +1,19 @@
+{
+  "case": "b15_maxh1",
+  "patch_map": {
+    "nostril_L": "inlet",
+    "nostril_R": "inlet",
+    "nasopharynx_outlet": "outlet",
+    "wall": "wall"
+  },
+  "role_evidence": {
+    "source_files": ["0/U", "0/p"],
+    "nostril_L": "0/U boundaryField: type flowRateInletVelocity; volumetricFlowRate constant 0.000125 (velocity inlet, 125 mL/s)",
+    "nostril_R": "0/U boundaryField: type flowRateInletVelocity; volumetricFlowRate constant 0.000125 (velocity inlet, 125 mL/s)",
+    "nasopharynx_outlet": "0/p boundaryField: type fixedValue; value uniform 0 (gauge pressure outlet, T-006/T-041 口径); 0/U: zeroGradient",
+    "wall": "0/U boundaryField: type noSlip"
+  },
+  "why_this_file_exists": "extract_cfd_metrics.infer_roles maps patches by name substring ('inlet'/'outlet'); nostril_L/nostril_R contain neither and would be misclassified as wall, leaving the case with zero inlet patches and a hard fail. The boundary-condition types quoted above are the objective evidence for the roles; there is no discretion involved.",
+  "runtime_selfcheck": "extract_b15_metrics.py re-greps 0/U and 0/p before extraction and aborts if the BC counts do not match this manifest (2 flowRateInletVelocity + 1 noSlip + 1 zeroGradient in 0/U, 1 fixedValue in 0/p). The guard fired once already, on a wrong expectation vector written by the author, and correctly refused to extract.",
+  "scope": "lives only in the extraction scratch dir (/home/lenovo2/t042_b15_extract); the real case is never given this file"
+}

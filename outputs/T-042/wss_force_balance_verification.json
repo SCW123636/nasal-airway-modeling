@@ -1,0 +1,54 @@
+{
+  "verdict": "PASS",
+  "tolerance_rel": 0.02,
+  "rel_error": 0.0008711611788066069,
+  "known_answer": {
+    "identity": "sum(|tau_kin| * dA) = delta_p_kin * A_cross (axial force balance)",
+    "source": "steady fully-developed plane Poiseuille; grid-independent",
+    "A_cross_m2": 2e-06,
+    "delta_p_pa": 0.21587924916228,
+    "delta_p_kinematic": 0.1798993743019,
+    "expected_kinematic_integral": 3.597987486038e-07
+  },
+  "computed": {
+    "wall_shear_force_n": 4.321346295669202e-07,
+    "kinematic_integral": 3.6011219130576684e-07
+  },
+  "case": {
+    "delta_p_pa": 0.21587924916228,
+    "mass_imbalance_frac": 0.0,
+    "converged": true
+  },
+  "steps": [
+    {
+      "step": "copy_reference_case_to_T-042",
+      "rc": 0,
+      "note": "shared reference case left untouched"
+    },
+    {
+      "step": "copy_case_to_native_fs",
+      "rc": 0,
+      "tail": "COPIED\n"
+    },
+    {
+      "step": "postProcess -func wallShearStress",
+      "rc": 0,
+      "tail": "RC=0\n"
+    },
+    {
+      "step": "foamToVTK -ascii",
+      "rc": 0,
+      "tail": "RC=0\n"
+    },
+    {
+      "step": "copy_vtk_back",
+      "rc": 0,
+      "tail": "CPOUT\n"
+    },
+    {
+      "step": "extract_cfd_metrics",
+      "rc": 0,
+      "tail": "{\"out\": \"D:\\\\项目\\\\鼻腔建模\\\\outputs\\\\T-042\\\\wss_verify_metrics.json\", \"delta_p_pa\": 0.21587924916228, \"converged\": true, \"mass_imbalance_frac\": 0.0}\n"
+    }
+  ]
+}

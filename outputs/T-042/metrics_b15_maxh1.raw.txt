@@ -1,0 +1,71 @@
+{
+  "status": "ok",
+  "reason": "reproduced bit-for-bit",
+  "steps": [
+    {
+      "step": "confirm_solver_finished",
+      "rc": 0,
+      "tail": "End\n\n"
+    },
+    {
+      "step": "verify_bc_counts_for_manifest",
+      "rc": 0,
+      "tail": "2\n1\n1\n1\n"
+    },
+    {
+      "step": "probe_fixcase_ready",
+      "rc": 0,
+      "tail": "REBUILD\nbash: line 1: cd: /home/lenovo2/t042_b15_wssfix: No such file or directory\n"
+    },
+    {
+      "step": "copy_case_without_vtk",
+      "rc": 0,
+      "tail": "COPIED\n"
+    },
+    {
+      "step": "patch_wall_type",
+      "rc": 0,
+      "tail": "patch_wall_type: patch 'wall' rewritten (physicalType dropped: True)\n--- before ---\n    wall\n    {\n        type            patch;\n        physicalType    patch;\n        nFaces          86822;\n        startFace       2270999;\n    }\n\n--- after ---\n    wall\n    {\n        type            wall;\n        inGroups        1(wall);\n        nFaces          86822;\n        startFace       2270999;\n    }\n\nboundary md5 before: 0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135\nboundary md5 after:  6de2a131aff3b6f802de42cd409f702f54ea04a5771117cd00c1340ee94ac2a1\n"
+    },
+    {
+      "step": "verify_original_case_untouched",
+      "rc": 0,
+      "tail": "4\n"
+    },
+    {
+      "step": "resume_log_in_place",
+      "rc": 0,
+      "tail": "COPIED\n"
+    },
+    {
+      "step": "remap_function_object_dirs",
+      "rc": 0,
+      "tail": "flow_nasopharynx_outlet flow_nostril_L flow_nostril_R pressure_nasopharynx_outlet pressure_nostril_L pressure_nostril_R wallShearStress "
+    },
+    {
+      "step": "install_patch_map_manifest",
+      "rc": 0,
+      "tail": "COPIED\n"
+    },
+    {
+      "step": "postProcess -func wallShearStress",
+      "rc": 0,
+      "tail": "RC=0\n"
+    },
+    {
+      "step": "foamToVTK -ascii",
+      "rc": 0,
+      "tail": "RC=0\n"
+    },
+    {
+      "step": "extract_cfd_metrics",
+      "rc": 0,
+      "tail": "{\"out\": \"/home/lenovo2/t042_b15_wssfix_metrics.json\", \"delta_p_pa\": 10.286010671888477, \"converged\": false, \"mass_imbalance_frac\": 5.272055999226699e-07}\n"
+    },
+    {
+      "step": "copy_json_back",
+      "rc": 0,
+      "tail": "COPIED\n"
+    }
+  ]
+}
