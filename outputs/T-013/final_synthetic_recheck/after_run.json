@@ -1,0 +1,8 @@
+{
+  "finished": "2026-10-15T16:01:35.5705128+08:00",
+  "synthetic_exit_code": 0,
+  "unit_command": "python.exe -m unittest discover -s work/lib -p test_partitioned_surface.py -v",
+  "unit_exit_code": 0,
+  "probe_sha256_after": "C5A4DF30BF1A8B23CF235AA59A35D51891C2FB3BAAC68FA3DC88CCF2BCC0CF3D",
+  "probe_unchanged": true
+}

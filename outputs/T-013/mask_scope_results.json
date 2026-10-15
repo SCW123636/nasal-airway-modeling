@@ -1,0 +1,61 @@
+{
+  "purpose": "supplement existing real clip control; identify dead original vertices",
+  "fingerprints_before": {
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\mask_scope_check.py": "3c9336072e62e3465610806d3c2f9a5203e739247fe189340666f608ddceaf22",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\production_probe.py": "c5a4df30bf1a8b23cf235aa59a35d51891c2fb3baac68fa3dc88ccf2bcc0cf3d",
+    "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+    "D:\\项目\\鼻腔建模\\work\\lib\\auto_opening_pipeline.py": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+    "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"
+  },
+  "fingerprints_after": {
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\mask_scope_check.py": "3c9336072e62e3465610806d3c2f9a5203e739247fe189340666f608ddceaf22",
+    "D:\\项目\\鼻腔建模\\outputs\\T-013\\production_probe.py": "c5a4df30bf1a8b23cf235aa59a35d51891c2fb3baac68fa3dc88ccf2bcc0cf3d",
+    "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+    "D:\\项目\\鼻腔建模\\work\\lib\\auto_opening_pipeline.py": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+    "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"
+  },
+  "inputs_unchanged": true,
+  "trace": [
+    {
+      "plane": "nostril_L",
+      "original_mask_true": 899,
+      "current_mask_true": 899,
+      "appended_selected": 0,
+      "original_changed_total": 0,
+      "original_changed_live": 0,
+      "original_changed_dead": 0,
+      "old_true_new_false_live": 0,
+      "old_false_new_true_live": 0
+    },
+    {
+      "plane": "nostril_R",
+      "original_mask_true": 857,
+      "current_mask_true": 857,
+      "appended_selected": 0,
+      "original_changed_total": 0,
+      "original_changed_live": 0,
+      "original_changed_dead": 0,
+      "old_true_new_false_live": 0,
+      "old_false_new_true_live": 0
+    },
+    {
+      "plane": "nasopharynx_outlet",
+      "original_mask_true": 17922,
+      "current_mask_true": 16940,
+      "appended_selected": 774,
+      "original_changed_total": 1756,
+      "original_changed_live": 0,
+      "original_changed_dead": 1756,
+      "old_true_new_false_live": 0,
+      "old_false_new_true_live": 0
+    }
+  ],
+  "outcome": {
+    "exception": "SurfaceClipError",
+    "error": "nasopharynx_outlet: cutting plane intersects an earlier cap"
+  }
+}

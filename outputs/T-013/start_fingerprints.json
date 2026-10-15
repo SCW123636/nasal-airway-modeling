@@ -1,0 +1,129 @@
+{
+  "started": "2026-10-15T15:52:27.5382154+08:00",
+  "baseline_commit": "da28f543303e6fdcefdaf24bb81150b8be090e4a",
+  "lane": "serial lightweight diagnosis; no meshing or solver",
+  "dependencies": [
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py",
+      "sha256": "22ED0CA50031CB9DAE7EDDD18291792BAE7E151336B0C057768E9D9A2F481D7E",
+      "length": 12039,
+      "mtime": "2026-10-11T19:17:29.4421782+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\auto_opening_pipeline.py",
+      "sha256": "A5D6068CC7A1EACFFF1D00623EFC92F2BE7ED295053D3A5964F25EC60FFD2924",
+      "length": 35401,
+      "mtime": "2026-10-13T17:48:31.3339031+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py",
+      "sha256": "9E6F47E7584F78B4B6E6FC5BFE1FA12E993333A4B6B00F50D61A4B3504761364",
+      "length": 11359,
+      "mtime": "2026-10-12T22:00:58.5393380+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\test_partitioned_surface.py",
+      "sha256": "DD67A3248A9F3B309068CAE24DC1D750DCCB72D29A6C6CB51C5A5E68844FF3D8",
+      "length": 4719,
+      "mtime": "2026-10-08T12:49:51.6584151+08:00"
+    },
+    {
+      "path": "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp",
+      "sha256": "0CF50DF5BE494C0AE37244B1AE37C8E494704EDB32A022ACD1EAF6D5FEC5F267",
+      "length": 4216644,
+      "mtime": "2026-10-15T10:00:57.5755381+08:00"
+    }
+  ],
+  "landmarks": [
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\coarse_adjustment.json",
+      "sha256": "3EBAA9FF9B20231F7E77FE03FDE2FA911232D05A7FF74BB14A8528F139D2C573",
+      "length": 22285,
+      "mtime": "2026-10-15T10:00:44.3605334+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\coarse_localization.json",
+      "sha256": "B70F344B9179AE0BF7535ED1DB1F5B17879FF0B8613C137B11ECC271F6A7535E",
+      "length": 13442,
+      "mtime": "2026-10-15T10:00:44.3595333+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\entry_plane_check_p0.json",
+      "sha256": "D52E16A381C2677B71B72C60BE144E5577A725BF19B3E580DFEDB652B65428C4",
+      "length": 7761,
+      "mtime": "2026-10-02T15:18:46.5770617+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\entry_plane_check_p0.png",
+      "sha256": "9D7E4F1124B1F7AC320F6F07A6972CED98C411F5E5EE0075FB48679D4E24CA00",
+      "length": 109907,
+      "mtime": "2026-10-02T15:18:46.4426671+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json",
+      "sha256": "468FA6321D4E071E506EB855B45FAEAE16BFE9ACB9E02B83A5FD66568D215A3C",
+      "length": 80741,
+      "mtime": "2026-10-15T10:00:44.3585288+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.mrk.json",
+      "sha256": "42C55536B467405ACD588204A031AD94D1365A7CBE3241D33BF15FF8525C3709",
+      "length": 3417,
+      "mtime": "2026-10-15T10:00:44.3615342+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\nasopharynx_outlet.png",
+      "sha256": "18870E8BC08BE76A27106D9DFBD1D5244B2638379D312FC2A7D2DAC2536A45D2",
+      "length": 550293,
+      "mtime": "2026-10-15T10:00:47.1843292+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\nostril_L.png",
+      "sha256": "B0BD176EAF20EDD1060FC1BEA35C04CAB997FA58A311CEC39ADD2B57593EF3E9",
+      "length": 434324,
+      "mtime": "2026-10-15T10:00:46.8671671+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\nostril_R.png",
+      "sha256": "E5BD1431FB4E94EBC86FF0972306A901603761BE4E8F327E34EE02A2DB752BE5",
+      "length": 434475,
+      "mtime": "2026-10-15T10:00:47.0223863+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\posterior_choana_L.png",
+      "sha256": "771FC41DE7EF91B67513DC8FC7D916109D216601B13B96542D2FADC569DCCE72",
+      "length": 552321,
+      "mtime": "2026-10-15T10:00:46.9515624+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\posterior_choana_R.png",
+      "sha256": "4CF9C33D7A765744023C368E412211CC8ADC2E3D5031F1C32A6A66DA7073ED71",
+      "length": 554029,
+      "mtime": "2026-10-15T10:00:47.1014345+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\review_config_proposed.json",
+      "sha256": "6024135E09EB149B5BF780833DBD1C3EBB9CBADD397593B9E9BDC39CBB794029",
+      "length": 3997,
+      "mtime": "2026-10-15T10:00:44.3585288+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\review.png",
+      "sha256": "4EC7BF7475C0627FDF735889A9DA153B181EE9D7A235CE5B320A19EB598E9629",
+      "length": 2578726,
+      "mtime": "2026-10-15T10:00:46.7172551+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\legacy_entry_check_v1\\entry_plane_check_p0.json",
+      "sha256": "973546445EF151CF83AEE9E7EB365D892ECE597DCEAAB7CAA9CE77BE63FA517E",
+      "length": 7108,
+      "mtime": "2026-10-02T10:20:36.5457085+08:00"
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\legacy_entry_check_v1\\entry_plane_check_p0.png",
+      "sha256": "F3F09B1E8351B56612B785EA5A62936DD39F6A4093E89199BE443C64617D0E32",
+      "length": 105440,
+      "mtime": "2026-10-02T10:20:36.4149949+08:00"
+    }
+  ]
+}

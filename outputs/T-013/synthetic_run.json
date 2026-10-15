@@ -1,0 +1,5 @@
+{
+  "command": "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -u outputs/T-013/production_probe.py --synthetic",
+  "exit_code": 0,
+  "finished": "2026-10-15T15:55:59.8258334+08:00"
+}

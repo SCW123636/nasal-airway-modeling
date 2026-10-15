@@ -1,0 +1,5 @@
+{
+  "command": "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m unittest discover -s work/lib -p test_partitioned_surface.py -v",
+  "exit_code": 0,
+  "finished": "2026-10-15T15:58:56.8781559+08:00"
+}

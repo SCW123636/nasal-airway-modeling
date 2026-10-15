@@ -1,0 +1,273 @@
+{
+  "frozen_inputs": {
+    "C:\\ts_work\\batch27_surfaces\\b01\\source_surface.vtp": "89fc084c8e6211a777bd5b16d9934e2f20277397da576a855ef05e05df33f7e9",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b01\\landmarks.json": "5c8096e2544cb45617257b3b94c40efe370a5e3a7cbb8c58f7d872bd1fc69afa",
+    "C:\\ts_work\\batch27_opening\\b01\\auto_placed.vtp": "a50a4122d1918ca20aa70f42fa31243c458db09c0672e4ed49caa8dce9a1fa52"
+  },
+  "planes": {
+    "nostril_L": {
+      "normal_lps": [
+        0.06710172233885439,
+        0.1565970303687098,
+        0.9853804995730637
+      ],
+      "keep_positive": true,
+      "point_lps_mm": [
+        11.193051074610125,
+        -74.8017819018236,
+        -54.65524834486726
+      ],
+      "roi_lps_mm": {
+        "min": [
+          4.6285076905787905,
+          -82.20279554246378,
+          -57.445638317012104
+        ],
+        "max": [
+          17.417565899044366,
+          -65.50748924134683,
+          -50.945638317012104
+        ]
+      }
+    },
+    "nostril_R": {
+      "normal_lps": [
+        0.29109949505029703,
+        0.17099697427738947,
+        0.9412869481563206
+      ],
+      "keep_positive": true,
+      "point_lps_mm": [
+        -3.721897080647238,
+        -76.3208157585721,
+        -51.87396363073052
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -9.988937670106809,
+          -83.68170780478587,
+          -55.68205762550859
+        ],
+        "max": [
+          2.800120538358767,
+          -67.96296352683177,
+          -47.30705762550859
+        ]
+      }
+    },
+    "nasopharynx_outlet": {
+      "normal_lps": [
+        0.13212323551644625,
+        -0.09554076914460385,
+        0.9866181693380287
+      ],
+      "keep_positive": true,
+      "point_lps_mm": [
+        -5.735025127028745,
+        -8.798822356956917,
+        -47.76157772669032
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -20.765100905246484,
+          -20.733709621155253,
+          -51.97638355193304
+        ],
+        "max": [
+          7.64894967382456,
+          1.3326878073573214,
+          -43.28888355193304
+        ]
+      }
+    }
+  },
+  "offset_source": "exact plane recovered from stored labelled cap geometry",
+  "recorded_decision": "auto_pass",
+  "used_offsets_mm": {
+    "nostril_L": 0.2753906250000001,
+    "nostril_R": 0.16992187500000266,
+    "nasopharynx_outlet": 0.11718750000000354
+  },
+  "recorded_areas_mm2": {
+    "nostril_L": 80.08,
+    "nostril_R": 80.08,
+    "nasopharynx_outlet": 251.73
+  },
+  "baseline": {
+    "mode": "unchanged_production",
+    "production_api": "partitioned_surface.clip_and_cap",
+    "passed": true,
+    "qc": {
+      "schema": "partitioned_surface_draft/v1",
+      "technical_qc": {
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "duplicate_triangles": 0,
+        "degenerate_triangles": 0,
+        "surface_area_mm2": 17449.291830616,
+        "signed_volume_mm3": 21011.835708461498,
+        "triangles": 158494,
+        "vertices": 79247
+      },
+      "caps": {
+        "nostril_L": {
+          "schema": "planar_cap_qc/v1",
+          "method": "GEOS constrained Delaunay triangulation",
+          "shapely_version": "2.1.2",
+          "geos_version": "3.13.1",
+          "vtk_version": "9.3.1",
+          "coordinate_system": "LPS",
+          "unit": "mm",
+          "area_mm2": 80.08260763846192,
+          "expected_area_mm2": 80.08260763846188,
+          "contour_depths": [
+            0,
+            1
+          ],
+          "boundary_edges": 229,
+          "triangle_count": 229,
+          "technical_checks_passed": true,
+          "patient_solver_allowed": false,
+          "loops": 2,
+          "affected_source_triangles": 1093,
+          "interim_boundary_edges": 229
+        },
+        "nostril_R": {
+          "schema": "planar_cap_qc/v1",
+          "method": "GEOS constrained Delaunay triangulation",
+          "shapely_version": "2.1.2",
+          "geos_version": "3.13.1",
+          "vtk_version": "9.3.1",
+          "coordinate_system": "LPS",
+          "unit": "mm",
+          "area_mm2": 80.08107670508775,
+          "expected_area_mm2": 80.08107670508775,
+          "contour_depths": [
+            0,
+            0,
+            1
+          ],
+          "boundary_edges": 222,
+          "triangle_count": 220,
+          "technical_checks_passed": true,
+          "patient_solver_allowed": false,
+          "loops": 3,
+          "affected_source_triangles": 1092,
+          "interim_boundary_edges": 222
+        },
+        "nasopharynx_outlet": {
+          "schema": "planar_cap_qc/v1",
+          "method": "GEOS constrained Delaunay triangulation",
+          "shapely_version": "2.1.2",
+          "geos_version": "3.13.1",
+          "vtk_version": "9.3.1",
+          "coordinate_system": "LPS",
+          "unit": "mm",
+          "area_mm2": 251.73388846982584,
+          "expected_area_mm2": 251.73388846982618,
+          "contour_depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "boundary_edges": 670,
+          "triangle_count": 662,
+          "technical_checks_passed": true,
+          "patient_solver_allowed": false,
+          "loops": 4,
+          "affected_source_triangles": 2938,
+          "interim_boundary_edges": 670
+        }
+      },
+      "patch_triangle_counts": {
+        "wall": 157383,
+        "nostril_L": 229,
+        "nostril_R": 220,
+        "nasopharynx_outlet": 662
+      },
+      "coordinate_system": "LPS",
+      "unit": "mm",
+      "patient_solver_allowed": false,
+      "final_geometry_approved": false
+    },
+    "area_mm2": {
+      "nostril_L": {
+        "schema": "planar_cap_qc/v1",
+        "method": "GEOS constrained Delaunay triangulation",
+        "shapely_version": "2.1.2",
+        "geos_version": "3.13.1",
+        "vtk_version": "9.3.1",
+        "coordinate_system": "LPS",
+        "unit": "mm",
+        "area_mm2": 80.08260763846192,
+        "expected_area_mm2": 80.08260763846188,
+        "contour_depths": [
+          0,
+          1
+        ],
+        "boundary_edges": 229,
+        "triangle_count": 229,
+        "technical_checks_passed": true,
+        "patient_solver_allowed": false,
+        "loops": 2,
+        "affected_source_triangles": 1093,
+        "interim_boundary_edges": 229
+      },
+      "nostril_R": {
+        "schema": "planar_cap_qc/v1",
+        "method": "GEOS constrained Delaunay triangulation",
+        "shapely_version": "2.1.2",
+        "geos_version": "3.13.1",
+        "vtk_version": "9.3.1",
+        "coordinate_system": "LPS",
+        "unit": "mm",
+        "area_mm2": 80.08107670508775,
+        "expected_area_mm2": 80.08107670508775,
+        "contour_depths": [
+          0,
+          0,
+          1
+        ],
+        "boundary_edges": 222,
+        "triangle_count": 220,
+        "technical_checks_passed": true,
+        "patient_solver_allowed": false,
+        "loops": 3,
+        "affected_source_triangles": 1092,
+        "interim_boundary_edges": 222
+      },
+      "nasopharynx_outlet": {
+        "schema": "planar_cap_qc/v1",
+        "method": "GEOS constrained Delaunay triangulation",
+        "shapely_version": "2.1.2",
+        "geos_version": "3.13.1",
+        "vtk_version": "9.3.1",
+        "coordinate_system": "LPS",
+        "unit": "mm",
+        "area_mm2": 251.73388846982584,
+        "expected_area_mm2": 251.73388846982618,
+        "contour_depths": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "boundary_edges": 670,
+        "triangle_count": 662,
+        "technical_checks_passed": true,
+        "patient_solver_allowed": false,
+        "loops": 4,
+        "affected_source_triangles": 2938,
+        "interim_boundary_edges": 670
+      }
+    },
+    "array_sha256": {
+      "points": "0593905699ab3cbec2cc9b36099b6d35244d756db7f5b2da3f8d1a37562afa22",
+      "faces": "c7871ebc802357ef0e3105903905884db57409ca4b71d7eb6c16cc8f2036c9af",
+      "labels": "1aac294ecaf663d5323d43e2498793c5ee9df8398e7ec344ae789b2f71e639b7"
+    },
+    "duration_s": 6.032000000006519
+  }
+}

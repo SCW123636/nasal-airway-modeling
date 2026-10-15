@@ -1,0 +1,6 @@
+{
+  "started": "2026-10-15T16:01:33.5806361+08:00",
+  "probe_path": "D:\\项目\\鼻腔建模\\outputs\\T-013\\production_probe.py",
+  "probe_sha256": "C5A4DF30BF1A8B23CF235AA59A35D51891C2FB3BAAC68FA3DC88CCF2BCC0CF3D",
+  "command": "python.exe -u outputs/T-013/production_probe.py --synthetic --output outputs/T-013/final_synthetic_recheck"
+}

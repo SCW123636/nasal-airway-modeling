@@ -1,0 +1,5 @@
+{
+  "command": "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -u outputs/T-013/production_probe.py --cases p0 b01 b02 b21 b22 b23",
+  "exit_code": 0,
+  "finished": "2026-10-15T15:58:24.1058904+08:00"
+}

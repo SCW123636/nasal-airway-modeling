@@ -1,0 +1,7 @@
+{
+  "archived_real_cases_source": "D:\\项目\\鼻腔建模\\outputs\\T-013\\source_versions\\production_probe_real_cases_v1.py",
+  "sha256": "8d30796558ae3ff5de0fc50f252b0cc5adefe06a031a19644dcbaa02a383adc3",
+  "matches_real_run_end_fingerprint": true,
+  "reconstruction": "final source minus --output-only option; SHA exact matches recorded end fingerprint",
+  "limitation": "real_cases original invocation hashed source after completion, not before; current final recheck and mask_scope freeze own source before and after"
+}

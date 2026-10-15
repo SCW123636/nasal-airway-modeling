@@ -1,0 +1,186 @@
+{
+  "frozen_inputs": {
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"
+  },
+  "planes": {
+    "nostril_L": {
+      "point_lps_mm": [
+        -14.23892636399821,
+        -234.66605581608877,
+        -668.7812194994518
+      ],
+      "normal_lps": [
+        0.05254286626437138,
+        0.34250093981592394,
+        0.938047095528755
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -21.22860124707222,
+          -241.37465819716454,
+          -672.8899785876274
+        ],
+        "max": [
+          -6.740331619977951,
+          -225.83756160736084,
+          -663.9899786710739
+        ]
+      },
+      "keep_positive": true
+    },
+    "nostril_R": {
+      "point_lps_mm": [
+        -31.96022610617594,
+        -231.20129686104153,
+        -669.4075820062977
+      ],
+      "normal_lps": [
+        0.1351578997165248,
+        0.10054565511992941,
+        0.9857093452842587
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -38.70905062556267,
+          -238.92739528417587,
+          -671.8399786055088
+        ],
+        "max": [
+          -24.919998973608017,
+          -222.69108071923256,
+          -665.0399786531925
+        ]
+      },
+      "keep_positive": true
+    },
+    "nasopharynx_outlet": {
+      "point_lps_mm": [
+        -11.516358289822167,
+        -158.33160182579724,
+        -666.2174786671997
+      ],
+      "normal_lps": [
+        -0.01707989877602829,
+        0.0004106188129102406,
+        0.9998540435733564
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -23.675864160060883,
+          -168.30637979507446,
+          -669.2149786502123
+        ],
+        "max": [
+          0.9510661065578461,
+          -147.52514839172363,
+          -664.1649786680937
+        ]
+      },
+      "keep_positive": true
+    }
+  },
+  "offset_source": "original proposal at zero",
+  "outlet_alone_production": {
+    "mode": "unchanged_production",
+    "production_api": "partitioned_surface.clip_and_cap",
+    "passed": true,
+    "qc": {
+      "schema": "partitioned_surface_draft/v1",
+      "technical_qc": {
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_winding_edges": 0,
+        "duplicate_triangles": 0,
+        "degenerate_triangles": 0,
+        "surface_area_mm2": 18368.648381434825,
+        "signed_volume_mm3": 23352.133780443528,
+        "triangles": 366116,
+        "vertices": 183058
+      },
+      "caps": {
+        "nasopharynx_outlet": {
+          "schema": "planar_cap_qc/v1",
+          "method": "GEOS constrained Delaunay triangulation",
+          "shapely_version": "2.1.2",
+          "geos_version": "3.13.1",
+          "vtk_version": "9.3.1",
+          "coordinate_system": "LPS",
+          "unit": "mm",
+          "area_mm2": 1090.4285307101518,
+          "expected_area_mm2": 1090.4285307101536,
+          "contour_depths": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "boundary_edges": 2718,
+          "triangle_count": 2714,
+          "technical_checks_passed": true,
+          "patient_solver_allowed": false,
+          "loops": 4,
+          "affected_source_triangles": 37231,
+          "interim_boundary_edges": 2718
+        }
+      },
+      "patch_triangle_counts": {
+        "wall": 363402,
+        "nasopharynx_outlet": 2714
+      },
+      "coordinate_system": "LPS",
+      "unit": "mm",
+      "patient_solver_allowed": false,
+      "final_geometry_approved": false
+    },
+    "area_mm2": {
+      "nasopharynx_outlet": {
+        "schema": "planar_cap_qc/v1",
+        "method": "GEOS constrained Delaunay triangulation",
+        "shapely_version": "2.1.2",
+        "geos_version": "3.13.1",
+        "vtk_version": "9.3.1",
+        "coordinate_system": "LPS",
+        "unit": "mm",
+        "area_mm2": 1090.4285307101518,
+        "expected_area_mm2": 1090.4285307101536,
+        "contour_depths": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "boundary_edges": 2718,
+        "triangle_count": 2714,
+        "technical_checks_passed": true,
+        "patient_solver_allowed": false,
+        "loops": 4,
+        "affected_source_triangles": 37231,
+        "interim_boundary_edges": 2718
+      }
+    },
+    "array_sha256": {
+      "points": "1aee54b6d6929f102d8af838c1661911a6d75f7f21250c031fe20e2856c64f1e",
+      "faces": "897098cd56804cf402cbecbac81c0baad2915c4634b622b31c74e20f78f33cca",
+      "labels": "eae1162c34e0d65135dbd6e1f83c1eda91cec9d8c6bf69e4ba129e6b936eadd2"
+    },
+    "duration_s": 31.21799999999348
+  },
+  "outlet_alone_area_vs_engineering_band": {
+    "area_mm2": 1090.4285307101518,
+    "configured_band_mm2": [
+      120.0,
+      500.0
+    ],
+    "inside_band": false,
+    "interpretation": "software area check only; no anatomical diagnosis"
+  },
+  "baseline": {
+    "mode": "unchanged_production",
+    "production_api": "partitioned_surface.clip_and_cap",
+    "passed": false,
+    "exception": "ValueError",
+    "error": "nasopharynx_outlet: unexpected boundary outside cutting plane or ROI",
+    "duration_s": 9.625
+  }
+}
