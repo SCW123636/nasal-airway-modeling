@@ -124,7 +124,9 @@ def exterior_faces(tets: np.ndarray, triangles: np.ndarray, tags: np.ndarray,
     deliberately has 4444 of them, so this must not be an error.
     """
     all_faces = np.concatenate([tets[:, cols] for cols in TET_FACES], axis=0)
-    face_of_tet = np.repeat(np.arange(len(tets)), len(TET_FACES))
+    # concatenate emits every tet's first face, then every tet's second face,
+    # so each face block repeats the complete cell-id sequence.
+    face_of_tet = np.tile(np.arange(len(tets)), len(TET_FACES))
     keys = _keys(all_faces, n_nodes)
 
     tri_keys = _keys(triangles, n_nodes)
@@ -210,7 +212,7 @@ def selftest() -> bool:
     sliver_ok = det2[0] < 1e-15
     print(f'selftest sliver: metric {det2[0]:.3e} -> '
           f'{"PASS" if sliver_ok else "FAIL"}')
-    return ok and sliver_ok
+    return bool(ok and sliver_ok)
 
 
 # ------------------------------------------------------------------ repair map

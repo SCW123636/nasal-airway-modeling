@@ -17,6 +17,8 @@ the tool now carries its own known-answer self-test, and these tests pin:
 The repair-origin test matters most: the finding "481 of the 585 flagged cells
 are repair-created" rests entirely on that mapping being right.
 """
+from collections import Counter
+from itertools import combinations
 import sys
 from pathlib import Path
 
@@ -38,6 +40,12 @@ def test_selftest_passes(capsys):
     out = capsys.readouterr().out
     assert 'regular tetrahedron' in out and 'PASS' in out
     assert 'FAIL' not in out
+
+
+def test_selftest_failure_also_returns_builtin_bool(monkeypatch):
+    monkeypatch.setattr(AS, 'cell_determinant',
+                        lambda *_: (np.array([0.0]), np.array([1.0])))
+    assert AS.selftest() is False
 
 
 def test_regular_tetrahedron_metric_is_exactly_8_over_27():
@@ -105,6 +113,55 @@ def test_shared_face_is_interior():
     assert n_ext.tolist() == [3, 3]
 
 
+def _enumerated_boundary(tets):
+    """Independent oracle: enumerate vertex combinations per tet, without the
+    production face table, flattened arrays or numeric face-key encoding."""
+    cell_faces = [[tuple(sorted(face)) for face in combinations(map(int, tet), 3)]
+                  for tet in tets]
+    incidence = Counter(face for faces in cell_faces for face in faces)
+    boundary = sorted(face for face, count in incidence.items() if count == 1)
+    tag_by_face = {face: 101 + i for i, face in enumerate(boundary)}
+    counts = [sum(incidence[face] == 1 for face in faces) for faces in cell_faces]
+    single_tags = [tag_by_face[next(face for face in faces if incidence[face] == 1)]
+                   if count == 1 else 0
+                   for faces, count in zip(cell_faces, counts)]
+    return np.asarray(boundary), np.asarray(list(tag_by_face.values())), counts, single_tags
+
+
+@pytest.mark.parametrize('tet_order', [(0, 1, 2, 3, 4), (4, 2, 0, 3, 1), (4, 3, 2, 1, 0)])
+@pytest.mark.parametrize('reverse_face_table', [False, True])
+@pytest.mark.parametrize('reverse_boundary', [False, True])
+def test_asymmetric_exterior_counts_and_single_patch_survive_permutations(
+        tet_order, reverse_face_table, reverse_boundary, monkeypatch):
+    # Three neighbours cover central faces 012, 013, 023; only face 123 is
+    # exterior on cell 0.  Cell 4 is isolated.  Expected counts are asymmetric.
+    original = np.array([[0, 1, 2, 3], [0, 1, 2, 4], [0, 1, 3, 5],
+                         [0, 2, 3, 6], [7, 8, 9, 10]], dtype=np.int64)
+    tets = original[list(tet_order)]
+    triangles, tags, expected_counts, expected_tags = _enumerated_boundary(tets)
+    assert expected_counts == np.array([1, 3, 3, 3, 4])[list(tet_order)].tolist()
+    if reverse_face_table:
+        monkeypatch.setattr(AS, 'TET_FACES', tuple(reversed(AS.TET_FACES)))
+        tets = tets[:, [2, 0, 3, 1]]  # local vertex order is also irrelevant
+    if reverse_boundary:
+        triangles, tags = triangles[::-1, ::-1], tags[::-1]
+    counts, patch_tags = AS.exterior_faces(tets, triangles, tags, 11)
+    assert counts.tolist() == expected_counts
+    for index, count in enumerate(expected_counts):
+        if count == 1:
+            assert patch_tags[index] == expected_tags[index]
+
+
+def test_fully_surrounded_tet_has_no_exterior_patch():
+    tets = np.array([[0, 1, 2, 3], [0, 1, 2, 4], [0, 1, 3, 5],
+                     [0, 2, 3, 6], [1, 2, 3, 7]], dtype=np.int64)
+    triangles, tags, expected_counts, _ = _enumerated_boundary(tets)
+    assert expected_counts == [0, 3, 3, 3, 3]
+    counts, patch_tags = AS.exterior_faces(tets, triangles, tags, 8)
+    assert counts.tolist() == expected_counts
+    assert patch_tags[0] == 0
+
+
 def test_surface_volume_disagreement_is_fatal():
     """If the triangle list does not cover the volume exterior exactly, stop -
     rather than silently analysing the wrong boundary."""
@@ -135,11 +192,64 @@ def test_repair_origin_with_no_splits_is_the_identity():
 
 
 def test_repair_origin_covers_every_output_cell():
-    """The real b15 numbers: 1,147,862 input cells, 4,444 split, 1,161,194 out."""
-    origin = AS.repair_origin(n_output=1161194, split_cell_indices=[0, 5, 11],
+    """Retain the b15 count contract, with a complete synthetic 4,444-item
+    split list.  These indices are a fixture, not the patient's actual map."""
+    split_indices = np.linspace(0, 1147861, 4444, dtype=np.int64)
+    assert len(np.unique(split_indices)) == 4444
+    origin = AS.repair_origin(n_output=1161194, split_cell_indices=split_indices,
                               n_input=1147862)
     assert len(origin) == 1161194
     assert np.array_equal(np.unique(origin), np.arange(1147862))
+    expected_counts = np.ones(1147862, dtype=np.int64)
+    expected_counts[split_indices] = 4
+    assert np.array_equal(np.bincount(origin, minlength=1147862), expected_counts)
+
+
+def test_repair_origin_rejects_incomplete_split_count():
+    # The previous fixture supplied only three splits for an output requiring
+    # four.  Keep the inconsistency as an explicit negative case.
+    with pytest.raises(SystemExit, match='produced 21 of 24 cells'):
+        AS.repair_origin(n_output=24, split_cell_indices=[0, 5, 11], n_input=12)
+
+
+def test_repair_origin_matches_real_small_repair_output(tmp_path):
+    import meshio
+    from repair_boundary_tetrahedra import repair
+
+    # Four subtets fill one regular tetrahedron, each with one exterior face.
+    # Put a disjoint four-exterior-face tet between them so only input cell 1
+    # must actually split, and its output must stay interleaved in that place.
+    points = np.vstack([REGULAR_TET, REGULAR_TET.mean(axis=0), REGULAR_TET + 5.0])
+    children = [list(face) + [4] for face in combinations(range(4), 3)]
+    tets = np.array([children[0], [5, 6, 7, 8], *children[1:]], dtype=np.int64)
+    triangles, _, expected_counts, _ = _enumerated_boundary(tets)
+    assert expected_counts == [1, 4, 1, 1, 1]
+    tags = 1 + np.arange(len(triangles)) % 4
+    cell_tags = [tags, np.full(len(tets), 5)]
+    field_data = {name: np.array([tag, 3 if name == 'fluid' else 2])
+                  for name, tag in {'nostril_L': 1, 'nostril_R': 2,
+                                    'nasopharynx_outlet': 3, 'wall': 4, 'fluid': 5}.items()}
+    source, target = tmp_path / 'source.msh', tmp_path / 'repaired.msh'
+    meshio.write(source, meshio.Mesh(points, [('triangle', triangles), ('tetra', tets)],
+                 cell_data={'gmsh:physical': cell_tags, 'gmsh:geometrical': cell_tags},
+                 field_data=field_data), file_format='gmsh22', binary=False)
+    report = repair(source, target)
+    assert report['split_cell_indices'] == [1]
+    assert report['input_cells'] == 5 and report['output_cells'] == 8
+    origin = AS.repair_origin(report['output_cells'], report['split_cell_indices'],
+                              report['input_cells'])
+    assert origin.tolist() == [0, 1, 1, 1, 1, 2, 3, 4]
+    output = meshio.read(target)
+    for output_tet, input_index in zip(output.cells_dict['tetra'], origin):
+        if input_index == 1:
+            assert 9 in output_tet
+            assert set(output_tet) - {9} <= set(tets[input_index])
+        else:
+            assert set(output_tet) == set(tets[input_index])
+    counts, patch_tags = AS.exterior_faces(output.cells_dict['tetra'], triangles,
+                                          tags, len(output.points))
+    assert counts.tolist() == [1] * 8
+    assert sorted(patch_tags.tolist()) == sorted(tags.tolist())
 
 
 def test_repair_origin_rejects_a_span_overrun():

@@ -1,0 +1,76 @@
+F.....F....F...                                                          [100%]
+================================== FAILURES ===================================
+____________________________ test_selftest_passes _____________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001727C4C8980>
+
+    def test_selftest_passes(capsys):
+>       assert AS.selftest() is True
+E       assert np.True_ is True
+E        +  where np.True_ = <function selftest at 0x000001727C856660>()
+E        +    where <function selftest at 0x000001727C856660> = AS.selftest
+
+work\lib\test_analyze_sliver_cells.py:37: AssertionError
+---------------------------- Captured stdout call -----------------------------
+selftest regular tetrahedron: metric 0.296296296296297 expected 0.296296296296296 -> PASS
+selftest sliver: metric 1.293e-18 -> PASS
+________________________ test_shared_face_is_interior _________________________
+
+    def test_shared_face_is_interior():
+        """Two tets sharing face (0,1,2): that face is interior, so each tet keeps 3
+        exterior faces.  This is the case that must not be counted as boundary."""
+        pts = np.vstack([REGULAR_TET, [[0.0, 0.0, 0.0]]])   # node 4 = centroid-ish
+        tets = np.array([[0, 1, 2, 3], [0, 1, 2, 4]], dtype=np.int64)
+        # exterior faces of the pair = the 3+3 non-shared faces
+        faces = []
+        for tet in tets:
+            faces.extend(sorted(int(tet[i]) for i in f) for f in AS.TET_FACES)
+        counts = {tuple(f): faces.count(f) for f in faces}
+        shared = [f for f, c in counts.items() if c == 2]
+        assert len(shared) == 1, 'the two tets must share exactly one face'
+        boundary = [f for f, c in counts.items() if c == 1]
+        tris = np.array(boundary, dtype=np.int64)
+        tags = np.full(len(tris), 7, dtype=np.int64)
+        n_ext, _ = AS.exterior_faces(tets, tris, tags, len(pts))
+>       assert n_ext.tolist() == [3, 3]
+E       assert [2, 4] == [3, 3]
+E         
+E         At index 0 diff: 2 != 3
+E         Use -v to get more diff
+
+work\lib\test_analyze_sliver_cells.py:105: AssertionError
+---------------------------- Captured stdout call -----------------------------
+  note: 2 cell(s) have more than one exterior face (max 4); their tag is ambiguous and only the count is used
+_________________ test_repair_origin_covers_every_output_cell _________________
+
+    def test_repair_origin_covers_every_output_cell():
+        """The real b15 numbers: 1,147,862 input cells, 4,444 split, 1,161,194 out."""
+>       origin = AS.repair_origin(n_output=1161194, split_cell_indices=[0, 5, 11],
+                                  n_input=1147862)
+
+work\lib\test_analyze_sliver_cells.py:139: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+n_output = 1161194, split_cell_indices = [0, 5, 11], n_input = 1147862
+
+    def repair_origin(n_output: int, split_cell_indices, n_input: int) -> np.ndarray:
+        """Map each output cell index to its input cell index (repair line 86-93)."""
+        split_set = set(int(i) for i in split_cell_indices)
+        origin = np.empty(n_output, dtype=np.int64)
+        out = 0
+        for i in range(n_input):
+            span = 4 if i in split_set else 1
+            if out + span > n_output:
+                raise SystemExit('repair origin mapping overflowed the output cell list')
+            origin[out:out + span] = i
+            out += span
+        if out != n_output:
+>           raise SystemExit(f'repair origin mapping produced {out} of {n_output} cells')
+E           SystemExit: repair origin mapping produced 1147871 of 1161194 cells
+
+work\lib\analyze_sliver_cells.py:230: SystemExit
+=========================== short test summary info ===========================
+FAILED work/lib/test_analyze_sliver_cells.py::test_selftest_passes - assert n...
+FAILED work/lib/test_analyze_sliver_cells.py::test_shared_face_is_interior - ...
+FAILED work/lib/test_analyze_sliver_cells.py::test_repair_origin_covers_every_output_cell
+3 failed, 12 passed in 0.76s
