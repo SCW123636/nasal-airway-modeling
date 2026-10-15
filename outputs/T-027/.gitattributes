@@ -1,0 +1,5 @@
+# Preserve the byte fingerprints of review code and archived raw evidence.
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.log -text
