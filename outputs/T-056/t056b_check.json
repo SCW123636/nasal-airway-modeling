@@ -1,0 +1,36 @@
+{
+  "errors": [],
+  "external": [],
+  "checks": {
+    "proj_nodes": 13,
+    "groups": [
+      "患者工程3",
+      "CT 导入8",
+      "参考解算2"
+    ],
+    "tree_has_ct_import": true,
+    "tree_no_raw_uuid": true,
+    "tree_has_b15_label": true,
+    "tree_has_t029a_label": true,
+    "import_failed_visible": true,
+    "proj_count_label": "13 个项目",
+    "b15_found": true,
+    "flow_children": 8,
+    "flow_norec": 5,
+    "flow_done": 3,
+    "prop_has_dep": true,
+    "view_geometry_on": "三维检查",
+    "t029a_found": true,
+    "t029a_children": 8,
+    "t029a_norec": 5,
+    "t029a_fail": 1,
+    "t029a_stale": 2,
+    "t029a_no_metrics_leak": true,
+    "t029a_prop_project": true,
+    "prop_project_level": true,
+    "jobs_refresh_btn": 1,
+    "prop_job_level": true,
+    "compare_modes": 2
+  },
+  "ok": true
+}

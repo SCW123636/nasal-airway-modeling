@@ -3,29 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>鼻腔建模 · 工程工作台 PRO</title>
+<title>鼻腔建模 · 工程工作台</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="pro.css">
 <script src="pro.js" defer></script>
 </head>
 <body>
 <header class="top">
-  <div class="brand">鼻腔建模<span class="brand-pro">工程工作台</span><span class="env">PRO · P2</span></div>
-  <div class="case-picker"><label for="case-select">病例</label><select id="case-select"><option>读取中…</option></select></div>
+  <div class="brand">鼻腔建模<span class="brand-pro">工程工作台</span></div>
   <div class="top-status" id="top-status">
     <span class="chip warn" title="本工作台全部患者相关产出的统一临床状态">未临床复核</span>
-    <span class="chip" id="chip-cases">病例：读取中</span>
-    <span class="chip" id="chip-jobs">任务：读取中</span>
   </div>
-  <a class="legacy" href="../index.html">旧版工作台 ↗</a>
 </header>
 
 <div class="shell">
   <aside class="tree-panel">
-    <div class="panel-title">处理链路</div>
-    <ul class="tree" id="flow-tree"></ul>
-    <div class="panel-title">CFD 任务 <button id="jobs-refresh" class="icon-btn" title="刷新任务列表">⟳</button></div>
-    <ul class="tree" id="job-tree"></ul>
+    <div class="panel-title">患者项目 <span class="muted" id="proj-count"></span></div>
+    <ul class="tree" id="proj-tree"></ul>
+    <div class="tree-legend">✓ 有产物 · ✗ 失败 · ⊘ 上游失效 · … 待上游 · ◌ 未开始 · ◇ 工作台无记录</div>
   </aside>
 
   <main class="view-panel">
@@ -35,7 +30,7 @@
 
   <aside class="prop-panel">
     <div class="panel-title">属性</div>
-    <div id="prop-body"><p class="muted">在左侧树中选择对象，这里显示其真实参数。</p></div>
+    <div id="prop-body"><p class="muted">在左侧选择项目或节点，这里显示其真实参数。</p></div>
   </aside>
 </div>
 

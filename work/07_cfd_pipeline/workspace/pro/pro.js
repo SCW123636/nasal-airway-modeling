@@ -1,10 +1,12 @@
 /* ==========================================================================
    pro.js · 工程工作台 PRO 外壳逻辑
-   T-052 P1 外壳 → T-053 患者即项目 → T-055 需求×链路重构：
-   - 左树 = 参数化处理树（数据源→分割→定位→几何→网格→配置维→后处理→报告），
+   T-052 P1 外壳 → T-053 患者即项目 → T-055 需求×链路重构 →
+   T-056 栏位精简与归位（一数据一入口 + CAE 三栏标准站位）：
+   - 左栏 = 患者项目树（master-detail：项目 → 处理链路节点，单选展开），
      状态由 API 真实字段 + 已核验指标文件推导，stale 传播可见（P2/P4 原理）；
-   - 对比 = V1 个体 vs 文献参考带（ISCOANA/choana/S15，带出处）+
-            V2 配对功能指标对照（域口径并列），采集参数降级附录，不评分不裁判；
+   - 中栏 = 图形/数据视图（三维 / 咽部扩展 / 流线 / 对比 / 任务控制台）；
+   - 右栏 = 属性面板（P3 PropertyManager：项目 / 节点 / 任务三级详情）；
+   - 任务数据只保留「任务控制台」一个入口；顶栏只留品牌 + 临床口径 chip；
    - 数据全部只读；缺项如实「—」；UI 黑白灰单色纪律。
    ========================================================================== */
 'use strict';
@@ -16,8 +18,8 @@ const el = (tag, text, cls) => { const e = document.createElement(tag);
 /* ---------- 状态 ---------- */
 const S = {
   cases: [], jobs: [], metrics: null,                // metrics = patient_metrics.json（已核验搬运）
-  caseId: null,                                      // null = 项目总览（全局）
-  view: 'projects',
+  caseId: null,                                      // null = 未选项目
+  view: 'geometry',
   sel: null,                                         // {kind:'flow'|'job', key}
   cmp: {a: null, b: null, mode: 'ref'},              // mode: 'ref' V1 | 'pair' V2
 };
@@ -42,8 +44,6 @@ const FLOW = [
    desc: '结论卡与验证矩阵归档。产物恒带 clinical_status 口径声明。'},
 ];
 const VIEWS = [
-  {key: 'projects',    label: '项目总览'},
-  {key: 'pipeline',    label: '处理链路'},
   {key: 'geometry',    label: '三维检查'},
   {key: 'airway',      label: '咽部扩展'},
   {key: 'streamlines', label: '流线'},
@@ -54,8 +54,9 @@ const ACTION_LABEL = {preflight: '准入预检', run_reference: '参考求解',
   run_pressure_feedback: '共同压力反馈', run_patient_engineering: '患者工程试算'};
 const STAGE_LABEL = {import: '导入', segmentation: '分割', localization: '定位',
   review: '审核', geometry: '几何', validation: '验证', completed: '完成'};
-const STATUS_ICON = {completed: ['✓', 'done'], failed: ['✗', 'fail'],
-  running: ['▷', 'run'], queued: ['▷', 'run'], interrupted: ['◌', 'fail']};
+const FLOW_ICON = {done: '✓', fail: '✗', stale: '⊘', wait: '…', norec: '◇', todo: '◌'};
+const FLOW_STATE_TXT = {done: '有产物', fail: '失败', stale: '上游失效', wait: '待上游',
+  norec: '工作台无记录', todo: '未开始'};
 
 /* ---------- 数据 ---------- */
 async function jget(path) {
@@ -67,37 +68,20 @@ const caseIdOf = c => c.id || c.case_id;
 const jobsOfCase = id => S.jobs.filter(j => j.case_id === id);
 const scopedJobs = () => S.caseId ? jobsOfCase(S.caseId) : S.jobs;
 
-/* metrics 文件的病例键与 API case_id 的匹配：b15_engineering → b15 */
+/* metrics 文件的病例键与 API case_id 的匹配：b15_engineering → b15。
+   T-056b：删除前缀 startsWith 回退——b15_engineering_t029a 等变体是不同边界条件的
+   独立试算（T-054 纪律：两套管路边界不可混用），不得继承 b15 的已核验指标。 */
 function metricKeyOf(caseId) {
   const m = S.metrics && S.metrics.patients;
   if (!m || !caseId) return null;
   if (m[caseId]) return caseId;
   const base = caseId.replace(/_(engineering|trial|case)$/, '');
   if (m[base]) return base;
-  const hit = Object.keys(m).find(k => caseId.startsWith(k + '_') || caseId.startsWith(k));
-  return hit || null;
-}
-
-function buildCaseOptions() {
-  const sel = $('case-select');
-  const keep = sel.value;
-  sel.replaceChildren();
-  const all = el('option', '（全部项目 · 总览）', '');
-  all.value = ''; sel.append(all);
-  for (const c of S.cases) {
-    const id = caseIdOf(c);
-    const o = el('option', id.slice(0, 14) + '… · ' + (c.synthetic ? '仿真项目'
-      : (STAGE_LABEL[c.active_stage] || c.active_stage || '?')), '');
-    o.value = id; sel.append(o);
-  }
-  sel.value = keep || '';
+  return null;
 }
 async function loadCases() {
   const d = await jget('/api/cases');
   S.cases = d.cases || [];
-  $('chip-cases').textContent = '项目：' + S.cases.length;
-  $('chip-cases').classList.add('ok');
-  buildCaseOptions();
 }
 /* 合并 jobs 派生的仿真项目（T-055）：b15 等旗舰病例的求解记录在 jobs API / WSL case，
    不在 /api/cases 导入列表——不合并则「患者即项目」看不到它们。合成条目诚实标注来源。 */
@@ -116,17 +100,11 @@ function mergeSyntheticCases() {
     });
     added++;
   }
-  if (added) {
-    buildCaseOptions();
-    $('chip-cases').textContent = '项目：' + S.cases.length + '（含 ' + added + ' 仿真）';
-  }
+  return added;
 }
 async function loadJobs() {
   const d = await jget('/api/simulation/jobs');
   S.jobs = (d.jobs || []).slice().sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || ''));
-  const run = S.jobs.filter(j => ['running', 'queued'].includes(j.status)).length;
-  $('chip-jobs').textContent = '任务：' + S.jobs.length + (run ? '（' + run + ' 进行）' : '');
-  $('chip-jobs').classList.toggle('ok', run === 0);
 }
 async function loadMetrics() {
   try {
@@ -160,51 +138,105 @@ function pipelineStates(caseId) {
   }
   return st;
 }
-function renderFlowTree() {
-  const t = $('flow-tree'); t.replaceChildren();
-  if (!S.caseId) {
-    t.append(el('li', '先在顶部选择患者项目（或点项目卡片进入）。', 'tnode grp'));
-    return;
-  }
-  const st = pipelineStates(S.caseId);
-  for (const f of FLOW) {
-    const s = st[f.key];
-    const icon = s === 'done' ? '✓' : s === 'fail' ? '✗' : s === 'stale' ? '⊘' : s === 'wait' ? '…' : s === 'norec' ? '◇' : '◌';
-    const li = el('li', undefined, 'tnode' + (S.sel && S.sel.kind === 'flow' && S.sel.key === f.key ? ' sel' : ''));
-    li.append(el('span', icon, 'st ' + s));
-    const lbl = el('span', undefined, 'lbl');
-    lbl.textContent = f.no + ' ' + f.label;
-    lbl.append(el('span', f.sub, 'sub'));
-    li.append(lbl);
-    li.title = f.desc;
-    li.onclick = () => { S.sel = {kind: 'flow', key: f.key};
-      if (f.key === 'geometry') S.view = 'geometry';
-      else if (f.key === 'config' || f.key === 'post') S.view = 'pipeline';
-      else if (f.key === 'report') S.view = 'pipeline';
-      else S.view = 'pipeline';
-      renderAll(); };
-    t.append(li);
-  }
-}
 
-/* ---------- 左树：任务（按项目过滤） ---------- */
-function renderJobTree() {
-  const t = $('job-tree'); t.replaceChildren();
-  const jobs = scopedJobs();
-  if (!jobs.length) {
-    t.append(el('li', S.caseId ? '本项目暂无任务记录' : '暂无任务记录', 'tnode grp'));
+/* ---------- 左：患者项目树（master-detail，单选展开；T-056b 为人可读） ---------- */
+const GROUPS = [
+  {key: 'eng',    label: '患者工程'},
+  {key: 'import', label: 'CT 导入'},
+  {key: 'ref',    label: '参考解算'},
+];
+function caseGroup(c) {
+  if (!c.synthetic) return 'import';
+  return String(caseIdOf(c)).startsWith('reference') ? 'ref' : 'eng';
+}
+function fmtBytes(b) {
+  if (b == null) return null;
+  const u = ['B', 'KB', 'MB', 'GB']; let i = 0; let v = +b;
+  while (v >= 1024 && i < u.length - 1) { v /= 1024; i++; }
+  return (i === 0 ? Math.round(v) : (v >= 10 ? Math.round(v) : v.toFixed(1))) + ' ' + u[i];
+}
+function fmtDT(iso) { const s = String(iso || ''); return s.slice(5, 10) + ' ' + s.slice(11, 16); }
+/* 合成项目可读名：已知 id 用语义标签；未知 id 保序替换下划线（不编造名称） */
+const SYNTH_LABEL = {
+  b15_engineering: 'b15 · 工程试算',
+  b15_engineering_t029a: 'b15 · 工程试算 · T-029a',
+  reference_split_feedback: '参考解算 · 分流反馈',
+  reference_channel: '参考解算 · 通道',
+};
+function synthLabel(id) { return SYNTH_LABEL[id] || String(id).replace(/_/g, ' · '); }
+const IMPORT_STATUS = {awaiting_review: '待审核', failed: '导入失败', interrupted: '已中断'};
+function importLabel(c) { return 'CT 导入 · ' + (fmtDT(c.created_at) || '—'); }
+function importSub(c) {
+  const st = IMPORT_STATUS[c.status] || c.status || '—';
+  const sz = fmtBytes(c.total_bytes);
+  return st + (sz ? ' · ' + sz : '') + (c.kind ? ' · ' + c.kind : '');
+}
+function synthSub(c, id) {
+  if (metricKeyOf(id)) return '仿真项目 · 已核验指标';
+  /* 只认 run_* 真实求解任务（preflight 不算求解）；取最新一个 run 的状态 */
+  const runs = jobsOfCase(id).filter(j => String(j.action || '').startsWith('run_'));
+  if (!runs.length) return '仿真项目 · 未求解';
+  const latest = runs[0];                                  // jobs 已按 updated_at 降序
+  if (latest.status === 'failed') return '仿真项目 · 求解失败';
+  if (latest.status === 'completed') return '仿真项目 · 求解完成';
+  return '仿真项目 · ' + (latest.status || '状态未知');
+}
+function projectIcon(c) {
+  if (c.synthetic) return ['◇', 'todo'];
+  if (c.error || c.status === 'failed') return ['✗', 'fail'];
+  if (c.active_stage === 'completed') return ['✓', 'done'];
+  return ['◌', 'todo'];
+}
+function renderProjectTree() {
+  const t = $('proj-tree'); t.replaceChildren();
+  $('proj-count').textContent = S.cases.length ? S.cases.length + ' 个项目' : '';
+  if (!S.cases.length) {
+    t.append(el('li', '暂无项目数据（/api/cases 与 jobs API 均无记录）', 'tnode grp'));
     return;
   }
-  for (const j of jobs.slice(0, 12)) {
-    const [icon, cls] = STATUS_ICON[j.status] || ['◌', 'todo'];
-    const li = el('li', undefined, 'tnode' + (S.sel && S.sel.kind === 'job' && S.sel.key === j.id ? ' sel' : ''));
-    li.append(el('span', icon, 'st ' + cls));
-    const lbl = el('span', undefined, 'lbl');
-    lbl.textContent = ACTION_LABEL[j.action] || j.action;
-    lbl.append(el('span', (j.id || '').slice(0, 12) + '… · ' + (j.updated_at || '').slice(5, 16), 'sub'));
-    li.append(lbl);
-    li.onclick = () => { S.sel = {kind: 'job', key: j.id}; S.view = 'jobs'; renderAll(); };
-    t.append(li);
+  for (const g of GROUPS) {
+    const members = S.cases.filter(c => caseGroup(c) === g.key)
+      .sort((a, b) => String(b.updated_at || '').localeCompare(String(a.updated_at || '')));
+    if (!members.length) continue;
+    const gh = el('li', undefined, 'tgroup');
+    gh.append(el('span', g.label));
+    gh.append(el('span', String(members.length), 'tcount'));
+    t.append(gh);
+    for (const c of members) {
+      const id = caseIdOf(c);
+      const sel = id === S.caseId;
+      const [icon, cls] = projectIcon(c);
+      const li = el('li', undefined, 'tnode' + (sel ? ' sel' : ''));
+      li.append(el('span', sel ? '▾' : '▸', 'caret'));
+      li.append(el('span', icon, 'st ' + cls));
+      const lbl = el('span', undefined, 'lbl');
+      lbl.textContent = c.synthetic ? synthLabel(id) : importLabel(c);
+      lbl.append(el('span', c.synthetic ? synthSub(c, id) : importSub(c), 'sub'));
+      li.append(lbl);
+      li.title = (c.synthetic ? (c._note || '仿真项目（jobs API 派生）') : (IMPORT_STATUS[c.status] || c.status || ''))
+        + '｜' + id + (c.error ? '｜' + String(c.error).slice(0, 60) : '');
+      li.onclick = () => { S.caseId = id; S.sel = null; S.view = 'geometry'; renderAll(); };
+      t.append(li);
+      /* 选中项目展开其 8 节点处理链（其余折叠，避免树过长） */
+      if (!sel) continue;
+      const st = pipelineStates(id);
+      for (const f of FLOW) {
+        const s = st[f.key];
+        const ci = el('li', undefined, 'tnode child'
+          + (S.sel && S.sel.kind === 'flow' && S.sel.key === f.key ? ' sel' : ''));
+        ci.append(el('span', FLOW_ICON[s] || '◌', 'st ' + s));
+        const cl = el('span', undefined, 'lbl');
+        cl.textContent = f.no + ' ' + f.label;
+        ci.append(cl);
+        ci.title = f.desc;
+        ci.onclick = ev => { ev.stopPropagation();
+          S.sel = {kind: 'flow', key: f.key};
+          if (f.key === 'geometry') S.view = 'geometry';
+          else if (f.key === 'post') S.view = 'streamlines';
+          renderAll(); };
+        t.append(ci);
+      }
+    }
   }
 }
 
@@ -220,24 +252,23 @@ function renderTabs() {
 function renderView() {
   const body = $('view-body'); body.replaceChildren();
   const fr = src => { const f = document.createElement('iframe'); f.src = src; return f; };
-  if (S.view === 'projects') { body.append(renderProjects()); return; }
-  if (S.view === 'pipeline') { body.append(renderPipeline()); return; }
-  if (S.view === 'compare') { body.append(renderCompare()); return; }
-  if (S.view === 'jobs') { body.append(renderJobsNative(scopedJobs())); return; }
-  if (S.view === 'airway') { body.append(fr('/workspace/upper-airway.html')); return; }
   if (S.view === 'geometry') {
-    if (!S.caseId) { body.append(el('div', '先在顶部选择患者项目，或从项目总览进入。', 'placeholder')); return; }
+    if (!S.caseId) { body.append(el('div', '在左侧选择患者项目，这里显示其三维几何检查。', 'placeholder')); return; }
     const c = S.cases.find(x => caseIdOf(x) === S.caseId);
     const url = c && c.artifacts && c.artifacts.viewer;
     if (url) body.append(fr(url + (url.includes('?') ? '&' : '?') + 'embedded=1'));
     else body.append(el('div', '该病例暂无三维清单（可能仍在处理早期阶段）。', 'placeholder'));
     return;
   }
+  if (S.view === 'airway') { body.append(fr('/workspace/upper-airway.html')); return; }
   if (S.view === 'streamlines') {
     const s = latestStreamlines();
     if (s) body.append(fr(s.url));
     else body.append(el('div', '暂无可用的流线产物：患者任务完成后将自动生成（streamlines.html）。', 'placeholder'));
+    return;
   }
+  if (S.view === 'compare') { body.append(renderCompare()); return; }
+  if (S.view === 'jobs') { body.append(renderJobsNative(scopedJobs())); return; }
 }
 function latestStreamlines() {
   for (const j of scopedJobs()) {
@@ -251,133 +282,6 @@ function latestStreamlines() {
   return null;
 }
 
-/* ---------- 中：处理链路视图（P1–P4：依赖链 + 状态语义 + stale 传播） ---------- */
-function renderPipeline() {
-  const wrap = el('div', undefined, 'view-native pipe-wrap');
-  if (!S.caseId) {
-    wrap.append(el('p', '处理链路是患者项目内部的参数化流水树。先在顶部选择患者项目。', 'placeholder'));
-    return wrap;
-  }
-  const c = S.cases.find(x => caseIdOf(x) === S.caseId);
-  const st = pipelineStates(S.caseId);
-  const mk = metricKeyOf(S.caseId);
-  const mp = mk && S.metrics ? S.metrics.patients[mk] : null;
-  const head = el('div', undefined, 'pipe-head');
-  head.append(el('span', '患者项目 ' + S.caseId.slice(0, 14) + '… · 处理链路', 'pipe-title'));
-  head.append(el('span', '状态语义：✓ 有产物 · ✗ 失败 · ⊘ 上游失效（stale） · … 待上游 · ◌ 未开始 · ◇ 工作台无记录', 'pipe-legend'));
-  wrap.append(head);
-
-  const chain = el('div', undefined, 'pipe-chain');
-  for (const f of FLOW) {
-    const s = st[f.key];
-    const node = el('div', undefined, 'pipe-node ' + s
-      + (S.sel && S.sel.kind === 'flow' && S.sel.key === f.key ? ' sel' : ''));
-    node.append(el('span', f.no, 'pno'));
-    node.append(el('span', s === 'done' ? '✓' : s === 'fail' ? '✗' : s === 'stale' ? '⊘'
-      : s === 'wait' ? '…' : s === 'norec' ? '◇' : '◌', 'pst'));
-    const meta = el('div', undefined, 'pmeta');
-    meta.append(el('span', f.label, 'plbl'));
-    meta.append(el('span', f.sub, 'psub'));
-    node.append(meta);
-    if (f.dep.length) node.append(el('span', '← ' + f.dep.map(d =>
-      (FLOW.find(x => x.key === d) || {}).label || d).join(' + '), 'pdep'));
-    node.onclick = () => { S.sel = {kind: 'flow', key: f.key}; renderAll(); };
-    chain.append(node);
-    if (f.key !== FLOW[FLOW.length - 1].key) chain.append(el('span', '↓', 'parrow'));
-  }
-  wrap.append(chain);
-
-  /* 选中节点详情 */
-  if (S.sel && S.sel.kind === 'flow') {
-    const f = FLOW.find(x => x.key === S.sel.key);
-    if (f) {
-      const sec = el('div', undefined, 'pipe-detail');
-      sec.append(el('h4', f.no + ' ' + f.label + ' · ' + f.sub));
-      sec.append(el('p', f.desc, 'pipe-desc'));
-      const dl = el('dl', undefined, 'kv-grid');
-      const kv2 = (k, v) => { const r = el('div'); r.append(el('dt', k));
-        r.append(el('dd', v == null || v === '' ? '—' : String(v))); dl.append(r); };
-      kv2('节点状态', {done: '有产物', fail: '失败', stale: '上游失效', wait: '待上游',
-        norec: '工作台无记录', todo: '未开始'}[st[f.key]]);
-      kv2('上游依赖', f.dep.length ? f.dep.map(d => (FLOW.find(x => x.key === d) || {}).label).join(' + ') : '无（入口节点）');
-      kv2('下游', (FLOW.filter(x => x.dep.includes(f.key)).map(x => x.label).join(' + ')) || '无（末端节点）');
-      if (f.key === 'source' && c) {
-        kv2('导入状态', c.error ? '失败：' + String(c.error).slice(0, 60) : '正常');
-        kv2('文件数', c.file_count);
-        kv2('创建', String(c.created_at || '').slice(0, 19));
-      }
-      if (f.key === 'locate' && c) kv2('候选点数', c.landmark_count);
-      if (f.key === 'geometry' && c && c.geometry) {
-        const g = c.geometry;
-        kv2('CT 尺寸', g.size_xyz ? g.size_xyz.join(' × ') : null);
-        kv2('像元 mm', g.spacing_xyz_mm ? g.spacing_xyz_mm.map(v => +(+v).toFixed(3)).join(' / ') : null);
-        kv2('HU 范围', g.hu_range ? g.hu_range.join(' ~ ') : null);
-      }
-      if (f.key === 'config' && mp) {
-        kv2('求解配置', mp.domain);
-        kv2('数值验证', mp.validation);
-        kv2('口径注记', mp.domain_note);
-      }
-      if (f.key === 'post' && mp) {
-        for (const k of ['R_Pa_s_ml', 'delta_p_Pa', 'wss_median_Pa', 'wss_integral_N']) {
-          const m = mp.metrics[k];
-          if (m) kv2(m.label + (m.unit ? '（' + m.unit + '）' : ''),
-            m.value == null ? '—（' + (m.note || '未产') + '）' : m.value);
-        }
-      }
-      if (f.key === 'report' && mp) {
-        kv2('结论卡出处', mp.metrics.R_Pa_s_ml.source || '—');
-        kv2('临床状态', mp.clinical_status);
-      }
-      sec.append(dl);
-      sec.append(el('p', '节点详情只显示 API 真实字段与已核验搬运值（patient_metrics.json）；'
-        + '无出处数据一律「—」，不推断不补造。', 'notice'));
-      wrap.append(sec);
-    }
-  }
-  return wrap;
-}
-
-/* ---------- 中：项目总览（患者即项目） ---------- */
-function renderProjects() {
-  const wrap = el('div', undefined, 'view-native');
-  const grid = el('div', undefined, 'proj-grid');
-  for (const c of S.cases) {
-    const id = caseIdOf(c);
-    const jobs = jobsOfCase(id);
-    const mk = metricKeyOf(id);
-    const card = el('div', undefined, 'proj-card' + (id === S.caseId ? ' sel' : '') + (c.error ? ' is-error' : ''));
-    const head = el('div', undefined, 'proj-head');
-    head.append(el('span', id.slice(0, 14) + '…', 'proj-id'));
-    head.append(el('span', c.synthetic ? '仿真项目' : (STAGE_LABEL[c.active_stage] || c.active_stage || '—'),
-      'stat ' + (c.error ? 'failed' : (c.synthetic ? 'running' : (c.active_stage === 'completed' ? 'completed' : 'running')))));
-    card.append(head);
-    const dl = el('dl', undefined, 'proj-facts');
-    const f = (k, v) => { const r = el('div'); r.append(el('dt', k)); r.append(el('dd', v)); dl.append(r); };
-    f('来源', c.kind || '—');
-    f('文件数', c.file_count ?? '—');
-    f('候选点', c.landmark_count ?? '—');
-    f('几何', c.geometry ? '已生成' : '—');
-    f('任务', jobs.length ? jobs.length + ' 项' : '—');
-    f('功能指标', mk ? '已核验（' + (S.metrics.patients[mk].metrics.R_Pa_s_ml.source || '?') + '）' : '—');
-    f('创建', String(c.created_at || '').slice(0, 10) || '—');
-    if (c.geometry && c.geometry.spacing_xyz_mm)
-      f('层距/像元', c.geometry.spacing_xyz_mm.map(v => +(+v).toFixed(3)).join(' / ') + ' mm');
-    card.append(dl);
-    if (c.error) card.append(el('div', '导入失败：' + String(c.error).slice(0, 50), 'notice bad'));
-    if (c.synthetic) card.append(el('div', c._note || '仿真项目（jobs API 派生）', 'notice'));
-    const open = el('button', '进入项目 →', 'proj-open');
-    open.onclick = () => { S.caseId = id; $('case-select').value = id; S.view = 'pipeline'; renderAll(); };
-    card.append(open);
-    grid.append(card);
-  }
-  wrap.append(grid);
-  const note = el('p', '项目 = 一位患者的完整工程容器（数据 → 几何 → 任务 → 产物）。'
-    + '失败导入的项目保留在列并如实标注，不做隐藏或删除。', 'proj-note');
-  wrap.append(note);
-  return wrap;
-}
-
 /* ---------- 中：对比视图（T-055 重设计：V1 参考带 + V2 配对） ---------- */
 function caseOptionList(selEl, current) {
   selEl.replaceChildren();
@@ -385,7 +289,7 @@ function caseOptionList(selEl, current) {
   empty.value = ''; selEl.append(empty);
   for (const c of S.cases) {
     const id = caseIdOf(c);
-    const o = el('option', id.slice(0, 14) + '…', '');
+    const o = el('option', id.length > 16 ? id.slice(0, 16) + '…' : id, '');
     o.value = id; selEl.append(o);
   }
   selEl.value = current || '';
@@ -508,7 +412,7 @@ function renderComparePair() {
   const panes = el('div', undefined, 'cmp-panes');
   for (const [tag, id, mp] of [['A', S.cmp.a, ma], ['B', S.cmp.b, mb]]) {
     const pane = el('div', undefined, 'cmp-pane');
-    pane.append(el('div', tag + ' · ' + (id ? id.slice(0, 14) + '…' : '未选择')
+    pane.append(el('div', tag + ' · ' + (id ? (id.length > 16 ? id.slice(0, 16) + '…' : id) : '未选择')
       + (mp ? '（' + mp.domain + '）' : ''), 'cmp-title'));
     if (id) {
       const c = S.cases.find(x => caseIdOf(x) === id);
@@ -580,18 +484,24 @@ function renderComparePair() {
   return wrap;
 }
 
-/* ---------- 中：任务控制台（原生只读） ---------- */
+/* ---------- 中：任务控制台（原生只读；刷新随数据入口，T-056） ---------- */
 function renderJobsNative(jobs) {
   const wrap = el('div', undefined, 'view-native');
+  const head = el('div', undefined, 'jobs-head');
+  head.append(el('span', 'CFD 任务 · 只读（数据源 /api/simulation/jobs）', 'jobs-title'));
+  const ref = el('button', '⟳ 刷新', 'icon-btn');
+  ref.onclick = async () => { await loadJobs(); renderAll(); };
+  head.append(ref);
+  wrap.append(head);
   if (S.caseId) {
     const crumb = el('p', undefined, 'proj-note');
-    crumb.textContent = '当前项目：' + S.caseId.slice(0, 14) + '…（仅显示本项目任务）';
+    crumb.textContent = '当前项目：' + S.caseId.slice(0, 16) + '…（仅显示本项目任务）';
     wrap.append(crumb);
   }
   const tb = el('table', undefined, 'jobs-table');
-  const head = el('tr');
-  for (const h of ['任务', '类型', '病例', '状态', '阶段', '更新时间', '产物']) head.append(el('th', h));
-  tb.append(head);
+  const head2 = el('tr');
+  for (const h of ['任务', '类型', '病例', '状态', '阶段', '更新时间', '产物']) head2.append(el('th', h));
+  tb.append(head2);
   for (const j of jobs) {
     const tr = el('tr', undefined, S.sel && S.sel.kind === 'job' && S.sel.key === j.id ? 'sel' : '');
     tr.style.cursor = 'pointer';
@@ -616,12 +526,49 @@ function renderJobsNative(jobs) {
   return wrap;
 }
 
-/* ---------- 右：属性面板 ---------- */
+/* ---------- 右：属性面板（项目 / 节点 / 任务三级） ---------- */
 function kv(dl, k, v, mono = true) {
   const row = el('div', undefined, 'kv');
   row.append(el('dt', k));
   const dd = el('dd', v === null || v === undefined || v === '' ? '—' : String(v), mono ? '' : 'txt');
   row.append(dd); dl.append(row);
+}
+/* 节点级字段（原 T-055 中间链路视图的节点详情，T-056 并入属性面板） */
+function flowFields(f, c, mp) {
+  const rows = [];
+  rows.push(['上游依赖', f.dep.length ? f.dep.map(d => (FLOW.find(x => x.key === d) || {}).label).join(' + ') : '无（入口节点）', false]);
+  rows.push(['下游', (FLOW.filter(x => x.dep.includes(f.key)).map(x => x.label).join(' + ')) || '无（末端节点）', false]);
+  if (f.key === 'source' && c) {
+    rows.push(['导入状态', c.error ? '失败：' + String(c.error).slice(0, 60) : '正常', false]);
+    rows.push(['文件数', c.file_count]);
+    rows.push(['创建', String(c.created_at || '').slice(0, 19)]);
+  }
+  if (f.key === 'segment' && c)
+    rows.push(['阶段', STAGE_LABEL[c.active_stage] || c.active_stage || '—', false]);
+  if (f.key === 'locate' && c) rows.push(['候选点数', c.landmark_count]);
+  if (f.key === 'geometry' && c && c.geometry) {
+    const g = c.geometry;
+    rows.push(['CT 尺寸', g.size_xyz ? g.size_xyz.join(' × ') : null]);
+    rows.push(['像元 mm', g.spacing_xyz_mm ? g.spacing_xyz_mm.map(v => +(+v).toFixed(3)).join(' / ') : null]);
+    rows.push(['HU 范围', g.hu_range ? g.hu_range.join(' ~ ') : null]);
+  }
+  if (f.key === 'config' && mp) {
+    rows.push(['求解配置', mp.domain, false]);
+    rows.push(['数值验证', mp.validation, false]);
+    rows.push(['口径注记', mp.domain_note, false]);
+  }
+  if (f.key === 'post' && mp) {
+    for (const k of ['R_Pa_s_ml', 'delta_p_Pa', 'wss_median_Pa', 'wss_integral_N']) {
+      const m = mp.metrics[k];
+      if (m) rows.push([m.label + (m.unit ? '（' + m.unit + '）' : ''),
+        m.value == null ? '—（' + (m.note || '未产') + '）' : m.value]);
+    }
+  }
+  if (f.key === 'report' && mp) {
+    rows.push(['结论卡出处', (mp.metrics.R_Pa_s_ml || {}).source || '—', false]);
+    rows.push(['临床状态', mp.clinical_status, false]);
+  }
+  return rows;
 }
 function renderProps() {
   const body = $('prop-body'); body.replaceChildren();
@@ -631,23 +578,28 @@ function renderProps() {
   }
   if (S.sel && S.sel.kind === 'flow') {
     const f = FLOW.find(x => x.key === S.sel.key);
-    const sec = el('div', undefined, 'prop-sec');
-    sec.append(el('h4', '处理节点'));
-    const dl = el('dl');
-    kv(dl, '编号', f.no); kv(dl, '名称', f.label, false); kv(dl, '说明', f.sub, false);
-    kv(dl, '依赖', f.dep.length ? f.dep.map(d => (FLOW.find(x => x.key === d) || {}).label).join(' + ') : '入口', false);
-    kv(dl, '当前项目', S.caseId || '—');
-    const st = S.caseId ? pipelineStates(S.caseId)[f.key] : 'todo';
-    kv(dl, '节点状态', {done: '有产物', fail: '失败', stale: '上游失效', wait: '待上游',
-      norec: '工作台无记录', todo: '未开始'}[st], false);
-    sec.append(dl);
-    sec.append(el('div', '状态由 API 真实字段推导；stale = 上游失败/失效传播（P2/P4），不是「没做」；'
-      + '◇ = 该项目为仿真项目（jobs API 派生），其前序记录在工作台外的 WSL case。', 'notice'));
-    body.append(sec);
-    return;
+    if (f) {
+      const c = S.caseId ? S.cases.find(x => caseIdOf(x) === S.caseId) : null;
+      const mk = S.caseId ? metricKeyOf(S.caseId) : null;
+      const mp = mk && S.metrics ? S.metrics.patients[mk] : null;
+      const sec = el('div', undefined, 'prop-sec');
+      sec.append(el('h4', '处理节点'));
+      const dl = el('dl');
+      kv(dl, '编号', f.no); kv(dl, '名称', f.label, false); kv(dl, '说明', f.sub, false);
+      kv(dl, '当前项目', S.caseId || '—');
+      const st = S.caseId ? pipelineStates(S.caseId)[f.key] : 'todo';
+      kv(dl, '节点状态', FLOW_STATE_TXT[st], false);
+      for (const [k, v, mono] of flowFields(f, c, mp)) kv(dl, k, v, mono !== false);
+      sec.append(dl);
+      sec.append(el('div', '节点详情只显示 API 真实字段与已核验搬运值（patient_metrics.json）；'
+        + '无出处数据一律「—」，不推断不补造。stale = 上游失败/失效传播（P2/P4），不是「没做」；'
+        + '◇ = 该项目为仿真项目（jobs API 派生），其前序记录在工作台外的 WSL case。', 'notice'));
+      body.append(sec);
+      return;
+    }
   }
   if (S.caseId) { renderCaseProps(body); return; }
-  body.append(el('p', '选择项目或任务后，这里显示其真实参数。', 'muted'));
+  body.append(el('p', '在左侧选择项目或节点，这里显示其真实参数。', 'muted'));
 }
 function renderCaseProps(body) {
   const c = S.cases.find(x => caseIdOf(x) === S.caseId);
@@ -667,6 +619,7 @@ function renderCaseProps(body) {
   kv(dl, '创建', String(c.created_at || '').slice(0, 19));
   sec.append(dl);
   if (c.error) sec.append(el('div', '导入失败：' + c.error, 'notice bad'));
+  if (c.synthetic) sec.append(el('div', c._note || '仿真项目（jobs API 派生）', 'notice'));
   const mk = metricKeyOf(S.caseId);
   if (mk && S.metrics) {
     const mp = S.metrics.patients[mk];
@@ -744,21 +697,13 @@ function renderLog() {
 }
 
 /* ---------- 总装 ---------- */
-function renderAll() { renderFlowTree(); renderJobTree(); renderTabs(); renderView(); renderProps(); renderLog(); }
+function renderAll() { renderProjectTree(); renderTabs(); renderView(); renderProps(); renderLog(); }
 async function boot() {
-  try { await loadCases(); } catch (e) { $('chip-cases').textContent = '项目：读取失败'; $('chip-cases').classList.add('bad'); }
-  try { await loadJobs(); } catch (e) { $('chip-jobs').textContent = '任务：读取失败'; $('chip-jobs').classList.add('bad'); }
+  try { await loadCases(); } catch (e) { S.cases = []; }
+  try { await loadJobs(); } catch (e) {}
   mergeSyntheticCases();
   await loadMetrics();
   renderAll();
 }
-$('case-select').addEventListener('change', e => {
-  S.caseId = e.target.value || null;
-  S.sel = null;                                   // 切换项目清空选中对象（属性面板回到项目级）
-  if (S.caseId) { if (S.view === 'projects') S.view = 'pipeline'; }
-  else S.view = 'projects';
-  renderAll();
-});
-$('jobs-refresh').addEventListener('click', async () => { await loadJobs(); renderAll(); });
 boot();
 })();

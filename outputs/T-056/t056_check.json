@@ -1,0 +1,35 @@
+{
+  "errors": [],
+  "external": [],
+  "checks": {
+    "proj_nodes": 13,
+    "proj_count_label": "13 个项目",
+    "no_proj_card": 0,
+    "no_pipe_view": 0,
+    "no_case_dropdown": 0,
+    "no_legacy_link": 0,
+    "no_chips": 0,
+    "top_chips": 1,
+    "tabs": [
+      "三维检查",
+      "咽部扩展",
+      "流线",
+      "对比",
+      "任务控制台"
+    ],
+    "b15_found": true,
+    "b15_variant_visible": 1,
+    "flow_children": 8,
+    "flow_norec": 5,
+    "flow_done": 3,
+    "prop_has_dep": true,
+    "prop_has_state": true,
+    "view_geometry_on": "三维检查",
+    "prop_project_level": true,
+    "jobs_refresh_btn": 1,
+    "jobs_rows": 3,
+    "prop_job_level": true,
+    "compare_modes": 2
+  },
+  "ok": true
+}

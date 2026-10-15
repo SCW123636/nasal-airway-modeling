@@ -28,19 +28,10 @@ code{font-family:var(--mono);font-size:11px;background:var(--soft);padding:0 4px
   background:#1b1b1b;color:#ececec;border-bottom:1px solid #000}
 .brand{font-size:13.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap}
 .brand-pro{margin-left:8px;font-weight:400;color:#a8a8a8;font-size:11.5px}
-.env{margin-left:8px;font:10px var(--mono);color:#8f8f8f;border:1px solid #454545;
-  padding:1px 6px;border-radius:2px}
-.case-picker{display:flex;align-items:center;gap:7px;font-size:11px;color:#a8a8a8}
-.case-picker select{background:#101010;color:#ececec;border:1px solid #454545;border-radius:2px;
-  padding:4px 8px;font-size:11.5px;max-width:300px}
 .top-status{margin-left:auto;display:flex;gap:6px}
 .chip{font:10.5px var(--mono);padding:3px 8px;border-radius:2px;background:#2c2c2c;color:#c4c4c4;
   border:1px solid #454545;white-space:nowrap}
 .chip.warn{background:#ececec;color:#1b1b1b;border-color:#ececec;font-weight:600}
-.chip.ok{background:#3a3a3a;color:#e8e8e8;border-color:#555}
-.chip.bad{background:#000;color:#fff;border-color:#666}
-.legacy{font-size:11px;color:#909090;white-space:nowrap;text-decoration:none}
-.legacy:hover{color:#e0e0e0}
 
 /* ---- 主壳三栏 ---- */
 .shell{flex:1;display:grid;grid-template-columns:248px minmax(0,1fr) 300px;min-height:0}
@@ -56,18 +47,29 @@ code{font-family:var(--mono);font-size:11px;background:var(--soft);padding:0 4px
 .tnode{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:3px;cursor:pointer;
   border:1px solid transparent;user-select:none}
 .tnode:hover{background:var(--soft)}
-.tnode.sel{background:var(--soft);border-color:var(--line2);box-shadow:inset 2px 0 0 #1a1a1a}
+.tnode.sel{background:var(--soft2);border-color:var(--line2);box-shadow:inset 3px 0 0 #1a1a1a}
+.tnode.sel>.lbl{font-weight:600}
+.tgroup{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font:600 9.5px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;
+  padding:12px 8px 4px}
+.tgroup .tcount{font-weight:400;color:var(--faint);letter-spacing:0}
 .tnode .st{flex:none;width:15px;text-align:center;font-size:11px}
 .tnode .st.done{color:#1a1a1a;font-weight:700}
 .tnode .st.todo{color:#b5b5b5}
 .tnode .st.fail{color:#000;font-weight:900}
-.tnode .st.run{color:#4a4a4a;animation:pulse 1.2s infinite}
-@keyframes pulse{50%{opacity:.3}}
+.tnode .st.stale{color:#b5b5b5}
+.tnode .st.wait{color:#6e6e6e}
+.tnode .st.norec{color:#b5b5b5}
+.tnode .caret{flex:none;width:12px;text-align:center;font-size:10px;color:var(--faint)}
+.tnode.sel .caret{color:#1a1a1a;font-weight:700}
 .tnode .lbl{font-size:12px;min-width:0}
 .tnode .sub{display:block;font:9.5px var(--mono);color:#9a9a9a;margin-top:1px;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .tnode.grp>.lbl{font-weight:600;color:#3d3d3d}
 .tnode.child{padding-left:26px}
+.tnode.child .lbl{font-size:11.5px;color:#3d3d3d}
+.tree-legend{flex:none;padding:8px 12px;border-top:1px solid var(--line);
+  font:9.5px var(--mono);color:var(--faint);line-height:1.7}
 
 /* ---- 中：视图区 ---- */
 .view-panel{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--bg)}
@@ -179,38 +181,9 @@ code{font-family:var(--mono);font-size:11px;background:var(--soft);padding:0 4px
 .cmp-table th:nth-child(1){width:130px}
 @media(max-width:900px){.cmp-panes{grid-template-columns:1fr}}
 
-/* ---- 处理链路视图（T-055：依赖链 + 状态语义） ---- */
-.pipe-wrap{display:flex;flex-direction:column;gap:12px}
-.pipe-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.pipe-title{font:600 13px/1.4 "Segoe UI",system-ui,sans-serif}
-.pipe-legend{font:10.5px var(--mono);color:var(--muted)}
-.pipe-chain{display:flex;flex-direction:column;align-items:stretch;gap:0;
-  background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:14px 16px;max-width:760px}
-.pipe-node{display:flex;align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);
-  border-radius:3px;background:#fff;cursor:pointer;transition:border-color .12s}
-.pipe-node:hover{border-color:#8a8a8a}
-.pipe-node.sel{border-color:#1a1a1a;box-shadow:inset 3px 0 0 #1a1a1a}
-.pipe-node.done{background:#f6f6f6}
-.pipe-node.fail{border-style:dashed;background:#fbfbfb}
-.pipe-node.stale{opacity:.55;border-style:dotted}
-.pipe-node.wait{opacity:.8}
-.pipe-node .pno{font:10px var(--mono);color:var(--faint);flex:none;width:20px}
-.pipe-node .pst{flex:none;width:16px;text-align:center;font-size:12px}
-.pipe-node.done .pst{font-weight:700}
-.pipe-node.fail .pst{font-weight:700}
-.pmeta{display:flex;flex-direction:column;gap:1px;min-width:0}
-.plbl{font-size:12.5px;font-weight:600}
-.psub{font-size:10.5px;color:var(--muted)}
-.pdep{margin-left:auto;font:10px var(--mono);color:var(--faint);white-space:nowrap}
-.parrow{flex:none;text-align:center;color:var(--faint);font-size:10px;line-height:1.6;padding:1px 0 1px 32px}
-.pipe-detail{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:14px 16px;max-width:860px}
-.pipe-detail h4{margin:0 0 6px;font-size:12.5px}
-.pipe-desc{margin:0 0 12px;font-size:11.5px;color:var(--muted);line-height:1.7}
-.kv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:0 16px;margin:0}
-.kv-grid>div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;
-  border-bottom:1px solid #f0f0f0;font-size:11.5px}
-.kv-grid dt{color:var(--muted);flex:none}
-.kv-grid dd{margin:0;font-family:var(--mono);text-align:right;overflow-wrap:anywhere}
+/* ---- 任务控制台头部（T-056：刷新随数据入口） ---- */
+.jobs-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.jobs-title{font:600 11px var(--mono);color:var(--muted)}
 
 /* ---- 对比视图（T-055：V1 参考带 + V2 配对） ---- */
 .cmp-hint{font-size:10.5px;color:var(--muted);margin-left:auto}
@@ -227,5 +200,3 @@ code{font-family:var(--mono);font-size:11px;background:var(--soft);padding:0 4px
 .cmp-appendix summary{cursor:pointer;padding:8px 12px;font-size:11px;color:var(--muted)}
 .cmp-appendix table{border:0}
 .cmp-appendix th,.cmp-appendix td{font-size:10.5px;padding:4px 10px}
-.pipe-node.norec{background:#f4f4f4;border-style:dashed;opacity:.85}
-.pipe-node.norec .pst{color:var(--faint)}
