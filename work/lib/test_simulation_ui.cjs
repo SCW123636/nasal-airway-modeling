@@ -313,6 +313,31 @@ async function mockMain() {
     assert.equal(await page.locator('.simulation-job-row').count(),mockJobs.filter(job=>job.case_id==='reference_split_feedback').length);
     record('mixed persistent history retains action labels and case filtering');
     await noOverflow(); await screenshot('desktop-partial-feedback-mock');
+    const progressJob={id:'s_ffffffffffffffffffffffff',case_id:'reference_split_feedback',action:'run_pressure_feedback',status:'running',stage:'mesh',created_at:new Date().toISOString(),updated_at:new Date().toISOString(),live_progress:{stage:'mesh',evaluation:'eval_001',actual_step:'checkMesh',iteration:null,runner_status:'running',log_tail:'checkMesh fixture; no SIMPLE iteration yet',updated_at:'2026-10-15T10:00:00+08:00'}};
+    mockJobs.unshift(progressJob);
+    await page.locator('#simulation-refresh').click();
+    await page.locator('[data-job-id="'+progressJob.id+'"]').click();
+    await page.waitForFunction(()=>document.getElementById('simulation-live-step').textContent.includes('checkMesh'));
+    assert.equal(await page.locator('#simulation-live-iteration').innerText(),'未获得');
+    assert.equal(await page.locator('#simulation-run').isDisabled(),true);
+    await page.locator('#simulation-live-log-detail summary').click();
+    const changedAt=Date.now();
+    progressJob.stage='solver';
+    progressJob.live_progress={stage:'solver',evaluation:'eval_002',actual_step:'simpleFoam',iteration:'533',runner_status:'running',log_tail:'Time = 533\nfixture <tag> raw log; no real CFD',updated_at:'2026-10-15T10:00:03+08:00'};
+    await page.waitForFunction(()=>document.getElementById('simulation-live-iteration').textContent==='533',{},{timeout:8000});
+    const elapsed=Date.now()-changedAt; assert.ok(elapsed>=2400 && elapsed<8000,'progress did not follow the 3 second read polling interval: '+elapsed);
+    assert.match(await page.locator('#simulation-live-step').innerText(),/simpleFoam/);
+    assert.equal(await page.locator('#simulation-live-evaluation').innerText(),'eval_002');
+    assert.match(await page.locator('#simulation-live-updated').innerText(),/10:00:03/);
+    assert.equal(await page.locator('#simulation-live-log').innerText(),progressJob.live_progress.log_tail);
+    assert.equal(await page.locator('#simulation-live-log tag').count(),0,'raw log was interpreted as HTML');
+    assert.equal(await page.locator('#simulation-live-log-detail').evaluate(node=>node.open),true,'polling closed the opened log');
+    report.progress_poll={elapsed_ms:elapsed,iteration_before:null,iteration_after:'533',real_solver_started:false};
+    record('3 second running-task polling updates actual step, evaluation, SIMPLE iteration, timestamp and raw log without inventing missing iterations');
+    await noOverflow(); await screenshot('desktop-running-progress-mock');
+    for (const width of [390,320]) {await page.setViewportSize({width,height:844}); await noOverflow(); await screenshot('running-progress-mock-'+width);}
+    progressJob.status='completed';progressJob.stage='completed';
+    await page.locator('#simulation-refresh').click();
     assert.deepEqual(report.page_errors,[]);
     report.passed=true;
   } catch(error) {report.failure=error.stack; throw error;}

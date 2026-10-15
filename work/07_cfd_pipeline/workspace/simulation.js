@@ -171,6 +171,7 @@
   }
   function renderDetail() {
     const job = detail;
+    renderLiveProgress(job);
     $('simulation-job-empty').hidden = !!job; $('simulation-job-detail').hidden = !job;
     $('simulation-job-status').textContent = job ? label(job.status) : selectedJobId ? '读取中' : '未选择任务';
     $('simulation-job-status').dataset.state = job?.status || 'pending';
@@ -184,6 +185,17 @@
     $('simulation-preflight-detail').hidden = !job.preflight;
     if ($('simulation-preflight-detail').dataset.job !== job.id) { $('simulation-preflight-detail').open = job.action === 'preflight' || job.preflight?.passed === false; $('simulation-preflight-detail').dataset.job = job.id; }
     $('simulation-log').textContent = job.log_excerpt || '当前阶段尚无日志输出。';
+  }
+  function renderLiveProgress(job) {
+    const progress = job?.live_progress, present = progress && typeof progress === 'object';
+    $('simulation-live-progress').hidden = !present && !running(job);
+    const value = raw => raw === null || raw === undefined || raw === '' ? '未获得' : String(raw);
+    const steps = {blockMesh:'blockMesh · 体网格',checkMesh:'checkMesh · 网格检查',simpleFoam:'simpleFoam · 流场求解',foamToVTK:'foamToVTK · 字段导出'};
+    $('simulation-live-step').textContent = steps[progress?.actual_step] || value(progress?.actual_step);
+    $('simulation-live-evaluation').textContent = value(progress?.evaluation);
+    $('simulation-live-iteration').textContent = value(progress?.iteration);
+    $('simulation-live-updated').textContent = '实际记录更新：' + (progress?.updated_at ? formatDate(progress.updated_at) : '未获得') + ' · 阶段：' + (stageLabels[progress?.stage] || value(progress?.stage)) + ' · 执行状态：' + (progress?.runner_status ? label(progress.runner_status) : '未获得') + '。以最后记录为准。';
+    $('simulation-live-log').textContent = typeof progress?.log_tail === 'string' && progress.log_tail ? progress.log_tail : '尚未获得原始日志';
   }
   async function api(url, options = {}) {
     const response = await fetch(url, {...options, cache:'no-store'});
@@ -237,7 +249,7 @@
     } catch (error) { message(error.message, true); }
     finally {busy = false; buttons(); schedule();}
   }
-  function schedule() { clearTimeout(timer); timer = null; if (!visible() || !jobs.some(running)) return; timer = setTimeout(refresh, 2000); }
+  function schedule() { clearTimeout(timer); timer = null; if (!visible() || !jobs.some(running)) return; timer = setTimeout(refresh, 3000); }
   $('simulation-refresh').addEventListener('click', refresh);
   $('simulation-case').addEventListener('change', () => {desiredUpload = null; selectCase($('simulation-case').value);});
   $('simulation-show-all').addEventListener('change', renderJobs);
