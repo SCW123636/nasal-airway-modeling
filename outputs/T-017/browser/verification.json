@@ -1,0 +1,188 @@
+{
+  "status": "execution_checks_pass",
+  "generatedAt": "2026-10-15T08:57:43.383Z",
+  "scope": "Static embedded viewer with existing patient previews and genuine existing solver reference; no patient CFD generation",
+  "initial": {
+    "caseId": "p0",
+    "vertices": 57453,
+    "faces": 114906,
+    "pixelRatio": 1.5,
+    "positionSha256": "5c4251bb7ff1cc96c8bdbaf3c45fa034010c94937eeed965a873ed7255a00e76",
+    "indexSha256": "d4b8e4ae78191ec0e91d49622b12257e1620ee77d771b8d3e70bc10e57964153"
+  },
+  "modeButton": {
+    "text": "平滑着色",
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(37, 120, 97)",
+    "fill": "rgb(255, 255, 255)",
+    "font": "12px / 19.8px system-ui, \"Microsoft YaHei\", sans-serif",
+    "fontSize": "12px"
+  },
+  "modes": [
+    {
+      "mode": "smooth",
+      "positionSha256": "5c4251bb7ff1cc96c8bdbaf3c45fa034010c94937eeed965a873ed7255a00e76",
+      "indexSha256": "d4b8e4ae78191ec0e91d49622b12257e1620ee77d771b8d3e70bc10e57964153",
+      "flatShading": false,
+      "wireframe": false
+    },
+    {
+      "mode": "facets",
+      "positionSha256": "5c4251bb7ff1cc96c8bdbaf3c45fa034010c94937eeed965a873ed7255a00e76",
+      "indexSha256": "d4b8e4ae78191ec0e91d49622b12257e1620ee77d771b8d3e70bc10e57964153",
+      "flatShading": true,
+      "wireframe": false
+    },
+    {
+      "mode": "wireframe",
+      "positionSha256": "5c4251bb7ff1cc96c8bdbaf3c45fa034010c94937eeed965a873ed7255a00e76",
+      "indexSha256": "d4b8e4ae78191ec0e91d49622b12257e1620ee77d771b8d3e70bc10e57964153",
+      "flatShading": false,
+      "wireframe": true
+    }
+  ],
+  "planes": [
+    {
+      "id": "nostril_L",
+      "point_lps_mm": [
+        -14.23892636399821,
+        -234.66605581608877,
+        -668.7812194994518
+      ],
+      "normal_lps": [
+        0.05254286626437159,
+        0.34250093981592405,
+        0.9380470955287551
+      ],
+      "viewNormal": [
+        0.052542866264371574,
+        0.938047095528755,
+        -0.34250093981592417
+      ],
+      "visible": true
+    },
+    {
+      "id": "nostril_R",
+      "point_lps_mm": [
+        -31.96022610617594,
+        -231.20129686104153,
+        -669.4075820062977
+      ],
+      "normal_lps": [
+        0.13515789971652484,
+        0.10054565511992941,
+        0.9857093452842587
+      ],
+      "viewNormal": [
+        0.13515789971652487,
+        0.9857093452842589,
+        -0.10054565511992963
+      ],
+      "visible": true
+    },
+    {
+      "id": "nasopharynx_outlet",
+      "point_lps_mm": [
+        -11.516358289822167,
+        -158.33160182579724,
+        -666.2174786671997
+      ],
+      "normal_lps": [
+        -0.0170798987760283,
+        0.0004106188129102961,
+        0.9998540435733564
+      ],
+      "viewNormal": [
+        -0.0170798987760283,
+        0.9998540435733563,
+        -0.000410618812910343
+      ],
+      "visible": true
+    }
+  ],
+  "caseSwitchClearsPreviousPlane": true,
+  "referenceVelocityPressureAvailable": true,
+  "patientFieldsDisabled": true,
+  "widths": [
+    {
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "width": 320,
+      "scroll": 320
+    }
+  ],
+  "canvasChangedFraction": 0.9104424378447031,
+  "allowedSimulationManifest": "s_0123456789abcdef01234567",
+  "rejectedArbitraryManifest": true,
+  "errorsBeforeIntentionalRejection": [],
+  "httpFailures": [],
+  "liveJobVerification": {
+    "viewerUrl": "http://127.0.0.1:8774/viewer/index.html?manifest=/simulation-assets/s_7dc6eb58cad24de48d3da028/viewer.json",
+    "caseId": "s_7dc6eb58cad24de48d3da028",
+    "label": "本次真实平行板参考 · coarse",
+    "vertices": 891,
+    "faces": 1600,
+    "layers": [
+      {
+        "layer": "velocity",
+        "min": 0,
+        "max": 0.1477610021829605,
+        "unit": "m/s"
+      },
+      {
+        "layer": "pressure",
+        "min": 0,
+        "max": 0.21260279417037964,
+        "unit": "Pa"
+      }
+    ],
+    "geometryUnchanged": true,
+    "errors": [],
+    "sourceMethod": "cfd_solver",
+    "clinicalValidation": "not_validated"
+  },
+  "frozenInputs": [
+    {
+      "path": "work\\06_auto_landmarks\\p0\\landmarks.json",
+      "sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"
+    },
+    {
+      "path": "work\\07_cfd_pipeline\\preview\\p0\\viewer_mesh.json",
+      "sha256": "0677de382f5eccc42b191cf1fdf13a1aedb3ed2924b8a2ce040448b6c49efb7f"
+    },
+    {
+      "path": "work\\06_auto_landmarks\\p1\\landmarks.json",
+      "sha256": "0e192a954e87fd222c9b6db27246afc83fd9df7a030f5cf1924d061deecbf459"
+    },
+    {
+      "path": "work\\07_cfd_pipeline\\preview\\p1\\viewer_mesh.json",
+      "sha256": "6038f194fd70cb77f3fc7408857df4668a6c39a562ed51b4e2c89612d625472b"
+    },
+    {
+      "path": "work\\06_auto_landmarks\\p2\\landmarks.json",
+      "sha256": "c82d05eabb46d054427fe59b799f7d3a7cefbb2c228012f4f9c78f30847e50bc"
+    },
+    {
+      "path": "work\\07_cfd_pipeline\\preview\\p2\\viewer_mesh.json",
+      "sha256": "a39f3d5bb7327ce7b4fed9d20048d540533e17dabcacee2c6625fbc7406a9613"
+    },
+    {
+      "path": "work\\06_auto_landmarks\\p3\\landmarks.json",
+      "sha256": "c9f160626cde3c6ec472ac3465dc6c86b966cdbcd5abad20bd1d5c2b862cb41f"
+    },
+    {
+      "path": "work\\07_cfd_pipeline\\preview\\p3\\viewer_mesh.json",
+      "sha256": "da5161d8272db31cfe9f9168c678692799c09ebb6840b860e01760a6e343b2bb"
+    },
+    {
+      "path": "work\\06_auto_landmarks\\p3t1\\landmarks.json",
+      "sha256": "e2bff5eadb29718d77b78b65fcfc582240f889967c6d9c90f4ff751a2ce1e9c5"
+    },
+    {
+      "path": "work\\07_cfd_pipeline\\preview\\p3t1\\viewer_mesh.json",
+      "sha256": "222906e39ba384c3ec3f33d9e5151c4c61c07daf644acf58891f693571f103be"
+    }
+  ]
+}
