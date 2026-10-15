@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "D:\\项目\\鼻腔建模\\outputs\\T-026\\prototype\\bind_patient_b.py",
+    "--dicom-series",
+    "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s",
+    "--data-root",
+    "C:\\ts_work",
+    "--out",
+    "D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_05_patient_B"
+  ],
+  "rerun_note": "Choose new --out; existing directory is rejected"
+}

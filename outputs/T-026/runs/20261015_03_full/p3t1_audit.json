@@ -1,0 +1,804 @@
+{
+  "case": "p3t1",
+  "patient_B_mapping": "unknown",
+  "limitations": [
+    "engineering_candidate_only",
+    "patient_B_mapping_unknown",
+    "symptom_location_unknown",
+    "anatomical_extent_not_reviewed",
+    "CT_complete_pharynx_or_larynx_coverage_not_established",
+    "outlet_not_selected_or_frozen",
+    "oral_cavity_exclusion_not_reviewed",
+    "threshold_exploratory_not_medically_adjudicated",
+    "not_CFD_admitted"
+  ],
+  "required_input_issues": [],
+  "labels": {
+    "nasal_cavity_left": {
+      "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_left.nii.gz",
+      "exists": true,
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz_mm": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_LPS_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction_row_major": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "coordinate_system": "LPS_mm",
+        "array_axes": "zyx",
+        "orientation_code": "LPS"
+      },
+      "same_grid_as_CT": true,
+      "binary_values_0_or_1": true,
+      "semantic": {
+        "voxels": 155658,
+        "volume_mm3": 16958.88637161255,
+        "empty": false,
+        "boundary_contact": {
+          "any": false,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 0,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 130.703125,
+            "x_high_mm": 84.95703125,
+            "y_low_mm": 26.607421875,
+            "y_high_mm": 117.166015625,
+            "z_low_mm": 22.0,
+            "z_high_mm": 45.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            11.203125,
+            -121.589599609375,
+            796.7784423828125
+          ],
+          [
+            34.54296875,
+            -26.363037109375,
+            845.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            280,
+            57,
+            44
+          ],
+          [
+            329,
+            260,
+            141
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            11.4365234375,
+            -121.356201171875,
+            797.0284423828125
+          ],
+          [
+            34.3095703125,
+            -26.596435546875,
+            845.5284423828125
+          ]
+        ]
+      },
+      "air_HU_lt_minus300": {
+        "voxels": 136442,
+        "volume_mm3": 14865.30968093872,
+        "empty": false,
+        "boundary_contact": {
+          "any": false,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 0,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 130.703125,
+            "x_high_mm": 84.95703125,
+            "y_low_mm": 26.607421875,
+            "y_high_mm": 117.166015625,
+            "z_low_mm": 22.0,
+            "z_high_mm": 45.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            11.203125,
+            -121.589599609375,
+            796.7784423828125
+          ],
+          [
+            34.54296875,
+            -26.363037109375,
+            845.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            280,
+            57,
+            44
+          ],
+          [
+            329,
+            260,
+            141
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            11.4365234375,
+            -121.356201171875,
+            797.0284423828125
+          ],
+          [
+            34.3095703125,
+            -26.596435546875,
+            845.5284423828125
+          ]
+        ]
+      }
+    },
+    "nasal_cavity_right": {
+      "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_right.nii.gz",
+      "exists": true,
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz_mm": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_LPS_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction_row_major": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "coordinate_system": "LPS_mm",
+        "array_axes": "zyx",
+        "orientation_code": "LPS"
+      },
+      "same_grid_as_CT": true,
+      "binary_values_0_or_1": true,
+      "semantic": {
+        "voxels": 121896,
+        "volume_mm3": 13280.527908325195,
+        "empty": false,
+        "boundary_contact": {
+          "any": false,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 0,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 114.365234375,
+            "x_high_mm": 99.89453125,
+            "y_low_mm": 26.607421875,
+            "y_high_mm": 117.6328125,
+            "z_low_mm": 23.0,
+            "z_high_mm": 46.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            -5.134765625,
+            -121.589599609375,
+            797.7784423828125
+          ],
+          [
+            19.60546875,
+            -26.829833984375,
+            844.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            245,
+            57,
+            46
+          ],
+          [
+            297,
+            259,
+            139
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            -4.9013671875,
+            -121.356201171875,
+            798.0284423828125
+          ],
+          [
+            19.3720703125,
+            -27.063232421875,
+            844.5284423828125
+          ]
+        ]
+      },
+      "air_HU_lt_minus300": {
+        "voxels": 93971,
+        "volume_mm3": 10238.108617782593,
+        "empty": false,
+        "boundary_contact": {
+          "any": false,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 0,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 114.365234375,
+            "x_high_mm": 99.89453125,
+            "y_low_mm": 26.607421875,
+            "y_high_mm": 117.6328125,
+            "z_low_mm": 23.0,
+            "z_high_mm": 46.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            -5.134765625,
+            -121.589599609375,
+            797.7784423828125
+          ],
+          [
+            19.60546875,
+            -26.829833984375,
+            844.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            245,
+            57,
+            46
+          ],
+          [
+            297,
+            259,
+            139
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            -4.9013671875,
+            -121.356201171875,
+            798.0284423828125
+          ],
+          [
+            19.3720703125,
+            -27.063232421875,
+            844.5284423828125
+          ]
+        ]
+      }
+    },
+    "nasopharynx": {
+      "path": "C:\\ts_work\\p3t1\\masks\\nasopharynx.nii.gz",
+      "exists": true,
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz_mm": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_LPS_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction_row_major": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "coordinate_system": "LPS_mm",
+        "array_axes": "zyx",
+        "orientation_code": "LPS"
+      },
+      "same_grid_as_CT": true,
+      "binary_values_0_or_1": true,
+      "semantic": {
+        "voxels": 64708,
+        "volume_mm3": 7049.914680480957,
+        "empty": false,
+        "boundary_contact": {
+          "any": false,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 0,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 108.296875,
+            "x_high_mm": 91.4921875,
+            "y_low_mm": 110.630859375,
+            "y_high_mm": 105.029296875,
+            "z_low_mm": 22.0,
+            "z_high_mm": 75.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            -11.203125,
+            -37.566162109375,
+            796.7784423828125
+          ],
+          [
+            28.0078125,
+            -14.226318359375,
+            815.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            232,
+            237,
+            44
+          ],
+          [
+            315,
+            286,
+            81
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            -10.9697265625,
+            -37.332763671875,
+            797.0284423828125
+          ],
+          [
+            27.7744140625,
+            -14.459716796875,
+            815.5284423828125
+          ]
+        ]
+      },
+      "air_HU_lt_minus300": {
+        "voxels": 58299,
+        "volume_mm3": 6351.656301498413,
+        "empty": false,
+        "boundary_contact": {
+          "any": false,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 0,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 108.296875,
+            "x_high_mm": 91.4921875,
+            "y_low_mm": 110.630859375,
+            "y_high_mm": 105.029296875,
+            "z_low_mm": 22.0,
+            "z_high_mm": 75.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            -11.203125,
+            -37.566162109375,
+            796.7784423828125
+          ],
+          [
+            28.0078125,
+            -14.226318359375,
+            815.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            232,
+            237,
+            44
+          ],
+          [
+            315,
+            286,
+            81
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            -10.9697265625,
+            -37.332763671875,
+            797.0284423828125
+          ],
+          [
+            27.7744140625,
+            -14.459716796875,
+            815.5284423828125
+          ]
+        ]
+      }
+    },
+    "oropharynx": {
+      "path": "C:\\ts_work\\p3t1\\masks\\oropharynx.nii.gz",
+      "exists": true,
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz_mm": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_LPS_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction_row_major": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "coordinate_system": "LPS_mm",
+        "array_axes": "zyx",
+        "orientation_code": "LPS"
+      },
+      "same_grid_as_CT": true,
+      "binary_values_0_or_1": true,
+      "semantic": {
+        "voxels": 73014,
+        "volume_mm3": 7954.850566864014,
+        "empty": false,
+        "boundary_contact": {
+          "any": true,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 987,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 111.09765625,
+            "x_high_mm": 94.759765625,
+            "y_low_mm": 110.630859375,
+            "y_high_mm": 99.89453125,
+            "z_low_mm": 0.0,
+            "z_high_mm": 91.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            -8.40234375,
+            -37.566162109375,
+            774.7784423828125
+          ],
+          [
+            24.740234375,
+            -9.091552734375,
+            799.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            238,
+            237,
+            0
+          ],
+          [
+            308,
+            297,
+            49
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            -8.1689453125,
+            -37.332763671875,
+            775.0284423828125
+          ],
+          [
+            24.5068359375,
+            -9.324951171875,
+            799.5284423828125
+          ]
+        ]
+      },
+      "air_HU_lt_minus300": {
+        "voxels": 66081,
+        "volume_mm3": 7199.502565383911,
+        "empty": false,
+        "boundary_contact": {
+          "any": true,
+          "face_voxel_counts": {
+            "x_low": 0,
+            "x_high": 0,
+            "y_low": 0,
+            "y_high": 0,
+            "z_low": 905,
+            "z_high": 0
+          },
+          "voxel_support_gap_to_CT_face_mm": {
+            "x_low_mm": 111.09765625,
+            "x_high_mm": 94.759765625,
+            "y_low_mm": 110.630859375,
+            "y_high_mm": 99.89453125,
+            "z_low_mm": 0.0,
+            "z_high_mm": 91.0
+          },
+          "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+        },
+        "bounds_LPS_mm": [
+          [
+            -8.40234375,
+            -37.566162109375,
+            774.7784423828125
+          ],
+          [
+            24.740234375,
+            -9.091552734375,
+            799.7784423828125
+          ]
+        ],
+        "index_bounds_xyz_inclusive": [
+          [
+            238,
+            237,
+            0
+          ],
+          [
+            308,
+            297,
+            49
+          ]
+        ],
+        "center_bounds_LPS_mm": [
+          [
+            -8.1689453125,
+            -37.332763671875,
+            775.0284423828125
+          ],
+          [
+            24.5068359375,
+            -9.324951171875,
+            799.5284423828125
+          ]
+        ]
+      }
+    },
+    "hypopharynx": {
+      "path": "C:\\ts_work\\p3t1\\masks\\hypopharynx.nii.gz",
+      "exists": true,
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz_mm": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_LPS_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction_row_major": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "coordinate_system": "LPS_mm",
+        "array_axes": "zyx",
+        "orientation_code": "LPS"
+      },
+      "same_grid_as_CT": true,
+      "binary_values_0_or_1": true,
+      "semantic": {
+        "voxels": 0,
+        "volume_mm3": 0.0,
+        "empty": true,
+        "boundary_contact": null,
+        "bounds_LPS_mm": null
+      },
+      "air_HU_lt_minus300": {
+        "voxels": 0,
+        "volume_mm3": 0.0,
+        "empty": true,
+        "boundary_contact": null,
+        "bounds_LPS_mm": null
+      }
+    },
+    "larynx_air": {
+      "path": "C:\\ts_work\\p3t1\\masks\\larynx_air.nii.gz",
+      "exists": false,
+      "issue": "file_missing"
+    }
+  },
+  "coverage_conclusion": "requires_professional_review",
+  "CT": {
+    "size_xyz": [
+      512,
+      512,
+      232
+    ],
+    "spacing_xyz_mm": [
+      0.466796875,
+      0.466796875,
+      0.5
+    ],
+    "origin_LPS_mm": [
+      -119.2666015625,
+      -147.963623046875,
+      775.0284423828125
+    ],
+    "direction_row_major": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "coordinate_system": "LPS_mm",
+    "array_axes": "zyx",
+    "orientation_code": "LPS",
+    "voxel_support_corners_LPS_mm": [
+      [
+        -119.5,
+        -148.197021484375,
+        774.7784423828125
+      ],
+      [
+        -119.5,
+        -148.197021484375,
+        890.7784423828125
+      ],
+      [
+        -119.5,
+        90.802978515625,
+        774.7784423828125
+      ],
+      [
+        -119.5,
+        90.802978515625,
+        890.7784423828125
+      ],
+      [
+        119.5,
+        -148.197021484375,
+        774.7784423828125
+      ],
+      [
+        119.5,
+        -148.197021484375,
+        890.7784423828125
+      ],
+      [
+        119.5,
+        90.802978515625,
+        774.7784423828125
+      ],
+      [
+        119.5,
+        90.802978515625,
+        890.7784423828125
+      ]
+    ],
+    "voxel_support_bounds_LPS_mm": [
+      [
+        -119.5,
+        -148.197021484375,
+        774.7784423828125
+      ],
+      [
+        119.5,
+        90.802978515625,
+        890.7784423828125
+      ]
+    ],
+    "FOV_extent_along_index_axes_mm": [
+      239.0,
+      239.0,
+      116.0
+    ],
+    "physical_convention": "+L left, +P posterior, +S superior; bounds include half voxel support"
+  },
+  "entry_pass_for_oropharynx_profile": true,
+  "entry_pass_for_hypopharynx_profile": false
+}

@@ -1,0 +1,96 @@
+{
+  "user_designated_source": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s",
+  "candidate_existing_CT": "C:\\ts_work\\p2\\ct.nii.gz",
+  "binding_scope": "full decoded HU array and physical voxel geometry equality within stated tolerances; not original DICOM file identity",
+  "all_voxels_HU_exactly_equal": true,
+  "shape_equal": true,
+  "decoded_source_shape_zyx": [
+    286,
+    512,
+    512
+  ],
+  "existing_CT_shape_zyx": [
+    286,
+    512,
+    512
+  ],
+  "decoded_voxel_count": 74973184,
+  "source_dtype": "int16",
+  "existing_CT_dtype": "int16",
+  "source_decoded_array_sha256": "d57f53253adae178f5db9f66b9c57bcf9637acc84d386cba98ee931b9ff00794",
+  "existing_CT_array_sha256": "d57f53253adae178f5db9f66b9c57bcf9637acc84d386cba98ee931b9ff00794",
+  "mismatched_voxels": 0,
+  "max_abs_HU_difference": 0.0,
+  "spacing_equal_atol_1e_6_mm": true,
+  "origin_equal_atol_1e_4_mm": true,
+  "direction_equal_atol_1e_6": true,
+  "header_pixel_spacing_consistent": true,
+  "header_loader_spacing_agrees_atol_1e_4_mm": true,
+  "header_loader_origin_agrees_atol_1e_4_mm": true,
+  "source_loader_spacing_xyz_mm": [
+    0.458984375,
+    0.458984375,
+    0.5
+  ],
+  "source_loader_origin_LPS_mm": [
+    -117.2705078125,
+    -271.2705078125,
+    -650.5
+  ],
+  "source_direction_from_all_IOP_IPP": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "source_dz_from_IPP_mm": 0.5,
+  "IPP_dz_min_max_mm": [
+    0.5,
+    0.5
+  ],
+  "source_SliceThickness_used": false,
+  "existing_CT_geometry": {
+    "size_xyz": [
+      512,
+      512,
+      286
+    ],
+    "spacing_xyz_mm": [
+      0.458984375,
+      0.458984375,
+      0.5
+    ],
+    "origin_LPS_mm": [
+      -117.2705078125,
+      -271.2705078125,
+      -650.5
+    ],
+    "direction_row_major": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "coordinate_system": "LPS_mm",
+    "array_axes": "zyx",
+    "orientation_code": "LPS"
+  },
+  "source_bound_to_p2_HU_and_geometry": true,
+  "clinical_anatomy_and_outlet_review": "not_reviewed"
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "path": "C:\\ts_work\\p0\\ct.nii.gz",
+    "exists": true,
+    "bytes": 157958497,
+    "sha256": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648"
+  },
+  {
+    "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_left.nii.gz",
+    "exists": true,
+    "bytes": 552555,
+    "sha256": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72"
+  },
+  {
+    "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_right.nii.gz",
+    "exists": true,
+    "bytes": 545749,
+    "sha256": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38"
+  },
+  {
+    "path": "C:\\ts_work\\p0\\masks\\nasopharynx.nii.gz",
+    "exists": true,
+    "bytes": 463141,
+    "sha256": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7"
+  },
+  {
+    "path": "C:\\ts_work\\p0\\masks\\oropharynx.nii.gz",
+    "exists": true,
+    "bytes": 475304,
+    "sha256": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8"
+  },
+  {
+    "path": "C:\\ts_work\\p0\\masks\\hypopharynx.nii.gz",
+    "exists": true,
+    "bytes": 450847,
+    "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+  },
+  {
+    "path": "C:\\ts_work\\p0\\masks\\larynx_air.nii.gz",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "path": "C:\\ts_work\\p1\\ct.nii.gz",
+    "exists": true,
+    "bytes": 51566805,
+    "sha256": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032"
+  },
+  {
+    "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_left.nii.gz",
+    "exists": true,
+    "bytes": 193925,
+    "sha256": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612"
+  },
+  {
+    "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_right.nii.gz",
+    "exists": true,
+    "bytes": 196353,
+    "sha256": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d"
+  },
+  {
+    "path": "C:\\ts_work\\p1\\masks\\nasopharynx.nii.gz",
+    "exists": true,
+    "bytes": 162312,
+    "sha256": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8"
+  },
+  {
+    "path": "C:\\ts_work\\p1\\masks\\oropharynx.nii.gz",
+    "exists": true,
+    "bytes": 162097,
+    "sha256": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065"
+  },
+  {
+    "path": "C:\\ts_work\\p1\\masks\\hypopharynx.nii.gz",
+    "exists": true,
+    "bytes": 155719,
+    "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+  },
+  {
+    "path": "C:\\ts_work\\p1\\masks\\larynx_air.nii.gz",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "path": "C:\\ts_work\\p2\\ct.nii.gz",
+    "exists": true,
+    "bytes": 72652958,
+    "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_left.nii.gz",
+    "exists": true,
+    "bytes": 378076,
+    "sha256": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_right.nii.gz",
+    "exists": true,
+    "bytes": 377099,
+    "sha256": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\nasopharynx.nii.gz",
+    "exists": true,
+    "bytes": 337065,
+    "sha256": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\oropharynx.nii.gz",
+    "exists": true,
+    "bytes": 345113,
+    "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\hypopharynx.nii.gz",
+    "exists": true,
+    "bytes": 327297,
+    "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\larynx_air.nii.gz",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "path": "C:\\ts_work\\p3\\ct.nii.gz",
+    "exists": true,
+    "bytes": 68048713,
+    "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4"
+  },
+  {
+    "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_left.nii.gz",
+    "exists": true,
+    "bytes": 275615,
+    "sha256": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b"
+  },
+  {
+    "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_right.nii.gz",
+    "exists": true,
+    "bytes": 274133,
+    "sha256": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261"
+  },
+  {
+    "path": "C:\\ts_work\\p3\\masks\\nasopharynx.nii.gz",
+    "exists": true,
+    "bytes": 225714,
+    "sha256": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec"
+  },
+  {
+    "path": "C:\\ts_work\\p3\\masks\\oropharynx.nii.gz",
+    "exists": true,
+    "bytes": 221497,
+    "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064"
+  },
+  {
+    "path": "C:\\ts_work\\p3\\masks\\hypopharynx.nii.gz",
+    "exists": true,
+    "bytes": 212912,
+    "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+  },
+  {
+    "path": "C:\\ts_work\\p3\\masks\\larynx_air.nii.gz",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "path": "C:\\ts_work\\p3t1\\ct.nii.gz",
+    "exists": true,
+    "bytes": 80749738,
+    "sha256": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2"
+  },
+  {
+    "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_left.nii.gz",
+    "exists": true,
+    "bytes": 326155,
+    "sha256": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec"
+  },
+  {
+    "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_right.nii.gz",
+    "exists": true,
+    "bytes": 325708,
+    "sha256": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7"
+  },
+  {
+    "path": "C:\\ts_work\\p3t1\\masks\\nasopharynx.nii.gz",
+    "exists": true,
+    "bytes": 277353,
+    "sha256": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7"
+  },
+  {
+    "path": "C:\\ts_work\\p3t1\\masks\\oropharynx.nii.gz",
+    "exists": true,
+    "bytes": 276613,
+    "sha256": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696"
+  },
+  {
+    "path": "C:\\ts_work\\p3t1\\masks\\hypopharynx.nii.gz",
+    "exists": true,
+    "bytes": 265530,
+    "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+  },
+  {
+    "path": "C:\\ts_work\\p3t1\\masks\\larynx_air.nii.gz",
+    "exists": false,
+    "bytes": null,
+    "sha256": null
+  }
+]

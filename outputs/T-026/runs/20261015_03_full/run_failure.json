@@ -1,0 +1,5 @@
+{
+  "error_type": "RuntimeError",
+  "message": "Exception thrown in SimpleITK ImageFileWriter_Execute: D:\\a\\SimpleITK\\SimpleITK\\bld\\ITK\\Modules\\IO\\NIFTI\\src\\itkNiftiImageIO.cxx:2386:\nITK ERROR: NiftiImageIO(000001A95D3932C0): ERROR: nifti library failed to write image: D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_03_full\\p3_nasal_original_candidate.nii.gz",
+  "UTC": "2026-10-15T10:41:01.790444+00:00"
+}

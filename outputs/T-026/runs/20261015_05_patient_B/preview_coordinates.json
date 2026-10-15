@@ -1,0 +1,29 @@
+{
+  "path": "D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_05_patient_B\\p2_original_vs_oropharynx.png",
+  "sha256": "b2bb72b87bf08f384bb7c441ac43db92a0e3bb1c37f600e3d4d6b11fc1d2da21",
+  "native_fixed_indices_xyz": [
+    277,
+    260,
+    81
+  ],
+  "slice_selection": "maximum added-air slice for each axis",
+  "equal_physical_aspect": true,
+  "full_CT_FOV_visible": true,
+  "no_resampling": true,
+  "direction_row_major": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "LPS_point_at_indices_mm": [
+    9.8681640625,
+    -151.9345703125,
+    -610.0
+  ]
+}

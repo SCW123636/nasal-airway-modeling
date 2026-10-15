@@ -1,0 +1,18 @@
+{
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "handwritten_IOP_IPP_cross_product_and_signed_order",
+      "pass": true
+    },
+    {
+      "name": "reverse_IPP_order_reverses_z_direction_without_SliceThickness",
+      "pass": true
+    },
+    {
+      "name": "nonuniform_spacing_rejected",
+      "pass": true
+    }
+  ],
+  "fixture_source": "handwritten IOP/IPP vectors in bind_patient_b.py; no patient data"
+}

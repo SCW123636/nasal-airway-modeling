@@ -1,0 +1,2 @@
+# Byte-level source fingerprints must survive checkout on Windows.
+*.py -text

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "D:\\项目\\鼻腔建模\\outputs\\T-026\\prototype\\upper_airway_candidate.py",
+    "--data-root",
+    "C:\\ts_work",
+    "--out",
+    "D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_02_known_answers"
+  ],
+  "rerun_note": "Choose a new --out run directory; existing directory is rejected",
+  "start_UTC": "2026-10-15T10:40:27.099794+00:00"
+}

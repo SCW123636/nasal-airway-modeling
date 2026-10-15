@@ -1,0 +1,246 @@
+{
+  "case": "p3",
+  "patient_B_mapping": "unknown",
+  "threshold_HU": -300.0,
+  "baseline_definition": "UNCROPPED semantic label union intersect CT threshold; not equivalent to final cropped production STL",
+  "operator": "union_of_named_binary_labels INTERSECT CT_strictly_less_than_threshold",
+  "morphology_or_bridge_or_filling": false,
+  "resampling": false,
+  "component_removal": false,
+  "outlet_selected": false,
+  "CFD_admitted": false,
+  "limitations": [
+    "engineering_candidate_only",
+    "patient_B_mapping_unknown",
+    "uncropped_semantic_intersection_baseline_not_equivalent_to_final_production_STL",
+    "symptom_location_unknown",
+    "anatomical_extent_not_reviewed",
+    "CT_complete_pharynx_or_larynx_coverage_not_established",
+    "outlet_not_selected_or_frozen",
+    "oral_cavity_exclusion_not_reviewed",
+    "threshold_exploratory_not_medically_adjudicated",
+    "not_CFD_admitted"
+  ],
+  "profiles": {
+    "nasal_original": {
+      "generated": true,
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_04_full\\p3_nasal_original_candidate.nii.gz",
+      "sha256": "c4b18d31fb55981d2d46e2695cc36b4a2e47a38cadf19286ecfd4c08bf8eff72",
+      "source_labels": [
+        "nasal_cavity_left",
+        "nasal_cavity_right",
+        "nasopharynx"
+      ],
+      "original_is_subset": true,
+      "added_air_voxels": 0,
+      "reread_matches_exactly": true,
+      "voxels": 397783,
+      "volume_mm3": 32179.0532928408,
+      "empty": false,
+      "boundary_contact": {
+        "any": false,
+        "face_voxel_counts": {
+          "x_low": 0,
+          "x_high": 0,
+          "y_low": 0,
+          "y_high": 0,
+          "z_low": 0,
+          "z_high": 0
+        },
+        "voxel_support_gap_to_CT_face_mm": {
+          "x_low_mm": 69.765625,
+          "x_high_mm": 79.3125,
+          "y_low_mm": 20.9296875,
+          "y_high_mm": 63.5234375,
+          "z_low_mm": 10.800000429153442,
+          "z_high_mm": 51.60000205039978
+        },
+        "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+      },
+      "bounds_LPS_mm": [
+        [
+          -24.234375,
+          -127.96224975585938,
+          291.79040569067
+        ],
+        [
+          14.6875,
+          -24.415374755859375,
+          340.99040764570236
+        ]
+      ],
+      "index_bounds_xyz_inclusive": [
+        [
+          190,
+          57,
+          18
+        ],
+        [
+          295,
+          338,
+          99
+        ]
+      ],
+      "center_bounds_LPS_mm": [
+        [
+          -24.05078125,
+          -127.77865600585938,
+          292.09040570259094
+        ],
+        [
+          14.50390625,
+          -24.598968505859375,
+          340.69040763378143
+        ]
+      ],
+      "connectivity": {
+        "6": {
+          "component_count": 4,
+          "sizes_voxels_descending": [
+            397598,
+            130,
+            46,
+            9
+          ],
+          "all_components_preserved": true
+        },
+        "26": {
+          "component_count": 3,
+          "sizes_voxels_descending": [
+            397607,
+            130,
+            46
+          ],
+          "all_components_preserved": true
+        }
+      }
+    },
+    "nasal_oropharynx": {
+      "generated": true,
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_04_full\\p3_nasal_oropharynx_candidate.nii.gz",
+      "sha256": "9e34656cd8cdc15fb06d2425d647940dba0bdf9761ebe27baeffac80282d6b52",
+      "source_labels": [
+        "nasal_cavity_left",
+        "nasal_cavity_right",
+        "nasopharynx",
+        "oropharynx"
+      ],
+      "original_is_subset": true,
+      "added_air_voxels": 47809,
+      "reread_matches_exactly": true,
+      "voxels": 445592,
+      "volume_mm3": 36046.61012376979,
+      "empty": false,
+      "boundary_contact": {
+        "any": true,
+        "face_voxel_counts": {
+          "x_low": 0,
+          "x_high": 0,
+          "y_low": 0,
+          "y_high": 0,
+          "z_low": 930,
+          "z_high": 0
+        },
+        "voxel_support_gap_to_CT_face_mm": {
+          "x_low_mm": 69.765625,
+          "x_high_mm": 79.3125,
+          "y_low_mm": 20.9296875,
+          "y_high_mm": 59.1171875,
+          "z_low_mm": 0.0,
+          "z_high_mm": 51.60000205039978
+        },
+        "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+      },
+      "bounds_LPS_mm": [
+        [
+          -24.234375,
+          -127.96224975585938,
+          280.99040526151657
+        ],
+        [
+          14.6875,
+          -20.009124755859375,
+          340.99040764570236
+        ]
+      ],
+      "index_bounds_xyz_inclusive": [
+        [
+          190,
+          57,
+          0
+        ],
+        [
+          295,
+          350,
+          99
+        ]
+      ],
+      "center_bounds_LPS_mm": [
+        [
+          -24.05078125,
+          -127.77865600585938,
+          281.2904052734375
+        ],
+        [
+          14.50390625,
+          -20.192718505859375,
+          340.69040763378143
+        ]
+      ],
+      "connectivity": {
+        "6": {
+          "component_count": 4,
+          "sizes_voxels_descending": [
+            445407,
+            130,
+            46,
+            9
+          ],
+          "all_components_preserved": true
+        },
+        "26": {
+          "component_count": 3,
+          "sizes_voxels_descending": [
+            445416,
+            130,
+            46
+          ],
+          "all_components_preserved": true
+        }
+      }
+    },
+    "nasal_oropharynx_hypopharynx": {
+      "generated": false,
+      "refusal": "empty_label:hypopharynx"
+    }
+  },
+  "preview": {
+    "path": "D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_04_full\\p3_original_vs_oropharynx.png",
+    "sha256": "d254c92256351f7de1c6c4b28c4bedb2f531654d56165512543b1cb7cfef9886",
+    "native_fixed_indices_xyz": [
+      229,
+      334,
+      24
+    ],
+    "slice_selection": "maximum added-air slice for each axis",
+    "equal_physical_aspect": true,
+    "full_CT_FOV_visible": true,
+    "no_resampling": true,
+    "direction_row_major": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "LPS_point_at_indices_mm": [
+      -9.73046875,
+      -26.067718505859375,
+      295.6904058456421
+    ]
+  }
+}

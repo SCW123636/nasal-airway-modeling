@@ -1,0 +1,1462 @@
+[
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000000.dcm",
+    "bytes": 179570,
+    "sha256": "76da63e4cbf8976d9942bfff8f83057efe5e172266052e4bfd15dbc4297a6f57"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000001.dcm",
+    "bytes": 178858,
+    "sha256": "838823cdb168d109fa23705650faacbc235ca53318b41757cb788541851f6953"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000002.dcm",
+    "bytes": 178488,
+    "sha256": "bc675e9a2d10aef02ffef0b2bb1e79e14e5f17cfbc17b3fa488130b1b1111b24"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000003.dcm",
+    "bytes": 179472,
+    "sha256": "43bee3fa9574d1fd8b9ab8bc929fb04761d7952e567e902d0eb3dbbc08496c93"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000004.dcm",
+    "bytes": 178516,
+    "sha256": "20031786c2e0f641ab134ab9493821cd085cebb77c8b1f8ebadddbc8bea0fd20"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000005.dcm",
+    "bytes": 178752,
+    "sha256": "04a921dd4b5f265537988b80703b21ab0b968b5fd8918a8185c8da76a0d16cf3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000006.dcm",
+    "bytes": 179970,
+    "sha256": "5867b417cf0ed74423284ad1d8202025c7fd2326b6368507dc959bf64f7a8074"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000007.dcm",
+    "bytes": 178982,
+    "sha256": "2ac0e9b52667a3dda36b17e3402862da6bc7ba5aa0b5a0ee309f5722dc9653e1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000008.dcm",
+    "bytes": 179342,
+    "sha256": "967709e35ae0104e2ae651468b6292659c58ce58841d0c59a2d11261caca61e8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000009.dcm",
+    "bytes": 180374,
+    "sha256": "378fbd48f27696d5d0fb16a04e2260fb633fc35cd2c96da59d324c36bdf17705"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000010.dcm",
+    "bytes": 179460,
+    "sha256": "eeac1c35cb5991c8b411ed6a0775d5449c0244a0b5faed5722c256a130ff3c18"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000011.dcm",
+    "bytes": 179738,
+    "sha256": "fe36be6222d88420bdae0d749e18c13a62fae16aa28bf3fac27d44e5aaf7f0a8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000012.dcm",
+    "bytes": 181122,
+    "sha256": "666941e41c41a2ea9dd18919c088306ca2428478f9885de523b1565d7805153e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000013.dcm",
+    "bytes": 179862,
+    "sha256": "95612a5f7f9b59150062a28f3be11297913ccca4dc2c9be04a92b90daa182627"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000014.dcm",
+    "bytes": 180420,
+    "sha256": "f9a3812d043f3293ffbb11818b29861824cdf87c3b635c4aeacb74c094651c30"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000015.dcm",
+    "bytes": 182186,
+    "sha256": "4ff822cf62eddcbfb82cc68b21dc6ca7c1ede33636d874d9bf086db5d11ec38f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000016.dcm",
+    "bytes": 181058,
+    "sha256": "0e66a0f8012a806472de4aec1fbf2163c587041a86ee6ad19e3f5c4e8d86781d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000017.dcm",
+    "bytes": 181394,
+    "sha256": "130a69bf25e46757a139de36eac6b1448e47961bd5a2c8f5441219982688acb6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000018.dcm",
+    "bytes": 182964,
+    "sha256": "fa9d7d9cbc747958f71c9fa8de09efe7993567cde757e84677436a5e0a1e00dc"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000019.dcm",
+    "bytes": 181498,
+    "sha256": "606f8c84dfaf11c34db6850bab2d6e5a714fc3be4e55c5de1defdf9ef98f9dae"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000020.dcm",
+    "bytes": 181676,
+    "sha256": "5c602a8060590a9d0eab33fc4b13f7aac4ced807381f9aa46b2f018833e374be"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000021.dcm",
+    "bytes": 183050,
+    "sha256": "c825b6faaca2600f7ebffb0c029692c814570d3470c4795c9ec79c2c4ecf5bba"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000022.dcm",
+    "bytes": 181656,
+    "sha256": "2fee06ee4ff14688dc23c0365d65d94405a36cf2d86d8b4c551c2b76ed020747"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000023.dcm",
+    "bytes": 181512,
+    "sha256": "fdaf068122e240ad00219447ffb4cc38180e3d52cffbf90861a91d7e55e1eb25"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000024.dcm",
+    "bytes": 183120,
+    "sha256": "46db01f47ca7db7b2fe38f01d1977dad5e528ec43e1135e281b227e0e784e4f3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000025.dcm",
+    "bytes": 181428,
+    "sha256": "39d73f9b7380d289e6809da7c172fdefabdaf68288ef8f0d0d1c97b718077450"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000026.dcm",
+    "bytes": 181042,
+    "sha256": "6902e8ed0ed97aa70f5a46d53dd42d0bab6fea2a3d13e5da594351adb4a93cdc"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000027.dcm",
+    "bytes": 182632,
+    "sha256": "e66fad009cf11ce17cf88c854319b36818c57218079e9637b7c54235894c3400"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000028.dcm",
+    "bytes": 181676,
+    "sha256": "45f3d231497b090fd8cecc45ff8b21eff6615577b343895f99dbecab3f474b02"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000029.dcm",
+    "bytes": 181598,
+    "sha256": "eed6fd8cb13cb60eda41cbc1938c090c6573608e6e365496a53eb82ace4d9dfb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000030.dcm",
+    "bytes": 182920,
+    "sha256": "1abc9e213e9d5161e55069eb51d0306991d4bbc3ec9e93087d523e00cd75c72e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000031.dcm",
+    "bytes": 180982,
+    "sha256": "9a72b45346526144cd75ae8076a1e05e4001c6ff701f6e5dbec1cc8a43387b33"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000032.dcm",
+    "bytes": 181366,
+    "sha256": "a51b4450035f3ff977f277380adb0d6b6f78ef60b7974d22b1044ca0522a7c9b"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000033.dcm",
+    "bytes": 182300,
+    "sha256": "60197ab263ff17f601c1303ccad466d73262e3cbd707f806fbe5ccc60829b2d8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000034.dcm",
+    "bytes": 181070,
+    "sha256": "cbacf20a04c6924b1c8aece4de858e20362e5a7f4456e64f20f0b64721f4bb77"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000035.dcm",
+    "bytes": 180916,
+    "sha256": "a36e2aa1c55de97a1ce14a54b04a42a048caff56dba2e4747a0296a9a65e8ba0"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000036.dcm",
+    "bytes": 182122,
+    "sha256": "8b0677ec2e8b506993d1970a706dca064bfba65a701ca375b87306ca2fc143cf"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000037.dcm",
+    "bytes": 180856,
+    "sha256": "0f581d48c3c236bfc87a6562ba9f5143650e78ceafcc0235ea58f200c8b22e24"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000038.dcm",
+    "bytes": 181204,
+    "sha256": "acae22b0ccb3eec1e121073934ca0cd5db43580f2a479b2db96451e718d87daa"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000039.dcm",
+    "bytes": 182460,
+    "sha256": "cd750018b7604ac3204fac4c05c880640b1c7b87517d5e163746a79d4bda8b12"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000040.dcm",
+    "bytes": 181270,
+    "sha256": "2ffe84915a7620fa8f32bde2bfbf7598a99fb5485b520e0b3774749328bacfa9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000041.dcm",
+    "bytes": 181866,
+    "sha256": "186bdd6ade022c1c5b5f2dbcca064b0a03d35f7d76ef12f064ad5fd0bede496e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000042.dcm",
+    "bytes": 182950,
+    "sha256": "000981e2a2c8b5d1380dd3ba5e49b24f516e513231d3315a68f66ef87c0d01f1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000043.dcm",
+    "bytes": 181892,
+    "sha256": "ae8c4d78f5a58c0af816c6a2c886053a544bd6be1f64f44d6f587f981f673ecf"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000044.dcm",
+    "bytes": 182064,
+    "sha256": "c320cf65b2afa2b4e295e5990ef0281478f40188e40287a436abee0deeaafd25"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000045.dcm",
+    "bytes": 183276,
+    "sha256": "8b1df19c05bd0157b5d148fe1010639e8a094aa1f218beb31a1053aedcaf6c85"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000046.dcm",
+    "bytes": 182300,
+    "sha256": "9fc4dd040eab25eacc2180b085fe36a6caed3b64a976e199696d157cb7fdf22e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000047.dcm",
+    "bytes": 182632,
+    "sha256": "00fcdbc41db04d6b79787273a9609e7054cc2100a68dc76efc937a8cd8623a9c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000048.dcm",
+    "bytes": 184688,
+    "sha256": "5983613b95aacd04cbd5334f77e74399c4190704c51c77ad6cd6c052540a1cdd"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000049.dcm",
+    "bytes": 183640,
+    "sha256": "93ace6f3d0e1a8eb6dbd3607016f755f4bbfe918196d5faa8f2cc3fbccb9ebc3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000050.dcm",
+    "bytes": 184210,
+    "sha256": "cd4da5d85100ff111e922c9aa8f3450052f5b8f1d2f8157b9c3b690e34839bf7"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000051.dcm",
+    "bytes": 186078,
+    "sha256": "9052e0b8be3201a9d2c4d915e512dadc7ba3f3c006514b42366faedeac19aaf6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000052.dcm",
+    "bytes": 185376,
+    "sha256": "47f4548ad885d791ef29ba89c5decb91c01de046a5e2ac7cbef12bdcfe6b98b2"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000053.dcm",
+    "bytes": 185634,
+    "sha256": "320bed5445467a6881daaa4a738d387ec1abd1b1bcd2c9c5b46e7a35fb9ac928"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000054.dcm",
+    "bytes": 187450,
+    "sha256": "ce2862dd901fc23292bc9fb4c567e64e6daca85db2e90ca215becc7a9dad90f6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000055.dcm",
+    "bytes": 186564,
+    "sha256": "95a450525e3b9c62c0d2ed01b44b40b8b4256399dc61e9244d9ae2445a5bd584"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000056.dcm",
+    "bytes": 187000,
+    "sha256": "927ee0ea50beb7827960429e443d6ea013a00b163f0aa4e4042c2e8e44548cc3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000057.dcm",
+    "bytes": 189204,
+    "sha256": "6bce0967fb58ef77062bdfcd9c1fa957c5db2142fb5d8cca00e03172030c50fa"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000058.dcm",
+    "bytes": 188982,
+    "sha256": "5611d8042642f0f49f75e884b42259f4c25db2d76a21e84edfe995ee8718f26a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000059.dcm",
+    "bytes": 188952,
+    "sha256": "3f54f3f9aa265d553de7f53356d5b4cc493bb5107b65430ccde230007d52a8eb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000060.dcm",
+    "bytes": 190304,
+    "sha256": "452d46b43e3e3ac34b1b193943a18a6565d432c8c633bf830b91771b0c3ea995"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000061.dcm",
+    "bytes": 188948,
+    "sha256": "2e0de8ddd1e061a89c51d4161cdb89122c2b560e786da46365df794ab88ebd7b"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000062.dcm",
+    "bytes": 188334,
+    "sha256": "d1105719eb4c00d1541cc8a41a8ea248108ef4bedd12476dce8baae82c0892f5"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000063.dcm",
+    "bytes": 189340,
+    "sha256": "0388691a1cd78e3e05db7124406c0e17db53db957546dd3d0d6238fa13a5e867"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000064.dcm",
+    "bytes": 187732,
+    "sha256": "e89eb54f8a9c57fddc782ac7ce16d7802e6449f5f8c145285cc2bf8a97d81827"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000065.dcm",
+    "bytes": 187298,
+    "sha256": "1d352f2cb0625a29c885df0ff47616070f18b409959f4ca87f6394b6515416ee"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000066.dcm",
+    "bytes": 187970,
+    "sha256": "467380c336e2ba4e416bc48443e9e1d480e8b26a0872853bdc98fb62bb7c6266"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000067.dcm",
+    "bytes": 186824,
+    "sha256": "0905ada080167f57315b6ed4fd17137fe41d8c2ac0629ca8f5978053bf586f0a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000068.dcm",
+    "bytes": 186410,
+    "sha256": "ee2adf656ea892123573c0df4ad8a0a70e3400c2fe25ce93a41bd4737c95b434"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000069.dcm",
+    "bytes": 187136,
+    "sha256": "37d9d1d599975d212433d2010f4413965a167882df0088a536aca1e6d9e69b8c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000070.dcm",
+    "bytes": 186220,
+    "sha256": "978df8eef76ed51dd19e589d2f2a8a404a58082b0715602b59acda6480c44769"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000071.dcm",
+    "bytes": 185788,
+    "sha256": "5b1921597a548c80a69d7bd0d123fe630550be82a081505c0d05162685b4d5f8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000072.dcm",
+    "bytes": 187012,
+    "sha256": "8a2fc986806aec6d1bad9884a17fdc1c3f44501c03f627ff97f54091f4c2f086"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000073.dcm",
+    "bytes": 186126,
+    "sha256": "4ee362177275015529f8eecb06f29751fa51acd317ef6c4bca1441078d603c0f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000074.dcm",
+    "bytes": 186202,
+    "sha256": "631f90537627445386d4c3430b9933b12067117190b606c419d80689a994ba92"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000075.dcm",
+    "bytes": 187550,
+    "sha256": "9d3d1938ec26cbb63ffc66048b751734242fbb83fd2c7ec8a0dd2dae44a0006b"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000076.dcm",
+    "bytes": 186428,
+    "sha256": "d3dd7caa9a31f516f90309e59a92314b481542ad94e6e6bee33d9b4a238732f3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000077.dcm",
+    "bytes": 186840,
+    "sha256": "e029c653f6f647b99bdc5f18a2742371d76730edc93ab0f0d1d6fbb7cc7b458a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000078.dcm",
+    "bytes": 188756,
+    "sha256": "4508e1ed9017d4fb3cb83a9929b84f33c508afd8053d7948b29e605c3a857fb3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000079.dcm",
+    "bytes": 188306,
+    "sha256": "2c7799ae3774d7dff6f3956e199e8418b8142bdddd61f243570d5c3e66ed9c22"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000080.dcm",
+    "bytes": 188996,
+    "sha256": "0feef522260e507e8b58858baeecc77cf5d375bec4a4139334e6f086e7e61bb7"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000081.dcm",
+    "bytes": 191368,
+    "sha256": "a033a76903852c76393e7c6ff76ea7a7b7fd1a272f56f02d652851374b245a92"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000082.dcm",
+    "bytes": 191138,
+    "sha256": "9151457491226c282e328ac204848760e3e4878ed6d9204db784f254429a9092"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000083.dcm",
+    "bytes": 191898,
+    "sha256": "e1d9d4fd3101f81d7e63637efd9e25cb88d7b878774b6c30c077f1bb9dfa2eca"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000084.dcm",
+    "bytes": 194326,
+    "sha256": "ea3d40447e573c70cd188ddf53a74e440a2950cf00cf01c3a88ca655be99c23a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000085.dcm",
+    "bytes": 193496,
+    "sha256": "ea566159522c2925266f3da0c827ae59e2b7fe2f9ac94a6bf9ea3ee58c60fa64"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000086.dcm",
+    "bytes": 193580,
+    "sha256": "6ff4c2c6c1d3849e97761d25e645701e606035bac6759a913b8a4d782c66f254"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000087.dcm",
+    "bytes": 195982,
+    "sha256": "a9903b9fe19ac6863a5a62324f2e8e3f06d4b62f12adb6e3dacd314101134baa"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000088.dcm",
+    "bytes": 194840,
+    "sha256": "9e3f0965f35e7ea04e2a0d4c8a102ecd63726c5c78437758672e60e5b56c6222"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000089.dcm",
+    "bytes": 194756,
+    "sha256": "8c3c79b778feb4573e35048694d30e4f3ec2f55c4a4c736bf0d82795013b5933"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000090.dcm",
+    "bytes": 196362,
+    "sha256": "ba0e2ae8d42a82c86b480920b3dba0f8d668a4e59586d1532a21fc17cba896c1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000091.dcm",
+    "bytes": 194644,
+    "sha256": "db84c0ebd882080cbd8d5a80504ca74c78d303c80929db4bc02764de3d55fd73"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000092.dcm",
+    "bytes": 194844,
+    "sha256": "d0a3e9ce2e4d0f9e7dc0f0571140feceb2f44e1d778191848e27ee1f602b45a3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000093.dcm",
+    "bytes": 196024,
+    "sha256": "34867236104345313c54673ab3dc6010473e4faac77d3ed0e0623f93650cb33f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000094.dcm",
+    "bytes": 194878,
+    "sha256": "0daee27b11040890924388a1a992aa272502ffe4eb82dade4e9fcc6be287ed6e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000095.dcm",
+    "bytes": 194756,
+    "sha256": "97e578f289a7fe3cc54edc8a7515b62a863efa87be1ff93ed79c0886de63b4ea"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000096.dcm",
+    "bytes": 196434,
+    "sha256": "9eb894db64157980ba91a7c8028e17c5858f6ad2b321be3dcf7c3bbb91404e31"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000097.dcm",
+    "bytes": 195164,
+    "sha256": "a9599fc0bba58eb5ed4a1c825c25e6cf545220f2c8618b5e5c9269ff5f2ed797"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000098.dcm",
+    "bytes": 195330,
+    "sha256": "a5b4aabb3d039708dff04925b9502a5e10d5c02926f6b18efdb93e1d3859e49f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000099.dcm",
+    "bytes": 196634,
+    "sha256": "059bd649334171b8fc2e26edd68e530d7cbb367323c81ba5c6f9a556a2483be1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000100.dcm",
+    "bytes": 196192,
+    "sha256": "f7adf94138dc9df041bd2e89dc78211d9a64ead1973093545f495e3bcd5981fa"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000101.dcm",
+    "bytes": 196394,
+    "sha256": "b4a29903ad15f9af424d2c22cc6bf233a760b6c9384869294ea032a5799c59d3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000102.dcm",
+    "bytes": 198720,
+    "sha256": "c413e63ae7448054091c7cb7b7b246f5397367d9b88f2d2b07170c1d47c70f6c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000103.dcm",
+    "bytes": 198256,
+    "sha256": "508e5ad3fd324ead5128d833748de74f7091434616158e7f3ca0856cfaed0982"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000104.dcm",
+    "bytes": 199036,
+    "sha256": "cedd25739e976961ef4540dc078b023b35895b654a048d5944b131df3482a57e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000105.dcm",
+    "bytes": 200598,
+    "sha256": "33818517baeb0eaedfdf434f275b55286ea694e20fd447df0660b0a9c8593058"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000106.dcm",
+    "bytes": 199318,
+    "sha256": "6c417f878d4efcf761370fd7af974da62441485db05c96e8666d756c94f605ec"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000107.dcm",
+    "bytes": 199534,
+    "sha256": "87f59a14807a9ddb61a7a6615d8718eb715983726938002a6b305d0b358e1d6c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000108.dcm",
+    "bytes": 201850,
+    "sha256": "8a49eab5d2120cd23891f5e0022422f01f6b182782afdfa8a6e39076e4cd2819"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000109.dcm",
+    "bytes": 200816,
+    "sha256": "52aba42eac4745cf6d538a617c7a9e371ea18a0a3f8c0ce194d5a0887ef1864d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000110.dcm",
+    "bytes": 200854,
+    "sha256": "804aca4e95b6e80db7e32a9ba4b90b4e14004c9c90d35ace9f688487c41f0428"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000111.dcm",
+    "bytes": 202606,
+    "sha256": "20d1c17fa07f6b50a927eb47a93bfaf78fe90b383a59936d908c555a31cd73fe"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000112.dcm",
+    "bytes": 201306,
+    "sha256": "b288015328ae0d223151aa24895d4c7a199c53d63a24cee644b61f1efe6cb6ae"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000113.dcm",
+    "bytes": 201432,
+    "sha256": "bba01e3715e5e2edff7fb2ca94a2ea03b5292d714ca707d7efb3dd67a332f6c2"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000114.dcm",
+    "bytes": 202784,
+    "sha256": "9f22ece904d253800b49e1dafbc076666b88c30fb1fa6e4f2c06ca3c1cfec4e3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000115.dcm",
+    "bytes": 201870,
+    "sha256": "c94eacf5dfa249411d1f205117dfa7df169ce6cd98f52cb79a87159a79b25b1e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000116.dcm",
+    "bytes": 201848,
+    "sha256": "160ca6a34fd8d73fef77ce502521f78c9070cfcc5ba6d92136d5e3cdfe9233e9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000117.dcm",
+    "bytes": 203844,
+    "sha256": "e3c1d3b4afbc3154534d10b1279262ab925aff6dc84876a54d4fabad9319f3d7"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000118.dcm",
+    "bytes": 202668,
+    "sha256": "55cadacbd77f15e3eb8599e514303403bdfaa4fe80f5ac656cf0eef9391cc30c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000119.dcm",
+    "bytes": 202942,
+    "sha256": "3199b512c9c300395cdca943ce951a8ef47ce4ab2fb4565b70b17ea87f30bff9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000120.dcm",
+    "bytes": 204570,
+    "sha256": "7040a38f75105f70bdf795b09304b432840cd615617fbffa0f134abd821b6964"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000121.dcm",
+    "bytes": 204092,
+    "sha256": "9eec0abd5a7c42a49cf239c28c655a121051c64acbe3a9cadab4f4e1eaccb914"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000122.dcm",
+    "bytes": 204428,
+    "sha256": "c029e13563013673a1a39b6ed187a13fe16d010f32aecf227ab4e1e4878ae577"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000123.dcm",
+    "bytes": 206056,
+    "sha256": "0db5cb8e6f1693719b885d12e66f50981e9c492f84cea85a61c01ddba1a728ae"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000124.dcm",
+    "bytes": 205598,
+    "sha256": "029346f4e8fdefa66c8f87eb19b144662d992a8faad0a151cea8f45e6458a9be"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000125.dcm",
+    "bytes": 205916,
+    "sha256": "3c578b51d5325709577678838d02ace66134c361dbe31e2dd59a661dcbd65fbd"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000126.dcm",
+    "bytes": 207250,
+    "sha256": "71c99b04dc01984276535a8b8420adb1d7a3c677d69681c41bb62cf7404252f9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000127.dcm",
+    "bytes": 206714,
+    "sha256": "6ae3b3674c67d32326f5dded3332c9dab37d8bddbf24965c981b31744f45b203"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000128.dcm",
+    "bytes": 207146,
+    "sha256": "ad339ab7378d42a14d07040281e5efbbb1d2b8f40de2cb35c927105e8321d9a4"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000129.dcm",
+    "bytes": 208690,
+    "sha256": "fbc4bf1944b50b89633313c9f8e761c2b95111525b1092beb15848ad7fc3fe38"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000130.dcm",
+    "bytes": 208238,
+    "sha256": "414588ae20921aedcf86235665b1d18f5c2039101af3f02069c174a0e6538997"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000131.dcm",
+    "bytes": 208566,
+    "sha256": "29c13d57ea7215f8b3771cef5be7d82175d360be6f258a0a97e8df9a5665d953"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000132.dcm",
+    "bytes": 210098,
+    "sha256": "393a63e873dc46ea5bf0c5e18a6b5882dd8ff3b2ee0a19ffaed2c3b2d92d2f4f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000133.dcm",
+    "bytes": 209680,
+    "sha256": "4e0c6892b539706cf046b27f6b08a886ada0f19843d0e455f0e8d0b0f2a0ca4f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000134.dcm",
+    "bytes": 210540,
+    "sha256": "1c7d1653947d6f624e5a58ea11bc8de928110032c19052fc5a18f3520e6b4335"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000135.dcm",
+    "bytes": 212148,
+    "sha256": "7bc421e3ed2de4a41ab0f067a7f0fab6db193f7d18ff034a7382d20ec6a17ecd"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000136.dcm",
+    "bytes": 210682,
+    "sha256": "03cbbd23f3735ff36d5656debd5c5c6f0629e4d798d9108aac2b5a30a71995c4"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000137.dcm",
+    "bytes": 210828,
+    "sha256": "44cba060e59b18a27966e451bd20fee7d3c14d7c95e6132cafe94175c7710eed"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000138.dcm",
+    "bytes": 211960,
+    "sha256": "a156d427b25bb7e7b60598fcffffc6aec993c902b7e3206ac486031b4a35e4a9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000139.dcm",
+    "bytes": 210174,
+    "sha256": "961cc76512467d22efc884d1534222ad1989a16a003c8cea434e96693fdd87fd"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000140.dcm",
+    "bytes": 209950,
+    "sha256": "e2cff140b0756439814f4dac1280ef56e58aa11ff75283b1dbd8d258e599a68a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000141.dcm",
+    "bytes": 211420,
+    "sha256": "7c6d9aa4b6195dee4d6b62a6c5ef6269f075714cbbe97e1e9d0e795eacbaf881"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000142.dcm",
+    "bytes": 209564,
+    "sha256": "585f16b09119c6bd8478ccd67e29757be23a24d66d31e1f54cb67b61db1b9ec6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000143.dcm",
+    "bytes": 209430,
+    "sha256": "ae7afcf58276492f6a555f61b26dc72abfa550b00d47111a2ec98e0dc5c2460f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000144.dcm",
+    "bytes": 210608,
+    "sha256": "7146d213f3224fd5001c149aa247f92de43a77c48cdbe8f8ae13182a4b87e0c1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000145.dcm",
+    "bytes": 208808,
+    "sha256": "e1f2c4ba2c8859bf334e48eb3ee3187c994a74f6c4083f814e6f5dcf1bc5cea2"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000146.dcm",
+    "bytes": 207928,
+    "sha256": "c362c1725dcc6957ae12204e336e6640921c3a2f0252eaad88566b29725b7c80"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000147.dcm",
+    "bytes": 209226,
+    "sha256": "1cd7886779276b83213affe839025be62287e7069ac54d1712249d11b1358f6c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000148.dcm",
+    "bytes": 206248,
+    "sha256": "0985fbf9d8a9a674501477ff4f7270d9982c132030130c65ef64f6d585002ce3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000149.dcm",
+    "bytes": 205538,
+    "sha256": "54a0535b95d76e302b2554ea5d073f072a7dfc130c3f716aaa0c5e932f056fa7"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000150.dcm",
+    "bytes": 206652,
+    "sha256": "652ceda89f28ddc1a755dcc721de0072513537edf7f294375e6912bcb1ad933e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000151.dcm",
+    "bytes": 204474,
+    "sha256": "1a04043f448e497baf2e81b4fe43a3891d783b4367802938b90890a43a3ce357"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000152.dcm",
+    "bytes": 203532,
+    "sha256": "28168579e861fed16fe3441a2362cfdb1a19e4a6d983615c290c6b2963c7b73e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000153.dcm",
+    "bytes": 204342,
+    "sha256": "48bd2b2ef94ad459b827404bd8ea7e081edcf8bee7fc78927db1b80f6bc920b1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000154.dcm",
+    "bytes": 202020,
+    "sha256": "6420ce5bd5325a0772ceacbc2e4cac46237fc6ee0d33bbcbd422df9d3ee754d1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000155.dcm",
+    "bytes": 201130,
+    "sha256": "c1f21063435cd01935efd0b0663f783a494567e5cf7e2e99d0d69fc2108036d3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000156.dcm",
+    "bytes": 201278,
+    "sha256": "9d6a274ed190ea30a90e3652d74cefbbe57bc8b47dd203961c8a5d5479bdd1bb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000157.dcm",
+    "bytes": 199316,
+    "sha256": "d179d4778582a97e665e403bc1493c8d2c8886a6b117cab609abc9248ce08538"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000158.dcm",
+    "bytes": 198262,
+    "sha256": "0916cc24337d101c96e269a23ca0562639220fe4a825fd6ba70cc6c25632f866"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000159.dcm",
+    "bytes": 198426,
+    "sha256": "1cb95150e5c2d08ea4c9e56b2de09cfb375342b48dd7e778645148f0a1262660"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000160.dcm",
+    "bytes": 196606,
+    "sha256": "7e9e336bf69b68a39a18dbcffb23ba483586731170a5971bfce3e25569ed40ec"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000161.dcm",
+    "bytes": 196282,
+    "sha256": "2b20919fb5a39ab6f19f7ee3126f1bd901ade09ba3c33a53847e1b6f2eac405c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000162.dcm",
+    "bytes": 197572,
+    "sha256": "189136877b6ac08a14b56184734ca983c37319f3710ad6a35457f55ac8f1bb47"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000163.dcm",
+    "bytes": 195952,
+    "sha256": "78281bb270d71df4e1ae57f5e8d5e8de33ed20f8b0ffd7d61554c8f40bf34427"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000164.dcm",
+    "bytes": 195848,
+    "sha256": "6aeadcc1a08ccbf18c6202c7867758220be501389a8a3ce0124972537b1be684"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000165.dcm",
+    "bytes": 197512,
+    "sha256": "ca2c13c34afbc61b2f267191d2d8695cdb59f15776a8841f4ad712113bdf7c0e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000166.dcm",
+    "bytes": 195732,
+    "sha256": "84ff94e5c90359ad1f0fa589c145ea370204baa36540b3ca919964d9e183abeb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000167.dcm",
+    "bytes": 195742,
+    "sha256": "4c60d4d2194cd21de503919248155c8fb14ea22a2f4e7673b3ea84bf83f6dd92"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000168.dcm",
+    "bytes": 197458,
+    "sha256": "3f79116eefec9f3f54925f29fb1c3f7561dfb1cf5c45062bd03e800a98fb299e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000169.dcm",
+    "bytes": 195558,
+    "sha256": "a02359d050a8074fc1b99dabbdeb8f08ff7c52337f43e48fd0c6cf9f3bf48a9b"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000170.dcm",
+    "bytes": 196062,
+    "sha256": "eaa4410843469118013c7fbafbc21551b01f330925f49875b79a0891d6fabd0d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000171.dcm",
+    "bytes": 197880,
+    "sha256": "febbd7d7f75d34d8df828bfbfb2878b3078e71a58995892db615d01a53e1fc03"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000172.dcm",
+    "bytes": 195912,
+    "sha256": "8185c9e0c3647a5f7ee4cd964d28c641a85316bae193cc406b8f73709404e7b3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000173.dcm",
+    "bytes": 195896,
+    "sha256": "7de35e0166d87637040d7f3e367d401974170b3d427ccc8a04e5c782e78b6fcf"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000174.dcm",
+    "bytes": 197726,
+    "sha256": "77172c4d780848889e02b6ccc0b66c9c2dd28df10452a14c92e4896064682153"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000175.dcm",
+    "bytes": 195804,
+    "sha256": "1b17f3c426c9dfe3ddbcd0cfe33bff3aaba7c1dfcf79dc8ae48fc58d427ac745"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000176.dcm",
+    "bytes": 195658,
+    "sha256": "8a932b877683ec0aff2d4b215a598962c5fd66649475ce201731a958ee1980b8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000177.dcm",
+    "bytes": 197904,
+    "sha256": "efff7b8f72c60c36433a06d3f8511fffe127e98ceb2dbfa5110684244e2fb133"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000178.dcm",
+    "bytes": 196128,
+    "sha256": "783e59d031adc583a18d21fb5731319280e047d334aec96f0e9901fe331ec391"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000179.dcm",
+    "bytes": 196234,
+    "sha256": "73f58c43f7dc350e95bfb64ccc5ccbbe3c90322a99b5a304a365b2fa71983e51"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000180.dcm",
+    "bytes": 197682,
+    "sha256": "ab57f785a7aff4346f0434fee661f8b8c925142ae383e470c3fc6de060e09b29"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000181.dcm",
+    "bytes": 194810,
+    "sha256": "54d9cdafcc8e2195a17c0c3d4368c55b2b47a70347e3ee172b9a56fe39c86353"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000182.dcm",
+    "bytes": 193944,
+    "sha256": "6096d6841bf60a2cbe02fcc837d6796d0c9c4b301098626c4f8fe774dc27a1ff"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000183.dcm",
+    "bytes": 195020,
+    "sha256": "b7b42e7db4eb5498af6e6b11cf1856a84e641ab6bbac5088cc305a886dc8d1d9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000184.dcm",
+    "bytes": 192510,
+    "sha256": "4a7b6a16530df1d29fab637a493239204916ed82b50c8e0218819c97de3700fe"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000185.dcm",
+    "bytes": 191788,
+    "sha256": "a75bcbf5d292548aa306b4b16a1d422ec62c27b63fa017a89f15c70e911ccdcd"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000186.dcm",
+    "bytes": 193226,
+    "sha256": "47c289476fa72f572f1a32d0fe329edc3379d0f76d392a9063c9b6d6b905516e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000187.dcm",
+    "bytes": 191062,
+    "sha256": "282544710ebcfc2b9f4c7b12fa889460deb4fe7f4af990ecd15143f58ff88ac7"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000188.dcm",
+    "bytes": 191234,
+    "sha256": "504d5f7de40a359be9104d90cc173ec59ee17d45bf266942ea0a5d2edfbeac0c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000189.dcm",
+    "bytes": 192342,
+    "sha256": "a23671fef7fe837a5d823945a7aa887bf9d6f8cfe875610d0322a7d7412da09a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000190.dcm",
+    "bytes": 190896,
+    "sha256": "fac4672c51948dbcbfed923a0f5119d2af644736c6d1f1e81bca4f7eb8b3796d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000191.dcm",
+    "bytes": 191702,
+    "sha256": "e1ffe23b5f968ea0705866e12f254c21ca9e097ede6c62eba0070b925dc551d8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000192.dcm",
+    "bytes": 193066,
+    "sha256": "59be075c397b412939f1f55233608573d16d45fac6ea5778593143ed35311e23"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000193.dcm",
+    "bytes": 191812,
+    "sha256": "7a98407376eba069c01313f11215d2b7855f886ef5a3220442d3ce44480f3fb8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000194.dcm",
+    "bytes": 192352,
+    "sha256": "dc9e86ae6bd854d9195032f898746ef62bce901a51a1d3eb9a67f86ffe766cbb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000195.dcm",
+    "bytes": 193646,
+    "sha256": "a0f96e687669ed9b96a13512ca6f27009871916cecd9055ebc28f416c19282f0"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000196.dcm",
+    "bytes": 192454,
+    "sha256": "b3e839896b18de24a4d1e1d50bb31d2a046fc76da9caa9bec658eaceb444e409"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000197.dcm",
+    "bytes": 192860,
+    "sha256": "60a2f6e4b8f6fb4e30edd7a142b2dfb1253c23ecbbe02acb4f7f017a4bdd306e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000198.dcm",
+    "bytes": 194272,
+    "sha256": "94e77c57da102bee87f839f8955a96b41a90712cdf2ef332b7f9b8582132e4ff"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000199.dcm",
+    "bytes": 192674,
+    "sha256": "d9c43cc2ee443c65f3291353f3a73ca699d6644848786a9816f72be48dd97537"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000200.dcm",
+    "bytes": 192866,
+    "sha256": "db5c2d4d62185cd6a2f3c3d23370e75a308f3bb4ac6550ff893f5ba5b2bd25db"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000201.dcm",
+    "bytes": 194458,
+    "sha256": "5b68af42fd7a63ac73bda3c65269fb91d7609ace020f75f055896c0bb3fd178d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000202.dcm",
+    "bytes": 192736,
+    "sha256": "57df82a86f170704446fad1fba7f5144dcd0c81adb7bd2abc3ce21a028cbcf59"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000203.dcm",
+    "bytes": 192420,
+    "sha256": "82f7de553fe24f7558f302271eb8c9e17e82ffd36a360fb2e4bd05cc4aff803e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000204.dcm",
+    "bytes": 194556,
+    "sha256": "51623bcd3df1e77e95dae44e34ec447d51928a39cd76ebc9a4bff1ffd4de9280"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000205.dcm",
+    "bytes": 192588,
+    "sha256": "c42d654537acafa60519329bbe7f86f6fc37af156ffd19a614517bbf2fe48060"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000206.dcm",
+    "bytes": 192130,
+    "sha256": "ffa9fcdacdd8f5f57dddc6e55c17587c3e93b730dc0ac99d4c5f295d112be0b9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000207.dcm",
+    "bytes": 194202,
+    "sha256": "bf62e7ec86a90c8f177aa50e7d84efefa826c53c1aa8f4c9e3e092a6387dde35"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000208.dcm",
+    "bytes": 192304,
+    "sha256": "f7cb123a435c30aad7ee54f743e6e3fac54cd12dd0894f887e2efd427e7fa052"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000209.dcm",
+    "bytes": 191430,
+    "sha256": "fdf889bccac0b56cb94962bd033b022c3e02627b2b9503de3ff471913898de4e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000210.dcm",
+    "bytes": 193966,
+    "sha256": "54306d78db68f29b99d5807f6caab2691333c07096ec38ae69c12d85d2c2073e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000211.dcm",
+    "bytes": 191484,
+    "sha256": "f74b241a3c76d6b6363e4231675a2826b50e10dfad220c2d42bca9a569912fd8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000212.dcm",
+    "bytes": 190238,
+    "sha256": "d83bc0e4b11fdf218128dc95f0fb6564379b6849eb9e783f808741a9c9375437"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000213.dcm",
+    "bytes": 191580,
+    "sha256": "256e1b9d15f12622a378ae317f91a5494a86fec8dacb159be7195c42778ef140"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000214.dcm",
+    "bytes": 189968,
+    "sha256": "a86c57476e64f4f1a3f26499067463cf69b9224b0cb017bd14803b72841fdebf"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000215.dcm",
+    "bytes": 189234,
+    "sha256": "de300f252902d5318cf9744e030062bd84d8e614377f9b11104fc559dfcf3e2a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000216.dcm",
+    "bytes": 190078,
+    "sha256": "7e3b2645887e17d1aa349a660247d2aa2ec2f409a1737f801ad640f4055eb220"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000217.dcm",
+    "bytes": 188084,
+    "sha256": "4fc6d94b499707e723bddead84eab57c5d32e8ff9ff3be5a6386373a1cafe040"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000218.dcm",
+    "bytes": 187790,
+    "sha256": "8fae441e5b9c4857912624071ed09bde05588c6a243ac5aefa0cb059c4d5cc52"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000219.dcm",
+    "bytes": 188894,
+    "sha256": "0f79dd66ea572122cb77c96e9a3484ab183340ae701c8c94f9bbb010c25c8e45"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000220.dcm",
+    "bytes": 187164,
+    "sha256": "799d1afbe87f1f6244905c24fe206b45122238e83194f1fbddfc8540ac012575"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000221.dcm",
+    "bytes": 187144,
+    "sha256": "cd3e6460bd74dda0e3eb07fa905b8c7d3f2fea2d68bb3b93e18e41b7799a203c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000222.dcm",
+    "bytes": 189200,
+    "sha256": "609e057624f64a98246e90174ea230c8aa6558f6d5752521569f8e0068f37143"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000223.dcm",
+    "bytes": 187166,
+    "sha256": "f8f11499c2273f9e59d58b4a169e454eebaea163c04b03a4c3587c1d2018c0b6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000224.dcm",
+    "bytes": 187934,
+    "sha256": "362c58ad2175d9789b237809f283ed61edd01513c2821747d32b64a2af476a4d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000225.dcm",
+    "bytes": 189812,
+    "sha256": "8c330e9cb7a318f91e8fd1b09bd9e161a9b32244e122be2977714500bd1560cf"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000226.dcm",
+    "bytes": 187818,
+    "sha256": "53b5bfd2ad7201646536510acb374b38e473ec3e0c532acbae991b36e699e25e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000227.dcm",
+    "bytes": 188472,
+    "sha256": "0a5ff14cf967f5c574f81543854966c86c69e39da7d89f9ceaaedf91d808bbd5"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000228.dcm",
+    "bytes": 190522,
+    "sha256": "76c18b5ccbaf2be3b698cfc10440cb730b2f9b011773c0d578b9a4601a9352fb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000229.dcm",
+    "bytes": 188630,
+    "sha256": "8c538d486912d788c56c96b92b0c7922b44e4aa1bfea4027150b0922e7be4859"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000230.dcm",
+    "bytes": 188698,
+    "sha256": "2f983262ec4e830b4e6c2a5736581d4f2683940ca60574f657aa9678aa1eeb9d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000231.dcm",
+    "bytes": 191024,
+    "sha256": "b153559fd1259a2f6e416d859a2691e52707ebf80ab8c809274a4307a1cc7d3a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000232.dcm",
+    "bytes": 188786,
+    "sha256": "a05ccb0da547e520aa422e3827ea2e8c8ad67531bc6a80333f1d3393a72b35e1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000233.dcm",
+    "bytes": 188646,
+    "sha256": "d3ad7b02fe8b4d525620e5a441ac58f34d2da9834f39c2afb0ca7e7e9bab4536"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000234.dcm",
+    "bytes": 191330,
+    "sha256": "ca301fd900649c7b782249a46d7527c59a1554a093a68e1d5e85966c9c69bdbc"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000235.dcm",
+    "bytes": 189156,
+    "sha256": "5d1083cdd02bf5489bc2372a7a4c879b5e59437ec668aaa6077c13603a0e35de"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000236.dcm",
+    "bytes": 188948,
+    "sha256": "f61b069f48f89b268a7cc819c07cd78b301a159e356392f9d65fa914194ff382"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000237.dcm",
+    "bytes": 191202,
+    "sha256": "216c7ab9d0220f38d43e5b042c9af57de8c79874c108d5e0ec1f78450ee0c29e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000238.dcm",
+    "bytes": 188858,
+    "sha256": "0b8a0305865e182a91c04dd9cc3bac01726d5429bdf67b1ddc24c49ac87be09a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000239.dcm",
+    "bytes": 188628,
+    "sha256": "bde06a63585d1b0b769ada61e4d51f3d0f00d05298cfcd14d3e80ad594ac1515"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000240.dcm",
+    "bytes": 190584,
+    "sha256": "50faacec67ffbbc85fbb0c7fa6f962ecb45f4d636dd8aaebcfb20e5bd25ea1fd"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000241.dcm",
+    "bytes": 188372,
+    "sha256": "8adfb3680fefdfe7fc0b4c8efcfc1f1487e0faac38d8d179a3d06b41edf3d82e"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000242.dcm",
+    "bytes": 188600,
+    "sha256": "563e8851df434609d0a34fac30f0ba30f95af494b92d39af08d8b7ea4d49a2a3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000243.dcm",
+    "bytes": 190330,
+    "sha256": "cc97d2abb67c9245acdc1478ce153caace5d7cc9dd84cdb8c64089e30139f458"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000244.dcm",
+    "bytes": 188134,
+    "sha256": "4a1d9fcd304e2515126d945fbb65ab0256b615d8cc18d71bf3c79e3dc8a81405"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000245.dcm",
+    "bytes": 187756,
+    "sha256": "308d5213fbf44205fb9512251fe7a46bba79f259835229d3bf6896763eea33d1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000246.dcm",
+    "bytes": 189654,
+    "sha256": "3025ab7436fdfb219bb6fad95bffed0ddb04bc5739553f51d2d6634a30f9de19"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000247.dcm",
+    "bytes": 187382,
+    "sha256": "2255f68df88f25582c5625d238b7c1d8a638adf0130f83ace34912d4a7067ee9"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000248.dcm",
+    "bytes": 187156,
+    "sha256": "a788c8e442550e4ae8b0d96a58ff2fef50a0dafdb6552d72fa3c88c0545bbcb6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000249.dcm",
+    "bytes": 189006,
+    "sha256": "6b2a43a74407fc5d1882e75012723b78bd617ac25c50493acf3f74d89d99fb00"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000250.dcm",
+    "bytes": 187080,
+    "sha256": "e3bc2f751e1d6279f41b3cd5501682fc5672e045cf17bf7d94ea1d012bd4cbf6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000251.dcm",
+    "bytes": 186924,
+    "sha256": "9325a93b21e9a60748964c477c470d028ed08baa96631a8a09f810ea86649b17"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000252.dcm",
+    "bytes": 188840,
+    "sha256": "9731bfd2654b4cd47c268e92ffacc30cf589b47537202f46e3c5d0bd43daf306"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000253.dcm",
+    "bytes": 186902,
+    "sha256": "2c0464a525011f6fda82dcba7e2401151b00979d3c7a2e6e9f43ea9d53d66d9d"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000254.dcm",
+    "bytes": 187232,
+    "sha256": "d242fc94715e1f74bf15688cb8bc896909887d28752ec9c262a391f739c8eb8a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000255.dcm",
+    "bytes": 189702,
+    "sha256": "19a691d4ed0ffaba2b451a0545ee33ca1525bf3023e1d5903664892ffa5778e8"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000256.dcm",
+    "bytes": 187702,
+    "sha256": "c05245bf01006c005837e8fd3c46d3f17a031806abe65fbb986ba0e0f6e2a919"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000257.dcm",
+    "bytes": 187880,
+    "sha256": "4937e2a6972d7fe307be2eb83b020c15778ffdf002d76803956e0ef3fc4e32b4"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000258.dcm",
+    "bytes": 189852,
+    "sha256": "a5565de7abf8fad66575f1f820cd4f52700ee70db3ab104947a96aad5149e612"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000259.dcm",
+    "bytes": 187736,
+    "sha256": "8bcebcb13755e5416bf0d0a6271de02fff244e1ad183a7ec19ced87f27147dba"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000260.dcm",
+    "bytes": 187980,
+    "sha256": "76f285fc693cd229403f745dfa9d47de4e01b5a3d10c38b5bdc8a152bffbfa7c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000261.dcm",
+    "bytes": 190332,
+    "sha256": "e863f1db1d1857b2929552f9e08e0420d7b3489f1a680a49948a1b46f6d1d861"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000262.dcm",
+    "bytes": 188248,
+    "sha256": "fcc652335c5eec774988481d7f6c2ce63a2deba93fa0a3055e849d967d6be8eb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000263.dcm",
+    "bytes": 188462,
+    "sha256": "e3fec38575d1c1d769cd5311268c493e6f27c4d5a210d87aa6ffcb000a4fed92"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000264.dcm",
+    "bytes": 190066,
+    "sha256": "52c415272f324473c4cba4bcd13b11ad26d7aa18f61949035265acd0cd339079"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000265.dcm",
+    "bytes": 187818,
+    "sha256": "6476f16e5f50a9e88c0e5b76e89b0bec1440a63a1b4ec97162004fc394dd7938"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000266.dcm",
+    "bytes": 187440,
+    "sha256": "30e2beac8c616d86a5ad700a8ec6db4a2b4bd4e48fa746c4f66c9cf7b35f9ac5"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000267.dcm",
+    "bytes": 189942,
+    "sha256": "ab844b876eb43b2cf5f277289cfaa24dbfa8202a4169250156aa74568f63d44f"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000268.dcm",
+    "bytes": 187244,
+    "sha256": "1d5eba4b01f6eee113b152ed92180e506ad89ca9855c43b819db3e3a3edec2dd"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000269.dcm",
+    "bytes": 187452,
+    "sha256": "03cd38454c6ff8b0b7a07cf822cbd95dd0c074d49518a562f1b768a5fee6014a"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000270.dcm",
+    "bytes": 189148,
+    "sha256": "cef76c3f70f69d7cc9499352d7a7e16d0dd3b74bb7c223592e7a991f410ec20c"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000271.dcm",
+    "bytes": 186808,
+    "sha256": "ae7d927a053c55f3430719bc7339ef30a6e7fb0c89a0def63debbda1324bbec1"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000272.dcm",
+    "bytes": 186450,
+    "sha256": "cb046363df1d9fcfca318987f7266ad1c87d5ef791beba0df4754e04fea0e954"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000273.dcm",
+    "bytes": 188044,
+    "sha256": "85d2e424753c64aad6e6bfd42b213702385e1c7a05136d119f61861ed55776b3"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000274.dcm",
+    "bytes": 186270,
+    "sha256": "d7afd93d7a6c1e9fab0e47f80670eddac0edc03a3d291112de345eeb4b981ee0"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000275.dcm",
+    "bytes": 185522,
+    "sha256": "eca512c0f725227de0a6002d906a103a007a72907226f892b469826569b0c696"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000276.dcm",
+    "bytes": 187086,
+    "sha256": "4ff7536bc8b469a625eca7fa40aec427b437e8d182fa1d7707c4f115f7cf8303"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000277.dcm",
+    "bytes": 185032,
+    "sha256": "954852bf03178960621f4d0b594b448ac3afb174f6b5e58b19543409c3d371bb"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000278.dcm",
+    "bytes": 184982,
+    "sha256": "080e4d3930096297731277bdc812e36521d64269fc632848422743223492b018"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000279.dcm",
+    "bytes": 186456,
+    "sha256": "fe141e5f766d0d06f3c42115c5fcae4c906f085018cea96daf05fb83a0945f97"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000280.dcm",
+    "bytes": 184656,
+    "sha256": "060d723794f8b6fb76ed29b6da961174afe130ea4794744069fa0351fee16447"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000281.dcm",
+    "bytes": 184750,
+    "sha256": "4a4651b1c8910da00cf8cfde724cb3567d054b397f410a8f29268eee66c60c68"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000282.dcm",
+    "bytes": 186392,
+    "sha256": "8167bb67618f1033e121ed4fc2a6e562f5ab5a7ab4bbe1d04518fa47ce5c50d0"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000283.dcm",
+    "bytes": 184634,
+    "sha256": "70a328c28ee45a3cf10561cafb2489eb5a2b480d40e26bf9293693033c89b9a6"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000284.dcm",
+    "bytes": 185264,
+    "sha256": "732f269f8eb20ca040ece9ff655ca7ce543590d29b9dad34a4eb9d91eaa4c414"
+  },
+  {
+    "path": "D:\\项目\\鼻腔建模\\资料\\4例演示ct\\4例演示ct\\（患者b）鼻甲消融\\20250902-Head^07_Sinus (Adult)\\4-Sinus  0.75  H40s\\000285.dcm",
+    "bytes": 186990,
+    "sha256": "73db7f1fead82db040cd18ab2a29adce6e428f0933f44af5593d1352cb0f2d51"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\ct.nii.gz",
+    "bytes": 72652958,
+    "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_left.nii.gz",
+    "bytes": 378076,
+    "sha256": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_right.nii.gz",
+    "bytes": 377099,
+    "sha256": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\nasopharynx.nii.gz",
+    "bytes": 337065,
+    "sha256": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\oropharynx.nii.gz",
+    "bytes": 345113,
+    "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2"
+  },
+  {
+    "path": "C:\\ts_work\\p2\\masks\\hypopharynx.nii.gz",
+    "bytes": 327297,
+    "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+  }
+]

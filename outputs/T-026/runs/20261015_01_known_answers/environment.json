@@ -1,0 +1,44 @@
+{
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "C:\\Users\\lenovo\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "SimpleITK": "2.5.6",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "matplotlib": "3.10.9",
+  "threads": 1,
+  "repo_HEAD": "0969c7bd02ca8e0347ff2e79d3cfcfbf68ce5e72",
+  "prototype_path": "D:\\项目\\鼻腔建模\\outputs\\T-026\\prototype\\upper_airway_candidate.py",
+  "prototype_sha256": "a744aedf76cb57b692dc38dd0189ea83abc159cb2fb9c22d4024cd1bb0ff9eab",
+  "production_readonly_sha256": {
+    "D:\\项目\\鼻腔建模\\work\\lib\\nasal_pipeline.py": "f6907a25fbf1e47874bb888e6060a7d63bb04653dbe0057504759a56f9fa1aa9",
+    "D:\\项目\\鼻腔建模\\work\\lib\\ts_quality_gate.py": "714b1c0c28df872a4c3bc2be3363d539d92e7267f72e374b44fa638a42ac4128"
+  },
+  "TotalSegmentator_installation": {
+    "site_packages": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages",
+    "dist_info": [
+      "totalsegmentator-2.18.0.dist-info"
+    ],
+    "map_path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\map_to_binary.py",
+    "map_sha256": "ee19259dacd4d52d424849b8bac44a5a5d41c895426bf7c048c69203a1a3777d",
+    "map_definitions": [
+      {
+        "line": 520,
+        "text": "\"head_glands_cavities\": {"
+      },
+      {
+        "line": 533,
+        "text": "13: \"hypopharynx\","
+      },
+      {
+        "line": 541,
+        "text": "\"headneck_bones_vessels\": {"
+      },
+      {
+        "line": 542,
+        "text": "1: \"larynx_air\","
+      }
+    ],
+    "inference_invoked": false
+  }
+}

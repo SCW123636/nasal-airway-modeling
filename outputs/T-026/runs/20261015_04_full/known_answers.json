@@ -1,0 +1,294 @@
+{
+  "fixture_source": "handwritten explicit arrays and analytical coordinates in synthetic_tests source",
+  "no_external_anatomical_claim": true,
+  "checks": [
+    {
+      "name": "nasal_original_handwritten_exact_set",
+      "pass": true,
+      "expected_zyx": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "actual_zyx": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "nasal_oropharynx_handwritten_exact_set",
+      "pass": true,
+      "expected_zyx": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "actual_zyx": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "nasal_oropharynx_hypopharynx_handwritten_exact_set",
+      "pass": true,
+      "expected_zyx": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "actual_zyx": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "original_subset_extension_no_bridge_no_unlabelled_air",
+      "pass": true
+    },
+    {
+      "name": "handwritten_nonidentity_direction_LPS_mm_and_half_voxel_CT_bounds",
+      "pass": true,
+      "expected_point": [
+        7,
+        24,
+        26
+      ],
+      "actual_point": [
+        7.0,
+        24.0,
+        26.0
+      ],
+      "expected_CT_support": [
+        [
+          -0.5,
+          19.0,
+          20.0
+        ],
+        [
+          11.5,
+          29.0,
+          32.0
+        ]
+      ]
+    },
+    {
+      "name": "NIfTI_roundtrip_nonidentity_direction_exact_array_in_Unicode_parent",
+      "pass": true,
+      "output": "known_direction_roundtrip.nii.gz",
+      "original_and_reread_geometry": {
+        "size_xyz": [
+          5,
+          4,
+          3
+        ],
+        "spacing_xyz_mm": [
+          2.0,
+          3.0,
+          4.0
+        ],
+        "origin_LPS_mm": [
+          10.0,
+          20.0,
+          30.0
+        ],
+        "direction_row_major": [
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "coordinate_system": "LPS_mm",
+        "array_axes": "zyx",
+        "orientation_code": "PRI"
+      }
+    },
+    {
+      "name": "handwritten_6_connectivity_and_scan_face_contacts",
+      "pass": true,
+      "expected_component_sizes": [
+        4,
+        1
+      ]
+    },
+    {
+      "name": "missing_label_rejected",
+      "pass": true,
+      "expected_error": "missing_label:oropharynx",
+      "actual_error": "missing_label:oropharynx"
+    },
+    {
+      "name": "empty_label_rejected",
+      "pass": true,
+      "expected_error": "empty_label:oropharynx",
+      "actual_error": "empty_label:oropharynx"
+    },
+    {
+      "name": "origin_mismatch_rejected",
+      "pass": true,
+      "expected_error": "grid_mismatch:oropharynx",
+      "actual_error": "grid_mismatch:oropharynx"
+    },
+    {
+      "name": "direction_mismatch_rejected",
+      "pass": true,
+      "expected_error": "grid_mismatch:oropharynx",
+      "actual_error": "grid_mismatch:oropharynx"
+    },
+    {
+      "name": "spacing_mismatch_rejected",
+      "pass": true,
+      "expected_error": "grid_mismatch:oropharynx",
+      "actual_error": "grid_mismatch:oropharynx"
+    },
+    {
+      "name": "size_mismatch_rejected",
+      "pass": true,
+      "expected_error": "grid_mismatch:oropharynx",
+      "actual_error": "grid_mismatch:oropharynx"
+    },
+    {
+      "name": "nonbinary_label_rejected",
+      "pass": true,
+      "expected_error": "label_not_binary:oropharynx",
+      "actual_error": "label_not_binary:oropharynx"
+    },
+    {
+      "name": "no_air_label_rejected",
+      "pass": true,
+      "expected_error": "empty_label_air:",
+      "actual_error": "empty_label_air:nasal_cavity_left"
+    }
+  ],
+  "all_pass": true,
+  "count": 15
+}

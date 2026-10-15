@@ -1,0 +1,5 @@
+{
+  "error_type": "TypeError",
+  "message": "Object of type int64 is not JSON serializable",
+  "UTC": "2026-10-15T10:40:14.257439+00:00"
+}

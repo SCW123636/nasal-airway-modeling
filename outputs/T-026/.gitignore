@@ -1,0 +1,13 @@
+# Local medical pixels/candidates stay on this machine; retain reproducible code/reports.
+*.nii
+*.nii.gz
+*.mha
+*.mhd
+*.raw
+*.stl
+*.png
+*.dcm
+*.DCM
+*.tmp
+__pycache__/
+*raw_header*
