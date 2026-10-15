@@ -8,7 +8,7 @@ import unittest
 import numpy as np
 import vtk
 from vtk.util.numpy_support import numpy_to_vtk
-from patient_cfd_viewer import export_patient_trial_viewer
+from patient_cfd_viewer import export_patient_trial_viewer,_interior_slices,_poly_arrays
 
 
 def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -52,6 +52,62 @@ def fixture(root, *, cell=False):
 
 
 class PatientViewerTests(unittest.TestCase):
+    def test_float32_source_near_vertex_cut_retains_known_intersections(self):
+        # Source: actual-vtu-repair/precision_control_source.json, source cell
+        # 175819, VTU SHA256 71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11.
+        # Two unused bounds-only points isolate the real source's center plane;
+        # the only cell remains the extracted, valid four-point tetrahedron.
+        points=np.array([[.020625699311494827,-.05703200027346611,-.026962999254465103],
+            [.020373599603772163,-.056787800043821335,-.026607800275087357],
+            [.020331399515271187,-.057145100086927414,-.0271914005279541],
+            [.020198699086904526,-.05732410028576851,-.026758700609207153],
+            [-.014042300172150135,-.11049900203943253,-.05031510069966316],
+            [.02502020075917244,-.01674880087375641,-.0029005000833421946]],dtype=np.float32)
+        xyz=points.astype(float);grid=vtk.vtkUnstructuredGrid();vp=vtk.vtkPoints();vp.SetData(numpy_to_vtk(points,deep=True));grid.SetPoints(vp)
+        tetra=vtk.vtkTetra()
+        for i in range(4):tetra.GetPointIds().SetId(i,i)
+        grid.InsertNextCell(tetra.GetCellType(),tetra.GetPointIds())
+        u=np.column_stack((xyz[:,0]+2*xyz[:,1],xyz[:,1]+3*xyz[:,2],xyz[:,2]+4*xyz[:,0]))
+        p=1+2*xyz[:,0]-xyz[:,1]+3*xyz[:,2]
+        for name,values in (('U',u),('p',p)):
+            array=numpy_to_vtk(values,deep=True);array.SetName(name);grid.GetPointData().AddArray(array)
+        bounds=grid.GetBounds();center=np.array([(bounds[2*i]+bounds[2*i+1])/2 for i in range(3)])
+        plane=vtk.vtkPlane();plane.SetOrigin(*center);plane.SetNormal(0,0,1)
+        old=vtk.vtkCutter();old.SetInputData(grid);old.SetCutFunction(plane);old.Update()
+        old_xyz=np.array([old.GetOutput().GetPoint(i) for i in range(3)])
+        self.assertEqual(np.linalg.norm(np.cross(old_xyz[1]-old_xyz[0],old_xyz[2]-old_xyz[0])),0)
+        expected=[]
+        for a,b in ((0,1),(0,2),(0,3),(1,2),(1,3),(2,3)):
+            sa,sb=xyz[a,2]-center[2],xyz[b,2]-center[2]
+            if sa*sb<0:
+                t=-sa/(sb-sa);expected.append((1-t)*xyz[a]+t*xyz[b])
+        self.assertEqual(len(expected),3)
+        slices=_interior_slices(grid,1.25,'d'*64);cut=next(value for value in slices if value['id']=='z')
+        actual=np.array(cut['geometry']['vertices']).reshape(-1,3)/1000
+        self.assertEqual((len(actual),len(cut['geometry']['indices'])//3),(3,1))
+        for point in actual:self.assertLess(np.min(np.linalg.norm(np.array(expected)-point,axis=1)),1e-14)
+        self.assertGreater(np.linalg.norm(np.cross(actual[1]-actual[0],actual[2]-actual[0])),1e-20)
+        expected_u=np.column_stack((actual[:,0]+2*actual[:,1],actual[:,1]+3*actual[:,2],actual[:,2]+4*actual[:,0]))
+        expected_p=(1+2*actual[:,0]-actual[:,1]+3*actual[:,2])*1.25
+        np.testing.assert_allclose(cut['fields']['velocity']['values'],expected_u,rtol=0,atol=1e-14)
+        np.testing.assert_allclose(cut['fields']['pressure']['values'],expected_p,rtol=0,atol=1e-14)
+
+    def test_real_degenerate_and_below_gate_faces_still_rejected(self):
+        for name,xyz,accepted in (
+            ('collinear',[[0,0,0],[1,0,0],[2,0,0]],False),
+            ('below_unchanged_gate',[[0,0,0],[1e-10,0,0],[0,5e-11,0]],False),
+            ('above_unchanged_gate',[[0,0,0],[1e-10,0,0],[0,2e-10,0]],True)):
+            with self.subTest(name=name):
+                poly=vtk.vtkPolyData();points=vtk.vtkPoints();points.SetData(numpy_to_vtk(np.array(xyz,dtype=float),deep=True));poly.SetPoints(points)
+                faces=vtk.vtkCellArray();faces.InsertNextCell(3)
+                for i in range(3):faces.InsertCellPoint(i)
+                poly.SetPolys(faces)
+                for key,values in (('U',np.ones((3,3))),('p',np.ones(3))):
+                    array=numpy_to_vtk(values,deep=True);array.SetName(key);poly.GetPointData().AddArray(array)
+                if accepted:self.assertEqual(len(_poly_arrays(poly)[1]),1)
+                else:
+                    with self.assertRaisesRegex(ValueError,'退化三角面'):_poly_arrays(poly)
+
     def test_known_coordinates_components_pressure_and_failed_status(self):
         with tempfile.TemporaryDirectory() as tmp:
             base,source,report,data,asset,points,u,p=fixture(tmp)

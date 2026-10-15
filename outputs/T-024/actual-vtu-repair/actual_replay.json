@@ -1,0 +1,71 @@
+{
+  "scope": "read_only_native_A_failed_field_replay_not_republished_A_not_valid_flow",
+  "source_before": {
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\job.json": "b4e3d409406f0e821d8603dfb95855d9b024341897ee1a7c71043bd3a205fff0",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\patient_engineering_report.json": "5b4c0c72de000945f917b7c8887901f49cd484bde91f96a24f807424e243c669",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\VTK\\eval_001_120\\internal.vtu": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\config.json": "c87833df76141e00455ca9efd9766b79177876a0904e4cecd2e53c481e2595a9",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\120\\p": "7c732c7c1f54eda2f9cd89afec48e553e4084d6b48f2da64d3a30487d3aea3e2",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\120\\U": "48e0f57b57ac42e833ecfaf618a9f692e5dfa124e068b33e44001002a0e2b7ef"
+  },
+  "source_after": {
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\job.json": "b4e3d409406f0e821d8603dfb95855d9b024341897ee1a7c71043bd3a205fff0",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\patient_engineering_report.json": "5b4c0c72de000945f917b7c8887901f49cd484bde91f96a24f807424e243c669",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\VTK\\eval_001_120\\internal.vtu": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\config.json": "c87833df76141e00455ca9efd9766b79177876a0904e4cecd2e53c481e2595a9",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\120\\p": "7c732c7c1f54eda2f9cd89afec48e553e4084d6b48f2da64d3a30487d3aea3e2",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\120\\U": "48e0f57b57ac42e833ecfaf618a9f692e5dfa124e068b33e44001002a0e2b7ef"
+  },
+  "source_unchanged": true,
+  "original_A_status": "failed",
+  "original_A_viewer_export_error": "抽取后存在退化三角面",
+  "replay_export": {
+    "schema": "nasal_patient_engineering_diagnostic/v1",
+    "points": 56409,
+    "triangles": 112818,
+    "case_id": "b15_engineering_t029a",
+    "job_id": "s_aa79a63027b94bfb9a273898",
+    "source_vtu_sha256": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11",
+    "field_time": "120",
+    "internal_slice_ids": [
+      "x",
+      "y",
+      "z"
+    ],
+    "numerical_validation": "failed",
+    "clinical_validation": "not_validated",
+    "formal_patient_result": false
+  },
+  "probe_comparison": [
+    {
+      "axis": "x",
+      "points": 8631,
+      "triangles": 16196,
+      "valid_probe_points": 8618,
+      "max_abs_U_diff_m_s": 0.1591358184814453,
+      "max_abs_p_diff_Pa": 0.9315429687494543,
+      "source_vtu_sha256": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11"
+    },
+    {
+      "axis": "y",
+      "points": 3065,
+      "triangles": 5180,
+      "valid_probe_points": 3061,
+      "max_abs_U_diff_m_s": 0.020096778869628906,
+      "max_abs_p_diff_Pa": 0.10249023437472715,
+      "source_vtu_sha256": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11"
+    },
+    {
+      "axis": "z",
+      "points": 4612,
+      "triangles": 8079,
+      "valid_probe_points": 4606,
+      "max_abs_U_diff_m_s": 0.04651832580566406,
+      "max_abs_p_diff_Pa": 0.4131835937505457,
+      "source_vtu_sha256": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11"
+    }
+  ],
+  "replay_manifest_sha256": "55388b7a982cef2f93fb97e29f9d0f1e6c9b84d178367d93f608c892b06ca11a",
+  "replay_mesh_sha256": "766da8c7ce537571a1e9ac9e7799474e8280b0e37ea17dc7d623614a3651481a",
+  "exporter_sha256": "607d002b7cb73ab241de6dc70313c42ab7bca1e2103aed7dc424e555e68fcb12"
+}

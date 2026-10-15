@@ -1,0 +1,10 @@
+test_cell_fields_are_explicitly_averaged_not_replaced (test_patient_cfd_viewer.PatientViewerTests.test_cell_fields_are_explicitly_averaged_not_replaced) ... ok
+test_float32_source_near_vertex_cut_retains_known_intersections (test_patient_cfd_viewer.PatientViewerTests.test_float32_source_near_vertex_cut_retains_known_intersections) ... ok
+test_known_coordinates_components_pressure_and_failed_status (test_patient_cfd_viewer.PatientViewerTests.test_known_coordinates_components_pressure_and_failed_status) ... ok
+test_real_degenerate_and_below_gate_faces_still_rejected (test_patient_cfd_viewer.PatientViewerTests.test_real_degenerate_and_below_gate_faces_still_rejected) ... ok
+test_wrong_dimensions_or_stale_identity_never_publish_manifest (test_patient_cfd_viewer.PatientViewerTests.test_wrong_dimensions_or_stale_identity_never_publish_manifest) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.340s
+
+OK

@@ -107,7 +107,11 @@ def _interior_slices(grid,rho,source_sha):
     for axis,name in enumerate(('x','y','z')):
         normal=np.eye(3)[axis]
         plane=vtk.vtkPlane();plane.SetOrigin(*center);plane.SetNormal(*normal)
-        cutter=vtk.vtkCutter();cutter.SetInputData(grid);cutter.SetCutFunction(plane);cutter.Update()
+        cutter=vtk.vtkCutter();cutter.SetInputData(grid);cutter.SetCutFunction(plane)
+        # A float32 source can have distinct edge-plane intersections closer
+        # than its absolute-coordinate float32 spacing. Preserve those computed
+        # intersections in double; never delete faces or relax the area gate.
+        cutter.SetOutputPointsPrecision(vtk.vtkAlgorithm.DOUBLE_PRECISION);cutter.Update()
         triangle=vtk.vtkTriangleFilter();triangle.SetInputConnection(cutter.GetOutputPort());triangle.Update()
         if not triangle.GetOutput().GetNumberOfPolys():continue
         p,f,u,pressure=_poly_arrays(triangle.GetOutput())

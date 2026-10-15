@@ -1,0 +1,301 @@
+{
+  "source": "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\VTK\\eval_001_120\\internal.vtu",
+  "source_before": {
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\VTK\\eval_001_120\\internal.vtu": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\job.json": "b4e3d409406f0e821d8603dfb95855d9b024341897ee1a7c71043bd3a205fff0",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\config.json": "c87833df76141e00455ca9efd9766b79177876a0904e4cecd2e53c481e2595a9"
+  },
+  "vtk_version": "9.7.1",
+  "source_points": 229033,
+  "source_cells": 1161194,
+  "source_point_dtype": "float",
+  "bounds_m": [
+    -0.014042300172150135,
+    0.02502020075917244,
+    -0.11049900203943253,
+    -0.01674880087375641,
+    -0.05031510069966316,
+    -0.0029005000833421946
+  ],
+  "source_association": {
+    "U": "point",
+    "p": "point"
+  },
+  "stages": {
+    "surface_before_triangle": {
+      "points": 56409,
+      "triangles": 112818,
+      "point_dtype": "float",
+      "zero_area": 0,
+      "at_or_below_existing_gate": 0,
+      "minimum_cross_norm_m2": 2.865922027309289e-12,
+      "area_quantiles_m2": [
+        2.865922027309289e-12,
+        1.1753781665706502e-11,
+        1.5406233900289857e-10,
+        2.6105334313875477e-07,
+        3.1530014782121807e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": []
+    },
+    "surface_after_triangle": {
+      "points": 56409,
+      "triangles": 112818,
+      "point_dtype": "float",
+      "zero_area": 0,
+      "at_or_below_existing_gate": 0,
+      "minimum_cross_norm_m2": 2.865922027309289e-12,
+      "area_quantiles_m2": [
+        2.865922027309289e-12,
+        1.1753781665706502e-11,
+        1.5406233900289857e-10,
+        2.6105334313875477e-07,
+        3.1530014782121807e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": []
+    },
+    "x_default": {
+      "points": 8631,
+      "triangles": 16196,
+      "point_dtype": "float",
+      "zero_area": 0,
+      "at_or_below_existing_gate": 0,
+      "minimum_cross_norm_m2": 1.249000902703301e-16,
+      "area_quantiles_m2": [
+        1.249000902703301e-16,
+        2.9955204983167506e-16,
+        7.771561172376096e-16,
+        3.6587892673911604e-08,
+        1.8309551896023013e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": []
+    },
+    "x_double": {
+      "points": 8631,
+      "triangles": 16196,
+      "point_dtype": "double",
+      "zero_area": 0,
+      "at_or_below_existing_gate": 0,
+      "minimum_cross_norm_m2": 1.7205593524499426e-16,
+      "area_quantiles_m2": [
+        1.7205593524499426e-16,
+        3.6429790919766787e-16,
+        7.775620286403455e-16,
+        3.6587681395093136e-08,
+        1.8309581428525375e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": []
+    },
+    "y_default": {
+      "points": 3065,
+      "triangles": 5180,
+      "point_dtype": "float",
+      "zero_area": 0,
+      "at_or_below_existing_gate": 0,
+      "minimum_cross_norm_m2": 1.6112111644872584e-14,
+      "area_quantiles_m2": [
+        1.6112111644872584e-14,
+        6.118450815439935e-13,
+        1.6766566095574586e-11,
+        4.3255907286599005e-08,
+        1.3149087801081136e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": []
+    },
+    "y_double": {
+      "points": 3065,
+      "triangles": 5180,
+      "point_dtype": "double",
+      "zero_area": 0,
+      "at_or_below_existing_gate": 0,
+      "minimum_cross_norm_m2": 1.6022195781995976e-14,
+      "area_quantiles_m2": [
+        1.6022195781995976e-14,
+        6.122250633685506e-13,
+        1.6769691489943248e-11,
+        4.325600626057425e-08,
+        1.3149082319436506e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": []
+    },
+    "z_default": {
+      "points": 4612,
+      "triangles": 8079,
+      "point_dtype": "float",
+      "zero_area": 12,
+      "at_or_below_existing_gate": 12,
+      "minimum_cross_norm_m2": 0.0,
+      "area_quantiles_m2": [
+        0.0,
+        0.0,
+        2.767142771864517e-11,
+        6.807016761367635e-08,
+        1.0895119054582514e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": [
+        {
+          "triangle": 1242,
+          "point_ids": [
+            4217,
+            1351,
+            4231
+          ],
+          "points_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "cross_norm_m2": 0.0
+        },
+        {
+          "triangle": 1243,
+          "point_ids": [
+            4217,
+            4209,
+            1351
+          ],
+          "points_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "cross_norm_m2": 0.0
+        },
+        {
+          "triangle": 2887,
+          "point_ids": [
+            4219,
+            4210,
+            4209
+          ],
+          "points_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.02012239396572113,
+              -0.056632231920957565,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "cross_norm_m2": 0.0
+        },
+        {
+          "triangle": 3890,
+          "point_ids": [
+            4231,
+            4221,
+            4219
+          ],
+          "points_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.019944922998547554,
+              -0.05703870952129364,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "cross_norm_m2": 0.0
+        },
+        {
+          "triangle": 4932,
+          "point_ids": [
+            1351,
+            2442,
+            4231
+          ],
+          "points_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.02035185880959034,
+              -0.05721932649612427,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "cross_norm_m2": 0.0
+        }
+      ]
+    },
+    "z_double": {
+      "points": 4612,
+      "triangles": 8079,
+      "point_dtype": "double",
+      "zero_area": 0,
+      "at_or_below_existing_gate": 0,
+      "minimum_cross_norm_m2": 1.0434804520350852e-20,
+      "area_quantiles_m2": [
+        1.0434804520350852e-20,
+        6.346048715380547e-14,
+        2.766899330955612e-11,
+        6.807071027001082e-08,
+        1.0895129792706784e-06
+      ],
+      "any_repeated_index": false,
+      "bad_samples": []
+    }
+  },
+  "production_surface": "pass",
+  "production_slices": "Traceback (most recent call last):\n  File \"D:\\项目\\鼻腔建模\\outputs\\T-024\\actual-vtu-repair\\inspect_actual_vtu.py\", line 55, in <module>\n    try:_interior_slices(grid,1.2,sha(SOURCE));evidence['production_slices']='pass'\n        ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\项目\\鼻腔建模\\work\\lib\\patient_cfd_viewer.py\", line 113, in _interior_slices\n    p,f,u,pressure=_poly_arrays(triangle.GetOutput())\n                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\项目\\鼻腔建模\\work\\lib\\patient_cfd_viewer.py\", line 86, in _poly_arrays\n    raise ValueError('抽取后存在退化三角面')\nValueError: 抽取后存在退化三角面\n",
+  "source_after": {
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\VTK\\eval_001_120\\internal.vtu": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\job.json": "b4e3d409406f0e821d8603dfb95855d9b024341897ee1a7c71043bd3a205fff0",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\config.json": "c87833df76141e00455ca9efd9766b79177876a0904e4cecd2e53c481e2595a9"
+  },
+  "source_unchanged": true
+}
