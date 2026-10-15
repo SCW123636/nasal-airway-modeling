@@ -1,0 +1,7 @@
+{
+  "case_id": "b15_engineering_t029a",
+  "scope": "zero-CFD source binding known-answer",
+  "unexpected_failure": "ValueError",
+  "error": "病例编号无效",
+  "location": "work/lib/cfd_workspace_jobs.py:175 old endswith standalone discriminator"
+}

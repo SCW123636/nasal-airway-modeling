@@ -21,6 +21,7 @@ import uuid
 
 from ct_case_pipeline import (execution_lock, now, process_alive, read_json,
                               sha256, write_json)
+from patient_cfd_admission import ENGINEERING_CASE_RE
 
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE_SCRIPT = ROOT / 'work/07_cfd_pipeline/solver_reference/run_reference.py'
@@ -153,7 +154,7 @@ class SimulationJobs:
         if eligibility['passed'] and not PATIENT_SCRIPT.is_file():
             checks.append({'name':'patient_runner','passed':False,'detail':'患者真实工程适配入口缺失','source':str(PATIENT_SCRIPT)})
         allowed = eligibility['passed'] and all(check['passed'] for check in checks) and PATIENT_SCRIPT.is_file()
-        return {'id': case, 'label': case + (' · 独立患者工程示例' if case.endswith('_engineering') else ' · 鼻腔患者预览'), 'kind': 'patient',
+        return {'id': case, 'label': case + (' · 独立患者工程示例' if ENGINEERING_CASE_RE.fullmatch(case) else ' · 鼻腔患者预览'), 'kind': 'patient',
                 'run_action': 'run_patient_engineering', 'run_allowed': allowed,
                 'blocking_reasons': [c['detail'] for c in checks if not c['passed']],
                 'clinical_readiness_reasons': reasons + eligibility.get('clinical_readiness_reasons', []),
@@ -172,7 +173,7 @@ class SimulationJobs:
             if surface.is_file():
                 binding['source_surface_sha256'] = sha256(surface)
             return binding
-        if case.endswith('_engineering'):
+        if ENGINEERING_CASE_RE.fullmatch(case):
             return None
         from ct_case_pipeline import case_dir
         folder = case_dir(self.case_manager.root, case)

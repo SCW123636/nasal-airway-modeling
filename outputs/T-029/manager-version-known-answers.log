@@ -1,0 +1,20 @@
+test_asset_allowlist_and_directory_escape (test_cfd_workspace_jobs.SimulationTests.test_asset_allowlist_and_directory_escape) ... ok
+test_bound_fixed_plane_rejection_is_reflected_in_catalog_run_permission (test_cfd_workspace_jobs.SimulationTests.test_bound_fixed_plane_rejection_is_reflected_in_catalog_run_permission) ... ok
+test_catalog_separates_reference_and_patient_current_case (test_cfd_workspace_jobs.SimulationTests.test_catalog_separates_reference_and_patient_current_case) ... ok
+test_detached_launch_failure_and_dead_worker_are_persistent (test_cfd_workspace_jobs.SimulationTests.test_detached_launch_failure_and_dead_worker_are_persistent) ... ok
+test_environment_missing_cannot_be_reported_passed (test_cfd_workspace_jobs.SimulationTests.test_environment_missing_cannot_be_reported_passed) ... ok
+test_live_worker_not_misclassified_and_only_one_reference_queued (test_cfd_workspace_jobs.SimulationTests.test_live_worker_not_misclassified_and_only_one_reference_queued) ... ok
+test_new_run_viewer_fixture_units_identity_and_known_pressure (test_cfd_workspace_jobs.SimulationTests.test_new_run_viewer_fixture_units_identity_and_known_pressure) ... ok
+test_patient_preflight_is_completed_report_of_failed_admission (test_cfd_workspace_jobs.SimulationTests.test_patient_preflight_is_completed_report_of_failed_admission) ... ok
+test_patient_run_and_unknown_settings_are_rejected (test_cfd_workspace_jobs.SimulationTests.test_patient_run_and_unknown_settings_are_rejected) ... ok
+test_preflight_worker_completes_without_solver_and_restart_reads_disk (test_cfd_workspace_jobs.SimulationTests.test_preflight_worker_completes_without_solver_and_restart_reads_disk) ... ok
+test_pressure_feedback_schema_and_cross_action_refusal (test_cfd_workspace_jobs.SimulationTests.test_pressure_feedback_schema_and_cross_action_refusal) ... ok
+test_real_runner_command_failure_preserves_exit_and_releases_ct_lock (test_cfd_workspace_jobs.SimulationTests.test_real_runner_command_failure_preserves_exit_and_releases_ct_lock) ... ok
+test_versioned_engineering_bad_origin_and_changed_source_still_block (test_cfd_workspace_jobs.SimulationTests.test_versioned_engineering_bad_origin_and_changed_source_still_block) ... ok
+test_versioned_engineering_catalog_preflight_and_source_binding_use_real_admission (test_cfd_workspace_jobs.SimulationTests.test_versioned_engineering_catalog_preflight_and_source_binding_use_real_admission) ... ok
+test_windows_wsl_paths_native_linux_requirement (test_cfd_workspace_jobs.SimulationTests.test_windows_wsl_paths_native_linux_requirement) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 5.875s
+
+OK

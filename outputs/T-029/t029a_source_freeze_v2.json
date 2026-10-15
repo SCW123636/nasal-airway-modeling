@@ -1,0 +1,39 @@
+{
+  "schema": "nasal_t029_source_freeze/v2",
+  "frozen_at": "2026-10-15T11:29:51.587936+00:00",
+  "parent_commit": "21c280a50c0dea6f9dc7bcf7bd6f275a83437784",
+  "case_id": "b15_engineering_t029a",
+  "code_sha256": {
+    "work/lib/patient_cfd_admission.py": "098e0efd72e817a2249045b0600184b26d1fb15460988bba44869af699ef7da3",
+    "work/lib/patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+    "work/lib/openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+    "work/lib/pressure_feedback.py": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22",
+    "work/lib/solver_adapter.py": "df741bbf6707b4ce9492ef0c59d8614c6b077aa542d86ae77a9be04ff414d8df",
+    "work/lib/cfd_contract.py": "636593620134752f53a5af7ad3bce248c31e02d0b7842a672af7b89ad03a86ed",
+    "work/07_cfd_pipeline/solver/run_openfoam_case.py": "d0fd439c14071c6d2919793955cbc36b5aefea4065bd880e8f047299daf7ca6d",
+    "work/07_cfd_pipeline/solver/mesh_cache.py": "7ca1658e2a5081be7e989d78fcdc273d3904c16f0335989e0c38ec2f63ced9e7",
+    "work/07_cfd_pipeline/solver_reference/run_reference.py": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a",
+    "work/lib/test_patient_cfd_admission.py": "85c1f66e23c901d3f7e0c69418b0693b7a51d8c65982091c5d905226dbaeaf47",
+    "work/lib/test_run_openfoam_case.py": "a103fba0be9d213c5f4f457594216574ab6d953ce65798d1be66bb29c2253bde",
+    "outputs/T-029/provision_b15_engineering_t029a.py": "be9b55224ca3a46e64aa690f28b91d073093776541a08f4b83388a669b8ff3cd",
+    "work/lib/cfd_workspace_jobs.py": "653fb95135ea475bf867a64a41d295aa79625b09f0ef2c2b3f32526aebca4d96",
+    "work/lib/test_cfd_workspace_jobs.py": "92e715e848df4f2d1477d8635ddb32bac55b53a49a8cb218c891df1bd2209b16",
+    "work/lib/ct_case_pipeline.py": "b36ed31402daa98c6ec01375e47de2c66e14805193d7b8ad0081b022a090feca"
+  },
+  "input_freeze_sha256": "e70371c3f9bf1093031fc60bb0420cc517272f2e92b1628cd1b0abf95f92a518",
+  "admission_sha256": "add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04",
+  "known_answers": {
+    "admission_executor_tests": 36,
+    "adapter_controller_tests": 46,
+    "new_provision_tests": 2,
+    "actual_native_exit_fixtures": [
+      -8,
+      7
+    ]
+  },
+  "scope": "Engineering stability only; Failed 2 mesh checks and clinical pending retained. No automatic extension beyond 120.",
+  "previous_freeze_sha256": "5f8137c43c6ff324f8f679de22a4ec1557a7bfbc562e520bf6d50bb09c1497bc",
+  "manager_change": "two engineering discriminators share strict ENGINEERING_CASE_RE; no gate/path/execution change",
+  "manager_known_answers": 15,
+  "actual_package_manager_check_sha256": "5024faf2317ade6c8f42e8a7b610275f6f554b0dd18bc85c5a2e8f6175c04c15"
+}

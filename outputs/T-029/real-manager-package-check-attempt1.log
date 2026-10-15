@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D:\项目\鼻腔建模\outputs\T-029\verify_real_manager_package.py", line 19, in <module>
+    selected = next(item for item in catalog['cases'] if item['id'] == name)
+StopIteration

@@ -51,6 +51,56 @@ class SimulationTests(unittest.TestCase):
         self.assertEqual(patient['mesh_status'], 'not_admitted')
         self.assertIn('最终 CFD 表面', ' '.join(patient['blocking_reasons']))
 
+    def test_versioned_engineering_catalog_preflight_and_source_binding_use_real_admission(self):
+        import test_patient_cfd_admission as fixtures
+        fixture = fixtures.AdmissionTests('test_frozen_package_admits_engineering_without_claiming_clinical')
+        fixture.setUp()
+        try:
+            folder = fixture.version_package()
+            self.jobs.patient_input_root = fixture.root
+            items = {item['id']:item for item in self.jobs.catalog()['cases']}
+            for case in ('b15_engineering', folder.name):
+                self.assertIsNone(self.jobs.patient_source_binding(case))
+                self.assertTrue(items[case]['run_allowed'], items[case])
+                self.assertIn('独立患者工程示例', items[case]['label'])
+                self.assertEqual(items[case]['clinical_validation'], 'not_validated')
+                preflight = self.jobs.preflight(case)
+                self.assertTrue(preflight['passed'], preflight)
+                self.assertTrue(preflight['patient_data'])
+                self.assertEqual(preflight['clinical_validation'], 'not_validated')
+            created = self.create('run_patient_engineering', folder.name)
+            self.assertEqual(created['case_id'], folder.name)
+            self.assertEqual(created['patient_binding']['current_source_binding'], None)
+            self.assertTrue(created['patient_binding']['admission_sha256'])
+            malformed = fixture.root / 'b15_engineering_t029a_extra'
+            malformed.mkdir()
+            (malformed / 'admission.json').write_text('{}')
+            self.assertNotIn(malformed.name, {item['id'] for item in self.jobs.catalog()['cases']})
+            for case in (malformed.name, 'b15_engineering_other', 'b15_engineering_t29a'):
+                with self.assertRaises(ValueError):
+                    self.jobs.patient(case)
+        finally:
+            fixture.tearDown()
+
+    def test_versioned_engineering_bad_origin_and_changed_source_still_block(self):
+        import test_patient_cfd_admission as fixtures
+        fixture = fixtures.AdmissionTests('test_frozen_package_admits_engineering_without_claiming_clinical')
+        fixture.setUp()
+        try:
+            folder = fixture.version_package()
+            self.jobs.patient_input_root = fixture.root
+            (folder / 'source.msh').write_text('changed frozen source')
+            self.assertFalse(self.jobs.patient(folder.name)['run_allowed'])
+            self.assertFalse(self.jobs.preflight(folder.name)['passed'])
+            with self.assertRaisesRegex(ValueError, '计算入口拒绝'):
+                self.create('run_patient_engineering', folder.name)
+            data = read_json(folder / 'admission.json')
+            data['engineering_provenance']['origin_case_id'] = 'b1501_engineering'
+            write_json(folder / 'admission.json', data)
+            self.assertFalse(self.jobs.patient(folder.name)['run_allowed'])
+        finally:
+            fixture.tearDown()
+
     def test_patient_run_and_unknown_settings_are_rejected(self):
         with self.assertRaisesRegex(ValueError, '患者运行拒绝'):
             self.create('run_reference', 'p0')
