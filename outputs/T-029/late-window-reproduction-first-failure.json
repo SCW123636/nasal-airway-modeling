@@ -1,0 +1,25 @@
+{
+  "scope": "first reproduction attempt; preserved before correction",
+  "differences": [
+    {
+      "path": "root.windows[2].metrics[0].last10_to_first10_mean_ratio",
+      "calculated": 1.4210239106393445,
+      "existing": 1.4210239106393443
+    },
+    {
+      "path": "root.windows[2].metrics[1].last10_to_first10_mean_ratio",
+      "calculated": 1.3638150561116826,
+      "existing": 1.3638150561116824
+    },
+    {
+      "path": "root.windows[2].metrics[3].last10_to_first10_mean_ratio",
+      "calculated": 1.0102198805407254,
+      "existing": 1.0102198805407256
+    },
+    {
+      "path": "root.windows[3].metrics[2].last10_to_first10_mean_ratio",
+      "calculated": 1.0878576577139847,
+      "existing": 1.0878576577139845
+    }
+  ]
+}

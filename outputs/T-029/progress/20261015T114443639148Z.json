@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-15T11:44:43.542250+00:00",
+  "job_id": "s_aa79a63027b94bfb9a273898",
+  "job_status": "running",
+  "job_stage": "solver",
+  "worker_pid": 33964,
+  "solver_launcher_pid": 24388,
+  "native_root": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898",
+  "native_case": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001",
+  "iteration": 23.0,
+  "nonfinite_numeric": false,
+  "native_status": {
+    "schema": "nasal_cfd_run_status/v1",
+    "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+    "started_at": "2026-10-15T11:42:52+00:00",
+    "status": "running",
+    "current_step_index": 2,
+    "total_steps": 3,
+    "current_command": [
+      "simpleFoam"
+    ],
+    "last_log_tail": null,
+    "updated_at": "2026-10-15T11:43:06+00:00"
+  },
+  "last_complete_step": 22.0,
+  "last_residuals": [
+    [
+      "Ux",
+      0.0219860810787,
+      7.7371894325e-05
+    ],
+    [
+      "Uy",
+      0.0164740881695,
+      6.59365349434e-05
+    ],
+    [
+      "Uz",
+      0.016392505712,
+      6.39449493301e-05
+    ],
+    [
+      "p",
+      0.0716270096005,
+      0.000452472561014
+    ],
+    [
+      "p",
+      0.0263516896658,
+      0.000262974255147
+    ],
+    [
+      "p",
+      0.00391432379669,
+      2.62207993263e-05
+    ]
+  ],
+  "continuity": [
+    0.137356910299,
+    -0.0276597679217,
+    -0.460622610481
+  ],
+  "log_tail": "smoothSolver:  Solving for Uy, Initial residual = 0.0164740881695, Final residual = 6.59365349434e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.016392505712, Final residual = 6.39449493301e-05, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0716270096005, Final residual = 0.000452472561014, No Iterations 4\nGAMG:  Solving for p, Initial residual = 0.0263516896658, Final residual = 0.000262974255147, No Iterations 2\nGAMG:  Solving for p, Initial residual = 0.00391432379669, Final residual = 2.62207993263e-05, No Iterations 6\ntime step continuity errors : sum local = 0.137356910299, global = -0.0276597679217, cumulative = -0.460622610481\nExecutionTime = 92.35 s  ClockTime = 93 s\n\nTime = 23\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0210646265104, Final residual = 7.4592366226e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0158584917975, Final residual = 6.36993401338e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.015659604075, Final residual = 6.10770736952e-05, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0689638582126, Final residual = 0.000405114452906, No Iterations 4\nGAMG:  Solving for p, Initial residual = 0.0248408010434, Final residual = 0.000244379125165, No Iterations 2",
+  "fpe_present": true,
+  "signed_flow_last_rows": {
+    "nostril_L": [
+      22.0,
+      -0.000350299115227
+    ],
+    "nostril_R": [
+      22.0,
+      -0.0003711889280657
+    ],
+    "nasopharynx_outlet": [
+      22.0,
+      0.0007209412388365
+    ]
+  }
+}

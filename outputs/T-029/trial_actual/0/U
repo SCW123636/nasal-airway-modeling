@@ -1,0 +1,22 @@
+FoamFile
+{
+ version 2.0;
+ format ascii;
+ class volVectorField;
+ object U;
+}
+dimensions [0 1 -1 0 0 0 0];
+internalField uniform (0 0 0);
+boundaryField
+{
+ nostril_L {
+type pressureInletOutletVelocity; value uniform (0 0 0);
+}
+ nostril_R {
+type pressureInletOutletVelocity; value uniform (0 0 0);
+}
+ nasopharynx_outlet {
+type zeroGradient;
+}
+ wall { type noSlip; }
+}

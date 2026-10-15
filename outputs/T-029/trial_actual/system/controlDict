@@ -1,0 +1,130 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:                                        |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+FoamFile
+{
+    version         2;
+    format          ascii;
+    class           dictionary;
+    object          controlDict;
+}
+
+application     simpleFoam;
+
+startFrom startTime;
+
+startTime 0;
+
+stopAt          endTime;
+
+endTime 120;
+
+deltaT          1;
+
+writeControl    timeStep;
+
+writeInterval 20;
+
+purgeWrite      2;
+
+writeFormat     ascii;
+
+writePrecision  12;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   10;
+
+runTimeModifiable false;
+
+functions
+{
+flow_nostril_L
+{
+ type surfaceFieldValue;
+ libs ("libfieldFunctionObjects.so");
+ regionType patch;
+ name nostril_L;
+ operation sum;
+ fields (phi);
+ writeFields false;
+ log false;
+ writeControl timeStep;
+ writeInterval 1;
+}
+pressure_nostril_L
+{
+ type surfaceFieldValue;
+ libs ("libfieldFunctionObjects.so");
+ regionType patch;
+ name nostril_L;
+ operation areaAverage;
+ fields (p);
+ writeFields false;
+ log false;
+ writeControl timeStep;
+ writeInterval 1;
+}
+flow_nostril_R
+{
+ type surfaceFieldValue;
+ libs ("libfieldFunctionObjects.so");
+ regionType patch;
+ name nostril_R;
+ operation sum;
+ fields (phi);
+ writeFields false;
+ log false;
+ writeControl timeStep;
+ writeInterval 1;
+}
+pressure_nostril_R
+{
+ type surfaceFieldValue;
+ libs ("libfieldFunctionObjects.so");
+ regionType patch;
+ name nostril_R;
+ operation areaAverage;
+ fields (p);
+ writeFields false;
+ log false;
+ writeControl timeStep;
+ writeInterval 1;
+}
+flow_nasopharynx_outlet
+{
+ type surfaceFieldValue;
+ libs ("libfieldFunctionObjects.so");
+ regionType patch;
+ name nasopharynx_outlet;
+ operation sum;
+ fields (phi);
+ writeFields false;
+ log false;
+ writeControl timeStep;
+ writeInterval 1;
+}
+pressure_nasopharynx_outlet
+{
+ type surfaceFieldValue;
+ libs ("libfieldFunctionObjects.so");
+ regionType patch;
+ name nasopharynx_outlet;
+ operation areaAverage;
+ fields (p);
+ writeFields false;
+ log false;
+ writeControl timeStep;
+ writeInterval 1;
+}
+}
+
+
+// ************************************************************************* //

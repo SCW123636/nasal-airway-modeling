@@ -1,0 +1,31 @@
+{
+  "schema": "nasal_cfd_case/v1",
+  "surface": {
+    "source_file": "b15_patient_maxh1_repaired.msh",
+    "source_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+    "units": "mm"
+  },
+  "patch_map": {
+    "nostril_L": "inlet",
+    "nostril_R": "inlet",
+    "nasopharynx_outlet": "outlet",
+    "wall": "wall"
+  },
+  "solver": "laminar",
+  "boundary": {
+    "mode": "common_inlet_pressure_feedback",
+    "inlet_static_pressure_Pa_gauge": 10.0,
+    "outlet_static_pressure_Pa_gauge": 0.0,
+    "target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary"
+  },
+  "note": "truthful manifest; source is patient msh, NOT tube.stl; diagnostic override therefore cannot apply per run_openfoam_case.py:469-472",
+  "patient_case_id": "b15_engineering_t029a",
+  "final_surface_sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+  "source_mesh_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+  "clinical_validation": "not_validated",
+  "engineering_input_provenance": "T-029 numerical version of frozen b15_engineering; only input folders copied; old results excluded",
+  "engineering_provenance": {
+    "origin_case_id": "b15_engineering",
+    "version": "t029a"
+  }
+}

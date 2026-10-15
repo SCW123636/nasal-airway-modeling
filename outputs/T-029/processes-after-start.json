@@ -1,0 +1,98 @@
+[
+  {
+    "ProcessId": 5336,
+    "ParentProcessId": 1792,
+    "Name": "wslservice.exe",
+    "CommandLine": null
+  },
+  {
+    "ProcessId": 19196,
+    "ParentProcessId": 35148,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8774"
+  },
+  {
+    "ProcessId": 13388,
+    "ParentProcessId": 19196,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8774"
+  },
+  {
+    "ProcessId": 39884,
+    "ParentProcessId": 27292,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 \"D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py\" --port 8772 --case-root \"D:\\项目\\鼻腔建模\\outputs\\T-030\\isolated-cases\""
+  },
+  {
+    "ProcessId": 30244,
+    "ParentProcessId": 39884,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 \"D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py\" --port 8772 --case-root \"D:\\项目\\鼻腔建模\\outputs\\T-030\\isolated-cases\""
+  },
+  {
+    "ProcessId": 29952,
+    "ParentProcessId": 38732,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769 --open"
+  },
+  {
+    "ProcessId": 35408,
+    "ParentProcessId": 29952,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769 --open"
+  },
+  {
+    "ProcessId": 6128,
+    "ParentProcessId": 5336,
+    "Name": "wslrelay.exe",
+    "CommandLine": " --mode 1 --vm-id {cc8ee088-2143-455e-9759-36b56fe2f015} --handle 2156"
+  },
+  {
+    "ProcessId": 20840,
+    "ParentProcessId": 33164,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\outputs\\T-032\\run_isolated_semantic.py --case p2 --out C:\\ts_work\\t032_hypopharynx\\01_p2_no_crop --execute"
+  },
+  {
+    "ProcessId": 18940,
+    "ParentProcessId": 20840,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\outputs\\T-032\\run_isolated_semantic.py --case p2 --out C:\\ts_work\\t032_hypopharynx\\01_p2_no_crop --execute"
+  },
+  {
+    "ProcessId": 36124,
+    "ParentProcessId": 18940,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe\" \"-X\" \"utf8\" \"-c\" \"from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=18940, pipe_handle=1340)\" \"--multiprocessing-fork\""
+  },
+  {
+    "ProcessId": 39512,
+    "ParentProcessId": 18940,
+    "Name": "python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe\" \"-X\" \"utf8\" \"-c\" \"from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=18940, pipe_handle=1448)\" \"--multiprocessing-fork\""
+  },
+  {
+    "ProcessId": 9428,
+    "ParentProcessId": 35408,
+    "Name": "python.exe",
+    "CommandLine": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe D:\\项目\\鼻腔建模\\work\\lib\\cfd_workspace_jobs.py --worker C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898"
+  },
+  {
+    "ProcessId": 33964,
+    "ParentProcessId": 9428,
+    "Name": "python.exe",
+    "CommandLine": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe D:\\项目\\鼻腔建模\\work\\lib\\cfd_workspace_jobs.py --worker C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898"
+  },
+  {
+    "ProcessId": 13264,
+    "ParentProcessId": 5336,
+    "Name": "wslhost.exe",
+    "CommandLine": " --vm-id {cc8ee088-2143-455e-9759-36b56fe2f015} --handle 2792"
+  },
+  {
+    "ProcessId": 18580,
+    "ParentProcessId": 5336,
+    "Name": "wslhost.exe",
+    "CommandLine": " --vm-id {cc8ee088-2143-455e-9759-36b56fe2f015} --handle 2700"
+  }
+]

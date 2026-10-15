@@ -1,0 +1,27 @@
+{
+  "schema": "nasal_t029_late_window_reproduction/v1",
+  "input_sha256": {
+    "iteration_timeline.json": "87e1e3782e87f47f37af7d33538f69dbd3f7b80ae680f3d6265ba9a3bb73a5e1",
+    "trial_timeline.json": "f9db4c6b7af4db171019ce32bab54468d0ba80abc1c94f597574d0397336978f"
+  },
+  "script_sha256": "1e3899f2a6246e6eef0a4c9c00bc388ff9c06b9be80c750998b1c279f3fedf1e",
+  "existing_result_sha256": "b9aff28f2d11dd96b29e29419fa182d31711cf3b69febf16f75cf59fc88d2fd5",
+  "exact_structural_equality": true,
+  "known_answers": [
+    "OLS([1,2,3],[2,4,6])=2",
+    "OLS([1,2,3],ln(exp([1,2,3])))=1 within 1e-15"
+  ],
+  "windows": [
+    [
+      101,
+      120
+    ],
+    [
+      81,
+      120
+    ]
+  ],
+  "formula": "sum((x-mean(x))*(y-mean(y))) / sum((x-mean(x))**2)",
+  "pressure_selection": "first and last of the three p solves are reported separately",
+  "scope": "descriptive statistics; no extrapolation, diagnosis or acceptance threshold change"
+}

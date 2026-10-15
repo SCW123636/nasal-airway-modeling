@@ -1,0 +1,79 @@
+{
+  "schema": "nasal_real_pressure_evaluation/v1",
+  "pressure_pa": 10.0,
+  "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+  "status": "failed",
+  "started_at": "2026-10-15T11:42:48.773088+00:00",
+  "backend": "real_openfoam_v1912",
+  "clinical_validation": "not_validated",
+  "command": [
+    "/usr/bin/python3",
+    "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+    "--case",
+    "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+    "--steps",
+    "checkMesh,simpleFoam,foamToVTK",
+    "--config",
+    "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/config.json",
+    "--engineering-authorization",
+    "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/engineering_authorization.json"
+  ],
+  "exit_code": 0,
+  "diagnostics": {
+    "signed_phi_m3_s": {
+      "nostril_L": -0.0009647637636626,
+      "nostril_R": -0.002549370312534,
+      "nasopharynx_outlet": 0.003509777823132
+    },
+    "flux": {
+      "q_in_by_patch": {
+        "nostril_L": 0.0009647637636626,
+        "nostril_R": 0.002549370312534
+      },
+      "q_out_by_patch": {
+        "nasopharynx_outlet": 0.003509777823132
+      },
+      "q_in_m3_s": 0.0035141340761966,
+      "q_out_m3_s": 0.003509777823132,
+      "mass_imbalance_frac": 0.0012396376945625802
+    },
+    "pressure_Pa_gauge": {
+      "nostril_L": 9.9999999999996,
+      "nostril_R": 9.9999999999996,
+      "nasopharynx_outlet": 0.0
+    },
+    "initial_residuals": {
+      "Ux": 0.0266717823903,
+      "Uy": 0.0210728762526,
+      "Uz": 0.0209537197625,
+      "p": 0.00426929103623
+    },
+    "linear_final_residuals": {
+      "Ux": 9.71020808771e-05,
+      "Uy": 9.57159978295e-05,
+      "Uz": 0.000105305743689,
+      "p": 2.70436332694e-05
+    },
+    "residual_max": 0.0266717823903,
+    "continuity_global": -0.220358388408,
+    "monitor_relative_change": 0.0,
+    "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+    "flow_monitor_relative_change": 0.29466499450459444,
+    "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+    "mesh_quality_passed": false,
+    "solver_ended": true,
+    "SIMPLE_convergence_banner": false,
+    "final_time": "120"
+  },
+  "evaluation": {
+    "pressure_pa": 10.0,
+    "q_left_m3_s": 0.0009647637636626,
+    "q_right_m3_s": 0.002549370312534,
+    "q_out_m3_s": 0.003509777823132,
+    "converged": false,
+    "mesh_quality_passed": false,
+    "mass_imbalance_frac": 0.0012396376945625802,
+    "residuals_passed": false
+  },
+  "error": "evaluation did not pass solver quality gates: converged=False, mesh_quality_passed=False, residuals_passed=False"
+}

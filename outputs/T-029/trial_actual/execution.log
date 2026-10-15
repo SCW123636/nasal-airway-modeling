@@ -1,0 +1,14 @@
+{"command": ["checkMesh", "-allGeometry", "-allTopology"], "exit_code": 0, "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/log.checkMesh", "started_at": "2026-10-15T11:42:52+00:00", "elapsed_seconds": 14.326269814, "finished_at": "2026-10-15T11:43:06+00:00"}
+{"command": ["simpleFoam"], "exit_code": 0, "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/log.simpleFoam", "started_at": "2026-10-15T11:43:06+00:00", "elapsed_seconds": 515.156936942, "finished_at": "2026-10-15T11:51:42+00:00"}
+{"command": ["foamToVTK", "-latestTime", "-ascii", "-fields", "(p U)"], "exit_code": 0, "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/log.foamToVTK", "started_at": "2026-10-15T11:51:42+00:00", "elapsed_seconds": 6.186152579999998, "finished_at": "2026-10-15T11:51:48+00:00"}
+{
+  "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+  "execution_status": "completed",
+  "steps": [
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}

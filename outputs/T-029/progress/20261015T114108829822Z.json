@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-15T11:41:08.824040+00:00",
+  "job_id": "s_aa79a63027b94bfb9a273898",
+  "job_status": "running",
+  "job_stage": "waiting_cpu",
+  "worker_pid": 33964,
+  "solver_launcher_pid": null,
+  "native_root": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898",
+  "native_case": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001",
+  "iteration": null,
+  "nonfinite_numeric": false,
+  "signed_flow_last_rows": {}
+}

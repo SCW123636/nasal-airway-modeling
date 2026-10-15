@@ -1,0 +1,326 @@
+{
+  "scope": "descriptive trend of actual same-step samples; not a forecast or proof of cause",
+  "windows": [
+    {
+      "case": "original_failed_baseline",
+      "steps": [
+        101,
+        120
+      ],
+      "count": 20,
+      "metrics": [
+        {
+          "metric": "continuity_local",
+          "first": 2.06095651059,
+          "last": 27.3757836295,
+          "minimum": 2.06095651059,
+          "maximum": 27.3757836295,
+          "mean": 12.10086257129,
+          "ols_slope_per_step": 1.3355460814769022,
+          "log_ols_slope_per_step": 0.12588531327946959,
+          "last_to_first_ratio": 13.28304769597637,
+          "first_10_mean": 5.617361914103,
+          "last_10_mean": 18.584363228477,
+          "last10_to_first10_mean_ratio": 3.30837918450989
+        },
+        {
+          "metric": "Qout_m3_s",
+          "first": 0.002637199106756,
+          "last": 0.01370741232816,
+          "minimum": 0.002637199106756,
+          "maximum": 0.01370741232816,
+          "mean": 0.006419732497495551,
+          "ols_slope_per_step": 0.0005500995200167782,
+          "log_ols_slope_per_step": 0.08767000008466835,
+          "last_to_first_ratio": 5.197716127327751,
+          "first_10_mean": 0.0037259453827455,
+          "last_10_mean": 0.0091135196122456,
+          "last10_to_first10_mean_ratio": 2.445961675780178
+        },
+        {
+          "metric": "U_initial_residual_max",
+          "first": 0.224449363009,
+          "last": 0.202699049326,
+          "minimum": 0.169693968572,
+          "maximum": 0.27181787601,
+          "mean": 0.21751215381230002,
+          "ols_slope_per_step": -0.0006150184197037599,
+          "log_ols_slope_per_step": -0.0028091539562703736,
+          "last_to_first_ratio": 0.9030947854277143,
+          "first_10_mean": 0.22245599203049998,
+          "last_10_mean": 0.2125683155941,
+          "last10_to_first10_mean_ratio": 0.9555522135135639
+        },
+        {
+          "metric": "p_first_solve_initial_residual",
+          "first": 0.00711167321189,
+          "last": 0.00205676704724,
+          "minimum": 0.00205676704724,
+          "maximum": 0.00711167321189,
+          "mean": 0.003760669620093,
+          "ols_slope_per_step": -0.0002470071447157594,
+          "log_ols_slope_per_step": -0.06459643612937072,
+          "last_to_first_ratio": 0.28921000529120106,
+          "first_10_mean": 0.004958844993107,
+          "last_10_mean": 0.002562494247079,
+          "last10_to_first10_mean_ratio": 0.5167522377975059
+        },
+        {
+          "metric": "p_last_solve_initial_residual",
+          "first": 0.000471088287097,
+          "last": 0.000172832249326,
+          "minimum": 0.000172832249326,
+          "maximum": 0.000471088287097,
+          "mean": 0.00028210408213775003,
+          "ols_slope_per_step": -1.4749826165266918e-05,
+          "log_ols_slope_per_step": -0.051274505327182106,
+          "last_to_first_ratio": 0.36687868083294706,
+          "first_10_mean": 0.0003544983192133,
+          "last_10_mean": 0.00020970984506220002,
+          "last10_to_first10_mean_ratio": 0.5915679530655787
+        }
+      ]
+    },
+    {
+      "case": "original_failed_baseline",
+      "steps": [
+        81,
+        120
+      ],
+      "count": 40,
+      "metrics": [
+        {
+          "metric": "continuity_local",
+          "first": 0.548594069769,
+          "last": 27.3757836295,
+          "minimum": 0.467825421068,
+          "maximum": 27.3757836295,
+          "mean": 6.719503631212,
+          "ols_slope_per_step": 0.5858664139885205,
+          "log_ols_slope_per_step": 0.10639634935417487,
+          "last_to_first_ratio": 49.90171264707125,
+          "first_10_mean": 0.737250030689,
+          "last_10_mean": 18.584363228477,
+          "last10_to_first10_mean_ratio": 25.207680508482188
+        },
+        {
+          "metric": "Qout_m3_s",
+          "first": 0.001269138579128,
+          "last": 0.01370741232816,
+          "minimum": 0.001269138579128,
+          "maximum": 0.01370741232816,
+          "mean": 0.0040570957306350994,
+          "ols_slope_per_step": 0.00025332169779045366,
+          "log_ols_slope_per_step": 0.06112772731969398,
+          "last_to_first_ratio": 10.800563904989863,
+          "first_10_mean": 0.0014035177632153,
+          "last_10_mean": 0.0091135196122456,
+          "last10_to_first10_mean_ratio": 6.49334112549282
+        },
+        {
+          "metric": "U_initial_residual_max",
+          "first": 0.126495330583,
+          "last": 0.202699049326,
+          "minimum": 0.121411702186,
+          "maximum": 0.27181787601,
+          "mean": 0.1965008523014,
+          "ols_slope_per_step": 0.001816149799757786,
+          "log_ols_slope_per_step": 0.009992630602602724,
+          "last_to_first_ratio": 1.6024231755574478,
+          "first_10_mean": 0.1630775760036,
+          "last_10_mean": 0.2125683155941,
+          "last10_to_first10_mean_ratio": 1.3034797352482568
+        },
+        {
+          "metric": "p_first_solve_initial_residual",
+          "first": 0.0586629020823,
+          "last": 0.00205676704724,
+          "minimum": 0.00205676704724,
+          "maximum": 0.0586629020823,
+          "mean": 0.01567808589272375,
+          "ols_slope_per_step": -0.001267814481583151,
+          "log_ols_slope_per_step": -0.09222975294464109,
+          "last_to_first_ratio": 0.03506077903126063,
+          "first_10_mean": 0.04144785757512,
+          "last_10_mean": 0.002562494247079,
+          "last10_to_first10_mean_ratio": 0.061824528383276296
+        },
+        {
+          "metric": "p_last_solve_initial_residual",
+          "first": 0.00281244683934,
+          "last": 0.000172832249326,
+          "minimum": 0.000172832249326,
+          "maximum": 0.00281244683934,
+          "mean": 0.0008647099373569999,
+          "ols_slope_per_step": -6.126398759675985e-05,
+          "log_ols_slope_per_step": -0.07594909061040289,
+          "last_to_first_ratio": 0.06145262797804873,
+          "first_10_mean": 0.0020828500479900002,
+          "last_10_mean": 0.00020970984506220002,
+          "last10_to_first10_mean_ratio": 0.10068408201760612
+        }
+      ]
+    },
+    {
+      "case": "upwind_bounded_A",
+      "steps": [
+        101,
+        120
+      ],
+      "count": 20,
+      "metrics": [
+        {
+          "metric": "continuity_local",
+          "first": 0.638206826822,
+          "last": 1.03973269892,
+          "minimum": 0.530156363256,
+          "maximum": 1.07356767194,
+          "mean": 0.8634790895757,
+          "ols_slope_per_step": 0.02879407377587368,
+          "log_ols_slope_per_step": 0.03535101875427592,
+          "last_to_first_ratio": 1.6291469398681129,
+          "first_10_mean": 0.7133172752083,
+          "last_10_mean": 1.0136409039431,
+          "last10_to_first10_mean_ratio": 1.4210239106393443
+        },
+        {
+          "metric": "Qout_m3_s",
+          "first": 0.001950869913547,
+          "last": 0.003509777823132,
+          "minimum": 0.001950869913547,
+          "maximum": 0.003509777823132,
+          "mean": 0.0026410697800065,
+          "ols_slope_per_step": 8.146545858170978e-05,
+          "log_ols_slope_per_step": 0.030953472523633327,
+          "last_to_first_ratio": 1.7990834748948743,
+          "first_10_mean": 0.0022345824164018,
+          "last_10_mean": 0.0030475571436112,
+          "last10_to_first10_mean_ratio": 1.3638150561116824
+        },
+        {
+          "metric": "U_initial_residual_max",
+          "first": 0.0262699801434,
+          "last": 0.0266717823903,
+          "minimum": 0.0262699801434,
+          "maximum": 0.0277541727368,
+          "mean": 0.026606211162575,
+          "ols_slope_per_step": 1.6206933881578938e-05,
+          "log_ols_slope_per_step": 0.0006161503623056575,
+          "last_to_first_ratio": 1.0152951104152603,
+          "first_10_mean": 0.026553220190869996,
+          "last_10_mean": 0.026659202134280004,
+          "last10_to_first10_mean_ratio": 1.0039913028494543
+        },
+        {
+          "metric": "p_first_solve_initial_residual",
+          "first": 0.0701013176044,
+          "last": 0.0718662144839,
+          "minimum": 0.0701013176044,
+          "maximum": 0.0720145184536,
+          "mean": 0.07151472171678,
+          "ols_slope_per_step": 8.084798433308284e-05,
+          "log_ols_slope_per_step": 0.0011350614958907368,
+          "last_to_first_ratio": 1.0251763724251202,
+          "first_10_mean": 0.0711511436227,
+          "last_10_mean": 0.07187829981086,
+          "last10_to_first10_mean_ratio": 1.0102198805407256
+        },
+        {
+          "metric": "p_last_solve_initial_residual",
+          "first": 0.00412833690706,
+          "last": 0.00426929103623,
+          "minimum": 0.00410978285889,
+          "maximum": 0.00429854475348,
+          "mean": 0.004221427293678999,
+          "ols_slope_per_step": 7.999819897639093e-06,
+          "log_ols_slope_per_step": 0.001902091686792178,
+          "last_to_first_ratio": 1.0341430780343894,
+          "first_10_mean": 0.004181013714854,
+          "last_10_mean": 0.004261840872504,
+          "last10_to_first10_mean_ratio": 1.0193319522877533
+        }
+      ]
+    },
+    {
+      "case": "upwind_bounded_A",
+      "steps": [
+        81,
+        120
+      ],
+      "count": 40,
+      "metrics": [
+        {
+          "metric": "continuity_local",
+          "first": 0.438384215653,
+          "last": 1.03973269892,
+          "minimum": 0.311049198021,
+          "maximum": 1.07356767194,
+          "mean": 0.7314795352960249,
+          "ols_slope_per_step": 0.015553454319472325,
+          "log_ols_slope_per_step": 0.0217712022634856,
+          "last_to_first_ratio": 2.371738447223185,
+          "first_10_mean": 0.5071092991654,
+          "last_10_mean": 1.0136409039431,
+          "last10_to_first10_mean_ratio": 1.9988608089249185
+        },
+        {
+          "metric": "Qout_m3_s",
+          "first": 0.001212671372177,
+          "last": 0.003509777823132,
+          "minimum": 0.001212671372177,
+          "maximum": 0.003509777823132,
+          "mean": 0.002079397050995325,
+          "ols_slope_per_step": 5.680000253518452e-05,
+          "log_ols_slope_per_step": 0.027355056153605492,
+          "last_to_first_ratio": 2.8942530545857705,
+          "first_10_mean": 0.0013381934397264,
+          "last_10_mean": 0.0030475571436112,
+          "last10_to_first10_mean_ratio": 2.2773666744579826
+        },
+        {
+          "metric": "U_initial_residual_max",
+          "first": 0.0235933140682,
+          "last": 0.0266717823903,
+          "minimum": 0.0235933140682,
+          "maximum": 0.0277541727368,
+          "mean": 0.025932496916952503,
+          "ols_slope_per_step": 7.120132750740149e-05,
+          "log_ols_slope_per_step": 0.002788254529009763,
+          "last_to_first_ratio": 1.1304805383932595,
+          "first_10_mean": 0.02450614926065,
+          "last_10_mean": 0.026659202134280004,
+          "last10_to_first10_mean_ratio": 1.0878576577139845
+        },
+        {
+          "metric": "p_first_solve_initial_residual",
+          "first": 0.0589835588014,
+          "last": 0.0718662144839,
+          "minimum": 0.0589835588014,
+          "maximum": 0.0720145184536,
+          "mean": 0.06829668377073,
+          "ols_slope_per_step": 0.00032471849530435275,
+          "log_ols_slope_per_step": 0.004861562739149002,
+          "last_to_first_ratio": 1.218410959668887,
+          "first_10_mean": 0.062125775757540004,
+          "last_10_mean": 0.07187829981086,
+          "last10_to_first10_mean_ratio": 1.1569803183042968
+        },
+        {
+          "metric": "p_last_solve_initial_residual",
+          "first": 0.00433559564501,
+          "last": 0.00426929103623,
+          "minimum": 0.00352421607994,
+          "maximum": 0.00545662478894,
+          "mean": 0.004495899101677249,
+          "ols_slope_per_step": -1.4904317631698873e-05,
+          "log_ols_slope_per_step": -0.003163923148975122,
+          "last_to_first_ratio": 0.9847069205228323,
+          "first_10_mean": 0.004515930847503,
+          "last_10_mean": 0.004261840872504,
+          "last10_to_first10_mean_ratio": 0.9437347506905482
+        }
+      ]
+    }
+  ],
+  "interpretation": "A reaches120 with finite data and End but late continuity/flow increase; no extension to300 recommended; unchanged quality gates reject it"
+}

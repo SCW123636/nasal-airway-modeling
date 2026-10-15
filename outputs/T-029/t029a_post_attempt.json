@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-15T11:40:56.914433+00:00",
+  "url": "http://127.0.0.1:8769/api/simulation/jobs",
+  "request": {
+    "case_id": "b15_engineering_t029a",
+    "action": "run_patient_engineering",
+    "settings": {}
+  },
+  "source_freeze_v2_sha256": "4382e6e213026bbeaf08acb8e42a87ed05bdec08c4e197798fcb626233ad3304",
+  "instruction": "One formal POST only. A transport failure must be reconciled by GET, never retried."
+}

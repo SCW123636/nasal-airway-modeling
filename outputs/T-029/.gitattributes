@@ -3,3 +3,8 @@ failed_actual/** -text
 t006_actual/** -text
 trial_actual/** -text
 v1912_official_examples/** -text
+progress/** -text
+trial_timeline.json -text
+t029a_actual_result.json -text
+late-window-*.json -text
+analyze_late_windows.py -text

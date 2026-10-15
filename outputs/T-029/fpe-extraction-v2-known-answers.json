@@ -1,0 +1,26 @@
+{
+  "extractor_version": 2,
+  "pattern": "Floating point exception(?! trapping)|^#\\d+\\s+Foam::sigFpe::",
+  "checks": [
+    {
+      "source": "outputs\\T-029\\failed_actual\\log.simpleFoam",
+      "case": "failed_original",
+      "expected": true,
+      "actual": true,
+      "matches": [
+        "#1  Foam::sigFpe::sigHandler(int) at --> FOAM Warning : "
+      ],
+      "trap_header_present": true
+    },
+    {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001\\log.simpleFoam",
+      "case": "current_running",
+      "expected": false,
+      "actual": false,
+      "matches": [],
+      "trap_header_present": true
+    }
+  ],
+  "passed": true,
+  "old_progress_retained": true
+}

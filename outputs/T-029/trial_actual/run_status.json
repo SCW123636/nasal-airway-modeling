@@ -1,0 +1,11 @@
+{
+  "schema": "nasal_cfd_run_status/v1",
+  "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+  "started_at": "2026-10-15T11:42:52+00:00",
+  "status": "completed",
+  "current_step_index": 3,
+  "total_steps": 3,
+  "current_command": null,
+  "last_log_tail": null,
+  "updated_at": "2026-10-15T11:51:48+00:00"
+}

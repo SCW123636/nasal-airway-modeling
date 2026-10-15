@@ -1,0 +1,48 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:                                        |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : OPENFOAM=1912 patch=200626
+Arch   : "LSB;label=32;scalar=64"
+Exec   : foamToVTK -latestTime -ascii -fields (p U)
+Date   : Oct 15 2026
+Time   : 19:51:42
+Host   : LAPTOP-44R13S8U
+PID    : 4458
+--> FOAM Warning : 
+    From function Foam::fileName Foam::cwd_L()
+    in file POSIX.C at line 494
+    PWD is not the cwd() - reverting to physical description
+I/O    : uncollated
+--> FOAM Warning : 
+    From function Foam::fileName Foam::cwd_L()
+    in file POSIX.C at line 494
+    PWD is not the cwd() - reverting to physical description
+Case   : /home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Initial memory 140824 kB
+Create mesh for time = 120
+
+VTK mesh topology: 1.3 s, 280484 kB
+Time: 120
+    volScalar    : p
+    volVector    : U
+    Internal  : "VTK/eval_001_120/internal.vtu"
+    Boundary  : "VTK/eval_001_120/boundary/nostril_L.vtp"
+    Boundary  : "VTK/eval_001_120/boundary/wall.vtp"
+    Boundary  : "VTK/eval_001_120/boundary/nostril_R.vtp"
+    Boundary  : "VTK/eval_001_120/boundary/nasopharynx_outlet.vtp"
+Wrote in 4.7 s, 721784 kB
+
+End: 6 s, 776212 kB (peak)
+

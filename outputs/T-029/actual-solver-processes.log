@@ -1,0 +1,5 @@
+
+   1054    1053  0.3 python3         python3 /mnt/d/项目/鼻腔建模/work/lib/patient_cfd_runner.py --work-dir /home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898 --export-dir /mnt/c/ts_work/project_cases/simulation_jobs/s_aa79a63027b94bfb9a273898/export/s_aa79a63027b94bfb9a273898 --patient-input /mnt/c/ts_work/project_cases/patient_cfd_inputs/b15_engineering_t029a --expected-admission-sha add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04
+   1149    1054  0.1 python3         /usr/bin/python3 /mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py --case /home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001 --steps checkMesh,simpleFoam,foamToVTK --config /home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/config.json --engineering-authorization /home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/engineering_authorization.json
+   1250    1149 99.6 simpleFoam      simpleFoam
+
