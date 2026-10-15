@@ -10,6 +10,7 @@ __pycache__/
 软件/
 
 # Patient data and other medical imaging assets
+资料/4例演示ct/
 资料/脱敏数据/
 资料/脱敏数据_clean/
 资料/副鼻窦27例_脱敏完整/
