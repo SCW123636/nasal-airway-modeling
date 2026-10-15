@@ -1,0 +1,12 @@
+{
+  "proj_cards": 8,
+  "proj_error_cards": 2,
+  "first_card_text": "u_0ff4dbeaf259…\n审核\n来源\ndicom\n文件数\n155\n候选点\n5\n几何\n已生成\n任务\n1 项\n创建\n2026-10-15\n层距/像元\n0.488 / 0.488 / 0.625 mm\n进入项目 →",
+  "flow_nodes_in_project": 5,
+  "job_nodes_in_project": 1,
+  "cmp_panes": 2,
+  "cmp_iframes": 2,
+  "cmp_rows": 11,
+  "js_errors": [],
+  "external_requests": []
+}
