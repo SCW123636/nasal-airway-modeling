@@ -1,0 +1,94 @@
+{
+  "files": {
+    "D:\\项目\\鼻腔建模\\outputs\\T-020\\inspect_fixed_outlet_targets.py": "5640cb68360a7ba8fa62382eff4878fd655873b30e3404a04864654db146e4ad",
+    "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py": "b4c3ef5e5c6c89e1132e8a514c45be4ff2868e9c0ec7e4d414cd6e2ff5c669f4",
+    "D:\\项目\\鼻腔建模\\work\\lib\\outlet_selection_lineage.py": "2d379eaf3c2508028116f9532d24e09005c2bd8a5e1e138137b7e882dba64671",
+    "D:\\项目\\鼻腔建模\\work\\lib\\outlet_selection_constraints.py": "42a4c85a8119d188fc1de4bca5b4708bd3ddad50115d1b634c1dd2183a358cd0",
+    "D:\\项目\\鼻腔建模\\work\\lib\\cross_section_scan.py": "29479671cd328f95b7b98fd7c7e4c9115f726a94ccec527f2e09c7eaf7c3ba59",
+    "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+    "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+    "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"
+  },
+  "planes": {
+    "nostril_L": {
+      "point_lps_mm": [
+        -14.23892636399821,
+        -234.66605581608877,
+        -668.7812194994518
+      ],
+      "normal_lps": [
+        0.05254286626437138,
+        0.34250093981592394,
+        0.938047095528755
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -21.22860124707222,
+          -241.37465819716454,
+          -672.8899785876274
+        ],
+        "max": [
+          -6.740331619977951,
+          -225.83756160736084,
+          -663.9899786710739
+        ]
+      },
+      "keep_positive": true
+    },
+    "nostril_R": {
+      "point_lps_mm": [
+        -31.96022610617594,
+        -231.20129686104153,
+        -669.4075820062977
+      ],
+      "normal_lps": [
+        0.1351578997165248,
+        0.10054565511992941,
+        0.9857093452842587
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -38.70905062556267,
+          -238.92739528417587,
+          -671.8399786055088
+        ],
+        "max": [
+          -24.919998973608017,
+          -222.69108071923256,
+          -665.0399786531925
+        ]
+      },
+      "keep_positive": true
+    },
+    "nasopharynx_outlet": {
+      "point_lps_mm": [
+        -11.516358289822167,
+        -158.33160182579724,
+        -666.2174786671997
+      ],
+      "normal_lps": [
+        -0.01707989877602829,
+        0.0004106188129102406,
+        0.9998540435733564
+      ],
+      "roi_lps_mm": {
+        "min": [
+          -23.675864160060883,
+          -168.30637979507446,
+          -669.2149786502123
+        ],
+        "max": [
+          0.9510661065578461,
+          -147.52514839172363,
+          -664.1649786680937
+        ]
+      },
+      "keep_positive": true
+    }
+  },
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  }
+}

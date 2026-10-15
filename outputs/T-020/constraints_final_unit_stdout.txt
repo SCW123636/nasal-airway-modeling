@@ -1,0 +1,10 @@
+test_bound_explicit_loop_keeps_analytic_cube_cap_and_volume (test_outlet_selection_constraints.ConstraintTests.test_bound_explicit_loop_keeps_analytic_cube_cap_and_volume) ... ok
+test_connected_negative_region_couples_two_known_u_shape_rims (test_outlet_selection_constraints.ConstraintTests.test_connected_negative_region_couples_two_known_u_shape_rims) ... ok
+test_other_closed_component_can_be_unselected_without_roi_guess (test_outlet_selection_constraints.ConstraintTests.test_other_closed_component_can_be_unselected_without_roi_guess) ... ok
+test_protected_or_partial_allowed_negative_component_refuses_instead_of_trimming (test_outlet_selection_constraints.ConstraintTests.test_protected_or_partial_allowed_negative_component_refuses_instead_of_trimming) ... ok
+test_stale_source_or_plane_binding_and_invalid_ids_refuse (test_outlet_selection_constraints.ConstraintTests.test_stale_source_or_plane_binding_and_invalid_ids_refuse) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.029s
+
+OK
