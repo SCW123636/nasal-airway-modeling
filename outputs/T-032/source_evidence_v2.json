@@ -1,0 +1,123 @@
+{
+  "created": "2026-10-15T19:41:52.000608+08:00",
+  "installed_source": {
+    "map_tasks_config.py": {
+      "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\map_tasks_config.py",
+      "sha256": "e85b7e1d96484ebbaadadbe44a7436e7537157f701c85070188a39d798227478",
+      "matches": [
+        {
+          "line": 193,
+          "text": "\"head_glands_cavities\": {"
+        },
+        {
+          "line": 194,
+          "text": "\"task_id\": 775,"
+        },
+        {
+          "line": 197,
+          "text": "\"crop\": [\"skull\"],"
+        },
+        {
+          "line": 202,
+          "text": "\"headneck_bones_vessels\": {"
+        },
+        {
+          "line": 203,
+          "text": "\"task_id\": 776,"
+        },
+        {
+          "line": 217,
+          "text": "\"crop\": [\"skull\"],"
+        },
+        {
+          "line": 237,
+          "text": "\"crop\": [\"skull\"],"
+        },
+        {
+          "line": 310,
+          "text": "\"crop\": [\"skull\"],"
+        }
+      ]
+    },
+    "map_to_binary.py": {
+      "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\map_to_binary.py",
+      "sha256": "ee19259dacd4d52d424849b8bac44a5a5d41c895426bf7c048c69203a1a3777d",
+      "matches": [
+        {
+          "line": 532,
+          "text": "12: \"oropharynx\","
+        },
+        {
+          "line": 533,
+          "text": "13: \"hypopharynx\","
+        },
+        {
+          "line": 542,
+          "text": "1: \"larynx_air\","
+        },
+        {
+          "line": 543,
+          "text": "2: \"thyroid_cartilage\","
+        },
+        {
+          "line": 544,
+          "text": "3: \"hyoid\","
+        },
+        {
+          "line": 545,
+          "text": "4: \"cricoid_cartilage\","
+        }
+      ]
+    },
+    "python_api.py": {
+      "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\python_api.py",
+      "sha256": "2b79d390065c9d4ead18205e2373326f63c14a23f25799f592a7fcba66a18874",
+      "matches": [
+        {
+          "line": 154,
+          "text": "def get_task_config(task, fast=False, fastest=False, quiet=False, robust_crop=None, plans=None, model_size=None):"
+        },
+        {
+          "line": 202,
+          "text": "def totalsegmentator(input: Union[str, Path, Nifti1Image], output: Union[str, Path, None]=None, ml=False, nr_thr_resamp=1, nr_thr_saving=6,"
+        },
+        {
+          "line": 374,
+          "text": "crop_model_task = 298"
+        },
+        {
+          "line": 453,
+          "text": "seg_img, ct_img, stats = nnUNet_predict_image(input, output, task_id, model=model, folds=folds,"
+        }
+      ]
+    },
+    "nnunet.py": {
+      "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\nnunet.py",
+      "sha256": "f1b40e66bbc43661dfac4f76f769dc82e7acbab957c9761694d8d607ed752cf5",
+      "matches": [
+        {
+          "line": 215,
+          "text": "def nnUNetv2_predict(dir_in, dir_out, task_id, model=\"3d_fullres\", folds=None,"
+        },
+        {
+          "line": 236,
+          "text": "torch.set_num_threads(multiprocessing.cpu_count())"
+        },
+        {
+          "line": 359,
+          "text": "def nnUNet_predict_image(file_in: Union[str, Path, Nifti1Image], file_out, task_id, model=\"3d_fullres\", folds=None,"
+        }
+      ]
+    }
+  },
+  "official": {
+    "commit_sha": "a026545ece6708b0160068fb35e960d986cdcf34",
+    "readme_url": "https://api.github.com/repos/wasserth/TotalSegmentator/contents/README.md?ref=a026545ece6708b0160068fb35e960d986cdcf34",
+    "readme_sha256": "9a2dca23145ecc84b2f839c4d4610f48e8d7e756f1a0e75e20c0f6e6b53476bf",
+    "has_head_glands_cavities": true,
+    "has_hypopharynx": true,
+    "has_headneck_bones_vessels": true,
+    "has_larynx_air": true
+  },
+  "official_fetch_raw_error": "URLError(ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+}

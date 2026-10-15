@@ -1,0 +1,709 @@
+{
+  "created": "2026-10-15T19:31:54.527991+08:00",
+  "scope": "Engineering CT field audit; no anatomical boundary assigned",
+  "cases": {
+    "p0": {
+      "ct_sha256": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648",
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          394
+        ],
+        "spacing_xyz": [
+          0.34960898756980896,
+          0.34960898756980896,
+          0.3499999940395355
+        ],
+        "origin_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.4921875,
+          -261.4000244140625,
+          -703.7899780273438
+        ],
+        "last_center_lps_mm": [
+          82.15800514817238,
+          -82.74983176589012,
+          -566.2399803698063
+        ]
+      },
+      "labels": {
+        "oropharynx": {
+          "voxels": 148837,
+          "bbox_ijk_xyz": [
+            [
+              214,
+              272,
+              0
+            ],
+            [
+              293,
+              340,
+              107
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -21.675864160060883,
+              -166.30637979507446,
+              -703.7899780273438
+            ],
+            [
+              5.943245857954025,
+              -142.53296864032745,
+              -666.3399786651134
+            ]
+          ],
+          "inferior_face_voxels": 2236,
+          "sha256": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8"
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+        },
+        "soft_palate": {
+          "voxels": 67606,
+          "bbox_ijk_xyz": [
+            [
+              210,
+              239,
+              36
+            ],
+            [
+              273,
+              309,
+              107
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -23.07430011034012,
+              -177.84347638487816,
+              -691.1899782419205
+            ],
+            [
+              -1.048933893442154,
+              -153.37084725499153,
+              -666.3399786651134
+            ]
+          ],
+          "inferior_face_voxels": 0,
+          "sha256": "423b75845dd1f5a0f7b5741b0d2d5c87e7f7ec87dd2324d47c421e92a3b52a74"
+        },
+        "submandibular_gland_left": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+        },
+        "submandibular_gland_right": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+        }
+      },
+      "display_indices": {
+        "sagittal_x": 249,
+        "coronal_y": 314,
+        "axial_z": 0
+      },
+      "voxel_outer_bounds_lps_mm": [
+        [
+          -96.6669919937849,
+          -261.5748289078474,
+          -703.9649780243635
+        ],
+        [
+          82.33280964195728,
+          -82.57502727210522,
+          -566.0649803727865
+        ]
+      ]
+    },
+    "p1": {
+      "ct_sha256": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032",
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          136
+        ],
+        "spacing_xyz": [
+          0.34765625,
+          0.34765625,
+          0.800000011920929
+        ],
+        "origin_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -96.076171875,
+          -120.25370788574219,
+          139.329345703125
+        ],
+        "last_center_lps_mm": [
+          81.576171875,
+          57.39863586425781,
+          247.3293473124504
+        ]
+      },
+      "labels": {
+        "oropharynx": {
+          "voxels": 34419,
+          "bbox_ijk_xyz": [
+            [
+              238,
+              292,
+              0
+            ],
+            [
+              295,
+              377,
+              26
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -13.333984375,
+              -18.738082885742188,
+              139.329345703125
+            ],
+            [
+              6.482421875,
+              10.812698364257812,
+              160.12934601306915
+            ]
+          ],
+          "inferior_face_voxels": 1418,
+          "sha256": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065"
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+        },
+        "soft_palate": {
+          "voxels": 22157,
+          "bbox_ijk_xyz": [
+            [
+              238,
+              268,
+              0
+            ],
+            [
+              293,
+              338,
+              21
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -13.333984375,
+              -27.081832885742188,
+              139.329345703125
+            ],
+            [
+              5.787109375,
+              -2.7458953857421875,
+              156.1293459534645
+            ]
+          ],
+          "inferior_face_voxels": 40,
+          "sha256": "ebc65dd72e0f7ce59bd8c9ea37363a08b32ea851a02ef899e446d9cef27267aa"
+        },
+        "submandibular_gland_left": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+        },
+        "submandibular_gland_right": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+        }
+      },
+      "display_indices": {
+        "sagittal_x": 266,
+        "coronal_y": 343,
+        "axial_z": 0
+      },
+      "voxel_outer_bounds_lps_mm": [
+        [
+          -96.25,
+          -120.42753601074219,
+          138.92934569716454
+        ],
+        [
+          81.75,
+          57.57246398925781,
+          247.72934731841087
+        ]
+      ]
+    },
+    "p2": {
+      "ct_sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          286
+        ],
+        "spacing_xyz": [
+          0.458984375,
+          0.458984375,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -117.2705078125,
+          -271.2705078125,
+          -650.5
+        ],
+        "last_center_lps_mm": [
+          117.2705078125,
+          -36.7294921875,
+          -508.0
+        ]
+      },
+      "labels": {
+        "oropharynx": {
+          "voxels": 115878,
+          "bbox_ijk_xyz": [
+            [
+              239,
+              220,
+              0
+            ],
+            [
+              307,
+              277,
+              87
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -7.5732421875,
+              -170.2939453125,
+              -650.5
+            ],
+            [
+              23.6376953125,
+              -144.1318359375,
+              -607.0
+            ]
+          ],
+          "inferior_face_voxels": 1068,
+          "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2"
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+        },
+        "soft_palate": {
+          "voxels": 29148,
+          "bbox_ijk_xyz": [
+            [
+              251,
+              203,
+              36
+            ],
+            [
+              300,
+              251,
+              81
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -2.0654296875,
+              -178.0966796875,
+              -632.5
+            ],
+            [
+              20.4248046875,
+              -156.0654296875,
+              -610.0
+            ]
+          ],
+          "inferior_face_voxels": 0,
+          "sha256": "f35b02438caa46c92899e554a289a1764fcb33c93c9e23ebbf3daccf49698e16"
+        },
+        "submandibular_gland_left": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+        },
+        "submandibular_gland_right": {
+          "voxels": 966,
+          "bbox_ijk_xyz": [
+            [
+              190,
+              228,
+              0
+            ],
+            [
+              207,
+              250,
+              3
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -30.0634765625,
+              -166.6220703125,
+              -650.5
+            ],
+            [
+              -22.2607421875,
+              -156.5244140625,
+              -649.0
+            ]
+          ],
+          "inferior_face_voxels": 282,
+          "sha256": "8fcddb0c9d878adb23d17e3860104f6878255adc0b1f97375f81e3e6bee74387"
+        }
+      },
+      "display_indices": {
+        "sagittal_x": 273,
+        "coronal_y": 258,
+        "axial_z": 0
+      },
+      "voxel_outer_bounds_lps_mm": [
+        [
+          -117.5,
+          -271.5,
+          -650.75
+        ],
+        [
+          117.5,
+          -36.5,
+          -507.75
+        ]
+      ]
+    },
+    "p3": {
+      "ct_sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4",
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          186
+        ],
+        "spacing_xyz": [
+          0.3671875,
+          0.3671875,
+          0.6000000238418579
+        ],
+        "origin_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -93.81640625,
+          -148.70834350585938,
+          281.2904052734375
+        ],
+        "last_center_lps_mm": [
+          93.81640625,
+          38.924468994140625,
+          392.2904096841812
+        ]
+      },
+      "labels": {
+        "oropharynx": {
+          "voxels": 55120,
+          "bbox_ijk_xyz": [
+            [
+              204,
+              283,
+              0
+            ],
+            [
+              287,
+              350,
+              29
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -18.91015625,
+              -44.794281005859375,
+              281.2904052734375
+            ],
+            [
+              11.56640625,
+              -20.192718505859375,
+              298.6904059648514
+            ]
+          ],
+          "inferior_face_voxels": 1044,
+          "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064"
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+        },
+        "soft_palate": {
+          "voxels": 47955,
+          "bbox_ijk_xyz": [
+            [
+              212,
+              247,
+              0
+            ],
+            [
+              276,
+              327,
+              25
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -15.97265625,
+              -58.013031005859375,
+              281.2904052734375
+            ],
+            [
+              7.52734375,
+              -28.638031005859375,
+              296.29040586948395
+            ]
+          ],
+          "inferior_face_voxels": 1098,
+          "sha256": "72bbec059e3c8fcdda3b7a0aba1afec3f7b659d7f98788efaa29e5560aadb857"
+        },
+        "submandibular_gland_left": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+        },
+        "submandibular_gland_right": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+        }
+      },
+      "display_indices": {
+        "sagittal_x": 240,
+        "coronal_y": 329,
+        "axial_z": 0
+      },
+      "voxel_outer_bounds_lps_mm": [
+        [
+          -94.0,
+          -148.89193725585938,
+          280.99040526151657
+        ],
+        [
+          94.0,
+          39.108062744140625,
+          392.59040969610214
+        ]
+      ]
+    },
+    "p3t1": {
+      "ct_sha256": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2",
+      "geometry": {
+        "size_xyz": [
+          512,
+          512,
+          232
+        ],
+        "spacing_xyz": [
+          0.466796875,
+          0.466796875,
+          0.5
+        ],
+        "origin_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "index0_center_lps_mm": [
+          -119.2666015625,
+          -147.963623046875,
+          775.0284423828125
+        ],
+        "last_center_lps_mm": [
+          119.2666015625,
+          90.569580078125,
+          890.5284423828125
+        ]
+      },
+      "labels": {
+        "oropharynx": {
+          "voxels": 73014,
+          "bbox_ijk_xyz": [
+            [
+              238,
+              237,
+              0
+            ],
+            [
+              308,
+              297,
+              49
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -8.1689453125,
+              -37.332763671875,
+              775.0284423828125
+            ],
+            [
+              24.5068359375,
+              -9.324951171875,
+              799.5284423828125
+            ]
+          ],
+          "inferior_face_voxels": 987,
+          "sha256": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696"
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+        },
+        "soft_palate": {
+          "voxels": 34786,
+          "bbox_ijk_xyz": [
+            [
+              253,
+              214,
+              0
+            ],
+            [
+              305,
+              275,
+              45
+            ]
+          ],
+          "bbox_centers_lps_mm": [
+            [
+              -1.1669921875,
+              -48.069091796875,
+              775.0284423828125
+            ],
+            [
+              23.1064453125,
+              -19.594482421875,
+              797.5284423828125
+            ]
+          ],
+          "inferior_face_voxels": 186,
+          "sha256": "8ba5a258b9ea8b84e9c40d87314d5453b30703c33ff7be7a545b0abf2105a8bb"
+        },
+        "submandibular_gland_left": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+        },
+        "submandibular_gland_right": {
+          "voxels": 0,
+          "bbox_ijk_xyz": null,
+          "bbox_centers_lps_mm": null,
+          "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+        }
+      },
+      "display_indices": {
+        "sagittal_x": 271,
+        "coronal_y": 277,
+        "axial_z": 0
+      },
+      "voxel_outer_bounds_lps_mm": [
+        [
+          -119.5,
+          -148.197021484375,
+          774.7784423828125
+        ],
+        [
+          119.5,
+          90.802978515625,
+          890.7784423828125
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{"status": "preflight", "at": "2026-10-15T19:40:06.307931+08:00"}
+{"status": "preflight", "at": "2026-10-15T19:40:06.599196+08:00"}
+{"status": "fingerprinting", "at": "2026-10-15T19:40:06.599603+08:00"}
+{"status": "inference", "at": "2026-10-15T19:40:17.445445+08:00"}
+C:\Users\lenovo\.workbuddy\binaries\python\envs\nasal-cfd\Lib\site-packages\torch\jit\_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+tmp_dir: D:\Cache\Temp\nnunet_tmp_gsys_ld1
+
+Resampling...
+  from shape (512, 512, 286) to shape (313, 313, 143)
+  Resampled in 3.29s
+Predicting...
+perform_everything_on_device=True is only supported for cuda devices! Setting this to False
+There are 1 cases in the source folder
+I am process 0 out of 1 (max process ID is 0, we start counting with 0!)
+There are 1 cases that I would like to predict
+
+Predicting s01:
+perform_everything_on_device: False
+  0%|          | 0/27 [00:00<?, ?it/s]
+  4%|▎         | 1/27 [00:04<02:00,  4.65s/it]
+  7%|▋         | 2/27 [00:08<01:51,  4.45s/it]
+ 11%|█         | 3/27 [00:13<01:45,  4.41s/it]
+ 15%|█▍        | 4/27 [00:17<01:39,  4.33s/it]
+ 19%|█▊        | 5/27 [00:21<01:35,  4.36s/it]
+ 22%|██▏       | 6/27 [00:27<01:39,  4.72s/it]
+ 26%|██▌       | 7/27 [00:31<01:33,  4.68s/it]
+ 30%|██▉       | 8/27 [00:36<01:26,  4.55s/it]
+ 33%|███▎      | 9/27 [00:40<01:21,  4.55s/it]
+ 37%|███▋      | 10/27 [00:45<01:15,  4.46s/it]
+ 41%|████      | 11/27 [00:49<01:10,  4.43s/it]
+ 44%|████▍     | 12/27 [00:53<01:05,  4.35s/it]
+ 48%|████▊     | 13/27 [00:57<01:00,  4.32s/it]
+ 52%|█████▏    | 14/27 [01:02<00:56,  4.38s/it]
+ 56%|█████▌    | 15/27 [01:06<00:51,  4.25s/it]
+ 59%|█████▉    | 16/27 [01:10<00:45,  4.16s/it]
+ 63%|██████▎   | 17/27 [01:14<00:41,  4.12s/it]
+ 67%|██████▋   | 18/27 [01:18<00:36,  4.08s/it]
+ 70%|███████   | 19/27 [01:22<00:32,  4.06s/it]
+ 74%|███████▍  | 20/27 [01:26<00:28,  4.03s/it]
+ 78%|███████▊  | 21/27 [01:30<00:24,  4.01s/it]
+ 81%|████████▏ | 22/27 [01:34<00:19,  3.97s/it]
+ 85%|████████▌ | 23/27 [01:38<00:15,  3.97s/it]
+ 89%|████████▉ | 24/27 [01:42<00:11,  3.97s/it]
+ 93%|█████████▎| 25/27 [01:46<00:07,  3.97s/it]
+ 96%|█████████▋| 26/27 [01:50<00:03,  3.98s/it]
+100%|██████████| 27/27 [01:53<00:00,  3.96s/it]
+100%|██████████| 27/27 [01:53<00:00,  4.22s/it]
+sending off prediction to background worker for resampling and export
+done with s01
+GPU prediction completed. Waiting for remaining segmentation exports to finish...
+Segmentation export complete.
+  Predicted in 130.36s
+Resampling...
+  back to original shape: (512, 512, 286)
+  Resampled in 1.09s
+Undoing canonical...
+Saving segmentations...
+  Saved in 0.57s
+{"status": "postprocess", "at": "2026-10-15T19:42:35.868471+08:00"}
+{"status": "diagnostic_completed", "at": "2026-10-15T19:42:38.045613+08:00"}

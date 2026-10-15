@@ -1,0 +1,271 @@
+{
+  "task": "T-032",
+  "created": "2026-10-15T19:40:06.307652+08:00",
+  "status": "diagnostic_completed",
+  "case": "p2",
+  "purpose": "Controlled no-skull-crop context contrast, not a production/anatomical claim",
+  "symptom_patient_mapping": "unknown",
+  "threshold_hu": -300.0,
+  "medical_review": "pending",
+  "cfd_admission": false,
+  "affinity_mask": 63,
+  "logical_core_cap": 6,
+  "known_answers": {
+    "strict_HU_threshold_known_answer": "pass",
+    "class13_not_class12": "pass",
+    "empty_is_empty": "pass",
+    "shape_rejected": "pass"
+  },
+  "preflight": {
+    "at": "2026-10-15T19:40:06.432698+08:00",
+    "jobs": [
+      {
+        "id": "s_942fdbebfffd433c8fcec956",
+        "status": "failed",
+        "stage": "failed"
+      },
+      {
+        "id": "s_45964544c6364c29bfd59216",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_1811f735241e4d75b5fdf10e",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_251c0b7d9d544e90ab1179ed",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_3a80ca3475e34bcdb2b80302",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_6b14b9614f674c92b8cbb4c1",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_9b849c25310344fba7ee7b83",
+        "status": "failed",
+        "stage": "failed"
+      },
+      {
+        "id": "s_af6c8ddfc3ea4806abb5d45b",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_4aa5ec068dd544b59ce0098b",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_c8356e3623fb49b9bfb06dc9",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_970bd197fb3b41d289170ceb",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_dc66b40a112c493d8b00c066",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_a39ea9ea86c34f04b2bb0ed6",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_7dc6eb58cad24de48d3da028",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_764aac081b2d40f790a4e7fa",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_e7795ff7a79b4fda9be67704",
+        "status": "completed",
+        "stage": "completed"
+      },
+      {
+        "id": "s_f54840c17c264fa89c9c0722",
+        "status": "completed",
+        "stage": "completed"
+      }
+    ],
+    "cases": [
+      {
+        "id": "u_fbca9137690e4837",
+        "status": "awaiting_review"
+      },
+      {
+        "id": "u_ccf06624879c403a",
+        "status": "awaiting_review"
+      },
+      {
+        "id": "u_b39e51153cda46d7",
+        "status": "awaiting_review"
+      },
+      {
+        "id": "u_74a998a9fd274288",
+        "status": "failed"
+      },
+      {
+        "id": "u_a3d2534c7d534b36",
+        "status": "failed"
+      },
+      {
+        "id": "u_531c98ca241b4232",
+        "status": "interrupted"
+      },
+      {
+        "id": "u_e41f17339e7a4ee5",
+        "status": "awaiting_review"
+      }
+    ],
+    "wsl_uptime": "19:40:06 up 0 min,  1 user,  load average: 0.00, 0.00, 0.00",
+    "wsl_compute_processes": []
+  },
+  "lock_acquired_at": "2026-10-15T19:40:06.599360+08:00",
+  "inputs": {
+    "ct": {
+      "path": "C:\\ts_work\\p2\\ct.nii.gz",
+      "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+    },
+    "installed_nnunet": {
+      "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Lib\\site-packages\\totalsegmentator\\nnunet.py",
+      "sha256": "f1b40e66bbc43661dfac4f76f769dc82e7acbab957c9761694d8d607ed752cf5"
+    },
+    "dataset": {
+      "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\dataset.json",
+      "sha256": "db731804f24eeaf531097082f279319f333a296388918a2426483e30c647995d"
+    },
+    "plans": {
+      "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\plans.json",
+      "sha256": "cbb807f4af0fd5b8f0974e9fddeef08b9157c750d4133d98e69cbfb359789785"
+    },
+    "weights": {
+      "path": "C:\\Users\\lenovo\\.totalsegmentator\\nnunet\\results\\Dataset775_head_glands_cavities_492subj\\nnUNetTrainer_DASegOrd0_NoMirroring__nnUNetPlans__3d_fullres_high\\fold_0\\checkpoint_final.pth",
+      "sha256": "8d7a9ef4ff8455b9f0c2926fa11b507c05d83ebd016e64a772fec814271767ab"
+    },
+    "runner": {
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-032\\run_isolated_semantic.py",
+      "sha256": "229f258769c4045a1a5c91eb8ae0e856dd25217df3cd08fa41a41e84e10c9dc6"
+    }
+  },
+  "installed_version": "2.18.0",
+  "installed_task_config": {
+    "resample": [
+      0.75,
+      0.75,
+      1.0
+    ],
+    "crop": [
+      "skull"
+    ],
+    "crop_model": null,
+    "crop_addon": [
+      10,
+      10,
+      10
+    ],
+    "robust_crop": false,
+    "cascade": null,
+    "remove_outside": null,
+    "remove_outside_dilation": null,
+    "remove_mask": null,
+    "modality": null,
+    "plans": null,
+    "model": "3d_fullres_high",
+    "folds": [
+      0
+    ],
+    "disallow_fast": false,
+    "commercial": false,
+    "task_id": 775,
+    "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring"
+  },
+  "inference_parameters": {
+    "task_id": 775,
+    "trainer": "nnUNetTrainer_DASegOrd0_NoMirroring",
+    "model": "3d_fullres_high",
+    "folds": [
+      0
+    ],
+    "resample": [
+      0.75,
+      0.75,
+      1.0
+    ],
+    "crop": null,
+    "tta": false,
+    "resampling_order": 1,
+    "roi_subset": null,
+    "device": "cpu",
+    "nr_threads_resampling": 1,
+    "nr_threads_saving": 1,
+    "multilabel_image": true
+  },
+  "thread_cap_method": "6 logical core process affinity inherited by child processes; isolated multiprocessing.cpu_count returns 6 so TS torch.set_num_threads requests 6; BLAS environment 6",
+  "inference_started": "2026-10-15T19:40:17.444994+08:00",
+  "inference_ended": "2026-10-15T19:42:35.864051+08:00",
+  "label_counts": {
+    "0": 74165602,
+    "1": 94300,
+    "2": 93228,
+    "3": 1568,
+    "4": 1984,
+    "5": 3116,
+    "6": 2992,
+    "7": 48406,
+    "8": 60122,
+    "9": 804,
+    "11": 56848,
+    "12": 116506,
+    "14": 128824,
+    "15": 115048,
+    "16": 10468,
+    "17": 9112,
+    "18": 29160,
+    "19": 35096
+  },
+  "hypopharynx_semantic_voxels": 0,
+  "hypopharynx_air_voxels": 0,
+  "oropharynx_old_new_comparison": {
+    "old_voxels": 115878,
+    "new_voxels": 116506,
+    "symmetric_difference": 7936,
+    "intersection": 112224
+  },
+  "hypopharynx_old_new_comparison": {
+    "old_voxels": 0,
+    "new_voxels": 0,
+    "symmetric_difference": 0,
+    "intersection": 0
+  },
+  "output_sha256": {
+    "hypopharynx_air_candidate.nii.gz": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+    "hypopharynx_semantic.nii.gz": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07",
+    "semantic_775_nocrop.nii.gz": "a26af331bdaf01edb721c0febeb14203c1aef077693334e8de2602042958eb14"
+  },
+  "input_fingerprints_unchanged": {
+    "ct": true,
+    "installed_nnunet": true,
+    "dataset": true,
+    "plans": true,
+    "weights": true,
+    "runner": true
+  }
+}

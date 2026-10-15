@@ -1,0 +1,13 @@
+test_bbox_axis_order_and_inferior (__main__.KnownAnswers) ... ok
+test_empty_cannot_become_candidate (__main__.KnownAnswers) ... ok
+test_empty_has_no_bbox (__main__.KnownAnswers) ... ok
+test_grid_size_mismatch_rejected (__main__.KnownAnswers) ... ok
+test_physical_centers (__main__.KnownAnswers) ... ok
+test_physical_rotation (__main__.KnownAnswers) ... ok
+test_semantic_and_strict_air (__main__.KnownAnswers) ... ok
+test_sha_known_abc (__main__.KnownAnswers) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.005s
+
+OK

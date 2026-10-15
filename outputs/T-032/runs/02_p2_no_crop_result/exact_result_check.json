@@ -1,0 +1,78 @@
+{
+  "created": "2026-10-15T19:45:05.988091+08:00",
+  "case": "p2",
+  "symptom_patient_mapping": "unknown",
+  "geometry": {
+    "size": [
+      512,
+      512,
+      286
+    ],
+    "spacing": [
+      0.458984375,
+      0.458984375,
+      0.5
+    ],
+    "origin_lps_mm": [
+      -117.2705078125,
+      -271.2705078125,
+      -650.5
+    ],
+    "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "display_indices_xyz": {
+    "sagittal_x": 273,
+    "coronal_y": 258,
+    "inferior_axial_z": 0
+  },
+  "image_outer_bounds_lps_mm": [
+    [
+      -117.5,
+      -271.5,
+      -650.75
+    ],
+    [
+      117.5,
+      -36.5,
+      -507.75
+    ]
+  ],
+  "raw_hypopharynx_exact_semantic_class13": true,
+  "air_exact_class13_and_CT_lt_minus300": true,
+  "old_hypopharynx_voxels": 0,
+  "new_hypopharynx_voxels": 0,
+  "new_hypopharynx_air_voxels": 0,
+  "new_oropharynx_voxels": 116506,
+  "new_oropharynx_inferior_face_voxels": 1053,
+  "hypopharynx_display_admission": false,
+  "hypopharynx_display_refusal": "empty_semantic_label_after_real_no_crop_inference",
+  "medical_review": "pending",
+  "cfd_admission": false,
+  "no_anatomical_absence_inference": "Empty semantic output does not alone establish absence of scanned anatomy",
+  "raw_outputs": {
+    "hypopharynx_air_candidate.nii.gz": {
+      "path": "C:\\ts_work\\t032_hypopharynx\\01_p2_no_crop\\hypopharynx_air_candidate.nii.gz",
+      "sha256": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07"
+    },
+    "hypopharynx_semantic.nii.gz": {
+      "path": "C:\\ts_work\\t032_hypopharynx\\01_p2_no_crop\\hypopharynx_semantic.nii.gz",
+      "sha256": "854a2f4a36a79f19c55bd780c7b7606615ee782bbe7659b0222cb17873786f07"
+    },
+    "semantic_775_nocrop.nii.gz": {
+      "path": "C:\\ts_work\\t032_hypopharynx\\01_p2_no_crop\\semantic_775_nocrop.nii.gz",
+      "sha256": "a26af331bdaf01edb721c0febeb14203c1aef077693334e8de2602042958eb14"
+    }
+  },
+  "ct_sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+  "preview_sha256": "53407d23b3fbc4484188ceb70e9605ac424f08c1203f2f19c7989b83a4daa482"
+}

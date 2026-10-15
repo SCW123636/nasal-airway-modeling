@@ -1,0 +1,4 @@
+*.py -text
+*.log -text
+*.json -text
+*.jsonl -text
