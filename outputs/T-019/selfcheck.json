@@ -1,0 +1,10 @@
+{
+  "script_syntax": "pass",
+  "json_structure": "pass",
+  "local_contact_sheets": 4,
+  "all_local_png_ignored": 8,
+  "decoded_series": 6,
+  "series_size_mismatch": 2,
+  "single_file_probes_decoded": 4,
+  "check_scope_correction": "Initial PNG-count check included four raw local frames. Corrected contact selector; all eight local PNGs are ignored."
+}

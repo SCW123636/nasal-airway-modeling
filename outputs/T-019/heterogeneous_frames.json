@@ -1,0 +1,129 @@
+{
+  "schema": "T019_heterogeneous_frames/v1",
+  "records": [
+    {
+      "case": "case_medial",
+      "series": "10002-CH",
+      "error_file_index": 0,
+      "source_file_sha256": "f7f9fc9e2571ce8173d2492652a2b68470410c70a5d5b9c7db85f8d0a7450f69",
+      "source_listing_index_0based": 35,
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "staging": "Single unchanged DICOM file copied into local-only isolated directory.",
+      "decoded": true,
+      "shape": [
+        1,
+        814,
+        1247
+      ],
+      "dtype": "int16",
+      "value_range": [
+        -1024.0,
+        2342.0
+      ],
+      "display_slice_index_0based": 0,
+      "display_crop_xyxy_original_pixels": [
+        124,
+        122,
+        1122,
+        732
+      ],
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0
+      }
+    },
+    {
+      "case": "case_medial",
+      "series": "10002-CH",
+      "error_file_index": 1,
+      "source_file_sha256": "9efff21a857b70d5618e1826d6cb590d63bf196f9c8973bde946b3b07dabf4af",
+      "source_listing_index_0based": 1,
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "staging": "Single unchanged DICOM file copied into local-only isolated directory.",
+      "decoded": true,
+      "shape": [
+        1,
+        515,
+        515
+      ],
+      "dtype": "int16",
+      "value_range": [
+        -1024.0,
+        331.0
+      ],
+      "display_slice_index_0based": 0,
+      "display_crop_xyxy_original_pixels": [
+        51,
+        77,
+        463,
+        463
+      ],
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0
+      }
+    },
+    {
+      "case": "case_medial",
+      "series": "10005-CH_4",
+      "error_file_index": 0,
+      "source_file_sha256": "5788466659019fbc796eb3ba81c69dabbd2509428a1683d196c0b0635e553cf5",
+      "source_listing_index_0based": 42,
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "staging": "Single unchanged DICOM file copied into local-only isolated directory.",
+      "decoded": true,
+      "shape": [
+        1,
+        814,
+        1247
+      ],
+      "dtype": "int16",
+      "value_range": [
+        -1024.0,
+        2342.0
+      ],
+      "display_slice_index_0based": 0,
+      "display_crop_xyxy_original_pixels": [
+        124,
+        122,
+        1122,
+        732
+      ],
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0
+      }
+    },
+    {
+      "case": "case_medial",
+      "series": "10005-CH_4",
+      "error_file_index": 1,
+      "source_file_sha256": "3927c7a9a83ebcc2b6f1d6653eb7bec1899ef7abf891d068804da8979cace876",
+      "source_listing_index_0based": 6,
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "staging": "Single unchanged DICOM file copied into local-only isolated directory.",
+      "decoded": true,
+      "shape": [
+        1,
+        517,
+        517
+      ],
+      "dtype": "int16",
+      "value_range": [
+        -1024.0,
+        2138.0
+      ],
+      "display_slice_index_0based": 0,
+      "display_crop_xyxy_original_pixels": [
+        51,
+        77,
+        465,
+        465
+      ],
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0
+      }
+    }
+  ]
+}

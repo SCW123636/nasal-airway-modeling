@@ -1,0 +1,130 @@
+{
+  "schema": "T019_candidate_mapping/v1",
+  "records": [
+    {
+      "current_case": "p0",
+      "source_case": "case_a",
+      "series": "ISO_Bone_0.35mm",
+      "source_dicom_count": 394,
+      "current_dicom_count": 394,
+      "shared_filenames_count": 394,
+      "samples": [
+        {
+          "shared_filename_sort_index_0based": 0,
+          "source_sha256": "7179185a3643f2547ea7e3d63bed596b601d911b7b9ee909bbeddbe8ec37f6b1",
+          "current_sha256": "7179185a3643f2547ea7e3d63bed596b601d911b7b9ee909bbeddbe8ec37f6b1",
+          "complete_file_hash_equal": true
+        },
+        {
+          "shared_filename_sort_index_0based": 197,
+          "source_sha256": "3b389a6acd8d782baf84f2af2bd299077cc4b75083b2864d28339a23ddba50d7",
+          "current_sha256": "3b389a6acd8d782baf84f2af2bd299077cc4b75083b2864d28339a23ddba50d7",
+          "complete_file_hash_equal": true
+        },
+        {
+          "shared_filename_sort_index_0based": 393,
+          "source_sha256": "07b48c6f3e560dc4bfde874281998d26b9072c760ea8b7de91c44b1bcd7379c6",
+          "current_sha256": "07b48c6f3e560dc4bfde874281998d26b9072c760ea8b7de91c44b1bcd7379c6",
+          "complete_file_hash_equal": true
+        }
+      ],
+      "status": "candidate_only_unless_hash_confirmed",
+      "boundary": "An unequal complete-file hash can result from de-identification; it does not establish a different scan."
+    },
+    {
+      "current_case": "p1",
+      "source_case": "case_lateral",
+      "series": "202-1.0 x 0.8 Bone",
+      "source_dicom_count": 136,
+      "current_dicom_count": 136,
+      "shared_filenames_count": 136,
+      "samples": [
+        {
+          "shared_filename_sort_index_0based": 0,
+          "source_sha256": "b443ebbe9149b9fae33eb95b9dcbf1e12d24032c5ba1a71a517d806b164914ec",
+          "current_sha256": "caa27f54fba2207cfd0f2252ef98b35e1747eedec0a374d0e493dbddb5f10828",
+          "complete_file_hash_equal": false
+        },
+        {
+          "shared_filename_sort_index_0based": 68,
+          "source_sha256": "e38587ad5eecc78df2c725f53f6b134b14190c48404f6f3625ffbb25f8945c74",
+          "current_sha256": "db882beff8ca437e9bccac96140c9ce4c92c6e25f31ff86eeb8a4d6c4f1c594d",
+          "complete_file_hash_equal": false
+        },
+        {
+          "shared_filename_sort_index_0based": 135,
+          "source_sha256": "d4458383fbec43448d454570295b3450a807439f318202e3d4f6ec2ccb4903e0",
+          "current_sha256": "65f2414b2602bb6d4f4f73236e2da4a04e4ef1502d4b70836642f641157a0ed5",
+          "complete_file_hash_equal": false
+        }
+      ],
+      "status": "candidate_only_unless_hash_confirmed",
+      "boundary": "An unequal complete-file hash can result from de-identification; it does not establish a different scan."
+    },
+    {
+      "current_case": "p2",
+      "source_case": "case_b",
+      "series": "4-Sinus  0.75  H40s",
+      "source_dicom_count": 286,
+      "current_dicom_count": 286,
+      "shared_filenames_count": 286,
+      "samples": [
+        {
+          "shared_filename_sort_index_0based": 0,
+          "source_sha256": "76da63e4cbf8976d9942bfff8f83057efe5e172266052e4bfd15dbc4297a6f57",
+          "current_sha256": "a7db8aada12e5c7b81e337f444f0b52c08ea6dfffa7131275fc9c92f8a09d4ec",
+          "complete_file_hash_equal": false
+        },
+        {
+          "shared_filename_sort_index_0based": 143,
+          "source_sha256": "ae7afcf58276492f6a555f61b26dc72abfa550b00d47111a2ec98e0dc5c2460f",
+          "current_sha256": "7d9bb15701e8ff6ac622addf0ff1d6c24c3f4fb06919f86333ffa0553248f6a8",
+          "complete_file_hash_equal": false
+        },
+        {
+          "shared_filename_sort_index_0based": 285,
+          "source_sha256": "73db7f1fead82db040cd18ab2a29adce6e428f0933f44af5593d1352cb0f2d51",
+          "current_sha256": "cadb5e1b4eb83f14d5739c4b9d2d8d71c75c521c7dd6d1ec0f3b7e17edfbfbda",
+          "complete_file_hash_equal": false
+        }
+      ],
+      "status": "candidate_only_unless_hash_confirmed",
+      "boundary": "An unequal complete-file hash can result from de-identification; it does not establish a different scan."
+    },
+    {
+      "current_case": "p3",
+      "source_case": "case_medial",
+      "series": "202-0.6 x 0.6_BONE",
+      "source_dicom_count": 186,
+      "current_dicom_count": 186,
+      "shared_filenames_count": 186,
+      "samples": [
+        {
+          "shared_filename_sort_index_0based": 0,
+          "source_sha256": "a77ad41ab6244a8d40f2d4418144caa4f8efcdefce712cefa2126dd796e6395e",
+          "current_sha256": "8fd4393108fec99e1f8a010e839ffe728d8542adfab039a24ed63f70ce6724a6",
+          "complete_file_hash_equal": false
+        },
+        {
+          "shared_filename_sort_index_0based": 93,
+          "source_sha256": "5f87645e41349bb412b536ec4c22673281897e9bf118a97dc512e42eaf117431",
+          "current_sha256": "5bc293a493bedae3f7cc45fec5afafd368df0def2cf0af71af39daddf00615d2",
+          "complete_file_hash_equal": false
+        },
+        {
+          "shared_filename_sort_index_0based": 185,
+          "source_sha256": "f47f72f87f9a99c5d3b7700974c84575707aeb855b4d8d7aef84d4107c01d71c",
+          "current_sha256": "8aa75818345f4774bc704596ffbba45a89c102d14f686049c7b2eae79d123009",
+          "complete_file_hash_equal": false
+        }
+      ],
+      "status": "candidate_only_unless_hash_confirmed",
+      "boundary": "An unequal complete-file hash can result from de-identification; it does not establish a different scan."
+    }
+  ],
+  "readme_sha256": [
+    "3188c188779224b524b05c6a60cd1e7525d5942d584ef3822fe98a9d779c3213",
+    "3188c188779224b524b05c6a60cd1e7525d5942d584ef3822fe98a9d779c3213"
+  ],
+  "p3t1": "No corresponding earlier-timepoint series located in the four supplied case directories."
+}

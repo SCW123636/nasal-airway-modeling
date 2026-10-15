@@ -1,0 +1,6 @@
+*.png
+*.jpg
+*.jpeg
+*.dcm
+*.log
+_local_*

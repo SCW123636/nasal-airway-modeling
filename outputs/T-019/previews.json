@@ -1,0 +1,247 @@
+{
+  "schema": "T019_previews/v1",
+  "records": [
+    {
+      "case": "case_lateral",
+      "series": "10003-3D_Sinus^_1",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "shape": [
+        40,
+        547,
+        547
+      ],
+      "dtype": "int16",
+      "spacing_xyz_mm": [
+        0.348233,
+        0.348233,
+        3.0
+      ],
+      "slice_indices_0based": [
+        0,
+        20,
+        39
+      ],
+      "value_range": [
+        -1023.0,
+        7969.0
+      ],
+      "modality": "CT",
+      "series_description": "3D_Sinus^_1",
+      "source_files": 40,
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0,
+        "label": "WL 800 / WW 2000",
+        "is_diagnostic_window": false
+      },
+      "decoded": true,
+      "fileset_sha256": "6bccdeb922f14349ba66067e6f5006e245ae53e40dd082248637dd38647eea32",
+      "elapsed_seconds": 0.939
+    },
+    {
+      "case": "case_lateral",
+      "series": "10004-3D_Sinus^_2",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "shape": [
+        49,
+        547,
+        547
+      ],
+      "dtype": "int16",
+      "spacing_xyz_mm": [
+        0.348233,
+        0.348233,
+        2.9999998013809255
+      ],
+      "slice_indices_0based": [
+        0,
+        24,
+        48
+      ],
+      "value_range": [
+        -1023.0,
+        7404.0
+      ],
+      "modality": "CT",
+      "series_description": "3D_Sinus^_2",
+      "source_files": 49,
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0,
+        "label": "WL 800 / WW 2000",
+        "is_diagnostic_window": false
+      },
+      "decoded": true,
+      "fileset_sha256": "3a1fc6eb8ba69b8eeae7090752c52ce8ea1a5c00e8c149ff588c02f85a77a85e",
+      "elapsed_seconds": 0.633
+    },
+    {
+      "case": "case_lateral",
+      "series": "10005-3D_Sinus^_3",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "shape": [
+        35,
+        577,
+        577
+      ],
+      "dtype": "int16",
+      "spacing_xyz_mm": [
+        0.347748,
+        0.347748,
+        2.9999986911284484
+      ],
+      "slice_indices_0based": [
+        0,
+        17,
+        34
+      ],
+      "value_range": [
+        -1023.0,
+        14708.0
+      ],
+      "modality": "CT",
+      "series_description": "3D_Sinus^_3",
+      "source_files": 35,
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0,
+        "label": "WL 800 / WW 2000",
+        "is_diagnostic_window": false
+      },
+      "decoded": true,
+      "fileset_sha256": "e52ef9b82b2263a414c25ff98328a7039c964479834b2c8f32d9d44ffd5164d5",
+      "elapsed_seconds": 0.416
+    },
+    {
+      "case": "case_lateral",
+      "series": "10006-3D_Sinus^_4",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "shape": [
+        44,
+        577,
+        577
+      ],
+      "dtype": "int16",
+      "spacing_xyz_mm": [
+        0.347748,
+        0.347748,
+        2.999999898525328
+      ],
+      "slice_indices_0based": [
+        0,
+        22,
+        43
+      ],
+      "value_range": [
+        -1023.0,
+        11332.0
+      ],
+      "modality": "CT",
+      "series_description": "3D_Sinus^_4",
+      "source_files": 44,
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0,
+        "label": "WL 800 / WW 2000",
+        "is_diagnostic_window": false
+      },
+      "decoded": true,
+      "fileset_sha256": "9b38368566d4a02f8e7029f95b1f17be822510cb38b8c9f58f5166d7f21dd0f4",
+      "elapsed_seconds": 0.603
+    },
+    {
+      "case": "case_b",
+      "series": "1011-MPR 3.0mm",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "shape": [
+        30,
+        512,
+        512
+      ],
+      "dtype": "int16",
+      "spacing_xyz_mm": [
+        0.42968744039536,
+        0.4296875,
+        3.0000007653507494
+      ],
+      "slice_indices_0based": [
+        0,
+        15,
+        29
+      ],
+      "value_range": [
+        -1024.0,
+        3071.0
+      ],
+      "modality": "CT",
+      "series_description": "MPR 3.0mm",
+      "source_files": 30,
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0,
+        "label": "WL 800 / WW 2000",
+        "is_diagnostic_window": false
+      },
+      "decoded": true,
+      "fileset_sha256": "d4301156f6739df4cb44bd71fc68266ae304899944878e3e710423b347de06c8",
+      "elapsed_seconds": 0.563
+    },
+    {
+      "case": "case_a",
+      "series": "ISO_Bone_0.35mm_part2/ISO_Bone_0.35mm",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "shape": [
+        132,
+        512,
+        512
+      ],
+      "dtype": "int32",
+      "spacing_xyz_mm": [
+        0.349609,
+        0.349609,
+        0.3500000000000002
+      ],
+      "slice_indices_0based": [
+        0,
+        66,
+        131
+      ],
+      "value_range": [
+        -1024.0,
+        3297.0
+      ],
+      "modality": "CT",
+      "series_description": "Bone 0.35mm ISO",
+      "source_files": 132,
+      "display_window": {
+        "low": -200.0,
+        "high": 1800.0,
+        "label": "WL 800 / WW 2000",
+        "is_diagnostic_window": false
+      },
+      "decoded": true,
+      "fileset_sha256": "e9364c2aa41607618a01f61a7dbee1042f30782d5848f55f18569ab39e294afb",
+      "elapsed_seconds": 2.08
+    },
+    {
+      "case": "case_medial",
+      "series": "10002-CH",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "decoded": false,
+      "error_type": "RuntimeError",
+      "error": "Exception thrown in SimpleITK ImageSeriesReader_Execute: <build>/itkImageSeriesReader.hxx:355:\nITK ERROR: ImageSeriesReader(<address>): Size mismatch! The size of  <source_file> is [1247, 814, 1] and does not match the required size [515, 515, 1] from file <source_file>",
+      "local_raw_error_ignored_by_git": true,
+      "elapsed_seconds": 0.194
+    },
+    {
+      "case": "case_medial",
+      "series": "10005-CH_4",
+      "reader": "work/lib/dicom_sitk.py::load_series_sitk",
+      "decoded": false,
+      "error_type": "RuntimeError",
+      "error": "Exception thrown in SimpleITK ImageSeriesReader_Execute: <build>/itkImageSeriesReader.hxx:355:\nITK ERROR: ImageSeriesReader(<address>): Size mismatch! The size of  <source_file> is [1247, 814, 1] and does not match the required size [517, 517, 1] from file <source_file>",
+      "local_raw_error_ignored_by_git": true,
+      "elapsed_seconds": 0.167
+    }
+  ]
+}

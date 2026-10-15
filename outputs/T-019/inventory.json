@@ -1,0 +1,215 @@
+{
+  "schema": "T019_reference_inventory/v1",
+  "started_local": "2026-10-15T16:48:17.543828+08:00",
+  "source": "资料/4例演示ct",
+  "exclusion": "__MACOSX anywhere, filenames beginning ._",
+  "cases": [
+    {
+      "case": "case_a",
+      "source_case_label": "（患者a）鼻中隔+鼻甲消融+其他",
+      "dicom_files": 788,
+      "series": [
+        {
+          "series": "ISO_Bone_0.35mm_part1/ISO_Bone_0.35mm",
+          "dicom_files": 132,
+          "bytes": 69457138
+        },
+        {
+          "series": "ISO_Bone_0.35mm_part2/ISO_Bone_0.35mm",
+          "dicom_files": 132,
+          "bytes": 69457336
+        },
+        {
+          "series": "ISO_Bone_0.35mm_part3/ISO_Bone_0.35mm",
+          "dicom_files": 130,
+          "bytes": 68404960
+        },
+        {
+          "series": "ISO_Soft_0.35mm_part1/ISO_Soft_0.35mm",
+          "dicom_files": 132,
+          "bytes": 69456870
+        },
+        {
+          "series": "ISO_Soft_0.35mm_part2/ISO_Soft_0.35mm",
+          "dicom_files": 132,
+          "bytes": 69457076
+        },
+        {
+          "series": "ISO_Soft_0.35mm_part3/ISO_Soft_0.35mm",
+          "dicom_files": 130,
+          "bytes": 68404696
+        }
+      ]
+    },
+    {
+      "case": "case_b",
+      "source_case_label": "（患者b）鼻甲消融",
+      "dicom_files": 380,
+      "series": [
+        {
+          "series": "1-Report Data",
+          "dicom_files": 1,
+          "bytes": 1234
+        },
+        {
+          "series": "1-Topogram  0.6  T20f",
+          "dicom_files": 2,
+          "bytes": 217760
+        },
+        {
+          "series": "1011-MPR 3.0mm",
+          "dicom_files": 30,
+          "bytes": 4214688
+        },
+        {
+          "series": "1019-Evidence Documents Viewing",
+          "dicom_files": 1,
+          "bytes": 1710
+        },
+        {
+          "series": "2-Sinus  5.0  H41s",
+          "dicom_files": 30,
+          "bytes": 5194724
+        },
+        {
+          "series": "3-Sinus  5.0  H70h",
+          "dicom_files": 29,
+          "bytes": 7948832
+        },
+        {
+          "series": "4-Sinus  0.75  H40s",
+          "dicom_files": 286,
+          "bytes": 54882262
+        },
+        {
+          "series": "501-Patient Protocol",
+          "dicom_files": 1,
+          "bytes": 67252
+        }
+      ]
+    },
+    {
+      "case": "case_medial",
+      "source_case_label": "鼻甲内移",
+      "dicom_files": 675,
+      "series": [
+        {
+          "series": "10001-Dose Report",
+          "dicom_files": 1,
+          "bytes": 348266
+        },
+        {
+          "series": "10002-CH",
+          "dicom_files": 57,
+          "bytes": 31869564
+        },
+        {
+          "series": "10005-CH_4",
+          "dicom_files": 56,
+          "bytes": 31563166
+        },
+        {
+          "series": "101-Scout",
+          "dicom_files": 3,
+          "bytes": 2004510
+        },
+        {
+          "series": "201-0.6 x 0.6_SINUS",
+          "dicom_files": 186,
+          "bytes": 97944394
+        },
+        {
+          "series": "202-0.6 x 0.6_BONE",
+          "dicom_files": 186,
+          "bytes": 97944406
+        },
+        {
+          "series": "203-0.6 x 0.6_BONE",
+          "dicom_files": 186,
+          "bytes": 97944422
+        }
+      ]
+    },
+    {
+      "case": "case_lateral",
+      "source_case_label": "鼻甲外移",
+      "dicom_files": 514,
+      "series": [
+        {
+          "series": "10003-3D_Sinus^_1",
+          "dicom_files": 40,
+          "bytes": 5909460
+        },
+        {
+          "series": "10004-3D_Sinus^_2",
+          "dicom_files": 49,
+          "bytes": 6610034
+        },
+        {
+          "series": "10005-3D_Sinus^_3",
+          "dicom_files": 35,
+          "bytes": 6637748
+        },
+        {
+          "series": "10006-3D_Sinus^_4",
+          "dicom_files": 44,
+          "bytes": 7936990
+        },
+        {
+          "series": "101",
+          "dicom_files": 2,
+          "bytes": 212570
+        },
+        {
+          "series": "201-3.0 x 3.0 Bone",
+          "dicom_files": 36,
+          "bytes": 9291586
+        },
+        {
+          "series": "202-1.0 x 0.8 Bone",
+          "dicom_files": 136,
+          "bytes": 37070694
+        },
+        {
+          "series": "203-3.0 x 3.0 Soft",
+          "dicom_files": 36,
+          "bytes": 7324218
+        },
+        {
+          "series": "204-1.0 x 0.8 Soft-3D",
+          "dicom_files": 136,
+          "bytes": 27508924
+        }
+      ]
+    }
+  ],
+  "standalone_result_files": [],
+  "all_file_extensions": {
+    ".dcm": 2357,
+    ".txt": 2,
+    "<no extension>": 7
+  },
+  "dicom_files_total": 2357,
+  "standalone_result_extensions_checked": [
+    ".stl",
+    ".vtk",
+    ".vtp",
+    ".vtu",
+    ".obj",
+    ".ply",
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".bmp",
+    ".tif",
+    ".tiff",
+    ".gif",
+    ".mp4",
+    ".avi",
+    ".mov",
+    ".webm",
+    ".mkv"
+  ],
+  "elapsed_seconds": 0.39,
+  "dicom_embedded_content_boundary": "External file enumeration does not establish absence of DICOM reconstructions, screenshots, or encapsulated documents."
+}
