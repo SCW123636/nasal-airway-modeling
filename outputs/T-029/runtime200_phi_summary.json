@@ -1,0 +1,32 @@
+{
+  "nostril_L": {
+    "faces": 5020,
+    "negative_faces": 1163,
+    "positive_faces": 3857,
+    "zero_faces": 0,
+    "sum_m3_s": -151.0620296608472,
+    "min_m3_s": -19.0223040608,
+    "max_m3_s": 46.9906044207
+  },
+  "nostril_R": {
+    "faces": 3431,
+    "negative_faces": 235,
+    "positive_faces": 3196,
+    "zero_faces": 0,
+    "sum_m3_s": 6.861567666580867,
+    "min_m3_s": -0.144375269675,
+    "max_m3_s": 0.0648440268073
+  },
+  "nasopharynx_outlet": {
+    "faces": 17545,
+    "negative_faces": 328,
+    "positive_faces": 17217,
+    "zero_faces": 0,
+    "sum_m3_s": 144.99637981615805,
+    "min_m3_s": -1.43081127033,
+    "max_m3_s": 1.91669112562
+  },
+  "wall": {
+    "uniform": "0"
+  }
+}

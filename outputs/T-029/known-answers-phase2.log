@@ -1,0 +1,159 @@
+test_changed_mesh_config_surface_and_evidence_refuse (test_patient_cfd_admission.AdmissionTests.test_changed_mesh_config_surface_and_evidence_refuse) ... ok
+test_configuration_errors_not_lifted_by_engineering_record (test_patient_cfd_admission.AdmissionTests.test_configuration_errors_not_lifted_by_engineering_record) ... ok
+test_current_uploaded_case_accepts_sixteen_hex_and_requires_current_binding (test_patient_cfd_admission.AdmissionTests.test_current_uploaded_case_accepts_sixteen_hex_and_requires_current_binding) ... ok
+test_frozen_package_admits_engineering_without_claiming_clinical (test_patient_cfd_admission.AdmissionTests.test_frozen_package_admits_engineering_without_claiming_clinical) ... ok
+test_path_traversal_and_missing_authority_refuse (test_patient_cfd_admission.AdmissionTests.test_path_traversal_and_missing_authority_refuse) ... ok
+test_patient_resume_refuses_changed_identity_without_overwriting_evidence (test_patient_cfd_admission.AdmissionTests.test_patient_resume_refuses_changed_identity_without_overwriting_evidence) ... ok
+test_scoped_authorization_keeps_readiness_warnings (test_patient_cfd_admission.AdmissionTests.test_scoped_authorization_keeps_readiness_warnings) ... ok
+test_unrecognized_engineering_suffix_and_wrong_version_refuse (test_patient_cfd_admission.AdmissionTests.test_unrecognized_engineering_suffix_and_wrong_version_refuse) ... ok
+test_versioned_sample_mismatched_origin_refuses_admission_and_authority (test_patient_cfd_admission.AdmissionTests.test_versioned_sample_mismatched_origin_refuses_admission_and_authority) ... ok
+test_versioned_sample_retains_origin_and_strict_frozen_sources (test_patient_cfd_admission.AdmissionTests.test_versioned_sample_retains_origin_and_strict_frozen_sources) ... ok
+test_authorized_config_is_allowed_and_checked (test_run_openfoam_case.ContractGateTests.test_authorized_config_is_allowed_and_checked)
+A synthetic execution-ready config passes the gate (contract.checked True). ... ok
+test_bound_engineering_authorization_requires_configuration (test_run_openfoam_case.ContractGateTests.test_bound_engineering_authorization_requires_configuration) ... ok
+test_bound_engineering_trial_preserves_failed_mesh_and_readiness (test_run_openfoam_case.ContractGateTests.test_bound_engineering_trial_preserves_failed_mesh_and_readiness) ... ok
+test_no_config_behaves_identically_to_baseline (test_run_openfoam_case.ContractGateTests.test_no_config_behaves_identically_to_baseline)
+No --config: nothing is refused, steps run, manifest carries the stub. ... ok
+test_unsanctioned_with_force_is_allowed_and_logged (test_run_openfoam_case.ContractGateTests.test_unsanctioned_with_force_is_allowed_and_logged)
+execution_allowed=False + --force-unsanctioned -> runs, contract.forced recorded. ... ok
+test_unsanctioned_without_force_is_refused_naming_reason (test_run_openfoam_case.ContractGateTests.test_unsanctioned_without_force_is_refused_naming_reason)
+execution_allowed=False and no --force -> non-zero exit, named cause, no step run. ... ok
+test_diagnostic_override_is_not_allowed_for_other_geometry (test_run_openfoam_case.SolverBoundaryTests.test_diagnostic_override_is_not_allowed_for_other_geometry) ... usage: python.exe -m unittest [-h] [--case CASE] [--steps STEPS] [--env-check]
+                              [--allow-failed-mesh-for-diagnostic]
+                              [--status-file STATUS_FILE]
+                              [--archive-before-run] [--parallel PARALLEL]
+                              [--skip-mesh-if-cached] [--dry-run]
+                              [--config CONFIG] [--force-unsanctioned]
+                              [--engineering-authorization ENGINEERING_AUTHORIZATION]
+python.exe -m unittest: error: Failed-mesh diagnostic override is restricted to the synthetic tube.stl phantom
+ok
+test_failed_mesh_blocks_solver_before_execution (test_run_openfoam_case.SolverBoundaryTests.test_failed_mesh_blocks_solver_before_execution) ... ok
+test_long_tube_configuration_does_not_change_baseline_globals (test_run_openfoam_case.SolverBoundaryTests.test_long_tube_configuration_does_not_change_baseline_globals) ... ok
+test_mesh_failure_is_detected_even_when_command_returns_zero (test_run_openfoam_case.SolverBoundaryTests.test_mesh_failure_is_detected_even_when_command_returns_zero) ... ok
+test_profile_preserves_target_flow_and_outer_faces_remain_positive (test_run_openfoam_case.SolverBoundaryTests.test_profile_preserves_target_flow_and_outer_faces_remain_positive) ... ok
+test_radius_comes_from_boundary_not_interior_face_centroids (test_run_openfoam_case.SolverBoundaryTests.test_radius_comes_from_boundary_not_interior_face_centroids) ... ok
+test_archive_before_run_preserves_mesh_cache_and_initial_time (test_run_openfoam_case.SolverEngineeringTests.test_archive_before_run_preserves_mesh_cache_and_initial_time) ... ok
+test_decompose_par_dict_avoids_scotch_and_declares_n_vector (test_run_openfoam_case.SolverEngineeringTests.test_decompose_par_dict_avoids_scotch_and_declares_n_vector) ... ok
+test_existing_scotch_or_n_vectorless_dict_is_repaired (test_run_openfoam_case.SolverEngineeringTests.test_existing_scotch_or_n_vectorless_dict_is_repaired) ... run_openfoam_case note: system/decomposeParDict selected scotch, but this OpenFOAM build has no libscotch.so; rewritten to hierarchical with an explicit n vector.
+run_openfoam_case note: system/decomposeParDict used hierarchical without an n vector; added n (5 1 1).
+ok
+{
+  "case": "D:\\Cache\\Temp\\tmpftfzddhh",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpzxw3cljv",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmp4juil4he",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmp_fdzejj2",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{"command": ["simpleFoam"], "exit_code": -8, "log": "D:\\Cache\\Temp\\tmpb9vgwcyy\\log.simpleFoam", "started_at": "2026-10-15T11:19:47+00:00", "elapsed_seconds": 0.00014259999443311244, "finished_at": "2026-10-15T11:19:47+00:00"}
+{"command": ["simpleFoam"], "exit_code": 7, "log": "D:\\Cache\\Temp\\tmps3hsji32\\log.simpleFoam", "started_at": "2026-10-15T11:19:47+00:00", "elapsed_seconds": 0.00015490000077988952, "finished_at": "2026-10-15T11:19:47+00:00"}
+test_failed_command_records_real_bottom_exit_and_stops_before_vtk (test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk) ... ok
+{"command": ["missing-tool"], "exit_code": null, "log": "D:\\Cache\\Temp\\tmpkl8f00bn\\log.missing", "started_at": "2026-10-15T11:19:47+00:00", "launch_error": "FileNotFoundError('missing executable')", "elapsed_seconds": 0.0002099999983329326, "finished_at": "2026-10-15T11:19:47+00:00"}
+test_launch_error_has_unknown_exit_and_actual_command_log (test_run_openfoam_case.SolverEngineeringTests.test_launch_error_has_unknown_exit_and_actual_command_log) ... ok
+test_mesh_cache_is_recorded_after_a_blockmesh_only_run (test_run_openfoam_case.SolverEngineeringTests.test_mesh_cache_is_recorded_after_a_blockmesh_only_run)
+Regression: record_mesh requires the step sequence to END with checkMesh. ... ok
+test_parallel_expands_simplefoam_into_decompose_solve_reconstruct (test_run_openfoam_case.SolverEngineeringTests.test_parallel_expands_simplefoam_into_decompose_solve_reconstruct) ... ok
+test_parallel_expands_snappy_with_constant_reconstruction (test_run_openfoam_case.SolverEngineeringTests.test_parallel_expands_snappy_with_constant_reconstruction) ... ok
+test_parallel_falls_back_to_serial_when_mpirun_missing (test_run_openfoam_case.SolverEngineeringTests.test_parallel_falls_back_to_serial_when_mpirun_missing) ... run_openfoam_case warning: --parallel requested but missing tools mpirun, decomposePar, reconstructPar; falling back to serial
+ok
+test_parallel_preflight_calls_real_shutil_which_without_crashing (test_run_openfoam_case.SolverEngineeringTests.test_parallel_preflight_calls_real_shutil_which_without_crashing)
+Regression: shutil.which has no `env` parameter. ... run_openfoam_case warning: --parallel requested but missing tools mpirun, decomposePar, reconstructPar; falling back to serial
+ok
+{
+  "case": "D:\\Cache\\Temp\\tmpngzms4to",
+  "execution_status": "completed",
+  "steps": [
+    "blockMesh",
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpngzms4to",
+  "execution_status": "completed",
+  "steps": [
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "mesh_skipped": true,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpu2kxe67t",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmp4had4klo",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}
+{"command": ["C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe", "-c", "print(\"failure fixture\"); raise SystemExit(7)"], "exit_code": 7, "log": "D:\\Cache\\Temp\\tmpzme_zrt5\\log.failure", "started_at": "2026-10-15T11:19:47+00:00", "elapsed_seconds": 0.04838229999586474, "finished_at": "2026-10-15T11:19:47+00:00"}
+test_real_subprocess_nonzero_is_not_replaced_with_outer_exit (test_run_openfoam_case.SolverEngineeringTests.test_real_subprocess_nonzero_is_not_replaced_with_outer_exit) ... ok
+test_skip_mesh_if_cached_drops_blockmesh_and_snappy (test_run_openfoam_case.SolverEngineeringTests.test_skip_mesh_if_cached_drops_blockmesh_and_snappy) ... ok
+test_status_file_streams_to_completed (test_run_openfoam_case.SolverEngineeringTests.test_status_file_streams_to_completed) ... ok
+test_untouched_decompose_par_dict_is_left_alone (test_run_openfoam_case.SolverEngineeringTests.test_untouched_decompose_par_dict_is_left_alone) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 1.081s
+
+OK
+{
+  "case": "D:\\Cache\\Temp\\tmpt4b14mw4",
+  "execution_status": "completed",
+  "steps": [
+    "checkMesh",
+    "simpleFoam"
+  ],
+  "mesh_skipped": true,
+  "parallel": false
+}
+{
+  "case": "D:\\Cache\\Temp\\tmpcxyr02rs",
+  "execution_status": "completed",
+  "steps": [
+    "simpleFoam"
+  ],
+  "mesh_skipped": false,
+  "parallel": false
+}

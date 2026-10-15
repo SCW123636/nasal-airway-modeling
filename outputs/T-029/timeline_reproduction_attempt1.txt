@@ -1,0 +1,2 @@
+First reproduction attempt: AssertionError: Frozen raw evidence does not reproduce recorded timeline.
+Representation issue: regenerated residual rows were Python tuples; the prior JSON roundtrip contained lists. The numeric records were not changed. The replay script was corrected to construct lists before equality comparison, retaining the original iteration_timeline.json unchanged. See the subsequent timeline_reproduction.json for the actual replay result.

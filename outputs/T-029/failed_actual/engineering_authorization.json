@@ -1,0 +1,26 @@
+{
+  "schema": "nasal_bound_engineering_authorization/v1",
+  "scope": "isolated_engineering_trial_not_clinical",
+  "case_id": "b15_engineering",
+  "surface_file": "constant/triSurface/surface.stl",
+  "surface_sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+  "source_mesh_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+  "mesh_fingerprint": {
+    "boundary": "0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135",
+    "cellZones": "093a2ccece2d7b70f1b19b30cc3d0d0ae6d78080993f7abf1fea5a175d8da1cf",
+    "faces": "d27b6b3f75bf480845a66d6e540c3bda4465164a7f3355d7e8e780150113cc55",
+    "faceZones": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f",
+    "neighbour": "4c0501f44ee1d828ae8ab841883380a34a7978a6f95fa76ce9dd270995047bcf",
+    "owner": "275538829bc0ef71be2bb6b2c1438385df76662aee8ad6db992c63731f61ac52",
+    "points": "0acac3f227449e415fce19f0a4eb240c1e88837aeefd6a6fbeed29b0dd7d40a3",
+    "pointZones": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29",
+    "sets/fluid": "da9404a9ed7a4e7f0f5dcb7919dc14a1b958109a5b1d2aff3ba240c18732f64c",
+    "sets/lowWeightFaces": "4650adde9d1dc6da8f829d1a5c81459ee43901d59491c8bedc2ab7fd35faf549",
+    "sets/nonOrthoFaces": "334aa0e9f7de2a3cced4b7bdb17b2abf83f88e01e0182a9323ac18c4b821856c",
+    "sets/underdeterminedCells": "bce36270ec27f5b9d52847a47a5fe014decd92d11d03f8a129d67cd37e48ffa8"
+  },
+  "config_sha256": "191b8aecac14fe4609c05490d098b175a0a93b69eb6e7eb0eeaeb534e98f43b1",
+  "record_file": "engineering_authorization_record.md",
+  "record_sha256": "15443c0f38af02790a4345291f4219f910fcf65952693ac9b04ba728a199d880",
+  "source_record": "plan/主计划.md M1/M2 user decisions 2026-10-14; tasks/T-021.md Lead authorization 2026-10-15"
+}

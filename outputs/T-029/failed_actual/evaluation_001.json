@@ -1,0 +1,23 @@
+{
+  "schema": "nasal_real_pressure_evaluation/v1",
+  "pressure_pa": 10.0,
+  "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+  "status": "failed",
+  "started_at": "2026-10-15T10:40:34.560462+00:00",
+  "backend": "real_openfoam_v1912",
+  "clinical_validation": "not_validated",
+  "command": [
+    "/usr/bin/python3",
+    "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+    "--case",
+    "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+    "--steps",
+    "checkMesh,simpleFoam,foamToVTK",
+    "--config",
+    "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/config.json",
+    "--engineering-authorization",
+    "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/engineering_authorization.json"
+  ],
+  "exit_code": 1,
+  "error": "real solver failed, exit=1"
+}

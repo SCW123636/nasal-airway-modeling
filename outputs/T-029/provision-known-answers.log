@@ -1,0 +1,17 @@
+test_changed_mesh_config_surface_and_evidence_refuse (test_patient_cfd_admission.AdmissionTests.test_changed_mesh_config_surface_and_evidence_refuse) ... ok
+test_configuration_errors_not_lifted_by_engineering_record (test_patient_cfd_admission.AdmissionTests.test_configuration_errors_not_lifted_by_engineering_record) ... ok
+test_current_uploaded_case_accepts_sixteen_hex_and_requires_current_binding (test_patient_cfd_admission.AdmissionTests.test_current_uploaded_case_accepts_sixteen_hex_and_requires_current_binding) ... ok
+test_frozen_package_admits_engineering_without_claiming_clinical (test_patient_cfd_admission.AdmissionTests.test_frozen_package_admits_engineering_without_claiming_clinical) ... ok
+test_path_traversal_and_missing_authority_refuse (test_patient_cfd_admission.AdmissionTests.test_path_traversal_and_missing_authority_refuse) ... ok
+test_patient_resume_refuses_changed_identity_without_overwriting_evidence (test_patient_cfd_admission.AdmissionTests.test_patient_resume_refuses_changed_identity_without_overwriting_evidence) ... ok
+test_scoped_authorization_keeps_readiness_warnings (test_patient_cfd_admission.AdmissionTests.test_scoped_authorization_keeps_readiness_warnings) ... ok
+test_unrecognized_engineering_suffix_and_wrong_version_refuse (test_patient_cfd_admission.AdmissionTests.test_unrecognized_engineering_suffix_and_wrong_version_refuse) ... ok
+test_versioned_sample_mismatched_origin_refuses_admission_and_authority (test_patient_cfd_admission.AdmissionTests.test_versioned_sample_mismatched_origin_refuses_admission_and_authority) ... ok
+test_versioned_sample_retains_origin_and_strict_frozen_sources (test_patient_cfd_admission.AdmissionTests.test_versioned_sample_retains_origin_and_strict_frozen_sources) ... ok
+test_exact_scheme_and_top_level_budget_only (__main__.TrialTests.test_exact_scheme_and_top_level_budget_only) ... ok
+test_full_synthetic_package_and_no_overwrite (__main__.TrialTests.test_full_synthetic_package_and_no_overwrite) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.449s
+
+OK

@@ -1,0 +1,1 @@
+{"passed": true, "case_id": "b15_engineering_t029a", "folder": "C:\\ts_work\\project_cases\\patient_cfd_inputs\\b15_engineering_t029a", "changed_files": ["admission.json", "template/case_manifest.json", "template/config.json", "template/engineering_authorization.json", "template/engineering_authorization_record.md", "template/system/controlDict", "template/system/fvSchemes"]}

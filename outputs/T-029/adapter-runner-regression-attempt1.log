@@ -1,0 +1,21 @@
+test_equal_static_pressure_units_and_no_prescribed_split (test_openfoam_pressure_adapter.RealAdapterTests.test_equal_static_pressure_units_and_no_prescribed_split) ... ok
+test_fingerprint_changes_with_boundary_mesh_and_code (test_openfoam_pressure_adapter.RealAdapterTests.test_fingerprint_changes_with_boundary_mesh_and_code) ... ok
+test_known_signed_flux_quality_and_failed_residuals (test_openfoam_pressure_adapter.RealAdapterTests.test_known_signed_flux_quality_and_failed_residuals) ... ok
+test_missing_patch_and_wrong_dimensions_are_refused (test_openfoam_pressure_adapter.RealAdapterTests.test_missing_patch_and_wrong_dimensions_are_refused) ... ok
+test_native_linux_and_patch_contract (test_openfoam_pressure_adapter.RealAdapterTests.test_native_linux_and_patch_contract) ... ok
+test_patient_cfd_runner (unittest.loader._FailedTest.test_patient_cfd_runner) ... ERROR
+
+======================================================================
+ERROR: test_patient_cfd_runner (unittest.loader._FailedTest.test_patient_cfd_runner)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_patient_cfd_runner
+Traceback (most recent call last):
+  File "C:\Users\lenovo\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_patient_cfd_runner'
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.116s
+
+FAILED (errors=1)

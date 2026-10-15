@@ -99,6 +99,52 @@ class SolverBoundaryTests(unittest.TestCase):
 
 
 class SolverEngineeringTests(unittest.TestCase):
+    def test_failed_command_records_real_bottom_exit_and_stops_before_vtk(self):
+        for code in (-8, 7):
+            with self.subTest(exit_code=code), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                with mock.patch.object(executor, 'check_case_complete'), \
+                     mock.patch.object(executor, 'is_sst', return_value=False), \
+                     mock.patch.object(executor, 'mesh_quality', return_value={'passed':True}), \
+                     mock.patch.object(executor.subprocess, 'run', return_value=mock.Mock(returncode=code)) as run:
+                    with self.assertRaises(executor.CommandExecutionError):
+                        executor.main(['--case', str(root), '--steps', 'simpleFoam,foamToVTK'])
+                self.assertEqual(run.call_count, 1)
+                manifest = json.loads((root / 'run_manifest.json').read_text())
+                self.assertEqual(manifest['execution_status'], 'failed')
+                self.assertEqual(len(manifest['steps']), 1)
+                record = manifest['steps'][0]
+                self.assertEqual(record['command'], ['simpleFoam'])
+                self.assertEqual(record['exit_code'], code)
+                self.assertEqual(record['log'], str(root / 'log.simpleFoam'))
+                self.assertTrue((root / 'log.simpleFoam').is_file())
+                status = json.loads((root / 'run_status.json').read_text())
+                self.assertEqual(status['status'], 'failed')
+                self.assertEqual(status['failed_step'], 'simpleFoam')
+                self.assertEqual(status['current_command'], ['simpleFoam'])
+                self.assertEqual(status['exit_code'], code)
+                self.assertEqual(status['current_step_index'], 1)
+                self.assertEqual(status['total_steps'], 2)
+                self.assertFalse((root / 'log.foamToVTK').exists())
+
+    def test_real_subprocess_nonzero_is_not_replaced_with_outer_exit(self):
+        import os
+        import sys
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(executor.CommandExecutionError) as failure:
+                executor.execute([sys.executable, '-c', 'print("failure fixture"); raise SystemExit(7)'],
+                                 Path(tmp), os.environ.copy(), 'log.failure')
+            self.assertEqual(failure.exception.record['exit_code'], 7)
+            self.assertIn('failure fixture', (Path(tmp) / 'log.failure').read_text())
+
+    def test_launch_error_has_unknown_exit_and_actual_command_log(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch.object(executor.subprocess, 'run', side_effect=FileNotFoundError('missing executable')):
+                with self.assertRaises(executor.CommandExecutionError) as failure:
+                    executor.execute(['missing-tool'], Path(tmp), {}, 'log.missing')
+            self.assertIsNone(failure.exception.record['exit_code'])
+            self.assertIn('FileNotFoundError', failure.exception.record['launch_error'])
+
     def _run(self, root, argv):
         with mock.patch.object(executor, 'check_case_complete'), \
              mock.patch.object(executor, 'is_sst', return_value=False), \

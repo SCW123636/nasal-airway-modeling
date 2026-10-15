@@ -1,0 +1,32 @@
+{
+  "files": {
+    "0/U": "6ac06678c4bfd19425fbf320e11efef78ba5fd15d60d84802ee34f211855b5e2",
+    "0/p": "c16b8fcc1db0e87ac8ac7ca8abb0ae90ff0899dc690f91abde9ab1aef25a1709",
+    "constant/polyMesh/boundary": "0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135",
+    "constant/polyMesh/cellZones": "093a2ccece2d7b70f1b19b30cc3d0d0ae6d78080993f7abf1fea5a175d8da1cf",
+    "constant/polyMesh/faceZones": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f",
+    "constant/polyMesh/faces": "d27b6b3f75bf480845a66d6e540c3bda4465164a7f3355d7e8e780150113cc55",
+    "constant/polyMesh/neighbour": "4c0501f44ee1d828ae8ab841883380a34a7978a6f95fa76ce9dd270995047bcf",
+    "constant/polyMesh/owner": "275538829bc0ef71be2bb6b2c1438385df76662aee8ad6db992c63731f61ac52",
+    "constant/polyMesh/pointZones": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29",
+    "constant/polyMesh/points": "0acac3f227449e415fce19f0a4eb240c1e88837aeefd6a6fbeed29b0dd7d40a3",
+    "constant/polyMesh/sets/fluid": "da9404a9ed7a4e7f0f5dcb7919dc14a1b958109a5b1d2aff3ba240c18732f64c",
+    "constant/polyMesh/sets/lowWeightFaces": "4650adde9d1dc6da8f829d1a5c81459ee43901d59491c8bedc2ab7fd35faf549",
+    "constant/polyMesh/sets/nonOrthoFaces": "334aa0e9f7de2a3cced4b7bdb17b2abf83f88e01e0182a9323ac18c4b821856c",
+    "constant/polyMesh/sets/underdeterminedCells": "bce36270ec27f5b9d52847a47a5fe014decd92d11d03f8a129d67cd37e48ffa8",
+    "constant/transportProperties": "9a526747418f948481bcfd5b4c6d986aa23bce7a12b2608f572d70da08d0771d",
+    "constant/triSurface/surface.stl": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+    "constant/turbulenceProperties": "0ec08e6dfa7a27a866912c0c7b7cee964a1b4aeb6c1dcf30d3093fbe9e6cbbb9",
+    "system/controlDict": "b5e1bf10e136d3af5929fe3db3a2e98b6a085e80ffef41aadadabf10a84d8068",
+    "system/fvSchemes": "346f8d38df8b33c607a8efa77ad1d03575f2ceb28728724f1c7b705aca29ed73",
+    "system/fvSolution": "6b5838e80b73419f5b3c22368ed55b87a2611ecb836b68b3d912f3c81094f983",
+    "system/orig/controlDict.orig": "417c2aaa5c692b3f1225476a6864a6459ab6e3d40c3524b623db78f76361b370",
+    "system/orig/fvSchemes.orig": "9b783cc336771b5dea75d79bfcb9fc7b76395757434626260310cd176c89a10c",
+    "system/orig/fvSolution.orig": "18a1bb20f415f182f47989e2710e8a1aa87d769cb6f6e7928c4fcf4acc6d9aa0",
+    "case_manifest.json": "f870241b5b727f32ad744953b83565026c4992151c9b06a92b903da74306d164",
+    "config.json": "191b8aecac14fe4609c05490d098b175a0a93b69eb6e7eb0eeaeb534e98f43b1"
+  },
+  "solver_sha256": "a5b1381b9afd1dc4c2c2014ef8f45fa0a2f2c0c01f36aa4bda866a3ddc8c38ea",
+  "adapter_sha256": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+  "controller_sha256": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22"
+}

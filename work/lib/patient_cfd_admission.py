@@ -13,7 +13,16 @@ ROOT = Path(__file__).resolve().parents[2]
 INPUT_ROOT = Path('C:/ts_work/project_cases/patient_cfd_inputs')
 # Keep uploaded IDs identical to the pipeline definition, which uses 16 hex.
 from ct_case_pipeline import CASE_RE as UPLOADED_CASE_RE
-CASE_RE = re.compile(r'(?:p[0-9]+(?:t[0-9]+)?|' + UPLOADED_CASE_RE.pattern + r'|b[0-9]+_engineering)')
+ENGINEERING_CASE_RE = re.compile(r'(b[0-9]+_engineering)(?:_(t[0-9]{3}[a-z]))?')
+CASE_RE = re.compile(r'(?:p[0-9]+(?:t[0-9]+)?|' + UPLOADED_CASE_RE.pattern + r'|' + ENGINEERING_CASE_RE.pattern + r')')
+
+
+def engineering_provenance(case_id):
+    """A version is a numerical trial of the same frozen source sample."""
+    match = ENGINEERING_CASE_RE.fullmatch(case_id)
+    if not match or not match[2]:
+        return None
+    return {'origin_case_id': match[1], 'version': match[2]}
 
 
 def sha256(path):
@@ -62,13 +71,18 @@ def admission(case_id, root=None, current_source_binding=None):
         config = json.loads(config_path.read_text(encoding='utf-8'))
         manifest = json.loads((template / 'case_manifest.json').read_text(encoding='utf-8'))
         binding = data.get('current_source_binding')
-        if case_id.endswith('_engineering'):
+        if ENGINEERING_CASE_RE.fullmatch(case_id):
             originals = data.get('frozen_sources', {})
             frozen = bool(originals) and binding == {'kind':'frozen_standalone_sample','sample_id':case_id}
             for name, item in originals.items():
                 source_path = contained(folder,item['file'])
                 frozen = frozen and source_path.is_file() and sha256(source_path) == item.get('sha256')
             check('current_source_binding', frozen, '独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份')
+            provenance = engineering_provenance(case_id)
+            if provenance:
+                check('engineering_version_provenance', all(item.get('engineering_provenance') == provenance for item in
+                      (data, config, manifest, data.get('engineering_authorization', {}))),
+                      '工程版本仅改变数值试验身份；原始样例血缘与版本在所有记录中一致')
         else:
             check('current_source_binding', bool(current_source_binding) and binding == current_source_binding,
                   '当前CT、landmark、分割/边界revision身份必须与该工程输入一致；改变后重新准入')
@@ -121,6 +135,9 @@ def validate_engineering_authorization(case, config_path, path):
     identity = data.get('case_id')
     if not isinstance(identity, str) or not CASE_RE.fullmatch(identity) or manifest.get('patient_case_id') != identity or config.get('geometry', {}).get('case_id') != identity:
         raise ValueError('工程授权病例身份不匹配')
+    provenance = engineering_provenance(identity)
+    if provenance and any(item.get('engineering_provenance') != provenance for item in (data, config, manifest)):
+        raise ValueError('工程版本原始样例血缘或版本不匹配')
     surface = contained(case, data.get('surface_file'))
     if not surface.is_file() or sha256(surface) != data.get('surface_sha256') or manifest.get('final_surface_sha256') != data.get('surface_sha256'):
         raise ValueError('工程授权最终表面失配')

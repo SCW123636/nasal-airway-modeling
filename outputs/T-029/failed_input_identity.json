@@ -1,0 +1,216 @@
+{
+  "schema": "t029_failed_input_evidence/v1",
+  "failed": {
+    "0/p": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\0\\p",
+      "sha256": "6cb47a2bc5b04937b18a82717dab277c44744f8f692828c35b46a25bc480a779",
+      "bytes": 365
+    },
+    "0/U": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\0\\U",
+      "sha256": "0da3bdbee9f1fdbe0b0f007edf9ea3facf9361b1b5a2d47b08c8e2e3778df912",
+      "bytes": 364
+    },
+    "system/fvSchemes": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\system\\fvSchemes",
+      "sha256": "346f8d38df8b33c607a8efa77ad1d03575f2ceb28728724f1c7b705aca29ed73",
+      "bytes": 700
+    },
+    "system/fvSolution": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\system\\fvSolution",
+      "sha256": "6b5838e80b73419f5b3c22368ed55b87a2611ecb836b68b3d912f3c81094f983",
+      "bytes": 408
+    },
+    "system/controlDict": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\system\\controlDict",
+      "sha256": "bebeb69e68321a8963f40223553130d2af215e789c8215ecae38a9de840a39e1",
+      "bytes": 2605
+    },
+    "constant/transportProperties": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\constant\\transportProperties",
+      "sha256": "9a526747418f948481bcfd5b4c6d986aa23bce7a12b2608f572d70da08d0771d",
+      "bytes": 139
+    },
+    "constant/turbulenceProperties": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\constant\\turbulenceProperties",
+      "sha256": "0ec08e6dfa7a27a866912c0c7b7cee964a1b4aeb6c1dcf30d3093fbe9e6cbbb9",
+      "bytes": 115
+    },
+    "constant/polyMesh/boundary": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\constant\\polyMesh\\boundary",
+      "sha256": "0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135",
+      "bytes": 1492
+    },
+    "case_manifest.json": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\case_manifest.json",
+      "sha256": "f016dcd34e92761d76614771b426f688bd9315942a7d7e6d75039cb67bd1c7e7",
+      "bytes": 1123
+    },
+    "config.json": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\config.json",
+      "sha256": "191b8aecac14fe4609c05490d098b175a0a93b69eb6e7eb0eeaeb534e98f43b1",
+      "bytes": 4510
+    },
+    "engineering_authorization.json": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\engineering_authorization.json",
+      "sha256": "13a5b65de672fb7c6ea2bc7ff1d82cc68aaf71eaf3d34d089c3efa5803a5542b",
+      "bytes": 1823
+    },
+    "engineering_authorization_record.md": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\engineering_authorization_record.md",
+      "sha256": "15443c0f38af02790a4345291f4219f910fcf65952693ac9b04ba728a199d880",
+      "bytes": 716
+    },
+    "run_manifest.json": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\run_manifest.json",
+      "sha256": "6ace3a98f84c09f798231553cc18e0a3ff68ef3f29ab4cef160fcf754cc92552",
+      "bytes": 5566
+    },
+    "run_status.json": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\run_status.json",
+      "sha256": "796c669dfbf41e2a4f4eb63e1aaada29e3af3d729b7e8510cce65b97624a50b5",
+      "bytes": 352
+    },
+    "log.checkMesh": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\log.checkMesh",
+      "sha256": "eb40d6f72fbb80cc5e16e2d5d214657e9015ac16f023085089b089bf19c15b29",
+      "bytes": 5371
+    },
+    "log.simpleFoam": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\log.simpleFoam",
+      "sha256": "4989d062c953098d773594e020b236c12fd1c6798b7eca9687e9e8715dde51e7",
+      "bytes": 195310
+    },
+    "execution.log": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\execution.log",
+      "sha256": "82e8d5d6fa2955475dcd1ea2359cecbec3f9b92c7c10a373c35627db50e891b3",
+      "bytes": 1080
+    },
+    "postProcessing/flow_nasopharynx_outlet/0/surfaceFieldValue.dat": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\postProcessing\\flow_nasopharynx_outlet\\0\\surfaceFieldValue.dat",
+      "sha256": "95d20aa8a66398e8081d09ed4eddd278737a9dcb1d9d2c67f36194f911db41ae",
+      "bytes": 9066
+    },
+    "postProcessing/flow_nostril_L/0/surfaceFieldValue.dat": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\postProcessing\\flow_nostril_L\\0\\surfaceFieldValue.dat",
+      "sha256": "cac43e125bca28d4b7b183945c3a5c3a6974e7a5ef97e188c99ec3c1f0fb97db",
+      "bytes": 9275
+    },
+    "postProcessing/flow_nostril_R/0/surfaceFieldValue.dat": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\postProcessing\\flow_nostril_R\\0\\surfaceFieldValue.dat",
+      "sha256": "3c1ff031d8c9fa78cb573b31f26b64e6a21faffea34dc8fa046714d893cc421f",
+      "bytes": 9204
+    },
+    "postProcessing/pressure_nasopharynx_outlet/0/surfaceFieldValue.dat": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\postProcessing\\pressure_nasopharynx_outlet\\0\\surfaceFieldValue.dat",
+      "sha256": "0d68a66d6d88d9fb6e73c1586b8cfe49b512440bd7243900c8a5147954b5dacd",
+      "bytes": 9071
+    },
+    "postProcessing/pressure_nostril_L/0/surfaceFieldValue.dat": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\postProcessing\\pressure_nostril_L\\0\\surfaceFieldValue.dat",
+      "sha256": "1ddf5fe116b9b9007adb4cacd7fc15565abd7c81d9d30b42e36931179684cb06",
+      "bytes": 9061
+    },
+    "postProcessing/pressure_nostril_R/0/surfaceFieldValue.dat": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\nasal_cfd_workspace_jobs\\s_942fdbebfffd433c8fcec956\\evaluations\\eval_001\\postProcessing\\pressure_nostril_R\\0\\surfaceFieldValue.dat",
+      "sha256": "a68412f479462937d0595702c2e65000072cffecc89b1e731fb6900478ed626b",
+      "bytes": 9061
+    }
+  },
+  "stable": {
+    "0/p": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\0\\p",
+      "sha256": "c16b8fcc1db0e87ac8ac7ca8abb0ae90ff0899dc690f91abde9ab1aef25a1709",
+      "bytes": 303
+    },
+    "0/U": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\0\\U",
+      "sha256": "6ac06678c4bfd19425fbf320e11efef78ba5fd15d60d84802ee34f211855b5e2",
+      "bytes": 382
+    },
+    "system/fvSchemes": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\system\\fvSchemes",
+      "sha256": "346f8d38df8b33c607a8efa77ad1d03575f2ceb28728724f1c7b705aca29ed73",
+      "bytes": 700
+    },
+    "system/fvSolution": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\system\\fvSolution",
+      "sha256": "6b5838e80b73419f5b3c22368ed55b87a2611ecb836b68b3d912f3c81094f983",
+      "bytes": 408
+    },
+    "system/controlDict": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\system\\controlDict",
+      "sha256": "a8b6664e482a94d0e4b86e7eb6fcd0c7e7ea402c19838fb9091eba7e0b7b281b",
+      "bytes": 3586
+    },
+    "constant/transportProperties": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\constant\\transportProperties",
+      "sha256": "9a526747418f948481bcfd5b4c6d986aa23bce7a12b2608f572d70da08d0771d",
+      "bytes": 139
+    },
+    "constant/turbulenceProperties": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\constant\\turbulenceProperties",
+      "sha256": "0ec08e6dfa7a27a866912c0c7b7cee964a1b4aeb6c1dcf30d3093fbe9e6cbbb9",
+      "bytes": 115
+    },
+    "log.simpleFoam.part1_T533": {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lenovo2\\patient_cfd\\t004_diag\\log.simpleFoam.part1_T533",
+      "sha256": "f5fba9fafc060d6f3c0607c713b7779c7ba86b9ae216fb4b8939de01eda4e5cc",
+      "bytes": 465643
+    }
+  },
+  "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+  "solver_or_checkmesh_invoked": false,
+  "actual_mesh_sha256": {
+    "constant/polyMesh/boundary": "0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135",
+    "constant/polyMesh/cellZones": "093a2ccece2d7b70f1b19b30cc3d0d0ae6d78080993f7abf1fea5a175d8da1cf",
+    "constant/polyMesh/faces": "d27b6b3f75bf480845a66d6e540c3bda4465164a7f3355d7e8e780150113cc55",
+    "constant/polyMesh/faceZones": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f",
+    "constant/polyMesh/neighbour": "4c0501f44ee1d828ae8ab841883380a34a7978a6f95fa76ce9dd270995047bcf",
+    "constant/polyMesh/owner": "275538829bc0ef71be2bb6b2c1438385df76662aee8ad6db992c63731f61ac52",
+    "constant/polyMesh/points": "0acac3f227449e415fce19f0a4eb240c1e88837aeefd6a6fbeed29b0dd7d40a3",
+    "constant/polyMesh/pointZones": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29",
+    "constant/polyMesh/sets/fluid": "da9404a9ed7a4e7f0f5dcb7919dc14a1b958109a5b1d2aff3ba240c18732f64c",
+    "constant/polyMesh/sets/lowWeightFaces": "4650adde9d1dc6da8f829d1a5c81459ee43901d59491c8bedc2ab7fd35faf549",
+    "constant/polyMesh/sets/nonOrthoFaces": "334aa0e9f7de2a3cced4b7bdb17b2abf83f88e01e0182a9323ac18c4b821856c",
+    "constant/polyMesh/sets/underdeterminedCells": "bce36270ec27f5b9d52847a47a5fe014decd92d11d03f8a129d67cd37e48ffa8"
+  },
+  "mesh_matches_recorded_input": true,
+  "numerical_templates_byte_identical_to_t006": {
+    "system/fvSchemes": true,
+    "system/fvSolution": true,
+    "constant/transportProperties": true,
+    "constant/turbulenceProperties": true
+  },
+  "current_source_sha256": {
+    "work/lib/openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+    "work/lib/patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+    "work/07_cfd_pipeline/solver/run_openfoam_case.py": "a5b1381b9afd1dc4c2c2014ef8f45fa0a2f2c0c01f36aa4bda866a3ddc8c38ea",
+    "work/lib/pressure_feedback.py": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22"
+  },
+  "recorded_adapter_sha256": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+  "recorded_runner_sha256": "a5b1381b9afd1dc4c2c2014ef8f45fa0a2f2c0c01f36aa4bda866a3ddc8c38ea",
+  "current_adapter_matches_failure": true,
+  "current_runner_matches_failure": true,
+  "runtime_time_200": {
+    "p": {
+      "bytes": 16578523,
+      "dimensions": "[0 2 -2 0 0 0 0]",
+      "boundary_found_in_last_4MiB": true,
+      "boundary_sha256": "852f836694bfa5a998d196dec82804ae28b2252ff900124df6305be3149e23f7"
+    },
+    "U": {
+      "bytes": 53286284,
+      "dimensions": "[0 1 -1 0 0 0 0]",
+      "boundary_found_in_last_4MiB": true,
+      "boundary_sha256": "599c43493adb28e8ee58d74f3837979b4b5f2965a43238b0f7c9c4d83e7ce6f3"
+    },
+    "phi": {
+      "bytes": 39854011,
+      "dimensions": "[0 3 -1 0 0 0 0]",
+      "boundary_found_in_last_4MiB": true,
+      "boundary_sha256": "1a99b42e55b135ad72bd7f820bb02c68caf30cc81ed5ed1d70d60c56bcb318ac"
+    }
+  },
+  "all_frozen_checks_passed": true
+}

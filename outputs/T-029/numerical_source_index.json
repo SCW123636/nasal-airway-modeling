@@ -1,0 +1,37 @@
+{
+  "installed_package_version": "1912.200626-1",
+  "examples": [
+    {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\usr\\share\\doc\\openfoam-examples\\examples\\incompressible\\simpleFoam\\simpleCar\\system\\fvSchemes",
+      "copied_to": "outputs\\T-029\\v1912_official_examples\\incompressible\\simpleFoam\\simpleCar\\system\\fvSchemes",
+      "sha256": "3e8483787fffb975949bad1bfdfbb008a08d3528b02df4b363e0dfcdc9648ef4",
+      "provenance": "installed openfoam-examples 1912.200626-1; v1912 header retained; syntax availability evidence, not patient stability validation"
+    },
+    {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\usr\\share\\doc\\openfoam-examples\\examples\\incompressible\\simpleFoam\\pitzDailyExptInlet\\system\\fvSchemes",
+      "copied_to": "outputs\\T-029\\v1912_official_examples\\incompressible\\simpleFoam\\pitzDailyExptInlet\\system\\fvSchemes",
+      "sha256": "1dc356d5d6bd8b53997a6cacdb66d6634c8ae8370443da9028fa4c78127cca35",
+      "provenance": "installed openfoam-examples 1912.200626-1; v1912 header retained; syntax availability evidence, not patient stability validation"
+    },
+    {
+      "source": "\\\\wsl.localhost\\Ubuntu-22.04\\usr\\share\\doc\\openfoam-examples\\examples\\incompressible\\overSimpleFoam\\aeroFoil\\aeroFoil_snappyHexMesh\\system\\fvSchemes",
+      "copied_to": "outputs\\T-029\\v1912_official_examples\\incompressible\\overSimpleFoam\\aeroFoil\\aeroFoil_snappyHexMesh\\system\\fvSchemes",
+      "sha256": "1f4fed10eb9114cf260e50b64acf2d5f82fbea56a11a519aa34f3591569b621e",
+      "provenance": "installed openfoam-examples 1912.200626-1; v1912 header retained; syntax availability evidence, not patient stability validation"
+    }
+  ],
+  "external_lookup_outcomes": [
+    {
+      "requested": "www.openfoam.com guides v1912 upwind doc",
+      "result": "HTTP404; not used"
+    },
+    {
+      "requested": "develop.openfoam.com raw OpenFOAM-v1912 upwind.H",
+      "result": "HTTP200 login HTML, not source; rejected"
+    },
+    {
+      "requested": "sources.debian.org 1912 upwind.H",
+      "result": "HTTP200 JavaScript challenge, not source; rejected"
+    }
+  ]
+}

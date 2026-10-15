@@ -37,13 +37,14 @@ import math
 import os
 import re
 import shutil
+import subprocess
 import sys
 import time
 import uuid
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "solver_reference"))
-from run_reference import execute, foam_list_text
+from run_reference import foam_list_text
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import mesh_cache
@@ -111,7 +112,7 @@ def evaluate_contract(args):
     return contract
 
 
-SCRIPT_VERSION = "1.2.0"
+SCRIPT_VERSION = "1.2.1"
 ENV_OVERRIDES = {"WM_PROJECT_DIR": "/usr/share/openfoam",
                  "FOAM_ETC": "/usr/share/openfoam/etc",
                  "WM_PROJECT_VERSION": "v1912"}
@@ -125,6 +126,31 @@ MESH_STEPS = ["blockMesh", "snappyHexMesh", "checkMesh"]
 
 def utc_now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+class CommandExecutionError(RuntimeError):
+    """Preserve the actual subprocess record before aborting the sequence."""
+    def __init__(self, record):
+        self.record = record
+        super().__init__(f'{record["command"][0]} failed: {record["log"]}')
+
+
+def execute(args, case, environment, logname):
+    begin = time.perf_counter()
+    record = {'command': args, 'exit_code': None, 'log': str(case / logname),
+              'started_at': utc_now()}
+    try:
+        with (case / logname).open('w', encoding='utf-8') as output:
+            process = subprocess.run(args, cwd=case, env=environment,
+                                     stdout=output, stderr=subprocess.STDOUT)
+        record['exit_code'] = process.returncode
+    except OSError as exc:
+        record['launch_error'] = repr(exc)
+    record.update(elapsed_seconds=time.perf_counter() - begin, finished_at=utc_now())
+    print(json.dumps(record), flush=True)
+    if record['exit_code'] != 0:
+        raise CommandExecutionError(record)
+    return record
 
 
 def build_environment():
@@ -561,9 +587,12 @@ def main(argv=None):
                               "current_command": None, "last_log_tail": None, "updated_at": utc_now()})
     profile_done = False
     mesh_completed = []
+    current_command = None
+    current_log = None
     try:
         idx = 0
         for step in steps:
+            current_command, current_log = None, None
             if step == 'simpleFoam':
                 quality = mesh_quality(case)
                 run_manifest['mesh_quality'] = quality
@@ -582,6 +611,7 @@ def main(argv=None):
             for subname, cmd in _effective_sequence(step, commands, parallel, nproc):
                 idx += 1
                 log_name = "log." + subname
+                current_command, current_log = cmd, str(case / log_name)
                 tail = None
                 if (case / log_name).is_file():
                     tail = "".join((case / log_name).read_text(encoding="utf-8", errors="replace").splitlines()[-8:])
@@ -590,7 +620,11 @@ def main(argv=None):
                                           "current_step_index": idx, "total_steps": total,
                                           "current_command": cmd, "last_log_tail": tail,
                                           "updated_at": utc_now()})
-                run_manifest["steps"].append(execute(cmd, case, environment, log_name))
+                try:
+                    run_manifest["steps"].append(execute(cmd, case, environment, log_name))
+                except CommandExecutionError as exc:
+                    run_manifest["steps"].append(exc.record)
+                    raise
                 write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
                                           "started_at": run_manifest["started_at"], "status": "completed",
                                           "current_step_index": idx, "total_steps": total,
@@ -614,20 +648,29 @@ def main(argv=None):
         write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
                                   "started_at": run_manifest["started_at"], "status": "failed",
                                   "current_step_index": idx, "total_steps": total,
-                                  "current_command": run_manifest["steps"][-1]["command"] if run_manifest["steps"] else None,
-                                  "failed_step": run_manifest["steps"][-1]["command"][0] if run_manifest["steps"] else None,
+                                  "current_command": current_command,
+                                  "failed_step": current_command[0] if current_command else None,
+                                  "exit_code": exc.record['exit_code'] if isinstance(exc, CommandExecutionError) else None,
+                                  "log": current_log,
                                   "last_log_tail": None, "updated_at": utc_now(), "error": repr(exc)})
         raise
     finally:
         run_manifest["finished_at"] = utc_now()
         (case / "run_manifest.json").write_text(
             json.dumps(run_manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        write_status(status_path, {"schema": "nasal_cfd_run_status/v1", "case": str(case),
+        final_status = {"schema": "nasal_cfd_run_status/v1", "case": str(case),
                                   "started_at": run_manifest["started_at"],
                                   "status": run_manifest["execution_status"],
-                                  "current_step_index": total, "total_steps": total,
+                                  "current_step_index": idx, "total_steps": total,
                                   "current_command": None, "last_log_tail": None,
-                                  "updated_at": utc_now()})
+                                  "updated_at": utc_now()}
+        if run_manifest['execution_status'] == 'failed':
+            final_status.update(current_command=current_command,
+                                failed_step=current_command[0] if current_command else None,
+                                log=current_log, error=run_manifest.get('error'))
+            if run_manifest['steps'] and run_manifest['steps'][-1]['command'] == current_command:
+                final_status['exit_code'] = run_manifest['steps'][-1].get('exit_code')
+        write_status(status_path, final_status)
     # Record a mesh cache entry only after a complete, checked mesh this run.
     if mesh_requested and run_manifest["execution_status"] == "completed":
         # mesh_completed freezes the step list at checkMesh; fall back to the mesh steps

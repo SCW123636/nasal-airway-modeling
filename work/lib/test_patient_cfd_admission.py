@@ -57,6 +57,58 @@ class AdmissionTests(unittest.TestCase):
         self.assertEqual(result['clinical_validation'],'not_validated')
         self.assertTrue(result['clinical_readiness_reasons'])
 
+    def version_package(self, case_id='b15_engineering_t029a'):
+        folder = self.root / case_id
+        shutil.copytree(self.case, folder)
+        provenance = {'origin_case_id': 'b15_engineering', 'version': 't029a'}
+        config_path = folder / 'template/config.json'
+        config = json.loads(config_path.read_text())
+        config['geometry']['case_id'] = case_id
+        config['engineering_provenance'] = provenance
+        write_json(config_path, config)
+        manifest = dict(self.manifest, patient_case_id=case_id, engineering_provenance=provenance)
+        write_json(folder / 'template/case_manifest.json', manifest)
+        authority = dict(self.authority, case_id=case_id, config_sha256=gate.sha256(config_path), engineering_provenance=provenance)
+        write_json(folder / 'template/engineering_authorization.json', authority)
+        data = copy.deepcopy(self.data)
+        data.update(case_id=case_id, config_sha256=authority['config_sha256'], engineering_provenance=provenance,
+                    current_source_binding={'kind':'frozen_standalone_sample', 'sample_id':case_id},
+                    engineering_authorization=dict(authority, record_file='template/engineering_authorization_record.md'))
+        write_json(folder / 'admission.json', data)
+        return folder
+
+    def test_versioned_sample_retains_origin_and_strict_frozen_sources(self):
+        folder = self.version_package()
+        result = gate.admission(folder.name, self.root)
+        self.assertTrue(result['passed'], result)
+        self.assertEqual(result['clinical_validation'], 'not_validated')
+        self.assertIn(folder.name, gate.registered_cases(self.root))
+        authority = gate.validate_engineering_authorization(folder / 'template', folder / 'template/config.json', folder / 'template/engineering_authorization.json')
+        self.assertTrue(authority['allowed'])
+        (folder / 'source.msh').write_text('changed source')
+        self.assertFalse(gate.admission(folder.name, self.root)['passed'])
+
+    def test_versioned_sample_mismatched_origin_refuses_admission_and_authority(self):
+        folder = self.version_package()
+        data = json.loads((folder / 'admission.json').read_text())
+        data['engineering_provenance']['origin_case_id'] = 'b1501_engineering'
+        write_json(folder / 'admission.json', data)
+        self.assertFalse(gate.admission(folder.name, self.root)['passed'])
+        path = folder / 'template/engineering_authorization.json'
+        auth = json.loads(path.read_text())
+        auth['engineering_provenance']['origin_case_id'] = 'b1501_engineering'
+        write_json(path, auth)
+        with self.assertRaisesRegex(ValueError, '血缘'):
+            gate.validate_engineering_authorization(folder / 'template', folder / 'template/config.json', path)
+
+    def test_unrecognized_engineering_suffix_and_wrong_version_refuse(self):
+        for name in ('b15_engineering_other', 'b15_engineering_t29a', 'b15_engineering_t029a_extra'):
+            self.assertFalse(gate.CASE_RE.fullmatch(name))
+            with self.assertRaises(ValueError):
+                gate.admission(name, self.root)
+        folder = self.version_package('b15_engineering_t029b')
+        self.assertFalse(gate.admission(folder.name, self.root)['passed'])
+
     def test_scoped_authorization_keeps_readiness_warnings(self):
         value = gate.validate_engineering_authorization(self.template,self.config,self.authpath)
         self.assertTrue(value['allowed'])
