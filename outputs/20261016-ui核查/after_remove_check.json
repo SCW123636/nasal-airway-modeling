@@ -1,0 +1,23 @@
+{
+  "errors": [],
+  "checks": {
+    "footer_panel": 0,
+    "log_body": 0,
+    "log_count": 0,
+    "log_lines": 0,
+    "proj_nodes": 13,
+    "tabs": [
+      "三维检查",
+      "咽部扩展",
+      "流线",
+      "对比",
+      "任务控制台"
+    ],
+    "prop_placeholder": "在左侧选择项目或节点，这里显示其真实参数。",
+    "flow_children_after_select": 8,
+    "prop_has_id": true,
+    "jobs_rows": 2,
+    "jobs_refresh_btn": 1
+  },
+  "ok": true
+}

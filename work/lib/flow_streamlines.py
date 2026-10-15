@@ -32,6 +32,14 @@ N_SEED = 60
 STALL_SPEED = 3e-3
 
 PATCH_FILES = ("nostril_L", "nostril_R", "nasopharynx_outlet", "wall")
+# 出口 patch 名随域口径变化：短域 = nasopharynx_outlet，扩展域 = oropharynx_truncation_outlet。
+# 默认保持旧值（短域）→ 旧调用行为零变化；调用方显式传 outlet 走扩展域（T-057 参数化）。
+DEFAULT_OUTLET = "nasopharynx_outlet"
+
+
+def patch_files(outlet=DEFAULT_OUTLET):
+    """按出口 patch 名拼出四个必须 patch（鼻孔 L/R + 出口 + 壁面）。"""
+    return ("nostril_L", "nostril_R", outlet, "wall")
 ASSETS = Path(__file__).resolve().parent / "assets"
 THREE_JS_PATH = ASSETS / "three.min.js"
 TEMPLATE_PATH = ASSETS / "streamlines_template.html"
@@ -72,8 +80,9 @@ def block_arrays(path, section):
     return out
 
 
-def extract_field(vtk_dir):
-    """vtk_dir: 含 internal.vtu 与四个 patch vtp 的目录。返回 numpy 场 dict。"""
+def extract_field(vtk_dir, outlet=DEFAULT_OUTLET):
+    """vtk_dir: 含 internal.vtu 与四个 patch vtp 的目录。返回 numpy 场 dict。
+    outlet: 出口 patch 名（扩展域传 "oropharynx_truncation_outlet"，T-057）。"""
     vtk_dir = Path(vtk_dir)
     internal = vtk_dir / "internal.vtu"
     pts = block_arrays(internal, "Points")["Points"].astype(np.float64)
@@ -88,7 +97,7 @@ def extract_field(vtk_dir):
     conn = conn.reshape(-1, 4)
 
     field = {"pts": pts, "U": U, "p": p, "conn": conn}
-    for nm in PATCH_FILES:
+    for nm in patch_files(outlet):
         path = _patch_path(vtk_dir, nm)
         ppts = block_arrays(path, "Points")["Points"].astype(np.float64)
         polys = block_arrays(path, "Polys")
@@ -151,12 +160,13 @@ class Field:
         return bary @ self.U[nodes], bary @ self.p[nodes] * RHO
 
 
-def trace_lines(field, n_seed=N_SEED, ds=DS, max_steps=MAX_STEPS, seed=7):
+def trace_lines(field, n_seed=N_SEED, ds=DS, max_steps=MAX_STEPS, seed=7,
+                outlet=DEFAULT_OUTLET):
     """确定性追踪（固定 rng 种子）：返回 (lines, core_meta)。与 T-044 口径逐位一致。"""
     pts = field["pts"].astype(np.float64)
     conn = field["conn"].astype(np.int64)
     F = Field(pts, conn, field["U"].astype(np.float64), field["p"].astype(np.float64))
-    tree_out = cKDTree(field["nasopharynx_outlet_pts"].astype(np.float64))
+    tree_out = cKDTree(field[outlet + "_pts"].astype(np.float64))
     tree_nl = cKDTree(field["nostril_L_pts"].astype(np.float64))
     tree_nr = cKDTree(field["nostril_R_pts"].astype(np.float64))
     rng = np.random.default_rng(seed)
@@ -367,9 +377,10 @@ def trace_lines_vtk(vtk_dir, n_seed=N_SEED, seed=7, max_propagation=0.5,
     return lines
 
 
-def classify_endpoints(field, lines, outlet_dist=1.2e-3, inlet_dist=1.2e-3, seed_gap=5e-3):
+def classify_endpoints(field, lines, outlet_dist=1.2e-3, inlet_dist=1.2e-3, seed_gap=5e-3,
+                       outlet=DEFAULT_OUTLET):
     """按统一口径把终止原因归到 reached_outlet / back_to_inlet / exited_wall_region / stall_near_wall。"""
-    tree_out = cKDTree(field["nasopharynx_outlet_pts"].astype(np.float64))
+    tree_out = cKDTree(field[outlet + "_pts"].astype(np.float64))
     tree_in = {"L": cKDTree(field["nostril_L_pts"].astype(np.float64)),
                "R": cKDTree(field["nostril_R_pts"].astype(np.float64))}
     reasons = {}
@@ -398,18 +409,20 @@ def classify_endpoints(field, lines, outlet_dist=1.2e-3, inlet_dist=1.2e-3, seed
     return core
 
 
-def build_streamlines_vtk(vtk_dir, out_html, out_meta, context, n_seed=N_SEED, seed=7):
-    """vtk 引擎版构建：vtkStreamTracer 追踪 + 统一归类 + 同一模板渲染。"""
-    field = extract_field(vtk_dir)
+def build_streamlines_vtk(vtk_dir, out_html, out_meta, context, n_seed=N_SEED, seed=7,
+                          outlet=DEFAULT_OUTLET):
+    """vtk 引擎版构建：vtkStreamTracer 追踪 + 统一归类 + 同一模板渲染。
+    outlet: 扩展域传 "oropharynx_truncation_outlet"（T-057）。"""
+    field = extract_field(vtk_dir, outlet=outlet)
     lines = trace_lines_vtk(vtk_dir, n_seed=n_seed, seed=seed)
-    core = classify_endpoints(field, lines)
+    core = classify_endpoints(field, lines, outlet=outlet)
     meta = dict(core)
     meta["engine"] = "vtkStreamTracer (ParaView kernel, RK45 + library interpolation)"
     meta["source_vtk_dir"] = str(Path(vtk_dir).resolve())
     meta["rho_for_pressure_Pa"] = RHO
     meta["lines"] = [{k: v for k, v in l.items() if k not in ("pts_mm", "spd", "pPa")}
                      for l in lines]
-    html = render_html(field, lines, meta, context)
+    html = render_html(field, lines, meta, context, outlet=outlet)
     Path(out_html).write_text(html, encoding="utf-8")
     Path(out_meta).write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     return meta
@@ -446,7 +459,7 @@ def _u32(a):
         np.ascontiguousarray(a).tobytes()).decode("ascii")
 
 
-def render_html(field, lines, meta, context):
+def render_html(field, lines, meta, context, outlet=DEFAULT_OUTLET):
     """生成单文件三维流线 HTML。context 注入标题/来源/口径/诚实声明（本模块不编造）。"""
     allpts = np.concatenate([l["pts_mm"] for l in lines] + [field["wall_pts"] * 1000.0])
     bmin, bmax = allpts.min(axis=0), allpts.max(axis=0)
@@ -479,8 +492,8 @@ def render_html(field, lines, meta, context):
                _u32(field["nostril_L_tri"].astype(np.uint32).reshape(-1)),
                _f32s((field["nostril_R_pts"] * 1000.0).astype(np.float32).reshape(-1)),
                _u32(field["nostril_R_tri"].astype(np.uint32).reshape(-1)),
-               _f32s((field["nasopharynx_outlet_pts"] * 1000.0).astype(np.float32).reshape(-1)),
-               _u32(field["nasopharynx_outlet_tri"].astype(np.uint32).reshape(-1)),
+               _f32s((field[outlet + "_pts"] * 1000.0).astype(np.float32).reshape(-1)),
+               _u32(field[outlet + "_tri"].astype(np.uint32).reshape(-1)),
                repr(float(np.percentile(allspd, 2))), repr(float(allspd.max())),
                repr(float(np.percentile(allp, 2))), repr(float(allp.max())),
                json.dumps(center), repr(radius),

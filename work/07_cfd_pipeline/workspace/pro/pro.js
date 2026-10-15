@@ -18,6 +18,7 @@ const el = (tag, text, cls) => { const e = document.createElement(tag);
 /* ---------- 状态 ---------- */
 const S = {
   cases: [], jobs: [], metrics: null,                // metrics = patient_metrics.json（已核验搬运）
+  streamlines: null,                                 // streamlines_manifest.json（已核验流线产物清单）
   caseId: null,                                      // null = 未选项目
   view: 'geometry',
   sel: null,                                         // {kind:'flow'|'job', key}
@@ -110,6 +111,14 @@ async function loadMetrics() {
   try {
     S.metrics = await jget('/workspace/pro/patient_metrics.json');
   } catch (e) { S.metrics = null; }
+}
+/* 已核验流线产物清单（T-057）：今天的患者求解走 WSL 直跑，job 体系里没有 streamlines.html，
+   若无此回退则「流线」页永远空白。清单 = 搬运模式（同 patient_metrics.json），不伪造 job 记录。 */
+async function loadStreamlines() {
+  try {
+    const d = await jget('/workspace/pro/streamlines_manifest.json');
+    S.streamlines = (d.items || []);
+  } catch (e) { S.streamlines = []; }
 }
 
 /* ---------- 处理树状态推导（P4：state = f(自身产物, 上游 state)） ---------- */
@@ -263,8 +272,13 @@ function renderView() {
   if (S.view === 'airway') { body.append(fr('/workspace/upper-airway.html')); return; }
   if (S.view === 'streamlines') {
     const s = latestStreamlines();
-    if (s) body.append(fr(s.url));
-    else body.append(el('div', '暂无可用的流线产物：患者任务完成后将自动生成（streamlines.html）。', 'placeholder'));
+    if (s) {
+      const it = s.item;
+      body.append(el('p', it ? ('产物清单搬运：' + it.label + ' · ' + it.domain
+        + ' · ' + it.source + ' · ' + it.clinical_status)
+        : ('job 产物：' + (s.job ? s.job.id.slice(0, 12) + '…' : '—')), 'proj-note'));
+      body.append(fr(s.url));
+    } else body.append(el('div', '暂无可用的流线产物：患者任务完成后将自动生成（streamlines.html）。', 'placeholder'));
     return;
   }
   if (S.view === 'compare') { body.append(renderCompare()); return; }
@@ -279,7 +293,11 @@ function latestStreamlines() {
     const a = (j.artifacts || []).find(a => a.name === 'streamlines.html');
     if (a) return {url: a.url, job: j};
   }
-  return null;
+  /* 回退：已核验产物清单（优先当前项目，其次第一条） */
+  const items = S.streamlines || [];
+  if (!items.length) return null;
+  const mine = S.caseId ? items.find(i => i.case_id === S.caseId) : null;
+  return {url: (mine || items[0]).url, item: mine || items[0]};
 }
 
 /* ---------- 中：对比视图（T-055 重设计：V1 参考带 + V2 配对） ---------- */
@@ -678,31 +696,16 @@ function renderJobProps(body, j) {
   body.append(sec);
 }
 
-/* ---------- 底：日志 ---------- */
-function renderLog() {
-  const body = $('log-body'); body.replaceChildren();
-  const evs = [];
-  for (const j of S.jobs.slice(0, 8)) {
-    const kind = j.status === 'failed' ? 'err' : (j.status === 'completed' ? 'ok' : 'info');
-    evs.push({t: (j.updated_at || '').slice(5, 19),
-      m: (ACTION_LABEL[j.action] || j.action) + ' ' + j.id.slice(0, 12) + '… → ' + j.status +
-         (j.error ? '：' + String(j.error).slice(0, 60) : ''), k: kind});
-  }
-  $('log-count').textContent = evs.length + ' 条（数据源：/api/simulation/jobs）';
-  for (const e of evs) {
-    const line = el('div', undefined, 'log-line ' + e.k);
-    line.append(el('span', e.t, 'lt')); line.append(el('span', e.m, 'lm'));
-    body.append(line);
-  }
-}
-
-/* ---------- 总装 ---------- */
-function renderAll() { renderProjectTree(); renderTabs(); renderView(); renderProps(); renderLog(); }
+/* ---------- 总装 ----------
+   底：日志面板已于 2026-10-16 按用户指令移除——它与「任务控制台」是同一份 jobs 数据的
+   第二个入口（违反「一数据一入口」），且信息量低于控制台表格。任务数据唯一入口 = 任务控制台。 */
+function renderAll() { renderProjectTree(); renderTabs(); renderView(); renderProps(); }
 async function boot() {
   try { await loadCases(); } catch (e) { S.cases = []; }
   try { await loadJobs(); } catch (e) {}
   mergeSyntheticCases();
   await loadMetrics();
+  await loadStreamlines();
   renderAll();
 }
 boot();

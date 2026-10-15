@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "external": [],
+  "checks": {
+    "note_line": "产物清单搬运：b15 · 口咽扩展域 · time=600 · extended（鼻+鼻咽+可见口咽） · T-057（源场 T-054，vtkStreamTracer，seed=7，每侧 60 种子） · generalisation_test_only_no_human_review",
+    "iframe_count": 1,
+    "iframe_src": "/workspace/pro/artifacts/streamlines_b15_oroext_t600.html",
+    "placeholder": 0,
+    "iframe_canvas": 2,
+    "iframe_title": "鼻腔 CFD 工作台 · 患者流场 b15 · 口咽扩展域（T-054） 三维流线 · 腔内速度与静压（b15 扩展域，time=600） 工程屏通过（T-054 M2 四判据） 未临床复核  WSL patient_cfd/t054_b15_oroext（b15 maxh1，S-A 预设）· time index 6"
+  },
+  "ok": true
+}

@@ -1,0 +1,917 @@
+{
+  "task": "T-057 b15 oropharynx-extended domain streamlines",
+  "domain": "extended（鼻+鼻咽+可见口咽，出口 = oropharynx_truncation_outlet 工程截断）",
+  "engine": "vtkStreamTracer (ParaView kernel, RK45 + library interpolation)",
+  "seed": 7,
+  "n_seed_per_side": 60,
+  "n_lines": 111,
+  "reasons": {
+    "exited_wall_region": 61,
+    "back_to_inlet": 4,
+    "stall_near_wall": 36,
+    "reached_outlet": 10
+  },
+  "speed_mps": {
+    "min": 0.0,
+    "median": 1.574807047843933,
+    "max": 3.7559821605682373
+  },
+  "n_points_total": 3657,
+  "length_mm": {
+    "median": 34.84,
+    "max": 94.04,
+    "p10": 7.21
+  },
+  "delta_p_Pa": 18.26717809927325,
+  "clinical_status": "generalisation_test_only_no_human_review",
+  "lines": [
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 27,
+      "length_mm": 22.06,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 14,
+      "length_mm": 11.8,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "back_to_inlet",
+      "n": 5,
+      "length_mm": 1.03,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 78,
+      "length_mm": 90.77,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 49,
+      "length_mm": 48.47,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 5,
+      "length_mm": 2.44,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 76,
+      "length_mm": 90.27,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 24,
+      "length_mm": 24.76,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "back_to_inlet",
+      "n": 4,
+      "length_mm": 0.65,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 16,
+      "length_mm": 16.02,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 34,
+      "length_mm": 30.09,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 21,
+      "length_mm": 17.79,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 13,
+      "length_mm": 12.85,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 23,
+      "length_mm": 24.23,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "back_to_inlet",
+      "n": 4,
+      "length_mm": 0.79,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 39,
+      "length_mm": 39.59,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 20,
+      "length_mm": 20.85,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 49,
+      "length_mm": 53.73,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 37,
+      "length_mm": 44.9,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 7,
+      "length_mm": 1.83,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "back_to_inlet",
+      "n": 5,
+      "length_mm": 1.21,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 40,
+      "length_mm": 41.16,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 57,
+      "length_mm": 42.9,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 72,
+      "length_mm": 94.04,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 42,
+      "length_mm": 50.45,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 21,
+      "length_mm": 24.28,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 38,
+      "length_mm": 35.22,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 16,
+      "length_mm": 14.7,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 30,
+      "length_mm": 28.97,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 39,
+      "length_mm": 38.59,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 46,
+      "length_mm": 50.32,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 13,
+      "length_mm": 7.51,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 23,
+      "length_mm": 20.85,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 32,
+      "length_mm": 36.63,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 13,
+      "length_mm": 7.21,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 75,
+      "length_mm": 89.28,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 78,
+      "length_mm": 90.4,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 11,
+      "length_mm": 7.7,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 71,
+      "length_mm": 90.52,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 47,
+      "length_mm": 41.77,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 37,
+      "length_mm": 41.92,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 79,
+      "length_mm": 91.14,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 24,
+      "length_mm": 24.26,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 29,
+      "length_mm": 32.11,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 39,
+      "length_mm": 40.81,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 38,
+      "length_mm": 43.12,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 43,
+      "length_mm": 49.02,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 20,
+      "length_mm": 21.08,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 40,
+      "length_mm": 46.77,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 17,
+      "length_mm": 15.13,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 23,
+      "length_mm": 22.18,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 31,
+      "length_mm": 37.93,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 9,
+      "length_mm": 2.85,
+      "seed_mm": null
+    },
+    {
+      "side": "L",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 25,
+      "length_mm": 25.08,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 42,
+      "length_mm": 44.13,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 74,
+      "length_mm": 85.75,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 4,
+      "length_mm": 1.62,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 53,
+      "length_mm": 57.24,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 4,
+      "length_mm": 2.16,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 6,
+      "length_mm": 3.31,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 16,
+      "length_mm": 11.17,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 20,
+      "length_mm": 19.71,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 51,
+      "length_mm": 55.22,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 36,
+      "length_mm": 29.42,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 18,
+      "length_mm": 14.67,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 26,
+      "length_mm": 28.05,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 48,
+      "length_mm": 47.95,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 50,
+      "length_mm": 52.98,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 19,
+      "length_mm": 12.91,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 21,
+      "length_mm": 17.83,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 38,
+      "length_mm": 35.14,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 37,
+      "length_mm": 38.45,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 36,
+      "length_mm": 37.53,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 39,
+      "length_mm": 42.38,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 70,
+      "length_mm": 90.7,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 45,
+      "length_mm": 52.23,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 16,
+      "length_mm": 12.05,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 48,
+      "length_mm": 50.74,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 51,
+      "length_mm": 58.45,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 24,
+      "length_mm": 21.55,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 11,
+      "length_mm": 4.95,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 73,
+      "length_mm": 89.25,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 15,
+      "length_mm": 15.72,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 34,
+      "length_mm": 35.59,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 42,
+      "length_mm": 44.5,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 19,
+      "length_mm": 13.9,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 16,
+      "length_mm": 11.39,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 20,
+      "length_mm": 18.47,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 38,
+      "length_mm": 41.49,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 16,
+      "length_mm": 15.17,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 33,
+      "length_mm": 31.65,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 38,
+      "length_mm": 40.11,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 21,
+      "length_mm": 18.95,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 23,
+      "length_mm": 21.75,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 38,
+      "length_mm": 42.45,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 10,
+      "length_mm": 10.93,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 38,
+      "length_mm": 40.5,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 76,
+      "length_mm": 89.61,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 14,
+      "length_mm": 13.64,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 36,
+      "length_mm": 34.84,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 38,
+      "length_mm": 39.68,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 41,
+      "length_mm": 42.89,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 12,
+      "length_mm": 12.31,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 33,
+      "length_mm": 38.96,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 34,
+      "length_mm": 38.71,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 38,
+      "length_mm": 44.28,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 39,
+      "length_mm": 38.33,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 42,
+      "length_mm": 41.46,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "reached_outlet",
+      "n": 77,
+      "length_mm": 88.3,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 1,
+      "reason": "exited_wall_region",
+      "n": 9,
+      "length_mm": 7.21,
+      "seed_mm": null
+    },
+    {
+      "side": "R",
+      "vtk_termination": 6,
+      "reason": "stall_near_wall",
+      "n": 23,
+      "length_mm": 21.03,
+      "seed_mm": null
+    }
+  ]
+}

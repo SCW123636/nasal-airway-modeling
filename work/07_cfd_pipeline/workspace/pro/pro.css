@@ -124,17 +124,6 @@ code{font-family:var(--mono);font-size:11px;background:var(--soft);padding:0 4px
   padding:8px 10px;font-size:10.5px;line-height:1.6;border-radius:0 2px 2px 0;margin:10px 0}
 .notice.bad{border-left-color:#000;background:#e8e8e8;color:#000}
 
-/* ---- 底：日志 ---- */
-.log-panel{flex:none;height:118px;background:var(--panel);border-top:1px solid var(--line);
-  display:flex;flex-direction:column}
-.log-body{flex:1;overflow:auto;padding:0 12px 10px;font:10.5px var(--mono);line-height:1.7}
-.log-line{display:flex;gap:10px;padding:1px 0}
-.log-line .lt{color:#9a9a9a;flex:none}
-.log-line .lm{overflow-wrap:anywhere}
-.log-line.ok .lm{color:#000;font-weight:600}
-.log-line.err .lm{color:#000;font-weight:700;text-decoration:underline}
-.log-line.info .lm{color:#3d3d3d}
-
 /* ---- 窄屏 ---- */
 @media(max-width:1100px){
   .shell{grid-template-columns:210px minmax(0,1fr) 250px}
