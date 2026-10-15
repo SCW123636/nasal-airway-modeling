@@ -1,0 +1,26 @@
+{
+  "errors": [],
+  "external": [],
+  "checks": {
+    "project_cards": 13,
+    "synthetic_cards": 7,
+    "b15_case_value": "b15_engineering_t029a",
+    "pipeline_nodes": 8,
+    "pipeline_norec": 5,
+    "pipeline_done": 3,
+    "pipeline_detail": 1,
+    "props_node_view": true,
+    "compare_ref_rows": 7,
+    "compare_ref_iscoana": true,
+    "compare_ref_low": true,
+    "compare_ref_domain": true,
+    "compare_pair_panes": 2,
+    "compare_pair_rows": 11,
+    "compare_pair_appendix": 1,
+    "compare_pair_dash": true,
+    "jobs_rows": 1,
+    "props_case_metrics": true,
+    "props_clinical": true,
+    "props_domain": true
+  }
+}

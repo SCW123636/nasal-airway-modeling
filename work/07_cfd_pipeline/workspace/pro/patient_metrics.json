@@ -1,0 +1,60 @@
+{
+  "schema": "pro_patient_functional_metrics/v1",
+  "note": "PRO 工作台对比视图数据源。所有数值均为已核验任务的搬运（非本页计算），每条带 source/status/domain 出处。临床标签一律不写（避免暗示诊断）。",
+  "generated": "2026-10-16",
+  "patients": {
+    "b15": {
+      "case_id_in_api": "b15_engineering",
+      "label": "b15",
+      "domain": "short（鼻+鼻咽，短域口径）",
+      "domain_note": "出口为鼻咽截断；T-054 正按扩展域口径重定基（EXECUTING），新旧口径不可比为「修正」，只可比为「域口径差异」。",
+      "validation": "passed_engineering_screen",
+      "validation_note": "M2 四判据全过（Δp 入带 / 不平衡 5.27e-7 / monitor 0.00887% / Time=600 正常 End）；residualControl 未达标为记录项（T-006 教训：sliver 伤精度非稳定性）。",
+      "clinical_status": "generalisation_test_only_no_human_review",
+      "metrics": {
+        "R_Pa_s_ml": {"value": 0.0411, "unit": "Pa·s/mL", "label": "鼻阻力 R", "source": "T-042 结论卡", "note": "低于 ISCOANA 正常参考 6.1×；层流低估 Re≈1.8e3 方向已知"},
+        "delta_p_Pa": {"value": 10.286, "unit": "Pa", "label": "进口-出口压差 Δp", "source": "T-042 结论卡", "note": "贴 18 Pa 工程带下限"},
+        "Q_L_min": {"value": 15.0, "unit": "L/min", "label": "总流量 Q", "source": "T-006/T-041 口径", "note": "双鼻孔各 1.25e-4 m³/s，固定 50:50 分流"},
+        "outlet_area_mm2": {"value": 487.7, "unit": "mm²", "label": "出口面积", "source": "T-042 结论卡", "note": "超文献 choana 带 297–362 mm²（T-042 待核项；短域口径 vs choana 解剖位置差异）"},
+        "wss_median_Pa": {"value": 0.047, "unit": "Pa", "label": "WSS 中位", "source": "T-042 结论卡"},
+        "wss_max_Pa": {"value": 4.17, "unit": "Pa", "label": "WSS 最大", "source": "T-042 结论卡"},
+        "wss_integral_N": {"value": 0.001102, "unit": "N", "label": "WSS 积分力", "source": "T-042 结论卡", "note": "已知答案力平衡 0.087% 背书"},
+        "nasal_volume_ml": {"value": null, "unit": "mL", "label": "鼻腔容积", "source": null, "note": "短域口径未提取容积（T-042 未产）"},
+        "nostril_area_L_mm2": {"value": null, "unit": "mm²", "label": "左鼻孔面积", "source": null},
+        "nostril_area_R_mm2": {"value": null, "unit": "mm²", "label": "右鼻孔面积", "source": null}
+      }
+    },
+    "b01": {
+      "case_id_in_api": null,
+      "label": "b01",
+      "domain": "extended（鼻+鼻咽+口咽，扩展域口径）",
+      "domain_note": "出口 = oropharynx_truncation_outlet（扫描底工程截断，显式标 engineering_truncation_at_scan_inferior_face）；缺下游阻力 → Δp 偏低估方向已知。",
+      "validation": "passed_engineering_screen",
+      "validation_note": "T-047 扩展臂 600/600 End；Δp 15.709 Pa / 不平衡 3.1e-7 / 监测 0.024%；T-047 状态 EXECUTING（短域对照臂在跑）。",
+      "clinical_status": "generalisation_test_only_no_human_review",
+      "metrics": {
+        "R_Pa_s_ml": {"value": 0.06284, "unit": "Pa·s/mL", "label": "鼻阻力 R", "source": "T-047"},
+        "delta_p_Pa": {"value": 15.709, "unit": "Pa", "label": "进口-出口压差 Δp", "source": "T-047"},
+        "Q_L_min": {"value": 15.0, "unit": "L/min", "label": "总流量 Q", "source": "T-047 口径", "note": "同 50:50 固定分流口径"},
+        "outlet_area_mm2": {"value": 148.93, "unit": "mm²", "label": "出口面积", "source": "T-047", "note": "oropharynx_truncation_outlet"},
+        "nasal_volume_ml": {"value": 28.0, "unit": "mL", "label": "气道容积", "source": "T-047", "note": "扩展域 21.2→28.0 mL（+7,055.7 mm³）"},
+        "nostril_area_L_mm2": {"value": 80.08, "unit": "mm²", "label": "左鼻孔面积", "source": "T-047", "note": "复用生产 worker，与生产逐位相同"},
+        "nostril_area_R_mm2": {"value": 80.08, "unit": "mm²", "label": "右鼻孔面积", "source": "T-047"},
+        "wss_median_Pa": {"value": null, "unit": "Pa", "label": "WSS 中位", "source": null, "note": "T-047 未产 WSS 分布"},
+        "wss_max_Pa": {"value": null, "unit": "Pa", "label": "WSS 最大", "source": null},
+        "wss_integral_N": {"value": null, "unit": "N", "label": "WSS 积分力", "source": null}
+      }
+    }
+  },
+  "references": {
+    "iscoana_R_Pa_s_ml": {"value": 0.25, "unit": "Pa·s/mL", "label": "鼻阻力（ISCOANA 正常参考）", "source": "T-042 结论卡引用"},
+    "choana_area_mm2": {"band": [297, 362], "unit": "mm²", "label": "后鼻孔面积（文献带）", "source": "T-042 结论卡引用"},
+    "S15_temp_C": {"band": [33, 34], "unit": "℃", "label": "后鼻孔温度（S15 需求文档）", "source": "knowledge/患者需求/20261015-鼻腔建模-患者需求交叉分析.md"},
+    "S15_RH_pct": {"band_min": 90, "unit": "%RH", "label": "后鼻孔湿度（S15）", "source": "同上"},
+    "S15_heat_flux_W_m2": {"band_min": 50, "unit": "W/m²", "label": "后鼻孔热通量（S15）", "source": "同上"}
+  },
+  "unavailable": {
+    "temp_humidity": "温湿度/热通量需能量求解（T-043 已立卡未排期）→ 全部患者该行如实「—」",
+    "normal_cohort": "正常人参考队列未建立（患者需求文档 L43：需建立正常参考数据集）→ 症状 vs 正常人分组对照缓建（V3）"
+  }
+}
