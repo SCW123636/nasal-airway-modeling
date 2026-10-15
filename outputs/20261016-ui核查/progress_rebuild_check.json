@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "errors": [],
+ "checks": {
+  "cards_http": 200,
+  "cards_text_ok": true,
+  "dashboard_http": 200,
+  "dashboard_text_ok": true
+ }
+}
