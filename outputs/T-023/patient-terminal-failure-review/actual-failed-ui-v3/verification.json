@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-15T11:07:40.226Z",
+  "job_id": "s_942fdbebfffd433c8fcec956",
+  "checks": [
+    "Switching from known successful reference clears every numeric fact; failed patient values remain explicitly unavailable",
+    "Failed status, exit error, last actual iteration223 and no field/viewer links survive task-history reload",
+    "Direct request for absent current manifest shows a loading failure with zero cases; no fallback patient/reference field"
+  ],
+  "posts": [],
+  "page_errors": [],
+  "prior_reference_facts": {
+    "共同入口静压 Pa": "2.44425",
+    "目标总流量 L/min": "1",
+    "实测总流量 L/min": "0.998313",
+    "左侧流量 L/min": "0.499157",
+    "右侧流量 L/min": "0.499157",
+    "出口流量 L/min": "0.998313",
+    "左侧自然分流": "50%",
+    "目标流量相对误差": "0.16865%",
+    "真实求解评估次数": "4"
+  },
+  "failed_view": {
+    "facts": {
+      "共同入口静压 Pa": "未获得",
+      "目标总流量 L/min": "未获得",
+      "实测总流量 L/min": "未获得",
+      "左侧流量 L/min": "未获得",
+      "右侧流量 L/min": "未获得",
+      "出口流量 L/min": "未获得",
+      "左侧自然分流": "未获得",
+      "目标流量相对误差": "未获得",
+      "真实求解评估次数": "未获得"
+    },
+    "result_text": "患者工程试算 · 非临床结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n实际计算后端：real_openfoam_v1912\n\n患者工程 · 共同压力反馈\n\n本次执行未完成；显示已获得的原始诊断，不代表共同压力反馈达标。\n\n共同入口静压 Pa\n未获得\n目标总流量 L/min\n未获得\n实测总流量 L/min\n未获得\n左侧流量 L/min\n未获得\n右侧流量 L/min\n未获得\n出口流量 L/min\n未获得\n左侧自然分流\n未获得\n目标流量相对误差\n未获得\n真实求解评估次数\n未获得\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n未获得\t未获得\t未获得\t未获得\t未获得",
+    "error": "真实压力求解退出码：1；失败点不会进入反馈，原始证据保留",
+    "live_step": "failed",
+    "last_iteration": "223",
+    "artifact_links": [
+      {
+        "label": "真实工程输入与环境预检",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/preflight.json"
+      },
+      {
+        "label": "本次输入与代码指纹",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/input_fingerprint.json"
+      },
+      {
+        "label": "实际求解进度与日志尾",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/live_status.json"
+      },
+      {
+        "label": "本次真实压力求解日志",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/execution.log"
+      },
+      {
+        "label": "本次工程求解与质量记录",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/patient_engineering_report.json"
+      },
+      {
+        "label": "原始评估：s_942fdbebfffd433c8fcec956",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-evaluation_001.json"
+      },
+      {
+        "label": "原始执行证据：log.checkMesh",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-eval_001-log.checkMesh"
+      },
+      {
+        "label": "原始执行证据：log.simpleFoam",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-eval_001-log.simpleFoam"
+      }
+    ]
+  },
+  "after_reload": {
+    "facts": {
+      "共同入口静压 Pa": "未获得",
+      "目标总流量 L/min": "未获得",
+      "实测总流量 L/min": "未获得",
+      "左侧流量 L/min": "未获得",
+      "右侧流量 L/min": "未获得",
+      "出口流量 L/min": "未获得",
+      "左侧自然分流": "未获得",
+      "目标流量相对误差": "未获得",
+      "真实求解评估次数": "未获得"
+    },
+    "result_text": "患者工程试算 · 非临床结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n实际计算后端：real_openfoam_v1912\n\n患者工程 · 共同压力反馈\n\n本次执行未完成；显示已获得的原始诊断，不代表共同压力反馈达标。\n\n共同入口静压 Pa\n未获得\n目标总流量 L/min\n未获得\n实测总流量 L/min\n未获得\n左侧流量 L/min\n未获得\n右侧流量 L/min\n未获得\n出口流量 L/min\n未获得\n左侧自然分流\n未获得\n目标流量相对误差\n未获得\n真实求解评估次数\n未获得\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n未获得\t未获得\t未获得\t未获得\t未获得",
+    "error": "真实压力求解退出码：1；失败点不会进入反馈，原始证据保留",
+    "live_step": "failed",
+    "last_iteration": "223",
+    "artifact_links": [
+      {
+        "label": "真实工程输入与环境预检",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/preflight.json"
+      },
+      {
+        "label": "本次输入与代码指纹",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/input_fingerprint.json"
+      },
+      {
+        "label": "实际求解进度与日志尾",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/live_status.json"
+      },
+      {
+        "label": "本次真实压力求解日志",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/execution.log"
+      },
+      {
+        "label": "本次工程求解与质量记录",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/patient_engineering_report.json"
+      },
+      {
+        "label": "原始评估：s_942fdbebfffd433c8fcec956",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-evaluation_001.json"
+      },
+      {
+        "label": "原始执行证据：log.checkMesh",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-eval_001-log.checkMesh"
+      },
+      {
+        "label": "原始执行证据：log.simpleFoam",
+        "href": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-eval_001-log.simpleFoam"
+      }
+    ]
+  },
+  "missing_field_view": {
+    "url": "http://127.0.0.1:8769/workspace/index.html?manifest=%2Fsimulation-assets%2Fs_942fdbebfffd433c8fcec956%2Fviewer.json&case=existing#geometry",
+    "frame_url": "http://127.0.0.1:8769/viewer/index.html?manifest=%2Fsimulation-assets%2Fs_942fdbebfffd433c8fcec956%2Fviewer.json&embedded=1",
+    "state": "工作台未能启动：工作台索引未生成",
+    "case_option_count": 0,
+    "display_snapshot": null
+  },
+  "ui_failure_display_checks_passed": true,
+  "finished_at": "2026-10-15T11:07:44.745Z"
+}

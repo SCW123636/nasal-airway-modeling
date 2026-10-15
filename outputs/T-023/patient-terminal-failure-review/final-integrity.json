@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-15T11:10:01.554363+00:00",
+  "protected_hashes_still_equal_after_UI": {
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance.py": "0bf077a64a18497b621eaca81d40bf6e6d7c26a599de8afb79b6540c3c26c800",
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py": "1ee1e2acc6a8583952582fe02f3e967ae9e259d00a9cab1107b61ab0c6ff1569",
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\patient-terminal-watch-v2\\final_audit.json": "d9e682617e6c7e1af67e7fa887b448e71b7d1537cc58649b972f51a4ad1ca173",
+    "C:\\ts_work\\project_cases\\simulation_jobs\\s_942fdbebfffd433c8fcec956\\job.json": "53ffaa77bda569c67a529543777f1af8158632b1aa987b990523f86eedd24797"
+  },
+  "only_HTTP_GET_browser_posts": [],
+  "patient_numerical_accepted": false
+}

@@ -1,0 +1,123 @@
+{
+  "archived_before_run": null,
+  "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+  "case_manifest": {
+    "boundary": {
+      "inlet_static_pressure_Pa_gauge": 10.0,
+      "mode": "common_inlet_pressure_feedback",
+      "outlet_static_pressure_Pa_gauge": 0.0,
+      "target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary"
+    },
+    "clinical_validation": "not_validated",
+    "engineering_input_provenance": "Copied 0/constant/system only from T-006 case; old results excluded",
+    "final_surface_sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+    "note": "truthful manifest; source is patient msh, NOT tube.stl; diagnostic override therefore cannot apply per run_openfoam_case.py:469-472",
+    "patch_map": {
+      "nasopharynx_outlet": "outlet",
+      "nostril_L": "inlet",
+      "nostril_R": "inlet",
+      "wall": "wall"
+    },
+    "patient_case_id": "b15_engineering",
+    "schema": "nasal_cfd_case/v1",
+    "solver": "laminar",
+    "source_mesh_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+    "surface": {
+      "source_file": "b15_patient_maxh1_repaired.msh",
+      "source_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+      "units": "mm"
+    }
+  },
+  "contract": {
+    "bound_engineering_authorization": {
+      "allowed": true,
+      "authorization_sha256": "13a5b65de672fb7c6ea2bc7ff1d82cc68aaf71eaf3d34d089c3efa5803a5542b",
+      "case_id": "b15_engineering",
+      "clinical_validation": "not_validated",
+      "config_sha256": "191b8aecac14fe4609c05490d098b175a0a93b69eb6e7eb0eeaeb534e98f43b1",
+      "mesh_fingerprint": {
+        "boundary": "0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135",
+        "cellZones": "093a2ccece2d7b70f1b19b30cc3d0d0ae6d78080993f7abf1fea5a175d8da1cf",
+        "faceZones": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f",
+        "faces": "d27b6b3f75bf480845a66d6e540c3bda4465164a7f3355d7e8e780150113cc55",
+        "neighbour": "4c0501f44ee1d828ae8ab841883380a34a7978a6f95fa76ce9dd270995047bcf",
+        "owner": "275538829bc0ef71be2bb6b2c1438385df76662aee8ad6db992c63731f61ac52",
+        "pointZones": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29",
+        "points": "0acac3f227449e415fce19f0a4eb240c1e88837aeefd6a6fbeed29b0dd7d40a3",
+        "sets/fluid": "da9404a9ed7a4e7f0f5dcb7919dc14a1b958109a5b1d2aff3ba240c18732f64c",
+        "sets/lowWeightFaces": "4650adde9d1dc6da8f829d1a5c81459ee43901d59491c8bedc2ab7fd35faf549",
+        "sets/nonOrthoFaces": "334aa0e9f7de2a3cced4b7bdb17b2abf83f88e01e0182a9323ac18c4b821856c",
+        "sets/underdeterminedCells": "bce36270ec27f5b9d52847a47a5fe014decd92d11d03f8a129d67cd37e48ffa8"
+      },
+      "readiness_warnings": [
+        "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+        "patient geometry requires human confirmed review",
+        "geometry.review.reviewer is required",
+        "geometry.review.reviewed_at is required",
+        "geometry.review.record_file is required",
+        "review must reference the same geometry sha256",
+        "both nostrils and nasopharynx outlet must be confirmed",
+        "oral exclusion must be confirmed",
+        "sinus boundary policy must be confirmed"
+      ],
+      "scope": "isolated_engineering_trial_not_clinical",
+      "source_record": "plan/\u4e3b\u8ba1\u5212.md M1/M2 user decisions 2026-10-14; tasks/T-021.md Lead authorization 2026-10-15",
+      "surface_sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070"
+    },
+    "checked": true,
+    "config_id": "b15_engineering_common_pressure_20261015",
+    "errors": [],
+    "execution_allowed": false,
+    "forced": false,
+    "warnings": [
+      "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+      "patient geometry requires human confirmed review",
+      "geometry.review.reviewer is required",
+      "geometry.review.reviewed_at is required",
+      "geometry.review.record_file is required",
+      "review must reference the same geometry sha256",
+      "both nostrils and nasopharynx outlet must be confirmed",
+      "oral exclusion must be confirmed",
+      "sinus boundary policy must be confirmed"
+    ]
+  },
+  "engineering_acceptance": false,
+  "environment_overrides": {
+    "FOAM_ETC": "/usr/share/openfoam/etc",
+    "WM_PROJECT_DIR": "/usr/share/openfoam",
+    "WM_PROJECT_VERSION": "v1912"
+  },
+  "error": "RuntimeError('simpleFoam failed: /home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/log.simpleFoam')",
+  "execution_status": "failed",
+  "failed_mesh_bound_engineering_trial": true,
+  "failed_mesh_diagnostic_override": false,
+  "finished_at": "2026-10-15T10:59:53+00:00",
+  "mesh_quality": {
+    "failed_checks": 2,
+    "log": "log.checkMesh",
+    "passed": false
+  },
+  "mesh_signature": null,
+  "mesh_skipped": false,
+  "nproc": 0,
+  "openfoam_version": "v1912",
+  "parallel": false,
+  "schema": "nasal_cfd_run/v1",
+  "script": {
+    "name": "run_openfoam_case.py",
+    "version": "1.2.0"
+  },
+  "started_at": "2026-10-15T10:40:36+00:00",
+  "steps": [
+    {
+      "command": [
+        "checkMesh",
+        "-allGeometry",
+        "-allTopology"
+      ],
+      "elapsed_seconds": 15.997870329000023,
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/log.checkMesh"
+    }
+  ]
+}

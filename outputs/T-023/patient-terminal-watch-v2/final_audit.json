@@ -1,0 +1,7 @@
+{
+  "audit_passed": false,
+  "failure": "Traceback (most recent call last):\n  File \"D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py\", line 174, in watch\n    event({'stage':'terminal_raw_audit_started'});final=terminal_audit(j,c);break\n                                                        ~~~~~~~~~~~~~~^^^^^\n  File \"D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py\", line 125, in terminal_audit\n    result=evaluation_audit(d,ev);checks.append(result)\n  File \"D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py\", line 62, in evaluation_audit\n    assert [x['command'][0] for x in m['steps']]==['checkMesh','simpleFoam','foamToVTK']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "job_id": "s_942fdbebfffd433c8fcec956",
+  "job_left_untouched": true,
+  "finished_at": "2026-10-15T11:00:08.737899+00:00"
+}

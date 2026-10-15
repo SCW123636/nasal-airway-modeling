@@ -1,0 +1,97 @@
+{
+  "schema": "nasal_cfd_config/v1",
+  "config_id": "b15_engineering_common_pressure_20261015",
+  "status": "engineering_template_requires_patient_backtest",
+  "physics": {
+    "flow_regime": "incompressible",
+    "time_mode": "steady",
+    "rho_kg_m3": 1.2,
+    "mu_Pa_s": 1.81e-05,
+    "temperature_assumption_C": 20.0,
+    "turbulence_model": "laminar"
+  },
+  "boundary_conditions": {
+    "mode": "total_flow",
+    "total_inspiratory_flow_m3_s": 0.00025,
+    "flow_split": {
+      "policy": "solver_determined",
+      "left_fraction": null,
+      "right_fraction": null,
+      "interpretation": "solver_output_not_prescribed"
+    },
+    "nostril_pressure": null,
+    "nasopharynx_pressure": {
+      "value": 0.0,
+      "unit": "Pa",
+      "quantity": "static",
+      "reference": "gauge"
+    },
+    "static_pressure_difference_Pa": null,
+    "direction_policy": "inspiration_nostrils_to_nasopharynx",
+    "walls": "rigid_no_slip"
+  },
+  "turbulence": {
+    "inlet_intensity_fraction": null,
+    "length_scale_Dh_fraction": null,
+    "low_speed_threshold_m_s": null,
+    "low_speed_threshold_basis": null,
+    "definition": null,
+    "report_status": "not_applicable"
+  },
+  "mesh": {
+    "level": "existing_b15_engineering_maxh1",
+    "bulk_target_mm": 1.0,
+    "local_initial_target_mm": 0.25,
+    "minimum_cells_across_gap": 6,
+    "local_resolution_rule": "h <= min(local_initial_target_mm, measured_gap_mm/6)",
+    "prism_layers": null
+  },
+  "geometry": {
+    "kind": "patient",
+    "case_id": "b15_engineering",
+    "source_file": "constant/triSurface/surface.stl",
+    "sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+    "units": "mm",
+    "solver_units": "m",
+    "scale_to_m": 0.001,
+    "coordinate_system": "LPS",
+    "review": {
+      "status": "pending",
+      "method": "human",
+      "reviewer": null,
+      "reviewed_at": null,
+      "record_file": null,
+      "reviewed_geometry_sha256": null,
+      "confirmed_boundaries": [],
+      "oral_exclusion_confirmed": false,
+      "sinus_boundary_policy_confirmed": false
+    }
+  },
+  "solver_adapter": {
+    "status": "implemented_and_verified",
+    "name": "real_openfoam_common_pressure_reference_verified",
+    "version": "1.0.0",
+    "desired_strategy": "common_inlet_pressure_feedback",
+    "flow_target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary",
+    "strategy_description": "Use one common nostril static pressure and fixed outlet static pressure; an outer loop adjusts the common inlet pressure to match the total-flow target. Do not impose a flow boundary simultaneously."
+  },
+  "engineering_screen": {
+    "maximum_mass_imbalance_fraction": 0.005,
+    "maximum_monitor_relative_change": 0.005,
+    "target_residual_max": 1e-05,
+    "medium_to_fine_change_screen_fraction": 0.05,
+    "diagnostic_basis": {
+      "mass_imbalance_fraction": "Take the steady-segment value (final-samples window) of mass_imbalance_fraction for the engineering screen comparison. The startup transient (initial non-divergence-free field, e.g. the global max 6.3324e-03 at t=2 in T-006 Run 1) is reported separately and excluded from the screen. Rationale: an initial field that is not divergence-free produces a startup artifact, not a solver defect; this never relaxes the maximum_mass_imbalance_fraction screen of 0.005.",
+      "monitor_relative_change": "monitor_relative_change is the inter-window relative change of dP, where dP = area-weighted mean nostril static pressure minus nasopharynx outlet static pressure. Compute over the last 40% of monitor samples with a window length of 20 consecutive samples; take the window-mean of each window, then the maximum of the successive window-mean ratios. T-006 Run 1 measured 0.0079%."
+    }
+  },
+  "notes": [
+    "No patient flow solution is included.",
+    "Templates are not clinically validated.",
+    "Equal bilateral flow is an imposed comparison only, never a measured patient split.",
+    "Fixed flow plus one static pressure reference is valid; fixed flow plus a prescribed two-end pressure difference is not this contract.",
+    "Frozen b15 engineering example, not p0/p3 or an uploaded case.",
+    "Existing mesh has Failed 2 mesh checks; surface optimisation cap deviations and six-cell gap resolution are not accuracy-certified.",
+    "This uses the user-approved M1/M2 engineering trial branch. Clinical validation remains absent."
+  ]
+}

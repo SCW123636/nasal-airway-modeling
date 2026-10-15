@@ -1,0 +1,10 @@
+{"command": ["checkMesh", "-allGeometry", "-allTopology"], "exit_code": 0, "elapsed_seconds": 15.997870329000023, "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/log.checkMesh"}
+{"command": ["simpleFoam"], "exit_code": -8, "elapsed_seconds": 1141.1223240900001, "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/log.simpleFoam"}
+Traceback (most recent call last):
+  File "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py", line 658, in <module>
+    raise SystemExit(main())
+  File "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py", line 593, in main
+    run_manifest["steps"].append(execute(cmd, case, environment, log_name))
+  File "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver_reference/run_reference.py", line 40, in execute
+    raise RuntimeError(f'{args[0]} failed: {case/logname}')
+RuntimeError: simpleFoam failed: /home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/log.simpleFoam
