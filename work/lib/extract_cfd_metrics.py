@@ -358,10 +358,34 @@ def extract(case, valve_slice=None, valve_slab_mm=0.5, rho=RHO_DEFAULT):
                      "reason": "no internal cells within the valve slab; adjust --valve-slab-mm"}
 
     walls = [n for n in patches if patches[n]["role"] == "wall"]
+    wall_area = sum(patches[n]["area_m2"] for n in walls)
+    zero_walls = sorted(n for n in walls
+                        if patches[n]["wss_area_integral_kinematic"] == 0.0
+                        and patches[n]["area_m2"] > 0)
     if any(patches[n]["wss_area_integral_kinematic"] is not None for n in walls):
-        wss_force = rho * sum(patches[n]["wss_area_integral_kinematic"] or 0.0 for n in walls)
-        wall_shear = {"value_n": wss_force,
-                      "note": "wallShearStress is kinematic (m2/s2); multiplied by rho"}
+        if zero_walls:
+            # An exactly-zero integral over a nonzero-area wall patch cannot
+            # happen in a real flow field (Float32 preserves any nonzero
+            # value); it is the signature of a mesh with no patch typed
+            # 'wall', for which the wallShearStress function object writes an
+            # all-zero field SILENTLY (observed on the T-042 b15 maxh1 case:
+            # the first extraction reported wall_shear_force_n = 0.0).
+            # Honesty semantics: report not_computed, never a fabricated 0.
+            wall_shear = {"status": "not_computed",
+                          "reason": ("wallShearStress array present but integrates to "
+                                     "exactly 0 on nonzero-area wall patch(es): %s "
+                                     "(total wall area %.6g m2). Exactly-zero is the "
+                                     "signature of a mesh with no patch typed 'wall' "
+                                     "(the function object then writes an all-zero "
+                                     "field silently). No value is fabricated."
+                                     % (", ".join(zero_walls), wall_area))}
+            warnings.append("all-zero wallShearStress on %s (area %.6g m2); "
+                            "wall_shear_force_n reported not_computed, not 0"
+                            % (", ".join(zero_walls), wall_area))
+        else:
+            wss_force = rho * sum(patches[n]["wss_area_integral_kinematic"] or 0.0 for n in walls)
+            wall_shear = {"value_n": wss_force,
+                          "note": "wallShearStress is kinematic (m2/s2); multiplied by rho"}
     else:
         wall_shear = {"status": "not_computed",
                       "reason": ("wallShearStress field absent; run "

@@ -11,12 +11,17 @@ VERIFIED_CASE = (Path(__file__).resolve().parents[1] / "07_cfd_pipeline" / "solv
 VERIFIED_DELTA_P = 0.21587924916228
 
 
-def vtp_patch(points, faces, p, u):
+def vtp_patch(points, faces, p, u, wss=None):
     connectivity = " ".join(str(i) for f in faces for i in f)
     offsets = " ".join(str(sum(len(f) for f in faces[:k + 1])) for k in range(len(faces)))
     coords = " ".join("%g %g %g" % v for v in points)
     pvals = " ".join("%g" % v for v in p)
     uvals = " ".join("%g %g %g" % v for v in u)
+    wss_block = ""
+    if wss is not None:
+        wvals = " ".join("%g %g %g" % v for v in wss)
+        wss_block = (f"   <DataArray type='Float32' Name='wallShearStress' "
+                     f"NumberOfComponents='3' format='ascii'>{wvals}</DataArray>\n")
     return f"""<?xml version='1.0'?>
 <VTKFile type='PolyData' version='0.1' byte_order='LittleEndian'>
  <PolyData><Piece NumberOfPoints='{len(points)}' NumberOfPolys='{len(faces)}'>
@@ -28,16 +33,17 @@ def vtp_patch(points, faces, p, u):
   <CellData>
    <DataArray type='Float32' Name='p' format='ascii'>{pvals}</DataArray>
    <DataArray type='Float32' Name='U' NumberOfComponents='3' format='ascii'>{uvals}</DataArray>
-  </CellData>
+{wss_block}  </CellData>
  </Piece></PolyData>
 </VTKFile>
 """
 
 
-def square_patch(x, y0, y1, z0, z1, p, speed):
+def square_patch(x, y0, y1, z0, z1, p, speed, wss=None):
     points = [(x, y0, z0), (x, y1, z0), (x, y1, z1), (x, y0, z1)]
     faces = [[0, 1, 2], [0, 2, 3]]
-    return vtp_patch(points, faces, [p, p], [(speed, 0, 0), (speed, 0, 0)])
+    w = None if wss is None else [wss, wss]
+    return vtp_patch(points, faces, [p, p], [(speed, 0, 0), (speed, 0, 0)], wss=w)
 
 
 def internal_vtu():
@@ -65,7 +71,7 @@ def internal_vtu():
 """
 
 
-def make_case(root):
+def make_case(root, wall_wss="absent"):
     case = Path(root) / "case"
     boundary = case / "VTK" / "case_100" / "boundary"
     boundary.mkdir(parents=True)
@@ -73,7 +79,9 @@ def make_case(root):
     (boundary / "nostril_L.vtp").write_text(square_patch(0, 0, 1, 0, 1, 2.0, 0.1), encoding="ascii")
     (boundary / "nostril_R.vtp").write_text(square_patch(0, 0, 3, 0, 1, 2.0, 0.1), encoding="ascii")
     (boundary / "nasopharynx.vtp").write_text(square_patch(1, 0, 4, 0, 1, 0.0, 0.1), encoding="ascii")
-    (boundary / "wall.vtp").write_text(square_patch(0, 0, 1, 1, 2, 0.0, 0.0), encoding="ascii")
+    wall_kw = {} if wall_wss == "absent" else {"wss": wall_wss}
+    (boundary / "wall.vtp").write_text(square_patch(0, 0, 1, 1, 2, 0.0, 0.0, **wall_kw),
+                                       encoding="ascii")
     (case / "log.simpleFoam").write_text("SIMPLE solution converged in 100 iterations\n",
                                          encoding="ascii")
     (case / "case_manifest.json").write_text(json.dumps({
@@ -104,6 +112,28 @@ class ExtractMetricsTests(unittest.TestCase):
             self.assertEqual(metrics["turbulence_intensity"]["report_status"], "not_applicable")
             self.assertEqual(metrics["nasal_valve_peak_mps"]["status"], "not_computed")
             self.assertEqual(metrics["wall_shear_force_n"]["status"], "not_computed")
+
+    def test_all_zero_wss_is_not_reported_as_a_value(self):
+        """A wallShearStress array that integrates to exactly 0 on nonzero-area
+        wall patches is the signature of a mesh with no patch typed 'wall'
+        (the function object then writes an all-zero field silently). The
+        extractor must NOT report it as value 0.0 -- it must say not_computed.
+        Regression guard for the b15 maxh1 run (T-042), where the first
+        extraction silently produced wall_shear_force_n = 0.0."""
+        with tempfile.TemporaryDirectory(prefix="ecm_test_") as tmp:
+            result = ecm.extract(make_case(tmp, wall_wss=(0.0, 0.0, 0.0)))
+            ws = result["metrics"]["wall_shear_force_n"]
+            self.assertEqual(ws["status"], "not_computed")
+            self.assertNotIn("value_n", ws)
+            self.assertTrue(any("wallShearStress" in w and "zero" in w.lower()
+                                for w in result["warnings"]),
+                            "expected an all-zero WSS warning, got: %r" % result["warnings"])
+
+    def test_nonzero_wss_still_reports_a_value(self):
+        with tempfile.TemporaryDirectory(prefix="ecm_test_") as tmp:
+            ws = ecm.extract(make_case(tmp, wall_wss=(0.01, 0.0, 0.0)))["metrics"]["wall_shear_force_n"]
+            self.assertIn("value_n", ws)
+            self.assertGreater(ws["value_n"], 0.0)
 
     def test_valve_slice_peak(self):
         with tempfile.TemporaryDirectory(prefix="ecm_test_") as tmp:
