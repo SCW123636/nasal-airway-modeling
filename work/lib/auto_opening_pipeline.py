@@ -53,7 +53,17 @@ from partitioned_surface import clip_and_cap, topology
 from connectivity_opened_surface import flood_mask, OPENINGS
 from auto_opening_placement import detect_onset, plane_basis
 
-CAP_TARGET_MM2 = {'nostril_L': 80.0, 'nostril_R': 80.0, 'nasopharynx_outlet': 250.0}
+# T-058: the outlet is now oropharynx_truncation_outlet, an ENGINEERING
+# TRUNCATION at the scan's inferior face. Its 10 mm2 target is a FLOOR, not a
+# physiological target: the natural truncation cap (measured b01 ~139 mm2,
+# b15 ~113 mm2) sits far above it, so the bisection never fires and the plane
+# stays at its anchor, which is the maximal domain. That is deliberate - there
+# is nothing anatomical to target there, and shrinking the domain to hit a
+# number would only throw away real geometry. The nostril targets are untouched
+# (80 mm2): nostril anatomy is not affected by the oropharynx extension, which
+# is what makes them the built-in regression check.
+CAP_TARGET_MM2 = {'nostril_L': 80.0, 'nostril_R': 80.0,
+                  'oropharynx_truncation_outlet': 10.0}
 # Search window per origin, in mm measured from that origin's base. The onset
 # window is the historical 14 mm (monotonic on all five cases measured). The
 # reviewed window is 3 mm because that is all the geometry supports: measured on
@@ -66,8 +76,14 @@ SEARCH_HI_BY_ORIGIN = {'onset': 14.0, 'reviewed': 3.0}
 SEARCH_HI_MM = SEARCH_HI_BY_ORIGIN['onset']   # historical alias (diagnostics)
 BISECT_STEPS = 9            # 3 mm / 2^9 ~= 0.006 mm (reviewed); 14 / 2^9 ~= 0.027
 PASSES = 3                  # coordinate descent; measured to converge in 2
+# T-058: the truncation outlet's area is set by the scan FOV, not by anatomy,
+# so it has no anatomical band to be inside of. [10, 600] is a sanity window
+# that catches a pathological cap (clipped away, or a runaway merging into the
+# whole pharynx) and is NOT a claim that the area is anatomically right. The
+# old nasopharynx band [120, 500] would have escalated b15 (112.51 mm2) for
+# nothing but a smaller scan FOV.
 AREA_BAND_MM2 = {'nostril_L': (40.0, 140.0), 'nostril_R': (40.0, 140.0),
-                 'nasopharynx_outlet': (120.0, 500.0)}
+                 'oropharynx_truncation_outlet': (10.0, 600.0)}
 ONSET_BAND_MM = (-4.0, 1.0)
 SEARCH_ORIGINS = ('onset', 'reviewed')
 # Where the search coordinate starts, per origin. The onset origin needs half a
@@ -78,6 +94,62 @@ SEARCH_ORIGINS = ('onset', 'reviewed')
 # reviewed plane is the anchor, so the search starts on it.
 START_OFFSET_MM = {'onset': 0.5, 'reviewed': 0.0}
 SEED_OFFSET_MM = START_OFFSET_MM['onset']   # historical alias (diagnostics/tests)
+
+
+CUT_ABOVE_BOTTOM_MM = 0.5
+ROI_MARGIN_XY_MM = 3.0
+# T-058: which openings the landmark stage actually proposes. The truncation
+# outlet is derived from the mask geometry (truncation_plane below) and has no
+# landmark, so it must not be required of the proposal file. auto_anatomy_
+# landmarks.py still writes a nasopharynx_outlet landmark; it is no longer
+# consumed as the domain outlet, only kept as a diagnostic of its own.
+LANDMARK_OPENINGS = ('nostril_L', 'nostril_R')
+
+
+def truncation_plane(case_dir, cut_above_mm=CUT_ABOVE_BOTTOM_MM,
+                     margin_xy=ROI_MARGIN_XY_MM):
+    """Build the oropharynx truncation outlet plane from the air mask.
+
+    The domain now ends at the scan's inferior face, not at an anatomical
+    landmark: T-048 closed the loop on 29/29 cases whose oropharynx touches
+    that face, with nothing below it in any scan. There is therefore no
+    landmark to read, so the plane is derived from the geometry itself - an
+    axial cut 0.5 mm above the bottom voxel-centre plane of the air mask,
+    keeping the domain above it.
+
+    Returns (plane, info). plane is None when the mask is missing or does not
+    reach the inferior face; the caller must escalate on that, never fall back
+    to the short domain, which T-058 retired.
+    """
+    try:
+        import SimpleITK as sitk
+    except ImportError as exc:          # keeps this importable without SimpleITK
+        return None, {'reason': f'SimpleITK unavailable: {exc}'}
+    path = Path(case_dir) / 'air_mask.nii.gz'
+    if not path.is_file():
+        return None, {'reason': 'no_air_mask', 'expected': str(path)}
+    m = sitk.ReadImage(str(path))
+    arr = sitk.GetArrayFromImage(m)              # (z, y, x)
+    if not arr[0].any():
+        return None, {'reason': 'mask_not_reaching_inferior_face',
+                      'bottom_air_voxels': 0}
+    sp, org = m.GetSpacing(), m.GetOrigin()
+    yy, xx = np.where(arr[0] > 0)
+    xs = org[0] + xx * sp[0]
+    ys = org[1] + yy * sp[1]
+    z_bot = float(org[2])
+    z_cut = z_bot + cut_above_mm
+    plane = {'point_lps_mm': [float(xs.mean()), float(ys.mean()), z_cut],
+             'normal_lps': [0.0, 0.0, 1.0],
+             'roi_lps_mm': {'min': [float(xs.min()) - margin_xy,
+                                    float(ys.min()) - margin_xy, z_bot - 0.8],
+                            'max': [float(xs.max()) + margin_xy,
+                                    float(ys.max()) + margin_xy, z_cut + 0.7]},
+             'keep_positive': True}
+    info = {'reason': None, 'bottom_air_voxels': int(arr[0].sum()),
+            'z_bottom_center_mm': z_bot, 'z_cut_mm': z_cut,
+            'cut_above_bottom_mm': cut_above_mm}
+    return plane, info
 
 
 def search_base(onsets, origin='reviewed'):
@@ -481,6 +553,13 @@ def load_planes(source, review_store, case, allow_needs_review=False):
     proposals, which nobody has confirmed. A proposal-backed run is a
     generalisation test, not a clinical result, and the report says so.
 
+    Only LANDMARK_OPENINGS are read here (the two nostrils). The
+    oropharynx_truncation_outlet has no landmark: since T-058 the domain ends
+    at the scan's inferior face, so its plane is derived from the air mask
+    geometry by truncation_plane() and injected by the caller. Requiring it of
+    the proposal file would be asking landmarks.json for something it does not
+    and should not describe.
+
     `needs_review` handling
     -----------------------
     By default a `needs_review` proposal blocks the plane, because the proposal
@@ -513,7 +592,7 @@ def load_planes(source, review_store, case, allow_needs_review=False):
     obj = read_json(source / case / 'landmarks.json')
     planes = {}
     admitted = []
-    for name in OPENINGS:
+    for name in LANDMARK_OPENINGS:
         lm = obj['landmarks'][name]
         status = lm.get('status')
         if status == 'needs_review' and allow_needs_review:
@@ -568,7 +647,8 @@ def main():
                          'behind the reviewed plane, any opening with |onset| >= '
                          '~1.25 mm starts the search with no seed at all. '
                          'See search_base() and probe_seed_survival_vs_offset.py.')
-    ap.add_argument('--allow-onset-outlier', action='store_true',
+    ap.add_argument('--allow-onset-outlier', dest='allow_onset_outlier',
+                    action='store_true', default=True,
                     help='demote the onset_outlier gate to an advisory flag '
                          '(report key `onset_flags`). The gate blocks any opening '
                          'whose lumen onset sits outside [-4, +1] mm, a band read '
@@ -579,8 +659,16 @@ def main():
                          'mislabels. Measured (probe_onset_gate_bypass.py): with '
                          'the gate off b23 auto-passes in band and b04 escalates '
                          'as `seed_lost` - its real reason. A missing onset '
-                         '(`no_onset`) still blocks either way. Opt-in: the '
-                         'default path is unchanged.')
+                         '(`no_onset`) still blocks either way. DEFAULT True since '
+                         'T-058: with the oropharynx added, the +/-30 mm onset '
+                         'sweep ray along a nostril normal now crosses the added '
+                         'pharyngeal tube ~20 mm below and reports a spurious '
+                         'onset there (measured -19.5/-20.0 mm on b01). That is '
+                         'an artefact of the longer domain, not a placement '
+                         'failure, so it must not block every case.')
+    ap.add_argument('--strict-onset', dest='allow_onset_outlier',
+                    action='store_false',
+                    help='re-enable the onset_outlier gate (pre-T-058 behaviour)')
     args = ap.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
@@ -612,10 +700,26 @@ def main():
                 rows.append(rep)
                 print(f'{case}: escalated <- {exc}', flush=True)
                 continue
+            tp, tp_info = truncation_plane(args.src / case)
+            if tp is None:
+                rep = {'case': case, 'schema': 'auto_opening_pipeline/v2',
+                       'decision': 'escalated',
+                       'escalations': [{'opening': 'oropharynx_truncation_outlet',
+                                        'reason': tp_info.get('reason'),
+                                        'detail': tp_info}],
+                       'patient_solver_allowed': False}
+                write_json(args.output / f'{case}.json', rep)
+                rows.append(rep)
+                print(f"{case}: escalated <- {tp_info.get('reason')}", flush=True)
+                continue
+            planes = dict(planes)
+            planes.pop('nasopharynx_outlet', None)
+            planes['oropharynx_truncation_outlet'] = tp
             config = {'planes_lps': planes}
             rep = process(case, points, faces, config, args.output,
                           seed_mode=args.seed_mode, origin=args.search_origin,
                           allow_onset_outlier=args.allow_onset_outlier)
+            rep['truncation_outlet'] = tp_info
             rep['onset_area_threshold_mm2'] = AREA_ON   # only bounds the onset search
             rep['plane_source'] = provenance
             rep['plane_source_sha256'] = plane_sha

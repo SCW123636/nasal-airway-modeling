@@ -26,7 +26,7 @@ from export_candidate_preview import triangle_arrays
 from partitioned_surface import clip_and_cap, topology
 
 SRC = Path('C:/ts_work/reviewed_surface_drafts_20261008_r3')
-OPENINGS = ('nostril_L', 'nostril_R', 'nasopharynx_outlet')
+OPENINGS = ('nostril_L', 'nostril_R', 'oropharynx_truncation_outlet')
 TOL = 1e-7
 
 

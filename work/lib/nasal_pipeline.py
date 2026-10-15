@@ -31,11 +31,17 @@ TS_BASE = Path('C:/ts_work')
 SURFACE_ROOT = TS_BASE / 'batch27_surfaces'
 OPENING_ROOT = TS_BASE / 'batch27_opening'
 PY = Path('C:/Users/lenovo/AppData/Local/Programs/Python/Python310/python.exe')
-ROI_LABELS = ('nasal_cavity_left', 'nasal_cavity_right', 'nasopharynx')
+ROI_LABELS = ('nasal_cavity_left', 'nasal_cavity_right', 'nasopharynx', 'oropharynx')
 
 # N6: the opening-area bands. Normal means inside; anything else escalates.
+# oropharynx_truncation_outlet is an ENGINEERING TRUNCATION at the scan's
+# inferior face, not an anatomical structure: its area is set by the scan FOV
+# and has no anatomical reference band. So [10, 600] exists only to catch
+# pathological failures (a clipped-away or runaway cap), NOT to validate
+# anatomy - see T-058. The old nasopharynx band [120, 500] would escalate b15
+# (112.51 mm2) purely for having been scanned with a smaller FOV.
 AREA_BAND_MM2 = {'nostril_L': (40.0, 140.0), 'nostril_R': (40.0, 140.0),
-                 'nasopharynx_outlet': (120.0, 500.0)}
+                 'oropharynx_truncation_outlet': (10.0, 600.0)}
 NORMAL_CASES = [f'b{i:02d}' for i in range(1, 25)]   # b25-b27 are multi-series
 
 
@@ -196,20 +202,22 @@ def run_case(case, args):
                            '--data-base', TS_BASE], 1800)
     e['s3_propose']['landmarks_sha256'] = artifact_sha(
         ROOT / 'work' / '06_auto_landmarks' / case / 'landmarks.json')
+    surface_root = Path(args.surface_root)
+    opening_root = Path(args.opening_root)
     e['s4_surface'] = run([PY, '-u', LIB / 'batch27_surface.py', '--cases', case,
-                           '--out', SURFACE_ROOT], 3600)
+                           '--out', surface_root], 3600)
     e['s4_surface']['surface_sha256'] = artifact_sha(
-        SURFACE_ROOT / case / 'source_surface.vtp')
+        surface_root / case / 'source_surface.vtp')
     e['s5_place'] = run([PY, '-u', LIB / 'auto_opening_pipeline.py',
-                         '--output', OPENING_ROOT, '--proposals',
+                         '--output', opening_root, '--proposals',
                          ROOT / 'work' / '06_auto_landmarks', '--src',
-                         SURFACE_ROOT, '--cases', case]
+                         surface_root, '--cases', case]
                         + (['--allow-needs-review'] if args.allow_needs_review else [])
                         + (['--allow-onset-outlier'] if args.allow_onset_outlier else [])
                         + ['--seed-mode', args.seed_mode,
                            '--search-origin', args.search_origin],
                         5400)
-    e['N6'] = gate_report(case, OPENING_ROOT / f'{case}.json',
+    e['N6'] = gate_report(case, opening_root / f'{case}.json',
                           surface_sha=e['s4_surface'].get('surface_sha256'),
                           plane_sha=e['s3_propose'].get('landmarks_sha256'))
     # A provenance mismatch is not a soft warning: the areas were produced from
@@ -276,6 +284,14 @@ def main():
                          'measured evidence. A missing onset still blocks.')
     ap.add_argument('--output', type=Path,
                     default=ROOT / 'work' / '10_nasalseg_intake' / 'normal_run.json')
+    ap.add_argument('--surface-root', type=Path, default=SURFACE_ROOT,
+                    help='where stage 4 writes source_surface.vtp (and, since '
+                         'T-058, air_mask.nii.gz). Defaults to the production '
+                         'root. Point it elsewhere to run a re-scoped batch '
+                         'without overwriting the one already on disk.')
+    ap.add_argument('--opening-root', type=Path, default=OPENING_ROOT,
+                    help='where stage 5 writes the per-case placement reports. '
+                         'Same rationale as --surface-root.')
     args = ap.parse_args()
     cases = args.cases or NORMAL_CASES
     rows = {}

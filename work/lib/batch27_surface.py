@@ -33,7 +33,7 @@ from export_candidate_preview import mask_surface, triangle_arrays
 from build_reviewed_surface_drafts import write_surface
 from partitioned_surface import topology
 
-ROI_LABELS = ('nasal_cavity_left', 'nasal_cavity_right', 'nasopharynx')
+ROI_LABELS = ('nasal_cavity_left', 'nasal_cavity_right', 'nasopharynx', 'oropharynx')
 HU_MAX = -300.0
 TS_BASE = Path('C:/ts_work')
 
@@ -79,8 +79,13 @@ def build_case(case, out_root, hu_max=HU_MAX):
     top, _ = topology(points, faces)
     out_dir = Path(out_root) / case
     out_dir.mkdir(parents=True, exist_ok=True)
+    # The air mask is written out because stage 5 needs it: the extended-domain
+    # outlet is an engineering truncation whose plane is derived from the mask's
+    # bottom voxel-centre plane, not from an anatomical landmark.
+    sitk.WriteImage(img, str(out_dir / 'air_mask.nii.gz'), True)
     write_surface(out_dir / 'source_surface.vtp', points, faces)
     return {'ok': True, 'union_voxels': int(union.sum()), 'air_voxels': voxels,
+            'air_mask': str(out_dir / 'air_mask.nii.gz'),
             'hu_max': hu_max, 'per_label_voxels': per_label,
             'points': int(len(points)), 'triangles': int(len(faces)),
             'surface_qc': top, 'path': str(out_dir / 'source_surface.vtp')}
