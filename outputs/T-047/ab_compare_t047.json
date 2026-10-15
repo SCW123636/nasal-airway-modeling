@@ -1,0 +1,59 @@
+{
+  "created": "2026-10-16T03:29:08.092320+08:00",
+  "task": "T-047 b01 short-vs-extended domain A/B",
+  "boundary_convention": "fixed 50:50 + outlet p=0; comparable with T-006/T-041/T-042 only",
+  "arms": {
+    "short": {
+      "outlet": "nasopharynx_outlet",
+      "outlet_area_mm2_mesh": null,
+      "domain_volume_m3": null,
+      "metrics": {
+        "samples": 600,
+        "last_time": 600,
+        "end_clean": true,
+        "fatal": false,
+        "delta_p_pa": 11.90352175967407,
+        "p_inL_pa": 10.503770058772542,
+        "p_inR_pa": 13.3032734605756,
+        "mass_imbalance_frac": 1.742058908151683e-07,
+        "monitor_max_window_change_frac": 6.686959788665375e-05,
+        "resistance_R_pa_s_ml": 0.047614087038696275,
+        "final_initial_residuals": {
+          "Ux": 5.83064868399e-05,
+          "p": 8.09683339954e-06
+        },
+        "outlet_mean_velocity_mps": null
+      }
+    },
+    "extended": {
+      "outlet": "oropharynx_truncation_outlet",
+      "outlet_area_mm2_mesh": 152.015274,
+      "domain_volume_m3": 2.803989454244437e-05,
+      "metrics": {
+        "samples": 600,
+        "last_time": 600,
+        "end_clean": true,
+        "fatal": false,
+        "delta_p_pa": 15.709415629503617,
+        "p_inL_pa": 14.952329247258467,
+        "p_inR_pa": 16.466502011748766,
+        "mass_imbalance_frac": 3.105714704507156e-07,
+        "monitor_max_window_change_frac": 0.00024113611604002013,
+        "resistance_R_pa_s_ml": 0.06283766251801445,
+        "final_initial_residuals": {
+          "Ux": 3.74627102428e-05,
+          "p": 5.60699437595e-06
+        },
+        "outlet_mean_velocity_mps": 1.6445715843001414
+      }
+    }
+  },
+  "increment": {
+    "delta_p_extended_minus_short_pa": 3.8058938698295464,
+    "analytical_oropharynx_segment_pa": 0.2501406711733631,
+    "analytical_method": "Poiseuille integral 8*pi*mu*Q*SUM(dz/A^2) over T-048 b01 area profile (laminar straight-tube; curvature -> lower bound)",
+    "resistance_increment_pa_s_ml": 0.015223575479318179
+  },
+  "interpretation": "extension moves the artificial p=0 boundary ~40 mm downstream (nasopharynx -> scan-bottom truncation); expected dp increase is small (~0.25 Pa analytical) because the oropharynx is wide",
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

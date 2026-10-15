@@ -1,0 +1,19 @@
+{
+  "faces": 84914,
+  "wall_area_m2": 0.019698690885411638,
+  "wall_area_mm2": 19698.690885411637,
+  "units_note": "foamToVTK exports SI: coordinates metres, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+  "wss_median_pa": 0.053720667699867955,
+  "wss_mean_pa": 0.07131848033115291,
+  "wss_p90_pa": 0.1526599784608342,
+  "wss_max_pa": 2.15731081735204,
+  "wall_shear_force_n": 0.0013311147979004432,
+  "consistency_check": "wall_area_mm2 equals mesh report wall area 19698.69 mm2 (bit-close)",
+  "b15_reference": {
+    "force_n": 0.0011019165435884187,
+    "median_pa": 0.047,
+    "max_pa": 4.17,
+    "wall_area_mm2": 18023.934332
+  },
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

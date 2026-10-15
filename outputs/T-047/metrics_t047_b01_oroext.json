@@ -1,0 +1,84 @@
+{
+  "created": "2026-10-16T03:17:21.335400+08:00",
+  "task": "T-047 b01 oropharynx-extended S-A solve metrics",
+  "schema": "nasal_cfd_metrics/v1",
+  "solver": "laminar (simpleFoam S-A preset, mirrors T-006/T-042)",
+  "rho_kg_m3": 1.2,
+  "boundary_convention": "fixed 50:50 nostril flow split (1.25e-4 m3/s each) + outlet p=0 gauge; comparable ONLY with T-006/T-041/T-042, NOT with T-021/T-029 common-static-pressure runs",
+  "outlet_role": "engineering_truncation_at_scan_inferior_face; downstream (hypopharynx+larynx) resistance missing -> delta_p biased low",
+  "domain": {
+    "volume_m3": 2.803989454244437e-05,
+    "labels": "nasal_cavity_left+right+nasopharynx+oropharynx",
+    "mesh_cells_repaired": 764801,
+    "det_lt_0.001_cells_repaired": 366,
+    "max_nonorthogonality_deg": 87.63
+  },
+  "samples": {
+    "monitor_points": 600,
+    "last_time": 600,
+    "steady_window": "last 40%"
+  },
+  "metrics": {
+    "converged": false,
+    "numerical_validation": "unchecked (per M2 ruling; final residuals recorded)",
+    "final_initial_residuals": {
+      "Ux": 3.74627102428e-05,
+      "p": 5.60699437595e-06
+    },
+    "delta_p_pa": {
+      "value": 15.709415629503617,
+      "p_inL_kinematic": 12.46027437271539,
+      "p_inR_kinematic": 13.72208500979064,
+      "p_out_kinematic": 0.0,
+      "note": "mean of bilateral inlet area-average p, x rho"
+    },
+    "total_flow_m3s": {
+      "value": 0.00025000000000000006,
+      "target": 0.00025
+    },
+    "outlet_flow_m3s": {
+      "value": 0.00024999992235713245
+    },
+    "mass_imbalance_frac": 3.105714704507156e-07,
+    "monitor_max_window_change_frac": 0.00024113611604002013,
+    "resistance_R": {
+      "value_pa_s_ml": 0.06283766251801445,
+      "value_pa_s_m3": 62837.662518014455
+    },
+    "outlet_mean_velocity_mps": 1.6445715843001414,
+    "nostril_mean_velocity_mps": {
+      "L": 1.3759620616658206,
+      "R": 1.367482978884663
+    }
+  },
+  "extension_increment": {
+    "analytical_oropharynx_segment_dp_pa": 0.2501406711733631,
+    "method": "Poiseuille integral over T-048 b01 area profile (8*pi*mu*Q*SUM(dz/A^2)); laminar straight-tube lower bound",
+    "b01_short_domain_delta_p_pa": "not available (b01 short domain never solved)"
+  },
+  "comparison_b15_T042": {
+    "delta_p_pa": 10.286010671888477,
+    "R_pa_s_ml": 0.04114404268755391,
+    "mass_imbalance_frac": 5.272055999226699e-07,
+    "source": "T-042 b15 maxh1 S-A (nasal+nasopharynx domain)"
+  },
+  "m2_criteria": {
+    "no_crash": true,
+    "delta_p_in_band_10_100Pa": true,
+    "mass_imbalance_le_0.5pct": true,
+    "monitor_stable_le_0.5pct": true
+  },
+  "patch_areas_mm2": {
+    "mesh_labelled": {
+      "nostril_L": 90.845528,
+      "nostril_R": 91.408816,
+      "oropharynx_truncation_outlet": 152.015274
+    },
+    "opening_stage": {
+      "nostril_L": 80.082608,
+      "nostril_R": 80.081077,
+      "oropharynx_truncation_outlet": 148.925636
+    }
+  },
+  "clinical_status": "generalisation_test_only_no_human_review"
+}
