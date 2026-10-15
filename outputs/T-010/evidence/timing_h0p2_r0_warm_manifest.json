@@ -1,0 +1,426 @@
+{
+  "archived_before_run": null,
+  "case": "/home/lenovo2/t010_meshcache/cases/case_h0p2_r0",
+  "case_manifest": {
+    "background_box_mm": {
+      "max_mm": [
+        2.4,
+        2.4,
+        40.4
+      ],
+      "min_mm": [
+        -2.4,
+        -2.4,
+        -0.4
+      ]
+    },
+    "bbox_mm": {
+      "max": [
+        2.0,
+        2.0,
+        40.0
+      ],
+      "min": [
+        -2.0,
+        -2.0,
+        0.0
+      ]
+    },
+    "block_cells": [
+      24,
+      24,
+      204
+    ],
+    "boundary": {
+      "common_inlet_pressure_feedback": {
+        "reason": "fixed flow inlet boundary conditions",
+        "status": "not_implemented"
+      },
+      "inlet_profile": "parabolic",
+      "inlet_static_pressure_Pa_gauge": null,
+      "mode": "flow_driven_total_flow",
+      "outlet_static_pressure_Pa_gauge": 0.0,
+      "per_inlet_flow_m3_s": {
+        "inlet": 0.00025
+      },
+      "split_interpretation": null,
+      "split_note": null,
+      "total_flow_m3_s": 0.00025
+    },
+    "cell_size_mm": 0.2,
+    "convertToMeters": 0.001,
+    "files_sha256": {
+      "0/U": "b068754c3581c8a2f29ede66658c7650ded58c9a80fc220c0f22d9fab7168d98",
+      "0/p": "974bec349ce7ee468776fd7dcf88d612ce9cec2ff1ba1f06b48da8986cf591bf",
+      "constant/transportProperties": "c68976a4b2b1f005b1e26ce110e4f3edbfba28730ca0aa2b7e6c3fe77a5cff48",
+      "constant/triSurface/inlet.stl": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340",
+      "constant/triSurface/outlet.stl": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436",
+      "constant/triSurface/wall.stl": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db",
+      "constant/turbulenceProperties": "8fec78500aa8c5f8807135f0f7e2cf02f2a02c69c306fd12a899ce3abf57c269",
+      "system/blockMeshDict": "9b535071a24a99c5e6973c4b76705172d092cc429e4a98eed1412153b3771072",
+      "system/controlDict": "f9a40543c94b4245075d5723fca90fb78b27fa4f91952a08fa547a15d8de8533",
+      "system/fvSchemes": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135",
+      "system/fvSolution": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e",
+      "system/snappyHexMeshDict": "05e10ca37b1d688306b38eea08f06918ab8a09370d7a03ed126cce57380150be"
+    },
+    "fvSchemes": {
+      "sha256": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135",
+      "source": "/usr/share/doc/openfoam-examples/examples/incompressible/simpleFoam/pitzDaily/system/fvSchemes"
+    },
+    "generated_at": "2026-10-14T16:21:23+00:00",
+    "location_in_mesh_m": [
+      0.0,
+      0.0,
+      0.02
+    ],
+    "location_in_mesh_mm": [
+      0.0,
+      0.0,
+      20.0
+    ],
+    "patch_map": {
+      "inlet": "inlet",
+      "outlet": "outlet",
+      "wall": "wall"
+    },
+    "patches_by_role": {
+      "inlet": [
+        "inlet"
+      ],
+      "outlet": [
+        "outlet"
+      ],
+      "wall": [
+        "wall"
+      ]
+    },
+    "physics": {
+      "mu_Pa_s": 1.81e-05,
+      "nu_m2_s": 1.5083333333333333e-05,
+      "rho_kg_m3": 1.2
+    },
+    "refine_level": [
+      0,
+      0
+    ],
+    "schema": "nasal_cfd_case/v1",
+    "script": {
+      "name": "surface_to_case.py",
+      "version": "1.0.0"
+    },
+    "solver": "laminar",
+    "surface": {
+      "solids": {
+        "inlet": {
+          "area_mm2": 12.546193962183748,
+          "triangles": 64
+        },
+        "outlet": {
+          "area_mm2": 12.546193962183748,
+          "triangles": 64
+        },
+        "wall": {
+          "area_mm2": 502.452985112761,
+          "triangles": 128
+        }
+      },
+      "source_file": "tube.stl",
+      "source_sha256": "6b83a321e786794d95e504d279db23ea3dff37f4bd036f878b34c5ea027ac1f4",
+      "units": "mm"
+    },
+    "surface_written_in_meters": true
+  },
+  "contract": {
+    "checked": false,
+    "config_id": null
+  },
+  "engineering_acceptance": false,
+  "environment_overrides": {
+    "FOAM_ETC": "/usr/share/openfoam/etc",
+    "WM_PROJECT_DIR": "/usr/share/openfoam",
+    "WM_PROJECT_VERSION": "v1912"
+  },
+  "execution_status": "completed",
+  "finished_at": "2026-10-15T01:15:44+00:00",
+  "mesh_cache": {
+    "manifest": {
+      "backend_identity": {
+        "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+        "name": "wsl",
+        "openfoam_flavour": "org",
+        "version": "v1912"
+      },
+      "check_mesh": {
+        "log": {
+          "sha256": "11688ec042198cc53e8f9f07576150276c881c5f10ac52a6eb8907589f6b87ea",
+          "size": 4740
+        },
+        "quality": {
+          "failed_checks": null,
+          "mesh_ok": true
+        },
+        "returncode": 0,
+        "run_id": "2026-10-14T16:21:33+00:00"
+      },
+      "completed_mesh_steps": [
+        {
+          "name": "checkMesh",
+          "returncode": 0,
+          "timed_out": false
+        }
+      ],
+      "evidence": {
+        "backend_identity": {
+          "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+          "name": "wsl",
+          "openfoam_flavour": "org",
+          "version": "v1912"
+        },
+        "dependencies": {
+          "constant/triSurface/inlet.stl": {
+            "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340",
+            "size": 11449
+          },
+          "constant/triSurface/outlet.stl": {
+            "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436",
+            "size": 11963
+          },
+          "constant/triSurface/wall.stl": {
+            "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db",
+            "size": 32701
+          }
+        },
+        "dictionaries": {
+          "blockMeshDict": "1150022028de0f5a522966357bdcbc93015d81692870b43375ece5da861f9691",
+          "controlDict": "d13f7fa95e8328c6324b3d72a0bc6b223853baeb2cc4bac892d05fd1cb317a13",
+          "fvSchemes": "49af12bc155eaf958aa3771583c44c18b46a991d1f67454f0a7e94377c5ec28b",
+          "fvSolution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "snappyHexMeshDict": "b69456f7b44f275e9841e4b81eedea31c47576b51bf0e5715dc563a8168b1b85"
+        },
+        "geometry": {
+          "constant/triSurface/inlet.stl": {
+            "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340",
+            "size": 11449
+          },
+          "constant/triSurface/outlet.stl": {
+            "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436",
+            "size": 11963
+          },
+          "constant/triSurface/wall.stl": {
+            "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db",
+            "size": 32701
+          }
+        },
+        "schema_version": 1
+      },
+      "generation": {
+        "mode": "serial",
+        "nproc": 0
+      },
+      "inputs": {
+        "constant/triSurface/inlet.stl": {
+          "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340",
+          "size": 11449
+        },
+        "constant/triSurface/outlet.stl": {
+          "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436",
+          "size": 11963
+        },
+        "constant/triSurface/wall.stl": {
+          "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db",
+          "size": 32701
+        },
+        "system/blockMeshDict": {
+          "sha256": "9b535071a24a99c5e6973c4b76705172d092cc429e4a98eed1412153b3771072",
+          "size": 452
+        },
+        "system/controlDict": {
+          "sha256": "f9a40543c94b4245075d5723fca90fb78b27fa4f91952a08fa547a15d8de8533",
+          "size": 1259
+        },
+        "system/fvSchemes": {
+          "sha256": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135",
+          "size": 1555
+        },
+        "system/fvSolution": {
+          "sha256": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e",
+          "size": 387
+        },
+        "system/snappyHexMeshDict": {
+          "sha256": "05e10ca37b1d688306b38eea08f06918ab8a09370d7a03ed126cce57380150be",
+          "size": 1538
+        }
+      },
+      "mesh_files": {
+        "constant/polyMesh/boundary": {
+          "sha256": "df5f3d1da3d44dc282a9ba1dfb143b7d4bb6355fc3740f3ba5b162ff953d0cdc",
+          "size": 1322
+        },
+        "constant/polyMesh/cellLevel": {
+          "sha256": "6166992bc111d69d422f4d3d15086fbd4a1161fbc2d40efc21bc9e7bcbbc6718",
+          "size": 879
+        },
+        "constant/polyMesh/cellZones": {
+          "sha256": "f3ec1850b17284b3056587e7b0bcc398b523f80f3e51891cfc5a931b38165b54",
+          "size": 876
+        },
+        "constant/polyMesh/faceZones": {
+          "sha256": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f",
+          "size": 876
+        },
+        "constant/polyMesh/faces": {
+          "sha256": "96a90f7d8faa0bde525ef5e8979a522af899f4126a7a70412a946b68fb3f5191",
+          "size": 5064207
+        },
+        "constant/polyMesh/level0Edge": {
+          "sha256": "fb94d87d6afe135769efc8e40114102ed4990678d1ef6b02009a510cf17a8149",
+          "size": 950
+        },
+        "constant/polyMesh/neighbour": {
+          "sha256": "45e9c5190cfc17eb9ece242a2de218e34ff8bb851397f6897f8c33fe8523c7f4",
+          "size": 1057535
+        },
+        "constant/polyMesh/owner": {
+          "sha256": "518ebf9f630e1b288ef4ac9ebf18e6bbb6751092c94e03b820afb3d4e043d80b",
+          "size": 1125214
+        },
+        "constant/polyMesh/pointLevel": {
+          "sha256": "574f6f1dced02c1d406e8d325ebc6e4a6185dc47e36d1e2f7fc096badd9978d9",
+          "size": 880
+        },
+        "constant/polyMesh/pointZones": {
+          "sha256": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29",
+          "size": 877
+        },
+        "constant/polyMesh/points": {
+          "sha256": "c0e24f6af9cabc11bef9e6e6fc62d9620855a61b9d078024db242c373d74002b",
+          "size": 3593314
+        },
+        "constant/polyMesh/surfaceIndex": {
+          "sha256": "b7a6a50366dd2e7a2df84b684f0c508922f421bd85bb7e85dd1d6ea90dd7397e",
+          "size": 568498
+        }
+      },
+      "recorded_at": "2026-10-15T01:15:44+00:00",
+      "schema_version": 1,
+      "signature": "0e723f466179688d93fa2dbf42fa92bc862bfe7d179d0cf4e10799a30a4b325c"
+    },
+    "quality": {
+      "failed_checks": null,
+      "mesh_ok": true
+    },
+    "reason": "\u5df2\u8bb0\u5f55\u672c\u6b21\u7f51\u683c\u5185\u5bb9\u53ca\u68c0\u67e5\u8bc1\u636e",
+    "recorded": true
+  },
+  "mesh_signature": {
+    "backend_identity": {
+      "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+      "name": "wsl",
+      "openfoam_flavour": "org",
+      "version": "v1912"
+    },
+    "evidence": {
+      "backend_identity": {
+        "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+        "name": "wsl",
+        "openfoam_flavour": "org",
+        "version": "v1912"
+      },
+      "dependencies": {
+        "constant/triSurface/inlet.stl": {
+          "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340",
+          "size": 11449
+        },
+        "constant/triSurface/outlet.stl": {
+          "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436",
+          "size": 11963
+        },
+        "constant/triSurface/wall.stl": {
+          "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db",
+          "size": 32701
+        }
+      },
+      "dictionaries": {
+        "blockMeshDict": "1150022028de0f5a522966357bdcbc93015d81692870b43375ece5da861f9691",
+        "controlDict": "d13f7fa95e8328c6324b3d72a0bc6b223853baeb2cc4bac892d05fd1cb317a13",
+        "fvSchemes": "49af12bc155eaf958aa3771583c44c18b46a991d1f67454f0a7e94377c5ec28b",
+        "fvSolution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "snappyHexMeshDict": "b69456f7b44f275e9841e4b81eedea31c47576b51bf0e5715dc563a8168b1b85"
+      },
+      "geometry": {
+        "constant/triSurface/inlet.stl": {
+          "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340",
+          "size": 11449
+        },
+        "constant/triSurface/outlet.stl": {
+          "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436",
+          "size": 11963
+        },
+        "constant/triSurface/wall.stl": {
+          "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db",
+          "size": 32701
+        }
+      },
+      "schema_version": 1
+    },
+    "inputs": {
+      "constant/triSurface/inlet.stl": {
+        "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340",
+        "size": 11449
+      },
+      "constant/triSurface/outlet.stl": {
+        "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436",
+        "size": 11963
+      },
+      "constant/triSurface/wall.stl": {
+        "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db",
+        "size": 32701
+      },
+      "system/blockMeshDict": {
+        "sha256": "9b535071a24a99c5e6973c4b76705172d092cc429e4a98eed1412153b3771072",
+        "size": 452
+      },
+      "system/controlDict": {
+        "sha256": "f9a40543c94b4245075d5723fca90fb78b27fa4f91952a08fa547a15d8de8533",
+        "size": 1259
+      },
+      "system/fvSchemes": {
+        "sha256": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135",
+        "size": 1555
+      },
+      "system/fvSolution": {
+        "sha256": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e",
+        "size": 387
+      },
+      "system/snappyHexMeshDict": {
+        "sha256": "05e10ca37b1d688306b38eea08f06918ab8a09370d7a03ed126cce57380150be",
+        "size": 1538
+      }
+    },
+    "reason": "\u51e0\u4f55\u3001\u7f51\u683c\u8bbe\u7f6e\u53ca\u540e\u7aef\u5185\u5bb9\u5df2\u6838\u5bf9",
+    "signature": "0e723f466179688d93fa2dbf42fa92bc862bfe7d179d0cf4e10799a30a4b325c",
+    "valid": true
+  },
+  "mesh_skipped": true,
+  "nproc": 0,
+  "openfoam_version": "v1912",
+  "parallel": false,
+  "schema": "nasal_cfd_run/v1",
+  "script": {
+    "name": "run_openfoam_case.py",
+    "version": "1.2.0"
+  },
+  "started_at": "2026-10-14T16:21:33+00:00",
+  "steps": [
+    {
+      "command": [
+        "checkMesh",
+        "-allGeometry",
+        "-allTopology"
+      ],
+      "elapsed_seconds": 0.8560803210000003,
+      "exit_code": 0,
+      "log": "/home/lenovo2/t010_meshcache/cases/case_h0p2_r0/log.checkMesh"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+S4 re-export mtime/content test (case_h0p2_r0, 2026-10-15 ~09:47 CST)
+BEFORE  mtime=1791994883  sha256:
+  1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340  inlet.stl
+  7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436  outlet.stl
+  415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db  wall.stl
+AFTER (re-export via surface_to_case.py, same params, overwritten)  mtime=1792028851  sha256:
+  1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340  inlet.stl
+  7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436  outlet.stl
+  415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db  wall.stl
+RESULT: content identical, mtime changed, run with --skip-mesh-if-cached -> mesh_skipped=true,
+        signature unchanged 0e723f466179688d93fa2dbf42fa92bc862bfe7d179d0cf4e10799a30a4b325c

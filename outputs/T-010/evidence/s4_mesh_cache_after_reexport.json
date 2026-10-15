@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "signature": "0e723f466179688d93fa2dbf42fa92bc862bfe7d179d0cf4e10799a30a4b325c",
+  "inputs": {
+    "system/blockMeshDict": {
+      "size": 452,
+      "sha256": "9b535071a24a99c5e6973c4b76705172d092cc429e4a98eed1412153b3771072"
+    },
+    "system/snappyHexMeshDict": {
+      "size": 1538,
+      "sha256": "05e10ca37b1d688306b38eea08f06918ab8a09370d7a03ed126cce57380150be"
+    },
+    "constant/triSurface/inlet.stl": {
+      "size": 11449,
+      "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340"
+    },
+    "constant/triSurface/outlet.stl": {
+      "size": 11963,
+      "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436"
+    },
+    "constant/triSurface/wall.stl": {
+      "size": 32701,
+      "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db"
+    },
+    "system/fvSchemes": {
+      "size": 1555,
+      "sha256": "7cee2e02eda29bb04f5052080e27187f1745c16c52ad755ab21d56c083965135"
+    },
+    "system/fvSolution": {
+      "size": 387,
+      "sha256": "4c238c5ff6c4ffc4399824c9312b717890c978e41bdf461f597bcc4a8acfe14e"
+    },
+    "system/controlDict": {
+      "size": 1259,
+      "sha256": "f9a40543c94b4245075d5723fca90fb78b27fa4f91952a08fa547a15d8de8533"
+    }
+  },
+  "evidence": {
+    "schema_version": 1,
+    "backend_identity": {
+      "name": "wsl",
+      "version": "v1912",
+      "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+      "openfoam_flavour": "org"
+    },
+    "dictionaries": {
+      "blockMeshDict": "1150022028de0f5a522966357bdcbc93015d81692870b43375ece5da861f9691",
+      "snappyHexMeshDict": "b69456f7b44f275e9841e4b81eedea31c47576b51bf0e5715dc563a8168b1b85",
+      "fvSchemes": "49af12bc155eaf958aa3771583c44c18b46a991d1f67454f0a7e94377c5ec28b",
+      "fvSolution": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "controlDict": "d13f7fa95e8328c6324b3d72a0bc6b223853baeb2cc4bac892d05fd1cb317a13"
+    },
+    "geometry": {
+      "constant/triSurface/inlet.stl": {
+        "size": 11449,
+        "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340"
+      },
+      "constant/triSurface/outlet.stl": {
+        "size": 11963,
+        "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436"
+      },
+      "constant/triSurface/wall.stl": {
+        "size": 32701,
+        "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db"
+      }
+    },
+    "dependencies": {
+      "constant/triSurface/inlet.stl": {
+        "size": 11449,
+        "sha256": "1da71992a44ea5f2cf5fce2a08c4ac1abc5896356e613f51c1fd7fc8b2a99340"
+      },
+      "constant/triSurface/outlet.stl": {
+        "size": 11963,
+        "sha256": "7c68c251a907848110c4db20a9bcc8f37d0c0476706123ff5fbd8cb7a05b3436"
+      },
+      "constant/triSurface/wall.stl": {
+        "size": 32701,
+        "sha256": "415e9f0a2609a8adf90db5faaf3d5d6343c2626537ffca986227da529029e3db"
+      }
+    }
+  },
+  "backend_identity": {
+    "name": "wsl",
+    "version": "v1912",
+    "installation_sha256": "cd2419759f0548827599ebb97fc2d8d36c6ee06abeb107f27b1221ab73fdb520",
+    "openfoam_flavour": "org"
+  },
+  "mesh_files": {
+    "constant/polyMesh/boundary": {
+      "size": 1322,
+      "sha256": "df5f3d1da3d44dc282a9ba1dfb143b7d4bb6355fc3740f3ba5b162ff953d0cdc"
+    },
+    "constant/polyMesh/cellLevel": {
+      "size": 879,
+      "sha256": "6166992bc111d69d422f4d3d15086fbd4a1161fbc2d40efc21bc9e7bcbbc6718"
+    },
+    "constant/polyMesh/cellZones": {
+      "size": 876,
+      "sha256": "f3ec1850b17284b3056587e7b0bcc398b523f80f3e51891cfc5a931b38165b54"
+    },
+    "constant/polyMesh/faceZones": {
+      "size": 876,
+      "sha256": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f"
+    },
+    "constant/polyMesh/faces": {
+      "size": 5064207,
+      "sha256": "96a90f7d8faa0bde525ef5e8979a522af899f4126a7a70412a946b68fb3f5191"
+    },
+    "constant/polyMesh/level0Edge": {
+      "size": 950,
+      "sha256": "fb94d87d6afe135769efc8e40114102ed4990678d1ef6b02009a510cf17a8149"
+    },
+    "constant/polyMesh/neighbour": {
+      "size": 1057535,
+      "sha256": "45e9c5190cfc17eb9ece242a2de218e34ff8bb851397f6897f8c33fe8523c7f4"
+    },
+    "constant/polyMesh/owner": {
+      "size": 1125214,
+      "sha256": "518ebf9f630e1b288ef4ac9ebf18e6bbb6751092c94e03b820afb3d4e043d80b"
+    },
+    "constant/polyMesh/pointLevel": {
+      "size": 880,
+      "sha256": "574f6f1dced02c1d406e8d325ebc6e4a6185dc47e36d1e2f7fc096badd9978d9"
+    },
+    "constant/polyMesh/pointZones": {
+      "size": 877,
+      "sha256": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29"
+    },
+    "constant/polyMesh/points": {
+      "size": 3593314,
+      "sha256": "c0e24f6af9cabc11bef9e6e6fc62d9620855a61b9d078024db242c373d74002b"
+    },
+    "constant/polyMesh/surfaceIndex": {
+      "size": 568498,
+      "sha256": "b7a6a50366dd2e7a2df84b684f0c508922f421bd85bb7e85dd1d6ea90dd7397e"
+    }
+  },
+  "check_mesh": {
+    "run_id": "2026-10-15T01:47:31+00:00",
+    "returncode": 0,
+    "log": {
+      "size": 4740,
+      "sha256": "1b75c0c310cca1d2b7ab646e5fdeea40933566c71e05b082be08a9ee177d6554"
+    },
+    "quality": {
+      "mesh_ok": true,
+      "failed_checks": null
+    }
+  },
+  "completed_mesh_steps": [
+    {
+      "name": "checkMesh",
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "recorded_at": "2026-10-15T01:47:32+00:00",
+  "generation": {
+    "mode": "serial",
+    "nproc": 0
+  }
+}
