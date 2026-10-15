@@ -1,0 +1,6877 @@
+{
+  "created": "2026-10-16T00:51:08.624113+08:00",
+  "scope": "T-048 read-only throat coverage audit; no inference, no crop, no mutation",
+  "method": "reuses T-032 inspect_lower_coverage.py (label bbox vs scan bounds + face contact)",
+  "cases": {
+    "b01": {
+      "case": "b01",
+      "size_xyz": [
+        512,
+        512,
+        195
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          116.86699676513672
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -85.71700286865234
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -132.88874065876007,
+          -86.02950286865234
+        ],
+        [
+          124.00514209270477,
+          117.11113727092743,
+          35.845497131347656
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 68508,
+          "bbox_ijk_zyx": [
+            [
+              48,
+              70,
+              249
+            ],
+            [
+              121,
+              212,
+              288
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              2.179029703140259,
+              82.68732595443726,
+              -55.717002868652344
+            ],
+            [
+              -16.863929748535156,
+              13.351422309875488,
+              -10.092002868652344
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 68508,
+          "bbox_ijk_zyx": [
+            [
+              51,
+              69,
+              220
+            ],
+            [
+              122,
+              207,
+              267
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              16.339179039001465,
+              83.17560696601868,
+              -53.842002868652344
+            ],
+            [
+              -6.610028505325317,
+              15.792827367782593,
+              -9.467002868652344
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 40153,
+          "bbox_ijk_zyx": [
+            [
+              57,
+              199,
+              209
+            ],
+            [
+              90,
+              238,
+              281
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              21.710270166397095,
+              19.69907546043396,
+              -50.092002868652344
+            ],
+            [
+              -13.44596266746521,
+              0.6561160087585449,
+              -29.467002868652344
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 54370,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              201,
+              206
+            ],
+            [
+              64,
+              263,
+              267
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              23.175113201141357,
+              18.722513437271118,
+              -85.71700286865234
+            ],
+            [
+              -6.610028505325317,
+              -11.550909280776978,
+              -45.717002868652344
+            ]
+          ],
+          "touch_inferior_face": 738,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 255,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              258,
+              220
+            ],
+            [
+              2,
+              264,
+              237
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              16.339179039001465,
+              -9.109504222869873,
+              -85.71700286865234
+            ],
+            [
+              8.03840184211731,
+              -12.039190292358398,
+              -84.46700286865234
+            ]
+          ],
+          "touch_inferior_face": 97,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 22146,
+          "bbox_ijk_zyx": [
+            [
+              21,
+              179,
+              217
+            ],
+            [
+              60,
+              238,
+              267
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.804022073745728,
+              29.464695692062378,
+              -72.59200286865234
+            ],
+            [
+              -6.610028505325317,
+              0.6561160087585449,
+              -48.217002868652344
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -86.02950286865234,
+          35.845497131347656
+        ],
+        "oropharynx_z_range_mm": [
+          -85.71700286865234,
+          -45.717002868652344
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 81.5625,
+        "hypopharynx_z_range_mm": [
+          -85.71700286865234,
+          -84.46700286865234
+        ],
+        "hypopharynx_gap_inferior_mm": 0.3125,
+        "hypopharynx_gap_superior_mm": 120.3125,
+        "soft_palate_z_range_mm": [
+          -72.59200286865234,
+          -48.217002868652344
+        ],
+        "soft_palate_gap_inferior_mm": 13.4375,
+        "soft_palate_gap_superior_mm": 84.0625,
+        "nasopharynx_z_range_mm": [
+          -50.092002868652344,
+          -29.467002868652344
+        ],
+        "nasopharynx_gap_inferior_mm": 35.9375,
+        "nasopharynx_gap_superior_mm": 65.3125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 255,
+        "naso_to_oro_interface_gap_mm": 4.375
+      }
+    },
+    "b02": {
+      "case": "b02",
+      "size_xyz": [
+        512,
+        512,
+        173
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          130.00900268554688
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          111.66100311279297
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -92.78700256347656
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -119.74673473834991,
+          -138.09473431110382,
+          -93.09950256347656
+        ],
+        [
+          130.25314319133759,
+          111.90514361858368,
+          15.025497436523438
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 62450,
+          "bbox_ijk_zyx": [
+            [
+              29,
+              40,
+              260
+            ],
+            [
+              105,
+              188,
+              291
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              3.0559396743774414,
+              92.12976264953613,
+              -74.66200256347656
+            ],
+            [
+              -12.080771684646606,
+              19.86417293548584,
+              -27.162002563476562
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 66551,
+          "bbox_ijk_zyx": [
+            [
+              29,
+              40,
+              226
+            ],
+            [
+              103,
+              191,
+              262
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              19.657494068145752,
+              92.12976264953613,
+              -74.66200256347656
+            ],
+            [
+              2.0793776512145996,
+              18.399329900741577,
+              -28.412002563476562
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 37849,
+          "bbox_ijk_zyx": [
+            [
+              32,
+              180,
+              215
+            ],
+            [
+              57,
+              219,
+              303
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              25.028585195541382,
+              23.770421028137207,
+              -72.78700256347656
+            ],
+            [
+              -17.940143823623657,
+              4.727461576461792,
+              -57.16200256347656
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 25598,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              181,
+              235
+            ],
+            [
+              32,
+              232,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              15.262964963912964,
+              23.282140016555786,
+              -92.78700256347656
+            ],
+            [
+              -7.686242580413818,
+              -1.6201915740966797,
+              -72.78700256347656
+            ]
+          ],
+          "touch_inferior_face": 466,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 20204,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              161,
+              235
+            ],
+            [
+              31,
+              214,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              15.262964963912964,
+              33.047760248184204,
+              -92.78700256347656
+            ],
+            [
+              -7.686242580413818,
+              7.1688666343688965,
+              -73.41200256347656
+            ]
+          ],
+          "touch_inferior_face": 256,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -93.09950256347656,
+          15.025497436523438
+        ],
+        "oropharynx_z_range_mm": [
+          -92.78700256347656,
+          -72.78700256347656
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 87.8125,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -92.78700256347656,
+          -73.41200256347656
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 88.4375,
+        "nasopharynx_z_range_mm": [
+          -72.78700256347656,
+          -57.16200256347656
+        ],
+        "nasopharynx_gap_inferior_mm": 20.3125,
+        "nasopharynx_gap_superior_mm": 72.1875,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.0
+      }
+    },
+    "b03": {
+      "case": "b03",
+      "size_xyz": [
+        512,
+        512,
+        154
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -48.415000915527344
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -121.43473827838898,
+          -48.727500915527344
+        ],
+        [
+          124.00514209270477,
+          128.56513965129852,
+          47.522499084472656
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 55691,
+          "bbox_ijk_zyx": [
+            [
+              17,
+              66,
+              257
+            ],
+            [
+              87,
+              217,
+              293
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -1.7272183895111084,
+              96.09445238113403,
+              -37.790000915527344
+            ],
+            [
+              -19.30533480644226,
+              22.364019632339478,
+              5.959999084472656
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 73047,
+          "bbox_ijk_zyx": [
+            [
+              17,
+              66,
+              227
+            ],
+            [
+              90,
+              221,
+              260
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.921211957931519,
+              96.09445238113403,
+              -37.790000915527344
+            ],
+            [
+              -3.192061424255371,
+              20.410895586013794,
+              7.834999084472656
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 34900,
+          "bbox_ijk_zyx": [
+            [
+              19,
+              202,
+              231
+            ],
+            [
+              44,
+              242,
+              291
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.968087911605835,
+              29.68823480606079,
+              -36.540000915527344
+            ],
+            [
+              -18.32877278327942,
+              10.156994342803955,
+              -20.915000915527344
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 21198,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              195,
+              237
+            ],
+            [
+              20,
+              239,
+              284
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              8.03840184211731,
+              33.10620188713074,
+              -48.415000915527344
+            ],
+            [
+              -14.910805702209473,
+              11.621837377548218,
+              -35.915000915527344
+            ]
+          ],
+          "touch_inferior_face": 549,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 12283,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              177,
+              240
+            ],
+            [
+              18,
+              219,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              6.573558807373047,
+              41.89526009559631,
+              -48.415000915527344
+            ],
+            [
+              -13.93424367904663,
+              21.387457609176636,
+              -37.165000915527344
+            ]
+          ],
+          "touch_inferior_face": 732,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -48.727500915527344,
+          47.522499084472656
+        ],
+        "oropharynx_z_range_mm": [
+          -48.415000915527344,
+          -35.915000915527344
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 83.4375,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -48.415000915527344,
+          -37.165000915527344
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 84.6875,
+        "nasopharynx_z_range_mm": [
+          -36.540000915527344,
+          -20.915000915527344
+        ],
+        "nasopharynx_gap_inferior_mm": 12.1875,
+        "nasopharynx_gap_superior_mm": 68.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.625
+      }
+    },
+    "b04": {
+      "case": "b04",
+      "size_xyz": [
+        512,
+        512,
+        157
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -56.132999420166016
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -121.43473827838898,
+          -56.445499420166016
+        ],
+        [
+          124.00514209270477,
+          128.56513965129852,
+          41.679500579833984
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 79400,
+          "bbox_ijk_zyx": [
+            [
+              16,
+              59,
+              243
+            ],
+            [
+              98,
+              212,
+              288
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              5.108715772628784,
+              99.51241946220398,
+              -46.132999420166016
+            ],
+            [
+              -16.863929748535156,
+              24.805424690246582,
+              5.117000579833984
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 78866,
+          "bbox_ijk_zyx": [
+            [
+              17,
+              63,
+              207
+            ],
+            [
+              97,
+              212,
+              251
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              22.686832189559937,
+              97.5592954158783,
+              -45.507999420166016
+            ],
+            [
+              1.202467679977417,
+              24.805424690246582,
+              4.492000579833984
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 24003,
+          "bbox_ijk_zyx": [
+            [
+              29,
+              196,
+              226
+            ],
+            [
+              53,
+              232,
+              279
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.40949296951294,
+              32.617920875549316,
+              -38.007999420166016
+            ],
+            [
+              -12.469400644302368,
+              15.039804458618164,
+              -23.007999420166016
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 15364,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              196,
+              240
+            ],
+            [
+              28,
+              244,
+              270
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              6.573558807373047,
+              32.617920875549316,
+              -56.132999420166016
+            ],
+            [
+              -8.07487154006958,
+              9.180432319641113,
+              -38.632999420166016
+            ]
+          ],
+          "touch_inferior_face": 427,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 17299,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              178,
+              232
+            ],
+            [
+              26,
+              224,
+              271
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.479806900024414,
+              41.40697908401489,
+              -56.132999420166016
+            ],
+            [
+              -8.563152551651001,
+              18.94605255126953,
+              -39.882999420166016
+            ]
+          ],
+          "touch_inferior_face": 293,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -56.445499420166016,
+          41.679500579833984
+        ],
+        "oropharynx_z_range_mm": [
+          -56.132999420166016,
+          -38.632999420166016
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 80.3125,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -56.132999420166016,
+          -39.882999420166016
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 81.5625,
+        "nasopharynx_z_range_mm": [
+          -38.007999420166016,
+          -23.007999420166016
+        ],
+        "nasopharynx_gap_inferior_mm": 18.4375,
+        "nasopharynx_gap_superior_mm": 64.6875,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": -0.625
+      }
+    },
+    "b05": {
+      "case": "b05",
+      "size_xyz": [
+        512,
+        512,
+        126
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          112.7020034790039
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -29.469999313354492
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -137.05373394489288,
+          -29.782499313354492
+        ],
+        [
+          124.00514209270477,
+          112.94614398479462,
+          48.96750068664551
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 65025,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              1,
+              233
+            ],
+            [
+              79,
+              167,
+              268
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              9.991525888442993,
+              112.21372246742249,
+              -22.594999313354492
+            ],
+            [
+              -7.098309516906738,
+              31.159074544906616,
+              19.905000686645508
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 72945,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              6,
+              204
+            ],
+            [
+              82,
+              167,
+              240
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              24.1516752243042,
+              109.77231740951538,
+              -22.594999313354492
+            ],
+            [
+              6.573558807373047,
+              31.159074544906616,
+              21.780000686645508
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 33237,
+          "bbox_ijk_zyx": [
+            [
+              13,
+              146,
+              209
+            ],
+            [
+              37,
+              191,
+              272
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              21.710270166397095,
+              41.412975788116455,
+              -21.344999313354492
+            ],
+            [
+              -9.051433563232422,
+              19.440330266952515,
+              -6.344999313354492
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 16216,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              141,
+              220
+            ],
+            [
+              13,
+              187,
+              260
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              16.339179039001465,
+              43.85438084602356,
+              -29.469999313354492
+            ],
+            [
+              -3.192061424255371,
+              21.3934543132782,
+              -21.344999313354492
+            ]
+          ],
+          "touch_inferior_face": 893,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 6838,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              126,
+              218
+            ],
+            [
+              10,
+              159,
+              257
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.315741062164307,
+              51.17859601974487,
+              -29.469999313354492
+            ],
+            [
+              -1.7272183895111084,
+              35.06532263755798,
+              -23.219999313354492
+            ]
+          ],
+          "touch_inferior_face": 720,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -29.782499313354492,
+          48.96750068664551
+        ],
+        "oropharynx_z_range_mm": [
+          -29.469999313354492,
+          -21.344999313354492
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 70.3125,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -29.469999313354492,
+          -23.219999313354492
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 72.1875,
+        "nasopharynx_z_range_mm": [
+          -21.344999313354492,
+          -6.344999313354492
+        ],
+        "nasopharynx_gap_inferior_mm": 8.4375,
+        "nasopharynx_gap_superior_mm": 55.3125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.0
+      }
+    },
+    "b06": {
+      "case": "b06",
+      "size_xyz": [
+        512,
+        512,
+        145
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -35.724998474121094
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -121.43473827838898,
+          -36.037498474121094
+        ],
+        [
+          124.00514209270477,
+          128.56513965129852,
+          54.587501525878906
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 65900,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              31,
+              241
+            ],
+            [
+              90,
+              199,
+              277
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              6.085277795791626,
+              113.18428778648376,
+              -26.974998474121094
+            ],
+            [
+              -11.492838621139526,
+              31.153077840805054,
+              20.525001525878906
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 77753,
+          "bbox_ijk_zyx": [
+            [
+              16,
+              32,
+              211
+            ],
+            [
+              91,
+              202,
+              249
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              20.733708143234253,
+              112.69600677490234,
+              -25.724998474121094
+            ],
+            [
+              2.179029703140259,
+              29.68823480606079,
+              21.150001525878906
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 21737,
+          "bbox_ijk_zyx": [
+            [
+              12,
+              184,
+              225
+            ],
+            [
+              37,
+              222,
+              273
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.89777398109436,
+              38.47729301452637,
+              -28.224998474121094
+            ],
+            [
+              -9.539714574813843,
+              19.922614574432373,
+              -12.599998474121094
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 14448,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              177,
+              230
+            ],
+            [
+              15,
+              220,
+              269
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              11.456368923187256,
+              41.89526009559631,
+              -35.724998474121094
+            ],
+            [
+              -7.586590528488159,
+              20.899176597595215,
+              -26.349998474121094
+            ]
+          ],
+          "touch_inferior_face": 607,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 8618,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              160,
+              228
+            ],
+            [
+              15,
+              197,
+              267
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.432930946350098,
+              50.19603729248047,
+              -35.724998474121094
+            ],
+            [
+              -6.610028505325317,
+              32.129639863967896,
+              -26.349998474121094
+            ]
+          ],
+          "touch_inferior_face": 623,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -36.037498474121094,
+          54.587501525878906
+        ],
+        "oropharynx_z_range_mm": [
+          -35.724998474121094,
+          -26.349998474121094
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 80.9375,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -35.724998474121094,
+          -26.349998474121094
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 80.9375,
+        "nasopharynx_z_range_mm": [
+          -28.224998474121094,
+          -12.599998474121094
+        ],
+        "nasopharynx_gap_inferior_mm": 7.8125,
+        "nasopharynx_gap_superior_mm": 67.1875,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.875
+      }
+    },
+    "b07": {
+      "case": "b07",
+      "size_xyz": [
+        512,
+        512,
+        146
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          124.8030014038086
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -42.555999755859375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -124.9527360200882,
+          -121.43473827838898,
+          -42.868499755859375
+        ],
+        [
+          125.0471419095993,
+          128.56513965129852,
+          48.381500244140625
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 68526,
+          "bbox_ijk_zyx": [
+            [
+              17,
+              58,
+              245
+            ],
+            [
+              91,
+              214,
+              289
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              5.174153566360474,
+              100.0007004737854,
+              -31.930999755859375
+            ],
+            [
+              -16.310210943222046,
+              23.82886266708374,
+              14.319000244140625
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 87411,
+          "bbox_ijk_zyx": [
+            [
+              19,
+              60,
+              213
+            ],
+            [
+              89,
+              213,
+              252
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              20.799145936965942,
+              99.02413845062256,
+              -30.680999755859375
+            ],
+            [
+              1.7561864852905273,
+              24.31714367866516,
+              13.069000244140625
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 26888,
+          "bbox_ijk_zyx": [
+            [
+              21,
+              203,
+              219
+            ],
+            [
+              45,
+              234,
+              283
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.869459867477417,
+              29.19995379447937,
+              -29.430999755859375
+            ],
+            [
+              -13.38052487373352,
+              14.063242435455322,
+              -14.430999755859375
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 25102,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              195,
+              230
+            ],
+            [
+              21,
+              242,
+              275
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.498368740081787,
+              33.10620188713074,
+              -42.555999755859375
+            ],
+            [
+              -9.474276781082153,
+              10.156994342803955,
+              -29.430999755859375
+            ]
+          ],
+          "touch_inferior_face": 870,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 11647,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              180,
+              230
+            ],
+            [
+              18,
+              217,
+              270
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.498368740081787,
+              40.43041706085205,
+              -42.555999755859375
+            ],
+            [
+              -7.032871723175049,
+              22.364019632339478,
+              -31.305999755859375
+            ]
+          ],
+          "touch_inferior_face": 551,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -42.868499755859375,
+          48.381500244140625
+        ],
+        "oropharynx_z_range_mm": [
+          -42.555999755859375,
+          -29.430999755859375
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 77.8125,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -42.555999755859375,
+          -31.305999755859375
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 79.6875,
+        "nasopharynx_z_range_mm": [
+          -29.430999755859375,
+          -14.430999755859375
+        ],
+        "nasopharynx_gap_inferior_mm": 13.4375,
+        "nasopharynx_gap_superior_mm": 62.8125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.0
+      }
+    },
+    "b08": {
+      "case": "b08",
+      "size_xyz": [
+        512,
+        512,
+        184
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          128.96800231933594
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -59.22100067138672
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -120.78773510456085,
+          -121.43473827838898,
+          -59.53350067138672
+        ],
+        [
+          129.21214282512665,
+          128.56513965129852,
+          55.46649932861328
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 83243,
+          "bbox_ijk_zyx": [
+            [
+              25,
+              4,
+              245
+            ],
+            [
+              101,
+              174,
+              284
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              9.339154481887817,
+              126.36787509918213,
+              -43.59600067138672
+            ],
+            [
+              -9.703804969787598,
+              43.360103130340576,
+              3.9039993286132812
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 91685,
+          "bbox_ijk_zyx": [
+            [
+              25,
+              4,
+              212
+            ],
+            [
+              101,
+              173,
+              250
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              25.452427864074707,
+              126.36787509918213,
+              -43.59600067138672
+            ],
+            [
+              6.897749423980713,
+              43.848384141922,
+              3.9039993286132812
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 38776,
+          "bbox_ijk_zyx": [
+            [
+              27,
+              163,
+              212
+            ],
+            [
+              55,
+              199,
+              288
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              25.452427864074707,
+              48.731194257736206,
+              -42.34600067138672
+            ],
+            [
+              -11.656929016113281,
+              31.153077840805054,
+              -24.84600067138672
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 25839,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              157,
+              225
+            ],
+            [
+              29,
+              205,
+              277
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              19.104774713516235,
+              51.66088032722473,
+              -59.22100067138672
+            ],
+            [
+              -6.285837888717651,
+              28.22339177131653,
+              -41.09600067138672
+            ]
+          ],
+          "touch_inferior_face": 356,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 24026,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              138,
+              226
+            ],
+            [
+              26,
+              190,
+              274
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              18.616493701934814,
+              60.93821954727173,
+              -59.22100067138672
+            ],
+            [
+              -4.820994853973389,
+              35.54760694503784,
+              -42.97100067138672
+            ]
+          ],
+          "touch_inferior_face": 570,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -59.53350067138672,
+          55.46649932861328
+        ],
+        "oropharynx_z_range_mm": [
+          -59.22100067138672,
+          -41.09600067138672
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 96.5625,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -59.22100067138672,
+          -42.97100067138672
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 98.4375,
+        "nasopharynx_z_range_mm": [
+          -42.34600067138672,
+          -24.84600067138672
+        ],
+        "nasopharynx_gap_inferior_mm": 17.1875,
+        "nasopharynx_gap_superior_mm": 80.3125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.25
+      }
+    },
+    "b09": {
+      "case": "b09",
+      "size_xyz": [
+        512,
+        512,
+        166
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          104.37200164794922
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -59.678001403808594
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -145.38373577594757,
+          -59.990501403808594
+        ],
+        [
+          124.00514209270477,
+          104.61614215373993,
+          43.759498596191406
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 84024,
+          "bbox_ijk_zyx": [
+            [
+              35,
+              22,
+              214
+            ],
+            [
+              108,
+              181,
+              266
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              19.26886510848999,
+              93.62981939315796,
+              -37.803001403808594
+            ],
+            [
+              -6.1217474937438965,
+              15.993138551712036,
+              7.821998596191406
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 63331,
+          "bbox_ijk_zyx": [
+            [
+              33,
+              25,
+              187
+            ],
+            [
+              108,
+              186,
+              240
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              32.452452421188354,
+              92.1649763584137,
+              -39.053001403808594
+            ],
+            [
+              6.573558807373047,
+              13.551733493804932,
+              7.821998596191406
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 34469,
+          "bbox_ijk_zyx": [
+            [
+              35,
+              165,
+              215
+            ],
+            [
+              64,
+              208,
+              272
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              18.78058409690857,
+              23.80563473701477,
+              -37.803001403808594
+            ],
+            [
+              -9.051433563232422,
+              2.809551239013672,
+              -19.678001403808594
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 29221,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              165,
+              226
+            ],
+            [
+              36,
+              218,
+              272
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.40949296951294,
+              23.80563473701477,
+              -59.678001403808594
+            ],
+            [
+              -9.051433563232422,
+              -2.073258876800537,
+              -37.178001403808594
+            ]
+          ],
+          "touch_inferior_face": 363,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 21995,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              145,
+              221
+            ],
+            [
+              34,
+              204,
+              266
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              15.850898027420044,
+              33.57125496864319,
+              -59.678001403808594
+            ],
+            [
+              -6.1217474937438965,
+              4.7626752853393555,
+              -38.428001403808594
+            ]
+          ],
+          "touch_inferior_face": 274,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -59.990501403808594,
+          43.759498596191406
+        ],
+        "oropharynx_z_range_mm": [
+          -59.678001403808594,
+          -37.178001403808594
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 80.9375,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -59.678001403808594,
+          -38.428001403808594
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 82.1875,
+        "nasopharynx_z_range_mm": [
+          -37.803001403808594,
+          -19.678001403808594
+        ],
+        "nasopharynx_gap_inferior_mm": 22.1875,
+        "nasopharynx_gap_superior_mm": 63.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.625
+      }
+    },
+    "b10": {
+      "case": "b10",
+      "size_xyz": [
+        512,
+        512,
+        146
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          134.1739959716797
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          90.83599853515625
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -49.25600051879883
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -115.5817414522171,
+          -158.91973888874054,
+          -49.56850051879883
+        ],
+        [
+          134.4181364774704,
+          91.08013904094696,
+          41.68149948120117
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 74595,
+          "bbox_ijk_zyx": [
+            [
+              13,
+              21,
+              232
+            ],
+            [
+              91,
+              182,
+              279
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              20.89280128479004,
+              80.58209729194641,
+              -41.13100051879883
+            ],
+            [
+              -2.056406259536743,
+              1.9688544273376465,
+              7.618999481201172
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 68917,
+          "bbox_ijk_zyx": [
+            [
+              13,
+              25,
+              205
+            ],
+            [
+              89,
+              182,
+              251
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              34.0763885974884,
+              78.62897324562073,
+              -41.13100051879883
+            ],
+            [
+              11.615462064743042,
+              1.9688544273376465,
+              6.368999481201172
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 20473,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              165,
+              229
+            ],
+            [
+              33,
+              199,
+              283
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              22.3576443195343,
+              10.269631624221802,
+              -42.38100051879883
+            ],
+            [
+              -4.009530305862427,
+              -6.331922769546509,
+              -28.631000518798828
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 8196,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              160,
+              238
+            ],
+            [
+              13,
+              199,
+              276
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.963115215301514,
+              12.711036682128906,
+              -49.25600051879883
+            ],
+            [
+              -0.5915632247924805,
+              -6.331922769546509,
+              -41.13100051879883
+            ]
+          ],
+          "touch_inferior_face": 261,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 11238,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              139,
+              229
+            ],
+            [
+              13,
+              186,
+              270
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              22.3576443195343,
+              22.964937925338745,
+              -49.25600051879883
+            ],
+            [
+              2.338122844696045,
+              0.01573038101196289,
+              -41.13100051879883
+            ]
+          ],
+          "touch_inferior_face": 958,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -49.56850051879883,
+          41.68149948120117
+        ],
+        "oropharynx_z_range_mm": [
+          -49.25600051879883,
+          -41.13100051879883
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 82.8125,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -49.25600051879883,
+          -41.13100051879883
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 82.8125,
+        "nasopharynx_z_range_mm": [
+          -42.38100051879883,
+          -28.631000518798828
+        ],
+        "nasopharynx_gap_inferior_mm": 7.1875,
+        "nasopharynx_gap_superior_mm": 70.3125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.25
+      }
+    },
+    "b11": {
+      "case": "b11",
+      "size_xyz": [
+        512,
+        512,
+        175
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          121.67900085449219
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -74.67500305175781
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -128.0767365694046,
+          -121.43473827838898,
+          -74.98750305175781
+        ],
+        [
+          121.9231413602829,
+          128.56513965129852,
+          34.38749694824219
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 71217,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              71,
+              240
+            ],
+            [
+              99,
+              224,
+              272
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              4.491558074951172,
+              93.65304732322693,
+              -65.92500305175781
+            ],
+            [
+              -11.133434295654297,
+              18.94605255126953,
+              -12.800003051757812
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 62472,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              74,
+              213
+            ],
+            [
+              97,
+              225,
+              245
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.675145387649536,
+              92.18820428848267,
+              -65.92500305175781
+            ],
+            [
+              2.0501530170440674,
+              18.45777153968811,
+              -14.050003051757812
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 23876,
+          "bbox_ijk_zyx": [
+            [
+              40,
+              217,
+              218
+            ],
+            [
+              71,
+              247,
+              272
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              15.233740329742432,
+              22.364019632339478,
+              -49.67500305175781
+            ],
+            [
+              -11.133434295654297,
+              7.715589284896851,
+              -30.300003051757812
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 24078,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              218,
+              226
+            ],
+            [
+              49,
+              267,
+              268
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              11.327492237091064,
+              21.875738620758057,
+              -74.67500305175781
+            ],
+            [
+              -9.180310249328613,
+              -2.0500309467315674,
+              -44.05000305175781
+            ]
+          ],
+          "touch_inferior_face": 867,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 15081,
+          "bbox_ijk_zyx": [
+            [
+              3,
+              201,
+              226
+            ],
+            [
+              37,
+              250,
+              265
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              11.327492237091064,
+              30.176515817642212,
+              -72.80000305175781
+            ],
+            [
+              -7.715467214584351,
+              6.250746250152588,
+              -51.55000305175781
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -74.98750305175781,
+          34.38749694824219
+        ],
+        "oropharynx_z_range_mm": [
+          -74.67500305175781,
+          -44.05000305175781
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 78.4375,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -72.80000305175781,
+          -51.55000305175781
+        ],
+        "soft_palate_gap_inferior_mm": 2.1875,
+        "soft_palate_gap_superior_mm": 85.9375,
+        "nasopharynx_z_range_mm": [
+          -49.67500305175781,
+          -30.300003051757812
+        ],
+        "nasopharynx_gap_inferior_mm": 25.3125,
+        "nasopharynx_gap_superior_mm": 64.6875,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 5.625
+      }
+    },
+    "b12": {
+      "case": "b12",
+      "size_xyz": [
+        512,
+        512,
+        156
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          117.51399993896484
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          147.06399536132812
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -84.65899658203125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -132.24173748493195,
+          -102.69174206256866,
+          -84.97149658203125
+        ],
+        [
+          117.75814044475555,
+          147.30813586711884,
+          12.52850341796875
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 76352,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              34,
+              256
+            ],
+            [
+              98,
+              208,
+              298
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -7.485939025878906,
+              130.46244096755981,
+              -77.78399658203125
+            ],
+            [
+              -27.993741512298584,
+              45.50154495239258,
+              -23.40899658203125
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 78182,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              32,
+              225
+            ],
+            [
+              98,
+              205,
+              264
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              7.650772333145142,
+              131.43900299072266,
+              -77.78399658203125
+            ],
+            [
+              -11.392187118530273,
+              46.96638798713684,
+              -23.40899658203125
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 37116,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              181,
+              223
+            ],
+            [
+              39,
+              217,
+              288
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              8.627334356307983,
+              58.68513226509094,
+              -77.78399658203125
+            ],
+            [
+              -23.110931396484375,
+              41.10701584815979,
+              -60.28399658203125
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 21516,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              171,
+              226
+            ],
+            [
+              13,
+              216,
+              284
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              7.162491321563721,
+              63.56794238090515,
+              -84.65899658203125
+            ],
+            [
+              -21.15780735015869,
+              41.59529685974121,
+              -76.53399658203125
+            ]
+          ],
+          "touch_inferior_face": 1526,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 6116,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              155,
+              236
+            ],
+            [
+              11,
+              177,
+              279
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              2.2796812057495117,
+              71.38043856620789,
+              -84.65899658203125
+            ],
+            [
+              -18.716402292251587,
+              60.638256311416626,
+              -77.78399658203125
+            ]
+          ],
+          "touch_inferior_face": 443,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -84.97149658203125,
+          12.52850341796875
+        ],
+        "oropharynx_z_range_mm": [
+          -84.65899658203125,
+          -76.53399658203125
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 89.0625,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -84.65899658203125,
+          -77.78399658203125
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 90.3125,
+        "nasopharynx_z_range_mm": [
+          -77.78399658203125,
+          -60.28399658203125
+        ],
+        "nasopharynx_gap_inferior_mm": 7.1875,
+        "nasopharynx_gap_superior_mm": 72.8125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.25
+      }
+    },
+    "b13": {
+      "case": "b13",
+      "size_xyz": [
+        512,
+        512,
+        176
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          131.0500030517578
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          124.15599822998047
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -42.382999420166016
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -118.70573437213898,
+          -125.59973919391632,
+          -42.695499420166016
+        ],
+        [
+          131.29414355754852,
+          124.40013873577118,
+          67.30450057983398
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 76320,
+          "bbox_ijk_zyx": [
+            [
+              29,
+              15,
+              258
+            ],
+            [
+              126,
+              180,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              5.073502063751221,
+              116.83178305625916,
+              -24.257999420166016
+            ],
+            [
+              -12.504614353179932,
+              36.26541614532471,
+              36.367000579833984
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 70994,
+          "bbox_ijk_zyx": [
+            [
+              29,
+              18,
+              227
+            ],
+            [
+              126,
+              180,
+              263
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              20.21021342277527,
+              115.36694002151489,
+              -24.257999420166016
+            ],
+            [
+              2.632097005844116,
+              36.26541614532471,
+              36.367000579833984
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 17013,
+          "bbox_ijk_zyx": [
+            [
+              30,
+              164,
+              227
+            ],
+            [
+              50,
+              188,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              20.21021342277527,
+              44.07791233062744,
+              -23.632999420166016
+            ],
+            [
+              -12.504614353179932,
+              32.35916805267334,
+              -11.132999420166016
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 10431,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              157,
+              238
+            ],
+            [
+              31,
+              186,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              14.839122295379639,
+              47.49587941169739,
+              -42.382999420166016
+            ],
+            [
+              -6.645242214202881,
+              33.33573007583618,
+              -23.007999420166016
+            ]
+          ],
+          "touch_inferior_face": 80,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 16817,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              138,
+              237
+            ],
+            [
+              29,
+              174,
+              280
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              15.32740330696106,
+              56.773218631744385,
+              -42.382999420166016
+            ],
+            [
+              -5.668680191040039,
+              39.19510221481323,
+              -24.257999420166016
+            ]
+          ],
+          "touch_inferior_face": 313,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -42.695499420166016,
+          67.30450057983398
+        ],
+        "oropharynx_z_range_mm": [
+          -42.382999420166016,
+          -23.007999420166016
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 90.3125,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -42.382999420166016,
+          -24.257999420166016
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 91.5625,
+        "nasopharynx_z_range_mm": [
+          -23.632999420166016,
+          -11.132999420166016
+        ],
+        "nasopharynx_gap_inferior_mm": 19.0625,
+        "nasopharynx_gap_superior_mm": 78.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.625
+      }
+    },
+    "b14": {
+      "case": "b14",
+      "size_xyz": [
+        512,
+        512,
+        155
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          135.61000061035156
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -49.047000885009766
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -114.14573681354523,
+          -49.359500885009766
+        ],
+        [
+          124.00514209270477,
+          135.85414111614227,
+          47.515499114990234
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 106453,
+          "bbox_ijk_zyx": [
+            [
+              9,
+              17,
+              257
+            ],
+            [
+              93,
+              179,
+              293
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -1.7272183895111084,
+              127.30922341346741,
+              -43.422000885009766
+            ],
+            [
+              -19.30533480644226,
+              48.20769953727722,
+              9.077999114990234
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 91929,
+          "bbox_ijk_zyx": [
+            [
+              9,
+              17,
+              223
+            ],
+            [
+              93,
+              182,
+              262
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              14.874336004257202,
+              127.30922341346741,
+              -43.422000885009766
+            ],
+            [
+              -4.168623447418213,
+              46.74285650253296,
+              9.077999114990234
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 27786,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              171,
+              228
+            ],
+            [
+              36,
+              202,
+              293
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.432930946350098,
+              52.11394762992859,
+              -42.172000885009766
+            ],
+            [
+              -19.30533480644226,
+              36.97723627090454,
+              -26.547000885009766
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 15346,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              165,
+              236
+            ],
+            [
+              12,
+              207,
+              285
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              8.52668285369873,
+              55.043633699417114,
+              -49.047000885009766
+            ],
+            [
+              -15.399086713790894,
+              34.53583121299744,
+              -41.547000885009766
+            ]
+          ],
+          "touch_inferior_face": 1194,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 7319,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              146,
+              239
+            ],
+            [
+              10,
+              171,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              7.061839818954468,
+              64.32097291946411,
+              -49.047000885009766
+            ],
+            [
+              -13.93424367904663,
+              52.11394762992859,
+              -42.797000885009766
+            ]
+          ],
+          "touch_inferior_face": 769,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -49.359500885009766,
+          47.515499114990234
+        ],
+        "oropharynx_z_range_mm": [
+          -49.047000885009766,
+          -41.547000885009766
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 89.0625,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -49.047000885009766,
+          -42.797000885009766
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 90.3125,
+        "nasopharynx_z_range_mm": [
+          -42.172000885009766,
+          -26.547000885009766
+        ],
+        "nasopharynx_gap_inferior_mm": 7.1875,
+        "nasopharynx_gap_superior_mm": 74.0625,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.625
+      }
+    },
+    "b15": {
+      "case": "b15",
+      "size_xyz": [
+        512,
+        512,
+        148
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          130.00900268554688
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -58.8380012512207
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -119.74673473834991,
+          -121.43473827838898,
+          -59.1505012512207
+        ],
+        [
+          130.25314319133759,
+          128.56513965129852,
+          33.3494987487793
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 76850,
+          "bbox_ijk_zyx": [
+            [
+              16,
+              40,
+              272
+            ],
+            [
+              89,
+              208,
+              317
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -2.8034324645996094,
+              108.78975868225098,
+              -48.8380012512207
+            ],
+            [
+              -24.77607798576355,
+              26.758548736572266,
+              -3.213001251220703
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 72452,
+          "bbox_ijk_zyx": [
+            [
+              16,
+              36,
+              241
+            ],
+            [
+              88,
+              205,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.333278894424438,
+              110.74288272857666,
+              -48.8380012512207
+            ],
+            [
+              -13.54561471939087,
+              28.22339177131653,
+              -3.838001251220703
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 23218,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              193,
+              238
+            ],
+            [
+              37,
+              228,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.798121929168701,
+              34.08276391029358,
+              -50.0880012512207
+            ],
+            [
+              -13.54561471939087,
+              16.992928504943848,
+              -35.7130012512207
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 12735,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              190,
+              241
+            ],
+            [
+              16,
+              228,
+              285
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.333278894424438,
+              35.54760694503784,
+              -58.8380012512207
+            ],
+            [
+              -9.151085615158081,
+              16.992928504943848,
+              -48.8380012512207
+            ]
+          ],
+          "touch_inferior_face": 532,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 14230,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              167,
+              249
+            ],
+            [
+              16,
+              208,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              8.427030801773071,
+              46.77807021141052,
+              -58.8380012512207
+            ],
+            [
+              -13.54561471939087,
+              26.758548736572266,
+              -48.8380012512207
+            ]
+          ],
+          "touch_inferior_face": 792,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -59.1505012512207,
+          33.3494987487793
+        ],
+        "oropharynx_z_range_mm": [
+          -58.8380012512207,
+          -48.8380012512207
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 82.1875,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -58.8380012512207,
+          -48.8380012512207
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 82.1875,
+        "nasopharynx_z_range_mm": [
+          -50.0880012512207,
+          -35.7130012512207
+        ],
+        "nasopharynx_gap_inferior_mm": 9.0625,
+        "nasopharynx_gap_superior_mm": 69.0625,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.25
+      }
+    },
+    "b16": {
+      "case": "b16",
+      "size_xyz": [
+        512,
+        512,
+        147
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          131.0500030517578
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          111.66100311279297
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -42.17599868774414
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -118.70573437213898,
+          -138.09473431110382,
+          -42.48849868774414
+        ],
+        [
+          131.29414355754852,
+          111.90514361858368,
+          49.38650131225586
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 66844,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              17,
+              264
+            ],
+            [
+              90,
+              182,
+              299
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              2.1438159942626953,
+              103.36022591590881,
+              -33.42599868774414
+            ],
+            [
+              -14.946019411087036,
+              22.793859004974365,
+              14.07400131225586
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 69716,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              17,
+              231
+            ],
+            [
+              90,
+              180,
+              267
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              18.257089376449585,
+              103.36022591590881,
+              -33.42599868774414
+            ],
+            [
+              0.6789729595184326,
+              23.770421028137207,
+              14.07400131225586
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 28335,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              163,
+              234
+            ],
+            [
+              37,
+              199,
+              293
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              16.792246341705322,
+              32.07119822502136,
+              -33.42599868774414
+            ],
+            [
+              -12.01633334159851,
+              14.49308180809021,
+              -19.05099868774414
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 15701,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              154,
+              241
+            ],
+            [
+              15,
+              199,
+              285
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.374279260635376,
+              36.46572732925415,
+              -42.17599868774414
+            ],
+            [
+              -8.110085248947144,
+              14.49308180809021,
+              -32.80099868774414
+            ]
+          ],
+          "touch_inferior_face": 558,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 10831,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              137,
+              243
+            ],
+            [
+              16,
+              176,
+              285
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.397717237472534,
+              44.766504526138306,
+              -42.17599868774414
+            ],
+            [
+              -8.110085248947144,
+              25.72354507446289,
+              -32.17599868774414
+            ]
+          ],
+          "touch_inferior_face": 778,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -42.48849868774414,
+          49.38650131225586
+        ],
+        "oropharynx_z_range_mm": [
+          -42.17599868774414,
+          -32.80099868774414
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 82.1875,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -42.17599868774414,
+          -32.17599868774414
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 81.5625,
+        "nasopharynx_z_range_mm": [
+          -33.42599868774414,
+          -19.05099868774414
+        ],
+        "nasopharynx_gap_inferior_mm": 9.0625,
+        "nasopharynx_gap_superior_mm": 68.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.625
+      }
+    },
+    "b17": {
+      "case": "b17",
+      "size_xyz": [
+        512,
+        512,
+        145
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          140.8159942626953
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -47.59000015258789
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -108.93974316120148,
+          -47.90250015258789
+        ],
+        [
+          124.00514209270477,
+          141.06013476848602,
+          42.72249984741211
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 83401,
+          "bbox_ijk_zyx": [
+            [
+              12,
+              8,
+              252
+            ],
+            [
+              87,
+              178,
+              283
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              0.7141866683959961,
+              136.90974617004395,
+              -40.09000015258789
+            ],
+            [
+              -14.422524690628052,
+              53.90197420120239,
+              6.784999847412109
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 94111,
+          "bbox_ijk_zyx": [
+            [
+              12,
+              10,
+              217
+            ],
+            [
+              87,
+              181,
+              257
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.804022073745728,
+              135.9331841468811,
+              -40.09000015258789
+            ],
+            [
+              -1.7272183895111084,
+              52.43713116645813,
+              6.784999847412109
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 24915,
+          "bbox_ijk_zyx": [
+            [
+              16,
+              168,
+              227
+            ],
+            [
+              43,
+              204,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.921211957931519,
+              58.7847843170166,
+              -37.59000015258789
+            ],
+            [
+              -13.93424367904663,
+              41.20666790008545,
+              -20.71500015258789
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 11442,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              165,
+              238
+            ],
+            [
+              18,
+              206,
+              273
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              7.550120830535889,
+              60.249627351760864,
+              -47.59000015258789
+            ],
+            [
+              -9.539714574813843,
+              40.23010587692261,
+              -36.34000015258789
+            ]
+          ],
+          "touch_inferior_face": 397,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 13376,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              142,
+              234
+            ],
+            [
+              15,
+              187,
+              273
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              9.503244876861572,
+              71.48009061813354,
+              -47.59000015258789
+            ],
+            [
+              -9.539714574813843,
+              49.507445096969604,
+              -38.21500015258789
+            ]
+          ],
+          "touch_inferior_face": 837,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -47.90250015258789,
+          42.72249984741211
+        ],
+        "oropharynx_z_range_mm": [
+          -47.59000015258789,
+          -36.34000015258789
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 79.0625,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -47.59000015258789,
+          -38.21500015258789
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 80.9375,
+        "nasopharynx_z_range_mm": [
+          -37.59000015258789,
+          -20.71500015258789
+        ],
+        "nasopharynx_gap_inferior_mm": 10.3125,
+        "nasopharynx_gap_superior_mm": 63.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.25
+      }
+    },
+    "b18": {
+      "case": "b18",
+      "size_xyz": [
+        512,
+        512,
+        145
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          123.76100158691406
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          128.3209991455078
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -63.62699890136719
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -125.99473583698273,
+          -121.43473827838898,
+          -63.93949890136719
+        ],
+        [
+          124.00514209270477,
+          128.56513965129852,
+          26.685501098632812
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 70590,
+          "bbox_ijk_zyx": [
+            [
+              19,
+              32,
+              263
+            ],
+            [
+              91,
+              202,
+              308
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -4.656904458999634,
+              112.69600677490234,
+              -51.75199890136719
+            ],
+            [
+              -26.629549980163574,
+              29.68823480606079,
+              -6.7519989013671875
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 68005,
+          "bbox_ijk_zyx": [
+            [
+              22,
+              32,
+              231
+            ],
+            [
+              91,
+              197,
+              280
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.968087911605835,
+              112.69600677490234,
+              -49.87699890136719
+            ],
+            [
+              -12.957681655883789,
+              32.129639863967896,
+              -6.7519989013671875
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 28141,
+          "bbox_ijk_zyx": [
+            [
+              19,
+              183,
+              229
+            ],
+            [
+              43,
+              220,
+              288
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              11.944649934768677,
+              38.96557402610779,
+              -51.75199890136719
+            ],
+            [
+              -16.863929748535156,
+              20.899176597595215,
+              -36.75199890136719
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 13683,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              176,
+              238
+            ],
+            [
+              21,
+              223,
+              280
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              7.550120830535889,
+              42.383541107177734,
+              -63.62699890136719
+            ],
+            [
+              -12.957681655883789,
+              19.434333562850952,
+              -50.50199890136719
+            ]
+          ],
+          "touch_inferior_face": 272,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 14121,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              163,
+              240
+            ],
+            [
+              21,
+              208,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              6.573558807373047,
+              48.731194257736206,
+              -63.62699890136719
+            ],
+            [
+              -13.93424367904663,
+              26.758548736572266,
+              -50.50199890136719
+            ]
+          ],
+          "touch_inferior_face": 612,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -63.93949890136719,
+          26.685501098632812
+        ],
+        "oropharynx_z_range_mm": [
+          -63.62699890136719,
+          -50.50199890136719
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 77.1875,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -63.62699890136719,
+          -50.50199890136719
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 77.1875,
+        "nasopharynx_z_range_mm": [
+          -51.75199890136719,
+          -36.75199890136719
+        ],
+        "nasopharynx_gap_inferior_mm": 12.1875,
+        "nasopharynx_gap_superior_mm": 63.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.25
+      }
+    },
+    "b19": {
+      "case": "b19",
+      "size_xyz": [
+        512,
+        512,
+        156
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          121.67900085449219
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          152.27000427246094
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -59.04100036621094
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -128.0767365694046,
+          -97.48573315143585,
+          -59.35350036621094
+        ],
+        [
+          121.9231413602829,
+          152.51414477825165,
+          38.14649963378906
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 79706,
+          "bbox_ijk_zyx": [
+            [
+              8,
+              21,
+              269
+            ],
+            [
+              95,
+              203,
+              324
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -9.668591260910034,
+              142.0161030292511,
+              -54.04100036621094
+            ],
+            [
+              -36.524046897888184,
+              53.148958921432495,
+              0.3339996337890625
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 80359,
+          "bbox_ijk_zyx": [
+            [
+              9,
+              20,
+              240
+            ],
+            [
+              96,
+              197,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              4.491558074951172,
+              142.50438404083252,
+              -53.41600036621094
+            ],
+            [
+              -21.875616550445557,
+              56.07864499092102,
+              0.9589996337890625
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 26110,
+          "bbox_ijk_zyx": [
+            [
+              6,
+              180,
+              235
+            ],
+            [
+              31,
+              225,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              6.932963132858276,
+              64.37942218780518,
+              -55.29100036621094
+            ],
+            [
+              -21.875616550445557,
+              42.406776666641235,
+              -39.66600036621094
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 7268,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              175,
+              249
+            ],
+            [
+              10,
+              222,
+              284
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              0.09702897071838379,
+              66.82082724571228,
+              -59.04100036621094
+            ],
+            [
+              -16.992806434631348,
+              43.8716197013855,
+              -52.79100036621094
+            ]
+          ],
+          "touch_inferior_face": 496,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 8694,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              154,
+              248
+            ],
+            [
+              10,
+              194,
+              291
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              0.5853099822998047,
+              77.07472848892212,
+              -59.04100036621094
+            ],
+            [
+              -20.410773515701294,
+              57.54348802566528,
+              -52.79100036621094
+            ]
+          ],
+          "touch_inferior_face": 1178,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -59.35350036621094,
+          38.14649963378906
+        ],
+        "oropharynx_z_range_mm": [
+          -59.04100036621094,
+          -52.79100036621094
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 90.9375,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -59.04100036621094,
+          -52.79100036621094
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 90.9375,
+        "nasopharynx_z_range_mm": [
+          -55.29100036621094,
+          -39.66600036621094
+        ],
+        "nasopharynx_gap_inferior_mm": 4.0625,
+        "nasopharynx_gap_superior_mm": 77.8125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 2.5
+      }
+    },
+    "b20": {
+      "case": "b20",
+      "size_xyz": [
+        512,
+        512,
+        176
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          139.3800048828125
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          121.03199768066406
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -62.79999923706055
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -110.37573254108429,
+          -128.72373974323273,
+          -63.11249923706055
+        ],
+        [
+          139.6241453886032,
+          121.27613818645477,
+          46.88750076293945
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 54878,
+          "bbox_ijk_zyx": [
+            [
+              9,
+              60,
+              284
+            ],
+            [
+              89,
+              205,
+              329
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              0.7081975936889648,
+              91.73513698577881,
+              -57.17499923706055
+            ],
+            [
+              -21.264447927474976,
+              20.93439030647278,
+              -7.174999237060547
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 70684,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              56,
+              255
+            ],
+            [
+              90,
+              195,
+              313
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              14.868346929550171,
+              93.68826103210449,
+              -55.92499923706055
+            ],
+            [
+              -13.451951742172241,
+              25.817200422286987,
+              -6.549999237060547
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 22055,
+          "bbox_ijk_zyx": [
+            [
+              27,
+              186,
+              249
+            ],
+            [
+              50,
+              225,
+              309
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.798032999038696,
+              30.211729526519775,
+              -45.92499923706055
+            ],
+            [
+              -11.498827695846558,
+              11.16877007484436,
+              -31.549999237060547
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 18784,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              189,
+              257
+            ],
+            [
+              29,
+              235,
+              297
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.891784906387329,
+              28.746886491775513,
+              -62.79999923706055
+            ],
+            [
+              -5.639455556869507,
+              6.285959959030151,
+              -44.67499923706055
+            ]
+          ],
+          "touch_inferior_face": 298,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 17371,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              170,
+              258
+            ],
+            [
+              26,
+              220,
+              302
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.403503894805908,
+              38.02422571182251,
+              -62.79999923706055
+            ],
+            [
+              -8.080860614776611,
+              13.610175132751465,
+              -46.54999923706055
+            ]
+          ],
+          "touch_inferior_face": 313,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -63.11249923706055,
+          46.88750076293945
+        ],
+        "oropharynx_z_range_mm": [
+          -62.79999923706055,
+          -44.67499923706055
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 91.5625,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -62.79999923706055,
+          -46.54999923706055
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 93.4375,
+        "nasopharynx_z_range_mm": [
+          -45.92499923706055,
+          -31.549999237060547
+        ],
+        "nasopharynx_gap_inferior_mm": 17.1875,
+        "nasopharynx_gap_superior_mm": 78.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.25
+      }
+    },
+    "b21": {
+      "case": "b21",
+      "size_xyz": [
+        512,
+        512,
+        158
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          124.8030014038086
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          138.73399353027344
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -68.20999908447266
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -124.9527360200882,
+          -111.02174389362335,
+          -68.52249908447266
+        ],
+        [
+          125.0471419095993,
+          138.97813403606415,
+          30.227500915527344
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 50968,
+          "bbox_ijk_zyx": [
+            [
+              24,
+              40,
+              248
+            ],
+            [
+              93,
+              179,
+              276
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              3.709310531616211,
+              119.2027530670166,
+              -53.209999084472656
+            ],
+            [
+              -9.962557792663574,
+              51.3316924571991,
+              -10.084999084472656
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 56157,
+          "bbox_ijk_zyx": [
+            [
+              27,
+              38,
+              219
+            ],
+            [
+              92,
+              182,
+              255
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.869459867477417,
+              120.17931509017944,
+              -51.334999084472656
+            ],
+            [
+              0.29134345054626465,
+              49.866849422454834,
+              -10.709999084472656
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 15356,
+          "bbox_ijk_zyx": [
+            [
+              25,
+              172,
+              223
+            ],
+            [
+              48,
+              203,
+              276
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              15.916335821151733,
+              54.74965953826904,
+              -52.584999084472656
+            ],
+            [
+              -9.962557792663574,
+              39.612948179244995,
+              -38.209999084472656
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 8271,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              172,
+              234
+            ],
+            [
+              28,
+              211,
+              264
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.545244693756104,
+              54.74965953826904,
+              -68.20999908447266
+            ],
+            [
+              -4.103185653686523,
+              35.70670008659363,
+              -50.709999084472656
+            ]
+          ],
+          "touch_inferior_face": 110,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 13374,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              152,
+              231
+            ],
+            [
+              26,
+              197,
+              265
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.010087728500366,
+              64.51527976989746,
+              -68.20999908447266
+            ],
+            [
+              -4.591466665267944,
+              42.54263424873352,
+              -51.959999084472656
+            ]
+          ],
+          "touch_inferior_face": 284,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -68.52249908447266,
+          30.227500915527344
+        ],
+        "oropharynx_z_range_mm": [
+          -68.20999908447266,
+          -50.709999084472656
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 80.9375,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -68.20999908447266,
+          -51.959999084472656
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 82.1875,
+        "nasopharynx_z_range_mm": [
+          -52.584999084472656,
+          -38.209999084472656
+        ],
+        "nasopharynx_gap_inferior_mm": 15.9375,
+        "nasopharynx_gap_superior_mm": 68.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 1.875
+      }
+    },
+    "b22": {
+      "case": "b22",
+      "size_xyz": [
+        512,
+        512,
+        134
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          127.9260025024414
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          124.15599822998047
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -69.86699676513672
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -121.82973492145538,
+          -125.59973919391632,
+          -70.17949676513672
+        ],
+        [
+          128.17014300823212,
+          124.40013873577118,
+          13.570503234863281
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 73851,
+          "bbox_ijk_zyx": [
+            [
+              13,
+              21,
+              252
+            ],
+            [
+              88,
+              171,
+              287
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              4.87918758392334,
+              113.90209698677063,
+              -61.74199676513672
+            ],
+            [
+              -12.210647821426392,
+              40.659945249557495,
+              -14.866996765136719
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 61657,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              21,
+              221
+            ],
+            [
+              87,
+              172,
+              256
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              20.015898942947388,
+              113.90209698677063,
+              -62.99199676513672
+            ],
+            [
+              2.9260635375976562,
+              40.171664237976074,
+              -15.491996765136719
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 10338,
+          "bbox_ijk_zyx": [
+            [
+              11,
+              160,
+              229
+            ],
+            [
+              29,
+              185,
+              282
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              16.10965085029602,
+              46.031036376953125,
+              -62.99199676513672
+            ],
+            [
+              -9.769242763519287,
+              33.8240110874176,
+              -51.74199676513672
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 6748,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              158,
+              237
+            ],
+            [
+              12,
+              189,
+              274
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              12.203402757644653,
+              47.00759840011597,
+              -69.86699676513672
+            ],
+            [
+              -5.86299467086792,
+              31.87088704109192,
+              -62.36699676513672
+            ]
+          ],
+          "touch_inferior_face": 334,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 10448,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              134,
+              234
+            ],
+            [
+              12,
+              168,
+              277
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.668245792388916,
+              58.72634267807007,
+              -69.86699676513672
+            ],
+            [
+              -7.327837705612183,
+              42.12478828430176,
+              -62.36699676513672
+            ]
+          ],
+          "touch_inferior_face": 879,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -70.17949676513672,
+          13.570503234863281
+        ],
+        "oropharynx_z_range_mm": [
+          -69.86699676513672,
+          -62.36699676513672
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 75.9375,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -69.86699676513672,
+          -62.36699676513672
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 75.9375,
+        "nasopharynx_z_range_mm": [
+          -62.99199676513672,
+          -51.74199676513672
+        ],
+        "nasopharynx_gap_inferior_mm": 7.1875,
+        "nasopharynx_gap_superior_mm": 65.3125,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.625
+      }
+    },
+    "b23": {
+      "case": "b23",
+      "size_xyz": [
+        512,
+        512,
+        155
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          125.0
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          150.18699645996094
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -58.012001037597656
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -124.75573742389679,
+          -99.56874096393585,
+          -58.324501037597656
+        ],
+        [
+          125.24414050579071,
+          150.43113696575165,
+          38.550498962402344
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 79268,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              32,
+              257
+            ],
+            [
+              90,
+              196,
+              294
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -0.4882199764251709,
+              134.56200408935547,
+              -49.262001037597656
+            ],
+            [
+              -18.554617404937744,
+              54.48391819000244,
+              -1.7620010375976562
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 76461,
+          "bbox_ijk_zyx": [
+            [
+              17,
+              32,
+              226
+            ],
+            [
+              90,
+              194,
+              260
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              14.648491382598877,
+              134.56200408935547,
+              -47.387001037597656
+            ],
+            [
+              -1.9530630111694336,
+              55.46048021316528,
+              -1.7620010375976562
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 18477,
+          "bbox_ijk_zyx": [
+            [
+              22,
+              189,
+              229
+            ],
+            [
+              47,
+              219,
+              285
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.183648347854614,
+              57.90188527107239,
+              -44.262001037597656
+            ],
+            [
+              -14.160088300704956,
+              43.25345492362976,
+              -28.637001037597656
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 7721,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              192,
+              240
+            ],
+            [
+              23,
+              227,
+              268
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              7.812557220458984,
+              56.437042236328125,
+              -58.012001037597656
+            ],
+            [
+              -5.859311103820801,
+              39.347206830978394,
+              -43.637001037597656
+            ]
+          ],
+          "touch_inferior_face": 184,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 12920,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              172,
+              235
+            ],
+            [
+              21,
+              211,
+              276
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.253962278366089,
+              66.20266246795654,
+              -58.012001037597656
+            ],
+            [
+              -9.765559196472168,
+              47.15970301628113,
+              -44.887001037597656
+            ]
+          ],
+          "touch_inferior_face": 370,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -58.324501037597656,
+          38.550498962402344
+        ],
+        "oropharynx_z_range_mm": [
+          -58.012001037597656,
+          -43.637001037597656
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 82.1875,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -58.012001037597656,
+          -44.887001037597656
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 83.4375,
+        "nasopharynx_z_range_mm": [
+          -44.262001037597656,
+          -28.637001037597656
+        ],
+        "nasopharynx_gap_inferior_mm": 14.0625,
+        "nasopharynx_gap_superior_mm": 67.1875,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.625
+      }
+    },
+    "b24": {
+      "case": "b24",
+      "size_xyz": [
+        512,
+        512,
+        145
+      ],
+      "spacing_xyz_mm": [
+        0.4882810115814209,
+        0.4882810115814209,
+        0.625
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.4882810115814209,
+          0.0,
+          0.0,
+          125.0
+        ],
+        [
+          0.0,
+          -0.4882810115814209,
+          0.0,
+          125.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.625,
+          -52.95899963378906
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -124.75573742389679,
+          -124.75573742389679,
+          -53.27149963378906
+        ],
+        [
+          125.24414050579071,
+          125.24414050579071,
+          37.35350036621094
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 63501,
+          "bbox_ijk_zyx": [
+            [
+              8,
+              42,
+              258
+            ],
+            [
+              82,
+              207,
+              300
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -0.9765009880065918,
+              104.49219751358032,
+              -47.95899963378906
+            ],
+            [
+              -21.48430347442627,
+              23.925830602645874,
+              -1.7089996337890625
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 84026,
+          "bbox_ijk_zyx": [
+            [
+              8,
+              42,
+              226
+            ],
+            [
+              83,
+              201,
+              273
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              14.648491382598877,
+              104.49219751358032,
+              -47.95899963378906
+            ],
+            [
+              -8.300716161727905,
+              26.8555166721344,
+              -1.0839996337890625
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 13380,
+          "bbox_ijk_zyx": [
+            [
+              6,
+              192,
+              229
+            ],
+            [
+              27,
+              222,
+              285
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.183648347854614,
+              31.250045776367188,
+              -49.20899963378906
+            ],
+            [
+              -14.160088300704956,
+              16.60161542892456,
+              -36.08399963378906
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 8184,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              188,
+              235
+            ],
+            [
+              10,
+              228,
+              277
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.253962278366089,
+              33.20316982269287,
+              -52.95899963378906
+            ],
+            [
+              -10.253840208053589,
+              13.671929359436035,
+              -46.70899963378906
+            ]
+          ],
+          "touch_inferior_face": 850,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 6723,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              165,
+              237
+            ],
+            [
+              8,
+              195,
+              277
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              9.277400255203247,
+              44.43363308906555,
+              -52.95899963378906
+            ],
+            [
+              -10.253840208053589,
+              29.785202741622925,
+              -47.95899963378906
+            ]
+          ],
+          "touch_inferior_face": 897,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -53.27149963378906,
+          37.35350036621094
+        ],
+        "oropharynx_z_range_mm": [
+          -52.95899963378906,
+          -46.70899963378906
+        ],
+        "oropharynx_gap_inferior_mm": 0.3125,
+        "oropharynx_gap_superior_mm": 84.0625,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -52.95899963378906,
+          -47.95899963378906
+        ],
+        "soft_palate_gap_inferior_mm": 0.3125,
+        "soft_palate_gap_superior_mm": 85.3125,
+        "nasopharynx_z_range_mm": [
+          -49.20899963378906,
+          -36.08399963378906
+        ],
+        "nasopharynx_gap_inferior_mm": 4.0625,
+        "nasopharynx_gap_superior_mm": 73.4375,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 2.5
+      }
+    },
+    "p0": {
+      "case": "p0",
+      "size_xyz": [
+        512,
+        512,
+        394
+      ],
+      "spacing_xyz_mm": [
+        0.34960898756980896,
+        0.34960898756980896,
+        0.3499999940395355
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.34960898756980896,
+          0.0,
+          0.0,
+          96.4921875
+        ],
+        [
+          0.0,
+          -0.34960898756980896,
+          0.0,
+          261.4000244140625
+        ],
+        [
+          0.0,
+          0.0,
+          0.3499999940395355,
+          -703.7899780273438
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -82.33280964195728,
+          82.57502727210522,
+          -703.9649780243635
+        ],
+        [
+          96.6669919937849,
+          261.5748289078474,
+          -566.0649803727865
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 339274,
+          "bbox_ijk_zyx": [
+            [
+              94,
+              61,
+              210
+            ],
+            [
+              225,
+              284,
+              280
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              23.07430011034012,
+              240.07387617230415,
+              -670.8899785876274
+            ],
+            [
+              -1.3983290195465088,
+              162.11107194423676,
+              -625.0399793684483
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 270876,
+          "bbox_ijk_zyx": [
+            [
+              94,
+              65,
+              171
+            ],
+            [
+              225,
+              290,
+              239
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              36.70905062556267,
+              238.67544022202492,
+              -670.8899785876274
+            ],
+            [
+              12.935639470815659,
+              160.0134180188179,
+              -625.0399793684483
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 82727,
+          "bbox_ijk_zyx": [
+            [
+              105,
+              270,
+              199
+            ],
+            [
+              147,
+              320,
+              286
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              26.919998973608017,
+              167.00559777021408,
+              -667.0399786531925
+            ],
+            [
+              -3.4959829449653625,
+              149.52514839172363,
+              -652.339978903532
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 148837,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              272,
+              214
+            ],
+            [
+              107,
+              340,
+              293
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              21.675864160060883,
+              166.30637979507446,
+              -703.7899780273438
+            ],
+            [
+              -5.943245857954025,
+              142.53296864032745,
+              -666.3399786651134
+            ]
+          ],
+          "touch_inferior_face": 2236,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 67606,
+          "bbox_ijk_zyx": [
+            [
+              36,
+              239,
+              210
+            ],
+            [
+              107,
+              309,
+              273
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              23.07430011034012,
+              177.84347638487816,
+              -691.1899782419205
+            ],
+            [
+              1.048933893442154,
+              153.37084725499153,
+              -666.3399786651134
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -703.9649780243635,
+          -566.0649803727865
+        ],
+        "oropharynx_z_range_mm": [
+          -703.7899780273438,
+          -666.3399786651134
+        ],
+        "oropharynx_gap_inferior_mm": 0.17499999701976776,
+        "oropharynx_gap_superior_mm": 100.27499829232693,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -691.1899782419205,
+          -666.3399786651134
+        ],
+        "soft_palate_gap_inferior_mm": 12.774999782443047,
+        "soft_palate_gap_superior_mm": 100.27499829232693,
+        "nasopharynx_z_range_mm": [
+          -667.0399786531925,
+          -652.339978903532
+        ],
+        "nasopharynx_gap_inferior_mm": 36.924999371171,
+        "nasopharynx_gap_superior_mm": 86.2749985307455,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 0.699999988079071
+      }
+    },
+    "p1": {
+      "case": "p1",
+      "size_xyz": [
+        512,
+        512,
+        136
+      ],
+      "spacing_xyz_mm": [
+        0.34765625,
+        0.34765625,
+        0.800000011920929
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.34765625,
+          0.0,
+          0.0,
+          96.076171875
+        ],
+        [
+          0.0,
+          -0.34765625,
+          0.0,
+          120.25370788574219
+        ],
+        [
+          0.0,
+          0.0,
+          0.800000011920929,
+          139.329345703125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -81.75,
+          -57.57246398925781,
+          138.92934569716454
+        ],
+        [
+          96.25,
+          120.42753601074219,
+          247.72934731841087
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 101372,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              90,
+              268
+            ],
+            [
+              73,
+              299,
+              308
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              2.904296875,
+              88.96464538574219,
+              150.529345870018
+            ],
+            [
+              -11.001953125,
+              16.304489135742188,
+              197.7293465733528
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 120727,
+          "bbox_ijk_zyx": [
+            [
+              14,
+              90,
+              227
+            ],
+            [
+              71,
+              295,
+              271
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              17.158203125,
+              88.96464538574219,
+              150.529345870018
+            ],
+            [
+              1.861328125,
+              17.695114135742188,
+              196.12934654951096
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 43904,
+          "bbox_ijk_zyx": [
+            [
+              22,
+              285,
+              218
+            ],
+            [
+              41,
+              347,
+              310
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              20.287109375,
+              21.171676635742188,
+              156.92934596538544
+            ],
+            [
+              -11.697265625,
+              -0.3830108642578125,
+              172.1293461918831
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 34419,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              292,
+              238
+            ],
+            [
+              26,
+              377,
+              295
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.333984375,
+              18.738082885742188,
+              139.329345703125
+            ],
+            [
+              -6.482421875,
+              -10.812698364257812,
+              160.12934601306915
+            ]
+          ],
+          "touch_inferior_face": 1418,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 22157,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              268,
+              238
+            ],
+            [
+              21,
+              338,
+              293
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              13.333984375,
+              27.081832885742188,
+              139.329345703125
+            ],
+            [
+              -5.787109375,
+              2.7458953857421875,
+              156.1293459534645
+            ]
+          ],
+          "touch_inferior_face": 40,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          138.92934569716454,
+          247.72934731841087
+        ],
+        "oropharynx_z_range_mm": [
+          139.329345703125,
+          160.12934601306915
+        ],
+        "oropharynx_gap_inferior_mm": 0.4000000059604645,
+        "oropharynx_gap_superior_mm": 87.60000130534172,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          139.329345703125,
+          156.1293459534645
+        ],
+        "soft_palate_gap_inferior_mm": 0.4000000059604645,
+        "soft_palate_gap_superior_mm": 91.60000136494637,
+        "nasopharynx_z_range_mm": [
+          156.92934596538544,
+          172.1293461918831
+        ],
+        "nasopharynx_gap_inferior_mm": 18.0000002682209,
+        "nasopharynx_gap_superior_mm": 75.60000112652779,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 3.200000047683716
+      }
+    },
+    "p2": {
+      "case": "p2",
+      "size_xyz": [
+        512,
+        512,
+        286
+      ],
+      "spacing_xyz_mm": [
+        0.458984375,
+        0.458984375,
+        0.5
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.458984375,
+          0.0,
+          0.0,
+          117.2705078125
+        ],
+        [
+          0.0,
+          -0.458984375,
+          0.0,
+          271.2705078125
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -650.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -117.5,
+          36.5,
+          -650.75
+        ],
+        [
+          117.5,
+          271.5,
+          -507.75
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 115720,
+          "bbox_ijk_zyx": [
+            [
+              82,
+              71,
+              275
+            ],
+            [
+              175,
+              240,
+              315
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -8.9501953125,
+              238.6826171875,
+              -609.5
+            ],
+            [
+              -27.3095703125,
+              161.1142578125,
+              -563.0
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 128554,
+          "bbox_ijk_zyx": [
+            [
+              82,
+              71,
+              241
+            ],
+            [
+              175,
+              241,
+              284
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              6.6552734375,
+              238.6826171875,
+              -609.5
+            ],
+            [
+              -13.0810546875,
+              160.6552734375,
+              -563.0
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 57124,
+          "bbox_ijk_zyx": [
+            [
+              82,
+              221,
+              233
+            ],
+            [
+              115,
+              271,
+              314
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.3271484375,
+              169.8349609375,
+              -609.5
+            ],
+            [
+              -26.8505859375,
+              146.8857421875,
+              -593.0
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 115878,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              220,
+              239
+            ],
+            [
+              87,
+              277,
+              307
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              7.5732421875,
+              170.2939453125,
+              -650.5
+            ],
+            [
+              -23.6376953125,
+              144.1318359375,
+              -607.0
+            ]
+          ],
+          "touch_inferior_face": 1068,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 29148,
+          "bbox_ijk_zyx": [
+            [
+              36,
+              203,
+              251
+            ],
+            [
+              81,
+              251,
+              300
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              2.0654296875,
+              178.0966796875,
+              -632.5
+            ],
+            [
+              -20.4248046875,
+              156.0654296875,
+              -610.0
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          -650.75,
+          -507.75
+        ],
+        "oropharynx_z_range_mm": [
+          -650.5,
+          -607.0
+        ],
+        "oropharynx_gap_inferior_mm": 0.25,
+        "oropharynx_gap_superior_mm": 99.25,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          -632.5,
+          -610.0
+        ],
+        "soft_palate_gap_inferior_mm": 18.25,
+        "soft_palate_gap_superior_mm": 102.25,
+        "nasopharynx_z_range_mm": [
+          -609.5,
+          -593.0
+        ],
+        "nasopharynx_gap_inferior_mm": 41.25,
+        "nasopharynx_gap_superior_mm": 85.25,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 2.5
+      }
+    },
+    "p3": {
+      "case": "p3",
+      "size_xyz": [
+        512,
+        512,
+        186
+      ],
+      "spacing_xyz_mm": [
+        0.3671875,
+        0.3671875,
+        0.6000000238418579
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.3671875,
+          0.0,
+          0.0,
+          93.81640625
+        ],
+        [
+          0.0,
+          -0.3671875,
+          0.0,
+          148.70834350585938
+        ],
+        [
+          0.0,
+          0.0,
+          0.6000000238418579,
+          281.2904052734375
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -94.0,
+          -39.108062744140625,
+          280.99040526151657
+        ],
+        [
+          94.0,
+          148.89193725585938,
+          392.59040969610214
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 195643,
+          "bbox_ijk_zyx": [
+            [
+              18,
+              57,
+              249
+            ],
+            [
+              99,
+              297,
+              293
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              2.38671875,
+              127.77865600585938,
+              292.09040570259094
+            ],
+            [
+              -13.76953125,
+              39.653656005859375,
+              340.69040763378143
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 191704,
+          "bbox_ijk_zyx": [
+            [
+              18,
+              57,
+              202
+            ],
+            [
+              97,
+              299,
+              250
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              19.64453125,
+              127.77865600585938,
+              292.09040570259094
+            ],
+            [
+              2.01953125,
+              38.919281005859375,
+              339.4904075860977
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 82266,
+          "bbox_ijk_zyx": [
+            [
+              25,
+              279,
+              190
+            ],
+            [
+              57,
+              338,
+              295
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              24.05078125,
+              46.263031005859375,
+              296.29040586948395
+            ],
+            [
+              -14.50390625,
+              24.598968505859375,
+              315.4904066324234
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 55120,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              283,
+              204
+            ],
+            [
+              29,
+              350,
+              287
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              18.91015625,
+              44.794281005859375,
+              281.2904052734375
+            ],
+            [
+              -11.56640625,
+              20.192718505859375,
+              298.6904059648514
+            ]
+          ],
+          "touch_inferior_face": 1044,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 47955,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              247,
+              212
+            ],
+            [
+              25,
+              327,
+              276
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              15.97265625,
+              58.013031005859375,
+              281.2904052734375
+            ],
+            [
+              -7.52734375,
+              28.638031005859375,
+              296.29040586948395
+            ]
+          ],
+          "touch_inferior_face": 1098,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          280.99040526151657,
+          392.59040969610214
+        ],
+        "oropharynx_z_range_mm": [
+          281.2904052734375,
+          298.6904059648514
+        ],
+        "oropharynx_gap_inferior_mm": 0.30000001192092896,
+        "oropharynx_gap_superior_mm": 93.90000373125076,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          281.2904052734375,
+          296.29040586948395
+        ],
+        "soft_palate_gap_inferior_mm": 0.30000001192092896,
+        "soft_palate_gap_superior_mm": 96.3000038266182,
+        "nasopharynx_z_range_mm": [
+          296.29040586948395,
+          315.4904066324234
+        ],
+        "nasopharynx_gap_inferior_mm": 15.300000607967377,
+        "nasopharynx_gap_superior_mm": 77.10000306367874,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 2.4000000953674316
+      }
+    },
+    "p3t1": {
+      "case": "p3t1",
+      "size_xyz": [
+        512,
+        512,
+        232
+      ],
+      "spacing_xyz_mm": [
+        0.466796875,
+        0.466796875,
+        0.5
+      ],
+      "direction_identity_lps": true,
+      "affine_lps": [
+        [
+          -0.466796875,
+          0.0,
+          0.0,
+          119.2666015625
+        ],
+        [
+          0.0,
+          -0.466796875,
+          0.0,
+          147.963623046875
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          775.0284423828125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scan_outer_bounds_lps_mm": [
+        [
+          -119.5,
+          -90.802978515625,
+          774.7784423828125
+        ],
+        [
+          119.5,
+          148.197021484375,
+          890.7784423828125
+        ]
+      ],
+      "labels": {
+        "nasal_cavity_left": {
+          "voxels": 155658,
+          "bbox_ijk_zyx": [
+            [
+              44,
+              57,
+              280
+            ],
+            [
+              141,
+              260,
+              329
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              -11.4365234375,
+              121.356201171875,
+              797.0284423828125
+            ],
+            [
+              -34.3095703125,
+              26.596435546875,
+              845.5284423828125
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasal_cavity_right": {
+          "voxels": 121896,
+          "bbox_ijk_zyx": [
+            [
+              46,
+              57,
+              245
+            ],
+            [
+              139,
+              259,
+              297
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              4.9013671875,
+              121.356201171875,
+              798.0284423828125
+            ],
+            [
+              -19.3720703125,
+              27.063232421875,
+              844.5284423828125
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "nasopharynx": {
+          "voxels": 64708,
+          "bbox_ijk_zyx": [
+            [
+              44,
+              237,
+              232
+            ],
+            [
+              81,
+              286,
+              315
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              10.9697265625,
+              37.332763671875,
+              797.0284423828125
+            ],
+            [
+              -27.7744140625,
+              14.459716796875,
+              815.5284423828125
+            ]
+          ],
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "oropharynx": {
+          "voxels": 73014,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              237,
+              238
+            ],
+            [
+              49,
+              297,
+              308
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              8.1689453125,
+              37.332763671875,
+              775.0284423828125
+            ],
+            [
+              -24.5068359375,
+              9.324951171875,
+              799.5284423828125
+            ]
+          ],
+          "touch_inferior_face": 987,
+          "touch_superior_face": 0
+        },
+        "hypopharynx": {
+          "voxels": 0,
+          "bbox_ijk_zyx": null,
+          "bbox_lps_mm": null,
+          "touch_inferior_face": 0,
+          "touch_superior_face": 0
+        },
+        "soft_palate": {
+          "voxels": 34786,
+          "bbox_ijk_zyx": [
+            [
+              0,
+              214,
+              253
+            ],
+            [
+              45,
+              275,
+              305
+            ]
+          ],
+          "bbox_lps_mm": [
+            [
+              1.1669921875,
+              48.069091796875,
+              775.0284423828125
+            ],
+            [
+              -23.1064453125,
+              19.594482421875,
+              797.5284423828125
+            ]
+          ],
+          "touch_inferior_face": 186,
+          "touch_superior_face": 0
+        }
+      },
+      "derived": {
+        "scan_z_range_mm": [
+          774.7784423828125,
+          890.7784423828125
+        ],
+        "oropharynx_z_range_mm": [
+          775.0284423828125,
+          799.5284423828125
+        ],
+        "oropharynx_gap_inferior_mm": 0.25,
+        "oropharynx_gap_superior_mm": 91.25,
+        "hypopharynx_z_range_mm": null,
+        "hypopharynx_gap_inferior_mm": null,
+        "hypopharynx_gap_superior_mm": null,
+        "soft_palate_z_range_mm": [
+          775.0284423828125,
+          797.5284423828125
+        ],
+        "soft_palate_gap_inferior_mm": 0.25,
+        "soft_palate_gap_superior_mm": 93.25,
+        "nasopharynx_z_range_mm": [
+          797.0284423828125,
+          815.5284423828125
+        ],
+        "nasopharynx_gap_inferior_mm": 22.25,
+        "nasopharynx_gap_superior_mm": 75.25,
+        "oropharynx_truncated_inferiorly": true,
+        "hypopharynx_voxels": 0,
+        "naso_to_oro_interface_gap_mm": 2.5
+      }
+    }
+  },
+  "task_renumber_note": "artifact produced under a former task number and renumbered to T-048 (2026-10-16) after write-domain conflicts; data unchanged"
+}

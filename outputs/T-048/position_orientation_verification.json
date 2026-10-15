@@ -1,0 +1,2712 @@
+{
+  "created": "2026-10-16T01:28:46.589748+08:00",
+  "scope": "T-048 segmentation position/orientation verification; read-only",
+  "air_definition_hu": -300.0,
+  "cases": {
+    "b01": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 68508,
+          "vol_mm3": 10208.5,
+          "air_overlap_voxels": 52689,
+          "air_fraction": 0.7691,
+          "z_range_mm": [
+            -55.72,
+            -10.09
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 68508,
+          "vol_mm3": 10208.5,
+          "air_overlap_voxels": 52104,
+          "air_fraction": 0.7606,
+          "z_range_mm": [
+            -53.84,
+            -9.47
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 40153,
+          "vol_mm3": 5983.3,
+          "air_overlap_voxels": 37765,
+          "air_fraction": 0.9405,
+          "z_range_mm": [
+            -50.09,
+            -29.47
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 54370,
+          "vol_mm3": 8101.8,
+          "air_overlap_voxels": 47350,
+          "air_fraction": 0.8709,
+          "z_range_mm": [
+            -85.72,
+            -45.72
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 22146,
+          "vol_mm3": 3300.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -72.59,
+            -48.22
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 16461,
+          "vol_mm3": 2452.9,
+          "air_overlap_voxels": 9,
+          "air_fraction": 0.0005,
+          "z_range_mm": [
+            -58.84,
+            -46.34
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 255,
+          "vol_mm3": 38.0,
+          "air_overlap_voxels": 233,
+          "air_fraction": 0.9137,
+          "z_range_mm": [
+            -85.72,
+            -84.47
+          ]
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b02": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 62450,
+          "vol_mm3": 9305.8,
+          "air_overlap_voxels": 41569,
+          "air_fraction": 0.6656,
+          "z_range_mm": [
+            -74.66,
+            -27.16
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 66551,
+          "vol_mm3": 9916.9,
+          "air_overlap_voxels": 45929,
+          "air_fraction": 0.6901,
+          "z_range_mm": [
+            -74.66,
+            -28.41
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 37849,
+          "vol_mm3": 5639.9,
+          "air_overlap_voxels": 34861,
+          "air_fraction": 0.9211,
+          "z_range_mm": [
+            -72.79,
+            -57.16
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 25598,
+          "vol_mm3": 3814.4,
+          "air_overlap_voxels": 21879,
+          "air_fraction": 0.8547,
+          "z_range_mm": [
+            -92.79,
+            -72.79
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 20204,
+          "vol_mm3": 3010.6,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -92.79,
+            -73.41
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 17704,
+          "vol_mm3": 2638.1,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -79.66,
+            -71.54
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b03": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 55691,
+          "vol_mm3": 8298.6,
+          "air_overlap_voxels": 38081,
+          "air_fraction": 0.6838,
+          "z_range_mm": [
+            -37.79,
+            5.96
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 73047,
+          "vol_mm3": 10884.8,
+          "air_overlap_voxels": 56407,
+          "air_fraction": 0.7722,
+          "z_range_mm": [
+            -37.79,
+            7.83
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 34900,
+          "vol_mm3": 5200.5,
+          "air_overlap_voxels": 33288,
+          "air_fraction": 0.9538,
+          "z_range_mm": [
+            -36.54,
+            -20.92
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 21198,
+          "vol_mm3": 3158.7,
+          "air_overlap_voxels": 19323,
+          "air_fraction": 0.9115,
+          "z_range_mm": [
+            -48.42,
+            -35.92
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 12283,
+          "vol_mm3": 1830.3,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -48.42,
+            -37.17
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 15017,
+          "vol_mm3": 2237.7,
+          "air_overlap_voxels": 10,
+          "air_fraction": 0.0007,
+          "z_range_mm": [
+            -42.79,
+            -34.04
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b04": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 79400,
+          "vol_mm3": 11831.5,
+          "air_overlap_voxels": 57901,
+          "air_fraction": 0.7292,
+          "z_range_mm": [
+            -46.13,
+            5.12
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 78866,
+          "vol_mm3": 11751.9,
+          "air_overlap_voxels": 57441,
+          "air_fraction": 0.7283,
+          "z_range_mm": [
+            -45.51,
+            4.49
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 24003,
+          "vol_mm3": 3576.7,
+          "air_overlap_voxels": 22098,
+          "air_fraction": 0.9206,
+          "z_range_mm": [
+            -38.01,
+            -23.01
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 15364,
+          "vol_mm3": 2289.4,
+          "air_overlap_voxels": 13321,
+          "air_fraction": 0.867,
+          "z_range_mm": [
+            -56.13,
+            -38.63
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 17299,
+          "vol_mm3": 2577.7,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -56.13,
+            -39.88
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 15145,
+          "vol_mm3": 2256.8,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -51.13,
+            -38.01
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b05": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 65025,
+          "vol_mm3": 9689.5,
+          "air_overlap_voxels": 48968,
+          "air_fraction": 0.7531,
+          "z_range_mm": [
+            -22.59,
+            19.91
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 72945,
+          "vol_mm3": 10869.6,
+          "air_overlap_voxels": 55977,
+          "air_fraction": 0.7674,
+          "z_range_mm": [
+            -22.59,
+            21.78
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 33237,
+          "vol_mm3": 4952.7,
+          "air_overlap_voxels": 31115,
+          "air_fraction": 0.9362,
+          "z_range_mm": [
+            -21.34,
+            -6.34
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 16216,
+          "vol_mm3": 2416.4,
+          "air_overlap_voxels": 14723,
+          "air_fraction": 0.9079,
+          "z_range_mm": [
+            -29.47,
+            -21.34
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 6838,
+          "vol_mm3": 1018.9,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -29.47,
+            -23.22
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 23428,
+          "vol_mm3": 3491.0,
+          "air_overlap_voxels": 14,
+          "air_fraction": 0.0006,
+          "z_range_mm": [
+            -29.47,
+            -18.22
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b06": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 65900,
+          "vol_mm3": 9819.9,
+          "air_overlap_voxels": 43828,
+          "air_fraction": 0.6651,
+          "z_range_mm": [
+            -26.97,
+            20.53
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 77753,
+          "vol_mm3": 11586.1,
+          "air_overlap_voxels": 55958,
+          "air_fraction": 0.7197,
+          "z_range_mm": [
+            -25.72,
+            21.15
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 21737,
+          "vol_mm3": 3239.1,
+          "air_overlap_voxels": 20121,
+          "air_fraction": 0.9257,
+          "z_range_mm": [
+            -28.22,
+            -12.6
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 14448,
+          "vol_mm3": 2152.9,
+          "air_overlap_voxels": 12776,
+          "air_fraction": 0.8843,
+          "z_range_mm": [
+            -35.72,
+            -26.35
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 8618,
+          "vol_mm3": 1284.2,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -35.72,
+            -26.35
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 19612,
+          "vol_mm3": 2922.4,
+          "air_overlap_voxels": 7,
+          "air_fraction": 0.0004,
+          "z_range_mm": [
+            -28.85,
+            -20.72
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b07": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 68526,
+          "vol_mm3": 10211.2,
+          "air_overlap_voxels": 49772,
+          "air_fraction": 0.7263,
+          "z_range_mm": [
+            -31.93,
+            14.32
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 87411,
+          "vol_mm3": 13025.2,
+          "air_overlap_voxels": 75104,
+          "air_fraction": 0.8592,
+          "z_range_mm": [
+            -30.68,
+            13.07
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 26888,
+          "vol_mm3": 4006.6,
+          "air_overlap_voxels": 25245,
+          "air_fraction": 0.9389,
+          "z_range_mm": [
+            -29.43,
+            -14.43
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 25102,
+          "vol_mm3": 3740.5,
+          "air_overlap_voxels": 22988,
+          "air_fraction": 0.9158,
+          "z_range_mm": [
+            -42.56,
+            -29.43
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 11647,
+          "vol_mm3": 1735.5,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -42.56,
+            -31.31
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 11798,
+          "vol_mm3": 1758.0,
+          "air_overlap_voxels": 48,
+          "air_fraction": 0.0041,
+          "z_range_mm": [
+            -36.93,
+            -28.18
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b08": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 83243,
+          "vol_mm3": 12404.2,
+          "air_overlap_voxels": 58701,
+          "air_fraction": 0.7052,
+          "z_range_mm": [
+            -43.6,
+            3.9
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 91685,
+          "vol_mm3": 13662.1,
+          "air_overlap_voxels": 69875,
+          "air_fraction": 0.7621,
+          "z_range_mm": [
+            -43.6,
+            3.9
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 38776,
+          "vol_mm3": 5778.1,
+          "air_overlap_voxels": 36123,
+          "air_fraction": 0.9316,
+          "z_range_mm": [
+            -42.35,
+            -24.85
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 25839,
+          "vol_mm3": 3850.3,
+          "air_overlap_voxels": 22520,
+          "air_fraction": 0.8716,
+          "z_range_mm": [
+            -59.22,
+            -41.1
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 24026,
+          "vol_mm3": 3580.1,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -59.22,
+            -42.97
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 25097,
+          "vol_mm3": 3739.7,
+          "air_overlap_voxels": 3,
+          "air_fraction": 0.0001,
+          "z_range_mm": [
+            -51.1,
+            -41.1
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b09": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 84024,
+          "vol_mm3": 12520.5,
+          "air_overlap_voxels": 63187,
+          "air_fraction": 0.752,
+          "z_range_mm": [
+            -37.8,
+            7.82
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 63331,
+          "vol_mm3": 9437.0,
+          "air_overlap_voxels": 39982,
+          "air_fraction": 0.6313,
+          "z_range_mm": [
+            -39.05,
+            7.82
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 34469,
+          "vol_mm3": 5136.3,
+          "air_overlap_voxels": 32645,
+          "air_fraction": 0.9471,
+          "z_range_mm": [
+            -37.8,
+            -19.68
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 29221,
+          "vol_mm3": 4354.3,
+          "air_overlap_voxels": 25536,
+          "air_fraction": 0.8739,
+          "z_range_mm": [
+            -59.68,
+            -37.18
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 21995,
+          "vol_mm3": 3277.5,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -59.68,
+            -38.43
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 28398,
+          "vol_mm3": 4231.6,
+          "air_overlap_voxels": 23,
+          "air_fraction": 0.0008,
+          "z_range_mm": [
+            -46.55,
+            -35.3
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b10": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 74595,
+          "vol_mm3": 11115.5,
+          "air_overlap_voxels": 55306,
+          "air_fraction": 0.7414,
+          "z_range_mm": [
+            -41.13,
+            7.62
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 68917,
+          "vol_mm3": 10269.4,
+          "air_overlap_voxels": 49286,
+          "air_fraction": 0.7152,
+          "z_range_mm": [
+            -41.13,
+            6.37
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 20473,
+          "vol_mm3": 3050.7,
+          "air_overlap_voxels": 18988,
+          "air_fraction": 0.9275,
+          "z_range_mm": [
+            -42.38,
+            -28.63
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 8196,
+          "vol_mm3": 1221.3,
+          "air_overlap_voxels": 7040,
+          "air_fraction": 0.859,
+          "z_range_mm": [
+            -49.26,
+            -41.13
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 11238,
+          "vol_mm3": 1674.6,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -49.26,
+            -41.13
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 22680,
+          "vol_mm3": 3379.6,
+          "air_overlap_voxels": 19,
+          "air_fraction": 0.0008,
+          "z_range_mm": [
+            -42.38,
+            -33.01
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b11": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 71217,
+          "vol_mm3": 10612.1,
+          "air_overlap_voxels": 52564,
+          "air_fraction": 0.7381,
+          "z_range_mm": [
+            -65.93,
+            -12.8
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 62472,
+          "vol_mm3": 9309.0,
+          "air_overlap_voxels": 42031,
+          "air_fraction": 0.6728,
+          "z_range_mm": [
+            -65.93,
+            -14.05
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 23876,
+          "vol_mm3": 3557.8,
+          "air_overlap_voxels": 22233,
+          "air_fraction": 0.9312,
+          "z_range_mm": [
+            -49.68,
+            -30.3
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 24078,
+          "vol_mm3": 3587.9,
+          "air_overlap_voxels": 20483,
+          "air_fraction": 0.8507,
+          "z_range_mm": [
+            -74.68,
+            -44.05
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 15081,
+          "vol_mm3": 2247.2,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -72.8,
+            -51.55
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 18715,
+          "vol_mm3": 2788.7,
+          "air_overlap_voxels": 40,
+          "air_fraction": 0.0021,
+          "z_range_mm": [
+            -66.55,
+            -51.55
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b12": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 76352,
+          "vol_mm3": 11377.3,
+          "air_overlap_voxels": 50301,
+          "air_fraction": 0.6588,
+          "z_range_mm": [
+            -77.78,
+            -23.41
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 78182,
+          "vol_mm3": 11650.0,
+          "air_overlap_voxels": 45056,
+          "air_fraction": 0.5763,
+          "z_range_mm": [
+            -77.78,
+            -23.41
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 37116,
+          "vol_mm3": 5530.7,
+          "air_overlap_voxels": 35389,
+          "air_fraction": 0.9535,
+          "z_range_mm": [
+            -77.78,
+            -60.28
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 21516,
+          "vol_mm3": 3206.1,
+          "air_overlap_voxels": 20051,
+          "air_fraction": 0.9319,
+          "z_range_mm": [
+            -84.66,
+            -76.53
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 6116,
+          "vol_mm3": 911.4,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -84.66,
+            -77.78
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 27115,
+          "vol_mm3": 4040.4,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -79.03,
+            -69.66
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b13": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 76320,
+          "vol_mm3": 11372.6,
+          "air_overlap_voxels": 54077,
+          "air_fraction": 0.7086,
+          "z_range_mm": [
+            -24.26,
+            36.37
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 70994,
+          "vol_mm3": 10578.9,
+          "air_overlap_voxels": 45637,
+          "air_fraction": 0.6428,
+          "z_range_mm": [
+            -24.26,
+            36.37
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 17013,
+          "vol_mm3": 2535.1,
+          "air_overlap_voxels": 15133,
+          "air_fraction": 0.8895,
+          "z_range_mm": [
+            -23.63,
+            -11.13
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 10431,
+          "vol_mm3": 1554.3,
+          "air_overlap_voxels": 8824,
+          "air_fraction": 0.8459,
+          "z_range_mm": [
+            -42.38,
+            -23.01
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 16817,
+          "vol_mm3": 2505.9,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -42.38,
+            -24.26
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 28880,
+          "vol_mm3": 4303.5,
+          "air_overlap_voxels": 31,
+          "air_fraction": 0.0011,
+          "z_range_mm": [
+            -26.76,
+            -12.38
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b14": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 106453,
+          "vol_mm3": 15862.7,
+          "air_overlap_voxels": 91197,
+          "air_fraction": 0.8567,
+          "z_range_mm": [
+            -43.42,
+            9.08
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 91929,
+          "vol_mm3": 13698.5,
+          "air_overlap_voxels": 73670,
+          "air_fraction": 0.8014,
+          "z_range_mm": [
+            -43.42,
+            9.08
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 27786,
+          "vol_mm3": 4140.4,
+          "air_overlap_voxels": 26236,
+          "air_fraction": 0.9442,
+          "z_range_mm": [
+            -42.17,
+            -26.55
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 15346,
+          "vol_mm3": 2286.7,
+          "air_overlap_voxels": 14303,
+          "air_fraction": 0.932,
+          "z_range_mm": [
+            -49.05,
+            -41.55
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 7319,
+          "vol_mm3": 1090.6,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -49.05,
+            -42.8
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 20810,
+          "vol_mm3": 3100.9,
+          "air_overlap_voxels": 23,
+          "air_fraction": 0.0011,
+          "z_range_mm": [
+            -45.3,
+            -36.55
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b15": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 76850,
+          "vol_mm3": 11451.5,
+          "air_overlap_voxels": 58721,
+          "air_fraction": 0.7641,
+          "z_range_mm": [
+            -48.84,
+            -3.21
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 72452,
+          "vol_mm3": 10796.2,
+          "air_overlap_voxels": 54402,
+          "air_fraction": 0.7509,
+          "z_range_mm": [
+            -48.84,
+            -3.84
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 23218,
+          "vol_mm3": 3459.7,
+          "air_overlap_voxels": 21724,
+          "air_fraction": 0.9357,
+          "z_range_mm": [
+            -50.09,
+            -35.71
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 12735,
+          "vol_mm3": 1897.7,
+          "air_overlap_voxels": 11438,
+          "air_fraction": 0.8982,
+          "z_range_mm": [
+            -58.84,
+            -48.84
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 14230,
+          "vol_mm3": 2120.4,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -58.84,
+            -48.84
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 19900,
+          "vol_mm3": 2965.3,
+          "air_overlap_voxels": 8,
+          "air_fraction": 0.0004,
+          "z_range_mm": [
+            -50.09,
+            -43.21
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b16": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 66844,
+          "vol_mm3": 9960.5,
+          "air_overlap_voxels": 46613,
+          "air_fraction": 0.6973,
+          "z_range_mm": [
+            -33.43,
+            14.07
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 69716,
+          "vol_mm3": 10388.5,
+          "air_overlap_voxels": 49845,
+          "air_fraction": 0.715,
+          "z_range_mm": [
+            -33.43,
+            14.07
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 28335,
+          "vol_mm3": 4222.2,
+          "air_overlap_voxels": 26617,
+          "air_fraction": 0.9394,
+          "z_range_mm": [
+            -33.43,
+            -19.05
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 15701,
+          "vol_mm3": 2339.6,
+          "air_overlap_voxels": 14311,
+          "air_fraction": 0.9115,
+          "z_range_mm": [
+            -42.18,
+            -32.8
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 10831,
+          "vol_mm3": 1613.9,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -42.18,
+            -32.18
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 19800,
+          "vol_mm3": 2950.4,
+          "air_overlap_voxels": 14,
+          "air_fraction": 0.0007,
+          "z_range_mm": [
+            -37.18,
+            -27.8
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b17": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 83401,
+          "vol_mm3": 12427.7,
+          "air_overlap_voxels": 64345,
+          "air_fraction": 0.7715,
+          "z_range_mm": [
+            -40.09,
+            6.78
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 94111,
+          "vol_mm3": 14023.6,
+          "air_overlap_voxels": 75663,
+          "air_fraction": 0.804,
+          "z_range_mm": [
+            -40.09,
+            6.78
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 24915,
+          "vol_mm3": 3712.6,
+          "air_overlap_voxels": 23436,
+          "air_fraction": 0.9406,
+          "z_range_mm": [
+            -37.59,
+            -20.72
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 11442,
+          "vol_mm3": 1705.0,
+          "air_overlap_voxels": 10046,
+          "air_fraction": 0.878,
+          "z_range_mm": [
+            -47.59,
+            -36.34
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 13376,
+          "vol_mm3": 1993.2,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -47.59,
+            -38.22
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 26449,
+          "vol_mm3": 3941.2,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -45.09,
+            -35.72
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b18": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 70590,
+          "vol_mm3": 10518.7,
+          "air_overlap_voxels": 49254,
+          "air_fraction": 0.6977,
+          "z_range_mm": [
+            -51.75,
+            -6.75
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 68005,
+          "vol_mm3": 10133.5,
+          "air_overlap_voxels": 45255,
+          "air_fraction": 0.6655,
+          "z_range_mm": [
+            -49.88,
+            -6.75
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 28141,
+          "vol_mm3": 4193.3,
+          "air_overlap_voxels": 26525,
+          "air_fraction": 0.9426,
+          "z_range_mm": [
+            -51.75,
+            -36.75
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 13683,
+          "vol_mm3": 2038.9,
+          "air_overlap_voxels": 11629,
+          "air_fraction": 0.8499,
+          "z_range_mm": [
+            -63.63,
+            -50.5
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 14121,
+          "vol_mm3": 2104.2,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -63.63,
+            -50.5
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 15934,
+          "vol_mm3": 2374.3,
+          "air_overlap_voxels": 3,
+          "air_fraction": 0.0002,
+          "z_range_mm": [
+            -54.88,
+            -47.38
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b19": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 79706,
+          "vol_mm3": 11877.1,
+          "air_overlap_voxels": 55030,
+          "air_fraction": 0.6904,
+          "z_range_mm": [
+            -54.04,
+            0.33
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 80359,
+          "vol_mm3": 11974.4,
+          "air_overlap_voxels": 56137,
+          "air_fraction": 0.6986,
+          "z_range_mm": [
+            -53.42,
+            0.96
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 26110,
+          "vol_mm3": 3890.7,
+          "air_overlap_voxels": 24252,
+          "air_fraction": 0.9288,
+          "z_range_mm": [
+            -55.29,
+            -39.67
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 7268,
+          "vol_mm3": 1083.0,
+          "air_overlap_voxels": 6258,
+          "air_fraction": 0.861,
+          "z_range_mm": [
+            -59.04,
+            -52.79
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 8694,
+          "vol_mm3": 1295.5,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -59.04,
+            -52.79
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 20059,
+          "vol_mm3": 2989.0,
+          "air_overlap_voxels": 3,
+          "air_fraction": 0.0001,
+          "z_range_mm": [
+            -54.04,
+            -47.17
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b20": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 54878,
+          "vol_mm3": 8177.5,
+          "air_overlap_voxels": 30806,
+          "air_fraction": 0.5614,
+          "z_range_mm": [
+            -57.17,
+            -7.17
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 70684,
+          "vol_mm3": 10532.7,
+          "air_overlap_voxels": 52735,
+          "air_fraction": 0.7461,
+          "z_range_mm": [
+            -55.92,
+            -6.55
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 22055,
+          "vol_mm3": 3286.4,
+          "air_overlap_voxels": 20186,
+          "air_fraction": 0.9153,
+          "z_range_mm": [
+            -45.92,
+            -31.55
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 18784,
+          "vol_mm3": 2799.0,
+          "air_overlap_voxels": 16337,
+          "air_fraction": 0.8697,
+          "z_range_mm": [
+            -62.8,
+            -44.67
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 17371,
+          "vol_mm3": 2588.5,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -62.8,
+            -46.55
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 15302,
+          "vol_mm3": 2280.2,
+          "air_overlap_voxels": 7,
+          "air_fraction": 0.0005,
+          "z_range_mm": [
+            -54.05,
+            -42.8
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b21": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 50968,
+          "vol_mm3": 7594.8,
+          "air_overlap_voxels": 36122,
+          "air_fraction": 0.7087,
+          "z_range_mm": [
+            -53.21,
+            -10.08
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 56157,
+          "vol_mm3": 8368.0,
+          "air_overlap_voxels": 38205,
+          "air_fraction": 0.6803,
+          "z_range_mm": [
+            -51.33,
+            -10.71
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 15356,
+          "vol_mm3": 2288.2,
+          "air_overlap_voxels": 13879,
+          "air_fraction": 0.9038,
+          "z_range_mm": [
+            -52.58,
+            -38.21
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 8271,
+          "vol_mm3": 1232.5,
+          "air_overlap_voxels": 6926,
+          "air_fraction": 0.8374,
+          "z_range_mm": [
+            -68.21,
+            -50.71
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 13374,
+          "vol_mm3": 1992.9,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -68.21,
+            -51.96
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 14492,
+          "vol_mm3": 2159.5,
+          "air_overlap_voxels": 17,
+          "air_fraction": 0.0012,
+          "z_range_mm": [
+            -56.33,
+            -50.08
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b22": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 73851,
+          "vol_mm3": 11004.6,
+          "air_overlap_voxels": 53901,
+          "air_fraction": 0.7299,
+          "z_range_mm": [
+            -61.74,
+            -14.87
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 61657,
+          "vol_mm3": 9187.6,
+          "air_overlap_voxels": 37622,
+          "air_fraction": 0.6102,
+          "z_range_mm": [
+            -62.99,
+            -15.49
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 10338,
+          "vol_mm3": 1540.5,
+          "air_overlap_voxels": 9313,
+          "air_fraction": 0.9009,
+          "z_range_mm": [
+            -62.99,
+            -51.74
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 6748,
+          "vol_mm3": 1005.5,
+          "air_overlap_voxels": 5753,
+          "air_fraction": 0.8525,
+          "z_range_mm": [
+            -69.87,
+            -62.37
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 10448,
+          "vol_mm3": 1556.9,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -69.87,
+            -62.37
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 26268,
+          "vol_mm3": 3914.2,
+          "air_overlap_voxels": 2,
+          "air_fraction": 0.0001,
+          "z_range_mm": [
+            -64.24,
+            -52.37
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b23": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 79268,
+          "vol_mm3": 11811.8,
+          "air_overlap_voxels": 54970,
+          "air_fraction": 0.6935,
+          "z_range_mm": [
+            -49.26,
+            -1.76
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 76461,
+          "vol_mm3": 11393.6,
+          "air_overlap_voxels": 55877,
+          "air_fraction": 0.7308,
+          "z_range_mm": [
+            -47.39,
+            -1.76
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 18477,
+          "vol_mm3": 2753.3,
+          "air_overlap_voxels": 16975,
+          "air_fraction": 0.9187,
+          "z_range_mm": [
+            -44.26,
+            -28.64
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 7721,
+          "vol_mm3": 1150.5,
+          "air_overlap_voxels": 6617,
+          "air_fraction": 0.857,
+          "z_range_mm": [
+            -58.01,
+            -43.64
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 12920,
+          "vol_mm3": 1925.2,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -58.01,
+            -44.89
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 26150,
+          "vol_mm3": 3896.6,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -53.01,
+            -41.76
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "b24": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 63501,
+          "vol_mm3": 9462.4,
+          "air_overlap_voxels": 43468,
+          "air_fraction": 0.6845,
+          "z_range_mm": [
+            -47.96,
+            -1.71
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 84026,
+          "vol_mm3": 12520.8,
+          "air_overlap_voxels": 65947,
+          "air_fraction": 0.7848,
+          "z_range_mm": [
+            -47.96,
+            -1.08
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 13380,
+          "vol_mm3": 1993.8,
+          "air_overlap_voxels": 12248,
+          "air_fraction": 0.9154,
+          "z_range_mm": [
+            -49.21,
+            -36.08
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 8184,
+          "vol_mm3": 1219.5,
+          "air_overlap_voxels": 7435,
+          "air_fraction": 0.9085,
+          "z_range_mm": [
+            -52.96,
+            -46.71
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 6723,
+          "vol_mm3": 1001.8,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -52.96,
+            -47.96
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 17337,
+          "vol_mm3": 2583.4,
+          "air_overlap_voxels": 9,
+          "air_fraction": 0.0005,
+          "z_range_mm": [
+            -50.46,
+            -41.71
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "p0": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 339274,
+          "vol_mm3": 14513.9,
+          "air_overlap_voxels": 294216,
+          "air_fraction": 0.8672,
+          "z_range_mm": [
+            -670.89,
+            -625.04
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 270876,
+          "vol_mm3": 11587.9,
+          "air_overlap_voxels": 215323,
+          "air_fraction": 0.7949,
+          "z_range_mm": [
+            -670.89,
+            -625.04
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 82727,
+          "vol_mm3": 3539.0,
+          "air_overlap_voxels": 76154,
+          "air_fraction": 0.9205,
+          "z_range_mm": [
+            -667.04,
+            -652.34
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 148837,
+          "vol_mm3": 6367.1,
+          "air_overlap_voxels": 131684,
+          "air_fraction": 0.8848,
+          "z_range_mm": [
+            -703.79,
+            -666.34
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 67606,
+          "vol_mm3": 2892.1,
+          "air_overlap_voxels": 32,
+          "air_fraction": 0.0005,
+          "z_range_mm": [
+            -691.19,
+            -666.34
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 59011,
+          "vol_mm3": 2524.4,
+          "air_overlap_voxels": 568,
+          "air_fraction": 0.0096,
+          "z_range_mm": [
+            -676.14,
+            -665.29
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "p1": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 101372,
+          "vol_mm3": 9801.9,
+          "air_overlap_voxels": 81777,
+          "air_fraction": 0.8067,
+          "z_range_mm": [
+            150.53,
+            197.73
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 120727,
+          "vol_mm3": 11673.3,
+          "air_overlap_voxels": 101234,
+          "air_fraction": 0.8385,
+          "z_range_mm": [
+            150.53,
+            196.13
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 43904,
+          "vol_mm3": 4245.2,
+          "air_overlap_voxels": 39736,
+          "air_fraction": 0.9051,
+          "z_range_mm": [
+            156.93,
+            172.13
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 34419,
+          "vol_mm3": 3328.0,
+          "air_overlap_voxels": 29960,
+          "air_fraction": 0.8704,
+          "z_range_mm": [
+            139.33,
+            160.13
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 22157,
+          "vol_mm3": 2142.4,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            139.33,
+            156.13
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 27622,
+          "vol_mm3": 2670.8,
+          "air_overlap_voxels": 58,
+          "air_fraction": 0.0021,
+          "z_range_mm": [
+            146.53,
+            158.53
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "p2": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 115720,
+          "vol_mm3": 12189.2,
+          "air_overlap_voxels": 91718,
+          "air_fraction": 0.7926,
+          "z_range_mm": [
+            -609.5,
+            -563.0
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 128554,
+          "vol_mm3": 13541.0,
+          "air_overlap_voxels": 106649,
+          "air_fraction": 0.8296,
+          "z_range_mm": [
+            -609.5,
+            -563.0
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 57124,
+          "vol_mm3": 6017.1,
+          "air_overlap_voxels": 52461,
+          "air_fraction": 0.9184,
+          "z_range_mm": [
+            -609.5,
+            -593.0
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 115878,
+          "vol_mm3": 12205.8,
+          "air_overlap_voxels": 102830,
+          "air_fraction": 0.8874,
+          "z_range_mm": [
+            -650.5,
+            -607.0
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 29148,
+          "vol_mm3": 3070.3,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            -632.5,
+            -610.0
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 36324,
+          "vol_mm3": 3826.1,
+          "air_overlap_voxels": 73,
+          "air_fraction": 0.002,
+          "z_range_mm": [
+            -618.5,
+            -606.0
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "p3": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 195643,
+          "vol_mm3": 15826.7,
+          "air_overlap_voxels": 166068,
+          "air_fraction": 0.8488,
+          "z_range_mm": [
+            292.09,
+            340.69
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 191704,
+          "vol_mm3": 15508.1,
+          "air_overlap_voxels": 158662,
+          "air_fraction": 0.8276,
+          "z_range_mm": [
+            292.09,
+            339.49
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 82266,
+          "vol_mm3": 6655.0,
+          "air_overlap_voxels": 73053,
+          "air_fraction": 0.888,
+          "z_range_mm": [
+            296.29,
+            315.49
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 55120,
+          "vol_mm3": 4459.0,
+          "air_overlap_voxels": 47809,
+          "air_fraction": 0.8674,
+          "z_range_mm": [
+            281.29,
+            298.69
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 47955,
+          "vol_mm3": 3879.4,
+          "air_overlap_voxels": 3,
+          "air_fraction": 0.0001,
+          "z_range_mm": [
+            281.29,
+            296.29
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 38989,
+          "vol_mm3": 3154.1,
+          "air_overlap_voxels": 131,
+          "air_fraction": 0.0034,
+          "z_range_mm": [
+            286.09,
+            296.29
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    },
+    "p3t1": {
+      "direction_identity_lps": true,
+      "labels": {
+        "nasal_cavity_left": {
+          "shape_matches_ct": true,
+          "voxels": 155658,
+          "vol_mm3": 16958.9,
+          "air_overlap_voxels": 136442,
+          "air_fraction": 0.8765,
+          "z_range_mm": [
+            797.03,
+            845.53
+          ]
+        },
+        "nasal_cavity_right": {
+          "shape_matches_ct": true,
+          "voxels": 121896,
+          "vol_mm3": 13280.5,
+          "air_overlap_voxels": 93971,
+          "air_fraction": 0.7709,
+          "z_range_mm": [
+            798.03,
+            844.53
+          ]
+        },
+        "nasopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 64708,
+          "vol_mm3": 7049.9,
+          "air_overlap_voxels": 58299,
+          "air_fraction": 0.901,
+          "z_range_mm": [
+            797.03,
+            815.53
+          ]
+        },
+        "oropharynx": {
+          "shape_matches_ct": true,
+          "voxels": 73014,
+          "vol_mm3": 7954.9,
+          "air_overlap_voxels": 66081,
+          "air_fraction": 0.905,
+          "z_range_mm": [
+            775.03,
+            799.53
+          ]
+        },
+        "soft_palate": {
+          "shape_matches_ct": true,
+          "voxels": 34786,
+          "vol_mm3": 3789.9,
+          "air_overlap_voxels": 0,
+          "air_fraction": 0.0,
+          "z_range_mm": [
+            775.03,
+            797.53
+          ]
+        },
+        "hard_palate": {
+          "shape_matches_ct": true,
+          "voxels": 30446,
+          "vol_mm3": 3317.1,
+          "air_overlap_voxels": 279,
+          "air_fraction": 0.0092,
+          "z_range_mm": [
+            790.03,
+            799.53
+          ]
+        },
+        "hypopharynx": {
+          "shape_matches_ct": true,
+          "voxels": 0,
+          "vol_mm3": 0.0,
+          "air_overlap_voxels": 0,
+          "air_fraction": null,
+          "z_range_mm": null
+        }
+      },
+      "checks": {
+        "C0_shapes_match": true,
+        "C0_direction_identity": true,
+        "C1_nasopharynx_above_oropharynx": true,
+        "C2_oropharynx_reaches_velum": true,
+        "C3_nasal_cavities_above_oropharynx": true,
+        "C4_airway_is_air_nasal_cavity_left": true,
+        "C4_airway_is_air_nasal_cavity_right": true,
+        "C4_airway_is_air_nasopharynx": true,
+        "C4_airway_is_air_oropharynx": true,
+        "C4_tissue_not_air_soft_palate": true,
+        "C4_tissue_not_air_hard_palate": true
+      },
+      "all_pass": true
+    }
+  },
+  "summary": {
+    "cases_total": 29,
+    "cases_all_checks_pass": 29
+  },
+  "task_renumber_note": "artifact produced under a former task number and renumbered to T-048 (2026-10-16) after write-domain conflicts; data unchanged"
+}
