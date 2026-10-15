@@ -15,15 +15,15 @@
 
 ## 1. 本机软件事实（已实测取证）
 
-| 项 | 事实 | 证据来源 |
-|---|---|---|
-| Slicer 版本 | **3D Slicer 5.12.4**（revision 34645） | 注册表 `DisplayName`/`DisplayVersion`；`Slicer.ini` `LatestReleaseRevision=34645` |
-| 安装位置 | `D:\项目\鼻腔建模\软件\slicer\3D Slicer 5.12.4\Slicer.exe` | 实测 `find` 命中；注册表 `DisplayIcon` 指向的旧路径 `软件\新建文件夹\...` **已失效**（目录被重组过） |
-| **已装扩展数** | **0 个** | 安装目录 `slicer.org/Extensions-34645/` 为**空目录**；`Slicer.ini` 与 `Slicer-tmp.ini` 的 `[Extensions]` 段均**无任何扩展条目** |
-| 扩展服务配置 | `ManagerEnabled=true`；`ServerUrl=https://slicer-packages.kitware.com`（`LastServerAPI=Girder_v1`）；`FrontendServerUrl=https://extensions.slicer.org`；`InstallPath=slicer.org/Extensions-34645` | `slicer.org/Slicer-34645.ini` |
-| 网络可达性 | **可达**（kitware 有 HTTP 业务响应，非超时/非 DNS 失败） | `curl -m 30 https://slicer-packages.kitware.com/api/v1/app/...` → HTTP 400 + JSON |
-| 历史使用 | 2026-09-28 ~ 2026-10-05 共 **10 次会话**（最近一次 10-05 22:20） | `Slicer.ini` `[LogFiles]` 000–009 |
-| 曾加载场景 | `NasalSeg_P001_Slicer.mrml`（`P001_img` + `P001_seg`，spacing `0.585938 / 0.585938 / 1.5`） | `Slicer.ini` `[RecentlyLoadedFiles]` 解码；项目内 `work/NasalSeg_P001_Slicer.mrml` 与 `work/NasalSeg_P001_Slicer场景.mrml` |
+| 项         | 事实                                                                                                                                                                                           | 证据来源                                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Slicer 版本 | **3D Slicer 5.12.4**（revision 34645）                                                                                                                                                         | 注册表 `DisplayName`/`DisplayVersion`；`Slicer.ini` `LatestReleaseRevision=34645`                                     |
+| 安装位置      | `D:\项目\鼻腔建模\软件\slicer\3D Slicer 5.12.4\Slicer.exe`                                                                                                                                           | 实测 `find` 命中；注册表 `DisplayIcon` 指向的旧路径 `软件\新建文件夹\...` **已失效**（目录被重组过）                                              |
+| **已装扩展数** | **0 个**                                                                                                                                                                                      | 安装目录 `slicer.org/Extensions-34645/` 为**空目录**；`Slicer.ini` 与 `Slicer-tmp.ini` 的 `[Extensions]` 段均**无任何扩展条目**       |
+| 扩展服务配置    | `ManagerEnabled=true`；`ServerUrl=https://slicer-packages.kitware.com`（`LastServerAPI=Girder_v1`）；`FrontendServerUrl=https://extensions.slicer.org`；`InstallPath=slicer.org/Extensions-34645` | `slicer.org/Slicer-34645.ini`                                                                                     |
+| 网络可达性     | **可达**（kitware 有 HTTP 业务响应，非超时/非 DNS 失败）                                                                                                                                                     | `curl -m 30 https://slicer-packages.kitware.com/api/v1/app/...` → HTTP 400 + JSON                                 |
+| 历史使用      | 2026-09-28 ~ 2026-10-05 共 **10 次会话**（最近一次 10-05 22:20）                                                                                                                                       | `Slicer.ini` `[LogFiles]` 000–009                                                                                 |
+| 曾加载场景     | `NasalSeg_P001_Slicer.mrml`（`P001_img` + `P001_seg`，spacing `0.585938 / 0.585938 / 1.5`）                                                                                                     | `Slicer.ini` `[RecentlyLoadedFiles]` 解码；项目内 `work/NasalSeg_P001_Slicer.mrml` 与 `work/NasalSeg_P001_Slicer场景.mrml` |
 
 ### 1.1 对先前表述的诚实修正
 
@@ -35,7 +35,7 @@
 
 ## 2. 扩展可得性（外部核验）
 
-**来源：3D Slicer 官方论坛，SlicerHeart（CHOP, PI M. Jolley）+ SimVascular（Stanford, PI A. Marsden）联合发布帖**
+**来源：3D Slicer 官方论坛，SlicerHeart（CHOP, PI M. Jolley）+ SimVascular（Stanford, PI A. Marsden）联合发布帖**  
 <https://discourse.slicer.org/t/new-modules-for-generation-cfd-simulation-ready-meshes/48250>
 
 原文明示：
@@ -61,11 +61,11 @@
 
 官方能力：从表面网格填充四面体；支持 capping、表面重网格、**可选棱柱边界层**；**三个引擎**：
 
-| 引擎 | 许可 | 商用 |
-|---|---|---|
-| TetGen | AGPL（"extremely restrictive"） | 多数用途需**付费商业许可** |
-| **NetGen** | **LGPL**（弱 copyleft） | **免费商用、无需开源自有代码** |
-| fTetWild | MPL2.0 | 免费商用 |
+| 引擎         | 许可                            | 商用                |
+| ---------- | ----------------------------- | ----------------- |
+| TetGen     | AGPL（"extremely restrictive"） | 多数用途需**付费商业许可**   |
+| **NetGen** | **LGPL**（弱 copyleft）          | **免费商用、无需开源自有代码** |
+| fTetWild   | MPL2.0                        | 免费商用              |
 
 还有：基于输入表面网格标签的**边界曲面自动标注**；区域各向同性加密（已实现但未在 UI 暴露）。
 
@@ -77,6 +77,7 @@
 - 官方明示**不依赖 Clip Vessel** → 可直接吃我们现有 STL。
 
 ⚠️ **已知风险**：
+
 - **单位**：Slicer 用 **mm-g-s**；本项目 STL 单位为**米**（项目硬坑，面积判据需传 `unit_scale=1e6`）→ 进出必须显式换算；
 - **输出格式未知**：生成的是 mesh-complete / .vtu / .msh 尚未验证；转 OpenFOAM `polyMesh` 的路径**未验证**（可能是工作量最大的一环）；本次未取到扩展包，无法读其源码。
 
@@ -113,12 +114,12 @@
 
 ## 4. 判定汇总
 
-| 环节 | 结论 | 依据 |
-|---|---|---|
-| ④ 求解器替换 | **不建议** | 判据体系不兼容（M1/M2 + cfd_contract 全绑 OpenFOAM）；收益非刚需 |
-| ③ 体网格（`CFD Mesh Generator`，NetGen 引擎 + 边界层） | **值得实测** | 可独立吃现有 STL；补上边界层与面标签传播；内核与现选一致 |
-| ② 开口裁剪（`Clip Vessel`） | **谨慎** | 官方硬限制要求全分支有中心线；已知失效模式（平行管）与鼻腔形态重叠 |
-| ① 分割（SimVascular ML 分割） | **无必要** | 现有 Slicer 分割链已用；另起一套无收益 |
+| 环节                                          | 结论       | 依据                                              |
+| ------------------------------------------- | -------- | ----------------------------------------------- |
+| ④ 求解器替换                                     | **不建议**  | 判据体系不兼容（M1/M2 + cfd_contract 全绑 OpenFOAM）；收益非刚需 |
+| ③ 体网格（`CFD Mesh Generator`，NetGen 引擎 + 边界层） | **值得实测** | 可独立吃现有 STL；补上边界层与面标签传播；内核与现选一致                  |
+| ② 开口裁剪（`Clip Vessel`）                       | **谨慎**   | 官方硬限制要求全分支有中心线；已知失效模式（平行管）与鼻腔形态重叠               |
+| ① 分割（SimVascular ML 分割）                     | **无必要**  | 现有 Slicer 分割链已用；另起一套无收益                         |
 
 ---
 
@@ -136,11 +137,11 @@
 
 ## 6. 最小试验设计（供裁定，**尚未执行**）
 
-| # | 试验 | 前置 | CPU | 判定标准 |
-|---|---|---|---|---|
-| 1 | GUI 安装 SlicerVMTK 扩展 → 用**解析圆管 STL**跑 `CFD Mesh Generator`（NetGen 引擎 + 边界层）→ 导出 → 转 OpenFOAM → `checkMesh` | 无 | 极低 | 同一条圆管上能产出**带边界层且 Mesh OK** 的网格 → 该引擎对我们的价值被证实 |
-| 2 | 用 p0 现有 surface（sha256 `0cf50df5…`）直接进 `CFD Mesh Generator`（**跳过裁剪**） | 试验 1 通过 | 低 | 与本项目"Netgen + 局部四面体修复"（T-010 口径）比 `checkMesh` 指标 |
-| 3 | 对 p0 surface 跑 `Extract Centerline` | 无 | 极低 | 能否得到**合理的气道骨架** → 决定 `Clip Vessel` 是否值得一试 |
+| # | 试验                                                                                                         | 前置      | CPU | 判定标准                                             |
+| - | ---------------------------------------------------------------------------------------------------------- | ------- | --- | ------------------------------------------------ |
+| 1 | GUI 安装 SlicerVMTK 扩展 → 用**解析圆管 STL**跑 `CFD Mesh Generator`（NetGen 引擎 + 边界层）→ 导出 → 转 OpenFOAM → `checkMesh` | 无       | 极低  | 同一条圆管上能产出**带边界层且 Mesh OK** 的网格 → 该引擎对我们的价值被证实    |
+| 2 | 用 p0 现有 surface（sha256 `0cf50df5…`）直接进 `CFD Mesh Generator`（**跳过裁剪**）                                      | 试验 1 通过 | 低   | 与本项目"Netgen + 局部四面体修复"（T-010 口径）比 `checkMesh` 指标 |
+| 3 | 对 p0 surface 跑 `Extract Centerline`                                                                        | 无       | 极低  | 能否得到**合理的气道骨架** → 决定 `Clip Vessel` 是否值得一试        |
 
 **建议顺序**：试验 1 →（若通过）试验 2 →（并行）试验 3。试验 1 与 3 不占 CPU 独占车道，可与 T-037 并行。
 

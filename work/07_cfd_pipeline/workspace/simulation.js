@@ -140,10 +140,11 @@
     for (const [name, scenario] of entries) {
       const solved = scenario.result || {}, evaluations = scenario.evaluations || [], evaluation = evaluations.find(item => item.pressure_pa === solved.pressure_pa) || (result.execution_status === 'failed' ? evaluations[evaluations.length-1] : null), diagnostics = evaluation?.diagnostics || scenario.diagnostics || result.diagnostics || {}, finalIteration = (solved.iterations || []).find(item => item.pressure_pa === solved.pressure_pa) || {};
       box.append(el('h5',titles[name] || name));
-      if (result.execution_status === 'failed') box.append(el('p','本次执行未完成；显示已获得的原始诊断，不代表共同压力反馈达标。','simulation-result-notice'));
+      if (solved.status === 'quality_rejected_not_converged') box.append(el('p','质量未通过 / 未收敛，仅原始诊断。下列值未形成有效气流结果，不能作为生理或临床判断。','simulation-diagnostic-failure'));
+      else if (result.execution_status === 'failed') box.append(el('p','本次执行失败；仅显示已获得的原始诊断，未形成有效气流结果，不代表共同压力反馈达标。','simulation-diagnostic-failure'));
       const facts = el('dl',undefined,'simulation-feedback-facts');
       for (const [title,value] of [['共同入口静压 Pa',number(solved.pressure_pa,6)],['目标总流量 L/min',flow(solved.target_m3_s)],['实测总流量 L/min',flow(solved.q_total_m3_s)],['左侧流量 L/min',flow(solved.q_left_m3_s)],['右侧流量 L/min',flow(solved.q_right_m3_s)],['出口流量 L/min',flow(solved.q_out_m3_s)],['左侧自然分流',percent(solved.left_fraction)],['目标流量相对误差',percent(solved.relative_flow_error)],['真实求解评估次数',number(solved.evaluation_count,8)]]) {const row = el('div'); row.append(el('dt',title),el('dd',value)); facts.append(row);} box.append(facts);
-      resultTable(box,['守恒不平衡','最大残差','监测相对变化','网格质量','残差判据'],[[percent(diagnostics.flux?.mass_imbalance_frac),number(diagnostics.residual_max,6),percent(diagnostics.monitor_relative_change),flag(diagnostics.mesh_quality_passed),flag(finalIteration.residuals_passed)]]);
+      resultTable(box,['守恒不平衡','最大残差','监测相对变化','网格质量','残差判据'],[[percent(diagnostics.flux?.mass_imbalance_frac),number(diagnostics.residual_max,6),percent(diagnostics.monitor_relative_change),flag(diagnostics.mesh_quality_passed ?? solved.mesh_quality_passed ?? evaluation?.evaluation?.mesh_quality_passed),flag(finalIteration.residuals_passed ?? solved.residuals_passed ?? evaluation?.evaluation?.residuals_passed ?? diagnostics.residuals_passed)]]);
       const iterations = solved.iterations || [];
       if (iterations.length) {const details = el('details'), summary = el('summary','压力反馈迭代记录 · ' + iterations.length + ' 次'); details.append(summary); resultTable(details,['迭代','共同静压 Pa','总流量 L/min','左流量 L/min','右流量 L/min','目标误差'],iterations.map((item,index)=>[String(index+1),number(item.pressure_pa,6),flow(item.q_total_m3_s),flow(item.q_left_m3_s),flow(item.q_right_m3_s),percent(item.relative_flow_error)])); box.append(details);}
     }
@@ -152,12 +153,16 @@
   }
   function renderResult(result, job) {
     const box = $('simulation-result'); box.replaceChildren();
+    const scenarios = result?.scenarios || (result?.scenario ? {patient_engineering:result.scenario} : {});
+    const qualityRejected = Object.values(scenarios).some(scenario => scenario?.result?.status === 'quality_rejected_not_converged');
+    box.classList.toggle('is-diagnostic-failure',qualityRejected || job.status === 'failed' || result?.execution_status === 'failed');
     if (!result) {
       if (runActions.has(job.action)) box.append(el('p', running(job) ? '本次求解尚未返回数值结果。' : '本次没有可读取的数值结果。', 'simulation-empty'));
       return;
     }
     box.append(el('h5', result.patient_data === false ? '非患者参考 · 本次数值结果' : result.patient_data === true ? '患者工程试算 · 非临床结果' : '本次数值结果 · 数据类型未记录'));
     box.append(el('p','数值验证：' + validationLabel(result.numerical_validation) + ' · 临床验证：' + validationLabel(result.clinical_validation) + '。运行完成不等于验证通过。','simulation-result-notice'));
+    if (typeof result.viewer_export_error === 'string' && result.viewer_export_error) box.append(el('p','本次三维流场导出失败：' + result.viewer_export_error + '。本任务未提供可用的三维流场入口。','simulation-diagnostic-failure'));
     if (result.validation_status) box.append(el('p','验收状态：' + validationLabel(result.validation_status),'simulation-result-notice'));
     if (result.backend) box.append(el('p','实际计算后端：' + result.backend,'simulation-note'));
     if (renderFeedback(box,result)) return;

@@ -23,6 +23,11 @@ import json
 import os
 from datetime import datetime
 from coarse_localization_summary import summarize_localization
+# 2026-10-16 用户裁定「接回」：主进度页原本只汇总它自己认识的几个 JSON，
+# **完全不读 tasks/**（因而 2026-10-15 时任务卡只到 T-010、且重跑也刷不新）。
+# 现复用 build_progress_cards 的只读扫描器，把任务卡真值注入本页。
+# 复用而非复制：两处共用同一套提取口径，避免两份实现静默分叉。
+from build_progress_cards import scan_cards, summarize as summarize_cards
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = os.path.dirname(HERE)
@@ -381,6 +386,48 @@ def render(rows, feedback=None):
 <p>未找到患者网格工程实证的机器可读声明；工作台不渲染任何患者试算数字。</p>
 </div>
 """
+    # ---- ⑥b 任务卡进度（2026-10-16 接回）----
+    # 只读扫描 tasks/ + MEMORY.md；不判定、不归一化、不用占位状态填充。
+    _cards = scan_cards()
+    _cst = summarize_cards(_cards)
+    _rows = []
+    for c in _cards:
+        src = "验收" if c["acc_line"] else ("记忆" if c["mem_status"] != "—" else "卡头")
+        flag = ' <span class="tag">可疑</span>' if c["suspicious"] else ""
+        cls = {"VERIFIED": "ok", "CLOSED": "ok", "DONE": "ok",
+               "PARTIAL": "warn", "PAUSED": "warn",
+               "BLOCKED": "bad", "已废弃": "bad", "打回": "bad"}.get(c["shown"], "muted")
+        rowstyle = ' style="background:#fff5f5"' if not c["agree"] else ""
+        _rows.append(
+            f'<tr{rowstyle}><td><b>{e(c["id"])}</b></td>'
+            f'<td>{e(c["title"])[:76]}</td>'
+            f'<td class="{cls}">{e(c["shown"])}{flag}</td>'
+            f'<td class="muted small">{e(src)}</td>'
+            f'<td class="small">{(e(c["acc_line"])[:120] if c["acc_line"] else "—")}</td></tr>'
+        )
+    cards_card = f"""<div class="card" id="task-cards">
+<h2>⑥b 任务卡进度</h2>
+<p class="small">共 <b>{_cst['n']}</b> 张卡 ｜ {_cst['summary']} ｜
+三列不一致 <b>{_cst['n_disagree']}</b> 张（红底）｜
+含否定语义标可疑 <b>{_cst['n_susp']}</b> 张</p>
+<div class="table-scroll"><table>
+<tr><th>卡</th><th>标题</th><th>采用状态</th><th>来源</th><th>验收记录（原文）</th></tr>
+{''.join(_rows)}
+</table></div>
+<p class="small muted" style="margin-top:8px">
+<b>怎么读：</b>状态词<b>照抄原文、不归一化</b>——<code>DONE</code> 是多张卡卡头自用的
+「结项」写法，<code>BLOCKED</code> 是项目记忆里的描述性标记（AGENTS.md 规定阻塞时状态
+回退 <code>OPEN</code>、原因记验收记录，两者可并存）。采用优先级
+<b>验收记录 &gt; 项目记忆 &gt; 卡头</b>：卡头实测大面积缺失且滞后（T-036 卡头
+<code>EXECUTING</code> 而验收已是 <code>VERIFIED</code>），故只作兜底。<br>
+完整三列对照（卡头 / 验收 / 记忆）见
+<a href="/workspace/progress-cards.html">任务卡进度独立页</a>。
+本表由 <code>work/lib/build_progress_cards.py</code> 只读扫描生成，
+<b>不声称等于人工真值</b>；真值以 <code>state/状态.md</code> 与
+<code>.workbuddy/memory/MEMORY.md</code> 为准。
+</p>
+</div>"""
+
     html_doc = f"""<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -424,7 +471,10 @@ border-radius:4px;padding:1px 7px;font-size:12px;margin-right:6px}}
 M1（体网格）与 M2（患者求解）已于 2026-10-14 按用户裁定的双轨收口；
 两道前置门已裁定：医学复核门选 B（先跑矩阵，产物恒标
 <code>generalisation_test_only_no_human_review</code>），solver adapter 门选 A（派卡 T-009 实现）。
-下一项：派发 T-009 / T-010，随后开 M3 36 格矩阵 Phase A（例0 先行）。</p>
+<b>下一项（2026-10-15 现状）</b>：T-009 / T-010 已结项；M3 患者几何轴 36 格仍卡在
+T-011 Phase A 例0 的 N6 开孔裁剪门（<code>clip_failed</code>，输入未通过入口验收，
+未放行、不硬闯）；纯数值轴已由 T-036 / T-037 用合成圆管走完 H1–H4 判别。
+逐卡状态见下方「⑥b 任务卡进度」。</p>
 </div>
 
 <div class="card" id="coarse-localization">
@@ -533,14 +583,16 @@ MCA = 最小截面积，跳过入口 3 mm 后测得；亚洲成人声反射参�
 </ul>
 </div>
 
+{cards_card}
+
 <div class="card">
 <h2>⑦ 还差什么</h2>
 <div class="table-scroll"><table>
 <tr><th>项</th><th>状态</th><th>卡在谁</th></tr>
 <tr><td>5 点人工复核</td><td class="ok">已 25/25 accept（2026-10-07，王湧瑞）</td><td>—</td></tr>
 <tr><td>口腔排除 / 鼻窦策略 / 最终几何（三项 gate）</td><td class="bad">五例全 pending（R11；已裁定先跑矩阵不阻塞工程验证）</td><td>复核人／你</td></tr>
-<tr><td>solver adapter 实现</td><td class="warn">契约 not_implemented → 已派 T-009（零 CPU）</td><td>我</td></tr>
-<tr><td>网格缓存 WIP 转正</td><td class="warn">已派 T-010（端到端验证 + 矩阵接线）</td><td>我</td></tr>
+<tr><td>solver adapter 实现</td><td class="ok">T-009 <b>已结项</b>（2026-10-15，卡头 ✅ DONE）</td><td>—</td></tr>
+<tr><td>网格缓存 WIP 转正</td><td class="ok">T-010 <b>已结项</b>（2026-10-15）：网格缓存 verdict 可依赖</td><td>—</td></tr>
 <tr><td>M3 36 格验证矩阵（3 阈值 × 2 几何 × 3 网格 × 2 求解）</td><td class="warn">未跑；Phase A 例0 先行，CPU 独占车道以天计</td><td>我</td></tr>
 <tr><td>K2 量化对照报告</td><td class="bad">外部阻塞：需求方阈值裁定 + 人工金标准</td><td>需求方</td></tr>
 <tr><td>筛窦 / 蝶窦标签</td><td class="bad">TS 41 个 task 全无</td><td>人工标注</td></tr>
