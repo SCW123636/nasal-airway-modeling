@@ -13,6 +13,21 @@ const frames = new Map();
 let current = 'overview';
 let selectedUpload = null;
 let existingSummary = null, importSummary = {scans:0,points:0};
+const allowedGeometryManifest = value => /^\/case-assets\/u_[0-9a-f]{16}\/(?:versions\/v_[0-9a-f]{16}\/)?viewer\.json$/.test(value) || /^\/simulation-assets\/s_[0-9a-f]{24}\/viewer\.json$/.test(value);
+let requestedGeometryManifest = new URLSearchParams(location.search).get('manifest');
+function setGeometryManifest(value) {
+  requestedGeometryManifest = value;
+  const url = new URL(location.href);
+  if (value === null) url.searchParams.delete('manifest');
+  else {
+    url.searchParams.set('manifest', value);
+    const uploadCase = value.match(/^\/case-assets\/(u_[0-9a-f]{16})\//)?.[1];
+    // An explicit reference result must not restore an unrelated uploaded case.
+    url.searchParams.set('case', uploadCase || 'existing');
+  }
+  history.replaceState(null, '', url);
+}
+if (requestedGeometryManifest !== null) setGeometryManifest(requestedGeometryManifest);
 function renderOverview() {
   const localization = $('overview-localization');
   if (localization) {
@@ -59,6 +74,7 @@ function setUploadedCase(data) {
   selectStep(current);
 }
 function toolUrl(step) {
+  if (step.id === 'geometry' && requestedGeometryManifest !== null) return allowedGeometryManifest(requestedGeometryManifest) ? '/viewer/index.html?manifest=' + encodeURIComponent(requestedGeometryManifest) : null;
   if (!selectedUpload) return step.url;
   if (step.id === 'geometry') return selectedUpload.artifacts?.viewer;
   if (step.id === 'review') return selectedUpload.artifacts?.review;
@@ -90,16 +106,17 @@ function selectStep(id) {
   $('save-case-review').hidden = !selectedUpload?.artifacts?.review || !['awaiting_review','review_recorded'].includes(selectedUpload?.status) || id !== 'review';
   $('regenerate-case').hidden = !selectedUpload?.artifacts?.review || !['awaiting_review','review_recorded'].includes(selectedUpload?.status) || id === 'import';
   window.dispatchEvent(new CustomEvent('nasal-step-changed', {detail:id}));
-  if (['geometry','review','boundary'].includes(id) && selectedUpload && !url) {
+  const invalidManifest = id === 'geometry' && requestedGeometryManifest !== null && !allowedGeometryManifest(requestedGeometryManifest);
+  if (invalidManifest || ['geometry','review','boundary'].includes(id) && selectedUpload && !url) {
     const panel = $('panel-' + id);
     [...panel.children].forEach(child => child.hidden = true);
     let notice = panel.querySelector('.case-notice');
     if (!notice) {notice = document.createElement('div');notice.className = 'case-notice';panel.append(notice);}
     notice.hidden = false;
     notice.replaceChildren();
-    const title = document.createElement('h3');title.textContent = id === 'feedback' ? '本例暂无外部意见' : id === 'boundary' ? '点位审核尚未完成' : '候选正在准备';
-    const description = document.createElement('p');description.textContent = id === 'feedback' ? '可直接在切片审核中记录你的判断。' : id === 'boundary' ? '完成三处点位审核后，上传鼻窦排除掩膜并生成绑定草稿。' : '自动处理完成后即可检验三维与切片。';
-    const action = document.createElement('button');action.textContent = id === 'feedback' || id === 'boundary' ? '进入切片审核' : '查看处理进度';action.onclick = () => navigate(id === 'feedback' || id === 'boundary' ? 'review' : 'import');
+    const title = document.createElement('h3');title.textContent = invalidManifest ? '三维结果地址无效' : id === 'feedback' ? '本例暂无外部意见' : id === 'boundary' ? '点位审核尚未完成' : '候选正在准备';
+    const description = document.createElement('p');description.textContent = invalidManifest ? '未加载默认病例。请从计算与结果中的真实任务产物重新打开三维结果。' : id === 'feedback' ? '可直接在切片审核中记录你的判断。' : id === 'boundary' ? '完成三处点位审核后，上传鼻窦排除掩膜并生成绑定草稿。' : '自动处理完成后即可检验三维与切片。';
+    const action = document.createElement('button');action.textContent = invalidManifest ? '查看计算与结果' : id === 'feedback' || id === 'boundary' ? '进入切片审核' : '查看处理进度';action.onclick = () => navigate(invalidManifest ? 'validation' : id === 'feedback' || id === 'boundary' ? 'review' : 'import');
     notice.append(title,description,action);
   }
   if (url && !frames.has(frameKey)) {
@@ -128,8 +145,12 @@ function navigate(id) { if (current !== id) location.hash = id; }
 window.addEventListener('hashchange', () => selectStep(location.hash.slice(1) || 'import'));
 window.addEventListener('message', event => {
   if (event.origin !== location.origin || ![...frames.values()].some(frame => frame.contentWindow === event.source)) return;
-  if (event.data?.type === 'nasal-workspace-navigate' && STEPS.some(step => step.id === event.data.step)) navigate(event.data.step);
+  if (event.data?.type === 'nasal-workspace-navigate' && STEPS.some(step => step.id === event.data.step)) {
+    if (event.data.step === 'geometry' && typeof event.data.manifest === 'string') {setGeometryManifest(event.data.manifest); selectStep('geometry');}
+    navigate(event.data.step);
+  }
 });
+$('active-case').addEventListener('change', () => {if (requestedGeometryManifest !== null) setGeometryManifest(null);});
 document.querySelectorAll('[data-workflow]').forEach(link => link.addEventListener('click', event => {event.preventDefault();navigate(link.dataset.workflow);}));
 $('previous-step').addEventListener('click', () => navigate(STEPS[STEPS.findIndex(step => step.id === current) - 1].id));
 $('next-step').addEventListener('click', () => navigate(STEPS[STEPS.findIndex(step => step.id === current) + 1].id));

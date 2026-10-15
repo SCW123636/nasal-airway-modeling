@@ -4,11 +4,18 @@
   window.nasalToolPresentationApplied=true;
   const routes = {'/progress/index.html':'overview','/viewer/index.html':'geometry','/landmark-review/':'review','/landmark-review/index.html':'review','/landmark-review/feedback_review/index.html':'feedback','/solver_reference/phantom_validation/validation.json':'validation'};
   const uploaded = location.pathname.match(/^\/case-assets\/(u_[0-9a-f]{16})\/(?:versions\/v_[0-9a-f]{16}\/)?review\/index\.html$/);
-  const manifestCase = new URLSearchParams(location.search).get('manifest')?.match(/^\/case-assets\/(u_[0-9a-f]{16})\/(?:versions\/v_[0-9a-f]{16}\/)?viewer\.json$/);
+  const manifest = new URLSearchParams(location.search).get('manifest');
+  const manifestCase = manifest?.match(/^\/case-assets\/(u_[0-9a-f]{16})\/(?:versions\/v_[0-9a-f]{16}\/)?viewer\.json$/);
   const step = uploaded ? 'review' : routes[location.pathname];
   if (!step || !/^https?:$/.test(location.protocol)) return;
   const embedded = new URLSearchParams(location.search).get('embedded') === '1' && window.parent !== window;
-  if (!embedded) {const caseId=uploaded?.[1]||manifestCase?.[1];location.replace('/workspace/index.html' + (caseId ? '?case=' + caseId : '') + '#' + step); return;}
+  if (!embedded) {
+    const query = new URLSearchParams();
+    const caseId = uploaded?.[1] || manifestCase?.[1];
+    if (caseId) query.set('case', caseId);
+    if (step === 'geometry' && manifest !== null) {query.set('manifest', manifest); if (!caseId) query.set('case', 'existing');}
+    location.replace('/workspace/index.html' + (query.size ? '?' + query.toString() : '') + '#' + step); return;
+  }
   document.documentElement.dataset.workflow = step;
   const stylesheet = document.createElement('link'); stylesheet.rel = 'stylesheet'; stylesheet.href = '/workspace/embedded.css'; document.head.append(stylesheet);
   // Shared presentation for generated tools. Moving their DOM nodes preserves
@@ -87,7 +94,7 @@
     const url = new URL(link.href,location.href);
     if (url.origin !== location.origin || !routes[url.pathname]) return;
     event.preventDefault();
-    window.parent.postMessage({type:'nasal-workspace-navigate',step:routes[url.pathname]},location.origin);
+    window.parent.postMessage({type:'nasal-workspace-navigate',step:routes[url.pathname],...(url.pathname === '/viewer/index.html' && url.searchParams.has('manifest') ? {manifest:url.searchParams.get('manifest')} : {})},location.origin);
   });
   window.addEventListener('message', event => {
     if (event.source === window.parent && event.origin === location.origin && event.data?.type === 'nasal-workspace-visible') window.dispatchEvent(new Event('resize'));
