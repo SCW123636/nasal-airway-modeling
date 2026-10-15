@@ -186,22 +186,35 @@ def wait_for_headroom(ceiling, poll=3.0, max_wait=900.0):
 
 def run_case(case, args):
     e = {'case': case}
+    from_stage = args.from_stage
     seg = [PY, '-u', LIB / 'ts_nasal_seg.py', '--batch-dir',
            ROOT / 'work' / '10_nasalseg_intake', '--device', args.device]
     if args.threads:
         seg += ['--threads', str(args.threads)]
     seg.append(case)
-    e['s2_segment'] = run(seg, 7200)
+    if from_stage <= 2:
+        e['s2_segment'] = run(seg, 7200)
+    else:
+        # TotalSegmentator has no skip of its own, so re-running stage 2 would
+        # re-infer masks that already exist and are unchanged inputs. The reuse
+        # is recorded rather than assumed: N2 below still reads the masks, and
+        # the ct/mask shas go into the run record.
+        e['s2_segment'] = {'skipped': f'--from-stage {from_stage}; masks at '
+                                      f'{TS_BASE / case / "masks"} reused as-is'}
     e['N2'] = mask_check(case)
     if not e['N2']['ok']:
         e['final'] = 'escalated'
         print(f'{case}: escalated at N2 - {e["N2"]["why"]}', flush=True)
         return e
 
-    e['s3_propose'] = run([PY, '-u', LIB / 'auto_anatomy_landmarks.py', case,
-                           '--data-base', TS_BASE], 1800)
-    e['s3_propose']['landmarks_sha256'] = artifact_sha(
-        ROOT / 'work' / '06_auto_landmarks' / case / 'landmarks.json')
+    lm_path = ROOT / 'work' / '06_auto_landmarks' / case / 'landmarks.json'
+    if from_stage <= 3:
+        e['s3_propose'] = run([PY, '-u', LIB / 'auto_anatomy_landmarks.py', case,
+                               '--data-base', TS_BASE], 1800)
+    else:
+        e['s3_propose'] = {'skipped': f'--from-stage {from_stage}; '
+                                      f'{lm_path} reused as-is'}
+    e['s3_propose']['landmarks_sha256'] = artifact_sha(lm_path)
     surface_root = Path(args.surface_root)
     opening_root = Path(args.opening_root)
     e['s4_surface'] = run([PY, '-u', LIB / 'batch27_surface.py', '--cases', case,
@@ -292,6 +305,16 @@ def main():
     ap.add_argument('--opening-root', type=Path, default=OPENING_ROOT,
                     help='where stage 5 writes the per-case placement reports. '
                          'Same rationale as --surface-root.')
+    ap.add_argument('--from-stage', type=int, choices=(1, 2, 3, 4, 5), default=1,
+                    help='first stage to actually run. Stages before it are '
+                         'skipped and their existing artifacts reused as inputs, '
+                         'with the reuse and each artifact sha256 recorded in the '
+                         'run JSON. Use 4 to re-scope the geometry of a batch '
+                         'whose segmentation and landmarks are unchanged: '
+                         'stage 2 (TotalSegmentator) has no skip of its own and '
+                         'would otherwise re-infer every case from scratch. The '
+                         'N2 mask gate still runs either way - it reads the '
+                         'reused masks, it does not produce them.')
     args = ap.parse_args()
     cases = args.cases or NORMAL_CASES
     rows = {}
@@ -300,10 +323,13 @@ def main():
     # Stage 1 is per batch, not per case: it scans every DICOM directory once and
     # writes the single batch27_series_choice.json that stage 2 reads. It used to
     # sit inside the case loop, which re-scanned all 27 cases for every case.
-    if not args.skip_series:
+    if not args.skip_series and args.from_stage <= 1:
         pre['s1_series'] = run([PY, '-u', LIB / 'batch27_series_choice.py'], 1800)
         print(f"series choice rc={pre['s1_series']['rc']}"
               f" ({pre['s1_series']['s']}s)", flush=True)
+    elif not args.skip_series:
+        pre['s1_series'] = {'skipped': f'--from-stage {args.from_stage}; '
+                                       'batch27_series_choice.json reused as-is'}
 
     if args.jobs <= 1:
         for case in cases:
@@ -358,7 +384,12 @@ def main():
     args.output.write_text(json.dumps(
         {'schema': 'normal_path_run/v1', 'method': 'work/07_cfd_pipeline/正常路径基本方法_v1.md',
          'cases': len(rows), 'auto_pass': ok, 'jobs': args.jobs,
-         'load_ceiling': args.load_ceiling, 'pre': pre, 'rows': rows},
+         'load_ceiling': args.load_ceiling,
+         'from_stage': args.from_stage,
+         'surface_root': str(args.surface_root),
+         'opening_root': str(args.opening_root),
+         'domain': 'extended (nasal_cavity_L/R + nasopharynx + oropharynx)',
+         'pre': pre, 'rows': rows},
         indent=2, ensure_ascii=False), encoding='utf-8')
     print(f'\nauto_pass {ok}/{len(rows)}  -> {args.output}')
 

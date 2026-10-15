@@ -9,12 +9,22 @@ full LPS affine) and the same HU restriction that keeps bone out of the airway.
 
 Two decisions worth stating because they change the result:
 
-- The three TotalSegmentator labels are UNIONed, then intersected with HU < -300.
-  The union alone is what the pilot masks represent; the HU cut removes the
-  partial-volume voxels TotalSegmentator includes at the bony airway walls.
-  A union without the HU cut gives a visibly thicker, rougher wall.
-- The threshold is fixed at -300, the value the pilot pipeline uses. Sweeping
-  -300/-350/-400 is a validation task, not something to do silently here.
+- The four TotalSegmentator labels (nasal cavity L/R, nasopharynx, oropharynx)
+  are UNIONed, then intersected with HU < -300. The union alone is what the
+  pilot masks represent; the HU cut removes the partial-volume voxels
+  TotalSegmentator includes at the bony airway walls. A union without the HU
+  cut gives a visibly thicker, rougher wall.
+- The threshold stays -300, the pilot value the whole project baseline uses
+  (T-047/T-054/T-043 known answers are all -300). The four manual reference
+  cases used -3024 ~ -400 HU (3D Slicer 5.10.0; see
+  plan/目标效果参考_四例演示CT.md). On 2026-10-16 the user first asked to
+  follow that cutting standard, then narrowed it to the cut position and
+  direction only, because the manual examples' other parameters "aren't
+  necessarily good". A -400 probe on b15 shrank the air mask 8.3% (146285 ->
+  134153 voxels); neither value is physically better (both are partial-volume
+  approximations), so baseline comparability wins. The threshold stays a
+  pending adjudication (plan/需求方待决项_M3.md #1); a deliberate A/B is the
+  documented way to settle it, not a silent mid-project switch.
 
 Output layout matches what auto_opening_pipeline expects:
     <out>/<case>/source_surface.vtp
