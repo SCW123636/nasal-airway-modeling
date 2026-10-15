@@ -1,0 +1,372 @@
+﻿=== 装载 ===
+surface C:\ts_work\batch27_surfaces\p0\source_surface.vtp: 198262 verts / 396524 tris  boundary_edges=0  signed_volume=25041.250
+plane provenance=automatic_proposal sha=468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c
+
+=== selectors（复刻 clip_areas 第124行：flood_mask(seed_mode=roi)） ===
+  nostril_L: type=ndarray is_none=False dtype=bool len=198262 true=899
+  nostril_R: type=ndarray is_none=False dtype=bool len=198262 true=857
+  nasopharynx_outlet: type=ndarray is_none=False dtype=bool len=198262 true=17922
+
+=== 跑真·生产 process()（spy 记录每次 clip_and_cap） ===
+process decision = escalated
+process escalations = [{'opening': None, 'reason': 'clip_failed', 'detail': 'nasopharynx_outlet: unexpected boundary outside cutting plane or ROI'}]
+clip_and_cap 调用次数 = 5
+  [0] auto_opening_pipeline.py:126 clip_areas  selectors_is_none=False keys=['nostril_L', 'nostril_R', 'nasopharynx_outlet']  outlet_mask={'key_present': True, 'mask_is_none': False, 'dtype': 'bool', 'len': 198262, 'true_count': 17922}  raised=ValueError
+  [1] auto_opening_pipeline.py:126 clip_areas  selectors_is_none=False keys=['nostril_L', 'nostril_R', 'nasopharynx_outlet']  outlet_mask={'key_present': True, 'mask_is_none': False, 'dtype': 'bool', 'len': 198262, 'true_count': 17922}  raised=ValueError
+  [2] auto_opening_pipeline.py:126 clip_areas  selectors_is_none=False keys=['nostril_L', 'nostril_R', 'nasopharynx_outlet']  outlet_mask={'key_present': True, 'mask_is_none': False, 'dtype': 'bool', 'len': 198262, 'true_count': 17922}  raised=ValueError
+  [3] auto_opening_pipeline.py:126 clip_areas  selectors_is_none=False keys=['nostril_L', 'nostril_R', 'nasopharynx_outlet']  outlet_mask={'key_present': True, 'mask_is_none': False, 'dtype': 'bool', 'len': 198262, 'true_count': 17922}  raised=ValueError
+  [4] auto_opening_pipeline.py:426 process  selectors_is_none=False keys=['nostril_L', 'nostril_R', 'nasopharynx_outlet']  outlet_mask={'key_present': True, 'mask_is_none': False, 'dtype': 'bool', 'len': 198262, 'true_count': 17922}  raised=ValueError
+  抛出点帧: {'file': 'partitioned_surface.py', 'line': 201, 'func': 'clip_and_cap'}
+
+=== 复刻 clip_and_cap 插桩重放（生产顺序 + 对照） ===
+
+--- production_order_all_three_with_masks ---
+  replica_raised: ValueError: nasopharynx_outlet: unexpected boundary outside cutting plane or ROI (outside_plane=True, outside_roi=True, mask_is_none=False)
+  --- 逐平面 trace ---
+    plane=nostril_L mask_is_none=False n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nostril_L mask_is_none=False n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nostril_R mask_is_none=False n_pts_in=198718 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198853, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198740, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198940, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198954, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198862, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+    plane=nostril_R mask_is_none=False n_pts_in=198718 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198853, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198740, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198940, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198954, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198862, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+    plane=nasopharynx_outlet mask_is_none=False n_pts_in=199036 pts_appended=2718 affected=34493 dropped_poly=31775 bd_edges=3492 bd_verts=3492 loops=10 out_plane=True out_roi=True maxdev=4.521841993711903 caps=None final_bd_edges=None raise198=True
+      roi_min=[-23.676, -168.306, -669.215] roi_max=[0.951, -147.525, -664.165]
+      bd_min =[-36.884, -239.549, -670.714] bd_max =[-0.209, -150.203, -666.024]
+      overflow_low =[13.208, 71.243, 1.499] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=774 (+side 0, -side 774) offplane_edges=774
+      offplane_signed_mm_sorted: n=774 min=-4.521842 max=-0.35086 head=[-4.521842, -4.508993, -4.497645, -4.485506, -4.483442]
+      worst: {'vertex_index': 198276, 'is_appended_intersection_vertex': True, 'signed_mm': -4.521841993711903, 'coord_lps_mm': [-11.711, -229.7604, -670.714], 'faces_before_containing': 3, 'of_those_affected': 2, 'of_those_kept': 1, 'kept_faces_that_are_earlier_caps': 1, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198275, 'is_appended_intersection_vertex': True, 'signed_mm': -4.50899292373914, 'coord_lps_mm': [-11.8868, -229.7604, -670.7041], 'faces_before_containing': 6, 'of_those_affected': 3, 'of_those_kept': 3, 'kept_faces_that_are_earlier_caps': 3, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198274, 'is_appended_intersection_vertex': True, 'signed_mm': -4.497644751650515, 'coord_lps_mm': [-12.0421, -229.7604, -670.6954], 'faces_before_containing': 6, 'of_those_affected': 2, 'of_those_kept': 4, 'kept_faces_that_are_earlier_caps': 4, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198277, 'is_appended_intersection_vertex': True, 'signed_mm': -4.48550598374882, 'coord_lps_mm': [-11.5372, -229.8949, -670.6746], 'faces_before_containing': 6, 'of_those_affected': 3, 'of_those_kept': 3, 'kept_faces_that_are_earlier_caps': 3, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198273, 'is_appended_intersection_vertex': True, 'signed_mm': -4.483441834830182, 'coord_lps_mm': [-12.2364, -229.7604, -670.6845], 'faces_before_containing': 5, 'of_those_affected': 3, 'of_those_kept': 2, 'kept_faces_that_are_earlier_caps': 2, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=774 appended_by_this=0 bd_edges_total=3492
+      offplane_kept_face_patches={'nostril_L': 1374, 'nostril_R': 948}
+      offedge: {'v': [198262, 198263], 'signed_mm': [-4.35595, -4.35572], 'kinds': ['original', 'original']}
+      offedge: {'v': [198262, 198268], 'signed_mm': [-4.35595, -4.42535], 'kinds': ['original', 'original']}
+      offedge: {'v': [198263, 198264], 'signed_mm': [-4.35572, -4.35554], 'kinds': ['original', 'original']}
+      offedge: {'v': [198264, 198265], 'signed_mm': [-4.35554, -4.35416], 'kinds': ['original', 'original']}
+      offedge: {'v': [198265, 198292], 'signed_mm': [-4.35416, -4.31168], 'kinds': ['original', 'original']}
+
+--- outlet_alone_with_mask ---
+  replica_raised: None
+  patch_areas_mm2: {'nasopharynx_outlet': 1090.43}
+  --- 逐平面 trace ---
+    plane=nasopharynx_outlet mask_is_none=False n_pts_in=198262 pts_appended=2718 affected=37231 dropped_poly=34513 bd_edges=2718 bd_verts=2718 loops=4 out_plane=False out_roi=True maxdev=5.680566655176505e-14 caps=2714 final_bd_edges=0 raise198=False
+      roi_min=[-23.676, -168.306, -669.215] roi_max=[0.951, -147.525, -664.165]
+      bd_min =[-36.103, -239.549, -666.608] bd_max =[-0.209, -150.203, -666.024]
+      overflow_low =[12.427, 71.243, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 199092, 'is_appended_intersection_vertex': True, 'signed_mm': -5.680566655176505e-14, 'coord_lps_mm': [-27.0948, -184.1364, -666.473], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198625, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679419111629579e-14, 'coord_lps_mm': [-28.4932, -220.8454, -666.4818], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199302, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679018440437575e-14, 'coord_lps_mm': [-20.4522, -160.363, -666.3693], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198431, 'is_appended_intersection_vertex': True, 'signed_mm': -5.678816188427006e-14, 'coord_lps_mm': [-35.3907, -231.8728, -666.5951], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199054, 'is_appended_intersection_vertex': True, 'signed_mm': -5.67870023421883e-14, 'coord_lps_mm': [-27.3095, -187.9821, -666.4751], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=2718
+      offplane_kept_face_patches={}
+    plane=nasopharynx_outlet mask_is_none=False n_pts_in=198262 pts_appended=2718 affected=37231 dropped_poly=34513 bd_edges=2718 bd_verts=2718 loops=4 out_plane=False out_roi=True maxdev=5.680566655176505e-14 caps=2714 final_bd_edges=0 raise198=False
+      roi_min=[-23.676, -168.306, -669.215] roi_max=[0.951, -147.525, -664.165]
+      bd_min =[-36.103, -239.549, -666.608] bd_max =[-0.209, -150.203, -666.024]
+      overflow_low =[12.427, 71.243, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 199092, 'is_appended_intersection_vertex': True, 'signed_mm': -5.680566655176505e-14, 'coord_lps_mm': [-27.0948, -184.1364, -666.473], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198625, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679419111629579e-14, 'coord_lps_mm': [-28.4932, -220.8454, -666.4818], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199302, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679018440437575e-14, 'coord_lps_mm': [-20.4522, -160.363, -666.3693], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198431, 'is_appended_intersection_vertex': True, 'signed_mm': -5.678816188427006e-14, 'coord_lps_mm': [-35.3907, -231.8728, -666.5951], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199054, 'is_appended_intersection_vertex': True, 'signed_mm': -5.67870023421883e-14, 'coord_lps_mm': [-27.3095, -187.9821, -666.4751], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=2718
+      offplane_kept_face_patches={}
+
+--- nostril_L_then_outlet_with_masks ---
+  replica_raised: ValueError: nasopharynx_outlet: unexpected boundary outside cutting plane or ROI (outside_plane=True, outside_roi=True, mask_is_none=False)
+  --- 逐平面 trace ---
+    plane=nostril_L mask_is_none=False n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nostril_L mask_is_none=False n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nasopharynx_outlet mask_is_none=False n_pts_in=198718 pts_appended=2718 affected=35887 dropped_poly=33169 bd_edges=3174 bd_verts=3174 loops=7 out_plane=True out_roi=True maxdev=4.521841993711903 caps=None final_bd_edges=None raise198=True
+      roi_min=[-23.676, -168.306, -669.215] roi_max=[0.951, -147.525, -664.165]
+      bd_min =[-36.103, -239.549, -670.714] bd_max =[-0.209, -150.203, -666.024]
+      overflow_low =[12.427, 71.243, 1.499] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=456 (+side 0, -side 456) offplane_edges=456
+      offplane_signed_mm_sorted: n=456 min=-4.521842 max=-0.35086 head=[-4.521842, -4.508993, -4.497645, -4.485506, -4.483442]
+      worst: {'vertex_index': 198276, 'is_appended_intersection_vertex': True, 'signed_mm': -4.521841993711903, 'coord_lps_mm': [-11.711, -229.7604, -670.714], 'faces_before_containing': 3, 'of_those_affected': 2, 'of_those_kept': 1, 'kept_faces_that_are_earlier_caps': 1, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198275, 'is_appended_intersection_vertex': True, 'signed_mm': -4.50899292373914, 'coord_lps_mm': [-11.8868, -229.7604, -670.7041], 'faces_before_containing': 6, 'of_those_affected': 3, 'of_those_kept': 3, 'kept_faces_that_are_earlier_caps': 3, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198274, 'is_appended_intersection_vertex': True, 'signed_mm': -4.497644751650515, 'coord_lps_mm': [-12.0421, -229.7604, -670.6954], 'faces_before_containing': 6, 'of_those_affected': 2, 'of_those_kept': 4, 'kept_faces_that_are_earlier_caps': 4, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198277, 'is_appended_intersection_vertex': True, 'signed_mm': -4.48550598374882, 'coord_lps_mm': [-11.5372, -229.8949, -670.6746], 'faces_before_containing': 6, 'of_those_affected': 3, 'of_those_kept': 3, 'kept_faces_that_are_earlier_caps': 3, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198273, 'is_appended_intersection_vertex': True, 'signed_mm': -4.483441834830182, 'coord_lps_mm': [-12.2364, -229.7604, -670.6845], 'faces_before_containing': 5, 'of_those_affected': 3, 'of_those_kept': 2, 'kept_faces_that_are_earlier_caps': 2, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=456 appended_by_this=0 bd_edges_total=3174
+      offplane_kept_face_patches={'nostril_L': 1374}
+      offedge: {'v': [198262, 198263], 'signed_mm': [-4.35595, -4.35572], 'kinds': ['original', 'original']}
+      offedge: {'v': [198262, 198268], 'signed_mm': [-4.35595, -4.42535], 'kinds': ['original', 'original']}
+      offedge: {'v': [198263, 198264], 'signed_mm': [-4.35572, -4.35554], 'kinds': ['original', 'original']}
+      offedge: {'v': [198264, 198265], 'signed_mm': [-4.35554, -4.35416], 'kinds': ['original', 'original']}
+      offedge: {'v': [198265, 198292], 'signed_mm': [-4.35416, -4.31168], 'kinds': ['original', 'original']}
+
+--- nostril_R_then_outlet_with_masks ---
+  replica_raised: ValueError: nasopharynx_outlet: unexpected boundary outside cutting plane or ROI (outside_plane=True, outside_roi=True, mask_is_none=False)
+  --- 逐平面 trace ---
+    plane=nostril_R mask_is_none=False n_pts_in=198262 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198397, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198284, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198484, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198498, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198406, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+    plane=nostril_R mask_is_none=False n_pts_in=198262 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198397, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198284, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198484, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198498, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198406, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+    plane=nasopharynx_outlet mask_is_none=False n_pts_in=198580 pts_appended=2718 affected=35837 dropped_poly=33119 bd_edges=3036 bd_verts=3036 loops=7 out_plane=True out_roi=True maxdev=4.066204497188362 caps=None final_bd_edges=None raise198=True
+      roi_min=[-23.676, -168.306, -669.215] roi_max=[0.951, -147.525, -664.165]
+      bd_min =[-36.884, -239.549, -670.547] bd_max =[-0.209, -150.203, -666.024]
+      overflow_low =[13.208, 71.243, 1.332] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=318 (+side 0, -side 318) offplane_edges=318
+      offplane_signed_mm_sorted: n=318 min=-4.066204 max=-1.992553 head=[-4.066204, -4.066022, -4.059182, -4.05701, -4.056886]
+      worst: {'vertex_index': 198262, 'is_appended_intersection_vertex': True, 'signed_mm': -4.066204497188362, 'coord_lps_mm': [-28.4932, -224.6911, -670.547], 'faces_before_containing': 3, 'of_those_affected': 2, 'of_those_kept': 1, 'kept_faces_that_are_earlier_caps': 1, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198267, 'is_appended_intersection_vertex': True, 'signed_mm': -4.0660224457241085, 'coord_lps_mm': [-28.4967, -224.6876, -670.5469], 'faces_before_containing': 7, 'of_those_affected': 3, 'of_those_kept': 4, 'kept_faces_that_are_earlier_caps': 4, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198263, 'is_appended_intersection_vertex': True, 'signed_mm': -4.059182454937989, 'coord_lps_mm': [-28.4932, -224.7602, -670.54], 'faces_before_containing': 9, 'of_those_affected': 3, 'of_those_kept': 6, 'kept_faces_that_are_earlier_caps': 6, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198265, 'is_appended_intersection_vertex': True, 'signed_mm': -4.05700987874241, 'coord_lps_mm': [-28.668, -224.5163, -670.5409], 'faces_before_containing': 3, 'of_those_affected': 2, 'of_those_kept': 1, 'kept_faces_that_are_earlier_caps': 1, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198264, 'is_appended_intersection_vertex': True, 'signed_mm': -4.056886160969048, 'coord_lps_mm': [-28.6688, -224.5163, -670.5408], 'faces_before_containing': 4, 'of_those_affected': 2, 'of_those_kept': 2, 'kept_faces_that_are_earlier_caps': 2, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=318 appended_by_this=0 bd_edges_total=3036
+      offplane_kept_face_patches={'nostril_R': 948}
+      offedge: {'v': [198262, 198263], 'signed_mm': [-4.0662, -4.05918], 'kinds': ['original', 'original']}
+      offedge: {'v': [198262, 198267], 'signed_mm': [-4.0662, -4.06602], 'kinds': ['original', 'original']}
+      offedge: {'v': [198263, 198286], 'signed_mm': [-4.05918, -4.03069], 'kinds': ['original', 'original']}
+      offedge: {'v': [198264, 198265], 'signed_mm': [-4.05689, -4.05701], 'kinds': ['original', 'original']}
+      offedge: {'v': [198264, 198266], 'signed_mm': [-4.05689, -4.05598], 'kinds': ['original', 'original']}
+
+--- production_order_pure_roi_box_no_selector ---
+  replica_raised: SurfaceClipError: nasopharynx_outlet: deleted wall crosses the configured ROI boundary
+  n_conflicting_triangles: 113
+  --- 逐平面 trace ---
+    plane=nostril_L mask_is_none=True n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nostril_L mask_is_none=True n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nostril_R mask_is_none=True n_pts_in=198718 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198853, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198740, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198940, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198954, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198862, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+    plane=nostril_R mask_is_none=True n_pts_in=198718 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198853, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198740, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198940, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198954, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      worst: {'vertex_index': 198862, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': None}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+
+--- production_order_recompute_mask_on_current_mesh ---
+  replica_raised: SurfaceClipError: nasopharynx_outlet: cutting plane intersects an earlier cap
+  --- 逐平面 trace ---
+    plane=nostril_L mask_is_none=False n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nostril_L mask_is_none=False n_pts_in=198262 pts_appended=456 affected=2021 dropped_poly=1565 bd_edges=456 bd_verts=456 loops=3 out_plane=False out_roi=False maxdev=5.6039065854196074e-14 caps=458 final_bd_edges=0 raise198=False
+      roi_min=[-21.229, -241.375, -672.89] roi_max=[-6.74, -225.838, -663.99]
+      bd_min =[-20.253, -239.549, -670.714] bd_max =[-8.216, -229.76, -666.679]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198558, 'is_appended_intersection_vertex': True, 'signed_mm': -5.6039065854196074e-14, 'coord_lps_mm': [-18.6159, -235.0478, -668.3967], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198303, 'is_appended_intersection_vertex': True, 'signed_mm': 5.549741407009019e-14, 'coord_lps_mm': [-9.0275, -232.2576, -669.9525], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198349, 'is_appended_intersection_vertex': True, 'signed_mm': 5.432988023720894e-14, 'coord_lps_mm': [-13.4045, -231.0992, -670.1303], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198355, 'is_appended_intersection_vertex': True, 'signed_mm': 5.397420044590394e-14, 'coord_lps_mm': [-12.586, -231.2149, -670.1339], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198375, 'is_appended_intersection_vertex': True, 'signed_mm': 5.32139021828142e-14, 'coord_lps_mm': [-8.2419, -234.5322, -669.166], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=456
+      offplane_kept_face_patches={}
+    plane=nostril_R mask_is_none=False n_pts_in=198718 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198853, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198740, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198940, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198954, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198862, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+    plane=nostril_R mask_is_none=False n_pts_in=198718 pts_appended=318 affected=1871 dropped_poly=1553 bd_edges=318 bd_verts=318 loops=3 out_plane=False out_roi=False maxdev=5.596855762941413e-14 caps=316 final_bd_edges=0 raise198=False
+      roi_min=[-38.709, -238.927, -671.84] roi_max=[-24.92, -222.691, -665.04]
+      bd_min =[-36.884, -236.743, -670.547] bd_max =[-26.518, -224.033, -668.601]
+      overflow_low =[0.0, 0.0, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 198853, 'is_appended_intersection_vertex': True, 'signed_mm': 5.596855762941413e-14, 'coord_lps_mm': [-27.9688, -235.7038, -669.4956], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198740, 'is_appended_intersection_vertex': True, 'signed_mm': -5.482526914345103e-14, 'coord_lps_mm': [-28.9137, -225.2155, -670.4359], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198940, 'is_appended_intersection_vertex': True, 'signed_mm': -5.438138944339072e-14, 'coord_lps_mm': [-34.961, -226.5904, -669.4664], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198954, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4371978800885313e-14, 'coord_lps_mm': [-31.6397, -236.0627, -668.9557], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198862, 'is_appended_intersection_vertex': True, 'signed_mm': 5.4143689468752934e-14, 'coord_lps_mm': [-27.794, -234.6977, -669.6222], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=318
+      offplane_kept_face_patches={}
+
+--- outlet_alone_recompute_mask ---
+  replica_raised: None
+  patch_areas_mm2: {'nasopharynx_outlet': 1090.43}
+  --- 逐平面 trace ---
+    plane=nasopharynx_outlet mask_is_none=False n_pts_in=198262 pts_appended=2718 affected=37231 dropped_poly=34513 bd_edges=2718 bd_verts=2718 loops=4 out_plane=False out_roi=True maxdev=5.680566655176505e-14 caps=2714 final_bd_edges=0 raise198=False
+      roi_min=[-23.676, -168.306, -669.215] roi_max=[0.951, -147.525, -664.165]
+      bd_min =[-36.103, -239.549, -666.608] bd_max =[-0.209, -150.203, -666.024]
+      overflow_low =[12.427, 71.243, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 199092, 'is_appended_intersection_vertex': True, 'signed_mm': -5.680566655176505e-14, 'coord_lps_mm': [-27.0948, -184.1364, -666.473], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198625, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679419111629579e-14, 'coord_lps_mm': [-28.4932, -220.8454, -666.4818], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199302, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679018440437575e-14, 'coord_lps_mm': [-20.4522, -160.363, -666.3693], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198431, 'is_appended_intersection_vertex': True, 'signed_mm': -5.678816188427006e-14, 'coord_lps_mm': [-35.3907, -231.8728, -666.5951], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199054, 'is_appended_intersection_vertex': True, 'signed_mm': -5.67870023421883e-14, 'coord_lps_mm': [-27.3095, -187.9821, -666.4751], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=2718
+      offplane_kept_face_patches={}
+    plane=nasopharynx_outlet mask_is_none=False n_pts_in=198262 pts_appended=2718 affected=37231 dropped_poly=34513 bd_edges=2718 bd_verts=2718 loops=4 out_plane=False out_roi=True maxdev=5.680566655176505e-14 caps=2714 final_bd_edges=0 raise198=False
+      roi_min=[-23.676, -168.306, -669.215] roi_max=[0.951, -147.525, -664.165]
+      bd_min =[-36.103, -239.549, -666.608] bd_max =[-0.209, -150.203, -666.024]
+      overflow_low =[12.427, 71.243, 0.0] overflow_high=[0.0, 0.0, 0.0]
+      n_offplane=0 (+side 0, -side 0) offplane_edges=0
+      offplane_signed_mm_sorted: n=0 min=None max=None head=[]
+      worst: {'vertex_index': 199092, 'is_appended_intersection_vertex': True, 'signed_mm': -5.680566655176505e-14, 'coord_lps_mm': [-27.0948, -184.1364, -666.473], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198625, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679419111629579e-14, 'coord_lps_mm': [-28.4932, -220.8454, -666.4818], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199302, 'is_appended_intersection_vertex': True, 'signed_mm': 5.679018440437575e-14, 'coord_lps_mm': [-20.4522, -160.363, -666.3693], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 198431, 'is_appended_intersection_vertex': True, 'signed_mm': -5.678816188427006e-14, 'coord_lps_mm': [-35.3907, -231.8728, -666.5951], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      worst: {'vertex_index': 199054, 'is_appended_intersection_vertex': True, 'signed_mm': -5.67870023421883e-14, 'coord_lps_mm': [-27.3095, -187.9821, -666.4751], 'faces_before_containing': 0, 'of_those_affected': 0, 'of_those_kept': 0, 'kept_faces_that_are_earlier_caps': 0, 'mask_true_at_vertex': False}
+      n_offplane_from_source=0 appended_by_earlier=0 appended_by_this=0 bd_edges_total=2718
+      offplane_kept_face_patches={}
+
+--- outlet_alone_pure_roi_box_no_selector ---
+  replica_raised: SurfaceClipError: nasopharynx_outlet: deleted wall crosses the configured ROI boundary
+  n_conflicting_triangles: 113
+
+wrote D:\项目\鼻腔建模\outputs\T-011\a0_clip_root_cause.json

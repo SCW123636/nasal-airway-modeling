@@ -1,0 +1,60 @@
+{
+ "case": "p0",
+ "tolerance_mm": 1e-07,
+ "probes": [
+  {
+   "opening": "nostril_L",
+   "signed_range_mm": [
+    -2.3212333523242092,
+    58.663144690694494
+   ],
+   "n_inside_faces": 2021,
+   "n_affected_faces": 2021,
+   "interim_boundary_edges": 456,
+   "n_boundary_verts": 456,
+   "boundary_max_deviation_mm": 5.6039065854196074e-14,
+   "n_boundary_verts_off_plane": 0,
+   "tolerance_mm": 1e-07,
+   "outside_plane": false,
+   "outside_roi": true,
+   "class": "c",
+   "verdict": "coplanarity OK -> this opening would NOT raise here; any failure is downstream (loops/cap/volume)"
+  },
+  {
+   "opening": "nostril_R",
+   "signed_range_mm": [
+    -0.8965957312210032,
+    50.49092009148984
+   ],
+   "n_inside_faces": 1871,
+   "n_affected_faces": 1871,
+   "interim_boundary_edges": 318,
+   "n_boundary_verts": 318,
+   "boundary_max_deviation_mm": 5.596855762941413e-14,
+   "n_boundary_verts_off_plane": 0,
+   "tolerance_mm": 1e-07,
+   "outside_plane": false,
+   "outside_roi": true,
+   "class": "c",
+   "verdict": "coplanarity OK -> this opening would NOT raise here; any failure is downstream (loops/cap/volume)"
+  },
+  {
+   "opening": "nasopharynx_outlet",
+   "signed_range_mm": [
+    -4.888498502486355,
+    41.502069655955566
+   ],
+   "n_inside_faces": 37231,
+   "n_affected_faces": 37231,
+   "interim_boundary_edges": 2718,
+   "n_boundary_verts": 2718,
+   "boundary_max_deviation_mm": 5.680566655176505e-14,
+   "n_boundary_verts_off_plane": 0,
+   "tolerance_mm": 1e-07,
+   "outside_plane": false,
+   "outside_roi": true,
+   "class": "c",
+   "verdict": "coplanarity OK -> this opening would NOT raise here; any failure is downstream (loops/cap/volume)"
+  }
+ ]
+}

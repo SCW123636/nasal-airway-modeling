@@ -1,0 +1,1035 @@
+{
+ "cases": {
+  "b01": {
+   "recorded": {
+    "decision": "auto_pass",
+    "patch_areas_mm2": {
+     "nostril_L": 80.08,
+     "nostril_R": 80.08,
+     "nasopharynx_outlet": 251.73
+    },
+    "offset_from_reviewed_mm": {
+     "nostril_L": 0.28,
+     "nostril_R": 0.17,
+     "nasopharynx_outlet": 0.12
+    }
+   },
+   "surface": {
+    "n_vertices": 80410,
+    "n_triangles": 160820,
+    "boundary_edges": 0
+   },
+   "used_offsets_mm": {
+    "nostril_L": 0.28,
+    "nostril_R": 0.17,
+    "nasopharynx_outlet": 0.12
+   },
+   "seeds": {
+    "nostril_L": {
+     "seed_vertices": 493,
+     "true_count": 493
+    },
+    "nostril_R": {
+     "seed_vertices": 491,
+     "true_count": 491
+    },
+    "nasopharynx_outlet": {
+     "seed_vertices": 1296,
+     "true_count": 1308
+    }
+   },
+   "A_production_masks_computed_once": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 80.27,
+     "nostril_R": 80.08,
+     "nasopharynx_outlet": 252.79
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 493,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.23910770500925e-15,
+      "bd_verts": 229,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 493,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.23910770500925e-15,
+      "bd_verts": 229,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 491,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.089439281856765e-15,
+      "bd_verts": 222,
+      "raise198": false,
+      "caps": 220
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 491,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.089439281856765e-15,
+      "bd_verts": 222,
+      "raise198": false,
+      "caps": 220
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1308,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.76258151353183e-15,
+      "bd_verts": 676,
+      "raise198": false,
+      "caps": 668
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1308,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.76258151353183e-15,
+      "bd_verts": 676,
+      "raise198": false,
+      "caps": 668
+     }
+    ]
+   },
+   "B_masks_recomputed_each_plane": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 80.27,
+     "nostril_R": 80.08,
+     "nasopharynx_outlet": 252.79
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 493,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.23910770500925e-15,
+      "bd_verts": 229,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 493,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.23910770500925e-15,
+      "bd_verts": 229,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 491,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.089439281856765e-15,
+      "bd_verts": 222,
+      "raise198": false,
+      "caps": 220
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 491,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 4.089439281856765e-15,
+      "bd_verts": 222,
+      "raise198": false,
+      "caps": 220
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1308,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.76258151353183e-15,
+      "bd_verts": 676,
+      "raise198": false,
+      "caps": 668
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1308,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.76258151353183e-15,
+      "bd_verts": 676,
+      "raise198": false,
+      "caps": 668
+     }
+    ]
+   },
+   "compare": {
+    "A_vs_recorded": {
+     "nostril_L": 80.27,
+     "nostril_R": 80.08,
+     "nasopharynx_outlet": 252.79
+    },
+    "B_vs_A_changed": true,
+    "B_minus_A_mm2": {
+     "nasopharynx_outlet": 0.0,
+     "nostril_L": 0.0,
+     "nostril_R": 0.0
+    }
+   }
+  },
+  "b02": {
+   "recorded": {
+    "decision": "auto_pass",
+    "patch_areas_mm2": {
+     "nostril_L": 80.15,
+     "nostril_R": 80.22,
+     "nasopharynx_outlet": 254.1
+    },
+    "offset_from_reviewed_mm": {
+     "nostril_L": 0.09,
+     "nostril_R": 0.22,
+     "nasopharynx_outlet": 0.11
+    }
+   },
+   "surface": {
+    "n_vertices": 86682,
+    "n_triangles": 173444,
+    "boundary_edges": 0
+   },
+   "used_offsets_mm": {
+    "nostril_L": 0.09,
+    "nostril_R": 0.22,
+    "nasopharynx_outlet": 0.11
+   },
+   "seeds": {
+    "nostril_L": {
+     "seed_vertices": 457,
+     "true_count": 457
+    },
+    "nostril_R": {
+     "seed_vertices": 473,
+     "true_count": 473
+    },
+    "nasopharynx_outlet": {
+     "seed_vertices": 1038,
+     "true_count": 1163
+    }
+   },
+   "A_production_masks_computed_once": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 79.84,
+     "nostril_R": 80.37,
+     "nasopharynx_outlet": 253.08
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 457,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.865362016126339e-15,
+      "bd_verts": 251,
+      "raise198": false,
+      "caps": 247
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 457,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.865362016126339e-15,
+      "bd_verts": 251,
+      "raise198": false,
+      "caps": 247
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 473,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.972303713991423e-15,
+      "bd_verts": 227,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 473,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.972303713991423e-15,
+      "bd_verts": 227,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1163,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 7.143285442840983e-15,
+      "bd_verts": 551,
+      "raise198": false,
+      "caps": 551
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1163,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 7.143285442840983e-15,
+      "bd_verts": 551,
+      "raise198": false,
+      "caps": 551
+     }
+    ]
+   },
+   "B_masks_recomputed_each_plane": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 79.84,
+     "nostril_R": 80.37,
+     "nasopharynx_outlet": 253.08
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 457,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.865362016126339e-15,
+      "bd_verts": 251,
+      "raise198": false,
+      "caps": 247
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 457,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.865362016126339e-15,
+      "bd_verts": 251,
+      "raise198": false,
+      "caps": 247
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 473,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.972303713991423e-15,
+      "bd_verts": 227,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 473,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 7.972303713991423e-15,
+      "bd_verts": 227,
+      "raise198": false,
+      "caps": 229
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1163,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 7.143285442840983e-15,
+      "bd_verts": 551,
+      "raise198": false,
+      "caps": 551
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1163,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 7.143285442840983e-15,
+      "bd_verts": 551,
+      "raise198": false,
+      "caps": 551
+     }
+    ]
+   },
+   "compare": {
+    "A_vs_recorded": {
+     "nostril_L": 79.84,
+     "nostril_R": 80.37,
+     "nasopharynx_outlet": 253.08
+    },
+    "B_vs_A_changed": true,
+    "B_minus_A_mm2": {
+     "nasopharynx_outlet": 0.0,
+     "nostril_L": 0.0,
+     "nostril_R": 0.0
+    }
+   }
+  },
+  "b21": {
+   "recorded": {
+    "decision": "auto_pass",
+    "patch_areas_mm2": {
+     "nostril_L": 80.15,
+     "nostril_R": 80.01,
+     "nasopharynx_outlet": 456.08
+    },
+    "offset_from_reviewed_mm": {
+     "nostril_L": 0.11,
+     "nostril_R": 0.24,
+     "nasopharynx_outlet": 0.0
+    }
+   },
+   "surface": {
+    "n_vertices": 72686,
+    "n_triangles": 145512,
+    "boundary_edges": 0
+   },
+   "used_offsets_mm": {
+    "nostril_L": 0.11,
+    "nostril_R": 0.24,
+    "nasopharynx_outlet": 0.0
+   },
+   "seeds": {
+    "nostril_L": {
+     "seed_vertices": 488,
+     "true_count": 488
+    },
+    "nostril_R": {
+     "seed_vertices": 506,
+     "true_count": 506
+    },
+    "nasopharynx_outlet": {
+     "seed_vertices": 682,
+     "true_count": 2507
+    }
+   },
+   "A_production_masks_computed_once": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 80.34,
+     "nostril_R": 80.01,
+     "nasopharynx_outlet": 456.08
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 488,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.002410834515386e-15,
+      "bd_verts": 228,
+      "raise198": false,
+      "caps": 226
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 488,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.002410834515386e-15,
+      "bd_verts": 228,
+      "raise198": false,
+      "caps": 226
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 506,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.899582156487958e-15,
+      "bd_verts": 218,
+      "raise198": false,
+      "caps": 218
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 506,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.899582156487958e-15,
+      "bd_verts": 218,
+      "raise198": false,
+      "caps": 218
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 2507,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.73061893863491e-15,
+      "bd_verts": 964,
+      "raise198": false,
+      "caps": 964
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 2507,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.73061893863491e-15,
+      "bd_verts": 964,
+      "raise198": false,
+      "caps": 964
+     }
+    ]
+   },
+   "B_masks_recomputed_each_plane": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 80.34,
+     "nostril_R": 80.01,
+     "nasopharynx_outlet": 456.08
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 488,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.002410834515386e-15,
+      "bd_verts": 228,
+      "raise198": false,
+      "caps": 226
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 488,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.002410834515386e-15,
+      "bd_verts": 228,
+      "raise198": false,
+      "caps": 226
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 506,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.899582156487958e-15,
+      "bd_verts": 218,
+      "raise198": false,
+      "caps": 218
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 506,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.899582156487958e-15,
+      "bd_verts": 218,
+      "raise198": false,
+      "caps": 218
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 2507,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.73061893863491e-15,
+      "bd_verts": 964,
+      "raise198": false,
+      "caps": 964
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 2507,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.73061893863491e-15,
+      "bd_verts": 964,
+      "raise198": false,
+      "caps": 964
+     }
+    ]
+   },
+   "compare": {
+    "A_vs_recorded": {
+     "nostril_L": 80.34,
+     "nostril_R": 80.01,
+     "nasopharynx_outlet": 456.08
+    },
+    "B_vs_A_changed": true,
+    "B_minus_A_mm2": {
+     "nasopharynx_outlet": 0.0,
+     "nostril_L": 0.0,
+     "nostril_R": 0.0
+    }
+   }
+  },
+  "b22": {
+   "recorded": {
+    "decision": "auto_pass",
+    "patch_areas_mm2": {
+     "nostril_L": 80.12,
+     "nostril_R": 80.07,
+     "nasopharynx_outlet": 301.98
+    },
+    "offset_from_reviewed_mm": {
+     "nostril_L": 0.45,
+     "nostril_R": 0.57,
+     "nasopharynx_outlet": 0.0
+    }
+   },
+   "surface": {
+    "n_vertices": 76618,
+    "n_triangles": 153296,
+    "boundary_edges": 0
+   },
+   "used_offsets_mm": {
+    "nostril_L": 0.45,
+    "nostril_R": 0.57,
+    "nasopharynx_outlet": 0.0
+   },
+   "seeds": {
+    "nostril_L": {
+     "seed_vertices": 527,
+     "true_count": 536
+    },
+    "nostril_R": {
+     "seed_vertices": 567,
+     "true_count": 567
+    },
+    "nasopharynx_outlet": {
+     "seed_vertices": 669,
+     "true_count": 1671
+    }
+   },
+   "A_production_masks_computed_once": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 80.22,
+     "nostril_R": 80.09,
+     "nasopharynx_outlet": 301.98
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 536,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.269307405097153e-15,
+      "bd_verts": 195,
+      "raise198": false,
+      "caps": 193
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 536,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.269307405097153e-15,
+      "bd_verts": 195,
+      "raise198": false,
+      "caps": 193
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 567,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.6466269742565564e-15,
+      "bd_verts": 219,
+      "raise198": false,
+      "caps": 217
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 567,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.6466269742565564e-15,
+      "bd_verts": 219,
+      "raise198": false,
+      "caps": 217
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1671,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 4.117536694910231e-15,
+      "bd_verts": 713,
+      "raise198": false,
+      "caps": 709
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1671,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 4.117536694910231e-15,
+      "bd_verts": 713,
+      "raise198": false,
+      "caps": 709
+     }
+    ]
+   },
+   "B_masks_recomputed_each_plane": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 80.22,
+     "nostril_R": 80.09,
+     "nasopharynx_outlet": 301.98
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 536,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.269307405097153e-15,
+      "bd_verts": 195,
+      "raise198": false,
+      "caps": 193
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 536,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.269307405097153e-15,
+      "bd_verts": 195,
+      "raise198": false,
+      "caps": 193
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 567,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.6466269742565564e-15,
+      "bd_verts": 219,
+      "raise198": false,
+      "caps": 217
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 567,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 6.6466269742565564e-15,
+      "bd_verts": 219,
+      "raise198": false,
+      "caps": 217
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1671,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 4.117536694910231e-15,
+      "bd_verts": 713,
+      "raise198": false,
+      "caps": 709
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1671,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 4.117536694910231e-15,
+      "bd_verts": 713,
+      "raise198": false,
+      "caps": 709
+     }
+    ]
+   },
+   "compare": {
+    "A_vs_recorded": {
+     "nostril_L": 80.22,
+     "nostril_R": 80.09,
+     "nasopharynx_outlet": 301.98
+    },
+    "B_vs_A_changed": true,
+    "B_minus_A_mm2": {
+     "nasopharynx_outlet": 0.0,
+     "nostril_L": 0.0,
+     "nostril_R": 0.0
+    }
+   }
+  },
+  "b23": {
+   "recorded": {
+    "decision": "auto_pass",
+    "patch_areas_mm2": {
+     "nostril_L": 87.97,
+     "nostril_R": 80.45,
+     "nasopharynx_outlet": 276.87
+    },
+    "offset_from_reviewed_mm": {
+     "nostril_L": 0.0,
+     "nostril_R": 0.05,
+     "nasopharynx_outlet": 0.45
+    }
+   },
+   "surface": {
+    "n_vertices": 90256,
+    "n_triangles": 180568,
+    "boundary_edges": 0
+   },
+   "used_offsets_mm": {
+    "nostril_L": 0.0,
+    "nostril_R": 0.05,
+    "nasopharynx_outlet": 0.45
+   },
+   "seeds": {
+    "nostril_L": {
+     "seed_vertices": 522,
+     "true_count": 528
+    },
+    "nostril_R": {
+     "seed_vertices": 469,
+     "true_count": 469
+    },
+    "nasopharynx_outlet": {
+     "seed_vertices": 813,
+     "true_count": 1358
+    }
+   },
+   "A_production_masks_computed_once": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 87.97,
+     "nostril_R": 80.72,
+     "nasopharynx_outlet": 276.55
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 528,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.9840673558949544e-15,
+      "bd_verts": 304,
+      "raise198": false,
+      "caps": 304
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 528,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.9840673558949544e-15,
+      "bd_verts": 304,
+      "raise198": false,
+      "caps": 304
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 469,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.828737769746039e-15,
+      "bd_verts": 293,
+      "raise198": false,
+      "caps": 295
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 469,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.828737769746039e-15,
+      "bd_verts": 293,
+      "raise198": false,
+      "caps": 295
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1358,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.711716249171943e-15,
+      "bd_verts": 561,
+      "raise198": false,
+      "caps": 557
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "selectors（原始表面构建，可能已过期）",
+      "mask_true": 1358,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.711716249171943e-15,
+      "bd_verts": 561,
+      "raise198": false,
+      "caps": 557
+     }
+    ]
+   },
+   "B_masks_recomputed_each_plane": {
+    "raised": null,
+    "exception": null,
+    "patch_areas_mm2": {
+     "nostril_L": 87.97,
+     "nostril_R": 80.72,
+     "nasopharynx_outlet": 276.55
+    },
+    "per_plane": [
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 528,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.9840673558949544e-15,
+      "bd_verts": 304,
+      "raise198": false,
+      "caps": 304
+     },
+     {
+      "plane": "nostril_L",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 528,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 6.9840673558949544e-15,
+      "bd_verts": 304,
+      "raise198": false,
+      "caps": 304
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 469,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.828737769746039e-15,
+      "bd_verts": 293,
+      "raise198": false,
+      "caps": 295
+     },
+     {
+      "plane": "nostril_R",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 469,
+      "outside_plane": false,
+      "outside_roi": false,
+      "maxdev_mm": 5.828737769746039e-15,
+      "bd_verts": 293,
+      "raise198": false,
+      "caps": 295
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1358,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.711716249171943e-15,
+      "bd_verts": 561,
+      "raise198": false,
+      "caps": 557
+     },
+     {
+      "plane": "nasopharynx_outlet",
+      "mask_origin": "recomputed_on_current_mesh",
+      "mask_true": 1358,
+      "outside_plane": false,
+      "outside_roi": true,
+      "maxdev_mm": 3.711716249171943e-15,
+      "bd_verts": 561,
+      "raise198": false,
+      "caps": 557
+     }
+    ]
+   },
+   "compare": {
+    "A_vs_recorded": {
+     "nostril_L": 87.97,
+     "nostril_R": 80.72,
+     "nasopharynx_outlet": 276.55
+    },
+    "B_vs_A_changed": true,
+    "B_minus_A_mm2": {
+     "nasopharynx_outlet": 0.0,
+     "nostril_L": 0.0,
+     "nostril_R": 0.0
+    }
+   }
+  }
+ },
+ "note": "offset 取报告 2 位小数；A=生产语义(掩码只算一次)，B=每个平面在当前网格上重算掩码"
+}
