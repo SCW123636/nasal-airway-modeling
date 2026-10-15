@@ -1,0 +1,87 @@
+{
+  "mode": "mock_UI_contract_only",
+  "base": "http://127.0.0.1:8769",
+  "started_at": "2026-10-15T10:08:41.852Z",
+  "checks": [
+    "blocked patient retains reasons and explicit clinical status",
+    "feedback preflight posts scenarios and never synthesizes flow results",
+    "feedback shows common pressure, target/measured flow, natural split, diagnostics and raw iterations",
+    "persistent selected feedback task restores after reload",
+    "desktop, 390 and 320 pixel layouts remain within viewport",
+    "individual feedback scenario posts only the selected scenario",
+    "run_allowed patient posts engineering action with empty settings and explicit nonclinical result",
+    "backend admission rejection displayed with no successful new task",
+    "unknown run_action remains disabled",
+    "existing parallel plate reference levels and results remain usable",
+    "missing flow and residual values show unavailable, never fallback zero",
+    "mixed persistent history retains action labels and case filtering"
+  ],
+  "requests": [
+    {
+      "case_id": "reference_split_feedback",
+      "action": "preflight",
+      "settings": {
+        "scenarios": [
+          "unequal",
+          "symmetric",
+          "swapped_labels"
+        ]
+      }
+    },
+    {
+      "case_id": "reference_split_feedback",
+      "action": "run_pressure_feedback",
+      "settings": {
+        "scenarios": [
+          "unequal",
+          "symmetric",
+          "swapped_labels"
+        ]
+      }
+    },
+    {
+      "case_id": "reference_split_feedback",
+      "action": "run_pressure_feedback",
+      "settings": {
+        "scenarios": [
+          "symmetric"
+        ]
+      }
+    },
+    {
+      "case_id": "patient_ready_fixture",
+      "action": "run_patient_engineering",
+      "settings": {}
+    },
+    {
+      "case_id": "patient_ready_fixture",
+      "action": "run_patient_engineering",
+      "settings": {}
+    },
+    {
+      "case_id": "reference_channel",
+      "action": "run_reference",
+      "settings": {
+        "levels": [
+          "coarse",
+          "medium",
+          "fine"
+        ]
+      }
+    }
+  ],
+  "real_solver_started": false,
+  "page_errors": [],
+  "screenshots": [
+    "desktop-feedback-mock.png",
+    "feedback-mock-390.png",
+    "feedback-result-mock-390.png",
+    "patient-mock-390.png",
+    "feedback-mock-320.png",
+    "feedback-result-mock-320.png",
+    "patient-mock-320.png",
+    "desktop-partial-feedback-mock.png"
+  ],
+  "passed": true,
+  "finished_at": "2026-10-15T10:08:43.088Z"
+}
