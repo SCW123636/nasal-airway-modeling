@@ -1,0 +1,12 @@
+{
+  "stl": "D:\\聊天软件内容\\xwechat_files\\wxid_zobqcs2wejsb22_9c92\\msg\\file\\2026-10\\chali-edited.stl",
+  "out": "D:\\项目\\鼻腔建模\\outputs\\T-039\\chali",
+  "unit_scale": 1000.0,
+  "target_edge_mm": 1.0,
+  "mesher": "netgen",
+  "volume_scale": 0.8,
+  "boundary_layer": true,
+  "sublayers": 2,
+  "bl_factor": 0.25,
+  "note": "first pass; mesher falls back to TetGen when netgen is not importable"
+}

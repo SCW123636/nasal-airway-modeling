@@ -1,0 +1,67 @@
+{
+  "schema": "t039_mesher_run/v1",
+  "job": {
+    "stl": "D:\\聊天软件内容\\xwechat_files\\wxid_zobqcs2wejsb22_9c92\\msg\\file\\2026-10\\chali-edited.stl",
+    "out": "D:\\项目\\鼻腔建模\\outputs\\T-039\\chali",
+    "unit_scale": 1000.0,
+    "target_edge_mm": 1.0,
+    "mesher": "netgen",
+    "volume_scale": 0.8,
+    "boundary_layer": true,
+    "sublayers": 2,
+    "bl_factor": 0.25,
+    "note": "first pass; mesher falls back to TetGen when netgen is not importable"
+  },
+  "steps": [
+    "STL chali-edited.stl -> 136649 points, 273506 triangles (unit_scale=1000)",
+    "bbox mm [-44.205, -51.207, -58.559] -> [43.114, 46.975, 44.396]",
+    "binary STL -> single wall id 1 on all 273506 faces",
+    "netgen unavailable (netgen-mesher==6.2.2606) -> falling back to TetGen",
+    "mesher availability: tetgen=True netgen=False -> using tetgen",
+    "  [pipeline] Remeshing surface...",
+    "  [pipeline] Generating boundary layer...",
+    "MESHING FAILED: RuntimeError: The boundary layer folded over itself: 53 of its cells are inside out or squashed flat after the sweep, and the surface inside such a layer is not one a mesher can fill. Make the layer thinner, ask for fewer sublayers, or give it more substeps to settle over; turning \"Layer on caps\" off also keeps it away from the corner where a cap meets the wall, which is where a layer folds first.",
+    "meshing ok=False in 338.9 s",
+    "no volume mesh produced"
+  ],
+  "surface": {
+    "points": 136649,
+    "triangles": 273506,
+    "bbox_mm": [
+      [
+        -44.2048,
+        -51.207,
+        -58.5592
+      ],
+      [
+        43.1138,
+        46.9748,
+        44.3963
+      ]
+    ],
+    "unit_scale": 1000.0,
+    "id_histogram": {
+      "1": 273506
+    }
+  },
+  "mesher_availability": {
+    "tetgen": true,
+    "netgen": false,
+    "used": "tetgen"
+  },
+  "parameters": {
+    "targetEdgeLength": 1.0,
+    "volumeElementScaleFactor": 0.8,
+    "boundaryLayer": true,
+    "boundaryLayerOnCaps": false,
+    "numberOfSubLayers": 2,
+    "subLayerRatio": 0.5,
+    "boundaryLayerThicknessFactor": 0.25,
+    "numberOfSubsteps": 2000,
+    "mesher": "Mesher.TETGEN",
+    "capSurface": false
+  },
+  "meshing_ok": false,
+  "meshing_error": "RuntimeError: The boundary layer folded over itself: 53 of its cells are inside out or squashed flat after the sweep, and the surface inside such a layer is not one a mesher can fill. Make the layer thinner, ask for fewer sublayers, or give it more substeps to settle over; turning \"Layer on caps\" off also keeps it away from the corner where a cap meets the wall, which is where a layer folds first.",
+  "meshing_seconds": 338.86
+}

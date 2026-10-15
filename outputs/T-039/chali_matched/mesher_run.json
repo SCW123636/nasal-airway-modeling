@@ -1,0 +1,68 @@
+{
+  "schema": "t039_mesher_run/v1",
+  "job": {
+    "stl": "D:\\聊天软件内容\\xwechat_files\\wxid_zobqcs2wejsb22_9c92\\msg\\file\\2026-10\\chali-edited.stl",
+    "out": "D:\\项目\\鼻腔建模\\outputs\\T-039\\chali_matched",
+    "unit_scale": 1000.0,
+    "target_edge_mm": 0.7,
+    "mesher": "netgen",
+    "volume_scale": 1.0,
+    "boundary_layer": false,
+    "remesh_surface": true,
+    "sublayers": 2,
+    "bl_factor": 0.25,
+    "note": "size-matched: surface remesh and volume size both 0.7mm (input surface edges are ~0.57mm), no boundary layer"
+  },
+  "steps": [
+    "STL chali-edited.stl -> 136649 points, 273506 triangles (unit_scale=1000)",
+    "bbox mm [-44.205, -51.207, -58.559] -> [43.114, 46.975, 44.396]",
+    "binary STL -> single wall id 1 on all 273506 faces",
+    "netgen unavailable (netgen-mesher==6.2.2606) -> falling back to TetGen",
+    "mesher availability: tetgen=True netgen=False -> using tetgen",
+    "  [pipeline] Remeshing surface...",
+    "  [pipeline] Generating volume mesh (TetGen)...",
+    "MESHING FAILED: RuntimeError: The surface to be filled is not closed: 5 of its edges are open or shared by more than two triangles, and a mesher cannot fill a surface with a hole in it. Remeshing is the usual cause when the target edge length is far from the size of the triangles the surface arrived with; try a target closer to those, or turn remeshing off.",
+    "meshing ok=False in 283.0 s",
+    "no volume mesh produced"
+  ],
+  "surface": {
+    "points": 136649,
+    "triangles": 273506,
+    "bbox_mm": [
+      [
+        -44.2048,
+        -51.207,
+        -58.5592
+      ],
+      [
+        43.1138,
+        46.9748,
+        44.3963
+      ]
+    ],
+    "unit_scale": 1000.0,
+    "id_histogram": {
+      "1": 273506
+    }
+  },
+  "mesher_availability": {
+    "tetgen": true,
+    "netgen": false,
+    "used": "tetgen"
+  },
+  "parameters": {
+    "targetEdgeLength": 0.7,
+    "volumeElementScaleFactor": 1.0,
+    "boundaryLayer": false,
+    "boundaryLayerOnCaps": false,
+    "numberOfSubLayers": 2,
+    "subLayerRatio": 0.5,
+    "boundaryLayerThicknessFactor": 0.25,
+    "numberOfSubsteps": 2000,
+    "mesher": "Mesher.TETGEN",
+    "capSurface": false
+  },
+  "meshing_ok": false,
+  "meshing_error": "RuntimeError: The surface to be filled is not closed: 5 of its edges are open or shared by more than two triangles, and a mesher cannot fill a surface with a hole in it. Remeshing is the usual cause when the target edge length is far from the size of the triangles the surface arrived with; try a target closer to those, or turn remeshing off.",
+  "meshing_seconds": 282.98
+}

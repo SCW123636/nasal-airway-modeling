@@ -1,0 +1,175 @@
+{
+  "scope": "read_only_actual_8769_jobs_no_solver_or_POST",
+  "checks": [
+    {
+      "check": "actual_A_quality_residual_false_and_export_error",
+      "passed": true,
+      "quality": [
+        "0.12396%",
+        "0.0266718",
+        "0%",
+        "未通过",
+        "未通过"
+      ],
+      "facts": {
+        "共同入口静压 Pa": "10",
+        "目标总流量 L/min": "15",
+        "实测总流量 L/min": "210.848",
+        "左侧流量 L/min": "57.8858",
+        "右侧流量 L/min": "152.962",
+        "出口流量 L/min": "210.587",
+        "左侧自然分流": "27.454%",
+        "目标流量相对误差": "1,305.7%",
+        "真实求解评估次数": "1"
+      },
+      "card_background": "rgb(255, 241, 238)",
+      "text": "患者工程试算 · 非临床结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n本次三维流场导出失败：抽取后存在退化三角面。本任务未提供可用的三维流场入口。\n\n实际计算后端：real_openfoam_v1912\n\n患者工程 · 共同压力反馈\n\n质量未通过 / 未收敛，仅原始诊断。下列值未形成有效气流结果，不能作为生理或临床判断。\n\n共同入口静压 Pa\n10\n目标总流量 L/min\n15\n实测总流量 L/min\n210.848\n左侧流量 L/min\n57.8858\n右侧流量 L/min\n152.962\n出口流量 L/min\n210.587\n左侧自然分流\n27.454%\n目标流量相对误差\n1,305.7%\n真实求解评估次数\n1\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n0.12396%\t0.0266718\t0%\t未通过\t未通过"
+    },
+    {
+      "check": "actual_A_refresh_keeps_failed_diagnostic",
+      "passed": true,
+      "quality": [
+        "0.12396%",
+        "0.0266718",
+        "0%",
+        "未通过",
+        "未通过"
+      ],
+      "facts": {
+        "共同入口静压 Pa": "10",
+        "目标总流量 L/min": "15",
+        "实测总流量 L/min": "210.848",
+        "左侧流量 L/min": "57.8858",
+        "右侧流量 L/min": "152.962",
+        "出口流量 L/min": "210.587",
+        "左侧自然分流": "27.454%",
+        "目标流量相对误差": "1,305.7%",
+        "真实求解评估次数": "1"
+      },
+      "card_background": "rgb(255, 241, 238)",
+      "text": "患者工程试算 · 非临床结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n本次三维流场导出失败：抽取后存在退化三角面。本任务未提供可用的三维流场入口。\n\n实际计算后端：real_openfoam_v1912\n\n患者工程 · 共同压力反馈\n\n质量未通过 / 未收敛，仅原始诊断。下列值未形成有效气流结果，不能作为生理或临床判断。\n\n共同入口静压 Pa\n10\n目标总流量 L/min\n15\n实测总流量 L/min\n210.848\n左侧流量 L/min\n57.8858\n右侧流量 L/min\n152.962\n出口流量 L/min\n210.587\n左侧自然分流\n27.454%\n目标流量相对误差\n1,305.7%\n真实求解评估次数\n1\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n0.12396%\t0.0266718\t0%\t未通过\t未通过"
+    },
+    {
+      "check": "actual_A_390_failed_diagnostic",
+      "passed": true,
+      "quality": [
+        "0.12396%",
+        "0.0266718",
+        "0%",
+        "未通过",
+        "未通过"
+      ],
+      "facts": {
+        "共同入口静压 Pa": "10",
+        "目标总流量 L/min": "15",
+        "实测总流量 L/min": "210.848",
+        "左侧流量 L/min": "57.8858",
+        "右侧流量 L/min": "152.962",
+        "出口流量 L/min": "210.587",
+        "左侧自然分流": "27.454%",
+        "目标流量相对误差": "1,305.7%",
+        "真实求解评估次数": "1"
+      },
+      "card_background": "rgb(255, 241, 238)",
+      "text": "患者工程试算 · 非临床结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n本次三维流场导出失败：抽取后存在退化三角面。本任务未提供可用的三维流场入口。\n\n实际计算后端：real_openfoam_v1912\n\n患者工程 · 共同压力反馈\n\n质量未通过 / 未收敛，仅原始诊断。下列值未形成有效气流结果，不能作为生理或临床判断。\n\n共同入口静压 Pa\n10\n目标总流量 L/min\n15\n实测总流量 L/min\n210.848\n左侧流量 L/min\n57.8858\n右侧流量 L/min\n152.962\n出口流量 L/min\n210.587\n左侧自然分流\n27.454%\n目标流量相对误差\n1,305.7%\n真实求解评估次数\n1\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n0.12396%\t0.0266718\t0%\t未通过\t未通过"
+    },
+    {
+      "check": "actual_A_390_no_horizontal_overflow",
+      "passed": true,
+      "bounds": {
+        "width": 390,
+        "scroll": 390
+      }
+    },
+    {
+      "check": "actual_A_320_failed_diagnostic",
+      "passed": true,
+      "quality": [
+        "0.12396%",
+        "0.0266718",
+        "0%",
+        "未通过",
+        "未通过"
+      ],
+      "facts": {
+        "共同入口静压 Pa": "10",
+        "目标总流量 L/min": "15",
+        "实测总流量 L/min": "210.848",
+        "左侧流量 L/min": "57.8858",
+        "右侧流量 L/min": "152.962",
+        "出口流量 L/min": "210.587",
+        "左侧自然分流": "27.454%",
+        "目标流量相对误差": "1,305.7%",
+        "真实求解评估次数": "1"
+      },
+      "card_background": "rgb(255, 241, 238)",
+      "text": "患者工程试算 · 非临床结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n本次三维流场导出失败：抽取后存在退化三角面。本任务未提供可用的三维流场入口。\n\n实际计算后端：real_openfoam_v1912\n\n患者工程 · 共同压力反馈\n\n质量未通过 / 未收敛，仅原始诊断。下列值未形成有效气流结果，不能作为生理或临床判断。\n\n共同入口静压 Pa\n10\n目标总流量 L/min\n15\n实测总流量 L/min\n210.848\n左侧流量 L/min\n57.8858\n右侧流量 L/min\n152.962\n出口流量 L/min\n210.587\n左侧自然分流\n27.454%\n目标流量相对误差\n1,305.7%\n真实求解评估次数\n1\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n0.12396%\t0.0266718\t0%\t未通过\t未通过"
+    },
+    {
+      "check": "actual_A_320_no_horizontal_overflow",
+      "passed": true,
+      "bounds": {
+        "width": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "check": "actual_FPE_missing_field_is_not_quality_status_or_known_false",
+      "passed": true,
+      "text": "患者工程试算 · 非临床结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n本次三维流场导出失败：本次最终评估VTU缺失或不唯一。本任务未提供可用的三维流场入口。\n\n实际计算后端：real_openfoam_v1912\n\n患者工程 · 共同压力反馈\n\n本次执行失败；仅显示已获得的原始诊断，未形成有效气流结果，不代表共同压力反馈达标。\n\n共同入口静压 Pa\n未获得\n目标总流量 L/min\n未获得\n实测总流量 L/min\n未获得\n左侧流量 L/min\n未获得\n右侧流量 L/min\n未获得\n出口流量 L/min\n未获得\n左侧自然分流\n未获得\n目标流量相对误差\n未获得\n真实求解评估次数\n未获得\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n未获得\t未获得\t未获得\t未获得\t未获得"
+    },
+    {
+      "check": "actual_successful_reference_keeps_normal_result_style",
+      "passed": true,
+      "id": "s_1811f735241e4d75b5fdf10e",
+      "text": "非患者参考 · 本次数值结果\n\n数值验证：未检查 · 临床验证：未验证。运行完成不等于验证通过。\n\n实际计算后端：real_openfoam_v1912\n\n对称阻力\n共同入口静压 Pa\n2.44425\n目标总流量 L/min\n1\n实测总流量 L/min\n0.998313\n左侧流量 L/min\n0.499157\n右侧流量 L/min\n0.499157\n出口流量 L/min\n0.998313\n左侧自然分流\n50%\n目标流量相对误差\n0.16865%\n真实求解评估次数\n4\n守恒不平衡\t最大残差\t监测相对变化\t网格质量\t残差判据\n0.00000004046%\t0.000000142938\t0%\t通过\t通过\n压力反馈迭代记录 · 4 次\n运行检查\n通过 · all_converged\n无补充信息\n通过 · symmetric_near_half\n无补充信息"
+    },
+    {
+      "check": "POST_zero_original_three_jobs_unchanged_and_no_pageerror",
+      "passed": true
+    }
+  ],
+  "posts": [],
+  "page_errors": [],
+  "original_jobs": [
+    {
+      "id": "s_aa79a63027b94bfb9a273898",
+      "case_id": "b15_engineering_t029a",
+      "status": "failed",
+      "execution_status": "failed",
+      "numerical_validation": "unchecked",
+      "viewer_export_error": "抽取后存在退化三角面",
+      "source_result_status": "quality_rejected_not_converged"
+    },
+    {
+      "id": "s_942fdbebfffd433c8fcec956",
+      "case_id": "b15_engineering",
+      "status": "failed",
+      "execution_status": "failed",
+      "numerical_validation": "unchecked",
+      "viewer_export_error": "本次最终评估VTU缺失或不唯一"
+    },
+    {
+      "id": "s_1811f735241e4d75b5fdf10e",
+      "case_id": "reference_split_feedback",
+      "status": "completed",
+      "execution_status": "completed",
+      "numerical_validation": "unchecked"
+    }
+  ],
+  "job_sha_before": {
+    "s_aa79a63027b94bfb9a273898": "b4e3d409406f0e821d8603dfb95855d9b024341897ee1a7c71043bd3a205fff0",
+    "s_942fdbebfffd433c8fcec956": "53ffaa77bda569c67a529543777f1af8158632b1aa987b990523f86eedd24797",
+    "s_1811f735241e4d75b5fdf10e": "fac4369fbfcc9ffcd57bcc05d47d2b5d2c4aed616eed4aa2ec0e16f4018e1965"
+  },
+  "job_sha_after": {
+    "s_aa79a63027b94bfb9a273898": "b4e3d409406f0e821d8603dfb95855d9b024341897ee1a7c71043bd3a205fff0",
+    "s_942fdbebfffd433c8fcec956": "53ffaa77bda569c67a529543777f1af8158632b1aa987b990523f86eedd24797",
+    "s_1811f735241e4d75b5fdf10e": "fac4369fbfcc9ffcd57bcc05d47d2b5d2c4aed616eed4aa2ec0e16f4018e1965"
+  },
+  "production_sha256": {
+    "simulation_js": "b17e7a37b20695cf805128c9b0f9063e78cbac8741d6762885449735ad76d496",
+    "workspace_css": "d953e69b526f439d7c76ae75cc145ef32bb41dacbfc5e562b021c0e38e6b5593"
+  },
+  "passed": true
+}
