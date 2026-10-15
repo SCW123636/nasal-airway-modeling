@@ -1,0 +1,35 @@
+{
+  "ast_passed": true,
+  "source_script_sha256": "4ea364cc8a7d225044ad7bb6cf7ec3f09419e7f0187517566cc3ee9e69ec639c",
+  "actual_source_proof_sha256": "bc3e43c51eb1c5ca27585dd156dc7abd7cdc38a9aadcf9342b45999ec02a83c9",
+  "known_actual_identity_accepted": true,
+  "python_launcher_binding": {
+    "kind": "verified_venv_to_base",
+    "launcher": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "actual_exe": "D:\\doubao\\WorkBuddy\\resources\\vendor\\python\\python.exe",
+    "pyvenv_config": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\pyvenv.cfg",
+    "pyvenv_config_sha256": "e503f6d61056b60da47b742b5be35bcabcfd40b5e47ae1f59b104568677b6b7e",
+    "launcher_sha256": "8c1ccc97417ad2a8cd7e6106d9f35192c685b1b035366590ff0d0ba525703caa",
+    "actual_exe_sha256": "ec8139feb5012b12a531196f257fddf53668f0109918d5d44ffa195cf352fdd6"
+  },
+  "foreign_identity_rejections": [
+    {
+      "case": "foreign_actual_executable",
+      "rejected": true,
+      "reason": "venv executable/base mismatch"
+    },
+    {
+      "case": "wrong_project_script",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "case": "wrong_port",
+      "rejected": true,
+      "reason": ""
+    }
+  ],
+  "service_reload_executed": false,
+  "contract_v2_created": false,
+  "preserved_original_script_sha256": "dca19429b6551b59321fb97547d371dbddbddd6584916f568ed5b9b257621a85"
+}

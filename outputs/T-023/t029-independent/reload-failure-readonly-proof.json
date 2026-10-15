@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-15T11:29:14.111306+00:00",
+  "listener_8769": {
+    "pid": 30228,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769",
+    "parent_pid": 25272,
+    "create_time": "2026-10-15T10:38:19.1040500Z"
+  },
+  "parent_8769": {
+    "ProcessId": 25272,
+    "ParentProcessId": 8792,
+    "ExecutablePath": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "CommandLine": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769",
+    "CreationDate": "/Date(1792060699094)/"
+  },
+  "listener_8774": {
+    "pid": 13388,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8774",
+    "parent_pid": 19196,
+    "create_time": "2026-10-15T08:37:17.3135150Z"
+  },
+  "same_8769_as_original_reload_result": true,
+  "same_8774_as_original_reload_result": true,
+  "parsed_original_command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py",
+    "--port",
+    "8769"
+  ],
+  "venv_config": {
+    "path": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\pyvenv.cfg",
+    "sha256": "e503f6d61056b60da47b742b5be35bcabcfd40b5e47ae1f59b104568677b6b7e",
+    "actual_content": {
+      "home": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12",
+      "include-system-site-packages": "false",
+      "version": "3.13.14",
+      "executable": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+      "command": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe -m venv C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd"
+    }
+  },
+  "actual_sys_executable": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+  "actual_sys_base_executable": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+  "health": {
+    "service": "nasal-cfd-local-workspace/v1",
+    "ct_import": true,
+    "simulation_jobs": true
+  },
+  "served_local_static_sha256": {
+    "simulation.js": "27317a1b77c36016f0f018b992a81b28ef4715b5be58d6f05b6bd646f757789f",
+    "workspace.js": "b3508909df05ab7cda32c18a9840c4a0c102cb55c8e20186cc0f2f94a700cef1"
+  },
+  "quiet": {
+    "active_jobs": [],
+    "workers": [],
+    "job_count": 17
+  },
+  "failure_sha256": "8be4d4de246b5e2666bb44da9f5d2f0bde4fedce187894eb90262a797a46efa1",
+  "reload_evidence_files": [
+    "failure.json"
+  ],
+  "only_read_calls": true,
+  "Stop_Process_executed": false,
+  "service_start_executed": false,
+  "explanation": "Existing venv launcher argv points to envs/nasal-cfd/Scripts/python.exe; Win32_Process.ExecutablePath is its pyvenv.cfg executable/home base Python. Both listener identities still match the earlier actual reload, not another-session replacement."
+}
