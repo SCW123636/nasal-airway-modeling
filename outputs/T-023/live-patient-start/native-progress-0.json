@@ -1,0 +1,31 @@
+{
+  "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+  "run_status": {
+    "schema": "nasal_cfd_run_status/v1",
+    "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+    "started_at": "2026-10-15T10:40:36+00:00",
+    "status": "running",
+    "current_step_index": 2,
+    "total_steps": 3,
+    "current_command": [
+      "simpleFoam"
+    ],
+    "last_log_tail": null,
+    "updated_at": "2026-10-15T10:40:52+00:00"
+  },
+  "actual_final_time_now": "1",
+  "observed_iteration_in_raw_log": true,
+  "log_tail": "/*---------------------------------------------------------------------------*\\\n| =========                 |                                                 |\n| \\\\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |\n|  \\\\    /   O peration     | Version:                                        |\n|   \\\\  /    A nd           | Website:  www.openfoam.com                      |\n|    \\\\/     M anipulation  |                                                 |\n\\*---------------------------------------------------------------------------*/\nBuild  : OPENFOAM=1912 patch=200626\nArch   : \"LSB;label=32;scalar=64\"\nExec   : simpleFoam\nDate   : Oct 15 2026\nTime   : 18:40:52\nHost   : LAPTOP-44R13S8U\nPID    : 1118\n--> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\nI/O    : uncollated\n--> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\nCase   : /home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001\nnProcs : 1\ntrapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).\nfileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)\nallowSystemOperations : Allowing user-supplied system call operations\n\n// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //\nCreate time\n\nCreate mesh for time = 0\n\n\nSIMPLE: convergence criteria\n    field p\t tolerance 1e-06\n    field U\t tolerance 1e-06\n\nReading field p\n\nReading field U\n\nReading/calculating face flux field phi\n\nSelecting incompressible transport model Newtonian\nSelecting turbulence model type laminar\nSelecting laminar stress model Stokes\nNo MRF models present\n\nNo finite volume options present\n\nStarting time loop\n\nsurfaceFieldValue flow_nostril_L:\n    operation     = sum\n\n\nsurfaceFieldValue pressure_nostril_L:\n    operation     = areaAverage\n\n\nsurfaceFieldValue flow_nostril_R:\n    operation     = sum\n\n\nsurfaceFieldValue pressure_nostril_R:\n    operation     = areaAverage\n\n\nsurfaceFieldValue flow_nasopharynx_outlet:\n    operation     = sum\n\n\nsurfaceFieldValue pressure_nasopharynx_outlet:\n    operation     = areaAverage\n\n\nTime = 1\n\nsmoothSolver:  Solving for Ux, Initial residual = 1, Final residual = 0.0088142587088, No Iterations 5\n",
+  "log_sha256": "ce04c45230261cb778199612f43a90f522dee1889caf990c0ac724777f21e7e6",
+  "simpleFoam_processes": [
+    "1118 simpleFoam"
+  ],
+  "zero_p": "FoamFile\n{\n version 2.0;\n format ascii;\n class volScalarField;\n object p;\n}\ndimensions [0 2 -2 0 0 0 0];\ninternalField uniform 0;\nboundaryField\n{\n nostril_L {\ntype fixedValue; value uniform 8.333333333333334;\n}\n nostril_R {\ntype fixedValue; value uniform 8.333333333333334;\n}\n nasopharynx_outlet {\ntype fixedValue; value uniform 0;\n}\n wall { type zeroGradient; }\n}\n",
+  "zero_U": "FoamFile\n{\n version 2.0;\n format ascii;\n class volVectorField;\n object U;\n}\ndimensions [0 1 -1 0 0 0 0];\ninternalField uniform (0 0 0);\nboundaryField\n{\n nostril_L {\ntype pressureInletOutletVelocity; value uniform (0 0 0);\n}\n nostril_R {\ntype pressureInletOutletVelocity; value uniform (0 0 0);\n}\n nasopharynx_outlet {\ntype zeroGradient;\n}\n wall { type noSlip; }\n}\n",
+  "ui": {
+    "iteration": "1",
+    "evaluation": "eval_001",
+    "step": "simpleFoam · 流场求解",
+    "updated": "实际记录更新：2026/10/15 18:40:55 · 阶段：流场求解 · 执行状态：运行中。以最后记录为准。"
+  }
+}

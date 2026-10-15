@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-15T10:52:59.428413+00:00",
+  "launcher_pid": 39620,
+  "actual_watcher_pid": 39052,
+  "command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance.py",
+    "--watch"
+  ],
+  "contract_sha256": "a8b1112efc873f73bfebcdb00d43b35f731fcb0ec6deeecbe4e2bfeab4856c07",
+  "running_checkpoint_sha256": "abd524d707030cc5194c49d6430ef2b81d5788dfda5aae843021df4099b575d6",
+  "first_events": "{\"at\": \"2026-10-15T10:52:59.390373+00:00\", \"observation\": {\"status\": \"running\", \"stage\": \"solver\", \"worker_pid\": 37580, \"solver_pid\": 37932, \"updated_at\": \"2026-10-15T18:52:57+08:00\", \"iteration\": \"147\", \"evaluation\": \"eval_001\", \"native_case\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001\", \"actual_step\": \"simpleFoam\"}}\n",
+  "patient_job_left_running": true,
+  "only_read_existing_job": true
+}

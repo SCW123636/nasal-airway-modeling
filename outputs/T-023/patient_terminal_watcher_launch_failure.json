@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-15T10:56:12.867859+00:00",
+  "first_launcher_pid": 39620,
+  "first_actual_pid": 39052,
+  "pid_absent_on_lead_and_independent_recheck": true,
+  "events_count": 1,
+  "no_terminal_audit": true,
+  "patient_solver_left_running": true,
+  "cause": "Initial detached child did not persist after exec return; exact external termination mechanism not established",
+  "correction": "New v2 evidence, WMI hidden process creation, two later independent liveness/event checks required"
+}

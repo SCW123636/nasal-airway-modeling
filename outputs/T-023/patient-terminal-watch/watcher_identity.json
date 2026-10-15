@@ -1,0 +1,11 @@
+{
+  "pid": 39052,
+  "started_at": "2026-10-15T10:52:59.162173+00:00",
+  "executable": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+  "argv": [
+    "D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance.py",
+    "--watch"
+  ],
+  "script_sha256": "0bf077a64a18497b621eaca81d40bf6e6d7c26a599de8afb79b6540c3c26c800",
+  "contract_sha256": "a8b1112efc873f73bfebcdb00d43b35f731fcb0ec6deeecbe4e2bfeab4856c07"
+}

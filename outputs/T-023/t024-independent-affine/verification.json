@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "production_sha256": "1de15e1a06b219066ea3281315aeebeec1841f763893a60becc9eb1b4fa6fc16",
+  "fixture": "Synthetic six-tetra affine volume, not patient CFD",
+  "source_vtu_sha256": "caf7eb6689ad93a56b33f51ae19e827d58d9afc3b17c4be279f5090d28ab8280",
+  "known_closed_form_fields": "U=[1,-.2,.7]+xyz_m@matrix; p_Pa=1.19*(7+xyz_m@[100,200,-50])",
+  "audit": {
+    "passed": true,
+    "source_points": 8,
+    "source_cells": 6,
+    "surface_points_exact_coordinate_matched": 8,
+    "surface_triangles": 12,
+    "source_vtu_sha256": "caf7eb6689ad93a56b33f51ae19e827d58d9afc3b17c4be279f5090d28ab8280",
+    "source_association": {
+      "U": "point",
+      "p": "point"
+    },
+    "slices": [
+      {
+        "axis": "x",
+        "points": 9,
+        "triangles": 8,
+        "raw_probe_valid_points": 9,
+        "max_velocity_difference_m_s": 5.551115123125783e-17,
+        "max_pressure_difference_pa": 0.0
+      },
+      {
+        "axis": "y",
+        "points": 9,
+        "triangles": 8,
+        "raw_probe_valid_points": 9,
+        "max_velocity_difference_m_s": 1.1102230246251565e-16,
+        "max_pressure_difference_pa": 0.0
+      },
+      {
+        "axis": "z",
+        "points": 9,
+        "triangles": 8,
+        "raw_probe_valid_points": 9,
+        "max_velocity_difference_m_s": 1.1102230246251565e-16,
+        "max_pressure_difference_pa": 0.0
+      }
+    ],
+    "numerical_validation": "failed",
+    "clinical_validation": "not_validated",
+    "scope": "Identity/units/coordinates/fields only; no numerical or clinical acceptance"
+  },
+  "exported": {
+    "schema": "nasal_patient_engineering_diagnostic/v1",
+    "points": 8,
+    "triangles": 12,
+    "case_id": "fresh_synthetic_affine_control",
+    "job_id": "s_bbbbbbbbbbbbbbbbbbbbbbbb",
+    "source_vtu_sha256": "caf7eb6689ad93a56b33f51ae19e827d58d9afc3b17c4be279f5090d28ab8280",
+    "field_time": "29",
+    "internal_slice_ids": [
+      "x",
+      "y",
+      "z"
+    ],
+    "numerical_validation": "failed",
+    "clinical_validation": "not_validated",
+    "formal_patient_result": false
+  },
+  "asset_hashes": [
+    {
+      "name": "patient-final-internal.vtu",
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-023\\t024-independent-affine\\export\\s_bbbbbbbbbbbbbbbbbbbbbbbb\\evaluations\\eval_001\\VTK\\affine_29\\internal.vtu",
+      "sha256": "caf7eb6689ad93a56b33f51ae19e827d58d9afc3b17c4be279f5090d28ab8280"
+    },
+    {
+      "name": "patient-final-config.json",
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-023\\t024-independent-affine\\export\\s_bbbbbbbbbbbbbbbbbbbbbbbb\\evaluations\\eval_001\\config.json",
+      "sha256": "23bc8915b448285fa8efd669a6c2770ff8b5e80517ca481e6c0f18bd081f69f0"
+    },
+    {
+      "name": "viewer_mesh.json",
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-023\\t024-independent-affine\\viewer_mesh.json",
+      "sha256": "be2488fabfcffea93dec30161b2c938c91e921494f826938d77ecb898b1706d5"
+    },
+    {
+      "name": "viewer.json",
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-023\\t024-independent-affine\\viewer.json",
+      "sha256": "6a9c4ce03192bdb3754b2af325ab3218ad307912c034edb9542a7afd6f8e4d90"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-15T10:38:16.277685+00:00",
+  "old_8769": {
+    "pid": 29640,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8769",
+    "parent_pid": 22312,
+    "create_time": "2026-10-15T08:48:22.0762590Z"
+  },
+  "preserved_8774": {
+    "pid": 13388,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8774",
+    "parent_pid": 19196,
+    "create_time": "2026-10-15T08:37:17.3135150Z"
+  },
+  "health_before": {
+    "service": "nasal-cfd-local-workspace/v1",
+    "ct_import": true,
+    "simulation_jobs": true
+  },
+  "active_jobs_before": [],
+  "workers_before": [],
+  "served_current_project_simulation_js_sha256": "27317a1b77c36016f0f018b992a81b28ef4715b5be58d6f05b6bd646f757789f",
+  "authorization": "T023 contract and Lead explicit handoff after T021 final freeze; no shortcut opened",
+  "new_8769": {
+    "pid": 30228,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769",
+    "parent_pid": 25272,
+    "create_time": "2026-10-15T10:38:19.1040500Z"
+  },
+  "launcher_pid": 25272,
+  "command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py",
+    "--port",
+    "8769"
+  ],
+  "health_after": {
+    "service": "nasal-cfd-local-workspace/v1",
+    "ct_import": true,
+    "simulation_jobs": true
+  },
+  "catalog_case_ids": [
+    "reference_channel",
+    "reference_split_feedback",
+    "p0",
+    "p1",
+    "p2",
+    "p3",
+    "p3t1",
+    "u_fbca9137690e4837",
+    "u_ccf06624879c403a",
+    "u_b39e51153cda46d7",
+    "u_74a998a9fd274288",
+    "u_a3d2534c7d534b36",
+    "u_531c98ca241b4232",
+    "u_e41f17339e7a4ee5",
+    "b15_engineering"
+  ],
+  "passed": true
+}

@@ -1,0 +1,1 @@
+{"at": "2026-10-15T10:52:59.390373+00:00", "observation": {"status": "running", "stage": "solver", "worker_pid": 37580, "solver_pid": 37932, "updated_at": "2026-10-15T18:52:57+08:00", "iteration": "147", "evaluation": "eval_001", "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001", "actual_step": "simpleFoam"}}

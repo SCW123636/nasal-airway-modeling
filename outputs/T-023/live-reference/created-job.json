@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-15T10:39:02.552Z",
+  "payload": {
+    "case_id": "reference_split_feedback",
+    "action": "run_pressure_feedback",
+    "settings": {
+      "scenarios": [
+        "symmetric"
+      ]
+    }
+  },
+  "job": {
+    "schema": "nasal_simulation_job/v1",
+    "id": "s_1811f735241e4d75b5fdf10e",
+    "case_id": "reference_split_feedback",
+    "action": "run_pressure_feedback",
+    "settings": {
+      "scenarios": [
+        "symmetric"
+      ]
+    },
+    "status": "queued",
+    "stage": "queued",
+    "created_at": "2026-10-15T18:39:02+08:00",
+    "updated_at": "2026-10-15T18:39:02+08:00",
+    "preflight": null,
+    "result": null,
+    "artifacts": [],
+    "error": null,
+    "exit_code": null,
+    "log_excerpt": ""
+  }
+}

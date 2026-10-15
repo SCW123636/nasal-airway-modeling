@@ -1,0 +1,6 @@
+2026-10-15 independent lane-probe helper failure, before any reload or solver start.
+
+Observed Python CalledProcessError:
+Command ['wsl', 'bash', '-lc', "uptime; ps -eo pid,comm,args | awk '$2 ~ /^(simpleFoam|checkMesh|blockMesh|gmshToFoam|netgen)$/ {print}'"] returned non-zero exit status 1.
+
+The tool invocation did not capture the subprocess stderr. Shell argument quoting was suspected but is not established by a saved stderr. No product code, service, or solver was changed by this failed probe. The next probe used direct 'wsl uptime' and 'wsl ps -eo pid,comm,args', filtered commands in Python, and passed. Actual load and absence of heavy commands are preserved in final_freeze_and_cpu_entry.json. This is an independent audit-helper failure, not a product failure.

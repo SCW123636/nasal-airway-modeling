@@ -1,0 +1,1 @@
+{"geometry": {"kind": "patient", "case_id": "fresh_synthetic_affine_control", "coordinate_system": "LPS", "units": "mm", "solver_units": "m", "scale_to_m": 0.001, "sha256": "3333333333333333333333333333333333333333333333333333333333333333", "review": {"status": "pending"}}, "physics": {"rho_kg_m3": 1.19, "turbulence_model": "laminar"}}

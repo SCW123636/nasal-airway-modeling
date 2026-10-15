@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "at": "2026-10-15T10:58:25.8551709Z",
+  "actual_process": {
+    "ProcessId": 35056,
+    "ParentProcessId": 39580,
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 \"D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py\" --watch"
+  },
+  "launcher": {
+    "ProcessId": 39580,
+    "ParentProcessId": 7728,
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 \"D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py\" --watch"
+  },
+  "external_parent": {
+    "ProcessId": 7728,
+    "ParentProcessId": 2032,
+    "Name": "WmiPrvSE.exe"
+  },
+  "identity": {
+    "pid": 35056,
+    "started_at": "2026-10-15T18:57:07.910446+08:00",
+    "executable": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "argv": [
+      "D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py",
+      "--watch"
+    ],
+    "script_sha256": "1ee1e2acc6a8583952582fe02f3e967ae9e259d00a9cab1107b61ab0c6ff1569",
+    "contract_sha256": "e9bb5be36f38c711814baebed0e58738966bb5bdc14d8b59b83e002283221c14"
+  },
+  "events": [
+    {
+      "at": "2026-10-15T18:57:08.132291+08:00",
+      "observation": {
+        "status": "running",
+        "stage": "solver",
+        "worker_pid": 37580,
+        "solver_pid": 37932,
+        "updated_at": "2026-10-15T18:57:07+08:00",
+        "iteration": "194",
+        "evaluation": "eval_001",
+        "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+        "actual_step": "simpleFoam"
+      }
+    },
+    {
+      "at": "2026-10-15T18:57:28.152374+08:00",
+      "observation": {
+        "status": "running",
+        "stage": "solver",
+        "worker_pid": 37580,
+        "solver_pid": 37932,
+        "updated_at": "2026-10-15T18:57:25+08:00",
+        "iteration": "198",
+        "evaluation": "eval_001",
+        "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+        "actual_step": "simpleFoam"
+      }
+    },
+    {
+      "at": "2026-10-15T18:57:48.17484+08:00",
+      "observation": {
+        "status": "running",
+        "stage": "solver",
+        "worker_pid": 37580,
+        "solver_pid": 37932,
+        "updated_at": "2026-10-15T18:57:47+08:00",
+        "iteration": "201",
+        "evaluation": "eval_001",
+        "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+        "actual_step": "simpleFoam"
+      }
+    },
+    {
+      "at": "2026-10-15T18:58:08.201476+08:00",
+      "observation": {
+        "status": "running",
+        "stage": "solver",
+        "worker_pid": 37580,
+        "solver_pid": 37932,
+        "updated_at": "2026-10-15T18:58:06+08:00",
+        "iteration": "205",
+        "evaluation": "eval_001",
+        "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+        "actual_step": "simpleFoam"
+      }
+    }
+  ],
+  "observed_span_seconds": 60.069185,
+  "scope": "Persistence across tool returns and two 20-second cycles only; no patient terminal or numerical acceptance"
+}

@@ -1,0 +1,31 @@
+{
+  "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001",
+  "run_status": {
+    "schema": "nasal_cfd_run_status/v1",
+    "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001",
+    "started_at": "2026-10-15T10:39:03+00:00",
+    "status": "running",
+    "current_step_index": 3,
+    "total_steps": 4,
+    "current_command": [
+      "simpleFoam"
+    ],
+    "last_log_tail": null,
+    "updated_at": "2026-10-15T10:39:03+00:00"
+  },
+  "actual_final_time_now": "306",
+  "observed_iteration_in_raw_log": true,
+  "log_tail": "g for Uy, Initial residual = 1.76734512289e-06, Final residual = 7.4482274023e-13, No Iterations 11\nGAMG:  Solving for p, Initial residual = 1.23222189275e-07, Final residual = 7.77239504391e-11, No Iterations 15\ntime step continuity errors : sum local = 5.02410286826e-09, global = 2.51131418855e-09, cumulative = 1.92330972364e-07\nExecutionTime = 4.49 s  ClockTime = 5 s\n\nTime = 302\n\nsmoothSolver:  Solving for Ux, Initial residual = 2.48627671839e-06, Final residual = 9.75743524319e-13, No Iterations 11\nsmoothSolver:  Solving for Uy, Initial residual = 1.72114383367e-06, Final residual = 7.25337399121e-13, No Iterations 11\nGAMG:  Solving for p, Initial residual = 1.20000935129e-07, Final residual = 7.56980988112e-11, No Iterations 15\ntime step continuity errors : sum local = 4.89311953362e-09, global = 2.44581599609e-09, cumulative = 1.9477678836e-07\nExecutionTime = 4.5 s  ClockTime = 5 s\n\nTime = 303\n\nsmoothSolver:  Solving for Ux, Initial residual = 2.42126808783e-06, Final residual = 9.50222485312e-13, No Iterations 11\nsmoothSolver:  Solving for Uy, Initial residual = 1.67614918414e-06, Final residual = 7.06367862691e-13, No Iterations 11\nGAMG:  Solving for p, Initial residual = 1.16862648435e-07, Final residual = 7.37165879275e-11, No Iterations 15\ntime step continuity errors : sum local = 4.76496764789e-09, global = 2.38173884767e-09, cumulative = 1.97158527208e-07\nExecutionTime = 4.51 s  ClockTime = 5 s\n\nTime = 304\n\nsmoothSolver:  Solving for Ux, Initial residual = 2.35795932492e-06, Final residual = 9.25379273018e-13, No Iterations 11\nsmoothSolver:  Solving for Uy, Initial residual = 1.63232842374e-06, Final residual = 6.87908723794e-13, No Iterations 11\nGAMG:  Solving for p, Initial residual = 1.13805705095e-07, Final residual = 7.17814736583e-11, No Iterations 15\ntime step continuity errors : sum local = 4.63985748563e-09, global = 2.3192218047e-09, cumulative = 1.99477749013e-07\nExecutionTime = 4.52 s  ClockTime = 5 s\n\nTime = 305\n\nsmoothSolver:  Solving for Ux, Initial residual = 2.29630586316e-06, Final residual = 9.01182035374e-13, No Iterations 11\nsmoothSolver:  Solving for Uy, Initial residual = 1.5896501362e-06, Final residual = 6.69919820939e-13, No Iterations 11\nGAMG:  Solving for p, Initial residual = 1.10828546876e-07, Final residual = 6.98941270614e-11, No Iterations 15\ntime step continuity errors : sum local = 4.5179221179e-09, global = 2.2583192762e-09, cumulative = 2.01736068289e-07\nExecutionTime = 4.53 s  ClockTime = 5 s\n\nTime = 306\n\n",
+  "log_sha256": "297211c1ca35d32e67d3407c6d8defbd978ea95e73c89c8ff0b4d538aa83e813",
+  "simpleFoam_processes": [
+    "1024 simpleFoam"
+  ],
+  "zero_p": "FoamFile\n{\n version 2.0;\n format ascii;\n class volScalarField;\n object p;\n}\n\ndimensions [0 2 -2 0 0 0 0];\ninternalField uniform 0;\nboundaryField\n{\n inlet_L {\ntype fixedValue; value uniform 0.8333333333333334;\n}\n inlet_R {\ntype fixedValue; value uniform 0.8333333333333334;\n}\n outlet {\ntype fixedValue; value uniform 0;\n}\n walls { type zeroGradient; }\n frontAndBack { type empty; }\n}\n",
+  "zero_U": "FoamFile\n{\n version 2.0;\n format ascii;\n class volVectorField;\n object U;\n}\n\ndimensions [0 1 -1 0 0 0 0];\ninternalField uniform (0 0 0);\nboundaryField\n{\n inlet_L {\ntype pressureInletOutletVelocity; value uniform (0 0 0);\n}\n inlet_R {\ntype pressureInletOutletVelocity; value uniform (0 0 0);\n}\n outlet {\ntype zeroGradient;\n}\n walls { type noSlip; }\n frontAndBack { type empty; }\n}\n",
+  "ui": {
+    "iteration": "139",
+    "evaluation": "eval_001",
+    "step": "simpleFoam · 流场求解",
+    "updated": "实际记录更新：2026/10/15 18:39:06 · 阶段：流场求解 · 执行状态：运行中。以最后记录为准。"
+  }
+}

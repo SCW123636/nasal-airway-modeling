@@ -1,0 +1,2025 @@
+{
+  "source_sha256": "6707f610bc5202eedd69785a54218c9eae69f55b7d774f4eadbbedbcdfd66ed5",
+  "baseline_sha256": "cc637e255374259dc12e7b199343bf2005483a0448c8990d7fdec42ecd13de4a",
+  "controls": [
+    {
+      "layout": 0,
+      "permutation": 0,
+      "tet_input": [
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        2,
+        4
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 0,
+      "permutation": 1,
+      "tet_input": [
+        [
+          1,
+          0,
+          4,
+          2
+        ],
+        [
+          1,
+          3,
+          0,
+          2
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3
+      ],
+      "old_failed": false
+    },
+    {
+      "layout": 0,
+      "permutation": 2,
+      "tet_input": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          2,
+          4,
+          0,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3
+      ],
+      "old_failed": false
+    },
+    {
+      "layout": 0,
+      "permutation": 3,
+      "tet_input": [
+        [
+          1,
+          2,
+          0,
+          3
+        ],
+        [
+          0,
+          2,
+          1,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        2,
+        4
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 0,
+      "permutation": 4,
+      "tet_input": [
+        [
+          4,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        4,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 0,
+      "permutation": 5,
+      "tet_input": [
+        [
+          1,
+          4,
+          0,
+          2
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        4,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 0,
+      "permutation": 6,
+      "tet_input": [
+        [
+          2,
+          0,
+          1,
+          3
+        ],
+        [
+          4,
+          0,
+          1,
+          2
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3
+      ],
+      "old_failed": false
+    },
+    {
+      "layout": 0,
+      "permutation": 7,
+      "tet_input": [
+        [
+          4,
+          2,
+          1,
+          0
+        ],
+        [
+          3,
+          1,
+          2,
+          0
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        4,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 0,
+      "permutation": 8,
+      "tet_input": [
+        [
+          0,
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          4,
+          2,
+          0
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3
+      ],
+      "old_failed": false
+    },
+    {
+      "layout": 0,
+      "permutation": 9,
+      "tet_input": [
+        [
+          2,
+          4,
+          1,
+          0
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        4,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 0,
+      "permutation": 10,
+      "tet_input": [
+        [
+          0,
+          1,
+          3,
+          2
+        ],
+        [
+          4,
+          2,
+          0,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3
+      ],
+      "old_failed": false
+    },
+    {
+      "layout": 0,
+      "permutation": 11,
+      "tet_input": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3
+      ],
+      "old_failed": false
+    },
+    {
+      "layout": 1,
+      "permutation": 0,
+      "tet_input": [
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          10,
+          9,
+          8,
+          7
+        ],
+        [
+          0,
+          4,
+          1,
+          2
+        ],
+        [
+          2,
+          6,
+          3,
+          0
+        ],
+        [
+          1,
+          3,
+          5,
+          0
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        1,
+        4,
+        3,
+        3,
+        3
+      ],
+      "actual": [
+        1,
+        4,
+        3,
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        179,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        2,
+        2,
+        4
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 1,
+      "tet_input": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          1,
+          0
+        ],
+        [
+          9,
+          8,
+          7,
+          10
+        ],
+        [
+          6,
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          0,
+          5
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        1,
+        3,
+        4,
+        3,
+        3
+      ],
+      "actual": [
+        1,
+        3,
+        4,
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        179,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        2,
+        2,
+        4,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 2,
+      "tet_input": [
+        [
+          6,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          9,
+          10,
+          8,
+          7
+        ],
+        [
+          5,
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          2,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        1,
+        4,
+        3,
+        3
+      ],
+      "actual": [
+        3,
+        1,
+        4,
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        179,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        3,
+        2,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 3,
+      "tet_input": [
+        [
+          8,
+          10,
+          7,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          5,
+          0,
+          3
+        ],
+        [
+          4,
+          0,
+          1,
+          2
+        ],
+        [
+          6,
+          0,
+          2,
+          3
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        4,
+        1,
+        3,
+        3,
+        3
+      ],
+      "actual": [
+        4,
+        1,
+        3,
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        179,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        4,
+        3,
+        1
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 4,
+      "tet_input": [
+        [
+          2,
+          1,
+          0,
+          4
+        ],
+        [
+          5,
+          1,
+          0,
+          3
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          7,
+          10,
+          9,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          2
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3,
+        1,
+        4,
+        3
+      ],
+      "actual": [
+        3,
+        3,
+        1,
+        4,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        179,
+        null,
+        null
+      ],
+      "old_actual": [
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 5,
+      "tet_input": [
+        [
+          5,
+          3,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          0,
+          6,
+          3,
+          2
+        ],
+        [
+          9,
+          10,
+          8,
+          7
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3,
+        3,
+        4,
+        1
+      ],
+      "actual": [
+        3,
+        3,
+        3,
+        4,
+        1
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        179
+      ],
+      "old_actual": [
+        3,
+        3,
+        3,
+        2,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 6,
+      "tet_input": [
+        [
+          0,
+          3,
+          1,
+          5
+        ],
+        [
+          3,
+          0,
+          6,
+          2
+        ],
+        [
+          7,
+          8,
+          10,
+          9
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3,
+        4,
+        1,
+        3
+      ],
+      "actual": [
+        3,
+        3,
+        4,
+        1,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        179,
+        null
+      ],
+      "old_actual": [
+        2,
+        2,
+        4,
+        3,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 7,
+      "tet_input": [
+        [
+          3,
+          0,
+          1,
+          5
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          4,
+          1
+        ],
+        [
+          6,
+          3,
+          2,
+          0
+        ],
+        [
+          9,
+          10,
+          7,
+          8
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        1,
+        3,
+        3,
+        4
+      ],
+      "actual": [
+        3,
+        1,
+        3,
+        3,
+        4
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        179,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        2,
+        3,
+        4,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 8,
+      "tet_input": [
+        [
+          9,
+          7,
+          10,
+          8
+        ],
+        [
+          1,
+          0,
+          4,
+          2
+        ],
+        [
+          0,
+          5,
+          1,
+          3
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          0,
+          6,
+          2,
+          3
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        4,
+        3,
+        3,
+        1,
+        3
+      ],
+      "actual": [
+        4,
+        3,
+        3,
+        1,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        179,
+        null
+      ],
+      "old_actual": [
+        4,
+        3,
+        3,
+        1,
+        3
+      ],
+      "old_failed": false
+    },
+    {
+      "layout": 1,
+      "permutation": 9,
+      "tet_input": [
+        [
+          10,
+          9,
+          7,
+          8
+        ],
+        [
+          2,
+          0,
+          3,
+          6
+        ],
+        [
+          0,
+          2,
+          4,
+          1
+        ],
+        [
+          1,
+          3,
+          5,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          3
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        4,
+        3,
+        3,
+        3,
+        1
+      ],
+      "actual": [
+        4,
+        3,
+        3,
+        3,
+        1
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        179
+      ],
+      "old_actual": [
+        3,
+        2,
+        2,
+        4,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 10,
+      "tet_input": [
+        [
+          7,
+          9,
+          8,
+          10
+        ],
+        [
+          0,
+          4,
+          1,
+          2
+        ],
+        [
+          0,
+          6,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          5,
+          1,
+          0,
+          3
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        4,
+        3,
+        3,
+        1,
+        3
+      ],
+      "actual": [
+        4,
+        3,
+        3,
+        1,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        179,
+        null
+      ],
+      "old_actual": [
+        3,
+        4,
+        3,
+        2,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 1,
+      "permutation": 11,
+      "tet_input": [
+        [
+          0,
+          4,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          0,
+          6
+        ],
+        [
+          3,
+          0,
+          2,
+          1
+        ],
+        [
+          5,
+          3,
+          0,
+          1
+        ],
+        [
+          7,
+          8,
+          10,
+          9
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3,
+        1,
+        3,
+        4
+      ],
+      "actual": [
+        3,
+        3,
+        1,
+        3,
+        4
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        179,
+        null,
+        null
+      ],
+      "old_actual": [
+        2,
+        3,
+        3,
+        4,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 0,
+      "tet_input": [
+        [
+          7,
+          9,
+          8,
+          10
+        ],
+        [
+          6,
+          1,
+          5,
+          4
+        ],
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          1,
+          4,
+          0
+        ],
+        [
+          4,
+          5,
+          0,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        4,
+        3,
+        3,
+        2,
+        2
+      ],
+      "actual": [
+        4,
+        3,
+        3,
+        2,
+        2
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        4,
+        2,
+        3,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 1,
+      "tet_input": [
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          5,
+          4,
+          1,
+          6
+        ],
+        [
+          9,
+          10,
+          8,
+          7
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ],
+        [
+          4,
+          2,
+          0,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        2,
+        3,
+        4,
+        3,
+        2
+      ],
+      "actual": [
+        2,
+        3,
+        4,
+        3,
+        2
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        3,
+        2,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 2,
+      "tet_input": [
+        [
+          1,
+          0,
+          4,
+          5
+        ],
+        [
+          2,
+          1,
+          4,
+          0
+        ],
+        [
+          3,
+          0,
+          2,
+          1
+        ],
+        [
+          8,
+          10,
+          9,
+          7
+        ],
+        [
+          1,
+          5,
+          6,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        2,
+        2,
+        3,
+        4,
+        3
+      ],
+      "actual": [
+        2,
+        2,
+        3,
+        4,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        2,
+        4,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 3,
+      "tet_input": [
+        [
+          2,
+          4,
+          0,
+          1
+        ],
+        [
+          4,
+          1,
+          0,
+          5
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          6,
+          4,
+          5,
+          1
+        ],
+        [
+          8,
+          9,
+          7,
+          10
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "actual": [
+        2,
+        2,
+        3,
+        3,
+        4
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        3,
+        2,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 4,
+      "tet_input": [
+        [
+          3,
+          2,
+          0,
+          1
+        ],
+        [
+          4,
+          5,
+          1,
+          6
+        ],
+        [
+          1,
+          0,
+          5,
+          4
+        ],
+        [
+          0,
+          2,
+          4,
+          1
+        ],
+        [
+          10,
+          8,
+          9,
+          7
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        3,
+        2,
+        2,
+        4
+      ],
+      "actual": [
+        3,
+        3,
+        2,
+        2,
+        4
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        3,
+        1,
+        4
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 5,
+      "tet_input": [
+        [
+          4,
+          1,
+          6,
+          5
+        ],
+        [
+          7,
+          8,
+          9,
+          10
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ],
+        [
+          1,
+          5,
+          4,
+          0
+        ],
+        [
+          1,
+          0,
+          2,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        4,
+        3,
+        2,
+        2
+      ],
+      "actual": [
+        3,
+        4,
+        3,
+        2,
+        2
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        2,
+        3,
+        2,
+        4
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 6,
+      "tet_input": [
+        [
+          6,
+          1,
+          4,
+          5
+        ],
+        [
+          4,
+          0,
+          1,
+          5
+        ],
+        [
+          7,
+          10,
+          9,
+          8
+        ],
+        [
+          4,
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        2,
+        4,
+        2,
+        3
+      ],
+      "actual": [
+        3,
+        2,
+        4,
+        2,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        4,
+        2,
+        2,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 7,
+      "tet_input": [
+        [
+          4,
+          1,
+          6,
+          5
+        ],
+        [
+          2,
+          4,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          2,
+          3
+        ],
+        [
+          7,
+          10,
+          8,
+          9
+        ],
+        [
+          4,
+          0,
+          5,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        2,
+        3,
+        4,
+        2
+      ],
+      "actual": [
+        3,
+        2,
+        3,
+        4,
+        2
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        2,
+        3,
+        3
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 8,
+      "tet_input": [
+        [
+          2,
+          1,
+          0,
+          4
+        ],
+        [
+          5,
+          1,
+          0,
+          4
+        ],
+        [
+          8,
+          7,
+          10,
+          9
+        ],
+        [
+          3,
+          2,
+          0,
+          1
+        ],
+        [
+          5,
+          1,
+          6,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        2,
+        2,
+        4,
+        3,
+        3
+      ],
+      "actual": [
+        2,
+        2,
+        4,
+        3,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 9,
+      "tet_input": [
+        [
+          3,
+          2,
+          0,
+          1
+        ],
+        [
+          9,
+          7,
+          10,
+          8
+        ],
+        [
+          4,
+          0,
+          1,
+          2
+        ],
+        [
+          6,
+          1,
+          5,
+          4
+        ],
+        [
+          4,
+          5,
+          0,
+          1
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        4,
+        2,
+        3,
+        2
+      ],
+      "actual": [
+        3,
+        4,
+        2,
+        3,
+        2
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        4,
+        3,
+        2,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 10,
+      "tet_input": [
+        [
+          5,
+          1,
+          4,
+          0
+        ],
+        [
+          6,
+          1,
+          5,
+          4
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          9,
+          10,
+          7,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          4
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        2,
+        3,
+        3,
+        4,
+        2
+      ],
+      "actual": [
+        2,
+        3,
+        3,
+        4,
+        2
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        2,
+        4,
+        3,
+        2
+      ],
+      "old_failed": true
+    },
+    {
+      "layout": 2,
+      "permutation": 11,
+      "tet_input": [
+        [
+          6,
+          5,
+          1,
+          4
+        ],
+        [
+          1,
+          0,
+          2,
+          4
+        ],
+        [
+          1,
+          5,
+          0,
+          4
+        ],
+        [
+          7,
+          9,
+          8,
+          10
+        ],
+        [
+          1,
+          0,
+          2,
+          3
+        ]
+      ],
+      "expected_exterior_per_tet": [
+        3,
+        2,
+        2,
+        4,
+        3
+      ],
+      "actual": [
+        3,
+        2,
+        2,
+        4,
+        3
+      ],
+      "unambiguous_patch_tags": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "old_actual": [
+        3,
+        1,
+        4,
+        2,
+        4
+      ],
+      "old_failed": true
+    }
+  ],
+  "patient_mesh_loaded": false,
+  "wsl_invoked": false,
+  "passed": true,
+  "old_mismatch_count": 29,
+  "selftest_python_bool": true,
+  "selftest_stdout": "selftest regular tetrahedron: metric 0.296296296296297 expected 0.296296296296296 -> PASS\nselftest sliver: metric 1.293e-18 -> PASS\n",
+  "checkMesh_constants_unchanged": {
+    "min_determinant": 1.11163982652e-07,
+    "n_small": 585,
+    "average_determinant": 0.193855652104,
+    "threshold": 0.001,
+    "n_low_weight_faces": 114,
+    "n_nonortho_faces": 204
+  },
+  "repair_origin_known": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    4,
+    4,
+    4,
+    5
+  ],
+  "repair_origin_rejections": [
+    {
+      "requested_output": 11,
+      "message": "repair origin mapping overflowed the output cell list"
+    },
+    {
+      "requested_output": 13,
+      "message": "repair origin mapping produced 12 of 13 cells"
+    }
+  ],
+  "scope": "Small software diagnostics only; historical derived patch counts require separate recomputation; no patient mesh or checkMesh result changed"
+}

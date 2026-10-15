@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-15T10:57:07.7522981Z",
+  "mechanism": "Win32_Process.Create with ShowWindow=0, default creation flags",
+  "launcher_pid": 39580,
+  "return_value": 0,
+  "command": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 \"D:\\项目\\鼻腔建模\\outputs\\T-023\\watch_b15_readonly_acceptance_v2.py\" --watch",
+  "proof_status": "created; persistence not yet established",
+  "previous_WMI_attempt": {
+    "process_created": false,
+    "CreateFlags": 134217728,
+    "return_value": 21
+  }
+}

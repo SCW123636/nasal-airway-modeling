@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-15T10:40:29.675Z",
+  "payload": {
+    "case_id": "b15_engineering",
+    "action": "run_patient_engineering",
+    "settings": {}
+  },
+  "job": {
+    "schema": "nasal_simulation_job/v1",
+    "id": "s_942fdbebfffd433c8fcec956",
+    "case_id": "b15_engineering",
+    "action": "run_patient_engineering",
+    "settings": {},
+    "status": "queued",
+    "stage": "queued",
+    "created_at": "2026-10-15T18:40:29+08:00",
+    "updated_at": "2026-10-15T18:40:29+08:00",
+    "preflight": null,
+    "result": null,
+    "artifacts": [],
+    "error": null,
+    "exit_code": null,
+    "patient_binding": {
+      "current_source_binding": null,
+      "admission_sha256": "f8e525cf579fe6d32fd55cdc9b6a0a21a74a9b0df08e158b6cfc0cbc63ea9bcc"
+    },
+    "log_excerpt": ""
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "at": "2026-10-15T10:52:39.985092+00:00",
+  "job_id": "s_942fdbebfffd433c8fcec956",
+  "status": "running",
+  "worker_pid": 37580,
+  "solver_pid": 37932,
+  "native": {
+    "fingerprint": {
+      "admission_sha256": "f8e525cf579fe6d32fd55cdc9b6a0a21a74a9b0df08e158b6cfc0cbc63ea9bcc",
+      "config_sha256": "191b8aecac14fe4609c05490d098b175a0a93b69eb6e7eb0eeaeb534e98f43b1",
+      "current_source_binding": null,
+      "code_sha256": {
+        "patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+        "patient_cfd_admission.py": "252c282bcc0c8de3c2e4c39b6aed8ab9817d88a28d292efe3b711bbb5ce53a92",
+        "solver_adapter.py": "df741bbf6707b4ce9492ef0c59d8614c6b077aa542d86ae77a9be04ff414d8df",
+        "pressure_feedback.py": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22",
+        "openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7"
+      }
+    },
+    "run_status": {
+      "schema": "nasal_cfd_run_status/v1",
+      "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+      "started_at": "2026-10-15T10:40:36+00:00",
+      "status": "running",
+      "current_step_index": 2,
+      "total_steps": 3,
+      "current_command": [
+        "simpleFoam"
+      ],
+      "last_log_tail": null,
+      "updated_at": "2026-10-15T10:40:52+00:00"
+    },
+    "last_iteration": "143",
+    "raw_log_sha256": "5db5f039969beb4d93ea64a1552bc9fb0473f6a7239626e724660d453bc2a896",
+    "simpleFoam_processes": [
+      "1118 simpleFoam"
+    ]
+  },
+  "source_frozen_count": 19,
+  "input_frozen_count": 34
+}
