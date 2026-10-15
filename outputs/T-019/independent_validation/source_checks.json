@@ -1,0 +1,476 @@
+{
+  "schema": "T019_independent_source_check/v1",
+  "started_local": "2026-10-15T16:54:41.673538+08:00",
+  "elapsed_seconds": 21.429,
+  "cases": [
+    {
+      "case": "case_a",
+      "dicom_files": 788,
+      "series_count": 6,
+      "series": [
+        {
+          "series": "ISO_Bone_0.35mm_part1/ISO_Bone_0.35mm",
+          "files": 132,
+          "bytes": 69457138
+        },
+        {
+          "series": "ISO_Bone_0.35mm_part2/ISO_Bone_0.35mm",
+          "files": 132,
+          "bytes": 69457336
+        },
+        {
+          "series": "ISO_Bone_0.35mm_part3/ISO_Bone_0.35mm",
+          "files": 130,
+          "bytes": 68404960
+        },
+        {
+          "series": "ISO_Soft_0.35mm_part1/ISO_Soft_0.35mm",
+          "files": 132,
+          "bytes": 69456870
+        },
+        {
+          "series": "ISO_Soft_0.35mm_part2/ISO_Soft_0.35mm",
+          "files": 132,
+          "bytes": 69457076
+        },
+        {
+          "series": "ISO_Soft_0.35mm_part3/ISO_Soft_0.35mm",
+          "files": 130,
+          "bytes": 68404696
+        }
+      ]
+    },
+    {
+      "case": "case_b",
+      "dicom_files": 380,
+      "series_count": 8,
+      "series": [
+        {
+          "series": "1-Report Data",
+          "files": 1,
+          "bytes": 1234
+        },
+        {
+          "series": "1-Topogram  0.6  T20f",
+          "files": 2,
+          "bytes": 217760
+        },
+        {
+          "series": "1011-MPR 3.0mm",
+          "files": 30,
+          "bytes": 4214688
+        },
+        {
+          "series": "1019-Evidence Documents Viewing",
+          "files": 1,
+          "bytes": 1710
+        },
+        {
+          "series": "2-Sinus  5.0  H41s",
+          "files": 30,
+          "bytes": 5194724
+        },
+        {
+          "series": "3-Sinus  5.0  H70h",
+          "files": 29,
+          "bytes": 7948832
+        },
+        {
+          "series": "4-Sinus  0.75  H40s",
+          "files": 286,
+          "bytes": 54882262
+        },
+        {
+          "series": "501-Patient Protocol",
+          "files": 1,
+          "bytes": 67252
+        }
+      ]
+    },
+    {
+      "case": "case_medial",
+      "dicom_files": 675,
+      "series_count": 7,
+      "series": [
+        {
+          "series": "10001-Dose Report",
+          "files": 1,
+          "bytes": 348266
+        },
+        {
+          "series": "10002-CH",
+          "files": 57,
+          "bytes": 31869564
+        },
+        {
+          "series": "10005-CH_4",
+          "files": 56,
+          "bytes": 31563166
+        },
+        {
+          "series": "101-Scout",
+          "files": 3,
+          "bytes": 2004510
+        },
+        {
+          "series": "201-0.6 x 0.6_SINUS",
+          "files": 186,
+          "bytes": 97944394
+        },
+        {
+          "series": "202-0.6 x 0.6_BONE",
+          "files": 186,
+          "bytes": 97944406
+        },
+        {
+          "series": "203-0.6 x 0.6_BONE",
+          "files": 186,
+          "bytes": 97944422
+        }
+      ]
+    },
+    {
+      "case": "case_lateral",
+      "dicom_files": 514,
+      "series_count": 9,
+      "series": [
+        {
+          "series": "10003-3D_Sinus^_1",
+          "files": 40,
+          "bytes": 5909460
+        },
+        {
+          "series": "10004-3D_Sinus^_2",
+          "files": 49,
+          "bytes": 6610034
+        },
+        {
+          "series": "10005-3D_Sinus^_3",
+          "files": 35,
+          "bytes": 6637748
+        },
+        {
+          "series": "10006-3D_Sinus^_4",
+          "files": 44,
+          "bytes": 7936990
+        },
+        {
+          "series": "101",
+          "files": 2,
+          "bytes": 212570
+        },
+        {
+          "series": "201-3.0 x 3.0 Bone",
+          "files": 36,
+          "bytes": 9291586
+        },
+        {
+          "series": "202-1.0 x 0.8 Bone",
+          "files": 136,
+          "bytes": 37070694
+        },
+        {
+          "series": "203-3.0 x 3.0 Soft",
+          "files": 36,
+          "bytes": 7324218
+        },
+        {
+          "series": "204-1.0 x 0.8 Soft-3D",
+          "files": 136,
+          "bytes": 27508924
+        }
+      ]
+    }
+  ],
+  "case_count": 4,
+  "series_count": 30,
+  "extensions": {
+    ".dcm": 2357,
+    ".txt": 2,
+    "<no extension>": 7
+  },
+  "excluded_apple_files": 813,
+  "dicom_preamble_counts": {
+    "DICM": 2357
+  },
+  "no_extension_header_counts": {
+    "other_not_classified": 7
+  },
+  "external_result_extension_hits": {},
+  "inventory_exact_case_series_count_byte_match": true,
+  "inventory_extensions_match": true,
+  "input_evidence_sha256": {
+    "inventory.json": "9ea03f2e7ec7f345ed0147d5c679639b736d1d7a112dba3d580073ae548cd623",
+    "previews.json": "ecdb2f9bb02b1c07d0a57d9709b3f7f83ebe345a07795044ab6ea877170580aa",
+    "heterogeneous_frames.json": "0dd7f8970d5077b8fc7595ff233f2c123aa0d1cbbc55b9caf936941cf38b44dc",
+    "audit_reference.py": "cb2731210a645ba20eb86bdea5e12d59ea8569863a13407f877416169322bc39"
+  },
+  "source_notes_technical_facts": [
+    {
+      "decoded": true,
+      "encoding": "utf-8-sig",
+      "sha256": "3188c188779224b524b05c6a60cd1e7525d5942d584ef3822fe98a9d779c3213",
+      "technical_facts": [
+        {
+          "line_1based": 1,
+          "unit_values": [
+            "0.35mm"
+          ],
+          "technical_terms": [
+            "重采样"
+          ],
+          "line_sha256": "793282d0a75cd40235d98d5e7cf5767e0962c2c99b7b5714b1feddab7a819837"
+        },
+        {
+          "line_1based": 5,
+          "unit_values": [
+            "0.67mm"
+          ],
+          "technical_terms": [
+            "重采样",
+            "插值",
+            "原始"
+          ],
+          "line_sha256": "480176988e41f6e4566d024924bd82ebf8f0d60ed5f7ceb0ef98c3bd723e2654"
+        },
+        {
+          "line_1based": 6,
+          "unit_values": [
+            "0.35mm"
+          ],
+          "technical_terms": [
+            "分辨率"
+          ],
+          "line_sha256": "1eb535f6a59d0b1426a9e03e585f6c5ad9f50514f4e44d6c9df5c232288ed624"
+        },
+        {
+          "line_1based": 8,
+          "unit_values": [],
+          "technical_terms": [
+            "原始"
+          ],
+          "line_sha256": "efb77ee44548830a3736517d3ac14d733fe43456994510cfe620bf780dbfe430"
+        },
+        {
+          "line_1based": 23,
+          "unit_values": [],
+          "technical_terms": [
+            "重采样",
+            "插值"
+          ],
+          "line_sha256": "c5749b954931028c0c9886bfb004edbf63736766b229f23d84ac3ea876113d70"
+        },
+        {
+          "line_1based": 24,
+          "unit_values": [
+            "0.67mm"
+          ],
+          "technical_terms": [
+            "原始",
+            "分辨率"
+          ],
+          "line_sha256": "730033772434f380fa4fc10de3d5a353fcb2b8deba06ab37216469e456812f74"
+        },
+        {
+          "line_1based": 25,
+          "unit_values": [],
+          "technical_terms": [
+            "插值",
+            "原始"
+          ],
+          "line_sha256": "8d6dc6dfe542d1e40cc218f7a24e1bee053d978173647cce80ed6d027b5a25a2"
+        }
+      ]
+    },
+    {
+      "decoded": true,
+      "encoding": "utf-8-sig",
+      "sha256": "3188c188779224b524b05c6a60cd1e7525d5942d584ef3822fe98a9d779c3213",
+      "technical_facts": [
+        {
+          "line_1based": 1,
+          "unit_values": [
+            "0.35mm"
+          ],
+          "technical_terms": [
+            "重采样"
+          ],
+          "line_sha256": "793282d0a75cd40235d98d5e7cf5767e0962c2c99b7b5714b1feddab7a819837"
+        },
+        {
+          "line_1based": 5,
+          "unit_values": [
+            "0.67mm"
+          ],
+          "technical_terms": [
+            "重采样",
+            "插值",
+            "原始"
+          ],
+          "line_sha256": "480176988e41f6e4566d024924bd82ebf8f0d60ed5f7ceb0ef98c3bd723e2654"
+        },
+        {
+          "line_1based": 6,
+          "unit_values": [
+            "0.35mm"
+          ],
+          "technical_terms": [
+            "分辨率"
+          ],
+          "line_sha256": "1eb535f6a59d0b1426a9e03e585f6c5ad9f50514f4e44d6c9df5c232288ed624"
+        },
+        {
+          "line_1based": 8,
+          "unit_values": [],
+          "technical_terms": [
+            "原始"
+          ],
+          "line_sha256": "efb77ee44548830a3736517d3ac14d733fe43456994510cfe620bf780dbfe430"
+        },
+        {
+          "line_1based": 23,
+          "unit_values": [],
+          "technical_terms": [
+            "重采样",
+            "插值"
+          ],
+          "line_sha256": "c5749b954931028c0c9886bfb004edbf63736766b229f23d84ac3ea876113d70"
+        },
+        {
+          "line_1based": 24,
+          "unit_values": [
+            "0.67mm"
+          ],
+          "technical_terms": [
+            "原始",
+            "分辨率"
+          ],
+          "line_sha256": "730033772434f380fa4fc10de3d5a353fcb2b8deba06ab37216469e456812f74"
+        },
+        {
+          "line_1based": 25,
+          "unit_values": [],
+          "technical_terms": [
+            "插值",
+            "原始"
+          ],
+          "line_sha256": "8d6dc6dfe542d1e40cc218f7a24e1bee053d978173647cce80ed6d027b5a25a2"
+        }
+      ]
+    }
+  ],
+  "representative_raw_source_pixel_checks": [
+    {
+      "case": "case_a",
+      "series": "ISO_Bone_0.35mm_part2/ISO_Bone_0.35mm",
+      "shape_matches": true,
+      "spacing_matches": true,
+      "fileset_sha256_matches": true,
+      "samples": [
+        {
+          "slice_index_0based": 0,
+          "pixels_exact_match": true
+        },
+        {
+          "slice_index_0based": 66,
+          "pixels_exact_match": true
+        },
+        {
+          "slice_index_0based": 131,
+          "pixels_exact_match": true
+        }
+      ]
+    },
+    {
+      "case": "case_b",
+      "series": "1011-MPR 3.0mm",
+      "shape_matches": true,
+      "spacing_matches": true,
+      "fileset_sha256_matches": true,
+      "samples": [
+        {
+          "slice_index_0based": 0,
+          "pixels_exact_match": true
+        },
+        {
+          "slice_index_0based": 15,
+          "pixels_exact_match": true
+        },
+        {
+          "slice_index_0based": 29,
+          "pixels_exact_match": true
+        }
+      ]
+    },
+    {
+      "case": "case_lateral",
+      "series": "10003-3D_Sinus^_1",
+      "shape_matches": true,
+      "spacing_matches": true,
+      "fileset_sha256_matches": true,
+      "samples": [
+        {
+          "slice_index_0based": 0,
+          "pixels_exact_match": true
+        },
+        {
+          "slice_index_0based": 20,
+          "pixels_exact_match": true
+        },
+        {
+          "slice_index_0based": 39,
+          "pixels_exact_match": true
+        }
+      ]
+    }
+  ],
+  "heterogeneous_original_file_checks": [
+    {
+      "series": "10002-CH",
+      "error_file_index": 0,
+      "source_listing_index_0based": 35,
+      "source_sha256_matches": true,
+      "staged_unchanged": true,
+      "shape_matches": true,
+      "pixel_values_range_matches": true,
+      "full_frame_pixels_exact_match": true
+    },
+    {
+      "series": "10002-CH",
+      "error_file_index": 1,
+      "source_listing_index_0based": 1,
+      "source_sha256_matches": true,
+      "staged_unchanged": true,
+      "shape_matches": true,
+      "pixel_values_range_matches": true,
+      "full_frame_pixels_exact_match": true
+    },
+    {
+      "series": "10005-CH_4",
+      "error_file_index": 0,
+      "source_listing_index_0based": 42,
+      "source_sha256_matches": true,
+      "staged_unchanged": true,
+      "shape_matches": true,
+      "pixel_values_range_matches": true,
+      "full_frame_pixels_exact_match": true
+    },
+    {
+      "series": "10005-CH_4",
+      "error_file_index": 1,
+      "source_listing_index_0based": 6,
+      "source_sha256_matches": true,
+      "staged_unchanged": true,
+      "shape_matches": true,
+      "pixel_values_range_matches": true,
+      "full_frame_pixels_exact_match": true
+    }
+  ],
+  "boundaries": [
+    "No anatomical or clinical inference.",
+    "No segmentation, resampling, model, mesh or CFD execution.",
+    "DICOM pixel decoding exclusively via load_series_sitk.",
+    "External enumeration does not rule out DICOM embedded reconstructions or documents.",
+    "Only three complete homogeneous preview series independently decoded; remaining successful series visually inspected, not independently pixel-redecoded."
+  ]
+}

@@ -1,0 +1,7 @@
+*.png
+*.jpg
+*.jpeg
+*.dcm
+*.log
+_local_*/
+__pycache__/

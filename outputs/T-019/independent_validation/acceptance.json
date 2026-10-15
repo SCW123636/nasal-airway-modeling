@@ -1,0 +1,34 @@
+{
+  "schema": "T019_independent_acceptance/v1",
+  "checked_local": "2026-10-15T16:59:38.008778+08:00",
+  "checks": {
+    "inventory": true,
+    "representative_pixels": true,
+    "heterogeneous_frames": true,
+    "candidate_mapping": true,
+    "notes": true
+  },
+  "all_computed_checks_agree": true,
+  "visual_contact_sheets_reviewed": 4,
+  "representative_exact_pixels": 9,
+  "heterogeneous_original_files_checked": 4,
+  "delivery_revision_sha256": {
+    "已有处理效果核对.md": "2efd5fcf35658df93b9ca6481805f826b3baed8bf84fbb395ff08075b1a9667a",
+    "inventory.json": "9ea03f2e7ec7f345ed0147d5c679639b736d1d7a112dba3d580073ae548cd623",
+    "previews.json": "ecdb2f9bb02b1c07d0a57d9709b3f7f83ebe345a07795044ab6ea877170580aa",
+    "heterogeneous_frames.json": "0dd7f8970d5077b8fc7595ff233f2c123aa0d1cbbc55b9caf936941cf38b44dc",
+    "candidate_mapping.json": "12b5eeceb0e2a1fd881ca9e485239e4ab5799db0f74772c340f0393698e8b384",
+    "audit_reference.py": "cb2731210a645ba20eb86bdea5e12d59ea8569863a13407f877416169322bc39",
+    "knowledge_conclusion": "5a3e7f8f8c0c2a3d4bef885777897a18d4c55e3974cc53136419b4f4fe34d2fb"
+  },
+  "independent_evidence_sha256": {
+    "verify_reference.py": "763fa0b0fabd41987928156118e022d9e0f0b642363232058c74af4871140a01",
+    "verify_mapping_notes.py": "01fa3e540a3851889d78ac827fe424a248a845b1ee63a0c1c3b28689f88cc0ad",
+    "source_checks.json": "4a7ee1e4e4133d533b7466abee09b4a86190d3f4246199736abf18d51c1f3bfa",
+    "mapping_note_checks.json": "34984fda9fccfc59cfb88206c03d1cf8c41121799aa74de946536ca4749cc890",
+    "独立核对报告.md": "450761e138eb673e28b082bb749e904679c2b066514639ba27ee2e2640a46ada"
+  },
+  "blocking_evidence_issues": [],
+  "lead_decision_required": true,
+  "scope": "Evidence review only; no medical, STL, mesh, CFD or full workflow acceptance."
+}

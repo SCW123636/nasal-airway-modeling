@@ -1,0 +1,168 @@
+{
+  "schema": "T019_independent_mapping_note_check/v1",
+  "checked_local": "2026-10-15T16:57:08.256484+08:00",
+  "mapping_checks": [
+    {
+      "current_case": "p0",
+      "source_case": "case_a",
+      "source_count_matches": true,
+      "current_count_matches": true,
+      "shared_filename_count_matches": true,
+      "configured_series_label_matches": true,
+      "samples": [
+        {
+          "index_0based": 0,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": true
+        },
+        {
+          "index_0based": 197,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": true
+        },
+        {
+          "index_0based": 393,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": true
+        }
+      ]
+    },
+    {
+      "current_case": "p1",
+      "source_case": "case_lateral",
+      "source_count_matches": true,
+      "current_count_matches": true,
+      "shared_filename_count_matches": true,
+      "configured_series_label_matches": true,
+      "samples": [
+        {
+          "index_0based": 0,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        },
+        {
+          "index_0based": 68,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        },
+        {
+          "index_0based": 135,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        }
+      ]
+    },
+    {
+      "current_case": "p2",
+      "source_case": "case_b",
+      "source_count_matches": true,
+      "current_count_matches": true,
+      "shared_filename_count_matches": true,
+      "configured_series_label_matches": true,
+      "samples": [
+        {
+          "index_0based": 0,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        },
+        {
+          "index_0based": 143,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        },
+        {
+          "index_0based": 285,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        }
+      ]
+    },
+    {
+      "current_case": "p3",
+      "source_case": "case_medial",
+      "source_count_matches": true,
+      "current_count_matches": true,
+      "shared_filename_count_matches": true,
+      "configured_series_label_matches": true,
+      "samples": [
+        {
+          "index_0based": 0,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        },
+        {
+          "index_0based": 93,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        },
+        {
+          "index_0based": 185,
+          "source_sha_matches": true,
+          "current_sha_matches": true,
+          "equality_matches": true,
+          "files_equal": false
+        }
+      ]
+    }
+  ],
+  "note_checks": [
+    {
+      "sha256": "3188c188779224b524b05c6a60cd1e7525d5942d584ef3822fe98a9d779c3213",
+      "sha_present_in_mapping": true,
+      "contains_0_67mm": true,
+      "contains_0_35mm": true,
+      "contains_206_layers": true,
+      "contains_394_layers": true,
+      "contains_resampling_term": true,
+      "contains_B_spline": true,
+      "contains_cubic_order_term": true
+    },
+    {
+      "sha256": "3188c188779224b524b05c6a60cd1e7525d5942d584ef3822fe98a9d779c3213",
+      "sha_present_in_mapping": true,
+      "contains_0_67mm": true,
+      "contains_0_35mm": true,
+      "contains_206_layers": true,
+      "contains_394_layers": true,
+      "contains_resampling_term": true,
+      "contains_B_spline": true,
+      "contains_cubic_order_term": true
+    }
+  ],
+  "final_delivery_sha256": {
+    "已有处理效果核对.md": "2efd5fcf35658df93b9ca6481805f826b3baed8bf84fbb395ff08075b1a9667a",
+    "inventory.json": "9ea03f2e7ec7f345ed0147d5c679639b736d1d7a112dba3d580073ae548cd623",
+    "previews.json": "ecdb2f9bb02b1c07d0a57d9709b3f7f83ebe345a07795044ab6ea877170580aa",
+    "heterogeneous_frames.json": "0dd7f8970d5077b8fc7595ff233f2c123aa0d1cbbc55b9caf936941cf38b44dc",
+    "candidate_mapping.json": "12b5eeceb0e2a1fd881ca9e485239e4ab5799db0f74772c340f0393698e8b384",
+    "audit_reference.py": "cb2731210a645ba20eb86bdea5e12d59ea8569863a13407f877416169322bc39",
+    "knowledge_conclusion": "5a3e7f8f8c0c2a3d4bef885777897a18d4c55e3974cc53136419b4f4fe34d2fb"
+  },
+  "boundaries": [
+    "Raw conversion scripts were parsed as AST and never executed.",
+    "Mapping remains candidate-only; sample equality is limited to the sampled files.",
+    "Source notes are documentary assertions, not verification of original acquisition resolution."
+  ]
+}
