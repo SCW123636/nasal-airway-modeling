@@ -1,0 +1,167 @@
+{
+  "analytic": {
+    "delta_p_pa": 28.80704469963305,
+    "reynolds": 5275.854467134652,
+    "u_mean_m_s": 19.89436788648692,
+    "u_peak_m_s": 39.78873577297384
+  },
+  "generated_at": "2026-10-15T13:59:08+00:00",
+  "geometry": {
+    "D_mm": 4.0,
+    "L_mm": 40.0,
+    "Q_m3_s": 0.00025,
+    "kind": "straight_circular_tube",
+    "note": "Re same regime as patient b15 (~5300); laminar solver validates chain vs analytic; not a physical-regime claim",
+    "reynolds": 5275.854467134652
+  },
+  "meshes_mm": [
+    0.4,
+    0.2,
+    0.1
+  ],
+  "presets": {
+    "aggressive": {
+      "nnonorth": 3,
+      "u_relax": 0.5
+    },
+    "t006": {
+      "nnonorth": 2,
+      "u_relax": 0.7
+    }
+  },
+  "rows": [
+    {
+      "case": "case_h0p4_t006",
+      "cell_size_mm": 0.4,
+      "converged_extract": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 17.765580562128,
+      "delta_p_rel_error": 0.3832904156824423,
+      "mass_imbalance_frac": 0.0,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 38.659700252057334,
+      "peak_velocity_rel_error": 0.028375757585225682,
+      "preset": "t006",
+      "residuals": {
+        "converged_token": true,
+        "floor_p_final": 1.04358451598e-13,
+        "floor_p_initial": 1.11919319971e-12,
+        "floor_rise_ratio": 4.58301961415999,
+        "floor_ux_final": 3.40609503769e-13,
+        "last_p_final": 5.82635282175e-13,
+        "n_steps": 433
+      }
+    },
+    {
+      "case": "case_h0p4_aggressive",
+      "cell_size_mm": 0.4,
+      "converged_extract": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 17.480094941868,
+      "delta_p_rel_error": 0.39320068670249037,
+      "mass_imbalance_frac": 0.0,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 38.658700347213134,
+      "peak_velocity_rel_error": 0.028400887934928298,
+      "preset": "aggressive",
+      "residuals": {
+        "converged_token": true,
+        "floor_p_final": 2.94382234394e-13,
+        "floor_p_initial": 2.94382234394e-13,
+        "floor_rise_ratio": 1.3712695430890702,
+        "floor_ux_final": 6.61393942552e-13,
+        "last_p_final": 6.98059626445e-13,
+        "n_steps": 388
+      }
+    },
+    {
+      "case": "case_h0p2_t006",
+      "cell_size_mm": 0.2,
+      "converged_extract": false,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 26.103921356483998,
+      "delta_p_rel_error": 0.09383549653684138,
+      "mass_imbalance_frac": 0.0,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 0.0,
+      "peak_velocity_rel_error": 1.0,
+      "preset": "t006",
+      "residuals": {
+        "converged_token": false,
+        "floor_p_final": 3.10433652139e-13,
+        "floor_p_initial": 1.39961016055e-11,
+        "floor_rise_ratio": 0.0,
+        "floor_ux_final": 2.62193555713e-09,
+        "last_p_final": 3.10905254485e-13,
+        "n_steps": 800
+      }
+    },
+    {
+      "case": "case_h0p2_aggressive",
+      "cell_size_mm": 0.2,
+      "converged_extract": true,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 26.083804272924,
+      "delta_p_rel_error": 0.09453383556362309,
+      "mass_imbalance_frac": 0.0,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 39.52740000000474,
+      "peak_velocity_rel_error": 0.0065680843558394136,
+      "preset": "aggressive",
+      "residuals": {
+        "converged_token": true,
+        "floor_p_final": 2.81200898784e-13,
+        "floor_p_initial": 2.81200898784e-13,
+        "floor_rise_ratio": 0.4167949362602419,
+        "floor_ux_final": 3.90243319312e-12,
+        "last_p_final": 3.98404009469e-13,
+        "n_steps": 761
+      }
+    },
+    {
+      "case": "case_h0p1_t006",
+      "cell_size_mm": 0.1,
+      "converged_extract": false,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 26.376183768744,
+      "delta_p_rel_error": 0.0843842524019833,
+      "mass_imbalance_frac": 0.0,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 0.0,
+      "peak_velocity_rel_error": 1.0,
+      "preset": "t006",
+      "residuals": {
+        "converged_token": false,
+        "floor_p_final": 3.71251776979e-13,
+        "floor_p_initial": 8.92637905e-12,
+        "floor_rise_ratio": 0.3471796527516439,
+        "floor_ux_final": 4.68202824692e-11,
+        "last_p_final": 5.00142839994e-13,
+        "n_steps": 800
+      }
+    },
+    {
+      "case": "case_h0p1_aggressive",
+      "cell_size_mm": 0.1,
+      "converged_extract": false,
+      "delta_p_analytic_pa": 28.80704469963305,
+      "delta_p_numeric_pa": 26.395580914392,
+      "delta_p_rel_error": 0.08371090510620022,
+      "mass_imbalance_frac": 1.319994460957652e-11,
+      "peak_velocity_analytic_mps": 39.78873577297384,
+      "peak_velocity_numeric_mps": 0.0,
+      "peak_velocity_rel_error": 1.0,
+      "preset": "aggressive",
+      "residuals": {
+        "converged_token": false,
+        "floor_p_final": 1.66381922841e-09,
+        "floor_p_initial": 3.24503701522e-07,
+        "floor_rise_ratio": 0.3181181105328418,
+        "floor_ux_final": 3.88662215229e-06,
+        "last_p_final": 2.19311025762e-09,
+        "n_steps": 800
+      }
+    }
+  ],
+  "schema": "nasal_cfd_phantom_matrix/v1"
+}
