@@ -2,59 +2,61 @@
   "schema": "pro_patient_functional_metrics/v1",
   "note": "PRO 工作台对比视图数据源。所有数值均为已核验任务的搬运（非本页计算），每条带 source/status/domain 出处。临床标签一律不写（避免暗示诊断）。",
   "generated": "2026-10-16",
+  "revision": "2026-10-16 07:1x 按域标准统一（用户 03:3x 裁定：带口咽扩展域唯一，短域作废重跑）更新：b15 由 T-042 短域旧值换为 T-054 扩展域口径（T-054 VERIFIED）；b01 补 T-047 WSS 三项并将状态备注更正为 VERIFIED；参考带更新为 ENS C8 实测（32.2℃/93.5%RH，旧 >33℃ 无出处口径作废）；出口面积不再与 choana 文献带比对（T-054 §6：截断出口非解剖 choana，该待核项由域重定义消解）。短域值保留在各 metric 的 note 中作口径差异追溯，新旧不可比为「修正」。",
   "patients": {
     "b15": {
       "case_id_in_api": "b15_engineering",
       "label": "b15",
-      "domain": "short（鼻+鼻咽，短域口径）",
-      "domain_note": "出口为鼻咽截断；T-054 正按扩展域口径重定基（EXECUTING），新旧口径不可比为「修正」，只可比为「域口径差异」。",
+      "domain": "extended（鼻+鼻咽+可见口咽，扩展域口径）",
+      "domain_note": "出口 = oropharynx_truncation_outlet（扫描底工程截断，显式标 engineering_truncation_at_scan_inferior_face）；choana 为域内截面而非边界，choana 文献带不再适用于截断出口（T-054 §6）。T-054 重定基 VERIFIED；短域 T-042 值降级为历史参考，只可作域口径差异追溯。",
       "validation": "passed_engineering_screen",
-      "validation_note": "M2 四判据全过（Δp 入带 / 不平衡 5.27e-7 / monitor 0.00887% / Time=600 正常 End）；residualControl 未达标为记录项（T-006 教训：sliver 伤精度非稳定性）。",
+      "validation_note": "M2 四判据全过（Δp 18.267 Pa 入带 / 不平衡 3.49e-8 / monitor 0.012% / Time=600 正常 End）；636,342 cells（非正交 76.8°、det<0.001 计 466，全面优于短域网格）。",
       "clinical_status": "generalisation_test_only_no_human_review",
       "metrics": {
-        "R_Pa_s_ml": {"value": 0.0411, "unit": "Pa·s/mL", "label": "鼻阻力 R", "source": "T-042 结论卡", "note": "低于 ISCOANA 正常参考 6.1×；层流低估 Re≈1.8e3 方向已知"},
-        "delta_p_Pa": {"value": 10.286, "unit": "Pa", "label": "进口-出口压差 Δp", "source": "T-042 结论卡", "note": "贴 18 Pa 工程带下限"},
+        "R_Pa_s_ml": {"value": 0.07307, "unit": "Pa·s/mL", "label": "鼻阻力 R", "source": "T-054 结论卡", "note": "短域 T-042 为 0.04114；+77.6% 为域口径差异非修正（口咽窄，效应大于 b01 的 +32%）；仍低于 ISCOANA 0.25 参考——层流低估 + 缺下咽/喉阻力，方向已知，绝对值不可对标临床鼻测压"},
+        "delta_p_Pa": {"value": 18.267, "unit": "Pa", "label": "进口-出口压差 Δp", "source": "T-054 结论卡", "note": "kinematic×ρ1.2；短域 T-042 为 10.286（T-041 同网格复测 10.294）；出口 p=0 gauge，固定 50:50 分流口径"},
         "Q_L_min": {"value": 15.0, "unit": "L/min", "label": "总流量 Q", "source": "T-006/T-041 口径", "note": "双鼻孔各 1.25e-4 m³/s，固定 50:50 分流"},
-        "outlet_area_mm2": {"value": 487.7, "unit": "mm²", "label": "出口面积", "source": "T-042 结论卡", "note": "超文献 choana 带 297–362 mm²（T-042 待核项；短域口径 vs choana 解剖位置差异）"},
-        "wss_median_Pa": {"value": 0.047, "unit": "Pa", "label": "WSS 中位", "source": "T-042 结论卡"},
-        "wss_max_Pa": {"value": 4.17, "unit": "Pa", "label": "WSS 最大", "source": "T-042 结论卡"},
-        "wss_integral_N": {"value": 0.001102, "unit": "N", "label": "WSS 积分力", "source": "T-042 结论卡", "note": "已知答案力平衡 0.087% 背书"},
-        "nasal_volume_ml": {"value": null, "unit": "mL", "label": "鼻腔容积", "source": null, "note": "短域口径未提取容积（T-042 未产）"},
-        "nostril_area_L_mm2": {"value": null, "unit": "mm²", "label": "左鼻孔面积", "source": null},
-        "nostril_area_R_mm2": {"value": null, "unit": "mm²", "label": "右鼻孔面积", "source": null}
+        "outlet_area_mm2": {"value": 112.51, "unit": "mm²", "label": "出口面积（工程截断）", "source": "T-054 结论卡", "note": "mesh 阶段 112.51 / opening 阶段 111.00（T-058 生产管线复测即 111.0）；面积由扫描 FOV 决定，非解剖量"},
+        "wss_median_Pa": {"value": 0.0682, "unit": "Pa", "label": "WSS 中位", "source": "T-054 结论卡", "note": "mean 0.0879；短域 median 0.047（+45%）"},
+        "wss_max_Pa": {"value": 3.292, "unit": "Pa", "label": "WSS 最大", "source": "T-054 结论卡", "note": "短域 4.17——出口截面缩小后流速更均匀，max 下降"},
+        "wss_integral_N": {"value": 0.001506, "unit": "N", "label": "WSS 积分力", "source": "T-054 结论卡", "note": "壁面 18,898.5 mm²；提取链经 T-042 已知答案力平衡 0.087% 背书"},
+        "nasal_volume_ml": {"value": 21.76, "unit": "mL", "label": "气道容积", "source": "T-054 结论卡", "note": "扩展域总量（短域 20,055.7 + 1,704.4 mm³）；T-058 生产管线 b15 signed_volume 21,760.08 mm³ 一致"},
+        "nostril_area_L_mm2": {"value": 80.04, "unit": "mm²", "label": "左鼻孔面积", "source": "T-054 结论卡", "note": "与短域逐位不变——口咽扩展未触及鼻侧几何"},
+        "nostril_area_R_mm2": {"value": 80.06, "unit": "mm²", "label": "右鼻孔面积", "source": "T-054 结论卡"}
       }
     },
     "b01": {
       "case_id_in_api": null,
       "label": "b01",
       "domain": "extended（鼻+鼻咽+口咽，扩展域口径）",
-      "domain_note": "出口 = oropharynx_truncation_outlet（扫描底工程截断，显式标 engineering_truncation_at_scan_inferior_face）；缺下游阻力 → Δp 偏低估方向已知。",
+      "domain_note": "出口 = oropharynx_truncation_outlet（扫描下缘工程截断，显式标 engineering_truncation_at_scan_inferior_face）；choana 为域内截面，文献带不再适用于截断出口（T-054 §6）。缺下游阻力 → Δp 偏低估方向已知。",
       "validation": "passed_engineering_screen",
-      "validation_note": "T-047 扩展臂 600/600 End；Δp 15.709 Pa / 不平衡 3.1e-7 / 监测 0.024%；T-047 状态 EXECUTING（短域对照臂在跑）。",
+      "validation_note": "T-047 VERIFIED（双臂 M2 全过：extended 600/600 End / Δp 15.709 Pa / 不平衡 3.11e-7 / monitor 0.024%；短域对照臂 715,185 cells Δp 11.903，唯一变量 = 域，764,801 cells）。",
       "clinical_status": "generalisation_test_only_no_human_review",
       "metrics": {
-        "R_Pa_s_ml": {"value": 0.06284, "unit": "Pa·s/mL", "label": "鼻阻力 R", "source": "T-047"},
-        "delta_p_Pa": {"value": 15.709, "unit": "Pa", "label": "进口-出口压差 Δp", "source": "T-047"},
+        "R_Pa_s_ml": {"value": 0.06284, "unit": "Pa·s/mL", "label": "鼻阻力 R", "source": "T-047", "note": "短域 0.04761；+32% 为域口径差异非修正（短域低估 ~24%）；均低于 ISCOANA 0.25（层流低估 + 缺下咽/喉，方向已知）"},
+        "delta_p_Pa": {"value": 15.709, "unit": "Pa", "label": "进口-出口压差 Δp", "source": "T-047", "note": "kinematic×ρ1.2；短域 11.903"},
         "Q_L_min": {"value": 15.0, "unit": "L/min", "label": "总流量 Q", "source": "T-047 口径", "note": "同 50:50 固定分流口径"},
-        "outlet_area_mm2": {"value": 148.93, "unit": "mm²", "label": "出口面积", "source": "T-047", "note": "oropharynx_truncation_outlet"},
-        "nasal_volume_ml": {"value": 28.0, "unit": "mL", "label": "气道容积", "source": "T-047", "note": "扩展域 21.2→28.0 mL（+7,055.7 mm³）"},
-        "nostril_area_L_mm2": {"value": 80.08, "unit": "mm²", "label": "左鼻孔面积", "source": "T-047", "note": "复用生产 worker，与生产逐位相同"},
+        "outlet_area_mm2": {"value": 148.93, "unit": "mm²", "label": "出口面积（工程截断）", "source": "T-047", "note": "oropharynx_truncation_outlet；扫描 FOV 决定的工程截断面，非解剖量"},
+        "nasal_volume_ml": {"value": 28.04, "unit": "mL", "label": "气道容积", "source": "T-047", "note": "扩展域 21.0→28.04 mL（+7,055.7 mm³，+33%）"},
+        "nostril_area_L_mm2": {"value": 80.08, "unit": "mm²", "label": "左鼻孔面积", "source": "T-047", "note": "复用生产 worker，与生产逐位相同（三角数 229/220 一致）"},
         "nostril_area_R_mm2": {"value": 80.08, "unit": "mm²", "label": "右鼻孔面积", "source": "T-047"},
-        "wss_median_Pa": {"value": null, "unit": "Pa", "label": "WSS 中位", "source": null, "note": "T-047 未产 WSS 分布"},
-        "wss_max_Pa": {"value": null, "unit": "Pa", "label": "WSS 最大", "source": null},
-        "wss_integral_N": {"value": null, "unit": "N", "label": "WSS 积分力", "source": null}
+        "wss_median_Pa": {"value": 0.0537, "unit": "Pa", "label": "WSS 中位", "source": "T-047", "note": "mean 0.0713 / p90 0.1527；提取链同 T-042（已知答案 0.087% 背书）"},
+        "wss_max_Pa": {"value": 2.157, "unit": "Pa", "label": "WSS 最大", "source": "T-047"},
+        "wss_integral_N": {"value": 0.001331, "unit": "N", "label": "WSS 积分力", "source": "T-047", "note": "壁面积 19,698.7 mm² 与网格报告逐位一致"}
       }
     }
   },
   "references": {
-    "iscoana_R_Pa_s_ml": {"value": 0.25, "unit": "Pa·s/mL", "label": "鼻阻力（ISCOANA 正常参考）", "source": "T-042 结论卡引用"},
-    "choana_area_mm2": {"band": [297, 362], "unit": "mm²", "label": "后鼻孔面积（文献带）", "source": "T-042 结论卡引用"},
-    "S15_temp_C": {"band": [33, 34], "unit": "℃", "label": "后鼻孔温度（S15 需求文档）", "source": "knowledge/患者需求/20261015-鼻腔建模-患者需求交叉分析.md"},
-    "S15_RH_pct": {"band_min": 90, "unit": "%RH", "label": "后鼻孔湿度（S15）", "source": "同上"},
-    "S15_heat_flux_W_m2": {"band_min": 50, "unit": "W/m²", "label": "后鼻孔热通量（S15）", "source": "同上"}
+    "iscoana_R_Pa_s_ml": {"value": 0.25, "unit": "Pa·s/mL", "label": "鼻阻力（ISCOANA 正常参考）", "source": "T-042 结论卡引用", "note": "CFD 系统性低估体内阻力 → R 绝对值不可对标临床鼻测压，配对相对变化是唯一站得住口径"},
+    "choana_area_mm2": {"band": [297, 362], "unit": "mm²", "label": "后鼻孔面积（文献带）", "source": "T-042 结论卡引用", "note": "仅适用于解剖 choana；本项目扩展域出口为扫描底工程截断面，该带不再适用（T-054 §6），保留作出处"},
+    "truncation_outlet_note": {"unit": "mm²", "label": "口咽底工程截断出口", "band": null, "band_note": "无参考带——截断面积由扫描 FOV 决定，是工程属性非解剖量；choana 文献带（297–362）不再适用，T-042 待核项已由域重定义消解（T-054 §6）", "source": "T-054 结论卡 §6"},
+    "S15_temp_C": {"band": [32.0, 32.4], "unit": "℃", "label": "后鼻孔温度（健康对照 32.2±0.2℃，n=5）", "source": "knowledge/患者需求/20261016-ENS定制鼻塞-患者需求与实现条件.md §9 C8", "note": "旧 >33℃ 口径无出处已作废；ENS 患者对照 31.4±0.9℃（n=14）"},
+    "S15_RH_pct": {"band": [92.0, 95.0], "unit": "%RH", "label": "后鼻孔湿度（健康对照 93.5±1.5%RH，n=5）", "source": "同上", "note": "ENS 患者对照 84.6±7.7%RH（n=14）"},
+    "S15_heat_flux_W_m2": {"band_min": 50, "unit": "W/m²", "label": "后鼻孔热通量（首选指标：>50 W/m² 黏膜面积占比）", "source": "需求文档 §9 C8 / PMC12791179"}
   },
   "unavailable": {
-    "temp_humidity": "温湿度/热通量需能量求解（T-043 已立卡未排期）→ 全部患者该行如实「—」",
+    "temp_humidity": "T-043 已首跑 PASS（合成验证残差 9.76e-13；b15 域出口 32.90℃），但取值截面经裁定为后鼻孔而非域出口 → 患者级温湿度/热通量仍如实「—」；T-043 后续按后鼻孔截面重跑",
     "normal_cohort": "正常人参考队列未建立（患者需求文档 L43：需建立正常参考数据集）→ 症状 vs 正常人分组对照缓建（V3）"
   }
 }

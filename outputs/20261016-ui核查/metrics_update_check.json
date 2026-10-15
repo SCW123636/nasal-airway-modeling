@@ -1,0 +1,32 @@
+{
+ "ok": true,
+ "errors": [],
+ "checks": {
+  "b15_picked": true,
+  "b15_R_07307": true,
+  "b15_dp_18267": true,
+  "b15_outlet_11251": true,
+  "b15_wss_median": true,
+  "b15_extended_label": true,
+  "no_choana_band_misuse": true,
+  "truncation_note_shown": true,
+  "b01_wss_filled": true,
+  "b01_verified": true,
+  "temp_row_updated": true
+ },
+ "tree": [
+  "▸ ◇ b15 · 工程试算 · T-029a 仿真项目 · 求解失败",
+  "▸ ◇ b15 · 工程试算 仿真项目 · 已核验指标",
+  "▸ ◇ p0 仿真项目 · 未求解",
+  "▸ ◌ CT 导入 · 10-15 23:32 待审核 · 78 MB · dicom",
+  "▸ ◌ CT 导入 · 10-09 22:35 待审核 · 98 MB · dicom",
+  "▸ ◌ CT 导入 · 10-15 15:41 待审核 · 73 MB · dicom",
+  "▸ ◌ CT 导入 · 10-11 10:20 待审核 · 63 MB · dicom",
+  "▸ ✗ CT 导入 · 10-09 22:34 导入失败 · 28 KB · dicom",
+  "▸ ✗ CT 导入 · 10-09 22:34 导入失败 · 31 KB · dicom",
+  "▸ ◌ CT 导入 · 10-08 21:43 已中断 · 90 MB · zip",
+  "▸ ◌ CT 导入 · 10-06 22:44 待审核 · 90 MB · zip",
+  "▸ ◇ 参考解算 · 分流反馈 仿真项目 · 求解完成",
+  "▸ ◇ 参考解算 · 通道 仿真项目 · 求解失败"
+ ]
+}

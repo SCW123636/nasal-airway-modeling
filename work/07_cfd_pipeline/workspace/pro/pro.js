@@ -329,7 +329,7 @@ function bandPos(val, ref) {
 }
 const REF_MAP = [
   ['R_Pa_s_ml', 'iscoana_R_Pa_s_ml'],
-  ['outlet_area_mm2', 'choana_area_mm2'],
+  ['outlet_area_mm2', 'truncation_outlet_note'],
 ];
 function renderCompare() {
   const wrap = el('div', undefined, 'view-native compare-wrap');
@@ -379,14 +379,15 @@ function renderCompareRef() {
   }
   /* S15 温湿行：本项目标未产 → 如实「—」 */
   rows.push([mp.metrics.R_Pa_s_ml && {label: '后鼻孔温度', unit: '℃', value: null, source: null,
-    note: '需能量求解（T-043 已立卡未排期）'}, refs.S15_temp_C]);
+    note: 'T-043 已首跑 PASS，但取值截面裁定为后鼻孔（非域出口）→ 患者级未产'}, refs.S15_temp_C]);
   for (const [m, r] of rows) {
     if (!m) continue;
     const tr = el('tr');
     tr.append(el('td', m.label + (m.unit ? '（' + m.unit + '）' : '')));
     tr.append(el('td', m.value == null ? '—' : m.value, 'jid'));
-    const refTxt = r ? (r.band ? r.band.join('–') : (r.band_min != null ? '≥ ' + r.band_min : r.value)) + ' ' + r.unit
-      + '（' + (r.source || '').slice(0, 30) + '）' : '暂无带出处参考带';
+    const refTxt = r ? (r.band_note ? r.band_note + '（' + (r.source || '').slice(0, 30) + '）'
+      : (r.band ? r.band.join('–') : (r.band_min != null ? '≥ ' + r.band_min : r.value)) + ' ' + r.unit
+      + '（' + (r.source || '').slice(0, 30) + '）') : '暂无带出处参考带';
     tr.append(el('td', refTxt));
     const pos = bandPos(m.value, r);
     tr.append(el('td', pos.txt, 'pos ' + pos.cls));
