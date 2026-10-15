@@ -1,0 +1,63 @@
+{
+  "schema": "normal_path_run/v1",
+  "method": "work/07_cfd_pipeline/正常路径基本方法_v1.md",
+  "cases": 1,
+  "auto_pass": 0,
+  "jobs": 1,
+  "load_ceiling": 78.0,
+  "pre": {},
+  "rows": {
+    "p0": {
+      "case": "p0",
+      "s2_segment": {
+        "rc": 0,
+        "s": 139.0,
+        "tail": ".nii.gz', 'nasopharynx.nii.gz', 'optic_nerve_left.nii.gz', 'optic_nerve_right.nii.gz', 'oropharynx.nii.gz', 'parotid_gland_left.nii.gz', 'parotid_gland_right.nii.gz', 'soft_palate.nii.gz', 'submandibular_gland_left.nii.gz', 'submandibular_gland_right.nii.gz']\n\nSUMMARY -> C:\\ts_work\\run_summary.json\n"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 339274,
+          "nasal_cavity_right": 270876,
+          "nasopharynx": 82727
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 16.2,
+        "tail": "    },\n      \"nasopharynx_outlet\": {\n        \"status\": \"proposed\",\n        \"point_lps_mm\": [\n          -11.516358289822167,\n          -158.33160182579724,\n          -666.2174786671997\n        ],\n        \"review_reasons\": []\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\p0\"\n  }\n]\n",
+        "landmarks_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 10.5,
+        "tail": "p0: OK  air=585693  pts=198262  tri=396524  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\batch27_surfaces\\surface_build.json\n",
+        "surface_sha256": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 47.1,
+        "tail": "p0: escalated <- [{'opening': None, 'reason': 'clip_failed', 'detail': 'nasopharynx_outlet: unexpected boundary outside cutting plane or ROI'}]\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": null,
+            "reason": "clip_failed",
+            "detail": "nasopharynx_outlet: unexpected boundary outside cutting plane or ROI"
+          }
+        ],
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "escalated"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+p0: start (machine load 5.1%)
+p0: escalated  areas=None
+
+auto_pass 0/1  -> outputs\T-011\a0_p0_run.json
