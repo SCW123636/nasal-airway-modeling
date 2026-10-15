@@ -1,0 +1,210 @@
+{
+  "case": "fixture",
+  "symptom_patient_mapping": "unknown",
+  "threshold_HU": -300.0,
+  "baseline_definition": "UNCROPPED semantic label union intersect CT threshold; not equivalent to final cropped production STL",
+  "operator": "union_of_named_binary_labels INTERSECT CT_strictly_less_than_threshold",
+  "morphology_or_bridge_or_filling": false,
+  "resampling": false,
+  "component_removal": false,
+  "outlet_selected": false,
+  "CFD_admitted": false,
+  "limitations": [
+    "engineering_candidate_only",
+    "symptom_patient_mapping_unknown",
+    "uncropped_semantic_intersection_baseline_not_equivalent_to_final_production_STL",
+    "symptom_location_unknown",
+    "anatomical_extent_not_reviewed",
+    "CT_complete_pharynx_or_larynx_coverage_not_established",
+    "outlet_not_selected_or_frozen",
+    "oral_cavity_exclusion_not_reviewed",
+    "threshold_exploratory_not_medically_adjudicated",
+    "not_CFD_admitted"
+  ],
+  "profiles": {
+    "nasal_original": {
+      "generated": true,
+      "path": "outputs\\T-027\\runs\\20261015_08_final_freeze_review\\synthetic_default\\fixture_nasal_original_candidate.nii.gz",
+      "sha256": "51e0edcc181fdb75eebd7734e3a770934e944245fe0b3683376673be24ef80ca",
+      "source_labels": [
+        "nasal_cavity_left",
+        "nasal_cavity_right",
+        "nasopharynx"
+      ],
+      "original_is_subset": true,
+      "added_air_voxels": 0,
+      "reread_matches_exactly": true,
+      "voxels": 3,
+      "volume_mm3": 3.0,
+      "empty": false,
+      "boundary_contact": {
+        "any": true,
+        "face_voxel_counts": {
+          "x_low": 1,
+          "x_high": 0,
+          "y_low": 0,
+          "y_high": 0,
+          "z_low": 0,
+          "z_high": 0
+        },
+        "voxel_support_gap_to_CT_face_mm": {
+          "x_low_mm": 0.0,
+          "x_high_mm": 2.0,
+          "y_low_mm": 1.0,
+          "y_high_mm": 2.0,
+          "z_low_mm": 1.0,
+          "z_high_mm": 1.0
+        },
+        "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+      },
+      "bounds_LPS_mm": [
+        [
+          -0.5,
+          0.5,
+          0.5
+        ],
+        [
+          2.5,
+          1.5,
+          1.5
+        ]
+      ],
+      "index_bounds_xyz_inclusive": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "center_bounds_LPS_mm": [
+        [
+          0.0,
+          1.0,
+          1.0
+        ],
+        [
+          2.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "connectivity": {
+        "6": {
+          "component_count": 1,
+          "sizes_voxels_descending": [
+            3
+          ],
+          "all_components_preserved": true
+        },
+        "26": {
+          "component_count": 1,
+          "sizes_voxels_descending": [
+            3
+          ],
+          "all_components_preserved": true
+        }
+      }
+    },
+    "nasal_oropharynx": {
+      "generated": true,
+      "path": "outputs\\T-027\\runs\\20261015_08_final_freeze_review\\synthetic_default\\fixture_nasal_oropharynx_candidate.nii.gz",
+      "sha256": "53c80d34d2257a1f719f7b5d6fbe3bb8fc305da5ebc4f064128437ffa94191de",
+      "source_labels": [
+        "nasal_cavity_left",
+        "nasal_cavity_right",
+        "nasopharynx",
+        "oropharynx"
+      ],
+      "original_is_subset": true,
+      "added_air_voxels": 1,
+      "reread_matches_exactly": true,
+      "voxels": 4,
+      "volume_mm3": 4.0,
+      "empty": false,
+      "boundary_contact": {
+        "any": true,
+        "face_voxel_counts": {
+          "x_low": 1,
+          "x_high": 0,
+          "y_low": 0,
+          "y_high": 0,
+          "z_low": 1,
+          "z_high": 0
+        },
+        "voxel_support_gap_to_CT_face_mm": {
+          "x_low_mm": 0.0,
+          "x_high_mm": 2.0,
+          "y_low_mm": 1.0,
+          "y_high_mm": 2.0,
+          "z_low_mm": 0.0,
+          "z_high_mm": 1.0
+        },
+        "interpretation": "contact describes truncation risk; no contact does not prove anatomical completeness"
+      },
+      "bounds_LPS_mm": [
+        [
+          -0.5,
+          0.5,
+          -0.5
+        ],
+        [
+          2.5,
+          1.5,
+          1.5
+        ]
+      ],
+      "index_bounds_xyz_inclusive": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "center_bounds_LPS_mm": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          2.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "connectivity": {
+        "6": {
+          "component_count": 1,
+          "sizes_voxels_descending": [
+            4
+          ],
+          "all_components_preserved": true
+        },
+        "26": {
+          "component_count": 1,
+          "sizes_voxels_descending": [
+            4
+          ],
+          "all_components_preserved": true
+        }
+      }
+    },
+    "nasal_oropharynx_hypopharynx": {
+      "generated": false,
+      "refusal": "empty_label:hypopharynx"
+    }
+  },
+  "preview": {
+    "synthetic_preview_stub": true
+  }
+}

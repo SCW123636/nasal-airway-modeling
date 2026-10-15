@@ -1,0 +1,3175 @@
+{
+  "timestamp_utc": "2026-10-15T10:54:16.910636+00:00",
+  "command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "outputs\\T-027\\independent_audit_report_review.py",
+    "--independent-audit",
+    "outputs\\T-027\\runs\\20261015_01_input_audit\\all_cases_audit.json",
+    "--author-run",
+    "outputs\\T-026\\runs\\20261015_04_full",
+    "--out",
+    "outputs\\T-027\\runs\\20261015_05_five_case_report_review"
+  ],
+  "script_sha256": "a871dde7f3785386c0a2add435205fb524aaafff8357c9fd9633c0aeb4348e06",
+  "independent_raw_audit_sha256": "46bd1d5fafaf6991713fffc3e4f4eceee82ffa9f5b5388546f70ad1db543cac7",
+  "compact_results": [
+    {
+      "case": "p0",
+      "CT_size_xyz": [
+        512,
+        512,
+        394
+      ],
+      "spacing_xyz_mm": [
+        0.34960898756980896,
+        0.34960898756980896,
+        0.3499999940395355
+      ],
+      "baseline_air_voxels": 585693,
+      "added_oropharynx_air_voxels": 131684,
+      "extended_air_voxels": 717377,
+      "oropharynx_air_z0_face_voxels": 2105,
+      "hypopharynx_semantic_voxels": 0,
+      "larynx_air_exists": false
+    },
+    {
+      "case": "p1",
+      "CT_size_xyz": [
+        512,
+        512,
+        136
+      ],
+      "spacing_xyz_mm": [
+        0.34765625,
+        0.34765625,
+        0.800000011920929
+      ],
+      "baseline_air_voxels": 222747,
+      "added_oropharynx_air_voxels": 29960,
+      "extended_air_voxels": 252707,
+      "oropharynx_air_z0_face_voxels": 1348,
+      "hypopharynx_semantic_voxels": 0,
+      "larynx_air_exists": false
+    },
+    {
+      "case": "p2",
+      "CT_size_xyz": [
+        512,
+        512,
+        286
+      ],
+      "spacing_xyz_mm": [
+        0.458984375,
+        0.458984375,
+        0.5
+      ],
+      "baseline_air_voxels": 250828,
+      "added_oropharynx_air_voxels": 102830,
+      "extended_air_voxels": 353658,
+      "oropharynx_air_z0_face_voxels": 926,
+      "hypopharynx_semantic_voxels": 0,
+      "larynx_air_exists": false
+    },
+    {
+      "case": "p3",
+      "CT_size_xyz": [
+        512,
+        512,
+        186
+      ],
+      "spacing_xyz_mm": [
+        0.3671875,
+        0.3671875,
+        0.6000000238418579
+      ],
+      "baseline_air_voxels": 397783,
+      "added_oropharynx_air_voxels": 47809,
+      "extended_air_voxels": 445592,
+      "oropharynx_air_z0_face_voxels": 930,
+      "hypopharynx_semantic_voxels": 0,
+      "larynx_air_exists": false
+    },
+    {
+      "case": "p3t1",
+      "CT_size_xyz": [
+        512,
+        512,
+        232
+      ],
+      "spacing_xyz_mm": [
+        0.466796875,
+        0.466796875,
+        0.5
+      ],
+      "baseline_air_voxels": 288712,
+      "added_oropharynx_air_voxels": 66081,
+      "extended_air_voxels": 354793,
+      "oropharynx_air_z0_face_voxels": 905,
+      "hypopharynx_semantic_voxels": 0,
+      "larynx_air_exists": false
+    }
+  ],
+  "checks": [
+    {
+      "name": "p0:CT_size_xyz",
+      "actual": [
+        512,
+        512,
+        394
+      ],
+      "expected": [
+        512,
+        512,
+        394
+      ],
+      "pass": true
+    },
+    {
+      "name": "p0:CT_spacing",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:CT_origin",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:CT_direction",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:CT_support_LPS_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:semantic:voxel_count",
+      "actual": 339274,
+      "expected": 339274,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:air_strict_lt_minus300:voxel_count",
+      "actual": 294216,
+      "expected": 294216,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_left:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:semantic:voxel_count",
+      "actual": 270876,
+      "expected": 270876,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:air_strict_lt_minus300:voxel_count",
+      "actual": 215323,
+      "expected": 215323,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasal_cavity_right:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:semantic:voxel_count",
+      "actual": 82727,
+      "expected": 82727,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 76154,
+      "expected": 76154,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:nasopharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:semantic:voxel_count",
+      "actual": 148837,
+      "expected": 148837,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:semantic:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 2236,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 2236,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 131684,
+      "expected": 131684,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:oropharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 2105,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 2105,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:semantic:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:semantic:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:semantic:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:semantic:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:air_strict_lt_minus300:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:air_strict_lt_minus300:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p0:hypopharynx:air_strict_lt_minus300:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p0:larynx_air:existence",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:CT_size_xyz",
+      "actual": [
+        512,
+        512,
+        136
+      ],
+      "expected": [
+        512,
+        512,
+        136
+      ],
+      "pass": true
+    },
+    {
+      "name": "p1:CT_spacing",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:CT_origin",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:CT_direction",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:CT_support_LPS_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:semantic:voxel_count",
+      "actual": 101372,
+      "expected": 101372,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:air_strict_lt_minus300:voxel_count",
+      "actual": 81777,
+      "expected": 81777,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_left:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:semantic:voxel_count",
+      "actual": 120727,
+      "expected": 120727,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:air_strict_lt_minus300:voxel_count",
+      "actual": 101234,
+      "expected": 101234,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasal_cavity_right:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:semantic:voxel_count",
+      "actual": 43904,
+      "expected": 43904,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 39736,
+      "expected": 39736,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:nasopharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:semantic:voxel_count",
+      "actual": 34419,
+      "expected": 34419,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:semantic:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1418,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1418,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 29960,
+      "expected": 29960,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:oropharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1348,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1348,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:semantic:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:semantic:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:semantic:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:semantic:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:air_strict_lt_minus300:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:air_strict_lt_minus300:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p1:hypopharynx:air_strict_lt_minus300:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p1:larynx_air:existence",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:CT_size_xyz",
+      "actual": [
+        512,
+        512,
+        286
+      ],
+      "expected": [
+        512,
+        512,
+        286
+      ],
+      "pass": true
+    },
+    {
+      "name": "p2:CT_spacing",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:CT_origin",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:CT_direction",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:CT_support_LPS_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:semantic:voxel_count",
+      "actual": 115720,
+      "expected": 115720,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:air_strict_lt_minus300:voxel_count",
+      "actual": 91718,
+      "expected": 91718,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_left:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:semantic:voxel_count",
+      "actual": 128554,
+      "expected": 128554,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:air_strict_lt_minus300:voxel_count",
+      "actual": 106649,
+      "expected": 106649,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasal_cavity_right:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:semantic:voxel_count",
+      "actual": 57124,
+      "expected": 57124,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 52461,
+      "expected": 52461,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:nasopharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:semantic:voxel_count",
+      "actual": 115878,
+      "expected": 115878,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:semantic:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1068,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1068,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 102830,
+      "expected": 102830,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:oropharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 926,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 926,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:semantic:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:semantic:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:semantic:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:semantic:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:air_strict_lt_minus300:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:air_strict_lt_minus300:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p2:hypopharynx:air_strict_lt_minus300:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p2:larynx_air:existence",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:CT_size_xyz",
+      "actual": [
+        512,
+        512,
+        186
+      ],
+      "expected": [
+        512,
+        512,
+        186
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3:CT_spacing",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:CT_origin",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:CT_direction",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:CT_support_LPS_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:semantic:voxel_count",
+      "actual": 195643,
+      "expected": 195643,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:air_strict_lt_minus300:voxel_count",
+      "actual": 166068,
+      "expected": 166068,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_left:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:semantic:voxel_count",
+      "actual": 191704,
+      "expected": 191704,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:air_strict_lt_minus300:voxel_count",
+      "actual": 158662,
+      "expected": 158662,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasal_cavity_right:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:semantic:voxel_count",
+      "actual": 82266,
+      "expected": 82266,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 73053,
+      "expected": 73053,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:nasopharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:semantic:voxel_count",
+      "actual": 55120,
+      "expected": 55120,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:semantic:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1044,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 1044,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 47809,
+      "expected": 47809,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:oropharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 930,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 930,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:semantic:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:semantic:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:semantic:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:semantic:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:air_strict_lt_minus300:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:air_strict_lt_minus300:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3:hypopharynx:air_strict_lt_minus300:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3:larynx_air:existence",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:CT_size_xyz",
+      "actual": [
+        512,
+        512,
+        232
+      ],
+      "expected": [
+        512,
+        512,
+        232
+      ],
+      "pass": true
+    },
+    {
+      "name": "p3t1:CT_spacing",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:CT_origin",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:CT_direction",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:CT_support_LPS_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:semantic:voxel_count",
+      "actual": 155658,
+      "expected": 155658,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:air_strict_lt_minus300:voxel_count",
+      "actual": 136442,
+      "expected": 136442,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_left:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:semantic:voxel_count",
+      "actual": 121896,
+      "expected": 121896,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:air_strict_lt_minus300:voxel_count",
+      "actual": 93971,
+      "expected": 93971,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasal_cavity_right:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:semantic:voxel_count",
+      "actual": 64708,
+      "expected": 64708,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:semantic:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 58299,
+      "expected": 58299,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:nasopharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:semantic:voxel_count",
+      "actual": 73014,
+      "expected": 73014,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:semantic:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:semantic:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:semantic:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:semantic:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:semantic:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 987,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 987,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 66081,
+      "expected": 66081,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:air_strict_lt_minus300:empty",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:air_strict_lt_minus300:centre_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:air_strict_lt_minus300:support_bounds",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:air_strict_lt_minus300:boundary_contact",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:oropharynx:air_strict_lt_minus300:face_voxel_counts",
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 905,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 905,
+        "z_high": 0
+      },
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:existence",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:same_grid",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:semantic:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:semantic:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:semantic:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:semantic:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:semantic:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:air_strict_lt_minus300:voxel_count",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:air_strict_lt_minus300:empty",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:air_strict_lt_minus300:volume_mm3",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:air_strict_lt_minus300:empty_bounds",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3t1:hypopharynx:air_strict_lt_minus300:empty_contact_has_no_anatomical_meaning",
+      "actual": null,
+      "expected": null,
+      "pass": true
+    },
+    {
+      "name": "p3t1:larynx_air:existence",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}

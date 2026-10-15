@@ -1,0 +1,1593 @@
+{
+  "review_time_utc": "2026-10-15T10:46:20.953747+00:00",
+  "case": "p3",
+  "review_script_sha256": "2d8387ceaa4cf2f3048f410a5a9aaa0fbcd5e91ffd364044b1431690349359b0",
+  "author_run": "D:\\项目\\鼻腔建模\\outputs\\T-026\\runs\\20261015_04_full",
+  "author_environment_sha256": "6845b4ab2992413aee5d487ac317cdf4029681cfa20869533e65fb52768b23eb",
+  "independent_results": {
+    "nasal_original": {
+      "nonzero_voxels": 397783,
+      "volume_mm3": 32179.0532928408,
+      "face_voxel_counts": {
+        "x_index_0": 0,
+        "x_index_last": 0,
+        "y_index_0": 0,
+        "y_index_last": 0,
+        "z_index_0": 0,
+        "z_index_last": 0
+      },
+      "touches_any_grid_face": false,
+      "index_min_xyz": [
+        190,
+        57,
+        18
+      ],
+      "index_max_xyz": [
+        295,
+        338,
+        99
+      ],
+      "centre_min_lps_mm": [
+        -24.05078125,
+        -127.77865600585938,
+        292.09040570259094
+      ],
+      "centre_max_lps_mm": [
+        14.50390625,
+        -24.598968505859375,
+        340.69040763378143
+      ],
+      "support_min_lps_mm": [
+        -24.234375,
+        -127.96224975585938,
+        291.79040569067
+      ],
+      "support_max_lps_mm": [
+        14.6875,
+        -24.415374755859375,
+        340.99040764570236
+      ]
+    },
+    "nasal_oropharynx": {
+      "nonzero_voxels": 445592,
+      "volume_mm3": 36046.61012376979,
+      "face_voxel_counts": {
+        "x_index_0": 0,
+        "x_index_last": 0,
+        "y_index_0": 0,
+        "y_index_last": 0,
+        "z_index_0": 930,
+        "z_index_last": 0
+      },
+      "touches_any_grid_face": true,
+      "index_min_xyz": [
+        190,
+        57,
+        0
+      ],
+      "index_max_xyz": [
+        295,
+        350,
+        99
+      ],
+      "centre_min_lps_mm": [
+        -24.05078125,
+        -127.77865600585938,
+        281.2904052734375
+      ],
+      "centre_max_lps_mm": [
+        14.50390625,
+        -20.192718505859375,
+        340.69040763378143
+      ],
+      "support_min_lps_mm": [
+        -24.234375,
+        -127.96224975585938,
+        280.99040526151657
+      ],
+      "support_max_lps_mm": [
+        14.6875,
+        -20.009124755859375,
+        340.99040764570236
+      ]
+    },
+    "added_air_voxels": 47809,
+    "preview_expected_xyz": [
+      229,
+      334,
+      24
+    ],
+    "preview_expected_LPS_mm": [
+      -9.73046875,
+      -26.067718505859375,
+      295.6904058456421
+    ],
+    "CT_geometry": {
+      "size_xyz": [
+        512,
+        512,
+        186
+      ],
+      "spacing_xyz_mm": [
+        0.3671875,
+        0.3671875,
+        0.6000000238418579
+      ],
+      "origin_lps_mm": [
+        -93.81640625,
+        -148.70834350585938,
+        281.2904052734375
+      ],
+      "direction_row_major": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "preview_expected_image_extents": {
+      "L": [
+        -94.0,
+        94.0
+      ],
+      "P": [
+        -148.89193725585938,
+        39.108062744140625
+      ],
+      "S": [
+        280.99040526151657,
+        392.59040969610214
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "author_before_after_input_manifests_equal",
+      "pass": true,
+      "actual": [
+        {
+          "path": "C:\\ts_work\\p0\\ct.nii.gz",
+          "exists": true,
+          "bytes": 157958497,
+          "sha256": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 552555,
+          "sha256": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 545749,
+          "sha256": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 463141,
+          "sha256": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 475304,
+          "sha256": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 450847,
+          "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p1\\ct.nii.gz",
+          "exists": true,
+          "bytes": 51566805,
+          "sha256": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 193925,
+          "sha256": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 196353,
+          "sha256": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 162312,
+          "sha256": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 162097,
+          "sha256": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 155719,
+          "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p2\\ct.nii.gz",
+          "exists": true,
+          "bytes": 72652958,
+          "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 378076,
+          "sha256": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 377099,
+          "sha256": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 337065,
+          "sha256": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 345113,
+          "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 327297,
+          "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p3\\ct.nii.gz",
+          "exists": true,
+          "bytes": 68048713,
+          "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 275615,
+          "sha256": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 274133,
+          "sha256": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 225714,
+          "sha256": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 221497,
+          "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 212912,
+          "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\ct.nii.gz",
+          "exists": true,
+          "bytes": 80749738,
+          "sha256": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 326155,
+          "sha256": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 325708,
+          "sha256": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 277353,
+          "sha256": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 276613,
+          "sha256": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 265530,
+          "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "expected": [
+        {
+          "path": "C:\\ts_work\\p0\\ct.nii.gz",
+          "exists": true,
+          "bytes": 157958497,
+          "sha256": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 552555,
+          "sha256": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 545749,
+          "sha256": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 463141,
+          "sha256": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 475304,
+          "sha256": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 450847,
+          "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+        },
+        {
+          "path": "C:\\ts_work\\p0\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p1\\ct.nii.gz",
+          "exists": true,
+          "bytes": 51566805,
+          "sha256": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 193925,
+          "sha256": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 196353,
+          "sha256": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 162312,
+          "sha256": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 162097,
+          "sha256": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 155719,
+          "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+        },
+        {
+          "path": "C:\\ts_work\\p1\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p2\\ct.nii.gz",
+          "exists": true,
+          "bytes": 72652958,
+          "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 378076,
+          "sha256": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 377099,
+          "sha256": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 337065,
+          "sha256": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 345113,
+          "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 327297,
+          "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+        },
+        {
+          "path": "C:\\ts_work\\p2\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p3\\ct.nii.gz",
+          "exists": true,
+          "bytes": 68048713,
+          "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 275615,
+          "sha256": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 274133,
+          "sha256": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 225714,
+          "sha256": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 221497,
+          "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 212912,
+          "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+        },
+        {
+          "path": "C:\\ts_work\\p3\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\ct.nii.gz",
+          "exists": true,
+          "bytes": 80749738,
+          "sha256": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_left.nii.gz",
+          "exists": true,
+          "bytes": 326155,
+          "sha256": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\nasal_cavity_right.nii.gz",
+          "exists": true,
+          "bytes": 325708,
+          "sha256": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\nasopharynx.nii.gz",
+          "exists": true,
+          "bytes": 277353,
+          "sha256": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\oropharynx.nii.gz",
+          "exists": true,
+          "bytes": 276613,
+          "sha256": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\hypopharynx.nii.gz",
+          "exists": true,
+          "bytes": 265530,
+          "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+        },
+        {
+          "path": "C:\\ts_work\\p3t1\\masks\\larynx_air.nii.gz",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "name": "actual_input_fingerprint_p0_ct.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648",
+        "bytes": 157958497
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648",
+        "bytes": 157958497
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p0_ct.nii.gz",
+      "pass": true,
+      "actual": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648",
+      "expected": "13170f40b8104c913aa8a06a710fdbc930440c1e15201be829dbab705cb84648"
+    },
+    {
+      "name": "actual_input_fingerprint_p0_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72",
+        "bytes": 552555
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72",
+        "bytes": 552555
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p0_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72",
+      "expected": "7bf8d0d1e5658ff4da871d4a7cf76ffef43f7bd125d28b1174dd450ae770af72"
+    },
+    {
+      "name": "actual_input_fingerprint_p0_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38",
+        "bytes": 545749
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38",
+        "bytes": 545749
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p0_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38",
+      "expected": "c4f7f2990d3b4ffda7c27b708ecc9972866d4e8ec3f9e3fa6307a28f3dd38c38"
+    },
+    {
+      "name": "actual_input_fingerprint_p0_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7",
+        "bytes": 463141
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7",
+        "bytes": 463141
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p0_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7",
+      "expected": "35764c95cfee5a54b61381efa2dd1a86c1b797219b1b97c71d59c7848ecbcbf7"
+    },
+    {
+      "name": "actual_input_fingerprint_p0_oropharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+        "bytes": 475304
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+        "bytes": 475304
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p0_oropharynx.nii.gz",
+      "pass": true,
+      "actual": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8",
+      "expected": "4db9c7eca739edf418ddd3272f521cac0805aa078902e7398cfaa264d5361df8"
+    },
+    {
+      "name": "actual_input_fingerprint_p0_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+        "bytes": 450847
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+        "bytes": 450847
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p0_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480",
+      "expected": "9fcfc9235138c9d1d001e7c5de63266973a9d13a5f8c280a239d24d75224e480"
+    },
+    {
+      "name": "actual_input_fingerprint_p0_larynx_air.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "expected": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p0_larynx_air.nii.gz",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "actual_input_fingerprint_p1_ct.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032",
+        "bytes": 51566805
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032",
+        "bytes": 51566805
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p1_ct.nii.gz",
+      "pass": true,
+      "actual": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032",
+      "expected": "d5f6e4c0d4822b280a5d6feeab0472eedb7824880691a5fcc9823e92aebb7032"
+    },
+    {
+      "name": "actual_input_fingerprint_p1_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612",
+        "bytes": 193925
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612",
+        "bytes": 193925
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p1_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612",
+      "expected": "2aa9263adfb4e00998e21f5c9965bb30b6498f1e923c6762887a4c796cca7612"
+    },
+    {
+      "name": "actual_input_fingerprint_p1_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d",
+        "bytes": 196353
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d",
+        "bytes": 196353
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p1_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d",
+      "expected": "77cb74714afd22348ed3b2fe25e4deaa35206d0f85a01c4840b23bf43dfeb87d"
+    },
+    {
+      "name": "actual_input_fingerprint_p1_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8",
+        "bytes": 162312
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8",
+        "bytes": 162312
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p1_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8",
+      "expected": "c8b4b17b67eb2f955534903f00eb9aabfe0b9b86574a8963bae7e387327165a8"
+    },
+    {
+      "name": "actual_input_fingerprint_p1_oropharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065",
+        "bytes": 162097
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065",
+        "bytes": 162097
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p1_oropharynx.nii.gz",
+      "pass": true,
+      "actual": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065",
+      "expected": "4b7b96857e55c14e3df6086c5c4e2655b1e2b25769869eb6fdc794c0eb3d0065"
+    },
+    {
+      "name": "actual_input_fingerprint_p1_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+        "bytes": 155719
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+        "bytes": 155719
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p1_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f",
+      "expected": "d38c5e23b1f13e35eadf8a5dd884aa30357866ad38415031f6d5eda980ea4f5f"
+    },
+    {
+      "name": "actual_input_fingerprint_p1_larynx_air.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "expected": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p1_larynx_air.nii.gz",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "actual_input_fingerprint_p2_ct.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+        "bytes": 72652958
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+        "bytes": 72652958
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p2_ct.nii.gz",
+      "pass": true,
+      "actual": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2",
+      "expected": "e2c2e6b973c7fccd85fdbcbd0bece4d5e2c7dc14e0c79ca0f7a4cbad19dd5ae2"
+    },
+    {
+      "name": "actual_input_fingerprint_p2_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e",
+        "bytes": 378076
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e",
+        "bytes": 378076
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p2_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e",
+      "expected": "7f236059f8b1bb47a2e8b9665c2921c0a43c57a5c9f85fd8446ecbb0979a8f9e"
+    },
+    {
+      "name": "actual_input_fingerprint_p2_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c",
+        "bytes": 377099
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c",
+        "bytes": 377099
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p2_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c",
+      "expected": "781c1472c126fad0d7952db5d9a3e64b9fdc3965916cb402b788959fbc3f402c"
+    },
+    {
+      "name": "actual_input_fingerprint_p2_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996",
+        "bytes": 337065
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996",
+        "bytes": 337065
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p2_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996",
+      "expected": "a19f8fb200f9fcbf13f9f6bd2481ca12d53bc01ded04f33f0198095714711996"
+    },
+    {
+      "name": "actual_input_fingerprint_p2_oropharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2",
+        "bytes": 345113
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2",
+        "bytes": 345113
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p2_oropharynx.nii.gz",
+      "pass": true,
+      "actual": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2",
+      "expected": "03ccb7c4ab0f65294b9b5d48f8b9b774733e96542756c5170121434077b5d4d2"
+    },
+    {
+      "name": "actual_input_fingerprint_p2_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+        "bytes": 327297
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+        "bytes": 327297
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p2_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb",
+      "expected": "d6ba01e8f5742460d81b64c096b350d55e76201873bd956cb0c237a06a3151cb"
+    },
+    {
+      "name": "actual_input_fingerprint_p2_larynx_air.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "expected": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p2_larynx_air.nii.gz",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "actual_input_fingerprint_p3_ct.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4",
+        "bytes": 68048713
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4",
+        "bytes": 68048713
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3_ct.nii.gz",
+      "pass": true,
+      "actual": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4",
+      "expected": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4"
+    },
+    {
+      "name": "actual_input_fingerprint_p3_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b",
+        "bytes": 275615
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b",
+        "bytes": 275615
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b",
+      "expected": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b"
+    },
+    {
+      "name": "actual_input_fingerprint_p3_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261",
+        "bytes": 274133
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261",
+        "bytes": 274133
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261",
+      "expected": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261"
+    },
+    {
+      "name": "actual_input_fingerprint_p3_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec",
+        "bytes": 225714
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec",
+        "bytes": 225714
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec",
+      "expected": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec"
+    },
+    {
+      "name": "actual_input_fingerprint_p3_oropharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064",
+        "bytes": 221497
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064",
+        "bytes": 221497
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3_oropharynx.nii.gz",
+      "pass": true,
+      "actual": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064",
+      "expected": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064"
+    },
+    {
+      "name": "actual_input_fingerprint_p3_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+        "bytes": 212912
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+        "bytes": 212912
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4",
+      "expected": "9317ab4a1650987b3f63ecd2fa202318084cf5eb399f9c278785dd1d5d5682d4"
+    },
+    {
+      "name": "actual_input_fingerprint_p3_larynx_air.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "expected": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3_larynx_air.nii.gz",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "actual_input_fingerprint_p3t1_ct.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2",
+        "bytes": 80749738
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2",
+        "bytes": 80749738
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3t1_ct.nii.gz",
+      "pass": true,
+      "actual": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2",
+      "expected": "c0e3d0e288763259eb39fcc5e13ffd1d82c7499dddfa4f474dec710dd67e1bf2"
+    },
+    {
+      "name": "actual_input_fingerprint_p3t1_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec",
+        "bytes": 326155
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec",
+        "bytes": 326155
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3t1_nasal_cavity_left.nii.gz",
+      "pass": true,
+      "actual": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec",
+      "expected": "4e129383a9bc52e82533e882372ac696c1cdb16762b95dfba2693e66ea6c54ec"
+    },
+    {
+      "name": "actual_input_fingerprint_p3t1_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7",
+        "bytes": 325708
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7",
+        "bytes": 325708
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3t1_nasal_cavity_right.nii.gz",
+      "pass": true,
+      "actual": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7",
+      "expected": "bd2b850b168b10b19213b29e2429bd9bdac61bba9960ff9efe1726bd404fb1e7"
+    },
+    {
+      "name": "actual_input_fingerprint_p3t1_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7",
+        "bytes": 277353
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7",
+        "bytes": 277353
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3t1_nasopharynx.nii.gz",
+      "pass": true,
+      "actual": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7",
+      "expected": "42463f04f25a706af36417aa362249973834ca2490ca7509326dc6e1957213a7"
+    },
+    {
+      "name": "actual_input_fingerprint_p3t1_oropharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696",
+        "bytes": 276613
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696",
+        "bytes": 276613
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3t1_oropharynx.nii.gz",
+      "pass": true,
+      "actual": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696",
+      "expected": "88760e105394d5164db785d6bf15d940ae6cd44c44e964d3c0f4379f1e5f1696"
+    },
+    {
+      "name": "actual_input_fingerprint_p3t1_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": true,
+        "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+        "bytes": 265530
+      },
+      "expected": {
+        "exists": true,
+        "sha256": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+        "bytes": 265530
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3t1_hypopharynx.nii.gz",
+      "pass": true,
+      "actual": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31",
+      "expected": "0736140bcea590a229f674f2a0ed5b8e1b14184148990565d6950a9bbf591f31"
+    },
+    {
+      "name": "actual_input_fingerprint_p3t1_larynx_air.nii.gz",
+      "pass": true,
+      "actual": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      },
+      "expected": {
+        "exists": false,
+        "sha256": null,
+        "bytes": null
+      }
+    },
+    {
+      "name": "own_initial_input_identity_p3t1_larynx_air.nii.gz",
+      "pass": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "source_grid_nasal_cavity_left",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "source_grid_nasal_cavity_right",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "source_grid_nasopharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "source_grid_oropharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "generated_nasal_original",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "candidate_binary_nasal_original",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "candidate_grid_nasal_original",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "candidate_sha256_nasal_original",
+      "pass": true,
+      "actual": "c4b18d31fb55981d2d46e2695cc36b4a2e47a38cadf19286ecfd4c08bf8eff72",
+      "expected": "c4b18d31fb55981d2d46e2695cc36b4a2e47a38cadf19286ecfd4c08bf8eff72"
+    },
+    {
+      "name": "every_voxel_exact_nasal_original",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "claimed_voxels_nasal_original",
+      "pass": true,
+      "actual": 397783,
+      "expected": 397783
+    },
+    {
+      "name": "claimed_mm3_nasal_original",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "claimed_centre_bounds_nasal_original",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "claimed_support_bounds_nasal_original",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "claimed_boundary_contact_nasal_original",
+      "pass": true,
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 0,
+        "z_high": 0
+      }
+    },
+    {
+      "name": "generated_nasal_oropharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "candidate_binary_nasal_oropharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "candidate_grid_nasal_oropharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "candidate_sha256_nasal_oropharynx",
+      "pass": true,
+      "actual": "9e34656cd8cdc15fb06d2425d647940dba0bdf9761ebe27baeffac80282d6b52",
+      "expected": "9e34656cd8cdc15fb06d2425d647940dba0bdf9761ebe27baeffac80282d6b52"
+    },
+    {
+      "name": "every_voxel_exact_nasal_oropharynx",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "claimed_voxels_nasal_oropharynx",
+      "pass": true,
+      "actual": 445592,
+      "expected": 445592
+    },
+    {
+      "name": "claimed_mm3_nasal_oropharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "claimed_centre_bounds_nasal_oropharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "claimed_support_bounds_nasal_oropharynx",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "claimed_boundary_contact_nasal_oropharynx",
+      "pass": true,
+      "actual": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 930,
+        "z_high": 0
+      },
+      "expected": {
+        "x_low": 0,
+        "x_high": 0,
+        "y_low": 0,
+        "y_high": 0,
+        "z_low": 930,
+        "z_high": 0
+      }
+    },
+    {
+      "name": "original_missing_in_extension",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "new_air_not_real_oropharynx_below_threshold",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "all_real_added_oral_air_preserved",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "claimed_added_air",
+      "pass": true,
+      "actual": 47809,
+      "expected": 47809
+    },
+    {
+      "name": "real_hypopharynx_is_empty",
+      "pass": true,
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "name": "empty_hypopharynx_refused",
+      "pass": true,
+      "actual": {
+        "generated": false,
+        "refusal": "empty_label:hypopharynx"
+      },
+      "expected": {
+        "generated": false,
+        "refusal": "empty_label:hypopharynx"
+      }
+    },
+    {
+      "name": "CFD_admitted_default_false",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "outlet_selected_default_false",
+      "pass": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "preview_selected_indices_max_added_air",
+      "pass": true,
+      "actual": [
+        229,
+        334,
+        24
+      ],
+      "expected": [
+        229,
+        334,
+        24
+      ]
+    },
+    {
+      "name": "preview_selected_LPS_coordinate",
+      "pass": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "preview_direction_matches_CT",
+      "pass": true,
+      "actual": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "expected": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "preview_sha256",
+      "pass": true,
+      "actual": "d254c92256351f7de1c6c4b28c4bedb2f531654d56165512543b1cb7cfef9886",
+      "expected": "d254c92256351f7de1c6c4b28c4bedb2f531654d56165512543b1cb7cfef9886"
+    },
+    {
+      "name": "run_source_snapshot_matches_code_fingerprint",
+      "pass": true,
+      "actual": "b7e8ac36c21549a95fb3155cc86557f243e07ee73e1bba3bcc1ca21558650220",
+      "expected": "b7e8ac36c21549a95fb3155cc86557f243e07ee73e1bba3bcc1ca21558650220"
+    },
+    {
+      "name": "production_source_current_matches_run_nasal_pipeline.py",
+      "pass": true,
+      "actual": "f6907a25fbf1e47874bb888e6060a7d63bb04653dbe0057504759a56f9fa1aa9",
+      "expected": "f6907a25fbf1e47874bb888e6060a7d63bb04653dbe0057504759a56f9fa1aa9"
+    },
+    {
+      "name": "production_source_current_matches_run_ts_quality_gate.py",
+      "pass": true,
+      "actual": "714b1c0c28df872a4c3bc2be3363d539d92e7267f72e374b44fa638a42ac4128",
+      "expected": "714b1c0c28df872a4c3bc2be3363d539d92e7267f72e374b44fa638a42ac4128"
+    }
+  ],
+  "all_pass": true,
+  "command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "outputs\\T-027\\independent_real_review.py",
+    "--case",
+    "p3",
+    "--author-run",
+    "outputs\\T-026\\runs\\20261015_04_full",
+    "--initial-audit",
+    "outputs\\T-027\\runs\\20261015_01_input_audit\\all_cases_audit.json",
+    "--out",
+    "outputs\\T-027\\runs\\20261015_04_p3_real_review"
+  ],
+  "limits": [
+    "This is an uncropped semantic air candidate",
+    "No anatomy completeness / symptom causality / CFD admission established",
+    "STL not exported in reviewed run; STL checks not applicable",
+    "Visual inspection recorded separately"
+  ]
+}

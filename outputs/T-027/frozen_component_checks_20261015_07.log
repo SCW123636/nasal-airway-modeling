@@ -1,0 +1,38 @@
+{"name": "explicit_set_nasal_original", "pass": true, "actual": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2]], "expected": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2]]}
+{"name": "explicit_set_nasal_oropharynx", "pass": true, "actual": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2], [3, 2, 2], [3, 3, 5], [4, 5, 6]], "expected": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2], [3, 2, 2], [3, 3, 5], [4, 5, 6]]}
+{"name": "explicit_set_nasal_oropharynx_hypopharynx", "pass": true, "actual": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2], [3, 2, 2], [3, 3, 5], [4, 2, 2], [4, 5, 6]], "expected": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2], [3, 2, 2], [3, 3, 5], [4, 2, 2], [4, 5, 6]]}
+{"name": "strict_threshold_exact_excluded", "pass": true, "actual": false, "expected": false}
+{"name": "strict_threshold_above_excluded", "pass": true, "actual": false, "expected": false}
+{"name": "strict_threshold_below_included", "pass": true, "actual": true, "expected": true}
+{"name": "unlabelled_air_excluded", "pass": true, "actual": false, "expected": false}
+{"name": "original_subset_of_extension", "pass": true, "actual": true, "expected": true}
+{"name": "separate_6_components_retained", "pass": true, "actual": [3, 2, 1, 1], "expected": [3, 2, 1, 1]}
+{"name": "separate_26_components_retained", "pass": true, "actual": [5, 1, 1], "expected": [5, 1, 1]}
+{"name": "hand_calculated_LPS_oblique_flip", "pass": true, "actual": true, "expected": true}
+{"name": "hand_calculated_CT_support_bounds", "pass": true, "actual": true, "expected": true}
+{"name": "all_210_centres_against_SimpleITK_transform", "pass": true, "actual": true, "expected": true}
+{"name": "mask_centre_bounds_distinct_from_support", "pass": true, "actual": true, "expected": true}
+{"name": "anisotropic_volume_mm3", "pass": true, "actual": true, "expected": true}
+{"name": "reported_6_components", "pass": true, "actual": [3, 2, 1, 1], "expected": [3, 2, 1, 1]}
+{"name": "reported_26_components", "pass": true, "actual": [5, 1, 1], "expected": [5, 1, 1]}
+{"name": "reported_scan_face_counts", "pass": true, "actual": {"x_low": 0, "x_high": 1, "y_low": 0, "y_high": 1, "z_low": 0, "z_high": 1}, "expected": {"x_low": 0, "x_high": 1, "y_low": 0, "y_high": 1, "z_low": 0, "z_high": 1}}
+{"name": "missing_nasal_cavity_left", "pass": true, "actual": "ValueError:missing_label:nasal_cavity_left", "expected": "ValueError:missing_label:nasal_cavity_left"}
+{"name": "empty_nasal_cavity_left", "pass": true, "actual": "ValueError:empty_label:nasal_cavity_left", "expected": "ValueError:empty_label:nasal_cavity_left"}
+{"name": "missing_nasal_cavity_right", "pass": true, "actual": "ValueError:missing_label:nasal_cavity_right", "expected": "ValueError:missing_label:nasal_cavity_right"}
+{"name": "empty_nasal_cavity_right", "pass": true, "actual": "ValueError:empty_label:nasal_cavity_right", "expected": "ValueError:empty_label:nasal_cavity_right"}
+{"name": "missing_nasopharynx", "pass": true, "actual": "ValueError:missing_label:nasopharynx", "expected": "ValueError:missing_label:nasopharynx"}
+{"name": "empty_nasopharynx", "pass": true, "actual": "ValueError:empty_label:nasopharynx", "expected": "ValueError:empty_label:nasopharynx"}
+{"name": "missing_oropharynx", "pass": true, "actual": "ValueError:missing_label:oropharynx", "expected": "ValueError:missing_label:oropharynx"}
+{"name": "empty_oropharynx", "pass": true, "actual": "ValueError:empty_label:oropharynx", "expected": "ValueError:empty_label:oropharynx"}
+{"name": "grid_mismatch_origin", "pass": true, "actual": "ValueError:grid_mismatch:oropharynx", "expected": "ValueError:grid_mismatch:oropharynx"}
+{"name": "grid_mismatch_spacing", "pass": true, "actual": "ValueError:grid_mismatch:oropharynx", "expected": "ValueError:grid_mismatch:oropharynx"}
+{"name": "grid_mismatch_direction", "pass": true, "actual": "ValueError:grid_mismatch:oropharynx", "expected": "ValueError:grid_mismatch:oropharynx"}
+{"name": "grid_mismatch_size", "pass": true, "actual": "ValueError:grid_mismatch:oropharynx", "expected": "ValueError:grid_mismatch:oropharynx"}
+{"name": "nonbinary_label", "pass": true, "actual": "ValueError:label_not_binary:oropharynx", "expected": "ValueError:label_not_binary:oropharynx"}
+{"name": "nonempty_oral_label_without_air", "pass": true, "actual": "ValueError:empty_label_air:oropharynx", "expected": "ValueError:empty_label_air:oropharynx"}
+{"name": "empty_hypopharynx_profile", "pass": true, "actual": "ValueError:empty_label:hypopharynx", "expected": "ValueError:empty_label:hypopharynx"}
+{"name": "nonfinite_CT", "pass": true, "actual": "ValueError:nonfinite_CT", "expected": "ValueError:nonfinite_CT"}
+{"name": "unknown_profile", "pass": true, "actual": "ValueError:unknown_profile:invented", "expected": "ValueError:unknown_profile:invented"}
+{"name": "CT_2D", "pass": true, "actual": "ValueError:CT_not_3D", "expected": "ValueError:CT_not_3D"}
+{"name": "optional_hypopharynx_not_required_for_oral", "pass": true, "actual": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2], [3, 2, 2], [3, 3, 5], [4, 5, 6]], "expected": [[1, 1, 1], [1, 1, 2], [1, 2, 1], [2, 2, 2], [3, 2, 2], [3, 3, 5], [4, 5, 6]]}
+{"name": "implementation_unchanged_during_review", "pass": true, "actual": "9320cdd05d79a47b86b49d63c6551f108966361f93d2d3ae2ceff8a98b9810d0", "expected": "9320cdd05d79a47b86b49d63c6551f108966361f93d2d3ae2ceff8a98b9810d0"}

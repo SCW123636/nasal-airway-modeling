@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-10-15T10:42:07.309151+00:00",
+  "python": "3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.5.3",
+  "SimpleITK": "2.5.6",
+  "threads": 1,
+  "script_sha256": "b4f00d7c4422adaa84b7f643acc72539384b726e2a42aa9dc61bb3b7869683aa",
+  "input_root": "C:\\ts_work",
+  "command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "outputs\\T-027\\independent_input_audit.py",
+    "--out",
+    "outputs\\T-027\\runs\\20261015_01_input_audit"
+  ],
+  "limits": [
+    "No DICOM read",
+    "No inference/mesh/solver/service action",
+    "No anatomy completeness determination",
+    "No symptom causality determination"
+  ]
+}

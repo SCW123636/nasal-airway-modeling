@@ -1,0 +1,268 @@
+{
+  "timestamp_utc": "2026-10-15T11:01:18.449493+00:00",
+  "frozen_commit": "4f9fb31b837236a1b9a4c65976b2d4dd4cd232d6",
+  "current_artifact_sha256": {
+    "outputs/T-026/prototype/upper_airway_candidate.py": "9320cdd05d79a47b86b49d63c6551f108966361f93d2d3ae2ceff8a98b9810d0",
+    "outputs/T-026/prototype/compare_source_series.py": "cd22a26947d598b7a314ade6daa1dea427fb49a81ba0031765bafb71b05b74e6",
+    "outputs/T-026/执行入口.md": "ed94e961486a5b19383972a2e33ef6c2f83eee92d113d1d509bcd64e61c99ed4",
+    "outputs/T-026/交付总报告.md": "0d2cf2d73f9b38ddce4793f8693dcd8f5bb664e560a357c7a90a32809b7f4d4f",
+    "outputs/T-026/runs/20261015_06_scope_correction/用户更正.md": "07a3516301bff2a1fbb623457db4ef808a65ede29fbde30e212a0c157ff197a7"
+  },
+  "review_script_sha256": "981536bb456a9387facbc9ec9533d376cf1807e1f994ad2b9854d8e82eb0a914",
+  "command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "outputs\\T-027\\independent_freeze_review.py",
+    "--commit",
+    "4f9fb31",
+    "--out",
+    "outputs\\T-027\\runs\\20261015_08_final_freeze_review"
+  ],
+  "checks": [
+    {
+      "name": "all_tracked_author_artifacts_match_freeze_commit",
+      "actual": 0,
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes:outputs/T-026/prototype/upper_airway_candidate.py",
+      "actual": "9320cdd05d79a47b86b49d63c6551f108966361f93d2d3ae2ceff8a98b9810d0",
+      "expected": "9320cdd05d79a47b86b49d63c6551f108966361f93d2d3ae2ceff8a98b9810d0",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes:outputs/T-026/prototype/compare_source_series.py",
+      "actual": "cd22a26947d598b7a314ade6daa1dea427fb49a81ba0031765bafb71b05b74e6",
+      "expected": "cd22a26947d598b7a314ade6daa1dea427fb49a81ba0031765bafb71b05b74e6",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes:outputs/T-026/执行入口.md",
+      "actual": "ed94e961486a5b19383972a2e33ef6c2f83eee92d113d1d509bcd64e61c99ed4",
+      "expected": "ed94e961486a5b19383972a2e33ef6c2f83eee92d113d1d509bcd64e61c99ed4",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes:outputs/T-026/交付总报告.md",
+      "actual": "0d2cf2d73f9b38ddce4793f8693dcd8f5bb664e560a357c7a90a32809b7f4d4f",
+      "expected": "0d2cf2d73f9b38ddce4793f8693dcd8f5bb664e560a357c7a90a32809b7f4d4f",
+      "pass": true
+    },
+    {
+      "name": "exact_frozen_bytes:outputs/T-026/runs/20261015_06_scope_correction/用户更正.md",
+      "actual": "07a3516301bff2a1fbb623457db4ef808a65ede29fbde30e212a0c157ff197a7",
+      "expected": "07a3516301bff2a1fbb623457db4ef808a65ede29fbde30e212a0c157ff197a7",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:build_candidate",
+      "actual": "e2dee661a7fcb85ad7b2e0bf9d612e03226d2f7294138d6e5b452f0ee7e45153",
+      "expected": "e2dee661a7fcb85ad7b2e0bf9d612e03226d2f7294138d6e5b452f0ee7e45153",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:require_arrays",
+      "actual": "39c4c6569034c6f298f3b498a5e1d517a45a087e0ae060d9b87ff19cf65bc7aa",
+      "expected": "39c4c6569034c6f298f3b498a5e1d517a45a087e0ae060d9b87ff19cf65bc7aa",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:same_grid",
+      "actual": "01cefa1b2fcc2fb49b6396db4ea2a7564177a09f9baf9eab3266d635469a82a5",
+      "expected": "01cefa1b2fcc2fb49b6396db4ea2a7564177a09f9baf9eab3266d635469a82a5",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:index_to_lps",
+      "actual": "e3fdfde2c7b1cfebcaa04571a149245a753d69f7bf4c2f96dded7dc8ba5c606d",
+      "expected": "e3fdfde2c7b1cfebcaa04571a149245a753d69f7bf4c2f96dded7dc8ba5c606d",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:ct_extent",
+      "actual": "2d6c3396519926be9e19580771972da1c6b1424171486fa9a98f586ce1db7586",
+      "expected": "2d6c3396519926be9e19580771972da1c6b1424171486fa9a98f586ce1db7586",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:mask_extent",
+      "actual": "5baf3d51dae1790fc9cd1fb78d3defaa327ead150a1c125a47722e14953372c0",
+      "expected": "5baf3d51dae1790fc9cd1fb78d3defaa327ead150a1c125a47722e14953372c0",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:write_nifti_and_reread",
+      "actual": "cbd4d8aeea0fb9331d8af660c40172c4d1a5b54d7a2a36220270f1eee1b194d7",
+      "expected": "cbd4d8aeea0fb9331d8af660c40172c4d1a5b54d7a2a36220270f1eee1b194d7",
+      "pass": true
+    },
+    {
+      "name": "core_AST_unchanged_since_real_run04:read_case",
+      "actual": "58ec6231c6f3c145f22b7f2d9749434ff2de3b2bc3110cd9992d3eb40f4dfef7",
+      "expected": "58ec6231c6f3c145f22b7f2d9749434ff2de3b2bc3110cd9992d3eb40f4dfef7",
+      "pass": true
+    },
+    {
+      "name": "current_limits_symptom_mapping_unknown",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "current_limits_no_outdated_B_assignment",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "default:symptom_patient_mapping",
+      "actual": "unknown",
+      "expected": "unknown",
+      "pass": true
+    },
+    {
+      "name": "default:no_B_mapping_key",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "default:CFD_not_admitted",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "default:outlet_not_selected",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "default:baseline_voxels",
+      "actual": 3,
+      "expected": 3,
+      "pass": true
+    },
+    {
+      "name": "default:extension_voxels",
+      "actual": 4,
+      "expected": 4,
+      "pass": true
+    },
+    {
+      "name": "engineering_source_match:symptom_patient_mapping",
+      "actual": "unknown",
+      "expected": "unknown",
+      "pass": true
+    },
+    {
+      "name": "engineering_source_match:no_B_mapping_key",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "engineering_source_match:CFD_not_admitted",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "engineering_source_match:outlet_not_selected",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "engineering_source_match:baseline_voxels",
+      "actual": 3,
+      "expected": 3,
+      "pass": true
+    },
+    {
+      "name": "engineering_source_match:extension_voxels",
+      "actual": 4,
+      "expected": 4,
+      "pass": true
+    },
+    {
+      "name": "preview_receives_engineering_case_and_source_match_only",
+      "actual": [
+        {
+          "case": "fixture",
+          "source_bound": false
+        },
+        {
+          "case": "fixture",
+          "source_bound": true
+        }
+      ],
+      "expected": [
+        {
+          "case": "fixture",
+          "source_bound": false
+        },
+        {
+          "case": "fixture",
+          "source_bound": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "name": "preview_title_symptom_identity_unknown",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "preview_title_has_no_B_source_bound_identity",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    },
+    {
+      "name": "entry_links_final_summary",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "entry_links_scope_correction",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "summary_symptom_mapping_unknown",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "correction_explicit_all_cases_unknown",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "correction_history_sealed_not_rewritten",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "name": "frozen_code_unchanged_during_checks",
+      "actual": "9320cdd05d79a47b86b49d63c6551f108966361f93d2d3ae2ceff8a98b9810d0",
+      "expected": "9320cdd05d79a47b86b49d63c6551f108966361f93d2d3ae2ceff8a98b9810d0",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "limits": [
+    "Synthetic identity/algorithm regression only; no repeated patient CT/DICOM read",
+    "Historical run05 engineering HU matching not independently endorsed",
+    "Lead retains acceptance authority"
+  ]
+}
