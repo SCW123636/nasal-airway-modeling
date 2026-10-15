@@ -1,0 +1,92 @@
+{
+  "task": "T-043 加温加湿功能指标 · 标量输运验证与患者首跑",
+  "date": "2026-10-16 05:2x-05:4x",
+  "clinical_status": "generalisation_test_only_no_human_review",
+  "solver": "scalarTransportFoam (OpenFOAM v1912, passive scalar)",
+  "domain_standard": "扩展域（鼻+鼻咽+可见口咽），用户 2026-10-16 03:3x 裁定",
+  "background_flow": "T-054 b15 扩展域层流收敛场 t600（只读，未改动）",
+
+  "synthetic_verification_channel": {
+    "geometry": "平面 Poiseuille 通道 L=0.040 / h=0.002 / w=0.001，frontAndBack=empty（沿用 poiseuille_v1912_verified/medium）",
+    "boundary_conditions": {
+      "inlet": "293.15 K (20 C)",
+      "walls": "306.15 K (33 C)",
+      "outlet": "zeroGradient"
+    },
+    "v2_diffusion": {
+      "DT": "2.5e-5 m2/s",
+      "solver": "smoothSolver symGaussSeidel, tolerance 1e-12, relTol 0, maxIter 5000",
+      "T_final_residual": 9.76082489e-13,
+      "iterations": 493,
+      "hit_maxIter": false,
+      "areaAverage_inlet_T_K": 293.15,
+      "areaAverage_outlet_T_K": 306.1499997,
+      "areaAverage_walls_T_K": 306.15,
+      "inlet_volumetric_flow_m3_per_s": 2e-07,
+      "verdict": "PASS — 边界条件、对流项、扩散项方向全部正确；稳态口径下出口完全饱和到壁温（与卡内『稳态 = 接近壁温』预测一致）"
+    },
+    "v1_pure_convection": {
+      "design": "DT = 0（后改为 1e-12）期望出口 T = 入口 T",
+      "result": "sigFpe（symGaussSeidelSmoother）两次",
+      "verdict": "DESIGN INVALID — 稳态纯对流（无扩散）矩阵对角为零，数学上奇异，不是求解器缺陷。该验证路作废，不重试。"
+    },
+    "energy_balance_check": {
+      "status": "NOT COMPLETED",
+      "blocker": "wallHeatFlux 函数对象报错：'Unable to find compressible turbulence model in the database'（wallHeatFlux.C:253）——scalarTransportFoam 是纯被动标量求解器，无热物性/湍流模型字典",
+      "fallback_argument": "T 方程离散残差已降到 9.76e-13（493 次迭代，未撞上限）→ 有限体积离散方程在每个单元严格满足 → 边界通量之和为零（守恒）在离散层面成立",
+      "energy_closed_value_W": 0.003139,
+      "energy_closed_formula": "rho(1.2) * Q(2e-7 m3/s) * cp(1006) * dT(12.9999997 K)",
+      "note": "该值由守恒律与边界条件唯一确定（出口已饱和），不构成独立验证；真正的独立验证需后续拿到壁面热通量"
+    },
+    "graetz_nusselt_reference": {
+      "Nu_Dh_fully_developed_constant_wall_T": 7.54,
+      "status": "不适用 — 本通道出口已完全饱和到壁温，处于热入口段之外的极限，Nu 无区分度"
+    }
+  },
+
+  "patient_first_run": {
+    "case": "/home/lenovo2/t043_b15_temp",
+    "mesh": "T-054 b15 扩展域，636,342 cells（与 T-054 同网格）",
+    "scalar": "T（温度，K）",
+    "boundary_conditions": {
+      "nostril_L": "293.15 K (20 C, fixedValue)",
+      "nostril_R": "293.15 K (20 C, fixedValue)",
+      "wall": "306.15 K (33 C, fixedValue) — S15 黏膜温度，单团队来源，已降权",
+      "oropharynx_truncation_outlet": "zeroGradient"
+    },
+    "failed_attempt": {
+      "config": "smoothSolver symGaussSeidel + bounded Gauss limitedLinear 1 + tolerance 1e-12",
+      "result": "sigFpe @ symGaussSeidelSmoother（7 秒内崩溃）",
+      "root_cause_hypothesis": "与 T-050 同源：该网格 466 个 det<0.001 退化单元（sliver）导致矩阵病态/除零。同一网格上层流 U/p（T-054）可过，被动标量 T 对病态更敏感。"
+    },
+    "successful_config": {
+      "solver": "GAMG, tolerance 1e-09, relTol 0.001, smoother GaussSeidel",
+      "convection": "bounded Gauss upwind（一阶）",
+      "T_final_residual": 1.5484179822e-05,
+      "iterations": 7
+    },
+    "results": {
+      "areaAverage_nostril_L_T_K": 293.15,
+      "areaAverage_oropharynx_truncation_outlet_T_K": 306.046189908,
+      "areaAverage_domain_outlet_T_C": 32.896,
+      "areaAverage_wall_T_K": 306.15
+    },
+    "interpretation": {
+      "key_caveat": "★ 32.90 C 是【域出口（口咽截断）】值，**不是后鼻孔值**。需求侧 C8 明确：取值截面必须是后鼻孔（choana），不是域出口 → 尚不可直接对标 32.2 C。",
+      "second_caveat": "★ 稳态口径 = 无限停留时间极限 → 温度天然趋近壁温（本例壁温 33 C，出口 32.90 C）。卡内已判定：真实呼吸周期（0.02–0.1 s）会给出接近入口的值。两种口径必须并列，不许只报有利的那个。",
+      "target_reference": {
+        "healthy_control_n5": "32.2 ± 0.2 C / 93.5 ± 1.5 %RH（PMC13638262）",
+        "ens_n14": "31.4 ± 0.9 C / 84.6 ± 7.7 %RH（PMC13638262）",
+        "unsatisfactory_postop_RH": "83.8–85.7%（PMC12068615）",
+        "superseded_value": "旧口径 >33 C 已作废（高于健康实测且无出处，第二轮【误】更正）"
+      }
+    }
+  },
+
+  "next_steps": [
+    "提取【后鼻孔截面】温度与湿度（C8 强制口径）— 需 choana 几何定位（landmark 或 SAVR 侧）",
+    "补水蒸气标量 Y_w：壁面 100%/75%/50% 饱和 × 黏膜层 1/5 mm 四类矩阵（PMID 42815819）",
+    "热通量 >50 W/m² 黏膜面积占比（首选指标，PMC12791179）— 需替代 wallHeatFlux 的方案（该函数对象在被动标路线不可用）",
+    "瞬态单呼吸周期口径（对照稳态），两口径并列报出"
+  ]
+}
