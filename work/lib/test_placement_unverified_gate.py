@@ -63,14 +63,14 @@ def test_verified_is_never_flagged():
 
 def test_mixed_states_flag_only_the_failed_one():
     diag = {
-        'weak_probes': {'nostril_L': 0, 'nostril_R': 0, 'nasopharynx_outlet': 4},
-        'verified': {'nostril_L': True, 'nostril_R': None, 'nasopharynx_outlet': False},
+        'weak_probes': {'nostril_L': 0, 'nostril_R': 0, 'oropharynx_truncation_outlet': 4},
+        'verified': {'nostril_L': True, 'nostril_R': None, 'oropharynx_truncation_outlet': False},
         'entered_bisection': {'nostril_L': False, 'nostril_R': False,
-                              'nasopharynx_outlet': True},
+                              'oropharynx_truncation_outlet': True},
     }
     flagged = [k for k in A.OPENINGS
                if diag['entered_bisection'][k] and diag['verified'][k] is False]
-    assert flagged == ['nasopharynx_outlet']
+    assert flagged == ['oropharynx_truncation_outlet']
 
 
 def test_solve_placement_returns_three_state_diag():

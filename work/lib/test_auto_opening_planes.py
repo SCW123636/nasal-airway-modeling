@@ -45,7 +45,12 @@ def test_proposed_passes_by_default(tmp_path):
     write_case(tmp_path, 'proposed')
     planes, provenance, sha, admitted = load_planes(tmp_path, None, 'cx')
     assert provenance == 'automatic_proposal'
-    assert set(planes) == {'nostril_L', 'nostril_R', 'nasopharynx_outlet'}
+    # Only the nostrils come from landmarks. The oropharynx_truncation_outlet has
+    # no landmark since T-058: the domain ends at the scan's inferior face, so
+    # its plane is derived from the air mask by truncation_plane() and injected
+    # by the caller. The landmark file still carries a nasopharynx_outlet
+    # proposal; it is kept as a diagnostic but no longer consumed as the outlet.
+    assert set(planes) == {'nostril_L', 'nostril_R'}
     assert admitted == []
 
 
@@ -59,7 +64,7 @@ def test_needs_review_is_admitted_when_asked_and_recorded(tmp_path):
     write_case(tmp_path, 'needs_review')
     planes, provenance, sha, admitted = load_planes(
         tmp_path, None, 'cx', allow_needs_review=True)
-    assert set(planes) == {'nostril_L', 'nostril_R', 'nasopharynx_outlet'}
+    assert set(planes) == {'nostril_L', 'nostril_R'}
     # every admitted flag must be visible in the report, not silently dropped
     assert [a['opening'] for a in admitted] == list(planes)
     assert all(a['status'] == 'needs_review' for a in admitted)
@@ -84,11 +89,20 @@ def test_unavailable_is_never_admitted(tmp_path):
 @pytest.mark.skipif(not (PROPOSALS / 'b02' / 'landmarks.json').exists(),
                     reason='cohort proposals not present')
 def test_real_cohort_case_matches_the_documented_finding():
-    """b02 is the case whose outlet is flagged; a needs_review plane still loads
-    under the flag, and the earlier failing default is unchanged."""
-    with pytest.raises(ValueError, match='needs_review'):
-        load_planes(PROPOSALS, None, 'b02')
-    planes, _, _, admitted = load_planes(
-        PROPOSALS, None, 'b02', allow_needs_review=True)
-    assert set(planes) == {'nostril_L', 'nostril_R', 'nasopharynx_outlet'}
-    assert any(a['opening'] == 'nasopharynx_outlet' for a in admitted)
+    """b02 is the case whose OUTLET is flagged - the historical 22/24 failure.
+
+    That flag is no longer consumed: since T-058 the outlet plane is derived from
+    the air mask, not from the landmark, so a flag on the nasopharynx_outlet
+    proposal cannot block placement. This test pins the new behaviour and keeps
+    the old finding legible instead of deleting it:
+
+      * the default path now loads b02 (its nostrils are proposed, unflagged)
+      * the outlet landmark is still present in the file - not deleted, so the
+        diagnostic survives - it is simply not a plane source any more
+    """
+    planes, _, _, admitted = load_planes(PROPOSALS, None, 'b02')
+    assert set(planes) == {'nostril_L', 'nostril_R'}
+    assert admitted == []
+    obj = json.loads((PROPOSALS / 'b02' / 'landmarks.json').read_text(encoding='utf-8'))
+    assert 'nasopharynx_outlet' in obj['landmarks']
+    assert obj['landmarks']['nasopharynx_outlet'].get('status') == 'needs_review'
