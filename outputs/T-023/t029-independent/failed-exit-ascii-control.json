@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-15T11:47:47.345856+00:00",
+  "test": "test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk",
+  "run_count": 1,
+  "subtest_exit_codes": [
+    -8,
+    7
+  ],
+  "failures": 0,
+  "errors": 0,
+  "successful": true,
+  "ascii_temp_root": "C:\\ts_work\\t023_failed_exit_control_20261015",
+  "authorization": "Lead explicit 2026-10-15 message: create ASCII temporary root and rerun only the failed-step control, preserving first failure.",
+  "source_sha256": {
+    "D:\\项目\\鼻腔建模\\work\\lib\\test_run_openfoam_case.py": "a103fba0be9d213c5f4f457594216574ab6d953ce65798d1be66bb29c2253bde",
+    "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\solver\\run_openfoam_case.py": "d0fd439c14071c6d2919793955cbc36b5aefea4065bd880e8f047299daf7ca6d"
+  },
+  "script_sha256": "76f28cbec7a04175e5282a474b5c3194d263ea596c1245424aa00a5c8a9b6179",
+  "original_failure": "targeted-contract-tests.json and targeted-contract-tests.log retained unchanged",
+  "scope": "Mocked failed-command metadata only; no actual CFD, POST, service action, or complete-suite rerun."
+}

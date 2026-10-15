@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-15T11:31:47.279330+00:00",
+  "freeze_v2_sha256": "4382e6e213026bbeaf08acb8e42a87ed05bdec08c4e197798fcb626233ad3304",
+  "frozen_code_count": 15,
+  "new_input_unchanged_from_independent_audit": true,
+  "original_input_and_failed_evidence_unchanged": true,
+  "only_manager_and_test_dependency_added_since_v1": true,
+  "all_frozen_files_count": 107,
+  "service_reload_executed_yet": false,
+  "no_POST": true
+}

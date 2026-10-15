@@ -1,0 +1,74 @@
+{
+  "actual_steps": [
+    {
+      "command": [
+        "checkMesh",
+        "-allGeometry",
+        "-allTopology"
+      ],
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/log.checkMesh"
+    },
+    {
+      "command": [
+        "simpleFoam"
+      ],
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/log.simpleFoam"
+    },
+    {
+      "command": [
+        "foamToVTK",
+        "-latestTime",
+        "-ascii",
+        "-fields",
+        "(p U)"
+      ],
+      "exit_code": 0,
+      "log": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/log.foamToVTK"
+    }
+  ],
+  "planned_steps": [
+    "checkMesh",
+    "simpleFoam",
+    "foamToVTK"
+  ],
+  "not_executed_steps": [],
+  "failed_command": null,
+  "raw_failed_exit_code": null,
+  "execution_reconstructed": true,
+  "legacy_failed_step_missing_from_manifest": false,
+  "new_failed_step_recording_required": true,
+  "manifest_execution_status": "completed",
+  "source_case": "C:\\ts_work\\project_cases\\simulation_jobs\\s_aa79a63027b94bfb9a273898\\export\\s_aa79a63027b94bfb9a273898\\evaluations\\eval_001",
+  "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+  "last_started_iteration": "120",
+  "last_started_is_not_asserted_completed": true,
+  "solver_End": true,
+  "SIMPLE_convergence_banner": false,
+  "numeric_field_directories": [
+    "0",
+    "100",
+    "120"
+  ],
+  "internal_vtu_paths": [
+    "VTK/eval_001_120/internal.vtu"
+  ],
+  "mesh_failed_checks": [
+    2
+  ],
+  "source_file_sha256": {
+    "run_manifest.json": "e7673a4cb7d7c623ad393d9896ae9dd64fe5bbb984c16926b82d135e1ceb95b6",
+    "run_status.json": "f90464d6af293d34aebd634bea33e104f9f969ccbd25fb4e670ac4a8389b671e",
+    "execution.log": "7d0203cb6c789660b8cda5bdb4e28250fe6e30a1e19baa43e65d969fba5f5743",
+    "log.checkMesh": "0aabad4d5ec59aaeaed44a224a0e2582d3864ede19326309c0736b25740ebeeb",
+    "log.simpleFoam": "ae2fc49854d7de406ecab5bfdc88a479a92a6c5f458bc483caaca06e5f8d7238",
+    "log.foamToVTK": "0fda52144b3bdb8e8bcb612daa9392bd00161353d7321d4eaf10906f83f77ee1",
+    "120/p": "7c732c7c1f54eda2f9cd89afec48e553e4084d6b48f2da64d3a30487d3aea3e2",
+    "120/U": "48e0f57b57ac42e833ecfaf618a9f692e5dfa124e068b33e44001002a0e2b7ef",
+    "120/phi": "30917de1b7994b93747c5ac193eb777dcec2f853649ec5a677664ddf6875d6a1",
+    "VTK/eval_001_120/internal.vtu": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11"
+  },
+  "patient_numerical_accepted": false,
+  "scope": "Read-only execution/absence/identity evidence; no convergence, patient target, clinical or Lead status grant"
+}

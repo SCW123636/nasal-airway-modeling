@@ -1,0 +1,37 @@
+test_versioned_sample_retains_origin_and_strict_frozen_sources (test_patient_cfd_admission.AdmissionTests.test_versioned_sample_retains_origin_and_strict_frozen_sources) ... ok
+test_versioned_sample_mismatched_origin_refuses_admission_and_authority (test_patient_cfd_admission.AdmissionTests.test_versioned_sample_mismatched_origin_refuses_admission_and_authority) ... ok
+test_unrecognized_engineering_suffix_and_wrong_version_refuse (test_patient_cfd_admission.AdmissionTests.test_unrecognized_engineering_suffix_and_wrong_version_refuse) ... ok
+test_failed_command_records_real_bottom_exit_and_stops_before_vtk (test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk) ... run_openfoam_case error: case path must be pure ASCII for OpenFOAM v1912; move the case under /mnt/c/ts_work (got: D:\项目\鼻腔建模\outputs\T-023\t029-independent\targeted-test-temp\tmps2pul6lh)
+
+  test_failed_command_records_real_bottom_exit_and_stops_before_vtk (test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk) (exit_code=-8) ... FAIL
+run_openfoam_case error: case path must be pure ASCII for OpenFOAM v1912; move the case under /mnt/c/ts_work (got: D:\项目\鼻腔建模\outputs\T-023\t029-independent\targeted-test-temp\tmpiq1c5ass)
+  test_failed_command_records_real_bottom_exit_and_stops_before_vtk (test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk) (exit_code=7) ... FAIL
+test_real_subprocess_nonzero_is_not_replaced_with_outer_exit (test_run_openfoam_case.SolverEngineeringTests.test_real_subprocess_nonzero_is_not_replaced_with_outer_exit) ... {"command": ["C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe", "-c", "print(\"failure fixture\"); raise SystemExit(7)"], "exit_code": 7, "log": "D:\\\u9879\u76ee\\\u9f3b\u8154\u5efa\u6a21\\outputs\\T-023\\t029-independent\\targeted-test-temp\\tmpm1l1876i\\log.failure", "started_at": "2026-10-15T11:44:48+00:00", "elapsed_seconds": 0.05613769999763463, "finished_at": "2026-10-15T11:44:48+00:00"}
+ok
+test_launch_error_has_unknown_exit_and_actual_command_log (test_run_openfoam_case.SolverEngineeringTests.test_launch_error_has_unknown_exit_and_actual_command_log) ... {"command": ["missing-tool"], "exit_code": null, "log": "D:\\\u9879\u76ee\\\u9f3b\u8154\u5efa\u6a21\\outputs\\T-023\\t029-independent\\targeted-test-temp\\tmpcayw01e4\\log.missing", "started_at": "2026-10-15T11:44:48+00:00", "launch_error": "FileNotFoundError('missing executable')", "elapsed_seconds": 0.00036839999665971845, "finished_at": "2026-10-15T11:44:48+00:00"}
+ok
+test_versioned_engineering_catalog_preflight_and_source_binding_use_real_admission (test_cfd_workspace_jobs.SimulationTests.test_versioned_engineering_catalog_preflight_and_source_binding_use_real_admission) ... ok
+test_versioned_engineering_bad_origin_and_changed_source_still_block (test_cfd_workspace_jobs.SimulationTests.test_versioned_engineering_bad_origin_and_changed_source_still_block) ... ok
+
+======================================================================
+FAIL: test_failed_command_records_real_bottom_exit_and_stops_before_vtk (test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk) (exit_code=-8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\项目\鼻腔建模\work\lib\test_run_openfoam_case.py", line 110, in test_failed_command_records_real_bottom_exit_and_stops_before_vtk
+    with self.assertRaises(executor.CommandExecutionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: CommandExecutionError not raised
+
+======================================================================
+FAIL: test_failed_command_records_real_bottom_exit_and_stops_before_vtk (test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk) (exit_code=7)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\项目\鼻腔建模\work\lib\test_run_openfoam_case.py", line 110, in test_failed_command_records_real_bottom_exit_and_stops_before_vtk
+    with self.assertRaises(executor.CommandExecutionError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: CommandExecutionError not raised
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.484s
+
+FAILED (failures=2)

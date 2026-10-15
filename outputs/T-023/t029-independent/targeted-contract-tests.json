@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-15T11:44:48.664392+00:00",
+  "tests": [
+    "test_patient_cfd_admission.AdmissionTests.test_versioned_sample_retains_origin_and_strict_frozen_sources",
+    "test_patient_cfd_admission.AdmissionTests.test_versioned_sample_mismatched_origin_refuses_admission_and_authority",
+    "test_patient_cfd_admission.AdmissionTests.test_unrecognized_engineering_suffix_and_wrong_version_refuse",
+    "test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk",
+    "test_run_openfoam_case.SolverEngineeringTests.test_real_subprocess_nonzero_is_not_replaced_with_outer_exit",
+    "test_run_openfoam_case.SolverEngineeringTests.test_launch_error_has_unknown_exit_and_actual_command_log",
+    "test_cfd_workspace_jobs.SimulationTests.test_versioned_engineering_catalog_preflight_and_source_binding_use_real_admission",
+    "test_cfd_workspace_jobs.SimulationTests.test_versioned_engineering_bad_origin_and_changed_source_still_block"
+  ],
+  "test_source_sha256": {
+    "D:\\项目\\鼻腔建模\\work\\lib\\test_patient_cfd_admission.py": "85c1f66e23c901d3f7e0c69418b0693b7a51d8c65982091c5d905226dbaeaf47",
+    "D:\\项目\\鼻腔建模\\work\\lib\\test_run_openfoam_case.py": "a103fba0be9d213c5f4f457594216574ab6d953ce65798d1be66bb29c2253bde",
+    "D:\\项目\\鼻腔建模\\work\\lib\\test_cfd_workspace_jobs.py": "92e715e848df4f2d1477d8635ddb32bac55b53a49a8cb218c891df1bd2209b16"
+  },
+  "run_count": 8,
+  "failures": 2,
+  "errors": 0,
+  "successful": false,
+  "scope": "Eight targeted version/admission/failed-exit regressions; real exit7 child and synthetic -8 records; no CFD/service/production jobs.",
+  "script_sha256": "408734a72229d135788507a0496acc8c5596fcfb692218186905766c8fce6406"
+}

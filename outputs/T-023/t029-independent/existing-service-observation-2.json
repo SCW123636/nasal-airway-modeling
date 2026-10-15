@@ -1,0 +1,3729 @@
+{
+  "at": "2026-10-15T11:39:57.431186+00:00",
+  "inspection_round": 2,
+  "listener_8769": {
+    "pid": 35408,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769 --open",
+    "parent_pid": 29952,
+    "create_time": "2026-10-15T11:38:00.5790740Z"
+  },
+  "launcher_parent": {
+    "ProcessId": 29952,
+    "ParentProcessId": 38732,
+    "ExecutablePath": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769 --open",
+    "CreationDate": "/Date(1792064280537)/"
+  },
+  "launcher_ancestor": null,
+  "actual_argv": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py",
+    "--port",
+    "8769",
+    "--open"
+  ],
+  "original_argv": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py",
+    "--port",
+    "8769"
+  ],
+  "actual_extra_open_flag": true,
+  "this_verifier_did_not_launch_this_process": true,
+  "WMI_Create_executed_by_verifier": false,
+  "health": {
+    "service": "nasal-cfd-local-workspace/v1",
+    "ct_import": true,
+    "simulation_jobs": true,
+    "upper_airway": "frozen-read-only-v1"
+  },
+  "catalog": {
+    "schema": "nasal_simulation_catalog/v1",
+    "cases": [
+      {
+        "id": "reference_channel",
+        "label": "平行板气流参考 · 非患者",
+        "kind": "reference",
+        "run_action": "run_reference",
+        "run_allowed": true,
+        "blocking_reasons": [],
+        "geometry_status": "runner_generated_reference",
+        "mesh_status": "generated_on_new_run",
+        "solver_status": "available",
+        "artifacts": [],
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "recommended_settings": {
+          "levels": [
+            "coarse"
+          ]
+        }
+      },
+      {
+        "id": "reference_split_feedback",
+        "label": "共同压力与自然分流参考 · 非患者",
+        "kind": "reference",
+        "run_action": "run_pressure_feedback",
+        "run_allowed": true,
+        "blocking_reasons": [],
+        "engineering_checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "real_pressure_adapter",
+            "passed": true,
+            "source": "work\\lib\\openfoam_pressure_adapter.py",
+            "detail": "真实共同静压、自然分流、双支路三对照"
+          }
+        ],
+        "clinical_validation": "not_validated",
+        "geometry_status": "runner_generated_reference",
+        "mesh_status": "generated_on_new_run",
+        "solver_status": "available",
+        "artifacts": [],
+        "fixed_parameters": {
+          "target_flow_L_min": 1.0,
+          "outlet_gauge_p_Pa": 0.0,
+          "model": "laminar",
+          "boundary_strategy": "common_inlet_pressure_feedback"
+        },
+        "recommended_settings": {
+          "scenarios": [
+            "unequal",
+            "symmetric",
+            "swapped_labels"
+          ]
+        }
+      },
+      {
+        "id": "p0",
+        "label": "p0 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+          "固定切面未移动；出口删除选区覆盖既有鼻孔端盖 774 三角形，严格穿过切面 0；保护门拒绝。此为选区/拓扑证据，不是切面解剖错误结论。"
+        ],
+        "clinical_readiness_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "fixed_plane_outlet_selection",
+            "passed": false,
+            "source": "outputs/T-020/fixed_clip_results.json; current surface/landmark SHA256 matched",
+            "detail": "固定切面未移动；出口删除选区覆盖既有鼻孔端盖 774 三角形，严格穿过切面 0；保护门拒绝。此为选区/拓扑证据，不是切面解剖错误结论。"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "landmark_review",
+            "label": "候选点位与 CT 证据",
+            "url": "/landmark-review/index.html?case=p0"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "p1",
+        "label": "p1 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "landmark_review",
+            "label": "候选点位与 CT 证据",
+            "url": "/landmark-review/index.html?case=p1"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "p2",
+        "label": "p2 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "landmark_review",
+            "label": "候选点位与 CT 证据",
+            "url": "/landmark-review/index.html?case=p2"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "p3",
+        "label": "p3 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "landmark_review",
+            "label": "候选点位与 CT 证据",
+            "url": "/landmark-review/index.html?case=p3"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "p3t1",
+        "label": "p3t1 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "landmark_review",
+            "label": "候选点位与 CT 证据",
+            "url": "/landmark-review/index.html?case=p3t1"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "u_fbca9137690e4837",
+        "label": "u_fbca9137690e4837 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "当前点位审核未完成，病例状态：awaiting_review",
+          "边界审核未准入：边界审核缺失或已过期"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "review",
+            "label": "review",
+            "url": "/case-assets/u_fbca9137690e4837/review/index.html"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "u_ccf06624879c403a",
+        "label": "u_ccf06624879c403a · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "当前点位审核未完成，病例状态：awaiting_review",
+          "边界审核未准入：边界审核缺失或已过期"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "review",
+            "label": "review",
+            "url": "/case-assets/u_ccf06624879c403a/review/index.html"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "u_b39e51153cda46d7",
+        "label": "u_b39e51153cda46d7 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "当前点位审核未完成，病例状态：awaiting_review",
+          "边界审核未准入：边界审核缺失或已过期"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "review",
+            "label": "review",
+            "url": "/case-assets/u_b39e51153cda46d7/versions/v_49f044dd9c714acf/review/index.html"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "u_74a998a9fd274288",
+        "label": "u_74a998a9fd274288 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "当前点位审核未完成，病例状态：failed",
+          "边界审核未准入：边界审核缺失或已过期"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [],
+        "recommended_settings": {}
+      },
+      {
+        "id": "u_a3d2534c7d534b36",
+        "label": "u_a3d2534c7d534b36 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "当前点位审核未完成，病例状态：failed",
+          "边界审核未准入：边界审核缺失或已过期"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [],
+        "recommended_settings": {}
+      },
+      {
+        "id": "u_531c98ca241b4232",
+        "label": "u_531c98ca241b4232 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "当前点位审核未完成，病例状态：interrupted",
+          "边界审核未准入：边界审核缺失或已过期"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [],
+        "recommended_settings": {}
+      },
+      {
+        "id": "u_e41f17339e7a4ee5",
+        "label": "u_e41f17339e7a4ee5 · 鼻腔患者预览",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": false,
+        "blocking_reasons": [
+          "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+          "尚无与最终表面绑定的体网格与 checkMesh 原始证据"
+        ],
+        "clinical_readiness_reasons": [
+          "当前点位审核未完成，病例状态：awaiting_review",
+          "边界审核未准入：边界审核缺失或已过期"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "final_surface_binding",
+            "passed": false,
+            "detail": "尚无与本例当前输入绑定的最终 CFD 表面及工程准入记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "volume_mesh_binding",
+            "passed": false,
+            "detail": "尚无与最终表面绑定的体网格与 checkMesh 原始证据",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "candidate_only",
+        "mesh_status": "not_admitted",
+        "solver_status": "not_admitted",
+        "artifacts": [
+          {
+            "name": "review",
+            "label": "review",
+            "url": "/case-assets/u_e41f17339e7a4ee5/review/index.html"
+          }
+        ],
+        "recommended_settings": {}
+      },
+      {
+        "id": "b15_engineering",
+        "label": "b15_engineering · 独立患者工程示例",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": true,
+        "blocking_reasons": [],
+        "clinical_readiness_reasons": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "admission_identity",
+            "passed": true,
+            "detail": "准入记录 schema 与病例身份匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "current_source_binding",
+            "passed": true,
+            "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "final_surface_binding",
+            "passed": true,
+            "detail": "最终 CFD 表面内容哈希匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_content_binding",
+            "passed": true,
+            "detail": "体网格所有文件内容指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "config_content_binding",
+            "passed": true,
+            "detail": "物性、边界、数值配置指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "surface_mesh_provenance",
+            "passed": true,
+            "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "configuration_contract",
+            "passed": true,
+            "detail": "配置语义有效；专业审核 readiness 独立保留",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "patient_config_identity",
+            "passed": true,
+            "detail": "配置绑定同一患者表面，不继承其他患者身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "engineering_authorization",
+            "passed": true,
+            "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_diagnostics_present",
+            "passed": true,
+            "detail": "保留原 checkMesh；失败项作为工程风险记录",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "content_bound_engineering_input",
+        "mesh_status": "bound_engineering_input",
+        "solver_status": "engineering_trial_available",
+        "artifacts": [],
+        "recommended_settings": {}
+      },
+      {
+        "id": "b15_engineering_t029a",
+        "label": "b15_engineering_t029a · 独立患者工程示例",
+        "kind": "patient",
+        "run_action": "run_patient_engineering",
+        "run_allowed": true,
+        "blocking_reasons": [],
+        "clinical_readiness_reasons": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed"
+        ],
+        "clinical_validation": "not_validated",
+        "engineering_checks": [
+          {
+            "name": "admission_identity",
+            "passed": true,
+            "detail": "准入记录 schema 与病例身份匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "current_source_binding",
+            "passed": true,
+            "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "engineering_version_provenance",
+            "passed": true,
+            "detail": "工程版本仅改变数值试验身份；原始样例血缘与版本在所有记录中一致",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "final_surface_binding",
+            "passed": true,
+            "detail": "最终 CFD 表面内容哈希匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_content_binding",
+            "passed": true,
+            "detail": "体网格所有文件内容指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "config_content_binding",
+            "passed": true,
+            "detail": "物性、边界、数值配置指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "surface_mesh_provenance",
+            "passed": true,
+            "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "configuration_contract",
+            "passed": true,
+            "detail": "配置语义有效；专业审核 readiness 独立保留",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "patient_config_identity",
+            "passed": true,
+            "detail": "配置绑定同一患者表面，不继承其他患者身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "engineering_authorization",
+            "passed": true,
+            "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_diagnostics_present",
+            "passed": true,
+            "detail": "保留原 checkMesh；失败项作为工程风险记录",
+            "source": "受控患者工程输入与内容指纹"
+          }
+        ],
+        "geometry_status": "content_bound_engineering_input",
+        "mesh_status": "bound_engineering_input",
+        "solver_status": "engineering_trial_available",
+        "artifacts": [],
+        "recommended_settings": {}
+      }
+    ]
+  },
+  "candidate_catalog": {
+    "id": "b15_engineering_t029a",
+    "label": "b15_engineering_t029a · 独立患者工程示例",
+    "kind": "patient",
+    "run_action": "run_patient_engineering",
+    "run_allowed": true,
+    "blocking_reasons": [],
+    "clinical_readiness_reasons": [
+      "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+      "patient geometry requires human confirmed review",
+      "geometry.review.reviewer is required",
+      "geometry.review.reviewed_at is required",
+      "geometry.review.record_file is required",
+      "review must reference the same geometry sha256",
+      "both nostrils and nasopharynx outlet must be confirmed",
+      "oral exclusion must be confirmed",
+      "sinus boundary policy must be confirmed"
+    ],
+    "clinical_validation": "not_validated",
+    "engineering_checks": [
+      {
+        "name": "admission_identity",
+        "passed": true,
+        "detail": "准入记录 schema 与病例身份匹配",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "current_source_binding",
+        "passed": true,
+        "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "engineering_version_provenance",
+        "passed": true,
+        "detail": "工程版本仅改变数值试验身份；原始样例血缘与版本在所有记录中一致",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "final_surface_binding",
+        "passed": true,
+        "detail": "最终 CFD 表面内容哈希匹配",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "mesh_content_binding",
+        "passed": true,
+        "detail": "体网格所有文件内容指纹匹配",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "config_content_binding",
+        "passed": true,
+        "detail": "物性、边界、数值配置指纹匹配",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "surface_mesh_provenance",
+        "passed": true,
+        "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "configuration_contract",
+        "passed": true,
+        "detail": "配置语义有效；专业审核 readiness 独立保留",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "patient_config_identity",
+        "passed": true,
+        "detail": "配置绑定同一患者表面，不继承其他患者身份",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "engineering_authorization",
+        "passed": true,
+        "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+        "source": "受控患者工程输入与内容指纹"
+      },
+      {
+        "name": "mesh_diagnostics_present",
+        "passed": true,
+        "detail": "保留原 checkMesh；失败项作为工程风险记录",
+        "source": "受控患者工程输入与内容指纹"
+      }
+    ],
+    "geometry_status": "content_bound_engineering_input",
+    "mesh_status": "bound_engineering_input",
+    "solver_status": "engineering_trial_available",
+    "artifacts": [],
+    "recommended_settings": {}
+  },
+  "jobs": [
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_942fdbebfffd433c8fcec956",
+      "case_id": "b15_engineering",
+      "action": "run_patient_engineering",
+      "settings": {},
+      "status": "failed",
+      "stage": "failed",
+      "created_at": "2026-10-15T18:40:29+08:00",
+      "updated_at": "2026-10-15T19:00:02+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "b15_engineering",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "admission_identity",
+            "passed": true,
+            "detail": "准入记录 schema 与病例身份匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "current_source_binding",
+            "passed": true,
+            "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "final_surface_binding",
+            "passed": true,
+            "detail": "最终 CFD 表面内容哈希匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_content_binding",
+            "passed": true,
+            "detail": "体网格所有文件内容指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "config_content_binding",
+            "passed": true,
+            "detail": "物性、边界、数值配置指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "surface_mesh_provenance",
+            "passed": true,
+            "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "configuration_contract",
+            "passed": true,
+            "detail": "配置语义有效；专业审核 readiness 独立保留",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "patient_config_identity",
+            "passed": true,
+            "detail": "配置绑定同一患者表面，不继承其他患者身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "engineering_authorization",
+            "passed": true,
+            "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_diagnostics_present",
+            "passed": true,
+            "detail": "保留原 checkMesh；失败项作为工程风险记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.4638671875,
+            0.36962890625,
+            0.1572265625
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "clinical_validation": "not_validated",
+        "blocking_reasons": []
+      },
+      "result": {
+        "schema": "nasal_patient_engineering_trial/v1",
+        "case_id": "b15_engineering",
+        "patient_data": true,
+        "engineering_trial": true,
+        "backend": "real_openfoam_v1912",
+        "clinical_validation": "not_validated",
+        "numerical_validation": "unchecked",
+        "execution_status": "failed",
+        "scenario": {
+          "result": null,
+          "evaluations": [
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 10.0,
+              "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+              "status": "failed",
+              "started_at": "2026-10-15T10:40:34.560462+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+                "--steps",
+                "checkMesh,simpleFoam,foamToVTK",
+                "--config",
+                "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/config.json",
+                "--engineering-authorization",
+                "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001/engineering_authorization.json"
+              ],
+              "exit_code": 1,
+              "error": "real solver failed, exit=1"
+            }
+          ]
+        },
+        "target_m3_s": 0.00025,
+        "initial_pressure_Pa": 10.0,
+        "initial_pressure_basis": "Engineering initial guess only, from prior T-006 fixed-flow dP ~10.29Pa; not a new patient result",
+        "clinical_readiness_reasons": [
+          "total flow is an outer pressure-feedback target; no generic joint-flow OpenFOAM boundary is assumed",
+          "patient geometry requires human confirmed review",
+          "geometry.review.reviewer is required",
+          "geometry.review.reviewed_at is required",
+          "geometry.review.record_file is required",
+          "review must reference the same geometry sha256",
+          "both nostrils and nasopharynx outlet must be confirmed",
+          "oral exclusion must be confirmed",
+          "sinus boundary policy must be confirmed"
+        ],
+        "input_fingerprint": {
+          "admission_sha256": "f8e525cf579fe6d32fd55cdc9b6a0a21a74a9b0df08e158b6cfc0cbc63ea9bcc",
+          "config_sha256": "191b8aecac14fe4609c05490d098b175a0a93b69eb6e7eb0eeaeb534e98f43b1",
+          "current_source_binding": null,
+          "code_sha256": {
+            "patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+            "patient_cfd_admission.py": "252c282bcc0c8de3c2e4c39b6aed8ab9817d88a28d292efe3b711bbb5ce53a92",
+            "solver_adapter.py": "df741bbf6707b4ce9492ef0c59d8614c6b077aa542d86ae77a9be04ff414d8df",
+            "pressure_feedback.py": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22",
+            "openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7"
+          }
+        },
+        "error": "real solver failed, exit=1",
+        "interpretation": "Raw engineering evidence only; rejected quality point was not used in feedback interpolation",
+        "reference_type": null,
+        "viewer_export_error": "本次最终评估VTU缺失或不唯一"
+      },
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实工程输入与环境预检",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/preflight.json"
+        },
+        {
+          "name": "input_fingerprint.json",
+          "label": "本次输入与代码指纹",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/input_fingerprint.json"
+        },
+        {
+          "name": "live_status.json",
+          "label": "实际求解进度与日志尾",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/live_status.json"
+        },
+        {
+          "name": "execution.log",
+          "label": "本次真实压力求解日志",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/execution.log"
+        },
+        {
+          "name": "patient_engineering_report.json",
+          "label": "本次工程求解与质量记录",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/patient_engineering_report.json"
+        },
+        {
+          "name": "evaluations-evaluation_001.json",
+          "label": "原始评估：s_942fdbebfffd433c8fcec956",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-evaluation_001.json"
+        },
+        {
+          "name": "evaluations-eval_001-log.checkMesh",
+          "label": "原始执行证据：log.checkMesh",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-eval_001-log.checkMesh"
+        },
+        {
+          "name": "evaluations-eval_001-log.simpleFoam",
+          "label": "原始执行证据：log.simpleFoam",
+          "url": "/simulation-assets/s_942fdbebfffd433c8fcec956/evaluations-eval_001-log.simpleFoam"
+        }
+      ],
+      "error": "真实压力求解退出码：1；失败点不会进入反馈，原始证据保留",
+      "exit_code": 1,
+      "patient_binding": {
+        "current_source_binding": null,
+        "admission_sha256": "f8e525cf579fe6d32fd55cdc9b6a0a21a74a9b0df08e158b6cfc0cbc63ea9bcc"
+      },
+      "live_progress": {
+        "stage": "solver",
+        "evaluation": "eval_001",
+        "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956/evaluations/eval_001",
+        "actual_step": "failed",
+        "iteration": "223",
+        "runner_status": "failed",
+        "log_tail": "e> const&, unsigned char) const at --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n??:?\n#4  Foam::GAMGSolver::Vcycle(Foam::PtrList<Foam::lduMatrix::smoother> const&, Foam::Field<double>&, Foam::Field<double> const&, Foam::Field<double>&, Foam::Field<double>&, Foam::Field<double>&, Foam::Field<double>&, Foam::Field<double>&, Foam::PtrList<Foam::Field<double> >&, Foam::PtrList<Foam::Field<double> >&, unsigned char) const at --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n??:?\n#5  Foam::GAMGSolver::solve(Foam::Field<double>&, Foam::Field<double> const&, unsigned char) const at --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n??:?\n#6  Foam::fvMatrix<double>::solveSegregated(Foam::dictionary const&) at --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n??:?\n#7  Foam::fvMatrix<double>::solveSegregatedOrCoupled(Foam::dictionary const&) at --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n??:?\n#8  Foam::fvMesh::solve(Foam::fvMatrix<double>&, Foam::dictionary const&) const at --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n??:?\n#9  ? in --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n/usr/bin/simpleFoam\n#10  ? in --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n/lib/x86_64-linux-gnu/libc.so.6\n#11  __libc_start_main in --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n/lib/x86_64-linux-gnu/libc.so.6\n#12  ? in --> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\n/usr/bin/simpleFoam\n",
+        "updated_at": "2026-10-15T18:59:58+08:00"
+      },
+      "log_excerpt": "{\"command\": [\"wsl.exe\", \"-d\", \"Ubuntu-22.04\", \"--\", \"env\", \"OMP_NUM_THREADS=1\", \"OPENBLAS_NUM_THREADS=1\", \"MKL_NUM_THREADS=1\", \"taskset\", \"-c\", \"0\", \"nice\", \"-n\", \"10\", \"python3\", \"/mnt/d/\\u9879\\u76ee/\\u9f3b\\u8154\\u5efa\\u6a21/work/lib/patient_cfd_runner.py\", \"--work-dir\", \"/home/lenovo2/nasal_cfd_workspace_jobs/s_942fdbebfffd433c8fcec956\", \"--export-dir\", \"/mnt/c/ts_work/project_cases/simulation_jobs/s_942fdbebfffd433c8fcec956/export/s_942fdbebfffd433c8fcec956\", \"--patient-input\", \"/mnt/c/ts_work/project_cases/patient_cfd_inputs/b15_engineering\", \"--expected-admission-sha\", \"f8e525cf579fe6d32fd55cdc9b6a0a21a74a9b0df08e158b6cfc0cbc63ea9bcc\"], \"runner_sha256\": \"9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54\"}\r\n"
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_45964544c6364c29bfd59216",
+      "case_id": "b15_engineering",
+      "action": "preflight",
+      "settings": {},
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T18:40:25+08:00",
+      "updated_at": "2026-10-15T18:40:26+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "b15_engineering",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "admission_identity",
+            "passed": true,
+            "detail": "准入记录 schema 与病例身份匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "current_source_binding",
+            "passed": true,
+            "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "final_surface_binding",
+            "passed": true,
+            "detail": "最终 CFD 表面内容哈希匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_content_binding",
+            "passed": true,
+            "detail": "体网格所有文件内容指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "config_content_binding",
+            "passed": true,
+            "detail": "物性、边界、数值配置指纹匹配",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "surface_mesh_provenance",
+            "passed": true,
+            "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "configuration_contract",
+            "passed": true,
+            "detail": "配置语义有效；专业审核 readiness 独立保留",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "patient_config_identity",
+            "passed": true,
+            "detail": "配置绑定同一患者表面，不继承其他患者身份",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "engineering_authorization",
+            "passed": true,
+            "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "mesh_diagnostics_present",
+            "passed": true,
+            "detail": "保留原 checkMesh；失败项作为工程风险记录",
+            "source": "受控患者工程输入与内容指纹"
+          },
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.50439453125,
+            0.3759765625,
+            0.158203125
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "clinical_validation": "not_validated",
+        "blocking_reasons": []
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_45964544c6364c29bfd59216/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_1811f735241e4d75b5fdf10e",
+      "case_id": "reference_split_feedback",
+      "action": "run_pressure_feedback",
+      "settings": {
+        "scenarios": [
+          "symmetric"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T18:39:02+08:00",
+      "updated_at": "2026-10-15T18:39:51+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_split_feedback",
+        "patient_data": false,
+        "checked_at": "2026-10-15T18:39:02+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\lib\\openfoam_pressure_adapter.py",
+            "detail": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.63720703125,
+            0.314453125,
+            0.1162109375
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": {
+        "schema": "nasal_real_pressure_feedback_suite/v1",
+        "patient_data": false,
+        "execution_status": "completed",
+        "scenarios": {
+          "symmetric": {
+            "scenario": "symmetric",
+            "patient_data": false,
+            "result": {
+              "status": "converged",
+              "adapter": {
+                "name": "common_inlet_pressure_feedback_adapter",
+                "version": "1.0.0",
+                "desired_strategy": "common_inlet_pressure_feedback",
+                "flow_target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary",
+                "strategy_description": "Use one common nostril static pressure and fixed outlet static pressure; an outer loop adjusts the common inlet pressure to match the total-flow target. Do not impose a flow boundary simultaneously."
+              },
+              "evaluation_backend": "real_openfoam_v1912",
+              "inlet_patches": [
+                "inlet_L",
+                "inlet_R"
+              ],
+              "outlet_patches": [
+                "outlet"
+              ],
+              "target_m3_s": 1.666666666666667e-05,
+              "target_basis": "volumetric_total_inspiratory_flow_kinematic_density_independent",
+              "pressure_pa": 2.4442511455041886,
+              "q_total_m3_s": 1.6638557666052e-05,
+              "q_left_m3_s": 8.319278833013e-06,
+              "q_right_m3_s": 8.319278833039e-06,
+              "q_out_m3_s": 1.663855765932e-05,
+              "left_fraction": 0.4999999999992187,
+              "relative_flow_error": 0.0016865400368802014,
+              "iterations": [
+                {
+                  "pressure_pa": 1.0,
+                  "q_left_m3_s": 3.381424481358e-06,
+                  "q_right_m3_s": 3.381424481371e-06,
+                  "q_out_m3_s": 6.762848954205e-06,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 1.2604155538822211e-09,
+                  "residuals_passed": true,
+                  "q_total_m3_s": 6.762848962729e-06,
+                  "relative_flow_error": 0.5942290622362602,
+                  "left_fraction": 0.4999999999990388
+                },
+                {
+                  "pressure_pa": 2.0,
+                  "q_left_m3_s": 6.793086981114e-06,
+                  "q_right_m3_s": 6.793086981136e-06,
+                  "q_out_m3_s": 1.358617395485e-05,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 5.446712468251235e-10,
+                  "residuals_passed": true,
+                  "q_total_m3_s": 1.3586173962249999e-05,
+                  "relative_flow_error": 0.18482956226500027,
+                  "left_fraction": 0.49999999999919037
+                },
+                {
+                  "pressure_pa": 4.0,
+                  "q_left_m3_s": 1.372721137357e-05,
+                  "q_right_m3_s": 1.372721137359e-05,
+                  "q_out_m3_s": 2.74544227399e-05,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 2.6443829371100323e-10,
+                  "residuals_passed": true,
+                  "q_total_m3_s": 2.745442274716e-05,
+                  "relative_flow_error": 0.6472653648295996,
+                  "left_fraction": 0.49999999999963574
+                },
+                {
+                  "pressure_pa": 2.4442511455041886,
+                  "q_left_m3_s": 8.319278833013e-06,
+                  "q_right_m3_s": 8.319278833039e-06,
+                  "q_out_m3_s": 1.663855765932e-05,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 4.0460243967409057e-10,
+                  "residuals_passed": true,
+                  "q_total_m3_s": 1.6638557666052e-05,
+                  "relative_flow_error": 0.0016865400368802014,
+                  "left_fraction": 0.4999999999992187
+                }
+              ],
+              "evaluation_count": 4,
+              "bracket_pa": [
+                2.4442511455041886,
+                4.0
+              ]
+            },
+            "evaluations": [
+              {
+                "schema": "nasal_real_pressure_evaluation/v1",
+                "pressure_pa": 1.0,
+                "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001",
+                "status": "accepted",
+                "started_at": "2026-10-15T10:39:03.257433+00:00",
+                "backend": "real_openfoam_v1912",
+                "clinical_validation": "not_validated",
+                "command": [
+                  "/usr/bin/python3",
+                  "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                  "--case",
+                  "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001",
+                  "--steps",
+                  "blockMesh,checkMesh,simpleFoam,foamToVTK"
+                ],
+                "exit_code": 0,
+                "diagnostics": {
+                  "signed_phi_m3_s": {
+                    "inlet_L": -3.381424481358e-06,
+                    "inlet_R": -3.381424481371e-06,
+                    "outlet": 6.762848954205e-06
+                  },
+                  "flux": {
+                    "q_in_by_patch": {
+                      "inlet_L": 3.381424481358e-06,
+                      "inlet_R": 3.381424481371e-06
+                    },
+                    "q_out_by_patch": {
+                      "outlet": 6.762848954205e-06
+                    },
+                    "q_in_m3_s": 6.762848962729e-06,
+                    "q_out_m3_s": 6.762848954205e-06,
+                    "mass_imbalance_frac": 1.2604155538822211e-09
+                  },
+                  "pressure_Pa_gauge": {
+                    "inlet_L": 0.9999999999999599,
+                    "inlet_R": 0.9999999999999599,
+                    "outlet": 0.0
+                  },
+                  "initial_residuals": {
+                    "Ux": 2.06073825409e-07,
+                    "Uy": 1.42627130157e-07,
+                    "p": 9.98092329031e-09
+                  },
+                  "linear_final_residuals": {
+                    "Ux": 3.08592705378e-13,
+                    "Uy": 8.59215865761e-13,
+                    "p": 9.76106695999e-11
+                  },
+                  "residual_max": 2.06073825409e-07,
+                  "continuity_global": -3.27861013622e-09,
+                  "monitor_relative_change": 0.0,
+                  "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                  "flow_monitor_relative_change": 2.7073899047334496e-06,
+                  "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                  "mesh_quality_passed": true,
+                  "solver_ended": true,
+                  "SIMPLE_convergence_banner": true,
+                  "final_time": "396"
+                },
+                "evaluation": {
+                  "pressure_pa": 1.0,
+                  "q_left_m3_s": 3.381424481358e-06,
+                  "q_right_m3_s": 3.381424481371e-06,
+                  "q_out_m3_s": 6.762848954205e-06,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 1.2604155538822211e-09,
+                  "residuals_passed": true
+                }
+              },
+              {
+                "schema": "nasal_real_pressure_evaluation/v1",
+                "pressure_pa": 2.0,
+                "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002",
+                "status": "accepted",
+                "started_at": "2026-10-15T10:39:09.269280+00:00",
+                "backend": "real_openfoam_v1912",
+                "clinical_validation": "not_validated",
+                "command": [
+                  "/usr/bin/python3",
+                  "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                  "--case",
+                  "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002",
+                  "--steps",
+                  "blockMesh,checkMesh,simpleFoam,foamToVTK"
+                ],
+                "exit_code": 0,
+                "diagnostics": {
+                  "signed_phi_m3_s": {
+                    "inlet_L": -6.793086981114e-06,
+                    "inlet_R": -6.793086981136e-06,
+                    "outlet": 1.358617395485e-05
+                  },
+                  "flux": {
+                    "q_in_by_patch": {
+                      "inlet_L": 6.793086981114e-06,
+                      "inlet_R": 6.793086981136e-06
+                    },
+                    "q_out_by_patch": {
+                      "outlet": 1.358617395485e-05
+                    },
+                    "q_in_m3_s": 1.3586173962249999e-05,
+                    "q_out_m3_s": 1.358617395485e-05,
+                    "mass_imbalance_frac": 5.446712468251235e-10
+                  },
+                  "pressure_Pa_gauge": {
+                    "inlet_L": 2.0000000000004,
+                    "inlet_R": 2.0000000000004,
+                    "outlet": 0.0
+                  },
+                  "initial_residuals": {
+                    "Ux": 1.56629155354e-07,
+                    "Uy": 9.90610748307e-08,
+                    "p": 9.97336989451e-09
+                  },
+                  "linear_final_residuals": {
+                    "Ux": 3.44190400005e-13,
+                    "Uy": 2.761066377e-13,
+                    "p": 9.52801451329e-11
+                  },
+                  "residual_max": 1.56629155354e-07,
+                  "continuity_global": -2.84701032231e-09,
+                  "monitor_relative_change": 0.0,
+                  "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                  "flow_monitor_relative_change": 1.7241548738364154e-06,
+                  "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                  "mesh_quality_passed": true,
+                  "solver_ended": true,
+                  "SIMPLE_convergence_banner": true,
+                  "final_time": "552"
+                },
+                "evaluation": {
+                  "pressure_pa": 2.0,
+                  "q_left_m3_s": 6.793086981114e-06,
+                  "q_right_m3_s": 6.793086981136e-06,
+                  "q_out_m3_s": 1.358617395485e-05,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 5.446712468251235e-10,
+                  "residuals_passed": true
+                }
+              },
+              {
+                "schema": "nasal_real_pressure_evaluation/v1",
+                "pressure_pa": 4.0,
+                "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003",
+                "status": "accepted",
+                "started_at": "2026-10-15T10:39:17.405636+00:00",
+                "backend": "real_openfoam_v1912",
+                "clinical_validation": "not_validated",
+                "command": [
+                  "/usr/bin/python3",
+                  "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                  "--case",
+                  "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003",
+                  "--steps",
+                  "blockMesh,checkMesh,simpleFoam,foamToVTK"
+                ],
+                "exit_code": 0,
+                "diagnostics": {
+                  "signed_phi_m3_s": {
+                    "inlet_L": -1.372721137357e-05,
+                    "inlet_R": -1.372721137359e-05,
+                    "outlet": 2.74544227399e-05
+                  },
+                  "flux": {
+                    "q_in_by_patch": {
+                      "inlet_L": 1.372721137357e-05,
+                      "inlet_R": 1.372721137359e-05
+                    },
+                    "q_out_by_patch": {
+                      "outlet": 2.74544227399e-05
+                    },
+                    "q_in_m3_s": 2.745442274716e-05,
+                    "q_out_m3_s": 2.74544227399e-05,
+                    "mass_imbalance_frac": 2.6443829371100323e-10
+                  },
+                  "pressure_Pa_gauge": {
+                    "inlet_L": 3.9999999999996,
+                    "inlet_R": 3.9999999999996,
+                    "outlet": 0.0
+                  },
+                  "initial_residuals": {
+                    "Ux": 1.20565108632e-07,
+                    "Uy": 6.37822909765e-08,
+                    "p": 9.97888336982e-09
+                  },
+                  "linear_final_residuals": {
+                    "Ux": 2.40042198121e-13,
+                    "Uy": 9.10945720277e-13,
+                    "p": 7.49656423171e-11
+                  },
+                  "residual_max": 1.20565108632e-07,
+                  "continuity_global": -2.79284065201e-09,
+                  "monitor_relative_change": 0.0,
+                  "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                  "flow_monitor_relative_change": 1.0768742479983017e-06,
+                  "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                  "mesh_quality_passed": true,
+                  "solver_ended": true,
+                  "SIMPLE_convergence_banner": true,
+                  "final_time": "961"
+                },
+                "evaluation": {
+                  "pressure_pa": 4.0,
+                  "q_left_m3_s": 1.372721137357e-05,
+                  "q_right_m3_s": 1.372721137359e-05,
+                  "q_out_m3_s": 2.74544227399e-05,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 2.6443829371100323e-10,
+                  "residuals_passed": true
+                }
+              },
+              {
+                "schema": "nasal_real_pressure_evaluation/v1",
+                "pressure_pa": 2.4442511455041886,
+                "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004",
+                "status": "accepted",
+                "started_at": "2026-10-15T10:39:30.313203+00:00",
+                "backend": "real_openfoam_v1912",
+                "clinical_validation": "not_validated",
+                "command": [
+                  "/usr/bin/python3",
+                  "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                  "--case",
+                  "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004",
+                  "--steps",
+                  "blockMesh,checkMesh,simpleFoam,foamToVTK"
+                ],
+                "exit_code": 0,
+                "diagnostics": {
+                  "signed_phi_m3_s": {
+                    "inlet_L": -8.319278833013e-06,
+                    "inlet_R": -8.319278833039e-06,
+                    "outlet": 1.663855765932e-05
+                  },
+                  "flux": {
+                    "q_in_by_patch": {
+                      "inlet_L": 8.319278833013e-06,
+                      "inlet_R": 8.319278833039e-06
+                    },
+                    "q_out_by_patch": {
+                      "outlet": 1.663855765932e-05
+                    },
+                    "q_in_m3_s": 1.6638557666052e-05,
+                    "q_out_m3_s": 1.663855765932e-05,
+                    "mass_imbalance_frac": 4.0460243967409057e-10
+                  },
+                  "pressure_Pa_gauge": {
+                    "inlet_L": 2.4442511455043996,
+                    "inlet_R": 2.4442511455043996,
+                    "outlet": 0.0
+                  },
+                  "initial_residuals": {
+                    "Ux": 1.42938112462e-07,
+                    "Uy": 8.70357634575e-08,
+                    "p": 9.83897631281e-09
+                  },
+                  "linear_final_residuals": {
+                    "Ux": 9.19982838894e-13,
+                    "Uy": 7.29217188504e-13,
+                    "p": 8.09918915897e-11
+                  },
+                  "residual_max": 1.42938112462e-07,
+                  "continuity_global": -2.587800294e-09,
+                  "monitor_relative_change": 0.0,
+                  "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                  "flow_monitor_relative_change": 1.4844104177836104e-06,
+                  "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                  "mesh_quality_passed": true,
+                  "solver_ended": true,
+                  "SIMPLE_convergence_banner": true,
+                  "final_time": "639"
+                },
+                "evaluation": {
+                  "pressure_pa": 2.4442511455041886,
+                  "q_left_m3_s": 8.319278833013e-06,
+                  "q_right_m3_s": 8.319278833039e-06,
+                  "q_out_m3_s": 1.663855765932e-05,
+                  "converged": true,
+                  "mesh_quality_passed": true,
+                  "mass_imbalance_frac": 4.0460243967409057e-10,
+                  "residuals_passed": true
+                }
+              }
+            ],
+            "clinical_validation": "not_validated",
+            "numerical_validation": "unchecked"
+          }
+        },
+        "checks": {
+          "all_converged": true,
+          "symmetric_near_half": true
+        },
+        "clinical_validation": "not_validated",
+        "numerical_validation": "unchecked",
+        "backend": "real_openfoam_v1912",
+        "reference_type": "split_pressure_feedback",
+        "viewer_export": {
+          "points": 8829,
+          "triangles": 16640,
+          "source_vtu_sha256": "32cceff993428614b9caf4fda4845c4ddcb9631f63a853750e508b987eb75e75",
+          "result_contract_valid": true,
+          "diagnostics": {
+            "mass_imbalance_fraction": 4.0460243967409057e-10,
+            "monitor_relative_change": 0.0,
+            "residual_max": 1.42938112462e-07,
+            "monitor_definition": "(max-min)/abs(mean) over last 20 SIMPLE iterations",
+            "precision_note": "Zero may mean below recorded precision, not exact arithmetic"
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实工程输入与环境预检",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/preflight.json"
+        },
+        {
+          "name": "input_fingerprint.json",
+          "label": "本次输入与代码指纹",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/input_fingerprint.json"
+        },
+        {
+          "name": "live_status.json",
+          "label": "实际求解进度与日志尾",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/live_status.json"
+        },
+        {
+          "name": "execution.log",
+          "label": "本次真实压力求解日志",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/execution.log"
+        },
+        {
+          "name": "feedback_suite_report.json",
+          "label": "本次工程求解与质量记录",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/feedback_suite_report.json"
+        },
+        {
+          "name": "symmetric-evaluations-evaluation_001.json",
+          "label": "原始评估：symmetric",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-evaluation_001.json"
+        },
+        {
+          "name": "symmetric-evaluations-evaluation_002.json",
+          "label": "原始评估：symmetric",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-evaluation_002.json"
+        },
+        {
+          "name": "symmetric-evaluations-evaluation_003.json",
+          "label": "原始评估：symmetric",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-evaluation_003.json"
+        },
+        {
+          "name": "symmetric-evaluations-evaluation_004.json",
+          "label": "原始评估：symmetric",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-evaluation_004.json"
+        },
+        {
+          "name": "symmetric-evaluations-eval_001-log.blockMesh",
+          "label": "原始执行证据：log.blockMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_001-log.blockMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_001-log.checkMesh",
+          "label": "原始执行证据：log.checkMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_001-log.checkMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_001-log.foamToVTK",
+          "label": "原始执行证据：log.foamToVTK",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_001-log.foamToVTK"
+        },
+        {
+          "name": "symmetric-evaluations-eval_001-log.simpleFoam",
+          "label": "原始执行证据：log.simpleFoam",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_001-log.simpleFoam"
+        },
+        {
+          "name": "symmetric-evaluations-eval_002-log.blockMesh",
+          "label": "原始执行证据：log.blockMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_002-log.blockMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_002-log.checkMesh",
+          "label": "原始执行证据：log.checkMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_002-log.checkMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_002-log.foamToVTK",
+          "label": "原始执行证据：log.foamToVTK",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_002-log.foamToVTK"
+        },
+        {
+          "name": "symmetric-evaluations-eval_002-log.simpleFoam",
+          "label": "原始执行证据：log.simpleFoam",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_002-log.simpleFoam"
+        },
+        {
+          "name": "symmetric-evaluations-eval_003-log.blockMesh",
+          "label": "原始执行证据：log.blockMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_003-log.blockMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_003-log.checkMesh",
+          "label": "原始执行证据：log.checkMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_003-log.checkMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_003-log.foamToVTK",
+          "label": "原始执行证据：log.foamToVTK",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_003-log.foamToVTK"
+        },
+        {
+          "name": "symmetric-evaluations-eval_003-log.simpleFoam",
+          "label": "原始执行证据：log.simpleFoam",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_003-log.simpleFoam"
+        },
+        {
+          "name": "symmetric-evaluations-eval_004-log.blockMesh",
+          "label": "原始执行证据：log.blockMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_004-log.blockMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_004-log.checkMesh",
+          "label": "原始执行证据：log.checkMesh",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_004-log.checkMesh"
+        },
+        {
+          "name": "symmetric-evaluations-eval_004-log.foamToVTK",
+          "label": "原始执行证据：log.foamToVTK",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_004-log.foamToVTK"
+        },
+        {
+          "name": "symmetric-evaluations-eval_004-log.simpleFoam",
+          "label": "原始执行证据：log.simpleFoam",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/symmetric-evaluations-eval_004-log.simpleFoam"
+        },
+        {
+          "name": "pressure_result-log.simpleFoam",
+          "label": "展示字段的原始simpleFoam日志",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/pressure_result-log.simpleFoam"
+        },
+        {
+          "name": "viewer_mesh.json",
+          "label": "本次真实共同压力字段",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/viewer_mesh.json"
+        },
+        {
+          "name": "viewer.json",
+          "label": "本次三维索引",
+          "url": "/simulation-assets/s_1811f735241e4d75b5fdf10e/viewer.json"
+        },
+        {
+          "name": "viewer",
+          "label": "三维速度 / 压力",
+          "url": "/viewer/index.html?manifest=/simulation-assets/s_1811f735241e4d75b5fdf10e/viewer.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "live_progress": {
+        "stage": "solver",
+        "evaluation": "eval_004",
+        "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004",
+        "actual_step": "completed",
+        "iteration": "639",
+        "runner_status": "completed",
+        "log_tail": "4078e-08, Final residual = 7.8434102536e-13, No Iterations 8\nGAMG:  Solving for p, Initial residual = 1.05757128312e-08, Final residual = 8.68511156788e-11, No Iterations 7\ntime step continuity errors : sum local = 9.30992940047e-09, global = -2.77542292453e-09, cumulative = -4.04798405381e-07\nExecutionTime = 8.16 s  ClockTime = 8 s\n\nTime = 636\n\nsmoothSolver:  Solving for Ux, Initial residual = 1.50960655331e-07, Final residual = 9.71574353539e-13, No Iterations 8\nsmoothSolver:  Solving for Uy, Initial residual = 9.19030685855e-08, Final residual = 7.70185361016e-13, No Iterations 8\nGAMG:  Solving for p, Initial residual = 1.03891982994e-08, Final residual = 8.53059907413e-11, No Iterations 7\ntime step continuity errors : sum local = 9.14431981103e-09, global = -2.72572836288e-09, cumulative = -4.07524133744e-07\nExecutionTime = 8.17 s  ClockTime = 8 s\n\nTime = 637\n\nsmoothSolver:  Solving for Ux, Initial residual = 1.48237445222e-07, Final residual = 9.54046066957e-13, No Iterations 8\nsmoothSolver:  Solving for Uy, Initial residual = 9.02501406176e-08, Final residual = 7.56282358614e-13, No Iterations 8\nGAMG:  Solving for p, Initial residual = 1.0204266888e-08, Final residual = 8.38330264252e-11, No Iterations 7\ntime step continuity errors : sum local = 8.98653391649e-09, global = -2.67840257005e-09, cumulative = -4.10202536314e-07\nExecutionTime = 8.18 s  ClockTime = 8 s\n\nTime = 638\n\nsmoothSolver:  Solving for Ux, Initial residual = 1.45563658055e-07, Final residual = 9.36858693084e-13, No Iterations 8\nsmoothSolver:  Solving for Uy, Initial residual = 8.86284044525e-08, Final residual = 7.42627138361e-13, No Iterations 8\nGAMG:  Solving for p, Initial residual = 1.00208277481e-08, Final residual = 8.24031806417e-11, No Iterations 7\ntime step continuity errors : sum local = 8.83323929225e-09, global = -2.63269099968e-09, cumulative = -4.12835227314e-07\nExecutionTime = 8.18 s  ClockTime = 8 s\n\nTime = 639\n\nsmoothSolver:  Solving for Ux, Initial residual = 1.42938112462e-07, Final residual = 9.19982838894e-13, No Iterations 8\nsmoothSolver:  Solving for Uy, Initial residual = 8.70357634575e-08, Final residual = 7.29217188504e-13, No Iterations 8\nGAMG:  Solving for p, Initial residual = 9.83897631281e-09, Final residual = 8.09918915897e-11, No Iterations 7\ntime step continuity errors : sum local = 8.68205336305e-09, global = -2.587800294e-09, cumulative = -4.15423027608e-07\nExecutionTime = 8.18 s  ClockTime = 8 s\n\n\nSIMPLE solution converged in 639 iterations\n\nEnd\n\n",
+        "updated_at": "2026-10-15T18:39:46+08:00"
+      },
+      "log_excerpt": "{\"command\": [\"wsl.exe\", \"-d\", \"Ubuntu-22.04\", \"--\", \"env\", \"OMP_NUM_THREADS=1\", \"OPENBLAS_NUM_THREADS=1\", \"MKL_NUM_THREADS=1\", \"taskset\", \"-c\", \"0\", \"nice\", \"-n\", \"10\", \"python3\", \"/mnt/d/\\u9879\\u76ee/\\u9f3b\\u8154\\u5efa\\u6a21/work/lib/openfoam_pressure_adapter.py\", \"--work-dir\", \"/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e\", \"--export-dir\", \"/mnt/c/ts_work/project_cases/simulation_jobs/s_1811f735241e4d75b5fdf10e/export/s_1811f735241e4d75b5fdf10e\", \"--scenarios\", \"symmetric\"], \"runner_sha256\": \"38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7\"}\r\n{\"event\": \"pressure_evaluation\", \"case\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_001\", \"pressure_pa\": 1.0, \"q_total_m3_s\": 6.762848962729e-06}\r\n{\"event\": \"pressure_evaluation\", \"case\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_002\", \"pressure_pa\": 2.0, \"q_total_m3_s\": 1.3586173962249999e-05}\r\n{\"event\": \"pressure_evaluation\", \"case\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_003\", \"pressure_pa\": 4.0, \"q_total_m3_s\": 2.745442274716e-05}\r\n{\"event\": \"pressure_evaluation\", \"case\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_1811f735241e4d75b5fdf10e/symmetric/evaluations/eval_004\", \"pressure_pa\": 2.4442511455041886, \"q_total_m3_s\": 1.6638557666052e-05}\r\n"
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_251c0b7d9d544e90ab1179ed",
+      "case_id": "reference_split_feedback",
+      "action": "preflight",
+      "settings": {
+        "scenarios": [
+          "symmetric"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T18:38:59+08:00",
+      "updated_at": "2026-10-15T18:38:59+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_split_feedback",
+        "patient_data": false,
+        "checked_at": "2026-10-15T18:38:59+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\lib\\openfoam_pressure_adapter.py",
+            "detail": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.63720703125,
+            0.314453125,
+            0.1162109375
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_251c0b7d9d544e90ab1179ed/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_3a80ca3475e34bcdb2b80302",
+      "case_id": "p0",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T17:54:18+08:00",
+      "updated_at": "2026-10-15T17:54:18+08:00",
+      "preflight": {
+        "passed": false,
+        "case_id": "p0",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与本例当前输入绑定且已验收的最终 CFD 表面"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与最终表面绑定的合格体网格和 checkMesh 记录"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+          }
+        ],
+        "blocking_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+          "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+          "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+          "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+          "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+        ]
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_3a80ca3475e34bcdb2b80302/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_6b14b9614f674c92b8cbb4c1",
+      "case_id": "u_b39e51153cda46d7",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T17:54:00+08:00",
+      "updated_at": "2026-10-15T17:54:00+08:00",
+      "preflight": {
+        "passed": false,
+        "case_id": "u_b39e51153cda46d7",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "当前点位审核未完成，病例状态：awaiting_review"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "边界审核未准入：边界审核缺失或已过期"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与本例当前输入绑定且已验收的最终 CFD 表面"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与最终表面绑定的合格体网格和 checkMesh 记录"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+          }
+        ],
+        "blocking_reasons": [
+          "当前点位审核未完成，病例状态：awaiting_review",
+          "边界审核未准入：边界审核缺失或已过期",
+          "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+          "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+          "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+          "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+        ]
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_6b14b9614f674c92b8cbb4c1/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_9b849c25310344fba7ee7b83",
+      "case_id": "reference_channel",
+      "action": "run_reference",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "failed",
+      "stage": "failed",
+      "created_at": "2026-10-15T17:44:22+08:00",
+      "updated_at": "2026-10-15T17:44:26+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_channel",
+        "patient_data": false,
+        "checked_at": "2026-10-15T17:44:26+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\07_cfd_pipeline\\solver_reference\\run_reference.py",
+            "detail": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实环境与入口预检",
+          "url": "/simulation-assets/s_9b849c25310344fba7ee7b83/preflight.json"
+        }
+      ],
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\ts_work\\\\project_cases\\\\simulation_jobs\\\\s_9b849c25310344fba7ee7b83\\\\job.json.a60f1f89a84d4323815399c90bfc7320.tmp' -> 'C:\\\\ts_work\\\\project_cases\\\\simulation_jobs\\\\s_9b849c25310344fba7ee7b83\\\\job.json'",
+      "exit_code": null,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_af6c8ddfc3ea4806abb5d45b",
+      "case_id": "u_b39e51153cda46d7",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T17:30:51+08:00",
+      "updated_at": "2026-10-15T17:30:52+08:00",
+      "preflight": {
+        "passed": false,
+        "case_id": "u_b39e51153cda46d7",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "当前点位审核未完成，病例状态：awaiting_review"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "边界审核未准入：边界审核缺失或已过期"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与本例当前输入绑定且已验收的最终 CFD 表面"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与最终表面绑定的合格体网格和 checkMesh 记录"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+          }
+        ],
+        "blocking_reasons": [
+          "当前点位审核未完成，病例状态：awaiting_review",
+          "边界审核未准入：边界审核缺失或已过期",
+          "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+          "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+          "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+          "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+        ]
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_af6c8ddfc3ea4806abb5d45b/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_4aa5ec068dd544b59ce0098b",
+      "case_id": "p0",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T17:02:23+08:00",
+      "updated_at": "2026-10-15T17:02:24+08:00",
+      "preflight": {
+        "passed": false,
+        "case_id": "p0",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与本例当前输入绑定且已验收的最终 CFD 表面"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与最终表面绑定的合格体网格和 checkMesh 记录"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+          }
+        ],
+        "blocking_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+          "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+          "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+          "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+          "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+        ]
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_4aa5ec068dd544b59ce0098b/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_c8356e3623fb49b9bfb06dc9",
+      "case_id": "reference_channel",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T17:02:21+08:00",
+      "updated_at": "2026-10-15T17:02:22+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_channel",
+        "patient_data": false,
+        "checked_at": "2026-10-15T17:02:22+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\07_cfd_pipeline\\solver_reference\\run_reference.py",
+            "detail": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_c8356e3623fb49b9bfb06dc9/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_970bd197fb3b41d289170ceb",
+      "case_id": "reference_channel",
+      "action": "run_reference",
+      "settings": {
+        "levels": [
+          "coarse",
+          "medium",
+          "fine"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T16:51:55+08:00",
+      "updated_at": "2026-10-15T16:52:06+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_channel",
+        "patient_data": false,
+        "checked_at": "2026-10-15T16:51:56+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\07_cfd_pipeline\\solver_reference\\run_reference.py",
+            "detail": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.0859375,
+            0.04736328125,
+            0.009765625
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": {
+        "patient_data": false,
+        "reference_type": "plane_poiseuille",
+        "parameters": {
+          "L_m": 0.04,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "rho_kg_m3": 1.2,
+          "mu_Pa_s": 1.81e-05,
+          "nu_m2_s": 1.5083333333333333e-05,
+          "bulk_U_m_s": 0.1
+        },
+        "analytical": {
+          "Q_m3_s": 2.0000000000000002e-07,
+          "max_U_m_s": 0.15000000000000002,
+          "delta_p_Pa": 0.21720000000000003,
+          "pressure_gradient_Pa_m": 5.430000000000001,
+          "hydraulic_Re_2H": 26.519337016574585
+        },
+        "cases": [
+          {
+            "level": "coarse",
+            "cells": 800,
+            "converged": true,
+            "mass_imbalance_fraction": 0.0,
+            "delta_p_boundary_Pa": 0.21249294824592
+          },
+          {
+            "level": "medium",
+            "cells": 3200,
+            "converged": true,
+            "mass_imbalance_fraction": 0.0,
+            "delta_p_boundary_Pa": 0.21587924916228
+          },
+          {
+            "level": "fine",
+            "cells": 12800,
+            "converged": true,
+            "mass_imbalance_fraction": 0.0,
+            "delta_p_boundary_Pa": 0.21679864724472
+          }
+        ],
+        "execution_status": "completed",
+        "validation_status": "awaiting_independent_review",
+        "viewer_export": {
+          "points": 13161,
+          "triangles": 25600,
+          "source_vtu_sha256": "5102b7967aba961494d01e3ce9bd944c7a62de733cc7f12f952b2f682212ebed",
+          "result_contract_valid": true,
+          "diagnostics": {
+            "mass_imbalance_fraction": 0.0,
+            "monitor_relative_change": 0.0,
+            "residual_max": 9.01449970814e-09,
+            "monitor_definition": "(max-min)/abs(mean) over last 20 SIMPLE iterations",
+            "precision_note": "Zero may mean below recorded precision, not exact arithmetic"
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实环境与入口预检",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/preflight.json"
+        },
+        {
+          "name": "execution.log",
+          "label": "本次真实执行日志",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/execution.log"
+        },
+        {
+          "name": "run_manifest.json",
+          "label": "本次原始参考运行记录",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/run_manifest.json"
+        },
+        {
+          "name": "coarse-log.blockMesh",
+          "label": "coarse · log.blockMesh",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.blockMesh"
+        },
+        {
+          "name": "coarse-log.checkMesh",
+          "label": "coarse · log.checkMesh",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.checkMesh"
+        },
+        {
+          "name": "coarse-log.simpleFoam",
+          "label": "coarse · log.simpleFoam",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.simpleFoam"
+        },
+        {
+          "name": "coarse-log.foamToVTK",
+          "label": "coarse · log.foamToVTK",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/coarse-log.foamToVTK"
+        },
+        {
+          "name": "medium-log.blockMesh",
+          "label": "medium · log.blockMesh",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.blockMesh"
+        },
+        {
+          "name": "medium-log.checkMesh",
+          "label": "medium · log.checkMesh",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.checkMesh"
+        },
+        {
+          "name": "medium-log.simpleFoam",
+          "label": "medium · log.simpleFoam",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.simpleFoam"
+        },
+        {
+          "name": "medium-log.foamToVTK",
+          "label": "medium · log.foamToVTK",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/medium-log.foamToVTK"
+        },
+        {
+          "name": "fine-log.blockMesh",
+          "label": "fine · log.blockMesh",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.blockMesh"
+        },
+        {
+          "name": "fine-log.checkMesh",
+          "label": "fine · log.checkMesh",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.checkMesh"
+        },
+        {
+          "name": "fine-log.simpleFoam",
+          "label": "fine · log.simpleFoam",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.simpleFoam"
+        },
+        {
+          "name": "fine-log.foamToVTK",
+          "label": "fine · log.foamToVTK",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/fine-log.foamToVTK"
+        },
+        {
+          "name": "viewer_mesh.json",
+          "label": "本次真实速度与压力字段",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/viewer_mesh.json"
+        },
+        {
+          "name": "viewer.json",
+          "label": "本次三维索引",
+          "url": "/simulation-assets/s_970bd197fb3b41d289170ceb/viewer.json"
+        },
+        {
+          "name": "viewer",
+          "label": "三维速度 / 压力",
+          "url": "/viewer/index.html?manifest=/simulation-assets/s_970bd197fb3b41d289170ceb/viewer.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": "{\"command\": [\"wsl.exe\", \"-d\", \"Ubuntu-22.04\", \"--\", \"env\", \"OMP_NUM_THREADS=1\", \"OPENBLAS_NUM_THREADS=1\", \"MKL_NUM_THREADS=1\", \"nice\", \"-n\", \"10\", \"python3\", \"/mnt/d/\\u9879\\u76ee/\\u9f3b\\u8154\\u5efa\\u6a21/work/07_cfd_pipeline/solver_reference/run_reference.py\", \"--work-dir\", \"/home/lenovo2/nasal_cfd_workspace_jobs\", \"--tag\", \"s_970bd197fb3b41d289170ceb\", \"--levels\", \"coarse\", \"medium\", \"fine\", \"--export-dir\", \"/mnt/c/ts_work/project_cases/simulation_jobs/s_970bd197fb3b41d289170ceb/export\"], \"runner_sha256\": \"18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a\"}\r\nw\u0000s\u0000l\u0000:\u0000 \u0000�hKm0R \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000�N\u0006tM�n\f�FO*g\\��P0R \u0000W\u0000S\u0000L\u0000\u00020N\u0000A\u0000T\u0000 \u0000!j\u000f_\u000bN�v \u0000W\u0000S\u0000L\u0000 \u0000\r\nN/e\u0001c \u0000l\u0000o\u0000c\u0000a\u0000l\u0000h\u0000o\u0000s\u0000t\u0000 \u0000�N\u0006t\u00020\r\n\u0000\r\n\u0000Preparing coarse\r\n{\"command\": [\"blockMesh\"], \"exit_code\": 0, \"elapsed_seconds\": 0.07408260999997651, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.blockMesh\"}\r\n{\"command\": [\"checkMesh\", \"-allGeometry\", \"-allTopology\"], \"exit_code\": 0, \"elapsed_seconds\": 0.03478233900000305, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.checkMesh\"}\r\n{\"command\": [\"simpleFoam\"], \"exit_code\": 0, \"elapsed_seconds\": 0.2243283280000128, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.simpleFoam\"}\r\n{\"command\": [\"foamToVTK\", \"-latestTime\", \"-ascii\", \"-fields\", \"(p U)\"], \"exit_code\": 0, \"elapsed_seconds\": 0.07372395600000914, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/coarse/log.foamToVTK\"}\r\n{\"level\": \"coarse\", \"converged\": true, \"mass_imbalance\": 0.0, \"delta_p_boundary_Pa\": 0.21249294824592}\r\nPreparing medium\r\n{\"command\": [\"blockMesh\"], \"exit_code\": 0, \"elapsed_seconds\": 0.040077961999998024, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.blockMesh\"}\r\n{\"command\": [\"checkMesh\", \"-allGeometry\", \"-allTopology\"], \"exit_code\": 0, \"elapsed_seconds\": 0.05053629799999726, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.checkMesh\"}\r\n{\"command\": [\"simpleFoam\"], \"exit_code\": 0, \"elapsed_seconds\": 0.378345846000002, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.simpleFoam\"}\r\n{\"command\": [\"foamToVTK\", \"-latestTime\", \"-ascii\", \"-fields\", \"(p U)\"], \"exit_code\": 0, \"elapsed_seconds\": 0.07497969800002124, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/medium/log.foamToVTK\"}\r\n{\"level\": \"medium\", \"converged\": true, \"mass_imbalance\": 0.0, \"delta_p_boundary_Pa\": 0.21587924916228}\r\nPreparing fine\r\n{\"command\": [\"blockMesh\"], \"exit_code\": 0, \"elapsed_seconds\": 0.09533180400001129, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.blockMesh\"}\r\n{\"command\": [\"checkMesh\", \"-allGeometry\", \"-allTopology\"], \"exit_code\": 0, \"elapsed_seconds\": 0.14718843599999332, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.checkMesh\"}\r\n{\"command\": [\"simpleFoam\"], \"exit_code\": 0, \"elapsed_seconds\": 2.2137672030000033, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.simpleFoam\"}\r\n{\"command\": [\"foamToVTK\", \"-latestTime\", \"-ascii\", \"-fields\", \"(p U)\"], \"exit_code\": 0, \"elapsed_seconds\": 0.1553390830000012, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_970bd197fb3b41d289170ceb/fine/log.foamToVTK\"}\r\n{\"level\": \"fine\", \"converged\": true, \"mass_imbalance\": 0.0, \"delta_p_boundary_Pa\": 0.21679864724472}\r\nExported reference to /mnt/c/ts_work/project_cases/simulation_jobs/s_970bd197fb3b41d289170ceb/export/s_970bd197fb3b41d289170ceb\r\n"
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_dc66b40a112c493d8b00c066",
+      "case_id": "p0",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T16:50:39+08:00",
+      "updated_at": "2026-10-15T16:50:39+08:00",
+      "preflight": {
+        "passed": false,
+        "case_id": "p0",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与本例当前输入绑定且已验收的最终 CFD 表面"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与最终表面绑定的合格体网格和 checkMesh 记录"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+          }
+        ],
+        "blocking_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+          "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+          "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+          "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+          "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+        ]
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_dc66b40a112c493d8b00c066/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_a39ea9ea86c34f04b2bb0ed6",
+      "case_id": "reference_channel",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T16:50:36+08:00",
+      "updated_at": "2026-10-15T16:50:37+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_channel",
+        "patient_data": false,
+        "checked_at": "2026-10-15T16:50:37+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\07_cfd_pipeline\\solver_reference\\run_reference.py",
+            "detail": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.03271484375,
+            0.01171875,
+            0.00048828125
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_a39ea9ea86c34f04b2bb0ed6/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_7dc6eb58cad24de48d3da028",
+      "case_id": "reference_channel",
+      "action": "run_reference",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T16:38:38+08:00",
+      "updated_at": "2026-10-15T16:38:41+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_channel",
+        "patient_data": false,
+        "checked_at": "2026-10-15T16:38:39+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\07_cfd_pipeline\\solver_reference\\run_reference.py",
+            "detail": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.5625,
+            0.1650390625,
+            0.0556640625
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": {
+        "patient_data": false,
+        "reference_type": "plane_poiseuille",
+        "parameters": {
+          "L_m": 0.04,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "rho_kg_m3": 1.2,
+          "mu_Pa_s": 1.81e-05,
+          "nu_m2_s": 1.5083333333333333e-05,
+          "bulk_U_m_s": 0.1
+        },
+        "analytical": {
+          "Q_m3_s": 2.0000000000000002e-07,
+          "max_U_m_s": 0.15000000000000002,
+          "delta_p_Pa": 0.21720000000000003,
+          "pressure_gradient_Pa_m": 5.430000000000001,
+          "hydraulic_Re_2H": 26.519337016574585
+        },
+        "cases": [
+          {
+            "level": "coarse",
+            "cells": 800,
+            "converged": true,
+            "mass_imbalance_fraction": 0.0,
+            "delta_p_boundary_Pa": 0.21249294824592
+          }
+        ],
+        "execution_status": "completed",
+        "validation_status": "awaiting_independent_review",
+        "viewer_export": {
+          "points": 891,
+          "triangles": 1600,
+          "source_vtu_sha256": "fa97c90149e5558772b3a6016a9f62385e6592a81a4dc3a5f90b2ca2652bf879",
+          "result_contract_valid": true,
+          "diagnostics": {
+            "mass_imbalance_fraction": 0.0,
+            "monitor_relative_change": 1.1293302142662852e-12,
+            "residual_max": 9.35365031124e-09,
+            "monitor_definition": "(max-min)/abs(mean) over last 20 SIMPLE iterations",
+            "precision_note": "Zero may mean below recorded precision, not exact arithmetic"
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实环境与入口预检",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/preflight.json"
+        },
+        {
+          "name": "execution.log",
+          "label": "本次真实执行日志",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/execution.log"
+        },
+        {
+          "name": "run_manifest.json",
+          "label": "本次原始参考运行记录",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/run_manifest.json"
+        },
+        {
+          "name": "coarse-log.blockMesh",
+          "label": "coarse · log.blockMesh",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/coarse-log.blockMesh"
+        },
+        {
+          "name": "coarse-log.checkMesh",
+          "label": "coarse · log.checkMesh",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/coarse-log.checkMesh"
+        },
+        {
+          "name": "coarse-log.simpleFoam",
+          "label": "coarse · log.simpleFoam",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/coarse-log.simpleFoam"
+        },
+        {
+          "name": "coarse-log.foamToVTK",
+          "label": "coarse · log.foamToVTK",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/coarse-log.foamToVTK"
+        },
+        {
+          "name": "viewer_mesh.json",
+          "label": "本次真实速度与压力字段",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/viewer_mesh.json"
+        },
+        {
+          "name": "viewer.json",
+          "label": "本次三维索引",
+          "url": "/simulation-assets/s_7dc6eb58cad24de48d3da028/viewer.json"
+        },
+        {
+          "name": "viewer",
+          "label": "三维速度 / 压力",
+          "url": "/viewer/index.html?manifest=/simulation-assets/s_7dc6eb58cad24de48d3da028/viewer.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": "{\"command\": [\"wsl.exe\", \"-d\", \"Ubuntu-22.04\", \"--\", \"env\", \"OMP_NUM_THREADS=1\", \"OPENBLAS_NUM_THREADS=1\", \"MKL_NUM_THREADS=1\", \"nice\", \"-n\", \"10\", \"python3\", \"/mnt/d/\\u9879\\u76ee/\\u9f3b\\u8154\\u5efa\\u6a21/work/07_cfd_pipeline/solver_reference/run_reference.py\", \"--work-dir\", \"/home/lenovo2/nasal_cfd_workspace_jobs\", \"--tag\", \"s_7dc6eb58cad24de48d3da028\", \"--levels\", \"coarse\", \"--export-dir\", \"/mnt/c/ts_work/project_cases/simulation_jobs/s_7dc6eb58cad24de48d3da028/export\"], \"runner_sha256\": \"18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a\"}\r\nPreparing coarse\r\n{\"command\": [\"blockMesh\"], \"exit_code\": 0, \"elapsed_seconds\": 0.07783143600000386, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.blockMesh\"}\r\n{\"command\": [\"checkMesh\", \"-allGeometry\", \"-allTopology\"], \"exit_code\": 0, \"elapsed_seconds\": 0.02995715599999471, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.checkMesh\"}\r\n{\"command\": [\"simpleFoam\"], \"exit_code\": 0, \"elapsed_seconds\": 0.21429757899999657, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.simpleFoam\"}\r\n{\"command\": [\"foamToVTK\", \"-latestTime\", \"-ascii\", \"-fields\", \"(p U)\"], \"exit_code\": 0, \"elapsed_seconds\": 0.07622536099999877, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_7dc6eb58cad24de48d3da028/coarse/log.foamToVTK\"}\r\n{\"level\": \"coarse\", \"converged\": true, \"mass_imbalance\": 0.0, \"delta_p_boundary_Pa\": 0.21249294824592}\r\nExported reference to /mnt/c/ts_work/project_cases/simulation_jobs/s_7dc6eb58cad24de48d3da028/export/s_7dc6eb58cad24de48d3da028\r\n"
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_764aac081b2d40f790a4e7fa",
+      "case_id": "reference_channel",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T16:38:25+08:00",
+      "updated_at": "2026-10-15T16:38:26+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_channel",
+        "patient_data": false,
+        "checked_at": "2026-10-15T16:38:26+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\07_cfd_pipeline\\solver_reference\\run_reference.py",
+            "detail": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.63623046875,
+            0.15673828125,
+            0.05126953125
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_764aac081b2d40f790a4e7fa/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_e7795ff7a79b4fda9be67704",
+      "case_id": "p0",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T16:38:25+08:00",
+      "updated_at": "2026-10-15T16:38:26+08:00",
+      "preflight": {
+        "passed": false,
+        "case_id": "p0",
+        "patient_data": true,
+        "source": "当前病例、boundary_review 与患者准入契约",
+        "checks": [
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与本例当前输入绑定且已验收的最终 CFD 表面"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "尚无与最终表面绑定的合格体网格和 checkMesh 记录"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定"
+          },
+          {
+            "name": "patient_admission",
+            "passed": false,
+            "source": "当前病例版本与工作台患者适配实现",
+            "detail": "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+          }
+        ],
+        "blocking_reasons": [
+          "现有候选状态：proposals_not_clinically_validated；不等于最终几何批准",
+          "尚无与本例当前输入绑定且已验收的最终 CFD 表面",
+          "尚无与最终表面绑定的合格体网格和 checkMesh 记录",
+          "患者阈值基准、出口压力口径和 K2 金标准仍待需求方裁定",
+          "本接口当前只实现非患者参考求解；患者求解适配尚未准入"
+        ]
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_e7795ff7a79b4fda9be67704/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    },
+    {
+      "schema": "nasal_simulation_job/v1",
+      "id": "s_f54840c17c264fa89c9c0722",
+      "case_id": "reference_channel",
+      "action": "preflight",
+      "settings": {
+        "levels": [
+          "coarse"
+        ]
+      },
+      "status": "completed",
+      "stage": "completed",
+      "created_at": "2026-10-15T16:38:23+08:00",
+      "updated_at": "2026-10-15T16:38:24+08:00",
+      "preflight": {
+        "passed": true,
+        "case_id": "reference_channel",
+        "patient_data": false,
+        "checked_at": "2026-10-15T16:38:24+08:00",
+        "checks": [
+          {
+            "name": "wsl_environment",
+            "passed": true,
+            "source": "read-only WSL Python tool discovery",
+            "detail": "Ubuntu-22.04"
+          },
+          {
+            "name": "python3",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/python3"
+          },
+          {
+            "name": "blockMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/blockMesh"
+          },
+          {
+            "name": "checkMesh",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/checkMesh"
+          },
+          {
+            "name": "simpleFoam",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/simpleFoam"
+          },
+          {
+            "name": "foamToVTK",
+            "passed": true,
+            "source": "WSL shutil.which",
+            "detail": "/usr/bin/foamToVTK"
+          },
+          {
+            "name": "native_linux_workspace",
+            "passed": true,
+            "source": "WSL pathlib.Path.home()",
+            "detail": "/home/lenovo2"
+          },
+          {
+            "name": "tutorial_dictionary",
+            "passed": true,
+            "source": "WSL filesystem probe",
+            "detail": "既有 runner 使用官方 v1912 fvSchemes"
+          },
+          {
+            "name": "reference_runner",
+            "passed": true,
+            "source": "work\\07_cfd_pipeline\\solver_reference\\run_reference.py",
+            "detail": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a"
+          }
+        ],
+        "environment": {
+          "home": "/home/lenovo2",
+          "cpu_count": 24,
+          "load_average": [
+            0.63623046875,
+            0.15673828125,
+            0.05126953125
+          ],
+          "tools": {
+            "python3": "/usr/bin/python3",
+            "blockMesh": "/usr/bin/blockMesh",
+            "checkMesh": "/usr/bin/checkMesh",
+            "simpleFoam": "/usr/bin/simpleFoam",
+            "foamToVTK": "/usr/bin/foamToVTK"
+          },
+          "tutorial_available": true,
+          "available": true,
+          "source": "read-only WSL Python tool discovery",
+          "distro": "Ubuntu-22.04"
+        },
+        "fixed_parameters": {
+          "bulk_U_m_s": 0.1,
+          "gap_H_m": 0.002,
+          "empty_width_W_m": 0.001,
+          "L_m": 0.04,
+          "Q_m3_s": 2e-07,
+          "Q_L_min": 0.012,
+          "outlet_gauge_p_Pa": 0,
+          "model": "laminar"
+        },
+        "blocking_reasons": []
+      },
+      "result": null,
+      "artifacts": [
+        {
+          "name": "preflight.json",
+          "label": "真实准入预检",
+          "url": "/simulation-assets/s_f54840c17c264fa89c9c0722/preflight.json"
+        }
+      ],
+      "error": null,
+      "exit_code": 0,
+      "log_excerpt": ""
+    }
+  ],
+  "quiet": {
+    "active_jobs": [],
+    "workers": [],
+    "job_count": 17
+  },
+  "preserved_8774": {
+    "pid": 13388,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8774",
+    "parent_pid": 19196,
+    "create_time": "2026-10-15T08:37:17.3135150Z"
+  },
+  "served_current_static_sha256": {
+    "simulation.js": "27317a1b77c36016f0f018b992a81b28ef4715b5be58d6f05b6bd646f757789f",
+    "workspace.js": "5b846d8fbafabd52ea735d2c51f2c93a975fb3bcdf0a1e6114d61aa209bbd658"
+  },
+  "T029_15_source_sha256": {
+    "work/lib/patient_cfd_admission.py": "098e0efd72e817a2249045b0600184b26d1fb15460988bba44869af699ef7da3",
+    "work/lib/patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+    "work/lib/openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+    "work/lib/pressure_feedback.py": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22",
+    "work/lib/solver_adapter.py": "df741bbf6707b4ce9492ef0c59d8614c6b077aa542d86ae77a9be04ff414d8df",
+    "work/lib/cfd_contract.py": "636593620134752f53a5af7ad3bce248c31e02d0b7842a672af7b89ad03a86ed",
+    "work/07_cfd_pipeline/solver/run_openfoam_case.py": "d0fd439c14071c6d2919793955cbc36b5aefea4065bd880e8f047299daf7ca6d",
+    "work/07_cfd_pipeline/solver/mesh_cache.py": "7ca1658e2a5081be7e989d78fcdc273d3904c16f0335989e0c38ec2f63ced9e7",
+    "work/07_cfd_pipeline/solver_reference/run_reference.py": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a",
+    "work/lib/test_patient_cfd_admission.py": "85c1f66e23c901d3f7e0c69418b0693b7a51d8c65982091c5d905226dbaeaf47",
+    "work/lib/test_run_openfoam_case.py": "a103fba0be9d213c5f4f457594216574ab6d953ce65798d1be66bb29c2253bde",
+    "outputs/T-029/provision_b15_engineering_t029a.py": "be9b55224ca3a46e64aa690f28b91d073093776541a08f4b83388a669b8ff3cd",
+    "work/lib/cfd_workspace_jobs.py": "653fb95135ea475bf867a64a41d295aa79625b09f0ef2c2b3f32526aebca4d96",
+    "work/lib/test_cfd_workspace_jobs.py": "92e715e848df4f2d1477d8635ddb32bac55b53a49a8cb218c891df1bd2209b16",
+    "work/lib/ct_case_pipeline.py": "b36ed31402daa98c6ec01375e47de2c66e14805193d7b8ad0081b022a090feca"
+  },
+  "candidate_34_input_sha256": {
+    "admission.json": "add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04",
+    "checkMesh.log": "1a563e611397d2f14184d9313344a6d944b5a9775592597c52b78fbfe422a358",
+    "sources/auto_placed.vtp": "460f4ec5dbd11e5b786d659b08f855c9a3768fbdd33a18cdfd7bed0751ab7330",
+    "sources/b15_patches_ascii.export.json": "bfdd018f5248945e9d7e2b73064c5dcefe563f7daf4bf56fb60fdb410177dcf1",
+    "sources/b15_patient_maxh1.msh.mesh.json": "ad7513ad8b51669cef581e9ba54673b3567ca6986bb9fb5d926f9fd9e5c3f211",
+    "sources/b15_patient_maxh1_repaired.msh": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+    "sources/b15_patient_maxh1_repaired.repair.json": "925bb7489cdbcfc011e6cd2382e86b42ca6327b2495c1adb9e36ace48cba1899",
+    "template/case_manifest.json": "d3cf49a632cc9ebe82fe05943db70821def5e4d247f43b876022b96bc870ddde",
+    "template/config.json": "c87833df76141e00455ca9efd9766b79177876a0904e4cecd2e53c481e2595a9",
+    "template/engineering_authorization.json": "0c054876e32ad6889df86488dff9e8d44f0d0fa504ac79558ab977a8da16c781",
+    "template/engineering_authorization_record.md": "febb9cb7326c628d41a88e80800e6877ef6afa5a12122bc8b5e4cf8fefded88b",
+    "template/0/p": "c16b8fcc1db0e87ac8ac7ca8abb0ae90ff0899dc690f91abde9ab1aef25a1709",
+    "template/0/U": "6ac06678c4bfd19425fbf320e11efef78ba5fd15d60d84802ee34f211855b5e2",
+    "template/constant/transportProperties": "9a526747418f948481bcfd5b4c6d986aa23bce7a12b2608f572d70da08d0771d",
+    "template/constant/turbulenceProperties": "0ec08e6dfa7a27a866912c0c7b7cee964a1b4aeb6c1dcf30d3093fbe9e6cbbb9",
+    "template/system/controlDict": "041358ffba33588f0e80f64cf79623f2c554c0ce06d3851cfbb29f348f27555e",
+    "template/system/fvSchemes": "ff2d2a19a801da7960bcf8d12767e4697cd686b0d02bad7010df034ac904289d",
+    "template/system/fvSolution": "6b5838e80b73419f5b3c22368ed55b87a2611ecb836b68b3d912f3c81094f983",
+    "template/system/orig/controlDict.orig": "417c2aaa5c692b3f1225476a6864a6459ab6e3d40c3524b623db78f76361b370",
+    "template/system/orig/fvSchemes.orig": "9b783cc336771b5dea75d79bfcb9fc7b76395757434626260310cd176c89a10c",
+    "template/system/orig/fvSolution.orig": "18a1bb20f415f182f47989e2710e8a1aa87d769cb6f6e7928c4fcf4acc6d9aa0",
+    "template/constant/polyMesh/boundary": "0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135",
+    "template/constant/polyMesh/cellZones": "093a2ccece2d7b70f1b19b30cc3d0d0ae6d78080993f7abf1fea5a175d8da1cf",
+    "template/constant/polyMesh/faces": "d27b6b3f75bf480845a66d6e540c3bda4465164a7f3355d7e8e780150113cc55",
+    "template/constant/polyMesh/faceZones": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f",
+    "template/constant/polyMesh/neighbour": "4c0501f44ee1d828ae8ab841883380a34a7978a6f95fa76ce9dd270995047bcf",
+    "template/constant/polyMesh/owner": "275538829bc0ef71be2bb6b2c1438385df76662aee8ad6db992c63731f61ac52",
+    "template/constant/polyMesh/points": "0acac3f227449e415fce19f0a4eb240c1e88837aeefd6a6fbeed29b0dd7d40a3",
+    "template/constant/polyMesh/pointZones": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29",
+    "template/constant/triSurface/surface.stl": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+    "template/constant/polyMesh/sets/fluid": "da9404a9ed7a4e7f0f5dcb7919dc14a1b958109a5b1d2aff3ba240c18732f64c",
+    "template/constant/polyMesh/sets/lowWeightFaces": "4650adde9d1dc6da8f829d1a5c81459ee43901d59491c8bedc2ab7fd35faf549",
+    "template/constant/polyMesh/sets/nonOrthoFaces": "334aa0e9f7de2a3cced4b7bdb17b2abf83f88e01e0182a9323ac18c4b821856c",
+    "template/constant/polyMesh/sets/underdeterminedCells": "bce36270ec27f5b9d52847a47a5fe014decd92d11d03f8a129d67cd37e48ffa8"
+  },
+  "read_only_no_POST": true,
+  "scope": "Actual existing entrance/catalog inspection; not a successful T023 WMI recovery or patient numerical acceptance"
+}

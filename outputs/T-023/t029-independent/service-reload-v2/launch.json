@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-15T11:31:56.648307+00:00",
+  "launcher_pid": 18064,
+  "command": [
+    "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py",
+    "--port",
+    "8769"
+  ],
+  "cwd": "D:\\项目\\鼻腔建模",
+  "hidden": true
+}

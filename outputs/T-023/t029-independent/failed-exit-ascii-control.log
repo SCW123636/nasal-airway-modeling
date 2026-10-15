@@ -1,0 +1,8 @@
+test_failed_command_records_real_bottom_exit_and_stops_before_vtk (test_run_openfoam_case.SolverEngineeringTests.test_failed_command_records_real_bottom_exit_and_stops_before_vtk) ... {"command": ["simpleFoam"], "exit_code": -8, "log": "C:\\ts_work\\t023_failed_exit_control_20261015\\tmpkz9t3bkp\\log.simpleFoam", "started_at": "2026-10-15T11:47:47+00:00", "elapsed_seconds": 0.0004454999871086329, "finished_at": "2026-10-15T11:47:47+00:00"}
+{"command": ["simpleFoam"], "exit_code": 7, "log": "C:\\ts_work\\t023_failed_exit_control_20261015\\tmp0qy4qpv0\\log.simpleFoam", "started_at": "2026-10-15T11:47:47+00:00", "elapsed_seconds": 0.00019750000501517206, "finished_at": "2026-10-15T11:47:47+00:00"}
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.054s
+
+OK

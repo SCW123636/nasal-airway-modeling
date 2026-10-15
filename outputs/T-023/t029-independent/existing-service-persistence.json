@@ -1,0 +1,42 @@
+{
+  "actual_entrance_available": true,
+  "observation_files": [
+    "existing-service-observation-1.json",
+    "existing-service-observation-2.json"
+  ],
+  "observation_sha256": {
+    "existing-service-observation-1.json": "47f6e7a49daa34f8e805e0bec0b72f9b9b10d70362f35bbdf924eb98d5ba9e6f",
+    "existing-service-observation-2.json": "e042b0005de85d0e8cb6dd949d04c44e6db2d9b82c7e8b7c16f633611dce1c23"
+  },
+  "first_at": "2026-10-15T11:39:31.609325+00:00",
+  "second_at": "2026-10-15T11:39:57.431186+00:00",
+  "elapsed_seconds": 25.821861,
+  "listener_8769": {
+    "pid": 35408,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769 --open",
+    "parent_pid": 29952,
+    "create_time": "2026-10-15T11:38:00.5790740Z"
+  },
+  "launcher_parent": {
+    "ProcessId": 29952,
+    "ParentProcessId": 38732,
+    "ExecutablePath": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe",
+    "CommandLine": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 D:\\项目\\鼻腔建模\\work\\lib\\serve_cfd_workspace.py --port 8769 --open",
+    "CreationDate": "/Date(1792064280537)/"
+  },
+  "launcher_ancestor": null,
+  "preserved_8774": {
+    "pid": 13388,
+    "exe": "C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "cmdline": "\"C:\\Users\\lenovo\\.workbuddy\\binaries\\python\\envs\\nasal-cfd\\Scripts\\python.exe\" -X utf8 work/lib/serve_cfd_workspace.py --port 8774",
+    "parent_pid": 19196,
+    "create_time": "2026-10-15T08:37:17.3135150Z"
+  },
+  "new_case_catalog_run_allowed": true,
+  "no_candidate_job_at_observations": true,
+  "WMI_Create_executed_by_verifier": false,
+  "own_Popen_recovery_failed_preserved": true,
+  "read_only_no_POST": true,
+  "scope": "Existing service appeared before authorized WMI call; adopted only as actual entrance observation, not T023 launcher success. No patient numerical/field acceptance."
+}

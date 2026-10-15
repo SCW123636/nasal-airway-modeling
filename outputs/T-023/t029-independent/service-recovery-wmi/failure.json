@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-15T11:38:02.196229+00:00",
+  "script_sha256": "231d159d5eab446ad343ab2d46b735bc964f05ac138e3617c125d211c28aac8d",
+  "authorization": "Lead a325bb5 contract10 explicit recovery notice; no further stop; same argv/ROOT/case-root; ShowWindow0 with no CreateFlags",
+  "prior_Popen_failure_sha256": "78b619ecbc217fe0e8e04651fec9e4b2e68c3c76c201d076054f3c7d0bbd3de5",
+  "failed": true,
+  "exception": "AssertionError({'workers': [], 'services': [{'ProcessId': 29952, 'ParentProcessId': 38732, 'ExecutablePath': 'C:\\\\Users\\\\lenovo\\\\.workbuddy\\\\binaries\\\\python\\\\envs\\\\nasal-cfd\\\\Scripts\\\\python.exe', 'CommandLine': '\"C:\\\\Users\\\\lenovo\\\\.workbuddy\\\\binaries\\\\python\\\\envs\\\\nasal-cfd\\\\Scripts\\\\python.exe\" -X utf8 D:\\\\项目\\\\鼻腔建模\\\\work\\\\lib\\\\serve_cfd_workspace.py --port 8769 --open', 'CreationDate': '/Date(1792064280537)/'}, {'ProcessId': 35408, 'ParentProcessId': 29952, 'ExecutablePath': 'C:\\\\Users\\\\lenovo\\\\.workbuddy\\\\binaries\\\\python\\\\versions\\\\3.13.12\\\\python.exe', 'CommandLine': '\"C:\\\\Users\\\\lenovo\\\\.workbuddy\\\\binaries\\\\python\\\\envs\\\\nasal-cfd\\\\Scripts\\\\python.exe\" -X utf8 D:\\\\项目\\\\鼻腔建模\\\\work\\\\lib\\\\serve_cfd_workspace.py --port 8769 --open', 'CreationDate': '/Date(1792064280579)/'}], 'listeners': [{'LocalAddress': '127.0.0.1', 'LocalPort': 8769, 'OwningProcess': 35408}]})"
+}

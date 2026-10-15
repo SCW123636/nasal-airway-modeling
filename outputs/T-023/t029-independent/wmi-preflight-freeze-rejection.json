@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-15T11:37:21.586371+00:00",
+  "pre_WMI_frozen_guard_rejected": true,
+  "no_WMI_Create_executed": true,
+  "T029_15_frozen_sources_unchanged": true,
+  "additional_guard_drift": [
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\07_cfd_pipeline\\workspace\\workspace.js",
+      "expected": "b3508909df05ab7cda32c18a9840c4a0c102cb55c8e20186cc0f2f94a700cef1",
+      "actual": "5b846d8fbafabd52ea735d2c51f2c93a975fb3bcdf0a1e6114d61aa209bbd658"
+    }
+  ],
+  "recovery_directory_created": false
+}

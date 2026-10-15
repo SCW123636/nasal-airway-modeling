@@ -1,0 +1,725 @@
+{
+  "at": "2026-10-15T11:51:05.321328+00:00",
+  "round": 7,
+  "identity": {
+    "source_freeze_sha256": "4382e6e213026bbeaf08acb8e42a87ed05bdec08c4e197798fcb626233ad3304",
+    "production_15_sha256": {
+      "work/lib/patient_cfd_admission.py": "098e0efd72e817a2249045b0600184b26d1fb15460988bba44869af699ef7da3",
+      "work/lib/patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+      "work/lib/openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7",
+      "work/lib/pressure_feedback.py": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22",
+      "work/lib/solver_adapter.py": "df741bbf6707b4ce9492ef0c59d8614c6b077aa542d86ae77a9be04ff414d8df",
+      "work/lib/cfd_contract.py": "636593620134752f53a5af7ad3bce248c31e02d0b7842a672af7b89ad03a86ed",
+      "work/07_cfd_pipeline/solver/run_openfoam_case.py": "d0fd439c14071c6d2919793955cbc36b5aefea4065bd880e8f047299daf7ca6d",
+      "work/07_cfd_pipeline/solver/mesh_cache.py": "7ca1658e2a5081be7e989d78fcdc273d3904c16f0335989e0c38ec2f63ced9e7",
+      "work/07_cfd_pipeline/solver_reference/run_reference.py": "18572a5e0be5fecc5ea97349c64f58797711ed905c1ac4fd5a9f83417c3c247a",
+      "work/lib/test_patient_cfd_admission.py": "85c1f66e23c901d3f7e0c69418b0693b7a51d8c65982091c5d905226dbaeaf47",
+      "work/lib/test_run_openfoam_case.py": "a103fba0be9d213c5f4f457594216574ab6d953ce65798d1be66bb29c2253bde",
+      "outputs/T-029/provision_b15_engineering_t029a.py": "be9b55224ca3a46e64aa690f28b91d073093776541a08f4b83388a669b8ff3cd",
+      "work/lib/cfd_workspace_jobs.py": "653fb95135ea475bf867a64a41d295aa79625b09f0ef2c2b3f32526aebca4d96",
+      "work/lib/test_cfd_workspace_jobs.py": "92e715e848df4f2d1477d8635ddb32bac55b53a49a8cb218c891df1bd2209b16",
+      "work/lib/ct_case_pipeline.py": "b36ed31402daa98c6ec01375e47de2c66e14805193d7b8ad0081b022a090feca"
+    },
+    "input_34_sha256": {
+      "admission.json": "add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04",
+      "checkMesh.log": "1a563e611397d2f14184d9313344a6d944b5a9775592597c52b78fbfe422a358",
+      "sources/auto_placed.vtp": "460f4ec5dbd11e5b786d659b08f855c9a3768fbdd33a18cdfd7bed0751ab7330",
+      "sources/b15_patches_ascii.export.json": "bfdd018f5248945e9d7e2b73064c5dcefe563f7daf4bf56fb60fdb410177dcf1",
+      "sources/b15_patient_maxh1.msh.mesh.json": "ad7513ad8b51669cef581e9ba54673b3567ca6986bb9fb5d926f9fd9e5c3f211",
+      "sources/b15_patient_maxh1_repaired.msh": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+      "sources/b15_patient_maxh1_repaired.repair.json": "925bb7489cdbcfc011e6cd2382e86b42ca6327b2495c1adb9e36ace48cba1899",
+      "template/case_manifest.json": "d3cf49a632cc9ebe82fe05943db70821def5e4d247f43b876022b96bc870ddde",
+      "template/config.json": "c87833df76141e00455ca9efd9766b79177876a0904e4cecd2e53c481e2595a9",
+      "template/engineering_authorization.json": "0c054876e32ad6889df86488dff9e8d44f0d0fa504ac79558ab977a8da16c781",
+      "template/engineering_authorization_record.md": "febb9cb7326c628d41a88e80800e6877ef6afa5a12122bc8b5e4cf8fefded88b",
+      "template/0/p": "c16b8fcc1db0e87ac8ac7ca8abb0ae90ff0899dc690f91abde9ab1aef25a1709",
+      "template/0/U": "6ac06678c4bfd19425fbf320e11efef78ba5fd15d60d84802ee34f211855b5e2",
+      "template/constant/transportProperties": "9a526747418f948481bcfd5b4c6d986aa23bce7a12b2608f572d70da08d0771d",
+      "template/constant/turbulenceProperties": "0ec08e6dfa7a27a866912c0c7b7cee964a1b4aeb6c1dcf30d3093fbe9e6cbbb9",
+      "template/system/controlDict": "041358ffba33588f0e80f64cf79623f2c554c0ce06d3851cfbb29f348f27555e",
+      "template/system/fvSchemes": "ff2d2a19a801da7960bcf8d12767e4697cd686b0d02bad7010df034ac904289d",
+      "template/system/fvSolution": "6b5838e80b73419f5b3c22368ed55b87a2611ecb836b68b3d912f3c81094f983",
+      "template/system/orig/controlDict.orig": "417c2aaa5c692b3f1225476a6864a6459ab6e3d40c3524b623db78f76361b370",
+      "template/system/orig/fvSchemes.orig": "9b783cc336771b5dea75d79bfcb9fc7b76395757434626260310cd176c89a10c",
+      "template/system/orig/fvSolution.orig": "18a1bb20f415f182f47989e2710e8a1aa87d769cb6f6e7928c4fcf4acc6d9aa0",
+      "template/constant/polyMesh/boundary": "0ea1516d4375325e887a655661f4d10b209f2e5766ea1493a90d7a081f4c2135",
+      "template/constant/polyMesh/cellZones": "093a2ccece2d7b70f1b19b30cc3d0d0ae6d78080993f7abf1fea5a175d8da1cf",
+      "template/constant/polyMesh/faces": "d27b6b3f75bf480845a66d6e540c3bda4465164a7f3355d7e8e780150113cc55",
+      "template/constant/polyMesh/faceZones": "1a3fc3f2f2c7f76c597df378690ccbf4b8a8013456e58f0c87dcf4ecaca5220f",
+      "template/constant/polyMesh/neighbour": "4c0501f44ee1d828ae8ab841883380a34a7978a6f95fa76ce9dd270995047bcf",
+      "template/constant/polyMesh/owner": "275538829bc0ef71be2bb6b2c1438385df76662aee8ad6db992c63731f61ac52",
+      "template/constant/polyMesh/points": "0acac3f227449e415fce19f0a4eb240c1e88837aeefd6a6fbeed29b0dd7d40a3",
+      "template/constant/polyMesh/pointZones": "a4a6a2dcd51a046ec166f12f8fb6f70d0cc21e238dc6ae1d1db90effcf542a29",
+      "template/constant/triSurface/surface.stl": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+      "template/constant/polyMesh/sets/fluid": "da9404a9ed7a4e7f0f5dcb7919dc14a1b958109a5b1d2aff3ba240c18732f64c",
+      "template/constant/polyMesh/sets/lowWeightFaces": "4650adde9d1dc6da8f829d1a5c81459ee43901d59491c8bedc2ab7fd35faf549",
+      "template/constant/polyMesh/sets/nonOrthoFaces": "334aa0e9f7de2a3cced4b7bdb17b2abf83f88e01e0182a9323ac18c4b821856c",
+      "template/constant/polyMesh/sets/underdeterminedCells": "bce36270ec27f5b9d52847a47a5fe014decd92d11d03f8a129d67cd37e48ffa8"
+    }
+  },
+  "local_job": {
+    "schema": "nasal_simulation_job/v1",
+    "id": "s_aa79a63027b94bfb9a273898",
+    "case_id": "b15_engineering_t029a",
+    "action": "run_patient_engineering",
+    "settings": {},
+    "status": "running",
+    "stage": "solver",
+    "created_at": "2026-10-15T19:40:57+08:00",
+    "updated_at": "2026-10-15T19:51:04+08:00",
+    "preflight": {
+      "passed": true,
+      "case_id": "b15_engineering_t029a",
+      "patient_data": true,
+      "source": "当前病例、boundary_review 与患者准入契约",
+      "checks": [
+        {
+          "name": "admission_identity",
+          "passed": true,
+          "detail": "准入记录 schema 与病例身份匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "current_source_binding",
+          "passed": true,
+          "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "engineering_version_provenance",
+          "passed": true,
+          "detail": "工程版本仅改变数值试验身份；原始样例血缘与版本在所有记录中一致",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "final_surface_binding",
+          "passed": true,
+          "detail": "最终 CFD 表面内容哈希匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "mesh_content_binding",
+          "passed": true,
+          "detail": "体网格所有文件内容指纹匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "config_content_binding",
+          "passed": true,
+          "detail": "物性、边界、数值配置指纹匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "surface_mesh_provenance",
+          "passed": true,
+          "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "configuration_contract",
+          "passed": true,
+          "detail": "配置语义有效；专业审核 readiness 独立保留",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "patient_config_identity",
+          "passed": true,
+          "detail": "配置绑定同一患者表面，不继承其他患者身份",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "engineering_authorization",
+          "passed": true,
+          "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "mesh_diagnostics_present",
+          "passed": true,
+          "detail": "保留原 checkMesh；失败项作为工程风险记录",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "wsl_environment",
+          "passed": true,
+          "source": "read-only WSL Python tool discovery",
+          "detail": "Ubuntu-22.04"
+        },
+        {
+          "name": "python3",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/python3"
+        },
+        {
+          "name": "blockMesh",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/blockMesh"
+        },
+        {
+          "name": "checkMesh",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/checkMesh"
+        },
+        {
+          "name": "simpleFoam",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/simpleFoam"
+        },
+        {
+          "name": "foamToVTK",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/foamToVTK"
+        },
+        {
+          "name": "native_linux_workspace",
+          "passed": true,
+          "source": "WSL pathlib.Path.home()",
+          "detail": "/home/lenovo2"
+        },
+        {
+          "name": "tutorial_dictionary",
+          "passed": true,
+          "source": "WSL filesystem probe",
+          "detail": "既有 runner 使用官方 v1912 fvSchemes"
+        }
+      ],
+      "environment": {
+        "home": "/home/lenovo2",
+        "cpu_count": 24,
+        "load_average": [
+          0.05126953125,
+          0.02490234375,
+          0.00439453125
+        ],
+        "tools": {
+          "python3": "/usr/bin/python3",
+          "blockMesh": "/usr/bin/blockMesh",
+          "checkMesh": "/usr/bin/checkMesh",
+          "simpleFoam": "/usr/bin/simpleFoam",
+          "foamToVTK": "/usr/bin/foamToVTK"
+        },
+        "tutorial_available": true,
+        "available": true,
+        "source": "read-only WSL Python tool discovery",
+        "distro": "Ubuntu-22.04"
+      },
+      "clinical_validation": "not_validated",
+      "blocking_reasons": []
+    },
+    "result": null,
+    "artifacts": [
+      {
+        "name": "preflight.json",
+        "label": "真实工程输入与环境预检",
+        "url": "/simulation-assets/s_aa79a63027b94bfb9a273898/preflight.json"
+      },
+      {
+        "name": "input_fingerprint.json",
+        "label": "本次输入与代码指纹",
+        "url": "/simulation-assets/s_aa79a63027b94bfb9a273898/input_fingerprint.json"
+      },
+      {
+        "name": "live_status.json",
+        "label": "实际求解进度与日志尾",
+        "url": "/simulation-assets/s_aa79a63027b94bfb9a273898/live_status.json"
+      }
+    ],
+    "error": null,
+    "exit_code": null,
+    "worker_pid": 33964,
+    "solver_pid": 24388,
+    "lock_root": "C:\\ts_work\\project_cases",
+    "review_root": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks",
+    "asset_paths": {
+      "preflight.json": "preflight.json",
+      "input_fingerprint.json": "input_fingerprint.json",
+      "live_status.json": "live_status.json"
+    },
+    "patient_binding": {
+      "current_source_binding": null,
+      "admission_sha256": "add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04"
+    },
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu-22.04",
+      "--",
+      "env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "MKL_NUM_THREADS=1",
+      "taskset",
+      "-c",
+      "0",
+      "nice",
+      "-n",
+      "10",
+      "python3",
+      "/mnt/d/项目/鼻腔建模/work/lib/patient_cfd_runner.py",
+      "--work-dir",
+      "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898",
+      "--export-dir",
+      "/mnt/c/ts_work/project_cases/simulation_jobs/s_aa79a63027b94bfb9a273898/export/s_aa79a63027b94bfb9a273898",
+      "--patient-input",
+      "/mnt/c/ts_work/project_cases/patient_cfd_inputs/b15_engineering_t029a",
+      "--expected-admission-sha",
+      "add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04"
+    ],
+    "live_progress": {
+      "stage": "solver",
+      "evaluation": "eval_001",
+      "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+      "actual_step": "simpleFoam",
+      "iteration": "112",
+      "runner_status": "running",
+      "log_tail": "esidual = 0.000564942946282, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0246018466341, Final residual = 0.000232400078707, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00425579217592, Final residual = 3.20721509707e-05, No Iterations 5\ntime step continuity errors : sum local = 0.818760380219, global = 0.145276995072, cumulative = -2.44118834034\nExecutionTime = 462.76 s  ClockTime = 465 s\n\nTime = 110\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0267760445083, Final residual = 9.62430634345e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0209809497476, Final residual = 9.47952555566e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0213315158612, Final residual = 0.000104601872525, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0717506573907, Final residual = 0.000576379856864, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0244283117105, Final residual = 0.000227761872979, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00420869182919, Final residual = 3.4584071696e-05, No Iterations 5\ntime step continuity errors : sum local = 0.913814476073, global = 0.191593879088, cumulative = -2.24959446125\nExecutionTime = 468.21 s  ClockTime = 471 s\n\nTime = 111\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0265842791057, Final residual = 9.58126813634e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208323157508, Final residual = 9.47649298041e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.021131410995, Final residual = 0.000104378372349, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0718139058021, Final residual = 0.000591962148606, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0244246473596, Final residual = 0.000238077681334, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00426218227174, Final residual = 3.21366960486e-05, No Iterations 5\ntime step continuity errors : sum local = 0.879808600069, global = 0.137892122574, cumulative = -2.11170233868\nExecutionTime = 472.32 s  ClockTime = 475 s\n\nTime = 112\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0266449016987, Final residual = 9.70259128066e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208721984165, Final residual = 9.49381055104e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210773045154, Final residual = 0.00010511599255, No Iterations 5\n",
+      "updated_at": "2026-10-15T19:51:04+08:00"
+    }
+  },
+  "actual_API_job": {
+    "schema": "nasal_simulation_job/v1",
+    "id": "s_aa79a63027b94bfb9a273898",
+    "case_id": "b15_engineering_t029a",
+    "action": "run_patient_engineering",
+    "settings": {},
+    "status": "running",
+    "stage": "solver",
+    "created_at": "2026-10-15T19:40:57+08:00",
+    "updated_at": "2026-10-15T19:51:04+08:00",
+    "preflight": {
+      "passed": true,
+      "case_id": "b15_engineering_t029a",
+      "patient_data": true,
+      "source": "当前病例、boundary_review 与患者准入契约",
+      "checks": [
+        {
+          "name": "admission_identity",
+          "passed": true,
+          "detail": "准入记录 schema 与病例身份匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "current_source_binding",
+          "passed": true,
+          "detail": "独立冻结b15工程样例绑定源VTP/export/msh，不继承用户病例身份",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "engineering_version_provenance",
+          "passed": true,
+          "detail": "工程版本仅改变数值试验身份；原始样例血缘与版本在所有记录中一致",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "final_surface_binding",
+          "passed": true,
+          "detail": "最终 CFD 表面内容哈希匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "mesh_content_binding",
+          "passed": true,
+          "detail": "体网格所有文件内容指纹匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "config_content_binding",
+          "passed": true,
+          "detail": "物性、边界、数值配置指纹匹配",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "surface_mesh_provenance",
+          "passed": true,
+          "detail": "case manifest 绑定该病例、最终表面和生成网格来源",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "configuration_contract",
+          "passed": true,
+          "detail": "配置语义有效；专业审核 readiness 独立保留",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "patient_config_identity",
+          "passed": true,
+          "detail": "配置绑定同一患者表面，不继承其他患者身份",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "engineering_authorization",
+          "passed": true,
+          "detail": "病例限定的工程试算许可与证据哈希；不授予临床有效性",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "mesh_diagnostics_present",
+          "passed": true,
+          "detail": "保留原 checkMesh；失败项作为工程风险记录",
+          "source": "受控患者工程输入与内容指纹"
+        },
+        {
+          "name": "wsl_environment",
+          "passed": true,
+          "source": "read-only WSL Python tool discovery",
+          "detail": "Ubuntu-22.04"
+        },
+        {
+          "name": "python3",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/python3"
+        },
+        {
+          "name": "blockMesh",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/blockMesh"
+        },
+        {
+          "name": "checkMesh",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/checkMesh"
+        },
+        {
+          "name": "simpleFoam",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/simpleFoam"
+        },
+        {
+          "name": "foamToVTK",
+          "passed": true,
+          "source": "WSL shutil.which",
+          "detail": "/usr/bin/foamToVTK"
+        },
+        {
+          "name": "native_linux_workspace",
+          "passed": true,
+          "source": "WSL pathlib.Path.home()",
+          "detail": "/home/lenovo2"
+        },
+        {
+          "name": "tutorial_dictionary",
+          "passed": true,
+          "source": "WSL filesystem probe",
+          "detail": "既有 runner 使用官方 v1912 fvSchemes"
+        }
+      ],
+      "environment": {
+        "home": "/home/lenovo2",
+        "cpu_count": 24,
+        "load_average": [
+          0.05126953125,
+          0.02490234375,
+          0.00439453125
+        ],
+        "tools": {
+          "python3": "/usr/bin/python3",
+          "blockMesh": "/usr/bin/blockMesh",
+          "checkMesh": "/usr/bin/checkMesh",
+          "simpleFoam": "/usr/bin/simpleFoam",
+          "foamToVTK": "/usr/bin/foamToVTK"
+        },
+        "tutorial_available": true,
+        "available": true,
+        "source": "read-only WSL Python tool discovery",
+        "distro": "Ubuntu-22.04"
+      },
+      "clinical_validation": "not_validated",
+      "blocking_reasons": []
+    },
+    "result": null,
+    "artifacts": [
+      {
+        "name": "preflight.json",
+        "label": "真实工程输入与环境预检",
+        "url": "/simulation-assets/s_aa79a63027b94bfb9a273898/preflight.json"
+      },
+      {
+        "name": "input_fingerprint.json",
+        "label": "本次输入与代码指纹",
+        "url": "/simulation-assets/s_aa79a63027b94bfb9a273898/input_fingerprint.json"
+      },
+      {
+        "name": "live_status.json",
+        "label": "实际求解进度与日志尾",
+        "url": "/simulation-assets/s_aa79a63027b94bfb9a273898/live_status.json"
+      }
+    ],
+    "error": null,
+    "exit_code": null,
+    "patient_binding": {
+      "current_source_binding": null,
+      "admission_sha256": "add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04"
+    },
+    "live_progress": {
+      "stage": "solver",
+      "evaluation": "eval_001",
+      "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+      "actual_step": "simpleFoam",
+      "iteration": "112",
+      "runner_status": "running",
+      "log_tail": "esidual = 0.000564942946282, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0246018466341, Final residual = 0.000232400078707, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00425579217592, Final residual = 3.20721509707e-05, No Iterations 5\ntime step continuity errors : sum local = 0.818760380219, global = 0.145276995072, cumulative = -2.44118834034\nExecutionTime = 462.76 s  ClockTime = 465 s\n\nTime = 110\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0267760445083, Final residual = 9.62430634345e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0209809497476, Final residual = 9.47952555566e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0213315158612, Final residual = 0.000104601872525, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0717506573907, Final residual = 0.000576379856864, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0244283117105, Final residual = 0.000227761872979, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00420869182919, Final residual = 3.4584071696e-05, No Iterations 5\ntime step continuity errors : sum local = 0.913814476073, global = 0.191593879088, cumulative = -2.24959446125\nExecutionTime = 468.21 s  ClockTime = 471 s\n\nTime = 111\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0265842791057, Final residual = 9.58126813634e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208323157508, Final residual = 9.47649298041e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.021131410995, Final residual = 0.000104378372349, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0718139058021, Final residual = 0.000591962148606, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0244246473596, Final residual = 0.000238077681334, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00426218227174, Final residual = 3.21366960486e-05, No Iterations 5\ntime step continuity errors : sum local = 0.879808600069, global = 0.137892122574, cumulative = -2.11170233868\nExecutionTime = 472.32 s  ClockTime = 475 s\n\nTime = 112\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0266449016987, Final residual = 9.70259128066e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208721984165, Final residual = 9.49381055104e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210773045154, Final residual = 0.00010511599255, No Iterations 5\n",
+      "updated_at": "2026-10-15T19:51:04+08:00"
+    },
+    "log_excerpt": "{\"command\": [\"wsl.exe\", \"-d\", \"Ubuntu-22.04\", \"--\", \"env\", \"OMP_NUM_THREADS=1\", \"OPENBLAS_NUM_THREADS=1\", \"MKL_NUM_THREADS=1\", \"taskset\", \"-c\", \"0\", \"nice\", \"-n\", \"10\", \"python3\", \"/mnt/d/\\u9879\\u76ee/\\u9f3b\\u8154\\u5efa\\u6a21/work/lib/patient_cfd_runner.py\", \"--work-dir\", \"/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898\", \"--export-dir\", \"/mnt/c/ts_work/project_cases/simulation_jobs/s_aa79a63027b94bfb9a273898/export/s_aa79a63027b94bfb9a273898\", \"--patient-input\", \"/mnt/c/ts_work/project_cases/patient_cfd_inputs/b15_engineering_t029a\", \"--expected-admission-sha\", \"add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04\"], \"runner_sha256\": \"9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54\"}\r\n"
+  },
+  "native_readonly": {
+    "native_root": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898",
+    "native_root_exists": true,
+    "evaluations": [
+      {
+        "evaluation": "eval_001",
+        "native_case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+        "files": [
+          "case_manifest.json",
+          "execution.log",
+          "config.json",
+          "constant",
+          "engineering_authorization.json",
+          "log.checkMesh",
+          "0",
+          "system",
+          "log.simpleFoam",
+          "run_status.json",
+          "postProcessing",
+          "80",
+          "100",
+          "engineering_authorization_record.md"
+        ],
+        "run_status.json": {
+          "schema": "nasal_cfd_run_status/v1",
+          "case": "/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001",
+          "started_at": "2026-10-15T11:42:52+00:00",
+          "status": "running",
+          "current_step_index": 2,
+          "total_steps": 3,
+          "current_command": [
+            "simpleFoam"
+          ],
+          "last_log_tail": null,
+          "updated_at": "2026-10-15T11:43:06+00:00"
+        },
+        "config.json": {
+          "schema": "nasal_cfd_config/v1",
+          "config_id": "b15_engineering_t029a_upwind_120",
+          "status": "engineering_template_requires_patient_backtest",
+          "physics": {
+            "flow_regime": "incompressible",
+            "time_mode": "steady",
+            "rho_kg_m3": 1.2,
+            "mu_Pa_s": 1.81e-05,
+            "temperature_assumption_C": 20.0,
+            "turbulence_model": "laminar"
+          },
+          "boundary_conditions": {
+            "mode": "total_flow",
+            "total_inspiratory_flow_m3_s": 0.00025,
+            "flow_split": {
+              "policy": "solver_determined",
+              "left_fraction": null,
+              "right_fraction": null,
+              "interpretation": "solver_output_not_prescribed"
+            },
+            "nostril_pressure": null,
+            "nasopharynx_pressure": {
+              "value": 0.0,
+              "unit": "Pa",
+              "quantity": "static",
+              "reference": "gauge"
+            },
+            "static_pressure_difference_Pa": null,
+            "direction_policy": "inspiration_nostrils_to_nasopharynx",
+            "walls": "rigid_no_slip"
+          },
+          "turbulence": {
+            "inlet_intensity_fraction": null,
+            "length_scale_Dh_fraction": null,
+            "low_speed_threshold_m_s": null,
+            "low_speed_threshold_basis": null,
+            "definition": null,
+            "report_status": "not_applicable"
+          },
+          "mesh": {
+            "level": "existing_b15_engineering_maxh1",
+            "bulk_target_mm": 1.0,
+            "local_initial_target_mm": 0.25,
+            "minimum_cells_across_gap": 6,
+            "local_resolution_rule": "h <= min(local_initial_target_mm, measured_gap_mm/6)",
+            "prism_layers": null
+          },
+          "geometry": {
+            "kind": "patient",
+            "case_id": "b15_engineering_t029a",
+            "source_file": "constant/triSurface/surface.stl",
+            "sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+            "units": "mm",
+            "solver_units": "m",
+            "scale_to_m": 0.001,
+            "coordinate_system": "LPS",
+            "review": {
+              "status": "pending",
+              "method": "human",
+              "reviewer": null,
+              "reviewed_at": null,
+              "record_file": null,
+              "reviewed_geometry_sha256": null,
+              "confirmed_boundaries": [],
+              "oral_exclusion_confirmed": false,
+              "sinus_boundary_policy_confirmed": false
+            }
+          },
+          "solver_adapter": {
+            "status": "implemented_and_verified",
+            "name": "real_openfoam_common_pressure_reference_verified",
+            "version": "1.0.0",
+            "desired_strategy": "common_inlet_pressure_feedback",
+            "flow_target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary",
+            "strategy_description": "Use one common nostril static pressure and fixed outlet static pressure; an outer loop adjusts the common inlet pressure to match the total-flow target. Do not impose a flow boundary simultaneously."
+          },
+          "engineering_screen": {
+            "maximum_mass_imbalance_fraction": 0.005,
+            "maximum_monitor_relative_change": 0.005,
+            "target_residual_max": 1e-05,
+            "medium_to_fine_change_screen_fraction": 0.05,
+            "diagnostic_basis": {
+              "mass_imbalance_fraction": "Take the steady-segment value (final-samples window) of mass_imbalance_fraction for the engineering screen comparison. The startup transient (initial non-divergence-free field, e.g. the global max 6.3324e-03 at t=2 in T-006 Run 1) is reported separately and excluded from the screen. Rationale: an initial field that is not divergence-free produces a startup artifact, not a solver defect; this never relaxes the maximum_mass_imbalance_fraction screen of 0.005.",
+              "monitor_relative_change": "monitor_relative_change is the inter-window relative change of dP, where dP = area-weighted mean nostril static pressure minus nasopharynx outlet static pressure. Compute over the last 40% of monitor samples with a window length of 20 consecutive samples; take the window-mean of each window, then the maximum of the successive window-mean ratios. T-006 Run 1 measured 0.0079%."
+            }
+          },
+          "notes": [
+            "No patient flow solution is included.",
+            "Templates are not clinically validated.",
+            "Equal bilateral flow is an imposed comparison only, never a measured patient split.",
+            "Fixed flow plus one static pressure reference is valid; fixed flow plus a prescribed two-end pressure difference is not this contract.",
+            "Frozen b15 engineering example, not p0/p3 or an uploaded case.",
+            "Existing mesh has Failed 2 mesh checks; surface optimisation cap deviations and six-cell gap resolution are not accuracy-certified.",
+            "This uses the user-approved M1/M2 engineering trial branch. Clinical validation remains absent.",
+            "T-029: same b15 geometry/mesh/physical and quality settings; only U convection changed to upwind.",
+            "120-step budget and 20-step field writes are run controls. No automatic extension to 300.",
+            "10 Pa common nostril static pressure is the first outer evaluation; no fixed flow split is imposed."
+          ],
+          "engineering_provenance": {
+            "origin_case_id": "b15_engineering",
+            "version": "t029a"
+          },
+          "numerical_trial": {
+            "task": "T-029",
+            "U_convection": "bounded Gauss upwind",
+            "endTime": 120,
+            "writeInterval": 20,
+            "meaning": "bounded engineering stability trial; not convergence or accuracy validation"
+          }
+        },
+        "case_manifest.json": {
+          "schema": "nasal_cfd_case/v1",
+          "surface": {
+            "source_file": "b15_patient_maxh1_repaired.msh",
+            "source_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+            "units": "mm"
+          },
+          "patch_map": {
+            "nostril_L": "inlet",
+            "nostril_R": "inlet",
+            "nasopharynx_outlet": "outlet",
+            "wall": "wall"
+          },
+          "solver": "laminar",
+          "boundary": {
+            "mode": "common_inlet_pressure_feedback",
+            "inlet_static_pressure_Pa_gauge": 10.0,
+            "outlet_static_pressure_Pa_gauge": 0.0,
+            "target_role": "outer_iteration_objective_not_simultaneous_PDE_flow_boundary"
+          },
+          "note": "truthful manifest; source is patient msh, NOT tube.stl; diagnostic override therefore cannot apply per run_openfoam_case.py:469-472",
+          "patient_case_id": "b15_engineering_t029a",
+          "final_surface_sha256": "fbaf623486a4ed2777f07ef34664197843c35ac3bdd040cf2b76c3e7218b6070",
+          "source_mesh_sha256": "8603fe399a8e0a499a26767db2a3cb9f35909b5c089bf14cf06ef55452593ad0",
+          "clinical_validation": "not_validated",
+          "engineering_input_provenance": "T-029 numerical version of frozen b15_engineering; only input folders copied; old results excluded",
+          "engineering_provenance": {
+            "origin_case_id": "b15_engineering",
+            "version": "t029a"
+          }
+        },
+        "system/controlDict": {
+          "text": "/*--------------------------------*- C++ -*----------------------------------*\\\n| =========                 |                                                 |\n| \\\\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |\n|  \\\\    /   O peration     | Version:                                        |\n|   \\\\  /    A nd           | Website:  www.openfoam.com                      |\n|    \\\\/     M anipulation  |                                                 |\n\\*---------------------------------------------------------------------------*/\n// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //\nFoamFile\n{\n    version         2;\n    format          ascii;\n    class           dictionary;\n    object          controlDict;\n}\n\napplication     simpleFoam;\n\nstartFrom startTime;\n\nstartTime 0;\n\nstopAt          endTime;\n\nendTime 120;\n\ndeltaT          1;\n\nwriteControl    timeStep;\n\nwriteInterval 20;\n\npurgeWrite      2;\n\nwriteFormat     ascii;\n\nwritePrecision  12;\n\nwriteCompression off;\n\ntimeFormat      general;\n\ntimePrecision   10;\n\nrunTimeModifiable false;\n\nfunctions\n{\nflow_nostril_L\n{\n type surfaceFieldValue;\n libs (\"libfieldFunctionObjects.so\");\n regionType patch;\n name nostril_L;\n operation sum;\n fields (phi);\n writeFields false;\n log false;\n writeControl timeStep;\n writeInterval 1;\n}\npressure_nostril_L\n{\n type surfaceFieldValue;\n libs (\"libfieldFunctionObjects.so\");\n regionType patch;\n name nostril_L;\n operation areaAverage;\n fields (p);\n writeFields false;\n log false;\n writeControl timeStep;\n writeInterval 1;\n}\nflow_nostril_R\n{\n type surfaceFieldValue;\n libs (\"libfieldFunctionObjects.so\");\n regionType patch;\n name nostril_R;\n operation sum;\n fields (phi);\n writeFields false;\n log false;\n writeControl timeStep;\n writeInterval 1;\n}\npressure_nostril_R\n{\n type surfaceFieldValue;\n libs (\"libfieldFunctionObjects.so\");\n regionType patch;\n name nostril_R;\n operation areaAverage;\n fields (p);\n writeFields false;\n log false;\n writeControl timeStep;\n writeInterval 1;\n}\nflow_nasopharynx_outlet\n{\n type surfaceFieldValue;\n libs (\"libfieldFunctionObjects.so\");\n regionType patch;\n name nasopharynx_outlet;\n operation sum;\n fields (phi);\n writeFields false;\n log false;\n writeControl timeStep;\n writeInterval 1;\n}\npressure_nasopharynx_outlet\n{\n type surfaceFieldValue;\n libs (\"libfieldFunctionObjects.so\");\n regionType patch;\n name nasopharynx_outlet;\n operation areaAverage;\n fields (p);\n writeFields false;\n log false;\n writeControl timeStep;\n writeInterval 1;\n}\n}\n\n\n// ************************************************************************* //\n",
+          "sha256": "57bb6333dc66c3767fcbc655b6f69f46b1d9f21e7d0a9eb0d679bfa5ce671964"
+        },
+        "system/fvSchemes": {
+          "text": "FoamFile\n{\n version 2.0;\n format ascii;\n class dictionary;\n object fvSchemes;\n}\nddtSchemes\n{\n default steadyState;\n}\ngradSchemes\n{\n default Gauss linear;\n grad(U) cellLimited Gauss linear 1;\n}\ndivSchemes\n{\n default none;\n div(phi,U) bounded Gauss upwind;\n div(phi,k) bounded Gauss limitedLinear 1;\n div(phi,epsilon) bounded Gauss limitedLinear 1;\n div(phi,omega) bounded Gauss limitedLinear 1;\n div(phi,v2) bounded Gauss limitedLinear 1;\n div((nuEff*dev2(T(grad(U))))) Gauss linear;\n div(nonlinearStress) Gauss linear;\n}\nlaplacianSchemes\n{\n default Gauss linear corrected;\n}\ninterpolationSchemes\n{\n default linear;\n}\nsnGradSchemes\n{\n default corrected;\n}\nwallDist\n{\n method meshWave;\n}\n",
+          "sha256": "ff2d2a19a801da7960bcf8d12767e4697cd686b0d02bad7010df034ac904289d"
+        },
+        "system/fvSolution": {
+          "text": "FoamFile\n{\n version 2.0;\n format ascii;\n class dictionary;\n object fvSolution;\n}\nsolvers\n{\n p { solver GAMG; tolerance 1e-12; relTol 0.01; smoother GaussSeidel; }\n U { solver smoothSolver; smoother symGaussSeidel; tolerance 1e-12; relTol 0.01; }\n}\nSIMPLE\n{\n nNonOrthogonalCorrectors 2;\n consistent yes;\n residualControl { p 1e-6; U 1e-6; }\n}\nrelaxationFactors\n{\n equations { U 0.7; }\n fields    { p 0.3; }\n}\n",
+          "sha256": "6b5838e80b73419f5b3c22368ed55b87a2611ecb836b68b3d912f3c81094f983"
+        },
+        "constant/transportProperties": {
+          "text": "FoamFile\n{\n version 2.0;\n format ascii;\n class dictionary;\n object transportProperties;\n}\ntransportModel Newtonian;\nnu 1.508333333333e-05;\n",
+          "sha256": "9a526747418f948481bcfd5b4c6d986aa23bce7a12b2608f572d70da08d0771d"
+        },
+        "constant/turbulenceProperties": {
+          "text": "FoamFile\n{\n version 2.0;\n format ascii;\n class dictionary;\n object turbulenceProperties;\n}\nsimulationType laminar;\n",
+          "sha256": "0ec08e6dfa7a27a866912c0c7b7cee964a1b4aeb6c1dcf30d3093fbe9e6cbbb9"
+        },
+        "0/p": {
+          "text": "FoamFile\n{\n version 2.0;\n format ascii;\n class volScalarField;\n object p;\n}\ndimensions [0 2 -2 0 0 0 0];\ninternalField uniform 0;\nboundaryField\n{\n nostril_L {\ntype fixedValue; value uniform 8.333333333333334;\n}\n nostril_R {\ntype fixedValue; value uniform 8.333333333333334;\n}\n nasopharynx_outlet {\ntype fixedValue; value uniform 0;\n}\n wall { type zeroGradient; }\n}\n",
+          "sha256": "6cb47a2bc5b04937b18a82717dab277c44744f8f692828c35b46a25bc480a779"
+        },
+        "0/U": {
+          "text": "FoamFile\n{\n version 2.0;\n format ascii;\n class volVectorField;\n object U;\n}\ndimensions [0 1 -1 0 0 0 0];\ninternalField uniform (0 0 0);\nboundaryField\n{\n nostril_L {\ntype pressureInletOutletVelocity; value uniform (0 0 0);\n}\n nostril_R {\ntype pressureInletOutletVelocity; value uniform (0 0 0);\n}\n nasopharynx_outlet {\ntype zeroGradient;\n}\n wall { type noSlip; }\n}\n",
+          "sha256": "0da3bdbee9f1fdbe0b0f007edf9ea3facf9361b1b5a2d47b08c8e2e3778df912"
+        },
+        "log.simpleFoam": {
+          "size_bytes": 97764,
+          "tail": " 0.000205087851578, No Iterations 4\nGAMG:  Solving for p, Initial residual = 0.00544482534812, Final residual = 4.5159495787e-05, No Iterations 4\ntime step continuity errors : sum local = 0.793636963296, global = -0.025985726617, cumulative = -2.81648202725\nExecutionTime = 412.75 s  ClockTime = 415 s\n\nTime = 99\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.026299006933, Final residual = 9.53098829075e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0206446252069, Final residual = 9.40710859177e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210615550884, Final residual = 0.000103755005285, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0695717590886, Final residual = 0.000542203076863, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0242994128176, Final residual = 0.00022213176109, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00411850052357, Final residual = 3.1475100955e-05, No Iterations 5\ntime step continuity errors : sum local = 0.56897796084, global = -0.140757459463, cumulative = -2.95723948671\nExecutionTime = 417.03 s  ClockTime = 419 s\n\nTime = 100\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0264225182865, Final residual = 9.61981195663e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0206668955343, Final residual = 9.42803662627e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210370624704, Final residual = 0.000104423222429, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0699023049444, Final residual = 0.000538880333985, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0243543827681, Final residual = 0.000215623934046, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00409904562337, Final residual = 3.23037649829e-05, No Iterations 5\ntime step continuity errors : sum local = 0.602650020063, global = -0.13900178508, cumulative = -3.09624127179\nExecutionTime = 422.9 s  ClockTime = 425 s\n\nTime = 101\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0262699801434, Final residual = 9.58729406083e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0206797051235, Final residual = 9.44361960282e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210475323795, Final residual = 0.000103778606607, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0701013176044, Final residual = 0.000547380020378, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0244510396136, Final residual = 0.000219416540785, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00412833690706, Final residual = 3.3081300206e-05, No Iterations 5\ntime step continuity errors : sum local = 0.638206826822, global = -0.13004426939, cumulative = -3.22628554118\nExecutionTime = 427.21 s  ClockTime = 430 s\n\nTime = 102\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0263909391016, Final residual = 9.59014547936e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0207097625181, Final residual = 9.44298136016e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0209607510597, Final residual = 0.000104446565966, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0704826957154, Final residual = 0.000545497934482, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0243139133623, Final residual = 0.000216851856118, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00410978285889, Final residual = 2.66190939903e-05, No Iterations 5\ntime step continuity errors : sum local = 0.530156363256, global = 0.0157252870234, cumulative = -3.21056025416\nExecutionTime = 431.31 s  ClockTime = 434 s\n\nTime = 103\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0263305086343, Final residual = 9.55109741128e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0207499081966, Final residual = 9.4515584492e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210552892056, Final residual = 0.000104164801606, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0706517281934, Final residual = 0.000563105333084, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0243149933, Final residual = 0.000227929444841, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00416557466594, Final residual = 2.81879078331e-05, No Iterations 5\ntime step continuity errors : sum local = 0.58012914306, global = 0.031131360886, cumulative = -3.17942889327\nExecutionTime = 435.44 s  ClockTime = 438 s\n\nTime = 104\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0264396117304, Final residual = 9.62198027448e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0207536414186, Final residual = 9.4621030077e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210410322267, Final residual = 0.000104669299592, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0708918630623, Final residual = 0.000556223589467, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0243326963555, Final residual = 0.000221671626768, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00414676414202, Final residual = 3.13892383213e-05, No Iterations 5\ntime step continuity errors : sum local = 0.668887189249, global = 0.107381004332, cumulative = -3.07204788894\nExecutionTime = 439.54 s  ClockTime = 442 s\n\nTime = 105\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0262771283042, Final residual = 9.58103080411e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0207396953355, Final residual = 9.46436484148e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210314826189, Final residual = 0.000103986056064, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0709423172047, Final residual = 0.000567403353635, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0243793432949, Final residual = 0.000227917570998, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00418843276724, Final residual = 2.99480936814e-05, No Iterations 5\ntime step continuity errors : sum local = 0.660655323351, global = 0.0790519984336, cumulative = -2.99299589051\nExecutionTime = 443.61 s  ClockTime = 446 s\n\nTime = 106\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.026376516567, Final residual = 9.61664508313e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.020758271959, Final residual = 9.46822821083e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210161908025, Final residual = 0.000104632703643, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0715295743217, Final residual = 0.000549865406358, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0248672315489, Final residual = 0.000211843113837, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00416962652266, Final residual = 3.34105489247e-05, No Iterations 5\ntime step continuity errors : sum local = 0.77106209668, global = 0.159221580517, cumulative = -2.83377430999\nExecutionTime = 447.65 s  ClockTime = 450 s\n\nTime = 107\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0277541727368, Final residual = 9.78850247382e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0211648036189, Final residual = 9.55067004517e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0220164271085, Final residual = 0.000106276142486, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0716318404268, Final residual = 0.000579594725345, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0243999638976, Final residual = 0.000235836447276, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00424624282963, Final residual = 3.02699531583e-05, No Iterations 5\ntime step continuity errors : sum local = 0.716275018379, global = 0.0769175060529, cumulative = -2.75685680394\nExecutionTime = 451.89 s  ClockTime = 454 s\n\nTime = 108\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0264712528658, Final residual = 9.59863153303e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208338090067, Final residual = 9.48773404765e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.021169500197, Final residual = 0.000105115157339, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0715553063937, Final residual = 0.000571243164633, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.024383322813, Final residual = 0.000226473922159, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00419089244999, Final residual = 3.4022225908e-05, No Iterations 5\ntime step continuity errors : sum local = 0.835225934994, global = 0.170391468526, cumulative = -2.58646533541\nExecutionTime = 457.07 s  ClockTime = 459 s\n\nTime = 109\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0264460473169, Final residual = 9.56834063385e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208159905744, Final residual = 9.4759873608e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0211291670497, Final residual = 0.000104272515189, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0719741359139, Final residual = 0.000564942946282, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0246018466341, Final residual = 0.000232400078707, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00425579217592, Final residual = 3.20721509707e-05, No Iterations 5\ntime step continuity errors : sum local = 0.818760380219, global = 0.145276995072, cumulative = -2.44118834034\nExecutionTime = 462.76 s  ClockTime = 465 s\n\nTime = 110\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0267760445083, Final residual = 9.62430634345e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0209809497476, Final residual = 9.47952555566e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0213315158612, Final residual = 0.000104601872525, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0717506573907, Final residual = 0.000576379856864, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0244283117105, Final residual = 0.000227761872979, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00420869182919, Final residual = 3.4584071696e-05, No Iterations 5\ntime step continuity errors : sum local = 0.913814476073, global = 0.191593879088, cumulative = -2.24959446125\nExecutionTime = 468.21 s  ClockTime = 471 s\n\nTime = 111\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0265842791057, Final residual = 9.58126813634e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208323157508, Final residual = 9.47649298041e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.021131410995, Final residual = 0.000104378372349, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0718139058021, Final residual = 0.000591962148606, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0244246473596, Final residual = 0.000238077681334, No Iterations 3\nGAMG:  Solving for p, Initial residual = 0.00426218227174, Final residual = 3.21366960486e-05, No Iterations 5\ntime step continuity errors : sum local = 0.879808600069, global = 0.137892122574, cumulative = -2.11170233868\nExecutionTime = 472.32 s  ClockTime = 475 s\n\nTime = 112\n\nsmoothSolver:  Solving for Ux, Initial residual = 0.0266449016987, Final residual = 9.70259128066e-05, No Iterations 5\nsmoothSolver:  Solving for Uy, Initial residual = 0.0208721984165, Final residual = 9.49381055104e-05, No Iterations 5\nsmoothSolver:  Solving for Uz, Initial residual = 0.0210773045154, Final residual = 0.00010511599255, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0719363968168, Final residual = 0.000586260048672, No Iterations 5\nGAMG:  Solving for p, Initial residual = 0.0243698812995, Final residual = 0.00023183617375, No Iterations 3\n",
+          "sha256": "faa1d26e5da749c6e92bfdef8f128685655d4f23f173fd07896293eaa117448b"
+        },
+        "last_started_iteration": "112",
+        "log.checkMesh": {
+          "size_bytes": 5371,
+          "tail": "/*---------------------------------------------------------------------------*\\\n| =========                 |                                                 |\n| \\\\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |\n|  \\\\    /   O peration     | Version:                                        |\n|   \\\\  /    A nd           | Website:  www.openfoam.com                      |\n|    \\\\/     M anipulation  |                                                 |\n\\*---------------------------------------------------------------------------*/\nBuild  : OPENFOAM=1912 patch=200626\nArch   : \"LSB;label=32;scalar=64\"\nExec   : checkMesh -allGeometry -allTopology\nDate   : Oct 15 2026\nTime   : 19:42:52\nHost   : LAPTOP-44R13S8U\nPID    : 1150\n--> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\nI/O    : uncollated\n--> FOAM Warning : \n    From function Foam::fileName Foam::cwd_L()\n    in file POSIX.C at line 494\n    PWD is not the cwd() - reverting to physical description\nCase   : /home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001\nnProcs : 1\ntrapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).\nfileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)\nallowSystemOperations : Allowing user-supplied system call operations\n\n// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //\nCreate time\n\nCreate mesh for time = 0\n\nEnabling all (cell, face, edge, point) topology checks.\n\nEnabling all geometry checks.\n\nTime = 0\n\nMesh stats\n    points:           229033\n    faces:            2378797\n    internal faces:   2265979\n    cells:            1161194\n    faces per cell:   4\n    boundary patches: 4\n    point zones:      0\n    face zones:       0\n    cell zones:       1\n\nOverall number of cells of each type:\n    hexahedra:     0\n    prisms:        0\n    wedges:        0\n    pyramids:      0\n    tet wedges:    0\n    tetrahedra:    1161194\n    polyhedra:     0\n\nChecking topology...\n    Boundary definition OK.\n    Cell to face addressing OK.\n    Point usage OK.\n    Upper triangular ordering OK.\n    Face vertices OK.\n    Topological cell zip-up check OK.\n    Face-face connectivity OK.\n    Number of regions: 1 (OK).\n\nChecking patch topology for multiply connected surfaces...\n    Patch               Faces    Points   Surface topology                   Bounding box\n    nostril_L           5020     2725     ok (non-closed singly connected)   (0.015827543907 -0.109033899188 -0.044017064373) (0.0250202184916 -0.0919440637827 -0.0403212457363)\n    wall                86822    44516    ok (non-closed singly connected)   (-0.014042262435 -0.110498742223 -0.0503151042032) (0.0250202184916 -0.0167487879992 -0.00290050125122)\n    nostril_R           3431     1810     ok (non-closed singly connected)   (0.00207101094723 -0.110010461211 -0.0429005012512) (0.0120807716846 -0.0955316969626 -0.0394630012512)\n    nasopharynx_outlet  17545    9748     ok (non-closed singly connected)   (-0.0104875970311 -0.110010461211 -0.0503151042032) (0.0250202184916 -0.0168961060114 -0.0393476543146)\n\nChecking faceZone topology for multiply connected surfaces...\n    No faceZones found.\n\nChecking basic cellZone addressing...\n    CellZone            Cells        Points       Volume       BoundingBox\n    fluid               1161194      229033       1.97689459237e-05 (-0.014042262435 -0.110498742223 -0.0503151042032) (0.0250202184916 -0.0167487879992 -0.00290050125122)\n\nChecking geometry...\n    Overall domain bounding box (-0.014042262435 -0.110498742223 -0.0503151042032) (0.0250202184916 -0.0167487879992 -0.00290050125122)\n    Mesh has 3 geometric (non-empty/wedge) directions (1 1 1)\n    Mesh has 3 solution (non-empty) directions (1 1 1)\n    Boundary openness (3.80502121024e-18 4.84456216375e-17 1.6747704256e-16) OK.\n    Max cell openness = 6.44594288415e-16 OK.\n    Max aspect ratio = 118.95784761 OK.\n    Minimum face area = 3.61527397929e-13. Maximum face area = 2.0715416144e-06.  Face area magnitudes OK.\n    Min volume = 1.74667352244e-19. Max volume = 9.01273740266e-10.  Total volume = 1.97689459237e-05.  Cell volumes OK.\n    Mesh non-orthogonality Max: 87.3238242586 average: 16.3537820803\n   *Number of severely non-orthogonal (> 70 degrees) faces: 204.\n    Non-orthogonality check OK.\n  <<Writing 204 non-orthogonal faces to set nonOrthoFaces\n    Face pyramids OK.\n    Max skewness = 1.62951453076 OK.\n    Coupled point location match (average 0) OK.\n    Face tets OK.\n    Min/max edge length = 8.39460391765e-07 0.00248084256941 OK.\n    All angles in faces OK.\n    All face flatness OK.\n    Cell determinant (wellposedness) : minimum: 1.11163982652e-07 average: 0.193855652104\n ***Cells with small determinant (< 0.001) found, number of cells: 585\n  <<Writing 585 under-determined cells to set underdeterminedCells\n    Concave cell check OK.\n    Face interpolation weight : minimum: 0.0117811599686 average: 0.445519100331\n ***Faces with small interpolation weight (< 0.05) found, number of faces: 114\n  <<Writing 114 faces with low interpolation weights to set lowWeightFaces\n    Face volume ratio : minimum: 0.0119216103667 average: 0.815001669349\n    Face volume ratio check OK.\n\nFailed 2 mesh checks.\n\nEnd\n\n",
+          "sha256": "0aabad4d5ec59aaeaed44a224a0e2582d3864ede19326309c0736b25740ebeeb"
+        },
+        "execution.log": {
+          "size_bytes": 306,
+          "tail": "{\"command\": [\"checkMesh\", \"-allGeometry\", \"-allTopology\"], \"exit_code\": 0, \"log\": \"/home/lenovo2/nasal_cfd_workspace_jobs/s_aa79a63027b94bfb9a273898/evaluations/eval_001/log.checkMesh\", \"started_at\": \"2026-10-15T11:42:52+00:00\", \"elapsed_seconds\": 14.326269814, \"finished_at\": \"2026-10-15T11:43:06+00:00\"}\n",
+          "sha256": "d4751fb33a839778d58a449a227a5513f63b4f2ee374eacbfb707dee3942f38a"
+        },
+        "field_directories": [
+          "0",
+          "80",
+          "100"
+        ],
+        "VTU_files": []
+      }
+    ],
+    "patient_input_fingerprint": {
+      "admission_sha256": "add039ea026012b1b9479c4a19f1e75138b08038a1ccbef88d3317b7ab26ee04",
+      "config_sha256": "c87833df76141e00455ca9efd9766b79177876a0904e4cecd2e53c481e2595a9",
+      "current_source_binding": null,
+      "code_sha256": {
+        "patient_cfd_runner.py": "9e7fae6b81c546c5af15ce465f25d4f157185b429310f3ab23dfb2ead0406d54",
+        "patient_cfd_admission.py": "098e0efd72e817a2249045b0600184b26d1fb15460988bba44869af699ef7da3",
+        "solver_adapter.py": "df741bbf6707b4ce9492ef0c59d8614c6b077aa542d86ae77a9be04ff414d8df",
+        "pressure_feedback.py": "9e359dd89f25e1213967053ead95dd06ca2080e1d623c563edbc9baea419ea22",
+        "openfoam_pressure_adapter.py": "38175e7bec168dc7c2bb213c571876b6554dd82c97e58e9795a134b59428e8d7"
+      }
+    },
+    "actual_simpleFoam_processes": [
+      "1250 simpleFoam"
+    ]
+  },
+  "observer_script_sha256": "7e8ea5033af22fbfe6cbbf6d501ad05e8750bfd76263121b8ef2d7960eec8f49",
+  "no_POST": true,
+  "no_solver_or_service_launch": true,
+  "persistent_monitor_started": false,
+  "patient_numerical_accepted": false
+}

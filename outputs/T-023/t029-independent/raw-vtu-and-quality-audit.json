@@ -1,0 +1,290 @@
+{
+  "schema": "t023_t029_raw_vtu_quality/v1",
+  "at": "2026-10-15T11:56:49.496848+00:00",
+  "job_id": "s_aa79a63027b94bfb9a273898",
+  "case_id": "b15_engineering_t029a",
+  "field_time": "120",
+  "source_vtu_sha256": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11",
+  "actual_served_vtu_sha256": "71967ea40c6e006a791a0fa1eac43d63f615fd92c5f64c45fa74930d948cac11",
+  "native_export_served_equal": true,
+  "raw_cell_field_checks": {
+    "p": {
+      "raw_sha256": "7c732c7c1f54eda2f9cd89afec48e553e4084d6b48f2da64d3a30487d3aea3e2",
+      "native_export_equal": true,
+      "dimensions": [
+        0,
+        2,
+        -2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_cell_count": 1161194,
+      "max_cell_abs_difference": 0.5110640000202693,
+      "cell_min": -903749.045817,
+      "cell_max": 226504.551399,
+      "point_array_finite": true,
+      "ascii_serialization_tolerance": "rtol=1e-5, atol=1e-6"
+    },
+    "U": {
+      "raw_sha256": "48e0f57b57ac42e833ecfaf618a9f692e5dfa124e068b33e44001002a0e2b7ef",
+      "native_export_equal": true,
+      "dimensions": [
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_cell_count": 1161194,
+      "max_cell_abs_difference": 0.004933603124982255,
+      "cell_min": -710.609165206,
+      "cell_max": 1819.73859467,
+      "point_array_finite": true,
+      "ascii_serialization_tolerance": "rtol=1e-5, atol=1e-6"
+    }
+  },
+  "coordinate_check": {
+    "source_points": 229033,
+    "LPS_axes_unchanged": true,
+    "source_unit": "m",
+    "max_absolute_difference_m": 5.028562925363245e-07,
+    "ascii_serialization_tolerance": "rtol=1e-5, atol=1e-8"
+  },
+  "outer_surface": {
+    "points": 56409,
+    "triangles": 112818,
+    "nonfinite_coordinates": 0,
+    "zero_area_triangles": 0,
+    "at_or_below_existing_1e_minus20_threshold": 0,
+    "minimum_double_area_m2": 2.865922027309289e-12,
+    "bad_examples": []
+  },
+  "three_readonly_raw_cut_statistics": [
+    {
+      "axis": "x",
+      "position_lps_m": 0.005488950293511152,
+      "points": 8631,
+      "triangles": 16196,
+      "nonfinite_coordinates": 0,
+      "zero_area_triangles": 0,
+      "at_or_below_existing_1e_minus20_threshold": 0,
+      "minimum_double_area_m2": 1.249000902703301e-16,
+      "bad_examples": []
+    },
+    {
+      "axis": "y",
+      "position_lps_m": -0.06362390145659447,
+      "points": 3065,
+      "triangles": 5180,
+      "nonfinite_coordinates": 0,
+      "zero_area_triangles": 0,
+      "at_or_below_existing_1e_minus20_threshold": 0,
+      "minimum_double_area_m2": 1.6112111644872584e-14,
+      "bad_examples": []
+    },
+    {
+      "axis": "z",
+      "position_lps_m": -0.02660780039150268,
+      "points": 4612,
+      "triangles": 8079,
+      "nonfinite_coordinates": 0,
+      "zero_area_triangles": 12,
+      "at_or_below_existing_1e_minus20_threshold": 12,
+      "minimum_double_area_m2": 0.0,
+      "bad_examples": [
+        {
+          "triangle_index": 1242,
+          "point_ids": [
+            4217,
+            1351,
+            4231
+          ],
+          "xyz_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "double_area_m2": 0.0
+        },
+        {
+          "triangle_index": 1243,
+          "point_ids": [
+            4217,
+            4209,
+            1351
+          ],
+          "xyz_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "double_area_m2": 0.0
+        },
+        {
+          "triangle_index": 2887,
+          "point_ids": [
+            4219,
+            4210,
+            4209
+          ],
+          "xyz_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.02012239396572113,
+              -0.056632231920957565,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "double_area_m2": 0.0
+        },
+        {
+          "triangle_index": 3890,
+          "point_ids": [
+            4231,
+            4221,
+            4219
+          ],
+          "xyz_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.019944922998547554,
+              -0.05703870952129364,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "double_area_m2": 0.0
+        },
+        {
+          "triangle_index": 4932,
+          "point_ids": [
+            1351,
+            2442,
+            4231
+          ],
+          "xyz_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.02035185880959034,
+              -0.05721932649612427,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "double_area_m2": 0.0
+        },
+        {
+          "triangle_index": 4938,
+          "point_ids": [
+            1405,
+            1350,
+            1351
+          ],
+          "xyz_m": [
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ],
+            [
+              0.020625699311494827,
+              -0.05703200027346611,
+              -0.026607800275087357
+            ],
+            [
+              0.020373599603772163,
+              -0.056787800043821335,
+              -0.026607800275087357
+            ]
+          ],
+          "double_area_m2": 0.0
+        }
+      ]
+    }
+  ],
+  "recomputed_rejected_point": {
+    "signed_phi_m3_s": {
+      "nasopharynx_outlet": 0.003509777823132,
+      "nostril_L": -0.0009647637636626,
+      "nostril_R": -0.002549370312534
+    },
+    "pressure_pa": {
+      "nasopharynx_outlet": 0.0,
+      "nostril_L": 9.9999999999996,
+      "nostril_R": 9.9999999999996
+    },
+    "q_total_m3_s": 0.0035141340761966,
+    "q_out_m3_s": 0.003509777823132,
+    "left_fraction": 0.2745381202719443,
+    "target_m3_s": 0.00025,
+    "relative_flow_error": 13.056536304786402,
+    "diagnostic_only": true
+  },
+  "strict_quality": {
+    "actual_status": "quality_rejected_not_converged",
+    "converged": false,
+    "mesh_quality_passed": false,
+    "residuals_passed": false,
+    "not_feedback_accepted": true
+  },
+  "display": {
+    "viewer_export_error": "抽取后存在退化三角面",
+    "viewer_files_absent": true,
+    "formal_field_display_passed": false
+  },
+  "scope": "Read-only raw identity/coordinates/units/finite fields and actual rejection; cuts are diagnostic statistics, not exported or accepted display. No numerical/clinical approval.",
+  "script_sha256": "171a8ced2285f024b8862b4d6f6c089ce93fcee0d1cf49b19292801632302f48"
+}
