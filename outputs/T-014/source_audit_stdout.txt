@@ -1,0 +1,33 @@
+{
+  "identity_unchanged": true,
+  "production_plane_matches": true,
+  "cap_subset": {
+    "source": "outputs\\T-013\\collision_nasopharynx_outlet.npz",
+    "source_sha256": "aa18dbb81d7086aab906c0fb08f46297f2b4cd1c6e956f2d94ab7721a5d4f76c",
+    "triangles": 774,
+    "patch_counts": {
+      "nostril_L": 458,
+      "nostril_R": 316
+    },
+    "fully_negative_triangles": 774,
+    "strict_straddling_triangles": 0,
+    "triangles_all_vertices_inside_outlet_roi": 0,
+    "distance_min_mm": -4.521841993711903,
+    "distance_max_mm": -0.35086036136400556,
+    "stored_distance_matches_source_definition": true,
+    "bounds_lps_mm": {
+      "min": [
+        -36.88385511934757,
+        -239.54946269094944,
+        -670.7139714346677
+      ],
+      "max": [
+        -8.215918138623238,
+        -224.0326025281041,
+        -666.67891249527
+      ]
+    }
+  },
+  "known_answers_passed": true,
+  "patient_geometry_rerun": false
+}

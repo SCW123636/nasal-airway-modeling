@@ -1,0 +1,434 @@
+{
+  "recorded_at": "2026-10-15T17:37:52.531739+08:00",
+  "script_sha256": "f030b1e6862bf685e845274966387797bfd6ec951b9dad1ce9211f61ce490458",
+  "identity": [
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\partitioned_surface.py",
+      "expected_T013_sha256": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+      "current_sha256": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e",
+      "same_as_T013": true
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\auto_opening_pipeline.py",
+      "expected_T013_sha256": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+      "current_sha256": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924",
+      "same_as_T013": true
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\connectivity_opened_surface.py",
+      "expected_T013_sha256": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+      "current_sha256": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364",
+      "same_as_T013": true
+    },
+    {
+      "path": "C:\\ts_work\\batch27_surfaces\\p0\\source_surface.vtp",
+      "expected_T013_sha256": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+      "current_sha256": "0cf50df5be494c0ae37244b1ae37c8e494704edb32a022acd1eaf6d5fec5f267",
+      "same_as_T013": true
+    },
+    {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p0\\landmarks.json",
+      "expected_T013_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+      "current_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+      "same_as_T013": true
+    }
+  ],
+  "landmark_header": {
+    "schema": "auto_anatomy_landmarks/v2",
+    "case": "p0",
+    "coordinate_system": "LPS",
+    "unit": "mm",
+    "status": "proposals_not_clinically_validated",
+    "source_ct": "C:\\ts_work\\p0\\ct.nii.gz",
+    "input_provenance": null
+  },
+  "outlet": {
+    "status": "proposed",
+    "point_lps_mm": [
+      -11.516358289822167,
+      -158.33160182579724,
+      -666.2174786671997
+    ],
+    "normal_lps": [
+      -0.01707989877602829,
+      0.0004106188129102406,
+      0.9998540435733564
+    ],
+    "roi_lps_mm": {
+      "min": [
+        -23.675864160060883,
+        -168.30637979507446,
+        -669.2149786502123
+      ],
+      "max": [
+        0.9510661065578461,
+        -147.52514839172363,
+        -664.1649786680937
+      ]
+    },
+    "clinical_validation": "not_validated",
+    "acceptance_meaning": "automatic localization proposal only; not anatomy approval or CFD permission",
+    "consistency_checks": {
+      "all_three_thresholds_found": true,
+      "enough_patch_samples": true,
+      "plane_residual_within_engineering_limit": true,
+      "threshold_position_stable": true,
+      "threshold_direction_stable": true,
+      "no_competing_large_patch": true
+    },
+    "review_reasons": []
+  },
+  "outlet_evidence": {
+    "samples": 2130,
+    "rms_mm": 0.1929179769165822,
+    "p95_residual_mm": 0.3323800289246303,
+    "planarity_ratio": 0.047277240364029,
+    "face_contact_area_mm2": 260.35339877327715,
+    "total_face_contact_area_mm2": 260.35339877327715,
+    "patch_count": 1,
+    "secondary_patch_ratio": 0.0,
+    "patch_area_mm2_descending": [
+      260.35339877327715
+    ],
+    "patch_connectivity": "shared full face edge, not corner; largest physical face-area patch fitted",
+    "evidence_type": "CT-air shared faces between two anatomical labels",
+    "threshold_drift_mm": 0.03308662280696572,
+    "threshold_normal_change_deg": 0.05923582223969171,
+    "minimum_samples_across_thresholds": 2111,
+    "maximum_rms_across_thresholds_mm": 0.1929179769165822,
+    "boundary_policy": "nasopharynx/oropharynx semantic interface; not proof of soft-palate free-edge level",
+    "nearest_soft_palate_mm": 5.026842299342347
+  },
+  "production_plane_matches_frozen_landmark": true,
+  "T011_actual_input_chain": {
+    "production_report": "C:\\ts_work\\batch27_opening\\p0.json",
+    "production_report_sha256": "6ff1114173c486e7b0d2665e108559d000cb3b487677315703fa69bbee7f4b75",
+    "pipeline_run_record": "outputs\\T-011\\a0_p0_run.json",
+    "pipeline_run_record_sha256": "97b56f77025443353e8c66f5ee5549d306da7bb5c1fddd6fe09f00bbb193c259",
+    "plane_source": "automatic_proposal",
+    "plane_source_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c",
+    "clinical_status": "generalisation_test_only_no_human_review",
+    "search_origin": "reviewed",
+    "requested_search_origin": "reviewed",
+    "search_start_mm": 0.0,
+    "search_base_mm": {
+      "nostril_L": 0.0,
+      "nostril_R": 0.0,
+      "nasopharynx_outlet": 0.0
+    },
+    "offset_from_reviewed_mm": {
+      "nostril_L": 0.0,
+      "nostril_R": 0.0,
+      "nasopharynx_outlet": 0.0
+    },
+    "offset_from_onset_mm": {
+      "nostril_L": 0.75,
+      "nostril_R": 0.25,
+      "nasopharynx_outlet": 3.75
+    },
+    "entered_bisection": {
+      "nostril_L": false,
+      "nostril_R": false,
+      "nasopharynx_outlet": false
+    },
+    "origin_downgrade_present": false,
+    "final_planes_reconstructed_by_production_pure_functions": {
+      "nostril_L": {
+        "normal_lps": [
+          0.05254286626437138,
+          0.34250093981592394,
+          0.938047095528755
+        ],
+        "keep_positive": true,
+        "point_lps_mm": [
+          -14.23892636399821,
+          -234.66605581608877,
+          -668.7812194994518
+        ],
+        "roi_lps_mm": {
+          "min": [
+            -21.22860124707222,
+            -241.37465819716454,
+            -672.8899785876274
+          ],
+          "max": [
+            -6.740331619977951,
+            -225.83756160736084,
+            -663.9899786710739
+          ]
+        }
+      },
+      "nostril_R": {
+        "normal_lps": [
+          0.1351578997165248,
+          0.10054565511992941,
+          0.9857093452842587
+        ],
+        "keep_positive": true,
+        "point_lps_mm": [
+          -31.96022610617594,
+          -231.20129686104153,
+          -669.4075820062977
+        ],
+        "roi_lps_mm": {
+          "min": [
+            -38.70905062556267,
+            -238.92739528417587,
+            -671.8399786055088
+          ],
+          "max": [
+            -24.919998973608017,
+            -222.69108071923256,
+            -665.0399786531925
+          ]
+        }
+      },
+      "nasopharynx_outlet": {
+        "normal_lps": [
+          -0.01707989877602829,
+          0.0004106188129102406,
+          0.9998540435733564
+        ],
+        "keep_positive": true,
+        "point_lps_mm": [
+          -11.516358289822167,
+          -158.33160182579724,
+          -666.2174786671997
+        ],
+        "roi_lps_mm": {
+          "min": [
+            -23.675864160060883,
+            -168.30637979507446,
+            -669.2149786502123
+          ],
+          "max": [
+            0.9510661065578461,
+            -147.52514839172363,
+            -664.1649786680937
+          ]
+        }
+      }
+    },
+    "matches_T013_actual_control_spec": true,
+    "seed_notes": {
+      "nostril_L": {
+        "seed_mode": "roi",
+        "seed_vertices": 899,
+        "negative_components_reached": 1,
+        "selected_vertices": 899,
+        "selected_faces": 2021,
+        "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+      },
+      "nostril_R": {
+        "seed_mode": "roi",
+        "seed_vertices": 857,
+        "negative_components_reached": 2,
+        "selected_vertices": 857,
+        "selected_faces": 1871,
+        "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+      },
+      "nasopharynx_outlet": {
+        "seed_mode": "roi",
+        "seed_vertices": 1452,
+        "negative_components_reached": 3,
+        "selected_vertices": 17922,
+        "selected_faces": 37231,
+        "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+      }
+    },
+    "admitted_needs_review": [],
+    "original_placed_arguments_separately_persisted": false,
+    "reconstruction_basis": "recorded reviewed origin/start0/no bisection; pure search_base/build_placed preserve point, normal, ROI, keep side",
+    "reviewed_is_human_review": false
+  },
+  "original_selection_trace": [
+    {
+      "plane": "nostril_L",
+      "vertices": 198262,
+      "mask_selected": 899,
+      "original_mask_selected": 899,
+      "newly_selected_original_vertices": 0,
+      "newly_selected_appended_vertices": 0,
+      "earlier_cap_affected_triangles": 0,
+      "flood_note": {
+        "seed_mode": "roi",
+        "seed_vertices": 899,
+        "negative_components_reached": 1,
+        "selected_vertices": 899,
+        "selected_faces": 2021,
+        "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+      }
+    },
+    {
+      "plane": "nostril_R",
+      "vertices": 198718,
+      "mask_selected": 857,
+      "original_mask_selected": 857,
+      "newly_selected_original_vertices": 0,
+      "newly_selected_appended_vertices": 0,
+      "earlier_cap_affected_triangles": 0,
+      "flood_note": {
+        "seed_mode": "roi",
+        "seed_vertices": 857,
+        "negative_components_reached": 2,
+        "selected_vertices": 857,
+        "selected_faces": 1871,
+        "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+      }
+    },
+    {
+      "plane": "nasopharynx_outlet",
+      "vertices": 199036,
+      "mask_selected": 16940,
+      "original_mask_selected": 17922,
+      "newly_selected_original_vertices": 0,
+      "newly_selected_appended_vertices": 774,
+      "earlier_cap_affected_triangles": 774,
+      "flood_note": {
+        "seed_mode": "roi",
+        "seed_vertices": 1452,
+        "negative_components_reached": 3,
+        "selected_vertices": 16940,
+        "selected_faces": 35267,
+        "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+      },
+      "earlier_cap_patch_counts": {
+        "nostril_L": 458,
+        "nostril_R": 316
+      },
+      "earlier_cap_signed_min_mm": -4.521841993711903,
+      "earlier_cap_signed_max_mm": -0.35086036136400556,
+      "earlier_cap_all_vertices_negative_triangles": 774,
+      "earlier_cap_straddling_triangles": 0,
+      "earlier_cap_bounds_lps_mm": {
+        "min": [
+          -36.88385511934757,
+          -239.54946269094944,
+          -670.7139714346677
+        ],
+        "max": [
+          -8.215918138623238,
+          -224.0326025281041,
+          -666.67891249527
+        ]
+      }
+    }
+  ],
+  "mask_lifetime_trace": [
+    {
+      "plane": "nostril_L",
+      "original_mask_true": 899,
+      "current_mask_true": 899,
+      "appended_selected": 0,
+      "original_changed_total": 0,
+      "original_changed_live": 0,
+      "original_changed_dead": 0,
+      "old_true_new_false_live": 0,
+      "old_false_new_true_live": 0
+    },
+    {
+      "plane": "nostril_R",
+      "original_mask_true": 857,
+      "current_mask_true": 857,
+      "appended_selected": 0,
+      "original_changed_total": 0,
+      "original_changed_live": 0,
+      "original_changed_dead": 0,
+      "old_true_new_false_live": 0,
+      "old_false_new_true_live": 0
+    },
+    {
+      "plane": "nasopharynx_outlet",
+      "original_mask_true": 17922,
+      "current_mask_true": 16940,
+      "appended_selected": 774,
+      "original_changed_total": 1756,
+      "original_changed_live": 0,
+      "original_changed_dead": 1756,
+      "old_true_new_false_live": 0,
+      "old_false_new_true_live": 0
+    }
+  ],
+  "collision_subset": {
+    "source": "outputs\\T-013\\collision_nasopharynx_outlet.npz",
+    "source_sha256": "aa18dbb81d7086aab906c0fb08f46297f2b4cd1c6e956f2d94ab7721a5d4f76c",
+    "triangles": 774,
+    "patch_counts": {
+      "nostril_L": 458,
+      "nostril_R": 316
+    },
+    "fully_negative_triangles": 774,
+    "strict_straddling_triangles": 0,
+    "triangles_all_vertices_inside_outlet_roi": 0,
+    "distance_min_mm": -4.521841993711903,
+    "distance_max_mm": -0.35086036136400556,
+    "stored_distance_matches_source_definition": true,
+    "bounds_lps_mm": {
+      "min": [
+        -36.88385511934757,
+        -239.54946269094944,
+        -670.7139714346677
+      ],
+      "max": [
+        -8.215918138623238,
+        -224.0326025281041,
+        -666.67891249527
+      ]
+    }
+  },
+  "outlet_alone_area_vs_engineering_band": {
+    "area_mm2": 1090.4285307101518,
+    "configured_band_mm2": [
+      120.0,
+      500.0
+    ],
+    "inside_band": false,
+    "interpretation": "software area check only; no anatomical diagnosis"
+  },
+  "original_known_answers": {
+    "source": "outputs/T-013/synthetic_results.json",
+    "sha256": "569519290b562eefda56776b47232754d9c60723849d97e98bdd152694ee8b40",
+    "source_script": "outputs/T-013/production_probe.py",
+    "scope": "reuse previous actual production clip control; not rerun"
+  },
+  "known_answers": {
+    "source": "literal coordinates in outputs/T-014/audit_existing_sources.py::known_answers",
+    "scope": "six vertices/two graph components; no patient geometry experiment",
+    "expected_selection": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+    ],
+    "actual_selection": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false
+    ],
+    "production_note": {
+      "seed_mode": "roi",
+      "seed_vertices": 1,
+      "negative_components_reached": 1,
+      "selected_vertices": 3,
+      "selected_faces": 1,
+      "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+    },
+    "signed_known_answer": [
+      -1.0,
+      1.0,
+      0.0
+    ],
+    "flipped_keep_positive_error": "no negative-side seed inside the reviewed ROI",
+    "conclusion": "ROI seeds, not a propagation boundary; positive/on-plane vertices are not deleted",
+    "passed": true
+  },
+  "patient_mesh_loaded": false,
+  "patient_flood_or_clipper_rerun": false,
+  "production_modified": false,
+  "anatomy_approved": false
+}

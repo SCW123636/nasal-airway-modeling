@@ -1,0 +1,45 @@
+{
+  "finished": "2026-10-15T17:38:14.304493+08:00",
+  "command": "python -u outputs/T-014/audit_existing_sources.py",
+  "exit_code": 0,
+  "lane": "read-only source/evidence audit; no patient mesh load or new geometry run",
+  "git_head_at_record": "c8565d5f26553e89c99732cb9ce00024dd3de7ae",
+  "file_fingerprints": [
+    {
+      "path": "outputs/T-014/audit_existing_sources.py",
+      "sha256": "f030b1e6862bf685e845274966387797bfd6ec951b9dad1ce9211f61ce490458"
+    },
+    {
+      "path": "work/lib/nasal_pipeline.py",
+      "sha256": "f6907a25fbf1e47874bb888e6060a7d63bb04653dbe0057504759a56f9fa1aa9"
+    },
+    {
+      "path": "work/lib/auto_anatomy_landmarks.py",
+      "sha256": "c800678b80ded10594a985262f0a9b7abba325a476dce2c8b7780e9f136a112a"
+    },
+    {
+      "path": "work/lib/auto_opening_pipeline.py",
+      "sha256": "a5d6068cc7a1eacfff1d00623efc92f2be7ed295053d3a5964f25ec60ffd2924"
+    },
+    {
+      "path": "work/lib/connectivity_opened_surface.py",
+      "sha256": "9e6f47e7584f78b4b6e6fc5bfe1fa12e993333a4b6b00f50d61a4b3504761364"
+    },
+    {
+      "path": "work/lib/partitioned_surface.py",
+      "sha256": "22ed0ca50031cb9dae7eddd18291792bae7e151336b0c057768e9d9a2f481d7e"
+    },
+    {
+      "path": "outputs/T-013/real_cases_results.json",
+      "sha256": "2bf3fe14e523c7f8a82e7206715fa07c672c22b24b0e9eabc33d4210af0196cc"
+    },
+    {
+      "path": "outputs/T-013/mask_scope_results.json",
+      "sha256": "74f4ebc0f68178a55517c2f48e29dccce879e11a2d08072c510230f266e4f1d1"
+    },
+    {
+      "path": "outputs/T-013/synthetic_results.json",
+      "sha256": "569519290b562eefda56776b47232754d9c60723849d97e98bdd152694ee8b40"
+    }
+  ]
+}
