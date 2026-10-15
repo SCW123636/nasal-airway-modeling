@@ -1,0 +1,584 @@
+{
+  "case": "p3",
+  "at": "2026-10-15T20:05:12.755476+08:00",
+  "run": "run02",
+  "status": "engineering_probe_completed",
+  "medical_review": "pending",
+  "CFD_admitted": false,
+  "oral_exclusion_reviewed": false,
+  "outlet_selected": false,
+  "symptom_patient_mapping": "unknown",
+  "manual_STL_correspondence": "unknown",
+  "cpu_entry": {
+    "active": [],
+    "wsl_uptime": "20:05:12 up 0 min,  1 user,  load average: 0.00, 0.00, 0.00",
+    "busy": [],
+    "affinity_mask": 63,
+    "sitk_threads": 1
+  },
+  "reason": "run01 actual 70-step six-neighbour air escape bypasses finite nostril ROI anterior edge",
+  "scope": "engineering exploration; exterior ROI extension is not a medically reviewed cut",
+  "inputs": {
+    "ct": {
+      "path": "C:\\ts_work\\p3\\ct.nii.gz",
+      "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4"
+    },
+    "seed": {
+      "path": "C:\\ts_work\\t034_continuous_air\\run01\\semantic_air_original.nii.gz",
+      "sha256": "9e34656cd8cdc15fb06d2425d647940dba0bdf9761ebe27baeffac80282d6b52"
+    },
+    "planes": {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p3\\review_config_proposed.json",
+      "sha256": "6db0a719a8c501aa4f226306e1d4f15935f22094dcdc971708076e308004d41d"
+    },
+    "run01": {
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-034\\probe.json",
+      "sha256": "c5650c5a246130c5293ce993fe90231f8772bc2977c8d90ea3e1322c8f993302"
+    },
+    "escape": {
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-034\\escape-path.json",
+      "sha256": "47668bafd816e8851fcfa682065ea363bdcb55c16c4235ea56db1e1d159d5164"
+    },
+    "implementation": {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\continuous_air_candidate.py",
+      "sha256": "2ff6c4127787472ef8a15105b1afcd5a9f5c3db6919718bb9139be963dfb2543"
+    },
+    "runner": {
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-034\\run_scope_probe.py",
+      "sha256": "3906c3581fb077336b71ea28e129efd766872118bd8ce31d8010c0acf2a140ae"
+    }
+  },
+  "CT_grid": {
+    "size_xyz": [
+      512,
+      512,
+      186
+    ],
+    "spacing_xyz_mm": [
+      0.3671875,
+      0.3671875,
+      0.6000000238418579
+    ],
+    "origin_LPS_mm": [
+      -93.81640625,
+      -148.70834350585938,
+      281.2904052734375
+    ],
+    "direction_row_major": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "CT_support_LPS_bounds_mm": [
+    [
+      -94.0,
+      -148.89193725585938,
+      280.99040526151657
+    ],
+    [
+      94.0,
+      39.108062744140625,
+      392.59040969610214
+    ]
+  ],
+  "CT_support_LPS_corners_mm": [
+    [
+      -94.0,
+      -148.89193725585938,
+      280.99040526151657
+    ],
+    [
+      -94.0,
+      -148.89193725585938,
+      392.59040969610214
+    ],
+    [
+      -94.0,
+      39.108062744140625,
+      280.99040526151657
+    ],
+    [
+      -94.0,
+      39.108062744140625,
+      392.59040969610214
+    ],
+    [
+      94.0,
+      -148.89193725585938,
+      280.99040526151657
+    ],
+    [
+      94.0,
+      -148.89193725585938,
+      392.59040969610214
+    ],
+    [
+      94.0,
+      39.108062744140625,
+      280.99040526151657
+    ],
+    [
+      94.0,
+      39.108062744140625,
+      392.59040969610214
+    ]
+  ],
+  "barriers": {
+    "nostril_L": {
+      "original": {
+        "status": "proposed",
+        "point_lps_mm": [
+          6.013107985764235,
+          -121.76243004432091,
+          293.1807154362256
+        ],
+        "normal_lps": [
+          -0.11536086976773048,
+          0.26259424665093556,
+          0.9579854546663329
+        ],
+        "roi_lps_mm": {
+          "min": [
+            -1.81640625,
+            -129.77865600585938,
+            290.09040570259094
+          ],
+          "max": [
+            13.56640625,
+            -110.72396850585938,
+            302.49040603637695
+          ]
+        },
+        "keep_positive": true,
+        "localization_checks": {
+          "all_three_thresholds_found": true,
+          "enough_patch_samples": true,
+          "plane_residual_within_engineering_limit": true,
+          "threshold_position_stable": true,
+          "threshold_direction_stable": true,
+          "no_competing_large_patch": true,
+          "within_coarse_search_box": true
+        },
+        "source_proposal_hash": "07937fde7bef740607e4bb15f6bf21dc7f38001bd10e1d4f968e7df97bdb7564"
+      },
+      "exploratory": {
+        "status": "proposed",
+        "point_lps_mm": [
+          6.013107985764235,
+          -121.76243004432091,
+          293.1807154362256
+        ],
+        "normal_lps": [
+          -0.11536086976773048,
+          0.26259424665093556,
+          0.9579854546663329
+        ],
+        "roi_lps_mm": {
+          "min": [
+            -1.81640625,
+            -148.89193725585938,
+            280.99040526151657
+          ],
+          "max": [
+            13.56640625,
+            -110.72396850585938,
+            302.49040603637695
+          ]
+        },
+        "keep_positive": true,
+        "localization_checks": {
+          "all_three_thresholds_found": true,
+          "enough_patch_samples": true,
+          "plane_residual_within_engineering_limit": true,
+          "threshold_position_stable": true,
+          "threshold_direction_stable": true,
+          "no_competing_large_patch": true,
+          "within_coarse_search_box": true
+        },
+        "source_proposal_hash": "07937fde7bef740607e4bb15f6bf21dc7f38001bd10e1d4f968e7df97bdb7564"
+      },
+      "parameter_delta": {
+        "roi_min_y_mm": [
+          -129.77865600585938,
+          -148.89193725585938
+        ],
+        "roi_min_z_mm": [
+          290.09040570259094,
+          280.99040526151657
+        ]
+      },
+      "all_other_parameters_unchanged": true
+    },
+    "nostril_R": {
+      "original": {
+        "status": "proposed",
+        "point_lps_mm": [
+          -12.926024342811159,
+          -121.68302832345594,
+          294.1215216631286
+        ],
+        "normal_lps": [
+          0.23695674450126578,
+          0.28253670782541684,
+          0.9295291872590858
+        ],
+        "roi_lps_mm": {
+          "min": [
+            -20.17578125,
+            -129.77865600585938,
+            290.09040570259094
+          ],
+          "max": [
+            -5.16015625,
+            -109.98959350585938,
+            303.0904060602188
+          ]
+        },
+        "keep_positive": true,
+        "localization_checks": {
+          "all_three_thresholds_found": true,
+          "enough_patch_samples": true,
+          "plane_residual_within_engineering_limit": true,
+          "threshold_position_stable": true,
+          "threshold_direction_stable": true,
+          "no_competing_large_patch": true,
+          "within_coarse_search_box": true
+        },
+        "source_proposal_hash": "07937fde7bef740607e4bb15f6bf21dc7f38001bd10e1d4f968e7df97bdb7564"
+      },
+      "exploratory": {
+        "status": "proposed",
+        "point_lps_mm": [
+          -12.926024342811159,
+          -121.68302832345594,
+          294.1215216631286
+        ],
+        "normal_lps": [
+          0.23695674450126578,
+          0.28253670782541684,
+          0.9295291872590858
+        ],
+        "roi_lps_mm": {
+          "min": [
+            -20.17578125,
+            -148.89193725585938,
+            280.99040526151657
+          ],
+          "max": [
+            -5.16015625,
+            -109.98959350585938,
+            303.0904060602188
+          ]
+        },
+        "keep_positive": true,
+        "localization_checks": {
+          "all_three_thresholds_found": true,
+          "enough_patch_samples": true,
+          "plane_residual_within_engineering_limit": true,
+          "threshold_position_stable": true,
+          "threshold_direction_stable": true,
+          "no_competing_large_patch": true,
+          "within_coarse_search_box": true
+        },
+        "source_proposal_hash": "07937fde7bef740607e4bb15f6bf21dc7f38001bd10e1d4f968e7df97bdb7564"
+      },
+      "parameter_delta": {
+        "roi_min_y_mm": [
+          -129.77865600585938,
+          -148.89193725585938
+        ],
+        "roi_min_z_mm": [
+          290.09040570259094,
+          280.99040526151657
+        ]
+      },
+      "all_other_parameters_unchanged": true
+    }
+  },
+  "removed_seed": {
+    "count": 1722,
+    "LPS_center_bounds_mm": [
+      [
+        -18.17578125,
+        -127.77865600585938,
+        292.09040570259094
+      ],
+      [
+        10.83203125,
+        -114.55990600585938,
+        295.09040582180023
+      ]
+    ],
+    "exact_zyx_path": "C:\\ts_work\\t034_continuous_air\\run02\\removed_seed_voxels_zyx.json",
+    "exact_zyx_sha256": "f849123e650e6e93be0abd1830c35efcc11422872bd061bbd42486c9c617b949"
+  },
+  "candidate": {
+    "threshold_HU_strictly_less_than": -300.0,
+    "connectivity": 6,
+    "air_component_count": 32241,
+    "seed_original_voxels": 445592,
+    "eligible_seed_voxels": 443870,
+    "seed_removed_or_nonair_voxels": 1722,
+    "candidate_voxels": 1339813,
+    "added_vs_eligible_seed_voxels": 895943,
+    "seed_component_ids": [
+      186,
+      20066
+    ],
+    "candidate_component_sizes": [
+      1339667,
+      146
+    ],
+    "exterior_component_ids": [
+      1,
+      1415,
+      2962,
+      3819,
+      4857,
+      7650,
+      7651,
+      8150,
+      9514,
+      9739,
+      9943,
+      10126,
+      10311,
+      10493,
+      10909,
+      11101,
+      11556,
+      11557,
+      13018,
+      13368,
+      13752,
+      14487,
+      15569,
+      17671,
+      17849,
+      18040,
+      18372,
+      19220,
+      20048,
+      21431,
+      21550,
+      22327,
+      22442,
+      22650,
+      22651,
+      22652,
+      22764,
+      22849,
+      22956,
+      23054,
+      23153,
+      23337,
+      23434,
+      23435,
+      23531,
+      23895,
+      24041,
+      24178,
+      24341,
+      24342,
+      24797,
+      25045,
+      25681,
+      25934,
+      26279,
+      26620,
+      27100,
+      27221,
+      27696,
+      27818,
+      28084,
+      28219,
+      28357,
+      28501,
+      28641,
+      28775,
+      28917,
+      29186,
+      29474,
+      29624,
+      29625,
+      29886,
+      30167,
+      30287,
+      30915,
+      30916,
+      30917,
+      31153,
+      31272,
+      31273,
+      31522,
+      31651,
+      31931,
+      32092,
+      32240,
+      32241
+    ],
+    "leak_component_ids": [],
+    "exterior_leak_detected": false,
+    "no_largest_component_filter": true,
+    "face_contacts": {
+      "x_low": 0,
+      "x_high": 0,
+      "y_low": 0,
+      "y_high": 0,
+      "z_low": 931,
+      "z_high": 0
+    },
+    "removed_vs_original_seed_voxels": 1722,
+    "added_vs_original_seed_voxels": 895943
+  },
+  "engineering_screen_pass": true,
+  "exterior_screen_limit": "No component reaches lateral scan faces is necessary, not proof all external air excluded. New ROI cuts and MPR must be inspected; oral anatomy unreviewed.",
+  "new_cut_contact": {
+    "nostril_L": {
+      "candidate_voxels_adjacent_to_excluded_halfspace": 926,
+      "bounds_LPS_mm": [
+        [
+          -2.01953125,
+          -131.81771850585938,
+          291.4904056787491
+        ],
+        [
+          11.93359375,
+          -113.09115600585938,
+          295.6904058456421
+        ]
+      ]
+    },
+    "nostril_R": {
+      "candidate_voxels_adjacent_to_excluded_halfspace": 937,
+      "bounds_LPS_mm": [
+        [
+          -18.91015625,
+          -132.91928100585938,
+          292.09040570259094
+        ],
+        [
+          -5.32421875,
+          -113.09115600585938,
+          296.29040586948395
+        ]
+      ]
+    }
+  },
+  "added_extent": {
+    "LPS_center_bounds_mm": [
+      [
+        -47.18359375,
+        -133.28646850585938,
+        281.2904052734375
+      ],
+      [
+        40.57421875,
+        -21.294281005859375,
+        374.2904089689255
+      ]
+    ]
+  },
+  "outputs": {
+    "added_air_candidate.nii.gz": {
+      "path": "C:\\ts_work\\t034_continuous_air\\run02\\added_air_candidate.nii.gz",
+      "sha256": "a0e49af945808a57f14e629686370075ddbb7715d7e13997160ce02def07b60d"
+    },
+    "connected_air_candidate.nii.gz": {
+      "path": "C:\\ts_work\\t034_continuous_air\\run02\\connected_air_candidate.nii.gz",
+      "sha256": "e8b9307c1ee9308be1476571138dac9ad40c306c221daa0f0d8650219c8a2c20"
+    },
+    "removed_semantic_air.nii.gz": {
+      "path": "C:\\ts_work\\t034_continuous_air\\run02\\removed_semantic_air.nii.gz",
+      "sha256": "c396c2cc80ee3873db0a170d798df0b97988ae0f656dfa36c218aa98d01eaf85"
+    },
+    "semantic_air_after_barriers.nii.gz": {
+      "path": "C:\\ts_work\\t034_continuous_air\\run02\\semantic_air_after_barriers.nii.gz",
+      "sha256": "acd2e05d1b3650ee4046df84e53fec5ebfbaf24b3036c0cc5c59608a81da46e6"
+    },
+    "semantic_air_original.nii.gz": {
+      "path": "C:\\ts_work\\t034_continuous_air\\run02\\semantic_air_original.nii.gz",
+      "sha256": "9e34656cd8cdc15fb06d2425d647940dba0bdf9761ebe27baeffac80282d6b52"
+    }
+  },
+  "inputs_unchanged": {
+    "ct": true,
+    "seed": true,
+    "planes": true,
+    "run01": true,
+    "escape": true,
+    "implementation": true,
+    "runner": true
+  },
+  "MPR_selection": [
+    {
+      "axis_zyx": 0,
+      "index": 33,
+      "added_voxels": 8020
+    },
+    {
+      "axis_zyx": 0,
+      "index": 76,
+      "added_voxels": 12159
+    },
+    {
+      "axis_zyx": 0,
+      "index": 78,
+      "added_voxels": 11969
+    },
+    {
+      "axis_zyx": 0,
+      "index": 124,
+      "added_voxels": 2635
+    },
+    {
+      "axis_zyx": 1,
+      "index": 103,
+      "added_voxels": 42
+    },
+    {
+      "axis_zyx": 1,
+      "index": 190,
+      "added_voxels": 8825
+    },
+    {
+      "axis_zyx": 1,
+      "index": 194,
+      "added_voxels": 8687
+    },
+    {
+      "axis_zyx": 1,
+      "index": 285,
+      "added_voxels": 2559
+    },
+    {
+      "axis_zyx": 2,
+      "index": 175,
+      "added_voxels": 4781
+    },
+    {
+      "axis_zyx": 2,
+      "index": 247,
+      "added_voxels": 3577
+    },
+    {
+      "axis_zyx": 2,
+      "index": 302,
+      "added_voxels": 6130
+    },
+    {
+      "axis_zyx": 2,
+      "index": 318,
+      "added_voxels": 5069
+    }
+  ],
+  "MPR_path": "D:\\项目\\鼻腔建模\\outputs\\T-034\\ct-run02-mpr.png",
+  "MPR_sha256": "5d5e0d21531b6a8081fca97f00087dee48aa056387082e6cd596e6816e5e2d71"
+}

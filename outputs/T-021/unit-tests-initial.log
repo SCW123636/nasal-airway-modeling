@@ -1,0 +1,57 @@
+test_from_config_accepts_manifest_patch_map (test_solver_adapter.AdapterInterfaceTests.test_from_config_accepts_manifest_patch_map) ... ok
+test_from_config_reads_contract_defaults (test_solver_adapter.AdapterInterfaceTests.test_from_config_reads_contract_defaults) ... ok
+test_from_config_rejects_imposed_equal_split_baseline (test_solver_adapter.AdapterInterfaceTests.test_from_config_rejects_imposed_equal_split_baseline) ... ok
+test_from_config_rejects_pressure_driven_mode (test_solver_adapter.AdapterInterfaceTests.test_from_config_rejects_pressure_driven_mode) ... ok
+test_non_callable_evaluate_is_rejected (test_solver_adapter.AdapterInterfaceTests.test_non_callable_evaluate_is_rejected) ... ok
+test_patch_map_without_inlet_or_outlet_is_rejected (test_solver_adapter.AdapterInterfaceTests.test_patch_map_without_inlet_or_outlet_is_rejected) ... ok
+test_run_propagates_pressure_feedback_error_unwrapped (test_solver_adapter.AdapterInterfaceTests.test_run_propagates_pressure_feedback_error_unwrapped) ... ok
+test_run_reports_identity_history_and_provenance (test_solver_adapter.AdapterInterfaceTests.test_run_reports_identity_history_and_provenance) ... ok
+test_total_flow_lpm_conversion_is_density_independent (test_solver_adapter.AdapterInterfaceTests.test_total_flow_lpm_conversion_is_density_independent) ... ok
+test_four_engineering_screen_values_are_unchanged (test_solver_adapter.ContractIntegrationTests.test_four_engineering_screen_values_are_unchanged) ... ok
+test_make_config_default_adapter_block_is_unchanged (test_solver_adapter.ContractIntegrationTests.test_make_config_default_adapter_block_is_unchanged) ... ok
+test_stamped_config_with_reviewed_geometry_is_execution_ready (test_solver_adapter.ContractIntegrationTests.test_stamped_config_with_reviewed_geometry_is_execution_ready) ... ok
+test_strategy_strings_are_bit_exact (test_solver_adapter.ContractIntegrationTests.test_strategy_strings_are_bit_exact) ... ok
+test_unstamped_solver_determined_config_is_not_execution_ready (test_solver_adapter.ContractIntegrationTests.test_unstamped_solver_determined_config_is_not_execution_ready) ... ok
+test_bracket_failure_at_pressure_ceiling_is_rejected (test_solver_adapter.RejectionPathTests.test_bracket_failure_at_pressure_ceiling_is_rejected) ... ok
+test_failed_mesh_quality_gate_is_rejected (test_solver_adapter.RejectionPathTests.test_failed_mesh_quality_gate_is_rejected) ... ok
+test_failed_residuals_gate_is_rejected (test_solver_adapter.RejectionPathTests.test_failed_residuals_gate_is_rejected) ... ok
+test_mass_imbalance_above_limit_is_rejected (test_solver_adapter.RejectionPathTests.test_mass_imbalance_above_limit_is_rejected) ... ok
+test_negative_outward_outlet_phi_is_rejected (test_solver_adapter.RejectionPathTests.test_negative_outward_outlet_phi_is_rejected) ... ok
+test_non_finite_evaluation_is_rejected (test_solver_adapter.RejectionPathTests.test_non_finite_evaluation_is_rejected) ... ok
+test_positive_outward_inlet_phi_is_rejected (test_solver_adapter.RejectionPathTests.test_positive_outward_inlet_phi_is_rejected) ... ok
+test_reverse_physical_inlet_flow_is_rejected (test_solver_adapter.RejectionPathTests.test_reverse_physical_inlet_flow_is_rejected) ... ok
+test_unconverged_quality_gate_is_rejected (test_solver_adapter.RejectionPathTests.test_unconverged_quality_gate_is_rejected) ... ok
+test_well_formed_signed_fluxes_are_conserved (test_solver_adapter.RejectionPathTests.test_well_formed_signed_fluxes_are_conserved) ... ok
+test_zero_total_flow_is_rejected (test_solver_adapter.RejectionPathTests.test_zero_total_flow_is_rejected) ... ok
+test_self_check_passes_for_the_shipped_adapter (test_solver_adapter.StampTests.test_self_check_passes_for_the_shipped_adapter) ... ok
+test_stamp_does_not_touch_make_config_defaults_or_screen (test_solver_adapter.StampTests.test_stamp_does_not_touch_make_config_defaults_or_screen) ... ok
+test_stamp_marks_config_implemented_and_verified (test_solver_adapter.StampTests.test_stamp_marks_config_implemented_and_verified) ... ok
+test_stamp_refuses_imposed_equal_split_baseline_config (test_solver_adapter.StampTests.test_stamp_refuses_imposed_equal_split_baseline_config) ... ok
+test_stamp_refuses_strategy_identity_mismatch (test_solver_adapter.StampTests.test_stamp_refuses_strategy_identity_mismatch) ... ok
+test_stamp_refuses_when_self_check_fails (test_solver_adapter.StampTests.test_stamp_refuses_when_self_check_fails) ... ok
+test_stamp_requires_non_empty_name_and_version (test_solver_adapter.StampTests.test_stamp_requires_non_empty_name_and_version) ... ok
+test_asymmetric_bilateral_split_is_reported_not_prescribed (test_solver_adapter.SyntheticResponseTests.test_asymmetric_bilateral_split_is_reported_not_prescribed) ... ok
+test_error_beyond_tolerance_never_converges (test_solver_adapter.SyntheticResponseTests.test_error_beyond_tolerance_never_converges) ... ok
+test_linear_response_converges_to_target (test_solver_adapter.SyntheticResponseTests.test_linear_response_converges_to_target) ... ok
+test_nonlinear_response_still_converges (test_solver_adapter.SyntheticResponseTests.test_nonlinear_response_still_converges) ... ok
+test_tolerance_edge_is_inclusive (test_solver_adapter.SyntheticResponseTests.test_tolerance_edge_is_inclusive) ... ok
+test_equal_static_pressure_units_and_no_prescribed_split (test_openfoam_pressure_adapter.RealAdapterTests.test_equal_static_pressure_units_and_no_prescribed_split) ... ok
+test_fingerprint_changes_with_boundary_mesh_and_code (test_openfoam_pressure_adapter.RealAdapterTests.test_fingerprint_changes_with_boundary_mesh_and_code) ... ok
+test_known_signed_flux_quality_and_failed_residuals (test_openfoam_pressure_adapter.RealAdapterTests.test_known_signed_flux_quality_and_failed_residuals) ... ERROR
+test_missing_patch_and_wrong_dimensions_are_refused (test_openfoam_pressure_adapter.RealAdapterTests.test_missing_patch_and_wrong_dimensions_are_refused) ... ok
+test_native_linux_and_patch_contract (test_openfoam_pressure_adapter.RealAdapterTests.test_native_linux_and_patch_contract) ... ok
+
+======================================================================
+ERROR: test_known_signed_flux_quality_and_failed_residuals (test_openfoam_pressure_adapter.RealAdapterTests.test_known_signed_flux_quality_and_failed_residuals)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\test_openfoam_pressure_adapter.py", line 78, in test_known_signed_flux_quality_and_failed_residuals
+    result = adapter.solver_diagnostics(case, ('left','right'), 'out', 1.2)
+  File "D:\��Ŀ\��ǻ��ģ\work\lib\openfoam_pressure_adapter.py", line 158, in solver_diagnostics
+    raise PressureFeedbackError('dP monitor needs two twenty-sample windows in final forty percent')
+pressure_feedback.PressureFeedbackError: dP monitor needs two twenty-sample windows in final forty percent
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.052s
+
+FAILED (errors=1)

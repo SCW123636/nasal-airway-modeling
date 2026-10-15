@@ -1,0 +1,103 @@
+{
+  "case": "p3",
+  "at": "2026-10-15T19:58:21.532333+08:00",
+  "stage": "entry_checked",
+  "medical_review": "pending",
+  "CFD_admitted": false,
+  "manual_STL_identity": "not_located",
+  "symptom_patient_mapping": "unknown",
+  "logical_core_cap": 6,
+  "SimpleITK_threads": 1,
+  "purpose": "real CT engineering connectivity contrast; no anatomical region naming",
+  "cpu_entry": {
+    "active_jobs": [],
+    "wsl_uptime": "19:58:23 up 0 min,  1 user,  load average: 0.00, 0.00, 0.00",
+    "wsl_compute_processes": []
+  },
+  "inputs": {
+    "ct": {
+      "path": "C:\\ts_work\\p3\\ct.nii.gz",
+      "sha256": "eba41419b627a6e09e2d88d30f7f222851e03491dbde5d8a78f57b0a306540d4"
+    },
+    "nasal_cavity_left": {
+      "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_left.nii.gz",
+      "sha256": "f443d74105f315fa04cf57939125c93128a8cb2dfa8ccee6e6237ccaf428304b"
+    },
+    "nasal_cavity_right": {
+      "path": "C:\\ts_work\\p3\\masks\\nasal_cavity_right.nii.gz",
+      "sha256": "eb4badb67fa7f54ea57b2ca19137ccfe0a3ca53f3176c67639bb890829e27261"
+    },
+    "nasopharynx": {
+      "path": "C:\\ts_work\\p3\\masks\\nasopharynx.nii.gz",
+      "sha256": "b9098084185a46f176b0fb2b623d880142a5de4ee271284b75d0372f90cdd4ec"
+    },
+    "oropharynx": {
+      "path": "C:\\ts_work\\p3\\masks\\oropharynx.nii.gz",
+      "sha256": "0312c7ec4c95002b2e4477c6e66b719cfaa5c830faedf7ca07a5ee9670e71064"
+    },
+    "planes": {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\p3\\review_config_proposed.json",
+      "sha256": "6db0a719a8c501aa4f226306e1d4f15935f22094dcdc971708076e308004d41d"
+    },
+    "references": {
+      "path": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\reference_library.json",
+      "sha256": "13a5916950fd0bf0752cce27cd7048eb8261c81dd991ac759bf9b39829bd2f2f"
+    },
+    "implementation": {
+      "path": "D:\\项目\\鼻腔建模\\work\\lib\\continuous_air_candidate.py",
+      "sha256": "2ff6c4127787472ef8a15105b1afcd5a9f5c3db6919718bb9139be963dfb2543"
+    },
+    "runner": {
+      "path": "D:\\项目\\鼻腔建模\\outputs\\T-034\\run_probe.py",
+      "sha256": "015eacf4a9d55b1aa5648be025134b76b7d56a1409de2260afae85535f633358"
+    }
+  },
+  "repo_HEAD": "022231c3d7a90af8dd76e97928943ed07c61502f",
+  "grid": {
+    "size_xyz": [
+      512,
+      512,
+      186
+    ],
+    "spacing_xyz_mm": [
+      0.3671875,
+      0.3671875,
+      0.6000000238418579
+    ],
+    "origin_LPS_mm": [
+      -93.81640625,
+      -148.70834350585938,
+      281.2904052734375
+    ],
+    "direction_row_major": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "source_labels": {
+    "nasal_cavity_left": {
+      "semantic_voxels": 195643,
+      "strict_air_voxels": 166068
+    },
+    "nasal_cavity_right": {
+      "semantic_voxels": 191704,
+      "strict_air_voxels": 158662
+    },
+    "nasopharynx": {
+      "semantic_voxels": 82266,
+      "strict_air_voxels": 73053
+    },
+    "oropharynx": {
+      "semantic_voxels": 55120,
+      "strict_air_voxels": 47809
+    }
+  },
+  "exterior_screen": "Any 6-connected seed air reaching one of four lateral CT faces x/y; inferior/superior CT faces separately reported, not automatically named external air."
+}
