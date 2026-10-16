@@ -1,0 +1,127 @@
+topic: 鼻腔CFD指标与症状评分关联证据裁定 + 小样本症状预测方法学
+date: 2026-10-16
+task_brief: ../../../plan/20261016-云端调研任务书_症状关联与小样本方法学.md
+定稿依据: 用户 2026-10-16 确认「只发关键两题」；题3（SSM可行性）与题4（无对照常模方法）暂缓另发。框架由模型知识生成后直接定稿（用户已授权按推荐进行，可事后逐条驳回）。
+追加依据: 用户 2026-10-16 09:0x 确认追加题5+题6（S4 文献映射路线的方法学缺口）；题3/题4 仍未发。原题1/题2 已执行完毕，本追加只加 batch 3。
+time_range:
+  题1_C5裁定: 2015-01 至今（CFD 症状关联证据）
+  题2_方法学: 2010-01 至今（方法学经典不受时间限）
+items:
+  - name: CFD指标与症状评分关联研究总览
+    category: 题1_C5裁定
+    description: >
+      系统检索 2015-2026 年鼻腔/鼻窦 CFD 指标（阻力 R、压降 Δp、壁面剪切应力 WSS、
+      热通量、后鼻孔温湿度、SAVR）与主观症状评分（ENS6Q、SNOT-22、NOSE、鼻塞 VAS）
+      的统计关联研究。重点 n>50 的大样本研究与系统综述/Meta 分析。
+      检索词建议（中英文）：nasal CFD symptom score correlation / computational fluid
+      dynamics nasal obstruction ENS6Q / SNOT-22 CFD nasal airflow / nasal wall shear
+      stress symptom / 鼻腔计算流体力学 症状评分 相关性。需覆盖阳性与阴性两类结论。
+  - name: 阴性结论研究方法学解剖_PMC13638262及同类
+    category: 题1_C5裁定
+    description: >
+      以 PMC13638262（n=14，结论：无任何全局 CFD 参数与 ENS6Q 相关，相对湿度仅与
+      SAVR 正相关）为代表，检索并解剖同类阴性结论研究。分析四个可能原因：
+      (1) 样本量/统计功效不足；(2) 指标定义与测量截面不一致（如阻力取总压差 vs 单侧）；
+      (3) 症状终点选择（ENS6Q 总分 vs 单项）；(4) 人群异质性（术后/空鼻症 vs 阻塞）。
+      同时检索持阳性结论的研究如何回应这些批评。检索词：empty nose syndrome CFD
+      ENS6Q / nasal CFD no correlation symptom / atrophic rhinitis CFD parameters。
+  - name: 鼻腔阻力与鼻塞症状的经典非CFD证据
+    category: 题1_C5裁定
+    description: >
+      CFD 之外的传统证据：鼻测压（rhinomanometry）鼻腔阻力 NR/NAR、声反射鼻腔测量
+      （acoustic rhinometry）与鼻塞症状/VAS/评分 的关联研究强度。目的：判断 CFD 的 R
+      能否借助经典证据获得「症状相关指标」的地位，以及经典证据本身的相关强度上限
+      （如相关系数量级）。检索词：nasal resistance symptom correlation rhinomanometry /
+      nasal obstruction VAS nasal resistance / acoustic rhinometry symptom correlation /
+      鼻阻力 鼻塞 症状 相关性。
+  - name: ENS6Q_SNOT22_NOSE量表验证与MCID
+    category: 题1_C5裁定
+    description: >
+      ENS6Q（空鼻症六问）、SNOT-22、NOSE 量表的验证研究、最小临床重要差值
+      （MCID）、内部一致性、与客观指标关联的报告。用于将来标签采集方案的最低设计
+      （样本量、量表选择、随访间隔）。检索词：ENS6Q validation empty nose syndrome
+      questionnaire / SNOT-22 MCID minimal clinically important difference / NOSE scale
+      MCID / 空鼻症 量表 最小临床重要差值。
+  - name: 影像组学小样本建模实践_n50以下
+    category: 题2_方法学
+    description: >
+      医学影像/影像组学领域 n=20-50 的预测模型实践综述：最小可靠样本量、每样本
+      特征数上限（events-per-variable）、降维（PCA/LASSO）与正则化手段、外部验证
+      的最低要求。检索词：radiomics small sample size prediction model / events per
+      variable EPV minimum sample size prediction / 影像组学 小样本 预测模型 正则化。
+  - name: 小样本验证协议_LOOCV可靠性与报告规范
+    category: 题2_方法学
+    description: >
+      小样本（n<50）预测模型的验证协议：LOO-CV 的可靠性边界（偏差大/方差大/乐观
+      偏倚），与重复分层 k-fold、bootstrap .632 的比较；TRIPOD/AI 报告规范对小样本
+      的具体要求；特征选择必须嵌套在 CV 内（防数据泄露）的实践。检索词：
+      leave-one-out cross-validation small sample bias / repeated k-fold vs LOO small
+      samples / TRIPOD statement small sample prediction / 交叉验证 小样本 数据泄露。
+  - name: 文献先验贝叶斯小样本案例与鼻腔症状预测先例
+    category: 题2_方法学
+    description: >
+      (1) 用已发表效应量/文献共识作先验、在小样本上做贝叶斯估计的实战案例（医学
+      影像→症状方向优先）；(2) 鼻腔/上气道领域「影像或 CFD → 症状」预测模型的
+      已发表先例（任何样本量）：特征选择、模型形式（线性/岭/贝叶斯/树模型）、
+      性能报告方式。检索词：Bayesian prior from literature small sample medical
+      prediction / informative prior clinical prediction model / nasal CFD symptom
+      prediction model machine learning / 鼻腔 症状 预测 模型 机器学习。
+  - name: 小样本聚类稳定性协议与门槛先例
+    category: 题5_S4方法学
+    description: >
+      医学/影像/生物信息领域小样本（n<30）无监督聚类与表型分型的稳定性协议：
+      ARI/Jaccard 等稳定性指标的常用裁定门槛（出处与适用条件）、bootstrap 稳定性的
+      标准报法（重采样次数/计算方式/报告格式）、k 的选择判据组合（轮廓系数+稳定性）、
+      n<30 表型分型的已发表先例及其样本量论证、稳定性不达标时的标准降级处理。
+      检索词：clustering stability ARI Jaccard threshold small sample / bootstrap
+      cluster stability medical subtyping / consensus clustering stability small
+      cohort / 聚类 稳定性 小样本 分型。
+  - name: 无监督表型分型先例与降级实践
+    category: 题5_S4方法学
+    description: >
+      (1) 各医学领域 n<30 队列的无监督表型/亚组研究先例（重症/肿瘤/罕见病/呼吸病），
+      重点其稳定性报告与样本量论证方式；(2) 聚类不稳时的替代路线先例：连续特征
+      描述、潜类别分析 LCA/混合模型、半监督、轮廓系数之外的一致性判据；
+      (3) 鼻腔/上气道 CFD 领域除 Park 2025 目视分型之外的聚类/表型分型先例。
+      检索词：unsupervised subtyping small cohort respiratory / latent class
+      analysis small sample phenotyping / nasal CFD clustering airflow phenotype /
+      鼻腔 气流 分型 聚类。
+  - name: 跨研究指标协调方法学
+    category: 题6_S4方法学
+    description: >
+      不同研究间指标定义不一致（测量截面/归一化/单位/物理边界条件）时的指标对齐
+      方法学：影像组学特征协调（feature harmonization、ComBat 等）的适用范围与
+      边界、指标报告规范对可比性的要求（TRIPOD/RQS/STARD 相关条款）、
+      「异指标映射到共同特征空间」的成熟做法。检索词：feature harmonization
+      multi-study radiomics / ComBat cross-study batch effect / metric alignment
+      cross-study comparability / 影像组学 多中心 特征 协调。
+  - name: 外部表型定义迁移与异源证据合成
+    category: 题6_S4方法学
+    description: >
+      (1) 把已发表表型分类标准应用到新队列的效度检验先例（标注者间一致性/
+      与独立维度交叉验证/前瞻确认）；(2) 不同 n/人群/设计的效应量（r 值）如何做
+      叙述性合成或正式证据合成，证据分级（GRADE/OCEBM）在方法学清单中的应用；
+      (3) 文献阈值/模型迁移到新数据的公认禁区与最低验证要求（TRIPOD 外部验证
+      条款、decision curve 等）。检索词：external validation published phenotype
+      criteria new cohort / evidence synthesis heterogeneous correlations GRADE /
+      transporting prediction model threshold external validation TRIPOD。
+  - name: 题6附_五篇关键原文细节补查
+    category: 题6_S4方法学
+    description: >
+      逐篇补齐决定「指标同构性 A/B 级」的原始细节：① Sullivan 2014（SAHF50 与
+      NOSE r=-0.76, n=10）：SAHF50 定义/截面/BC；② Casey 2017（中鼻道气流
+      |r|=0.76, n=30）：占比定义/归一化/BC；③ Zhao 2012（PMID 23775640, n=22）：
+      峰值冷却定义/位置/BC；④ Li 2018（PMC6015742）：下鼻道峰值 WSS 区域定义/
+      提取方式/BC；⑤ Maza 2018（PMC6358472）：下鼻道气流%与 WSS 具体数值/
+      样本构成。每篇注明：能找到原文给原文值，只能找到摘要给摘要值并标 [不确定]。
+execution:
+  batch_size: 4
+  items_per_agent: 1
+  output_dir: results
+  batch_plan:
+    - batch: 1
+      items: [CFD指标与症状评分关联研究总览, 阴性结论研究方法学解剖_PMC13638262及同类, 鼻腔阻力与鼻塞症状的经典非CFD证据, ENS6Q_SNOT22_NOSE量表验证与MCID]
+    - batch: 2
+      items: [影像组学小样本建模实践_n50以下, 小样本验证协议_LOOCV可靠性与报告规范, 文献先验贝叶斯小样本案例与鼻腔症状预测先例]
+    - batch: 3
+      items: [小样本聚类稳定性协议与门槛先例, 无监督表型分型先例与降级实践, 跨研究指标协调方法学, 外部表型定义迁移与异源证据合成, 题6附_五篇关键原文细节补查]

@@ -1,0 +1,167 @@
+{
+  "registry_version": "evidence_registry/v1",
+  "created": "2026-10-16",
+  "maintainer": "Lead(段主对话)",
+  "sources_of_truth": [
+    "outputs/20261016-云端调研_症状关联与小样本方法学/report.md 及 results/*.json（7 单元，16 字段 100% 覆盖，uncertain 如实标注）",
+    "knowledge/患者需求/索引.md C1-C8",
+    "plan/从24例到标准_训练设计_v1.md §3/§10",
+    "work/lib/measure_mca.py LITERATURE"
+  ],
+  "grade_legend": {
+    "strength": "强=多源/L1；中=单源设计较好；探索=单源或预印本；反例=阴性证据（必进附录）",
+    "transfer": "A=定义同构可比数值；B=操作化近似只比方向；C=仅概念相关仅背景"
+  },
+  "entries": [
+    {
+      "id": "E1-A1", "layer": "E1", "direction": "n/a(锚点参考值，非症状关联)", "metric": "choana_temperature_healthy",
+      "value": "32.2 ± 0.2 ℃", "n": 5, "population": "健康对照（后鼻孔实测）",
+      "citation": "患者需求第二轮 §9（外部调研逐字入库）；C8 已核验",
+      "strength": "强", "transfer": "B", "used_for": "S1 锚点列 / S4 锚点偏离",
+      "review": "已核验(2026-10-16)", "note": "旧口径 >33℃ 作废；取值截面必须是后鼻孔不是域出口"
+    },
+    {
+      "id": "E1-A2", "layer": "E1", "direction": "n/a(锚点参考值，非症状关联)", "metric": "choana_rh_healthy",
+      "value": "93.5 ± 1.5 %RH", "n": 5, "population": "健康对照",
+      "citation": "患者需求第二轮 §9；C8 已核验",
+      "strength": "强", "transfer": "B", "used_for": "S1 锚点列 / S4 锚点偏离",
+      "review": "已核验(2026-10-16)", "note": "同 E1-A1"
+    },
+    {
+      "id": "E1-A3", "layer": "E1", "direction": "n/a(锚点参考值，非症状关联)", "metric": "choana_temperature_ens",
+      "value": "31.4 ± 0.9 ℃", "n": 14, "population": "ENS 术后",
+      "citation": "Na Y 2026, Laryngoscope Investig Otolaryngol, DOI 10.1002/lio2.70567 (PMC13638262)",
+      "strength": "中", "transfer": "B", "used_for": "S1 锚点列（ENS 参照）",
+      "review": "原文已核实(2026-10-16 单元2)", "note": "配对 RH 84.6±7.7 %RH"
+    },
+    {
+      "id": "E1-A4", "layer": "E1", "direction": "n/a(锚点参考值，非症状关联)", "metric": "inferior_meatus_wss_fraction",
+      "value": "正常/术后 46.5–54.0%；ENS 32.2%±12.5%", "n": null,
+      "population": "ENS vs 正常/术后",
+      "citation": "训练设计 §3（文献锚点层，转引患者需求调研）",
+      "strength": "中", "transfer": "B", "used_for": "S4 映射层（区域 WSS 占比）",
+      "review": "转引待核原文", "note": "与 ENS6Q 相关（见 E2-C2）"
+    },
+    {
+      "id": "E1-A5", "layer": "E1", "direction": "n/a(锚点参考值，非症状关联)", "metric": "mca_clinical_band",
+      "value": "亚洲成人 0.75±0.03 cm²；健康51腔 0.62 cm²；偏曲阈值 0.28 cm²；报告域 0.3–1.5 cm²",
+      "n": 51, "population": "AR 文献综述",
+      "citation": "measure_mca.py LITERATURE（AR 综述值）",
+      "strength": "中", "transfer": "B", "used_for": "S1 MCA 列量级哨兵（非合格线）",
+      "review": "已在生产脚本", "note": "AR 与 CT 系统性有偏（体位/黏膜/起点），只作量级"
+    },
+    {
+      "id": "E1-A6", "layer": "E1", "direction": "n/a(锚点参考值，非症状关联)", "metric": "cotton_pledget_prior",
+      "value": "位置 1.74±0.26 cm / 长度 1.93±0.35 cm", "n": null,
+      "population": "棉花试验文献",
+      "citation": "训练设计 §4（文献锚点层）",
+      "strength": "中", "transfer": "C", "used_for": "S4 干预靶背景（中鼻道射流 −41%）",
+      "review": "转引待核原文", "note": ""
+    },
+    {
+      "id": "E1-A7", "layer": "E1", "direction": "n/a(锚点参考值，非症状关联)", "metric": "scale_mcid",
+      "value": "ENS6Q MCID≈6.25–7；NOSE MCID≈30 分/40% 基线；SNOT-22 MCID 8.9(手术)/12(内科)",
+      "n": null, "population": "量表验证研究",
+      "citation": "单元4（ENS6Q α=0.76–0.93, ICC 0.895–0.969, AUC 0.91–0.96）",
+      "strength": "强", "transfer": "C", "used_for": "S2 重开条件判据（现已永久关闭，存档备重议）",
+      "review": "已核验(2026-10-16)", "note": "中文版 ENS6Q 是否正式发表未核实"
+    },
+    {
+      "id": "E2-C1", "layer": "E2", "metric": "sahf50_vs_nose",
+      "value": "r=-0.76", "n": 10, "population": "NAO 术前术后自身对照",
+      "citation": "Sullivan CD 2014, Otolaryngol Head Neck Surg, PMID 24154749, DOI 10.1177/0194599813509776",
+      "direction": "热通量/冷却面积越大→主观越通畅", "strength": "强", "transfer": "B",
+      "used_for": "S4 映射层主特征①（症状主特征候选排序第 1）",
+      "review": "题6附原文细节待补查（SAHF50 精确定义/截面/BC）",
+      "note": "SAHF50=热通量>50W/m² 黏膜面积；阈值法使相关最大化"
+    },
+    {
+      "id": "E2-C2", "layer": "E2", "metric": "inferior_meatus_peak_wss_vs_ens6q",
+      "value": "r=-0.398 (p=0.003)；窒息感 r=-0.295；鼻子太通畅 r=-0.388",
+      "n": 27, "population": "ENS vs 健康（总 n=69）",
+      "citation": "Li C 2018, Int Forum Allergy Rhinol, PMID 29165896, DOI 10.1002/alr.22045 (PMC6015742)",
+      "direction": "下鼻道峰值 WSS 越低→ENS 症状越重", "strength": "强", "transfer": "B",
+      "used_for": "S4 映射层主特征②",
+      "review": "题6附原文细节待补查（区域范围/峰值提取方式）",
+      "note": "阳性研究只需 n=27——小样本可检出的先例"
+    },
+    {
+      "id": "E2-C3", "layer": "E2", "metric": "middle_meatus_flow_vs_symptom",
+      "value": "vs VAS |r|=0.64；vs NOSE |r|=0.76", "n": 30, "population": "鼻塞+健康两组",
+      "citation": "Casey KP 2017, Otolaryngol Head Neck Surg, PMID 28139171, DOI 10.1177/0194599816687751",
+      "direction": "中鼻道气流越少→鼻塞感越强", "strength": "强", "transfer": "B",
+      "used_for": "S4 映射层主特征③",
+      "review": "题6附原文细节待补查（占比定义/归一化分母）",
+      "note": "D=0.5 冠状面三分区；下/上鼻道无相关"
+    },
+    {
+      "id": "E2-C4", "layer": "E2", "metric": "anterior_cooling_vs_vas",
+      "value": "R²=0.62", "n": 42, "population": "鼻中隔偏曲术前术后",
+      "citation": "中文 42 例，临床耳鼻咽喉头颈外科杂志 2018, PMID 30400706",
+      "direction": "前端温降越大→鼻塞 VAS 越重", "strength": "中", "transfer": "B",
+      "used_for": "S4 映射层主特征④",
+      "review": "题6附原文细节待补查（位置定义）", "note": ""
+    },
+    {
+      "id": "E2-C5", "layer": "E2", "metric": "nar_vs_symptom_classic",
+      "value": "r/ρ≈0.1–0.4（大样本 ρ=0.222 vs VAS / 0.112 vs 序数）",
+      "n": 601, "population": "大样本 + André 2009 系统综述（16 项 II 级）",
+      "citation": "André 2009 系统综述；Darbari Kaul 2026 n=601",
+      "direction": "金标准器械阻力与症状弱相关", "strength": "强", "transfer": "B",
+      "used_for": "C5 裁定依据：全局 R 降为客观读数；反例必备",
+      "review": "已核验(2026-10-16 单元3)",
+      "note": "反向：声反射几何量 NV/NMCA vs VAS r≈-0.75~-0.85"
+    },
+    {
+      "id": "E2-C6", "layer": "E2", "metric": "global_cfd_vs_ens6q_null",
+      "value": "阻力 r=0.089(p=0.762)；RH r=-0.043(p=0.884)；气温 r=0.007(p=0.982)；SAVR r=0.232(p=0.425)",
+      "n": 14, "population": "ENS",
+      "citation": "Na Y 2026, DOI 10.1002/lio2.70567 (PMC13638262)",
+      "direction": "全局四参数全阴", "strength": "反例", "transfer": "B",
+      "used_for": "反例附录（必进每份 S4 报告）；C5 结案",
+      "review": "原文逐字段已核验(2026-10-16)",
+      "note": "阴性=功效不足(n=14 检出 r≈0.5 需 ~28 例)+双侧合并稀释+总分终点+表型混杂"
+    },
+    {
+      "id": "E2-C7", "layer": "E2", "metric": "heatflux_meta",
+      "value": "合并 r=0.78 (95%CI 0.69–0.85)；WSS r=0.71；传统鼻测压 r=0.42 (0.31–0.53)",
+      "n": 32, "population": "32 项研究合并",
+      "citation": "Almagribi 2024, Authorea 预印本, DOI 10.22541/au.174720797.77606999",
+      "direction": "热通量最贴近主观感知", "strength": "探索", "transfer": "B",
+      "used_for": "S4 映射层方向支持（精确值不采信）",
+      "review": "预印本单作者，降权", "note": "方向与两篇 PRISMA 综述一致（Radulesco 2019 / Kanjanawasee 2022）"
+    },
+    {
+      "id": "E2-C8", "layer": "E2", "metric": "cooling_peak_vs_patency",
+      "value": "r=-0.46", "n": 22, "population": "健康志愿者",
+      "citation": "Zhao K 2012, PMID 23775640",
+      "direction": "黏膜冷却峰值越大→感知越通畅", "strength": "中", "transfer": "B",
+      "used_for": "S4 前端温降佐证", "review": "题6附原文细节待补查", "note": "LDA 89%"
+    },
+    {
+      "id": "E2-C9", "layer": "E2", "metric": "paired_cfd_vs_nose",
+      "value": "R²=0.84（两参数 OLS）", "n": 10, "population": "术后自身配对",
+      "citation": "Chiang & Frank-Ito 2025",
+      "direction": "配对设计下 CFD 可强预测", "strength": "中", "transfer": "B",
+      "used_for": "S2 方法学先例（配对优先）；B 患者3 双时间点案例展示的依据",
+      "review": "已核验(2026-10-16 单元7)",
+      "note": "高 R² 仅见于配对设计；横断面大样本多仅弱相关——不得外推"
+    },
+    {
+      "id": "E3-O1", "layer": "E3", "metric": "wall_area_operational",
+      "value": "wall = surface_area - sum(3 caps)", "n": null, "population": "本项目操作化",
+      "citation": "stdmodel/schema.py FEATURES.wall_area_mm2",
+      "direction": "n/a", "strength": "n/a", "transfer": "n/a",
+      "used_for": "S1 黏膜面积列", "review": "预注册(2026-10-16)",
+      "note": "帽为平面，余量为壁；与 export 阶段 wall patch 面积并列时差 ~0.15%（阶段差）"
+    },
+    {
+      "id": "E3-O2", "layer": "E3", "metric": "lr_split_operational",
+      "value": "TS 语义标签体素计数，不用几何中缝", "n": null, "population": "本项目操作化",
+      "citation": "measure_mca.py（左右用 TS 语义标签分离，几何中缝已被三例交叉验证证伪）",
+      "direction": "n/a", "strength": "n/a", "transfer": "n/a",
+      "used_for": "S1 左右容积比", "review": "预注册(2026-10-16)",
+      "note": "鼻咽/口咽共享段不入比"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+field_categories:
+  - category: 基本信息
+    fields:
+      - name: source
+        description: 研究出处（期刊/会议/预印本/指南，附年份）
+        detail_level: 极简
+        required: true
+      - name: doi_or_url
+        description: DOI 或可访问 URL
+        detail_level: 极简
+      - name: design
+        description: 研究设计（RCT/前瞻队列/回顾队列/横断面/系统综述/Meta/方法学论文）
+        detail_level: 极简
+      - name: sample_size
+        description: 样本量（n；对照/分组 n 分别列出）
+        detail_level: 极简
+      - name: population
+        description: 研究人群（健康/鼻塞/术后/空鼻症等）与人种如可查
+        detail_level: 简要
+  - category: 方法学
+    fields:
+      - name: cfd_or_method_setup
+        description: CFD 设置（层流/湍流、稳态/瞬态、边界条件、截取域）或建模/统计方法
+        detail_level: 详细
+      - name: metrics_defined
+        description: 涉及指标及定义（R/Δp/WSS/热通量/温湿度/SAVR/NOSE 分项等），注明测量截面
+        detail_level: 详细
+      - name: statistics
+        description: 统计方法（相关/回归/效应量模型、校正变量）
+        detail_level: 简要
+  - category: 核心发现
+    fields:
+      - name: main_finding
+        description: 主要结论（中文，一段话）
+        detail_level: 详细
+        required: true
+      - name: effect_direction
+        description: 效应方向：正相关/负相关/无关联/混合（逐指标列出）
+        detail_level: 简要
+        required: true
+      - name: effect_size
+        description: 效应量（r/β/OR/相关系数，注明方向与显著性）
+        detail_level: 详细
+      - name: ci_or_p
+        description: 置信区间或 p 值（如原文报告）
+        detail_level: 简要
+  - category: 与本项目关联
+    fields:
+      - name: relevance
+        description: 与委托方场景（24 例副鼻窦 CT 的 CFD 指标、无标签、无对照）的相关度：高/中/低 + 理由
+        detail_level: 简要
+        required: true
+      - name: transferable_points
+        description: 可直接借鉴的方法/判据/阈值（具体到数字）
+        detail_level: 详细
+      - name: contradictions
+        description: 与委托方已知冲突（如 PMC13638262 阴性结论 vs T-047 R+32% 阳性观察）的关系或解释
+        detail_level: 详细
+      - name: evidence_level
+        description: 证据等级判断（高/中/低）+ 一句理由（设计、n、复现情况）
+        detail_level: 简要
+        required: true
+uncertain: []
