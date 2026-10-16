@@ -1,5 +1,5 @@
 
-:root{--ink:#23332f;--muted:#77827d;--line:#e2e9e4;--accent:#257861;--soft:#edf5f0;--bg:#f5f7f5}
+:root{--ink:#1a1a1a;--muted:#6e6e6e;--line:#dcdcdc;--accent:#1a1a1a;--soft:#f0f0f0;--bg:#ebebeb}
 html[data-workflow] body{background:var(--bg)!important;color:var(--ink)!important;letter-spacing:0!important}html[data-workflow] *{letter-spacing:0!important}html[data-workflow] h1{display:none}html[data-workflow] .eyebrow{display:none}html[data-workflow] button,html[data-workflow] select,html[data-workflow] input{border-radius:7px}
 /* project report */
 html[data-workflow=overview] body{padding:18px 24px!important}html[data-workflow=overview] .wrap{max-width:1180px}html[data-workflow=overview] .card{border:1px solid var(--line);border-radius:10px;padding:18px;margin:0 0 12px;background:#fff;box-shadow:none}html[data-workflow=overview] .card h2{font-size:15px;margin:0 0 9px}html[data-workflow=overview] .card p{font-size:12px}html[data-workflow=overview] table{min-width:760px;font-size:11px}html[data-workflow=overview] .sub{font-size:11px;margin-bottom:14px}
@@ -8,23 +8,23 @@ html[data-workflow=geometry] body{padding:14px 18px!important}html[data-workflow
 /* candidate review */
 html[data-workflow=review] .top{padding:11px 18px;background:#fff;border-bottom:1px solid var(--line)}html[data-workflow=review] .topline{justify-content:flex-end}html[data-workflow=review] .topline>div:first-child,html[data-workflow=review] .subtitle,html[data-workflow=review] .notice,html[data-workflow=review] .review-context,html[data-workflow=review] .feedback-link{display:none}html[data-workflow=review] #save-warning{font-size:11px}html[data-workflow=review] .layout{grid-template-columns:170px minmax(0,1fr);gap:14px;padding:14px 18px}html[data-workflow=review] .sidebar{top:10px}html[data-workflow=review] .case-button{padding:10px 11px;border-radius:8px;font-size:12px}html[data-workflow=review] .card{padding:13px;border-radius:9px}html[data-workflow=review] .content-grid{grid-template-columns:minmax(260px,1fr) minmax(300px,1fr);gap:13px}html[data-workflow=review] .viewer{top:10px;border-radius:9px}html[data-workflow=review] .viewer-head{padding:12px 13px 9px}html[data-workflow=review] .viewer-head p:not(.hint){display:none}html[data-workflow=review] .image-wrap{padding:7px;min-height:140px}html[data-workflow=review] .filter-row{margin:10px 0 13px;gap:7px;font-size:11px}html[data-workflow=review] .filter-row input[type=search]{max-width:150px;padding:6px 8px}html[data-workflow=review] .card textarea{min-height:46px;font-size:12px}html[data-workflow=review] .details{margin-top:7px}
 /* external opinion inspection */
-html[data-workflow=feedback] main{padding:14px 20px!important;max-width:1280px}html[data-workflow=feedback] main>a:first-child,html[data-workflow=feedback] main>p.muted:first-of-type{display:none}html[data-workflow=feedback] .panel{border:1px solid var(--line);border-radius:9px;background:#fff;padding:15px;margin:0 0 11px;box-shadow:none}html[data-workflow=feedback] .panel h2,html[data-workflow=feedback] h3{font-size:15px}html[data-workflow=feedback] .stats{gap:8px}html[data-workflow=feedback] .stat{padding:10px;border-radius:7px;background:#f6f9f7}html[data-workflow=feedback] .notice{background:#fff8e8;border-left:3px solid #d6a34b;font-size:12px}html[data-workflow=feedback] .dialogbar{padding:8px 10px}
+html[data-workflow=feedback] main{padding:14px 20px!important;max-width:1280px}html[data-workflow=feedback] main>a:first-child,html[data-workflow=feedback] main>p.muted:first-of-type{display:none}html[data-workflow=feedback] .panel{border:1px solid var(--line);border-radius:9px;background:#fff;padding:15px;margin:0 0 11px;box-shadow:none}html[data-workflow=feedback] .panel h2,html[data-workflow=feedback] h3{font-size:15px}html[data-workflow=feedback] .stats{gap:8px}html[data-workflow=feedback] .stat{padding:10px;border-radius:7px;background:#f0f0f0}html[data-workflow=feedback] .notice{background:#efefef;border-left:3px solid #3d3d3d;font-size:12px}html[data-workflow=feedback] .dialogbar{padding:8px 10px}
 @media(max-width:700px){html[data-workflow=overview] body,html[data-workflow=geometry] body,html[data-workflow=feedback] main{padding:12px!important}html[data-workflow=geometry] .workspace{display:block}html[data-workflow=geometry] .view-panel{margin-bottom:10px}html[data-workflow=geometry] #scene{height:390px}html[data-workflow=geometry] aside{display:block}html[data-workflow=review] .top{padding:9px 12px}html[data-workflow=review] .layout{display:block;padding:12px}.sidebar{margin-bottom:10px}html[data-workflow=review] .case-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}html[data-workflow=review] .viewer{position:sticky;top:0;z-index:6;margin-bottom:10px}html[data-workflow=review] .content-grid{display:flex;flex-direction:column}.viewer{order:-1}html[data-workflow=review] .image-wrap img{max-height:34vh;object-fit:contain}html[data-workflow=feedback] .stats{grid-template-columns:1fr 1fr}}
 
 html[data-workflow] .tool-details{padding:11px 13px;background:#fff;border:1px solid var(--line);border-radius:8px;font-size:11px;color:var(--muted);margin:9px 0}
 html[data-workflow] .tool-details>summary{cursor:pointer;font-weight:400;font-size:11px;color:var(--muted)}
 html[data-workflow] .tool-details>.panel{border:0;margin:10px 0 0;padding:0}
-html[data-workflow] .tool-details .notice{display:block!important;font-size:11px;background:#f7f9f7;margin-top:10px}
+html[data-workflow] .tool-details .notice{display:block!important;font-size:11px;background:#f0f0f0;margin-top:10px}
 html[data-workflow=overview] .card summary{font-size:13px;color:var(--ink);font-weight:500;cursor:pointer}
 html[data-workflow=overview] .card details[open] summary{margin-bottom:14px}
-html[data-workflow=review]{--blue:#257861;--panel:#fff;--light:#edf5f0;--warn:#946921;--warnbg:#fff5e4;--good:#257861}
+html[data-workflow=review]{--blue:#1a1a1a;--panel:#fff;--light:#f0f0f0;--warn:#3d3d3d;--warnbg:#efefef;--good:#1a1a1a}
 html[data-workflow=review] body{font-size:13px}
 html[data-workflow=review] .topline{justify-content:flex-start}
 html[data-workflow=review] .toolbar{font-size:11px;margin:0;gap:8px}
 html[data-workflow=review] .toolbar input{width:120px;padding:6px 8px}
 html[data-workflow=review] .toolbar button{font-size:11px;padding:6px 10px;background:#fff;border-color:var(--line);color:var(--muted)}
 html[data-workflow=review] .review-help{border:0;background:none;margin:6px 0 0;padding:0;font-size:10px}
-html[data-workflow=review] .review-help>summary{font-size:10px;color:#96a099}
+html[data-workflow=review] .review-help>summary{font-size:10px;color:#9a9a9a}
 html[data-workflow=review] .review-help .review-context{display:block!important;font-size:11px}
 html[data-workflow=review] .case-header{margin-bottom:6px;align-items:center}
 html[data-workflow=review] #case-title{font-size:15px}
@@ -35,7 +35,7 @@ html[data-workflow=review] .card:not(.focused)>:not(.card-head){display:none}
 html[data-workflow=review] .card-head h3{font-size:14px}
 html[data-workflow=review] .card-head h3 button{text-decoration:none;font-weight:600}
 html[data-workflow=review] .label-en{display:none}
-html[data-workflow=review] .card.focused{border-color:#91b9a0;box-shadow:0 0 0 2px #e0eee3}
+html[data-workflow=review] .card.focused{border-color:#1a1a1a;box-shadow:0 0 0 2px #e4e4e4}
 html[data-workflow=review] .reasons{font-size:11px;margin:8px 0}
 html[data-workflow=review] .badge{font-size:10px;padding:3px 6px}
 html[data-workflow=review] .decision{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:13px 0}
@@ -51,7 +51,7 @@ html[data-workflow=review].single-case .case-header{display:flex}
 html[data-workflow=review].single-case #case-title{display:none}
 html[data-workflow=review].single-case .content-grid{grid-template-columns:305px minmax(0,1fr)}
 html[data-workflow=review] .image-wrap img{max-height:none;max-width:100%;width:100%;object-fit:contain}
-html[data-workflow=geometry]{--accent:#257861;--ink:#23332f;--muted:#77827d;--line:#e2e9e4;--bg:#f5f7f5}
+html[data-workflow=geometry]{--accent:#1a1a1a;--ink:#1a1a1a;--muted:#6e6e6e;--line:#dcdcdc;--bg:#ebebeb}
 html[data-workflow=geometry] .view-toolbar{font-size:11px}
 html[data-workflow=geometry] .view-toolbar select{font-size:12px}
 html[data-workflow=geometry] .layers button{font-size:11px;min-width:62px}
@@ -62,13 +62,13 @@ html[data-workflow=geometry] aside #model-note{font-size:11px}
 html[data-workflow=geometry] aside dl{grid-template-columns:80px 1fr;gap:6px;font-size:11px}
 html[data-workflow=geometry] aside label{font-size:11px}
 html[data-workflow=geometry] aside .check{margin:10px 0}
-html[data-workflow=feedback]{--blue:#257861;--panel:#fff;--ink:#23332f;--muted:#77827d;--line:#e2e9e4}
+html[data-workflow=feedback]{--blue:#1a1a1a;--panel:#fff;--ink:#1a1a1a;--muted:#6e6e6e;--line:#dcdcdc}
 html[data-workflow=feedback] .selection .toolbar{gap:14px;font-size:11px}
 html[data-workflow=feedback] .selection select{font-size:11px;max-width:230px;padding:6px 8px}
 html[data-workflow=feedback] .selection h2{margin-top:14px!important;font-size:16px}
 html[data-workflow=feedback] .selection h3{font-size:13px;margin:16px 0 8px}
 html[data-workflow=feedback] #coordinates,html[data-workflow=feedback] #normal-note{font-size:11px;color:var(--muted)}
-html[data-workflow=feedback] .question{font-size:11px;color:#90651d;background:#fff9eb;padding:8px 10px;border-radius:5px;border:0}
+html[data-workflow=feedback] .question{font-size:11px;color:#3d3d3d;background:#efefef;padding:8px 10px;border-radius:5px;border:0}
 html[data-workflow=feedback] .selection>.secondary-description{font-size:11px;color:var(--muted);line-height:1.6}
 html[data-workflow=feedback] .selection .legend{font-size:10px;gap:10px}
 html[data-workflow=feedback] .selection .measurements{margin:13px 0}
@@ -93,5 +93,5 @@ html[data-workflow=review] .sidebar-note{display:none}
 @media(min-width:701px) and (max-width:1100px){html[data-workflow=review] .content-grid{grid-template-columns:245px minmax(0,1fr)}}
 @media(max-width:700px){html[data-workflow=review] .case-list{display:flex;overflow:auto;padding:0 0 3px;gap:6px}html[data-workflow=review] .case-button{flex:none;width:105px;min-height:46px;padding:8px 10px;font-size:11px}html[data-workflow=review] .case-button .progress{display:none}html[data-workflow=review] .sidebar{margin-bottom:11px}html[data-workflow=review] .case-header h2{font-size:13px!important}html[data-workflow=review] .case-header{display:flex;align-items:center;margin-bottom:8px}html[data-workflow=review] .case-header .badge{margin:0}html[data-workflow=review].single-case .case-header{justify-content:flex-end}}
 
-html[data-workflow=feedback] .feedback-version{font-size:11px;color:var(--muted);margin:0 0 12px;padding:9px 12px;background:#edf3ed;border-radius:7px}
+html[data-workflow=feedback] .feedback-version{font-size:11px;color:var(--muted);margin:0 0 12px;padding:9px 12px;background:#f0f0f0;border-radius:7px}
 @media(max-width:700px){html[data-workflow=review] .case-list{flex-direction:row}}

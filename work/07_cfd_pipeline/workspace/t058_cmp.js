@@ -73,7 +73,7 @@ function lineFor(flat, loop, color, opacity) {
 }
 /* 影棚布光：与 t058_cut.js 同档（light_probe 标定），保持两页观感一致 */
 function addLights(scene) {
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xa9b9c0, 4.0));
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xc8c8c8, 4.0));
   const add = (x, y, z, i) => { const l = new THREE.DirectionalLight(0xffffff, i);
     l.position.set(x, y, z); scene.add(l); };
   add(120, 150, 130, 1.6); add(-100, 60, -140, 1.0);
@@ -137,7 +137,7 @@ async function setSide(i, caseId) {
   if (!entry) { emptySlot(slot, '未选择模型', '在上方选择患者模型'); return; }
   if (!slot.scene) {
     slot.scene = new THREE.Scene();
-    slot.scene.background = new THREE.Color('#e8eff1');
+    slot.scene.background = new THREE.Color('#eef0f0');
     addLights(slot.scene);
   }
   if (slot.group) { slot.scene.remove(slot.group); slot.group = null; }
@@ -251,7 +251,7 @@ function initGL() {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.15;
-  renderer.setClearColor(0xf2f5f6, 1);
+  renderer.setClearColor(0xeef0f0, 1);   /* 中性灰视口底（工作台令牌 --canvas） */
   renderer.setScissorTest(true);
   stage.appendChild(renderer.domElement);
   cams.push(new THREE.PerspectiveCamera(38, 1, 0.01, 10000));

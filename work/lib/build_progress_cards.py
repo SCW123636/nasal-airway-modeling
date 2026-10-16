@@ -253,36 +253,42 @@ def main():
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>任务卡进度 · 鼻腔 CFD</title>
 <style>
-:root{{--bg:#f7f8fa;--fg:#1a1d21;--mut:#6b7280;--line:#e3e6ea;--acc:#2563eb;
---ok:#15803d;--warn:#b45309;--bad:#b91c1c;--unk:#6b7280;--run:#1d4ed8;--idle:#6b7280}}
+/* 令牌与 workspace/pro/tokens.css 同值（单一真源）；chrome 单色，
+   状态靠明度 + 字重 + 字形 + 底纹区分，不靠色相。圆角 2–3px 属新版语言。 */
+:root{{--bg:#ebebeb;--card:#ffffff;--ink:#1a1a1a;--mut:#6e6e6e;--faint:#9a9a9a;
+--line:#dcdcdc;--line2:#c8c8c8;--soft:#f0f0f0;--soft2:#e4e4e4;
+--warn:#3d3d3d;--warn-bg:#efefef;--bad:#000000;--bad-bg:#e2e2e2;
+--mono:ui-monospace,Consolas,"Cascadia Mono",monospace;color-scheme:light}}
 *{{box-sizing:border-box}}
-body{{margin:0;background:var(--bg);color:var(--fg);
+body{{margin:0;background:var(--bg);color:var(--ink);
 font:14px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}}
 .wrap{{max-width:1500px;margin:0 auto;padding:24px 20px 60px}}
 h1{{font-size:22px;margin:0 0 6px}}
 .sub{{color:var(--mut);font-size:13px;margin-bottom:18px}}
-.card{{background:#fff;border:1px solid var(--line);border-radius:10px;
+.card{{background:var(--card);border:1px solid var(--line);border-radius:3px;
 padding:16px 18px;margin-bottom:16px}}
-.warnbox{{border-left:4px solid var(--warn);background:#fffbeb}}
+.warnbox{{border-left:3px solid var(--line2);background:var(--warn-bg)}}
 h2{{font-size:16px;margin:0 0 8px}}
 table{{width:100%;border-collapse:collapse;font-size:12.5px}}
 th,td{{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}}
-th{{background:#f1f3f5;font-weight:600;position:sticky;top:0}}
-tr.disagree{{background:#fff5f5}}
-td.ok{{color:var(--ok);font-weight:600}}
-td.warn{{color:var(--warn);font-weight:600}}
-td.bad{{color:var(--bad);font-weight:600}}
-td.run{{color:var(--run)}}
-td.idle,td.unk{{color:var(--unk)}}
-.flag{{background:#fee2e2;color:var(--bad);padding:1px 6px;border-radius:4px;font-size:11px}}
-code{{background:#f1f3f5;padding:1px 5px;border-radius:4px;font-size:12px}}
+th{{background:var(--soft);font-weight:600;position:sticky;top:0}}
+tr.disagree{{background:var(--soft2)}}
+.ok{{color:var(--ink);font-weight:700;background:var(--soft)}}
+.warn{{color:var(--mut);font-weight:700;font-style:italic;background:var(--soft2)}}
+.bad{{color:var(--bad);font-weight:700;text-decoration:underline;background:var(--bad-bg)}}
+.run{{color:var(--mut)}}
+.idle,.unk{{color:var(--faint)}}
+.flag{{background:var(--bad-bg);color:var(--bad);padding:1px 6px;border-radius:2px;
+border:1px solid var(--line2);font-size:11px}}
+code{{background:var(--soft);padding:1px 5px;border-radius:2px;font-size:12px;
+font-family:var(--mono)}}
 .small{{font-size:12.5px;color:var(--mut)}}
-.legend span{{display:inline-block;margin-right:14px}}
+.legend span{{display:inline-block;margin-right:14px;padding:1px 6px;border-radius:2px}}
 </style></head><body><div class="wrap">
 
 <h1>任务卡进度 · 鼻腔 CFD 空气域复核</h1>
 <div class="sub">生成时间 {now} ｜ 共 <b>{n}</b> 张卡 ｜ 三列对照（卡头 / 验收记录 / 项目记忆）
-｜ 不一致行 <b>红底</b> 标出 ｜ 只读，不修改任何任务卡</div>
+｜ 不一致行 <b>深底</b> 标出 ｜ 只读，不修改任何任务卡</div>
 
 <div class="card">
 <h2>状态分布</h2>
@@ -293,7 +299,7 @@ code{{background:#f1f3f5;padding:1px 5px;border-radius:4px;font-size:12px}}
 </div>
 
 <div class="card warnbox">
-<h2>⚠️ 怎么读这一页（先读，别直接抄状态）</h2>
+<h2>怎么读这一页（先读，别直接抄状态）</h2>
 <p class="small">
 <b>1. 本页是机械提取，不声称等于真值。</b>状态词照抄原文，不做语义判定。</p>
 <p class="small">
@@ -315,9 +321,9 @@ code{{background:#f1f3f5;padding:1px 5px;border-radius:4px;font-size:12px}}
 <div class="card">
 <h2>全部任务卡</h2>
 <div class="small legend" style="margin-bottom:8px">
-<span>✅ ok = VERIFIED / CLOSED / DONE</span><span>⚠️ warn = PARTIAL</span>
-<span>⛔ bad = BLOCKED / 已废弃 / 打回</span><span>▶ run = EXECUTING</span>
-<span>○ idle = OPEN</span><span>? 未核 = 判不出来</span>
+<span class="ok">完成 = VERIFIED / CLOSED / DONE</span><span class="warn">部分 = PARTIAL</span>
+<span class="bad">阻塞 = BLOCKED / 已废弃 / 打回</span><span class="run">进行 = EXECUTING</span>
+<span class="idle">未开 = OPEN</span><span class="unk">未核 = 判不出来</span>
 <div class="small" style="margin-top:6px">状态词照抄原文、<b>不归一化</b>：
 <code>DONE</code> 是多张卡卡头自用的「结项」写法；<code>BLOCKED</code> 是项目记忆里的
 描述性标记（AGENTS.md 规定阻塞时状态回退 <code>OPEN</code>、原因记验收记录，

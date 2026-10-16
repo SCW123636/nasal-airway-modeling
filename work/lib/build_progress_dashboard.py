@@ -319,7 +319,7 @@ def render(rows, feedback=None):
         phantom_class = "todo"
     trs = []
     for r in rows:
-        art = '<span class="warn">⚠ 入口边界疑似伪影</span>' if r["artifact"] else "—"
+        art = '<span class="warn">入口边界疑似伪影</span>' if r["artifact"] else "—"
         trs.append(
             "<tr>"
             + cell(f'<b>{e(r["case"])}</b><br><span class="muted small">{e(r["label"])}</span>')
@@ -397,7 +397,7 @@ def render(rows, feedback=None):
         cls = {"VERIFIED": "ok", "CLOSED": "ok", "DONE": "ok",
                "PARTIAL": "warn", "PAUSED": "warn",
                "BLOCKED": "bad", "已废弃": "bad", "打回": "bad"}.get(c["shown"], "muted")
-        rowstyle = ' style="background:#fff5f5"' if not c["agree"] else ""
+        rowstyle = ' style="background:#e4e4e4"' if not c["agree"] else ""
         _rows.append(
             f'<tr{rowstyle}><td><b>{e(c["id"])}</b></td>'
             f'<td>{e(c["title"])[:76]}</td>'
@@ -433,38 +433,46 @@ def render(rows, feedback=None):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>鼻腔 CFD 项目 · 进度总览</title>
 <style>
-:root{{--bg:#f6f7f9;--card:#fff;--line:#e3e6ea;--tx:#1f2328;--mut:#6b7280;
---ok:#15803d;--warn:#b45309;--bad:#b91c1c;--acc:#2563eb;}}
+/* 令牌与 workspace/pro/tokens.css 同值（单一真源）；chrome 单色，
+   状态靠明度 + 字重 + 字形区分，不靠色相。圆角 2–3px 属新版语言。 */
+:root{{--bg:#ebebeb;--card:#ffffff;--ink:#1a1a1a;--line:#dcdcdc;--line2:#c8c8c8;
+--mut:#6e6e6e;--faint:#9a9a9a;--soft:#f0f0f0;--soft2:#e4e4e4;--accent:#1a1a1a;
+--warn:#3d3d3d;--warn-bg:#efefef;--bad:#000000;--bad-bg:#e2e2e2;
+--mono:ui-monospace,Consolas,"Cascadia Mono",monospace;color-scheme:light}}
 *{{box-sizing:border-box}}
 body{{overflow-wrap:anywhere}}
-body{{margin:0;padding:24px;background:var(--bg);color:var(--tx);
+body{{margin:0;padding:24px;background:var(--bg);color:var(--ink);
 font:14px/1.65 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;}}
 .wrap{{max-width:1180px;margin:0 auto}}
 h1{{font-size:22px;margin:0 0 4px}} h2{{font-size:16px;margin:22px 0 10px}}
 .sub{{color:var(--mut);font-size:13px;margin-bottom:18px}}
-.card{{background:var(--card);border:1px solid var(--line);border-radius:10px;
+.card{{background:var(--card);border:1px solid var(--line);border-radius:3px;
 padding:16px 18px;margin-bottom:14px}}
-.todo{{border-left:4px solid var(--warn)}}
-.block{{border-left:4px solid var(--bad)}}
-.done{{border-left:4px solid var(--ok)}}
+.todo{{border-left:3px solid var(--line2)}}
+.block{{border-left:3px solid var(--bad)}}
+.done{{border-left:3px solid var(--soft2)}}
 ol{{margin:8px 0 0 20px;padding:0}} li{{margin:6px 0}}
 table{{width:100%;border-collapse:collapse;font-size:13px}}
 .table-scroll{{max-width:100%;overflow-x:auto}}
 th,td{{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}}
-th{{background:#f0f2f5;font-weight:600}}
-tr:nth-child(even) td{{background:#fafbfc}}
-.ok{{color:var(--ok)}} .warn{{color:var(--warn)}} .bad{{color:var(--bad)}}
+th{{background:var(--soft);font-weight:600}}
+tr:nth-child(even) td{{background:#fbfbfb}}
+.ok{{color:var(--ink);font-weight:700}}
+.warn{{color:var(--mut);font-weight:700;font-style:italic}}
+.bad{{color:var(--bad);font-weight:700;text-decoration:underline}}
 .muted{{color:var(--mut)}} .small{{font-size:12px}}
-code{{background:#f0f2f5;padding:1px 5px;border-radius:4px;font-size:12.5px}}
-a{{color:var(--acc)}} .tag{{display:inline-block;background:#eef2ff;color:#3730a3;
-border-radius:4px;padding:1px 7px;font-size:12px;margin-right:6px}}
+code{{background:var(--soft);padding:1px 5px;border-radius:2px;font-size:12.5px;
+font-family:var(--mono)}}
+a{{color:var(--accent);text-decoration:underline}}
+.tag{{display:inline-block;background:var(--soft2);color:var(--ink);border:1px solid var(--line2);
+border-radius:2px;padding:1px 7px;font-size:12px;margin-right:6px}}
 </style><script src="/workspace/embed.js" defer></script></head><body><div class="wrap">
 
 <h1>鼻腔 CFD 空气域复核 · 进度总览</h1>
 <div class="sub">生成时间 {e(now)} ｜ 只读汇总，不修改任何掩膜与候选点 ｜
 缺失项一律标「未跑」，无占位数字</div>
 
-<div class="card" style="border-left:4px solid var(--acc)">
+<div class="card" style="border-left:3px solid var(--accent)">
 <h2>项目主线已确定</h2>
 <p>本项目按“匿名 CT → 自动分割 → UAS 粗定位 → 本例 CT 精标定 → 可视人工检验 → 版本化几何 → CFD → 实际结果”推进。阶段一只做患者原始鼻腔建模和气流分析；结构修改、二次模拟和鼻塞设计留到后续阶段。</p>
 <p class="small" style="margin-top:8px">主线版本：2026-10-14 ｜ 当前里程碑：<b>M3 验证矩阵与交付</b>。
@@ -591,7 +599,7 @@ MCA = 最小截面积，跳过入口 3 mm 后测得；亚洲成人声反射参�
 <tr><th>项</th><th>状态</th><th>卡在谁</th></tr>
 <tr><td>5 点人工复核</td><td class="ok">已 25/25 accept（2026-10-07，王湧瑞）</td><td>—</td></tr>
 <tr><td>口腔排除 / 鼻窦策略 / 最终几何（三项 gate）</td><td class="bad">五例全 pending（R11；已裁定先跑矩阵不阻塞工程验证）</td><td>复核人／你</td></tr>
-<tr><td>solver adapter 实现</td><td class="ok">T-009 <b>已结项</b>（2026-10-15，卡头 ✅ DONE）</td><td>—</td></tr>
+<tr><td>solver adapter 实现</td><td class="ok">T-009 <b>已结项</b>（2026-10-15，卡头 DONE）</td><td>—</td></tr>
 <tr><td>网格缓存 WIP 转正</td><td class="ok">T-010 <b>已结项</b>（2026-10-15）：网格缓存 verdict 可依赖</td><td>—</td></tr>
 <tr><td>M3 36 格验证矩阵（3 阈值 × 2 几何 × 3 网格 × 2 求解）</td><td class="warn">未跑；Phase A 例0 先行，CPU 独占车道以天计</td><td>我</td></tr>
 <tr><td>K2 量化对照报告</td><td class="bad">外部阻塞：需求方阈值裁定 + 人工金标准</td><td>需求方</td></tr>

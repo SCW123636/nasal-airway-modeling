@@ -18,15 +18,15 @@ function updateFeedbackAudit(audit){
 }
 function lpsToView(point,center){return new THREE.Vector3(point[0]-center[0],point[2]-center[2],-(point[1]-center[1]));}
 function initScene(){
-  scene=new THREE.Scene();scene.background=new THREE.Color('#e8eff1');
+  scene=new THREE.Scene();scene.background=new THREE.Color('#eef0f0');
   camera=new THREE.PerspectiveCamera(38,1,.01,10000);renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
   renderer.setPixelRatio(Math.min(Math.max(devicePixelRatio,1.5),2));sceneEl.appendChild(renderer.domElement);
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.domElement.setAttribute('aria-label','可拖动旋转的三维候选模型');
   controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;
-  scene.add(new THREE.HemisphereLight(0xffffff,0x637981,2.3));
+  scene.add(new THREE.HemisphereLight(0xffffff,0x6e6e6e,2.3));
   const light=new THREE.DirectionalLight(0xffffff,2.6);light.position.set(120,150,130);scene.add(light);
-  const fill=new THREE.DirectionalLight(0xbedee8,1.4);fill.position.set(-120,-20,-100);scene.add(fill);
+  const fill=new THREE.DirectionalLight(0xdcdcdc,1.4);fill.position.set(-120,-20,-100);scene.add(fill);
   const resize=()=>{const width=sceneEl.clientWidth,height=sceneEl.clientHeight;if(!width||!height)return;renderer.setSize(width,height);camera.aspect=width/height;camera.updateProjectionMatrix();};
   new ResizeObserver(resize).observe(sceneEl);resize();
   function draw(){requestAnimationFrame(draw);if(!sceneEl.clientWidth||!sceneEl.clientHeight)return;controls.update();renderer.render(scene,camera);}draw();

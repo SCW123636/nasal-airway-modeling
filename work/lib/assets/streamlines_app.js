@@ -3,7 +3,7 @@
 const {LINE_DATA, WALL_POS, WALL_IDX, PATCH, META} = DATA;
 const host = document.getElementById('view');
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xeef3f1);
+scene.background = new THREE.Color(0xeef0f0);
 const camera = new THREE.PerspectiveCamera(45, 1, 1, 4000);
 const renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(2, window.devicePixelRatio||1));
@@ -113,7 +113,7 @@ function label(text, scale){
   const c = document.createElement('canvas'); c.width = 200; c.height = 56;
   const ctx = c.getContext('2d');
   ctx.font = '600 30px system-ui,"Microsoft YaHei",sans-serif';
-  ctx.fillStyle = '#33414f'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#1a1a1a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.fillText(text, 100, 30);
   const tex = new THREE.CanvasTexture(c);
   tex.minFilter = THREE.LinearFilter;
@@ -247,14 +247,14 @@ applyRange();
   lens.forEach(function(v){ cnt[Math.min(bins-1, Math.floor((v-vmin)/w))]++; });
   const cmax = Math.max.apply(null, cnt);
   ctx.clearRect(0,0,W,H);
-  ctx.fillStyle = '#3b6ea5';
+  ctx.fillStyle = '#1a1a1a';
   const bw = W/bins;
   for (let i=0;i<bins;i++){
     const h = (H-18)*cnt[i]/cmax;
     ctx.fillRect(i*bw+1, H-14-h, bw-2, h);
   }
-  ctx.strokeStyle = '#9aa7b4'; ctx.beginPath(); ctx.moveTo(0,H-13.5); ctx.lineTo(W,H-13.5); ctx.stroke();
-  ctx.fillStyle = '#5c6b7a'; ctx.font = '10px system-ui,"Microsoft YaHei",sans-serif';
+  ctx.strokeStyle = '#c8c8c8'; ctx.beginPath(); ctx.moveTo(0,H-13.5); ctx.lineTo(W,H-13.5); ctx.stroke();
+  ctx.fillStyle = '#6e6e6e'; ctx.font = '10px system-ui,"Microsoft YaHei",sans-serif';
   ctx.fillText('0', 2, H-3); ctx.textAlign='right'; ctx.fillText(String(vmax)+' mm', W-2, H-3); ctx.textAlign='left';
   ctx.fillText(String(cmax), 2, 10);
 })();

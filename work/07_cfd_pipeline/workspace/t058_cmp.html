@@ -4,35 +4,36 @@
 <link rel="icon" href="data:,">
 <title>双侧三维对比 · 解剖斜切 · T-058</title>
 <script type="importmap">{"imports":{"three":"/viewer/vendor/three.module.js"}}</script>
+<link rel="stylesheet" href="/workspace/pro/tokens.css">
 <style>
-:root{--ink:#23332f;--muted:#78817e;--line:#e2e8e5;--soft:#eef3f0;--accent:#257861;--bg:#eef2f3}
+/* 配色取工作台统一令牌（/workspace/pro/tokens.css）；颜色只留给数据——几何配色见下方图例。 */
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
-body{background:var(--bg);color:var(--ink);font:12px/1.55 system-ui,"Microsoft YaHei",sans-serif;
+body{background:var(--bg);color:var(--ink);font:12px/1.55 "Segoe UI",system-ui,"Microsoft YaHei",sans-serif;
   display:flex;flex-direction:column;overflow:hidden}
 .bar{flex:none;display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:6px 9px;
-  background:#fff;border-bottom:1px solid var(--line)}
+  background:var(--panel);border-bottom:1px solid var(--line)}
 .sp{flex:1}
-button{font:11.5px system-ui,"Microsoft YaHei",sans-serif;padding:4px 9px;border-radius:5px;
+button{font:11.5px "Segoe UI",system-ui,"Microsoft YaHei",sans-serif;padding:4px 9px;border-radius:2px;
   border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;white-space:nowrap}
 button:hover{background:var(--soft)}
 button.on{background:var(--accent);border-color:var(--accent);color:#fff}
-label.chk{display:flex;align-items:center;gap:4px;font-size:11.5px;color:#4a5754;cursor:pointer;white-space:nowrap}
-.op{display:flex;align-items:center;gap:5px;font-size:11.5px;color:#4a5754;white-space:nowrap}
-.op input[type=range]{width:82px}
-.stage{flex:1;position:relative;min-height:200px;overflow:hidden;background:#e8eff1}
+label.chk{display:flex;align-items:center;gap:4px;font-size:11.5px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.op{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.op input[type=range]{width:82px;accent-color:#1a1a1a}
+.stage{flex:1;position:relative;min-height:200px;overflow:hidden;background:var(--canvas)}
 .stage canvas{display:block;width:100%;height:100%}
-.divider{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(35,51,47,.22);pointer-events:none}
-.tag{position:absolute;top:7px;left:9px;font:600 11.5px ui-monospace,Consolas,monospace;
-  background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:4px;padding:3px 8px;
+.divider{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(26,26,26,.18);pointer-events:none}
+.tag{position:absolute;top:7px;left:9px;font:600 11.5px var(--mono);
+  background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:2px;padding:3px 8px;
   pointer-events:none;max-width:45%;overflow:hidden}
 .tag.b{left:calc(50% + 9px)}
 .tag .sub{display:block;font-weight:400;color:var(--muted);font-size:10.5px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hint{position:absolute;left:9px;bottom:7px;font-size:10.5px;color:#68736f;pointer-events:none;
-  background:rgba(255,255,255,.72);border-radius:4px;padding:2px 6px}
+.hint{position:absolute;left:9px;bottom:7px;font-size:10.5px;color:var(--muted);pointer-events:none;
+  background:rgba(255,255,255,.78);border-radius:2px;padding:2px 6px}
 .legend{flex:none;display:flex;gap:11px;flex-wrap:wrap;align-items:center;padding:5px 9px;
-  font-size:11px;color:#4a5754;background:#fff;border-top:1px solid var(--line)}
+  font-size:11px;color:var(--muted);background:var(--panel);border-top:1px solid var(--line)}
 .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
 html.embedded body{background:#fff}
 </style></head><body>

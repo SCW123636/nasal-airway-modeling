@@ -19,9 +19,9 @@ h1 span{font-size:11px}
 .upload-box,.case-history,.surface,.case-run,.validation-status,.validation-band,
 .simulation-card,.case-notice,.overview-focus{border-radius:4px}
 .process-sidebar{border-right:1px solid var(--line)}
-.app-header{border-bottom:1px solid #d8e0da}
+.app-header{border-bottom:1px solid #dcdcdc}
 button{border-radius:4px;padding:5px 10px;font-size:11.5px}
-button:hover:enabled{border-color:#9fc4ae;background:#f2f8f4}
+button:hover:enabled{border-color:#c8c8c8;background:#f0f0f0}
 select,input{border-radius:4px}
 dialog{border-radius:5px}
 details summary{font-size:11.5px}
@@ -53,7 +53,7 @@ nav a small{font-size:9.5px;margin-top:2px}
 code,pre{font-family:ui-monospace,Consolas,monospace}
 .history-item small,.history-select small,
 .simulation-job-row small{font-family:ui-monospace,Consolas,monospace;
-  font-variant-numeric:tabular-nums;font-size:10px;color:#8b948e}
+  font-variant-numeric:tabular-nums;font-size:10px;color:#9a9a9a}
 .run-facts span,.case-context,.muted{font-variant-numeric:tabular-nums}
 .simulation-facts dd,.simulation-feedback-facts dd,
 .overview-stage small,#active-case-state{font-variant-numeric:tabular-nums}
@@ -61,7 +61,7 @@ code,pre{font-family:ui-monospace,Consolas,monospace}
   font-size:14px;font-weight:600}
 table{font-size:11.5px}
 th,td{padding:7px 10px}
-th{font-weight:600;color:#5d6a62;letter-spacing:.02em}
+th{font-weight:600;color:#6e6e6e;letter-spacing:.02em}
 .table-scroll table{min-width:480px}
 
 /* ---- 6. 状态徽章分级：形状收敛、语义清晰 ------------------------------- */
@@ -70,14 +70,14 @@ th{font-weight:600;color:#5d6a62;letter-spacing:.02em}
 .badge,.feedback-version{border-radius:3px}
 .simulation-job-row{padding:9px 8px;gap:10px}
 .simulation-job-row strong{font-size:11.5px;font-weight:600}
-.simulation-job-row.is-active{background:#eef5f0;box-shadow:inset 2px 0 0 var(--accent)}
+.simulation-job-row.is-active{background:#f0f0f0;box-shadow:inset 2px 0 0 var(--accent)}
 .simulation-jobs{max-height:260px}
 .simulation-history-note>span{font-family:ui-monospace,Consolas,monospace;
   font-variant-numeric:tabular-nums}
 
 /* ---- 7. 计算页专用：反馈事实区 = 属性面板 ------------------------------ */
 .simulation-feedback-facts{gap:6px;margin:10px 0}
-.simulation-feedback-facts>div{padding:8px 10px;border-radius:3px;background:#f4f8f5}
+.simulation-feedback-facts>div{padding:8px 10px;border-radius:3px;background:#f0f0f0}
 .simulation-feedback-facts dt{font-size:9.5px;letter-spacing:.03em}
 .simulation-stages li{border-radius:3px;padding:5px 8px;font-size:11px}
 .simulation-check{padding:8px 0}

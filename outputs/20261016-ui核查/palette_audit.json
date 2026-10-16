@@ -1,0 +1,137 @@
+{
+ "surface_files": 20,
+ "violations": [],
+ "missing": [],
+ "data_exemptions": [
+  {
+   "file": "work\\07_cfd_pipeline\\workspace\\t058_cut.html",
+   "data_colors": [
+    "#1f77b4",
+    "#2ca02c",
+    "#c3cdda",
+    "#d62728",
+    "#e8823a"
+   ]
+  },
+  {
+   "file": "work\\07_cfd_pipeline\\workspace\\t058_cut.js",
+   "data_colors": [
+    "0x1f77b4",
+    "0x2ca02c",
+    "0x8a9390",
+    "0xc3cdda",
+    "0xc96a1e",
+    "0xd62728",
+    "0xe8823a"
+   ]
+  },
+  {
+   "file": "work\\07_cfd_pipeline\\workspace\\t058_cmp.html",
+   "data_colors": [
+    "#1f77b4",
+    "#2ca02c",
+    "#c3cdda",
+    "#d62728",
+    "#e8823a"
+   ]
+  },
+  {
+   "file": "work\\07_cfd_pipeline\\workspace\\t058_cmp.js",
+   "data_colors": [
+    "0x1f77b4",
+    "0x2ca02c",
+    "0xc3cdda",
+    "0xc96a1e",
+    "0xd62728",
+    "0xe8823a"
+   ]
+  },
+  {
+   "file": "work\\07_cfd_pipeline\\viewer\\viewer.css",
+   "data_colors": [
+    "#21918c",
+    "#3b528b",
+    "#440154",
+    "#5ec962",
+    "#fde725"
+   ]
+  },
+  {
+   "file": "work\\07_cfd_pipeline\\viewer\\viewer.js",
+   "data_colors": [
+    "#70a9b6",
+    "0x285da0",
+    "0x395eb9",
+    "0xb87513",
+    "0xffa12f"
+   ]
+  },
+  {
+   "file": "work\\lib\\assets\\streamlines_template.html",
+   "data_colors": [
+    "#1f77b4",
+    "#2ca02c",
+    "#8d9bab",
+    "#d62728"
+   ]
+  },
+  {
+   "file": "work\\lib\\assets\\streamlines_app.js",
+   "data_colors": [
+    "0x1f77b4",
+    "0x2ca02c",
+    "0x8d9bab",
+    "0xc3cdda",
+    "0xd62728"
+   ]
+  }
+ ],
+ "neutral_count": 368,
+ "threshold": 8,
+ "out_of_surface": [
+  {
+   "path": "work/06_auto_landmarks/index.html",
+   "why": "遗留工作台 04 步 切片审核（navy 系，模板/构建器生成）"
+  },
+  {
+   "path": "work/06_auto_landmarks/feedback_review/index.html",
+   "why": "遗留工作台 05 步 意见核对（同上）"
+  },
+  {
+   "path": "work/lib/feedback_review_template.html",
+   "why": "上述 05 步页的模板"
+  },
+  {
+   "path": "work/lib/medical_review_template.html",
+   "why": "医学复核页模板"
+  },
+  {
+   "path": "work/08_method_explanation/",
+   "why": "方法说明页（独立文档站）"
+  },
+  {
+   "path": "work/03_calib/鼻腔标定复核.html",
+   "why": "早期标定复核页（无服务路由）"
+  },
+  {
+   "path": "work/09_coarse_localization/pipeline_check/index.html",
+   "why": "粗定位自检页（无服务路由）"
+  },
+  {
+   "path": "work/10_nasalseg_intake/nasalseg_article.html",
+   "why": "分割说明文（独立文档）"
+  },
+  {
+   "path": "work/zenodo_13893419.html",
+   "why": "外部文献页面存档"
+  },
+  {
+   "path": "work/07_cfd_pipeline/workspace/upper-airway.*",
+   "why": "咽部扩展页（T-060 已移除入口）"
+  },
+  {
+   "path": "work/07_cfd_pipeline/优化空间与后续设计_云端调研委托_20261012.html",
+   "why": "独立调研委托报告"
+  }
+ ]
+}

@@ -11,7 +11,7 @@ const $ = id => document.getElementById(id);
 const COLORS = {
   wall: 0xc3cdda, nostril_L: 0x1f77b4, nostril_R: 0x2ca02c,
   outlet: 0xe8823a, ghost: 0xd62728, planeNew: 0xc96a1e,
-  planeAxial: 0x8a9390, axis: 0x23332f,
+  planeAxial: 0x8a9390,   axis: 0x1a1a1a,
 };
 const FOCUS_MM = 34;          // 出口特写：域底往上 34 mm（显示坐标 y = superior）
 const VIEW_DIRS = {
@@ -37,7 +37,7 @@ let focusExit = true;
 
 function initScene() {
   scene = new THREE.Scene();
-  scene.background = new THREE.Color('#e8eff1');
+  scene.background = new THREE.Color('#eef0f0');   /* 中性灰视口底（工作台令牌 --canvas） */
   camera = new THREE.PerspectiveCamera(38, 1, 0.01, 10000);
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
   renderer.setPixelRatio(Math.min(Math.max(devicePixelRatio, 1.5), 2));
@@ -51,7 +51,7 @@ function initScene() {
   // 影棚布光：半球环境 + 双主光 + 底部补光（仰视出口时的背光问题）
   // 强度经 _light_probe.html 标定：three r180 物理光单位下此档位使壁面达到
   // sRGB≈215–225 的明亮灰且保留明暗层次（ACES 压缩高光）
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xa9b9c0, 4.0));
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xc8c8c8, 4.0));
   const key1 = new THREE.DirectionalLight(0xffffff, 1.6);
   key1.position.set(120, 150, 130); scene.add(key1);
   const key2 = new THREE.DirectionalLight(0xffffff, 1.0);

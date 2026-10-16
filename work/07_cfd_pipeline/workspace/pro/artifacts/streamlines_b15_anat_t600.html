@@ -3,39 +3,51 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>三维流线 · 腔内速度与静压（b15 扩展域 · 解剖斜切，time=600）</title>
 <style>
-:root{--ink:#23332f;--muted:#78817e;--line:#e4e9e6;--accent:#257861;--soft:#edf5f0;--warn:#99691e;--bad:#b64e43;--bg:#f5f7f5}
+/* 配色 = 工作台统一视觉令牌的同一组值（出处：work/07_cfd_pipeline/workspace/pro/tokens.css）。
+   本页是自包含单文件产物，故内联而不外链；改色请先改 tokens.css 再同步此处。
+   纪律：chrome 一律单色（明度分级 + 徽章反转），颜色只留给数据（速度/静压色带、坐标尺）；
+   圆角 2–3px、1px 描边（圆角 >6px 属旧版语言）。 */
+:root{
+  --ink:#1a1a1a;--muted:#6e6e6e;--faint:#9a9a9a;--line:#dcdcdc;--line2:#c8c8c8;
+  --accent:#1a1a1a;--accent-ink:#000000;--soft:#f0f0f0;--soft2:#e4e4e4;
+  --warn:#3d3d3d;--warn-bg:#efefef;--bad:#000000;--bad-bg:#e2e2e2;
+  --bg:#ebebeb;--panel:#ffffff;--canvas:#eef0f0;
+  --mono:ui-monospace,Consolas,"Cascadia Mono",monospace;
+  color-scheme:light;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif}
-code{font:11.5px ui-monospace,Consolas,monospace;background:var(--soft);padding:1px 5px;border-radius:4px}
-.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:16px 22px 10px}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 "Segoe UI",system-ui,"Microsoft YaHei",sans-serif}
+code{font:11.5px var(--mono);background:var(--soft);padding:1px 5px;border-radius:2px}
+.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:14px 18px 8px}
 .crumb{font-size:11px;color:var(--muted);width:100%}
 .badges{margin-left:auto;display:flex;gap:6px}
-.badge{font-size:10px;padding:3px 8px;border-radius:5px;background:var(--soft);color:var(--muted);border:1px solid var(--line)}
-.badge.warn{background:#fff4de;color:var(--warn);border-color:#ecd9b0}
-h1{font-size:19px;margin:0;font-weight:650}
-.sub{width:100%;font-size:12px;color:var(--muted);margin:2px 0 0}
-.honesty{margin:4px 22px 0;border:1px solid #ecd9b0;background:#fffaf0;border-radius:8px;font-size:12px;color:#7a6a45}
-.honesty summary{cursor:pointer;padding:9px 13px;font-weight:600;color:var(--warn)}
-.honesty ol{margin:0;padding:0 20px 12px 32px}
+.badge{font:10.5px var(--mono);padding:3px 8px;border-radius:2px;background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+.badge.warn{background:#ececec;color:#1b1b1b;border-color:#ececec;font-weight:600}
+h1{font-size:18px;margin:0;font-weight:600;letter-spacing:.01em}
+.sub{width:100%;font-size:11.5px;color:var(--muted);margin:2px 0 0}
+.honesty{margin:4px 18px 0;border:1px solid var(--line);background:var(--panel);border-radius:2px;font-size:11.5px;color:var(--muted)}
+.honesty summary{cursor:pointer;padding:8px 12px;font-weight:600;color:var(--ink)}
+.honesty ol{margin:0;padding:0 18px 10px 30px}
 .honesty li{margin:5px 0;line-height:1.7}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:14px;padding:12px 22px 20px;align-items:start}
-.stage{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
-.stage-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid var(--line)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:12px;padding:10px 18px 16px;align-items:start}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column}
+.stage-bar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:8px 10px;border-bottom:1px solid var(--line);background:#fafafa}
 .stage-bar .spacer{flex:1}
-button{background:#fff;border:1px solid var(--line);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;color:var(--ink)}
+button{background:#fff;border:1px solid var(--line);border-radius:2px;padding:4px 9px;cursor:pointer;font:11.5px "Segoe UI",system-ui,"Microsoft YaHei",sans-serif;color:var(--ink)}
+button:hover{background:var(--soft)}
 button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
-#view{height:min(70vh,760px);min-height:420px;background:#eef3f1}
-.stage-foot{padding:8px 12px;font-size:11px;color:var(--muted);border-top:1px solid var(--line)}
-aside{display:grid;gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.card h2{font-size:13px;margin:0 0 10px;font-weight:650}
+#view{height:min(70vh,760px);min-height:420px;background:var(--canvas)}
+.stage-foot{padding:8px 10px;font-size:11px;color:var(--muted);border-top:1px solid var(--line)}
+aside{display:grid;gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:12px 14px}
+.card h2{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.stat{background:var(--soft);border:1px solid #d9e9df;border-radius:7px;padding:9px 11px}
-.stat-v{font-size:16px;font-weight:650;color:#315342}
+.stat{background:var(--soft);border:1px solid var(--line);border-radius:2px;padding:8px 10px}
+.stat-v{font-size:16px;font-weight:600;color:var(--ink);font-family:var(--mono)}
 .stat-k{font-size:10px;color:var(--muted);margin-top:2px}
-.stat-n{font-size:10px;color:#8fa398;margin-top:1px}
+.stat-n{font-size:10px;color:var(--faint);margin-top:1px}
 .facts{margin:12px 0 0;display:grid;gap:0}
-.fr{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;padding:7px 0;border-bottom:1px solid #f0f3f0;font-size:12px}
+.fr{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:12px}
 .fr:last-child{border-bottom:0}
 dt{color:var(--muted)}
 dd{margin:0;overflow-wrap:anywhere}
@@ -43,13 +55,13 @@ dd{margin:0;overflow-wrap:anywhere}
 .ctrl .group{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .ctrl .lbl{font-size:11px;color:var(--muted);width:52px;flex:none}
 label.sw{display:flex;gap:5px;align-items:center;font-size:12px;cursor:pointer}
-input[type=range]{width:100%;accent-color:var(--accent)}
-.bar{height:11px;border-radius:6px;margin:8px 0 2px}
+input[type=range]{width:100%;accent-color:#1a1a1a}
+.bar{height:11px;border-radius:2px;margin:8px 0 2px}
 .legend{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
 .swatches{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;margin-top:8px}
 .sw{display:flex;gap:5px;align-items:center}
 .sw i{width:10px;height:10px;border-radius:2px;display:inline-block}
-#hist{display:block;width:100%;height:auto;background:#fafcfb;border:1px solid var(--line);border-radius:6px}
+#hist{display:block;width:100%;height:auto;background:#fafafa;border:1px solid var(--line);border-radius:2px}
 .hcap{font-size:11px;color:var(--muted);margin:6px 0 4px}
 @media(max-width:1000px){.layout{grid-template-columns:1fr}}
 </style></head>
@@ -119,7 +131,7 @@ function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports):"f
 const {LINE_DATA, WALL_POS, WALL_IDX, PATCH, META} = DATA;
 const host = document.getElementById('view');
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xeef3f1);
+scene.background = new THREE.Color(0xeef0f0);
 const camera = new THREE.PerspectiveCamera(45, 1, 1, 4000);
 const renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(2, window.devicePixelRatio||1));
@@ -229,7 +241,7 @@ function label(text, scale){
   const c = document.createElement('canvas'); c.width = 200; c.height = 56;
   const ctx = c.getContext('2d');
   ctx.font = '600 30px system-ui,"Microsoft YaHei",sans-serif';
-  ctx.fillStyle = '#33414f'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#1a1a1a'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.fillText(text, 100, 30);
   const tex = new THREE.CanvasTexture(c);
   tex.minFilter = THREE.LinearFilter;
@@ -363,14 +375,14 @@ applyRange();
   lens.forEach(function(v){ cnt[Math.min(bins-1, Math.floor((v-vmin)/w))]++; });
   const cmax = Math.max.apply(null, cnt);
   ctx.clearRect(0,0,W,H);
-  ctx.fillStyle = '#3b6ea5';
+  ctx.fillStyle = '#1a1a1a';
   const bw = W/bins;
   for (let i=0;i<bins;i++){
     const h = (H-18)*cnt[i]/cmax;
     ctx.fillRect(i*bw+1, H-14-h, bw-2, h);
   }
-  ctx.strokeStyle = '#9aa7b4'; ctx.beginPath(); ctx.moveTo(0,H-13.5); ctx.lineTo(W,H-13.5); ctx.stroke();
-  ctx.fillStyle = '#5c6b7a'; ctx.font = '10px system-ui,"Microsoft YaHei",sans-serif';
+  ctx.strokeStyle = '#c8c8c8'; ctx.beginPath(); ctx.moveTo(0,H-13.5); ctx.lineTo(W,H-13.5); ctx.stroke();
+  ctx.fillStyle = '#6e6e6e'; ctx.font = '10px system-ui,"Microsoft YaHei",sans-serif';
   ctx.fillText('0', 2, H-3); ctx.textAlign='right'; ctx.fillText(String(vmax)+' mm', W-2, H-3); ctx.textAlign='left';
   ctx.fillText(String(cmax), 2, 10);
 })();

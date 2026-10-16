@@ -3,13 +3,8 @@
    独立视觉层：单色工程风——明度分级、等宽数字、扁平面板；
    状态语义靠 明度+字形+徽章反转 区分（不依赖彩色）。数据着色（三维/流线色带）不在此列。
    ========================================================================== */
-:root{
-  --ink:#1a1a1a;--muted:#6e6e6e;--faint:#9a9a9a;--line:#dcdcdc;--line2:#c8c8c8;
-  --accent:#1a1a1a;--accent-ink:#000000;--soft:#f0f0f0;--soft2:#e4e4e4;
-  --warn:#3d3d3d;--warn-bg:#efefef;--bad:#000000;--bad-bg:#e2e2e2;
-  --bg:#ebebeb;--panel:#ffffff;--mono:ui-monospace,Consolas,"Cascadia Mono",monospace;
-  color-scheme:light;
-}
+/* 视觉令牌（--ink/--muted/--line/--accent/--soft/--bg/--panel/--mono 等）
+   统一由 tokens.css 定义，本页在 <head> 中先 link 它；此处不再重复定义。 */
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{font:12px/1.5 "Segoe UI",system-ui,"Microsoft YaHei",sans-serif;color:var(--ink);
