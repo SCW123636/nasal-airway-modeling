@@ -1,0 +1,4 @@
+p0: start (machine load 41.6%)
+p0: auto_pass  areas={'nostril_L': 80.26, 'nostril_R': 80.46, 'oropharynx_truncation_outlet': 226.0}
+
+auto_pass 1/1  -> outputs\T-011\a0_p0_oroext_run.json

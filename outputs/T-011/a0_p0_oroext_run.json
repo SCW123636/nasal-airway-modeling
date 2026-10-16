@@ -1,0 +1,65 @@
+{
+  "schema": "normal_path_run/v1",
+  "method": "work/07_cfd_pipeline/正常路径基本方法_v1.md",
+  "cases": 1,
+  "auto_pass": 1,
+  "jobs": 1,
+  "load_ceiling": 78.0,
+  "from_stage": 3,
+  "surface_root": "C:\\ts_work\\t011_p0_oroext\\surfaces",
+  "opening_root": "C:\\ts_work\\t011_p0_oroext\\opening",
+  "domain": "extended (nasal_cavity_L/R + nasopharynx + oropharynx)",
+  "pre": {},
+  "rows": {
+    "p0": {
+      "case": "p0",
+      "s2_segment": {
+        "skipped": "--from-stage 3; masks at C:\\ts_work\\p0\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 339274,
+          "nasal_cavity_right": 270876,
+          "nasopharynx": 82727,
+          "oropharynx": 148837
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "rc": 0,
+        "s": 24.5,
+        "tail": "    },\n      \"nasopharynx_outlet\": {\n        \"status\": \"proposed\",\n        \"point_lps_mm\": [\n          -11.516358289822167,\n          -158.33160182579724,\n          -666.2174786671997\n        ],\n        \"review_reasons\": []\n      }\n    },\n    \"out\": \"D:\\\\项目\\\\鼻腔建模\\\\work\\\\06_auto_landmarks\\\\p0\"\n  }\n]\n",
+        "landmarks_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 8.5,
+        "tail": "p0: OK  air=717377  pts=223664  tri=447324  boundary=0\n\nbuilt 1/1; written C:\\ts_work\\t011_p0_oroext\\surfaces\\surface_build.json\n",
+        "surface_sha256": "24b893cbc7cd72f640474a3fad003d4d5e3853677149337a04e2bdb0d3d3d373"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 610.7,
+        "tail": "p0: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.26,
+          "nostril_R": 80.46,
+          "oropharynx_truncation_outlet": 226.0
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    }
+  }
+}
