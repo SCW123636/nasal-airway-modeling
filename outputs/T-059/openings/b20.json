@@ -1,0 +1,13 @@
+{
+  "case": "b20",
+  "schema": "auto_opening_pipeline/v2",
+  "decision": "escalated",
+  "escalations": [
+    {
+      "opening": null,
+      "reason": "no_planes",
+      "detail": "b20/nostril_L: automatic proposal is unavailable, cannot build a plane"
+    }
+  ],
+  "patient_solver_allowed": false
+}

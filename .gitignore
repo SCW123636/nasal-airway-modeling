@@ -65,3 +65,13 @@ work/**/logs/
 work/**/preview/
 work/**/_smoke/
 test_localsystem.txt
+
+# T-059 几何层重跑：表面/开孔二进制留盘，可由 run 脚本重跑（JSON/CSV 入库）
+outputs/T-059/surfaces/
+outputs/T-059/openings/*/
+
+# T-039 SlicerVMTK 实测中间产物（~1.2G；结论卡已归档，二进制留盘）
+outputs/T-039/chali_*/
+
+# 本地测试符号链接
+/vartest

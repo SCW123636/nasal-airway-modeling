@@ -1,0 +1,109 @@
+{
+  "schema": "nasal_mca_measurement/v1",
+  "case": "b11",
+  "generated_at_utc": "2026-10-16T05:16:42+00:00",
+  "generator": {
+    "script": "D:\\项目\\鼻腔建模\\work\\lib\\measure_mca.py",
+    "parameters": {
+      "bin_mm": 0.35,
+      "anterior_window_mm": 40.0,
+      "entry_skip_mm": 3.0,
+      "posterior_axis_source": "anatomy_frame.posterior_lps (palate-plane frame)",
+      "left_right_split": "TS semantic labels, not geometric midline"
+    }
+  },
+  "inputs": {
+    "candidate_mask": "D:\\项目\\鼻腔建模\\outputs\\T-059\\surfaces\\b11\\air_mask.nii.gz",
+    "candidate_mask_sha256": "5343761ee5a3eb035c04ffd561083064259816cea08363722d8f9ab58b6c654b",
+    "landmarks": "D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b11\\landmarks.json",
+    "source_ct": "C:\\ts_work\\b11\\ct.nii.gz",
+    "source_ct_sha256": "0d3f9278eb2388bb9eb3b3b7242208b343985d3d6b48e8939777139697c7b7ba"
+  },
+  "coordinate_system": "LPS",
+  "unit": "mm",
+  "voxel_volume_mm3": 0.14901147,
+  "posterior_lps": [
+    0.058883,
+    0.943186,
+    0.327005
+  ],
+  "method": "A(s) = N(s) * V_voxel / ds, s = distance along posterior axis from ipsilateral nostril. CT equivalent of acoustic-rhinometry area-distance curve.",
+  "status": "provisional_geometry",
+  "clinical_validation": "not_validated",
+  "per_side": {
+    "left": {
+      "side": "left",
+      "voxels": 52564,
+      "volume_ml": 7.8326387208672275,
+      "n_slabs": 115,
+      "discontinuity_slabs": 0,
+      "entry_skip_mm": 3.0,
+      "mca_incl_entry_mm2": 64.288,
+      "mca_incl_entry_cm2": 0.6429,
+      "mca_incl_entry_distance_mm": 0.17,
+      "mca_post_entry_mm2": 76.634,
+      "mca_post_entry_cm2": 0.7663,
+      "mca_post_entry_distance_mm": 40.07,
+      "entry_boundary_artifact_suspected": true,
+      "dominant_minimum_is_post_entry": true,
+      "mean_area_mm2": 99.329,
+      "max_area_mm2": 126.447,
+      "window_mm": 40.0,
+      "primary_mca_cm2": 0.7663,
+      "ratio_to_asian_reference": 1.022,
+      "magnitude_check": "same_order_of_magnitude",
+      "status": "computed"
+    },
+    "right": {
+      "side": "right",
+      "voxels": 42031,
+      "volume_ml": 6.263100945072111,
+      "n_slabs": 115,
+      "discontinuity_slabs": 0,
+      "entry_skip_mm": 3.0,
+      "mca_incl_entry_mm2": 46.406,
+      "mca_incl_entry_cm2": 0.4641,
+      "mca_incl_entry_distance_mm": 16.97,
+      "mca_post_entry_mm2": 46.406,
+      "mca_post_entry_cm2": 0.4641,
+      "mca_post_entry_distance_mm": 16.97,
+      "entry_boundary_artifact_suspected": false,
+      "dominant_minimum_is_post_entry": false,
+      "mean_area_mm2": 67.523,
+      "max_area_mm2": 103.882,
+      "window_mm": 40.0,
+      "primary_mca_cm2": 0.4641,
+      "ratio_to_asian_reference": 0.619,
+      "magnitude_check": "same_order_of_magnitude",
+      "status": "computed"
+    }
+  },
+  "literature_reference": {
+    "source": "acoustic rhinometry (AR) 文献综述值；AR 与 CT 面积测量相关性已被文献确认可互校",
+    "role": "量级哨兵，不是合格线 —— AR 与 CT 在体位/黏膜状态/起点定义上系统性有偏",
+    "asian_adult_mca_cm2": 0.75,
+    "asian_adult_sd_cm2": 0.03,
+    "other_populations_cm2": {
+      "caucasian": 0.72,
+      "oriental": 0.62,
+      "african_american": 0.88,
+      "american_indian": 0.7
+    },
+    "healthy_51_cavities_mca_cm2": 0.62,
+    "healthy_51_distance_from_nostril_cm": 2.35,
+    "septal_deviation_threshold_cm2": 0.28,
+    "reported_range_cm2": [
+      0.3,
+      1.5
+    ]
+  },
+  "caveats": [
+    "输入几何为 provisional 候选掩膜，未经 7 点人工复核，不构成本项目的验收结论。",
+    "入口面尚未经人工确认；若 entry_boundary_artifact_suspected 为真，'incl_entry' 最小值是入口斜切伪影而非鼻阀，须以人工确认的入口裁剪面重测后才能定论。",
+    "距鼻孔距离的起点取 TS 标签最前端，与 AR 的适配器起点定义不同，位置值不可直接与 AR 比较。",
+    "截面积取垂直于前后轴的平面；真实流道并非严格沿该轴，故为近似。",
+    "候选掩膜含鼻咽合并段，左右由 TS 语义标签分离，鼻咽段不参与 MCA 判定。",
+    "文献参考值来自 AR(声反射)，与 CT 在体位、黏膜状态、起点定义上系统性有偏，只作量级哨兵。",
+    "未使用中心线，也未做平滑；空 slab 如实报出不插值。"
+  ]
+}

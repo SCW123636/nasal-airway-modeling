@@ -1,0 +1,1168 @@
+{
+  "schema": "normal_path_run/v1",
+  "method": "work/07_cfd_pipeline/正常路径基本方法_v1.md",
+  "cases": 24,
+  "auto_pass": 23,
+  "jobs": 2,
+  "load_ceiling": 78.0,
+  "from_stage": 4,
+  "surface_root": "outputs\\T-059\\surfaces",
+  "opening_root": "outputs\\T-059\\openings",
+  "domain": "extended (nasal_cavity_L/R + nasopharynx + oropharynx)",
+  "pre": {},
+  "rows": {
+    "b02": {
+      "case": "b02",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b02\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 62450,
+          "nasal_cavity_right": 66551,
+          "nasopharynx": 37849,
+          "oropharynx": 25598
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b02\\landmarks.json reused as-is",
+        "landmarks_sha256": "88dc59221ac03cb24eefb4136db3b4f60b71b622c5c4ae1a1abd7eb504376c99"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 4.0,
+        "tail": "b02: OK  air=144238  pts=91586  tri=183252  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "d8c61d6ac5c0b170bb5da0322656fed318d0761aa9e0461936d0925732eeccfb"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 169.6,
+        "tail": "b02: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.15,
+          "nostril_R": 80.22,
+          "oropharynx_truncation_outlet": 84.57
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b01": {
+      "case": "b01",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b01\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 68508,
+          "nasal_cavity_right": 68508,
+          "nasopharynx": 40153,
+          "oropharynx": 54370
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b01\\landmarks.json reused as-is",
+        "landmarks_sha256": "5c8096e2544cb45617257b3b94c40efe370a5e3a7cbb8c58f7d872bd1fc69afa"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 4.3,
+        "tail": "b01: OK  air=189908  pts=92966  tri=185932  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "027eb31afd691014d62b103c91066286dfbb31006592c92bef3726bbfd63ebd5"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 184.1,
+        "tail": "b01: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.08,
+          "nostril_R": 80.08,
+          "oropharynx_truncation_outlet": 208.46
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b03": {
+      "case": "b03",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b03\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 55691,
+          "nasal_cavity_right": 73047,
+          "nasopharynx": 34900,
+          "oropharynx": 21198
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b03\\landmarks.json reused as-is",
+        "landmarks_sha256": "cf1fb30f5fc88076624f7ca9b224f9df8dee5fb71973e0ace5a8847fd6b7d75f"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 5.7,
+        "tail": "b03: OK  air=147099  pts=75960  tri=151976  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "c56670be22b42558872176fd9ff79e73c7d27eef6ed5a5a9e9cf2ede6aa42c6a"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 106.9,
+        "tail": "b03: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 81.37,
+          "nostril_R": 80.05,
+          "oropharynx_truncation_outlet": 142.45
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b04": {
+      "case": "b04",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b04\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 79400,
+          "nasal_cavity_right": 78866,
+          "nasopharynx": 24003,
+          "oropharynx": 15364
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b04\\landmarks.json reused as-is",
+        "landmarks_sha256": "b8a7b4ab79be3bf9ac3d75e3cdba7c177d8ab17edf691f890a754d538dd2d948"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 4.2,
+        "tail": "b04: OK  air=150761  pts=102018  tri=204060  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "2e72be6800b89d0656bd773692e137d73c9261182a323052c40927298dfbd700"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 195.0,
+        "tail": "b04: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.24,
+          "nostril_R": 80.03,
+          "oropharynx_truncation_outlet": 86.89
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b05": {
+      "case": "b05",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b05\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 65025,
+          "nasal_cavity_right": 72945,
+          "nasopharynx": 33237,
+          "oropharynx": 16216
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b05\\landmarks.json reused as-is",
+        "landmarks_sha256": "01654ff56523e85fdcdec7e830cbe0148219393e6da6d67ded6850e4a05836e9"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.5,
+        "tail": "b05: OK  air=150783  pts=86240  tri=172480  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "c7a72a29d5a33572b34f0d6062b4292a5fec3e84c28fa4247683fcd1b04b1be8"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 171.7,
+        "tail": "b05: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.76,
+          "nostril_R": 80.07,
+          "oropharynx_truncation_outlet": 184.83
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b07": {
+      "case": "b07",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b07\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 68526,
+          "nasal_cavity_right": 87411,
+          "nasopharynx": 26888,
+          "oropharynx": 25102
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b07\\landmarks.json reused as-is",
+        "landmarks_sha256": "6671105065f756e73db13a8d29df3b235cc133dfcf4948a6416eb76f3ec1a62c"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.6,
+        "tail": "b07: OK  air=173109  pts=94568  tri=189204  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "e07ce63527df699e3a09f8f9ce049a078d07029f5611804de868e44729324710"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 57.5,
+        "tail": "b07: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 94.11,
+          "nostril_R": 90.24,
+          "oropharynx_truncation_outlet": 197.57
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b08": {
+      "case": "b08",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b08\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 83243,
+          "nasal_cavity_right": 91685,
+          "nasopharynx": 38776,
+          "oropharynx": 25839
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b08\\landmarks.json reused as-is",
+        "landmarks_sha256": "9155edbccc36b927400cced9c69c36d7cf523b2e4d1de4ffc0b221086f61bb73"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 4.2,
+        "tail": "b08: OK  air=187219  pts=101808  tri=203672  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "9a67dcb6a3202ae7d1a63efe02e229fed10c0040584cb17d0a30c15086bed7d1"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 42.3,
+        "tail": "b08: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 95.37,
+          "nostril_R": 98.43,
+          "oropharynx_truncation_outlet": 77.13
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b06": {
+      "case": "b06",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b06\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 65900,
+          "nasal_cavity_right": 77753,
+          "nasopharynx": 21737,
+          "oropharynx": 14448
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b06\\landmarks.json reused as-is",
+        "landmarks_sha256": "6750e15af1088f0d9a88214544610e90fa63cd603404312ae19a2cb08b4a7871"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 4.1,
+        "tail": "b06: OK  air=132683  pts=93546  tri=187196  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "bb87001db8f91c6e54c38d1494c88e66981a8b41255ff717dbca1754a1599ea7"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 189.5,
+        "tail": "b06: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.01,
+          "nostril_R": 80.15,
+          "oropharynx_truncation_outlet": 127.9
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b09": {
+      "case": "b09",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b09\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 84024,
+          "nasal_cavity_right": 63331,
+          "nasopharynx": 34469,
+          "oropharynx": 29221
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b09\\landmarks.json reused as-is",
+        "landmarks_sha256": "c8834f3c9718a3f9d0679a9458e9c335e9ec8b1a99cc4fe53aa6c2a93c706c4d"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 4.2,
+        "tail": "b09: OK  air=161350  pts=84808  tri=169596  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "0be3f8258036dad831083507da61a9cedf88c253b8dfda72551fc59bfdac1287"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 35.7,
+        "tail": "b09: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 84.18,
+          "nostril_R": 81.09,
+          "oropharynx_truncation_outlet": 79.85
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b10": {
+      "case": "b10",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b10\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 74595,
+          "nasal_cavity_right": 68917,
+          "nasopharynx": 20473,
+          "oropharynx": 8196
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b10\\landmarks.json reused as-is",
+        "landmarks_sha256": "b3b149e692785814ff06e67124eedd90af5f172ae0becd159633a4f8a279d440"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.5,
+        "tail": "b10: OK  air=130620  pts=85522  tri=171060  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "031fb5a191e310c043222a6336d2db13e6223b2e3f925666327900546a64ddfa"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 102.3,
+        "tail": "b10: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 83.64,
+          "nostril_R": 80.28,
+          "oropharynx_truncation_outlet": 52.24
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b12": {
+      "case": "b12",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b12\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 76352,
+          "nasal_cavity_right": 78182,
+          "nasopharynx": 37116,
+          "oropharynx": 21516
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b12\\landmarks.json reused as-is",
+        "landmarks_sha256": "5382a62993777fc731573687eec3c14344b567680ee0fbd6339442da9ef28c47"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.4,
+        "tail": "b12: OK  air=150797  pts=77518  tri=155184  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "9240c6d062fc1f53d1ff6353a306e38ed1c5187dbd334aacdcf96c30a14055c9"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 39.2,
+        "tail": "b12: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 117.79,
+          "nostril_R": 116.18,
+          "oropharynx_truncation_outlet": 413.08
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b13": {
+      "case": "b13",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b13\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 76320,
+          "nasal_cavity_right": 70994,
+          "nasopharynx": 17013,
+          "oropharynx": 10431
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b13\\landmarks.json reused as-is",
+        "landmarks_sha256": "ae70b049b053c587957a24949442092becd90d015d92118f3f8582ad0b562c71"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.7,
+        "tail": "b13: OK  air=123671  pts=92258  tri=184572  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "2a3af1b628fc0c1e7c97983b99d1acc02fd6340f1d5f00a15447bf97d1d930da"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 37.7,
+        "tail": "b13: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.62,
+          "nostril_R": 100.67,
+          "oropharynx_truncation_outlet": 16.93
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b11": {
+      "case": "b11",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b11\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 71217,
+          "nasal_cavity_right": 62472,
+          "nasopharynx": 23876,
+          "oropharynx": 24078
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b11\\landmarks.json reused as-is",
+        "landmarks_sha256": "3f5a6ec7daf5022f2a41b6831019d3fa96aa4400501afb6d61d753a09502f04c"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.7,
+        "tail": "b11: OK  air=137311  pts=88242  tri=176692  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "7f52a3527364eb9292f58b42294b688f92de2ca13753b630f7c13c1a14817a5b"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 159.0,
+        "tail": "b11: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.01,
+          "nostril_R": 80.41,
+          "oropharynx_truncation_outlet": 175.88
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b14": {
+      "case": "b14",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b14\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 106453,
+          "nasal_cavity_right": 91929,
+          "nasopharynx": 27786,
+          "oropharynx": 15346
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b14\\landmarks.json reused as-is",
+        "landmarks_sha256": "9c34059a8e62e32e76aa1593ef6a152d942af8b8f66fd20bd420621babd4e2ea"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.0,
+        "tail": "b14: OK  air=205406  pts=94176  tri=188348  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "42b77d7fc96e0674492e68bdda9bc896d1ea4ed4cc27c57e5e0e4df2662536a8"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 104.0,
+        "tail": "b14: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 81.35,
+          "nostril_R": 80.38,
+          "oropharynx_truncation_outlet": 265.75
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b15": {
+      "case": "b15",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b15\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 76850,
+          "nasal_cavity_right": 72452,
+          "nasopharynx": 23218,
+          "oropharynx": 12735
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b15\\landmarks.json reused as-is",
+        "landmarks_sha256": "de5f703f878f31421441c624adbc7c66caa81aedcea9fa592a74b816db4431ac"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.0,
+        "tail": "b15: OK  air=146285  pts=88472  tri=176952  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "2f699560bc807a6527f4116072cb49e2d767ecadfc9ff7b45069b45e6cfecd2a"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 136.5,
+        "tail": "b15: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.04,
+          "nostril_R": 80.06,
+          "oropharynx_truncation_outlet": 125.85
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b17": {
+      "case": "b17",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b17\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 83401,
+          "nasal_cavity_right": 94111,
+          "nasopharynx": 24915,
+          "oropharynx": 11442
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b17\\landmarks.json reused as-is",
+        "landmarks_sha256": "21f75a0a31535182354e05ddf8f8198dcc4ef694431c93e77384be03ce7216b3"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.9,
+        "tail": "b17: OK  air=173490  pts=94050  tri=188108  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "3cc413617ddee9ffbb1c21eb19bce16f67dd8ee91261d6b65b17279c922bdf0a"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 33.4,
+        "tail": "b17: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 91.6,
+          "nostril_R": 102.85,
+          "oropharynx_truncation_outlet": 87.67
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b16": {
+      "case": "b16",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b16\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 66844,
+          "nasal_cavity_right": 69716,
+          "nasopharynx": 28335,
+          "oropharynx": 15701
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b16\\landmarks.json reused as-is",
+        "landmarks_sha256": "81f7605bc45727c66ee8c23f5edeb69a05e90b8087c49d0e0681bcd9ddb5c125"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.0,
+        "tail": "b16: OK  air=137386  pts=90292  tri=180672  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "a02e4aa748205440f8fb60a73609249f1b222d1600d3ee98cb0a7f3a207af18c"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 96.4,
+        "tail": "b16: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.39,
+          "nostril_R": 82.52,
+          "oropharynx_truncation_outlet": 120.17
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b19": {
+      "case": "b19",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b19\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 79706,
+          "nasal_cavity_right": 80359,
+          "nasopharynx": 26110,
+          "oropharynx": 7268
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b19\\landmarks.json reused as-is",
+        "landmarks_sha256": "576a51097eeec317297513f307d429d375fec4ad329e2cbeda44d07f9b7a67b4"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.3,
+        "tail": "b19: OK  air=141677  pts=97780  tri=195648  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "bbc17f1da73518d54f24273b23f25daad5e1e9d9f945c61dfdb815423aa261fc"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 39.5,
+        "tail": "b19: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 96.06,
+          "nostril_R": 95.1,
+          "oropharynx_truncation_outlet": 108.55
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b20": {
+      "case": "b20",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b20\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 54878,
+          "nasal_cavity_right": 70684,
+          "nasopharynx": 22055,
+          "oropharynx": 18784
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b20\\landmarks.json reused as-is",
+        "landmarks_sha256": "a67a5f2b4295a37fe2fb17246ef9bdc8e0dac0831b95830ae62efe8c4ceb4fd5"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.3,
+        "tail": "b20: OK  air=120064  pts=78810  tri=157816  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "8dbb3816d22e27357443e651d34f29681585522701d31924e64094caf968b75d"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 1.3,
+        "tail": "b20: escalated <- b20/nostril_L: automatic proposal is unavailable, cannot build a plane\nauto_pass 0/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": false,
+        "decision": "escalated",
+        "escalations": [
+          {
+            "opening": null,
+            "reason": "no_planes",
+            "detail": "b20/nostril_L: automatic proposal is unavailable, cannot build a plane"
+          }
+        ],
+        "provenance": {
+          "surface": "unrecorded",
+          "plane": "unrecorded"
+        }
+      },
+      "final": "escalated"
+    },
+    "b18": {
+      "case": "b18",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b18\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 70590,
+          "nasal_cavity_right": 68005,
+          "nasopharynx": 28141,
+          "oropharynx": 13683
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b18\\landmarks.json reused as-is",
+        "landmarks_sha256": "4ae06d6122b1f17df6a5c8273d9d84b05b58f5d9d9ded3226e65daf20518924e"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.1,
+        "tail": "b18: OK  air=132663  pts=93042  tri=186264  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "363e5f7db9285203f0d7c633cb8fa8ff900cf426d77f90c544d660df61d74db6"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 138.4,
+        "tail": "b18: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.09,
+          "nostril_R": 80.07,
+          "oropharynx_truncation_outlet": 62.28
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b21": {
+      "case": "b21",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b21\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 50968,
+          "nasal_cavity_right": 56157,
+          "nasopharynx": 15356,
+          "oropharynx": 8271
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b21\\landmarks.json reused as-is",
+        "landmarks_sha256": "7156dbc0b968ea518ad42e6f26a41f9001ba4c30103dd8cfba74896e153ec3e2"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.9,
+        "tail": "b21: OK  air=95132  pts=74836  tri=149812  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "0ffdf6b84d8e85f75080143e363c77cc74c0321d56dcb4b2db815ef8fa19e66c"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 106.8,
+        "tail": "b21: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.15,
+          "nostril_R": 80.01,
+          "oropharynx_truncation_outlet": 20.04
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b22": {
+      "case": "b22",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b22\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 73851,
+          "nasal_cavity_right": 61657,
+          "nasopharynx": 10338,
+          "oropharynx": 6748
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b22\\landmarks.json reused as-is",
+        "landmarks_sha256": "323bc2bc7bf71268c22e0731aa171c06b6e5538453a98120c1470b5e82eb4d48"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 2.7,
+        "tail": "b22: OK  air=106589  pts=78092  tri=156244  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "f54ddf8e1e1597bb260f0c3a00339911304917dc0012b192623efbb5fd96e3ab"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 113.3,
+        "tail": "b22: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.12,
+          "nostril_R": 80.07,
+          "oropharynx_truncation_outlet": 74.67
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b23": {
+      "case": "b23",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b23\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 79268,
+          "nasal_cavity_right": 76461,
+          "nasopharynx": 18477,
+          "oropharynx": 7721
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b23\\landmarks.json reused as-is",
+        "landmarks_sha256": "5a9686696206c0384b8a89c056e34fd4f93e89a5131214256c54c6090f06e601"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.1,
+        "tail": "b23: OK  air=134439  pts=92370  tri=184796  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "ca0eac0bc78529ffcc4d8b27e9cedb2bc7265c5792c2747149bda85409903a2f"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 92.1,
+        "tail": "b23: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 87.97,
+          "nostril_R": 80.45,
+          "oropharynx_truncation_outlet": 37.07
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    },
+    "b24": {
+      "case": "b24",
+      "s2_segment": {
+        "skipped": "--from-stage 4; masks at C:\\ts_work\\b24\\masks reused as-is"
+      },
+      "N2": {
+        "gate": "N2",
+        "ok": true,
+        "voxels": {
+          "nasal_cavity_left": 63501,
+          "nasal_cavity_right": 84026,
+          "nasopharynx": 13380,
+          "oropharynx": 8184
+        },
+        "why": ""
+      },
+      "s3_propose": {
+        "skipped": "--from-stage 4; D:\\项目\\鼻腔建模\\work\\06_auto_landmarks\\b24\\landmarks.json reused as-is",
+        "landmarks_sha256": "1ae9231ea66a3717d2da2b2b8eba285ba4e3861b6fdd52e54920abe43a8f39ec"
+      },
+      "s4_surface": {
+        "rc": 0,
+        "s": 3.0,
+        "tail": "b24: OK  air=129098  pts=83464  tri=166984  boundary=0\n\nbuilt 1/1; written outputs\\T-059\\surfaces\\surface_build.json\n",
+        "surface_sha256": "4fadf81e1781cd9e35a5629e7b9d3485439c668b29f261047b9e92a615d17d81"
+      },
+      "s5_place": {
+        "rc": 0,
+        "s": 31.6,
+        "tail": "b24: auto_pass\nauto_pass 1/1\n"
+      },
+      "N6": {
+        "gate": "N6",
+        "ok": true,
+        "decision": "auto_pass",
+        "areas_mm2": {
+          "nostril_L": 80.23,
+          "nostril_R": 94.68,
+          "oropharynx_truncation_outlet": 188.83
+        },
+        "outside_band": null,
+        "provenance": {
+          "surface": "match",
+          "plane": "match"
+        }
+      },
+      "final": "auto_pass"
+    }
+  }
+}

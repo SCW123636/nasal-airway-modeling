@@ -1,0 +1,155 @@
+{
+  "case": "b17",
+  "schema": "auto_opening_pipeline/v2",
+  "criterion": "cap_area_target_bisect",
+  "cap_target_mm2": {
+    "nostril_L": 80.0,
+    "nostril_R": 80.0,
+    "oropharynx_truncation_outlet": 10.0
+  },
+  "criterion_note": "the plane is bisected until the cap the production clip produces reaches an anatomical target area",
+  "passes": 3,
+  "search_start_mm": 0.0,
+  "search_window_mm": 3.0,
+  "seed_mode": "roi",
+  "search_origin": "reviewed",
+  "requested_search_origin": "reviewed",
+  "onset_flags": [],
+  "source_qc": {
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "inconsistent_winding_edges": 0,
+    "duplicate_triangles": 0,
+    "degenerate_triangles": 0,
+    "surface_area_mm2": 20446.422525501242,
+    "signed_volume_mm3": 25814.336660957237,
+    "triangles": 188108,
+    "vertices": 94050
+  },
+  "escalations": [],
+  "onset_offset_mm": {
+    "nostril_L": -0.25,
+    "nostril_R": -0.5,
+    "oropharynx_truncation_outlet": -2.25
+  },
+  "offset_from_onset_mm": {
+    "nostril_L": 0.25,
+    "nostril_R": 0.5,
+    "oropharynx_truncation_outlet": 2.25
+  },
+  "offset_from_reviewed_mm": {
+    "nostril_L": 0.0,
+    "nostril_R": 0.0,
+    "oropharynx_truncation_outlet": 0.0
+  },
+  "descent_trace": [
+    {
+      "nostril_L": 0.0,
+      "nostril_R": 0.0,
+      "oropharynx_truncation_outlet": 0.0
+    }
+  ],
+  "placement_evidence": {
+    "weak_probes": {
+      "nostril_L": 0,
+      "nostril_R": 0,
+      "oropharynx_truncation_outlet": 0
+    },
+    "verified_by_clip": {
+      "nostril_L": true,
+      "nostril_R": true,
+      "oropharynx_truncation_outlet": true
+    },
+    "entered_bisection": {
+      "nostril_L": false,
+      "nostril_R": false,
+      "oropharynx_truncation_outlet": false
+    },
+    "note": "weak_probes counts bisection steps decided by a refused clip, i.e. on absence of evidence; verified_by_clip is whether the converged position was itself ever successfully clipped, and is null when the opening never entered a bisection at all (nothing was attempted, so calling it unverified would be a claim the run cannot support)"
+  },
+  "selection_notes": {
+    "nostril_L": {
+      "seed_mode": "roi",
+      "seed_vertices": 555,
+      "negative_components_reached": 1,
+      "selected_vertices": 556,
+      "selected_faces": 1241,
+      "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+    },
+    "nostril_R": {
+      "seed_mode": "roi",
+      "seed_vertices": 613,
+      "negative_components_reached": 1,
+      "selected_vertices": 622,
+      "selected_faces": 1410,
+      "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+    },
+    "oropharynx_truncation_outlet": {
+      "seed_mode": "roi",
+      "seed_vertices": 560,
+      "negative_components_reached": 1,
+      "selected_vertices": 828,
+      "selected_faces": 1753,
+      "selection": "negative_side_connectivity_from_reviewed_roi_seed"
+    }
+  },
+  "surface_qc": {
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "inconsistent_winding_edges": 0,
+    "duplicate_triangles": 0,
+    "degenerate_triangles": 0,
+    "surface_area_mm2": 20278.36658346121,
+    "signed_volume_mm3": 25481.25751109734,
+    "triangles": 185736,
+    "vertices": 92864
+  },
+  "patch_areas_mm2": {
+    "nostril_L": 91.6,
+    "nostril_R": 102.85,
+    "oropharynx_truncation_outlet": 87.67
+  },
+  "volume_removed_mm3": 333.1,
+  "surface_sha256": "ec32f6a57920ab9baac40d4a83892c9ee70304264193ba41749a33fe69c0086e",
+  "decision": "auto_pass",
+  "boundary_scope_review": "pending",
+  "oral_exclusion_review": "pending",
+  "sinus_policy_review": "pending",
+  "final_geometry_review": "pending",
+  "patient_solver_allowed": false,
+  "truncation_outlet": {
+    "reason": null,
+    "bottom_air_voxels": 342,
+    "z_bottom_center_mm": -47.59000015258789,
+    "z_cut_lowest_mm": -47.09,
+    "z_anchor_mm": -44.738,
+    "clearance_mm": 2.352,
+    "cut_above_bottom_mm": 0.5,
+    "axis_lps": [
+      0.004457290836615493,
+      -0.5053226196165753,
+      0.8629189896289453
+    ],
+    "axis_fit": {
+      "reason": null,
+      "slices": 11,
+      "height_mm": 6.25,
+      "tilt_deg": 30.35,
+      "drift_xy_mm": [
+        -0.07,
+        -3.92
+      ],
+      "area_first_last_mm2": [
+        83.7,
+        160.0
+      ]
+    },
+    "cut_rule": "perpendicular_to_local_airway_axis"
+  },
+  "onset_area_threshold_mm2": 50.0,
+  "plane_source": "automatic_proposal",
+  "plane_source_sha256": "21f75a0a31535182354e05ddf8f8198dcc4ef694431c93e77384be03ce7216b3",
+  "clinical_status": "generalisation_test_only_no_human_review",
+  "admitted_needs_review": [],
+  "source_sha256": "3cc413617ddee9ffbb1c21eb19bce16f67dd8ee91261d6b65b17279c922bdf0a"
+}
