@@ -3,14 +3,14 @@
   "note": "工作台「流线」页的已核验流线产物清单，与 patient_metrics.json 同一搬运模式：只列已核验任务的产物，每条带 source/domain/clinical_status 出处，不做实时推算、不伪造 job 记录。job 体系登记了 streamlines.html 时优先用 job 产物；无登记时回退到本清单。",
   "items": [
     {
-      "id": "t057_b15_oroext_t600",
-      "label": "b15 · 口咽扩展域 · time=600",
-      "url": "/workspace/pro/artifacts/streamlines_b15_oroext_t600.html",
+      "id": "t058_b15_anat_t600",
+      "label": "b15 · 口咽扩展域 · 解剖斜切 · time=600",
+      "url": "/workspace/pro/artifacts/streamlines_b15_anat_t600.html",
       "case_id": "b15_engineering",
-      "domain": "extended（鼻+鼻咽+可见口咽）",
-      "source": "T-057（源场 T-054，vtkStreamTracer，seed=7，每侧 60 种子）",
+      "domain": "extended（鼻+鼻咽+可见口咽）· 出口 = 解剖斜切⊥局部气道轴",
+      "source": "T-058（源场 t058_chain_anat/b15，vtkStreamTracer，seed=7，每侧 60 种子）",
       "clinical_status": "generalisation_test_only_no_human_review",
-      "note": "★ 源场口径已过期（2026-10-16）：本流线由 **T-054 轴位切**场追踪（出口 112.51 mm²、Δp 18.267 Pa）。出口几何已按用户裁定「按照人体构造来就好，斜切」改为解剖斜切（T-058：出口 125.85 mm²、Δp 17.120 Pa），故本产物为**历史口径**，待解剖切场重跑流线后替换；定量仍以 postProcessing 的 surfaceFieldValue 为准。扩展域口径（03:3x 用户裁定后的域标准）。短域（T-042/T-049，10.294 Pa）已降级历史参考，两者只可比作域口径差异。"
+      "note": "★ 当前口径（2026-10-16 起）：源场 = **T-058 解剖斜切扩展域**（出口帽 126.89 mm² mesh / 125.85 opening、Δp 17.120 Pa、653,789 cells）。**取代** T-057 轴位切产物（出口 112.51 mm²、Δp 18.267 Pa；差 −6.28% 属**切面口径差非修正**；旧页 /workspace/pro/artifacts/streamlines_b15_oroext_t600.html 仍留盘可查）。112 条线（抵达出口 15 / 出域 79 / 滞留 18；对比轴位切 10 / 61 / 36 → 解剖切下**过流更多、滞留更少**，与「切面⊥流向」的物理预期一致）。定量仍以 postProcessing 的 surfaceFieldValue 为准。扩展域口径（03:3x 用户裁定后的域标准）；短域（T-042/T-049，10.294 Pa）已降级历史参考。"
     }
   ]
 }

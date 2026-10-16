@@ -31,6 +31,10 @@ work/07_cfd_pipeline/workspace/boundary-review/*
 !work/07_cfd_pipeline/workspace/boundary-review/index.html
 !work/07_cfd_pipeline/workspace/boundary-review/boundary-review.js
 
+# Regenerable VTK intermediates (large; rebuild via the task's build script)
+outputs/**/vtk/
+outputs/**/vtk_*/
+
 # Large archives and local exports
 medical_exports/
 *_医学复核.html

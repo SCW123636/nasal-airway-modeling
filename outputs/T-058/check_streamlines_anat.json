@@ -1,0 +1,15 @@
+{
+ "url": "http://127.0.0.1:8769/workspace/pro/index.html",
+ "artifact_url": "http://127.0.0.1:8769/workspace/pro/artifacts/streamlines_b15_anat_t600.html",
+ "items": [
+  {
+   "iframe": "/workspace/pro/artifacts/streamlines_b15_anat_t600.html",
+   "ok": true,
+   "note_has_anat": true
+  }
+ ],
+ "pageerrors": [],
+ "console_errors": [],
+ "artifact_title": "三维流线 · 腔内速度与静压（b15 扩展域 · 解剖斜切，time=600）",
+ "all_ok": true
+}
