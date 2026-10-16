@@ -12,7 +12,11 @@ Reconciliation targets (known answers):
   b01 -> T-047: dp 15.709 Pa, R 0.06284, cells 764801
   b02 -> fresh baseline (no prior answer)
 
-Usage: python extract_metrics_case.py <case>
+Usage: python extract_metrics_case.py <case> [chain_root] [cut_convention]
+
+chain_root defaults to C:/ts_work/t058_chain (axial cut, T-058 first pass);
+pass C:/ts_work/t058_chain_anat for the anatomical oblique cut runs.
+cut_convention is recorded verbatim in the report (default axial_perpendicular_to_scan_z).
 """
 import datetime
 import json
@@ -24,7 +28,9 @@ from pathlib import Path
 import numpy as np
 
 CASE = sys.argv[1] if len(sys.argv) > 1 else 'b15'
-BASE = Path(f'C:/ts_work/t058_chain/{CASE}')
+ROOT = Path(sys.argv[2]) if len(sys.argv) > 2 else Path('C:/ts_work/t058_chain')
+CUT_CONVENTION = sys.argv[3] if len(sys.argv) > 3 else 'axial_perpendicular_to_scan_z'
+BASE = ROOT / CASE
 CASE_PP = BASE / 'postProcessing'
 LOG = BASE / 'log.simpleFoam'
 PROFILE = Path('D:/项目/鼻腔建模/outputs/T-048/airway_profile_throat.json')
@@ -161,6 +167,10 @@ def main():
         k = KNOWN[CASE]
         reconcile = {
             'reference': k['src'],
+            'note': 'reference = AXIAL-cut baseline (perpendicular to scan z). With the '
+                    'anatomical oblique outlet the outlet geometry changes (area + flow '
+                    'direction), so differences are EXPECTED and are not a regression; '
+                    'the inlet (nostril) side is the regression check.',
             'delta_p_pa': {'known': k['delta_p_pa'], 'now': round(dp_pa, 3),
                            'rel_diff': (dp_pa - k['delta_p_pa']) / k['delta_p_pa']},
             'R_pa_s_ml': {'known': k['R_pa_s_ml'], 'now': round(r_pa_s_ml, 5),
@@ -179,6 +189,7 @@ def main():
                                'T-047/T-054, NOT with T-021/T-029 common-static-pressure runs',
         'outlet_role': 'engineering_truncation_at_scan_inferior_face; downstream '
                        '(hypopharynx+larynx) resistance missing -> delta_p biased low',
+        'outlet_cut_convention': CUT_CONVENTION,
         'domain': {'labels': 'nasal_cavity_left+right+nasopharynx+oropharynx',
                    'mesh_cells_repaired': cells},
         'samples': {'monitor_points': int(n), 'last_time': last_time,

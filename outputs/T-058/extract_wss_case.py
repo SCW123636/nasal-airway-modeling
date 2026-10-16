@@ -8,9 +8,9 @@ Known answers:
   b15 (T-054): force 1.506e-3 N, median 0.0682 Pa, max 3.292 Pa
   b01 (T-047): force 1.331e-3 N, median 0.0537 Pa, max 2.157 Pa
 
-Usage: python extract_wss_case.py <case>
-Reads  C:/ts_work/t058_chain/<case>/wall_600.vtp
-Writes C:/ts_work/t058_chain/<case>/wss_t058_<case>.json
+Usage: python extract_wss_case.py <case> [chain_root] [cut_convention]
+Reads  <chain_root>/<case>/wall_600.vtp  (chain_root default C:/ts_work/t058_chain)
+Writes <chain_root>/<case>/wss_t058_<case>.json
 """
 import json
 import sys
@@ -20,8 +20,10 @@ import numpy as np
 import vtk
 
 CASE = sys.argv[1] if len(sys.argv) > 1 else 'b15'
+ROOT = Path(sys.argv[2]) if len(sys.argv) > 2 else Path('C:/ts_work/t058_chain')
+CUT_CONVENTION = sys.argv[3] if len(sys.argv) > 3 else 'axial_perpendicular_to_scan_z'
 RHO = 1.2
-WALL_VTP = Path(f'C:/ts_work/t058_chain/{CASE}/wall_600.vtp')
+WALL_VTP = ROOT / CASE / 'wall_600.vtp'
 OUT = WALL_VTP.parent / f'wss_t058_{CASE}.json'
 
 KNOWN = {
@@ -53,6 +55,7 @@ def main():
     force_n = float((mag * areas).sum())
     out = {
         'task': f'T-058 {CASE} oropharynx-extended domain WSS (production chain)',
+        'outlet_cut_convention': CUT_CONVENTION,
         'source_vtp': str(WALL_VTP),
         'faces': n,
         'wall_area_m2': float(areas.sum()),
@@ -70,6 +73,8 @@ def main():
         k = KNOWN[CASE]
         out['reconciliation'] = {
             'reference': k['src'],
+            'note': 'reference = AXIAL-cut baseline; with the anatomical oblique outlet '
+                    'the outlet geometry changes -> differences EXPECTED, not a regression',
             'force_n': {'known': k['force_n'], 'now': force_n,
                         'rel_diff': (force_n - k['force_n']) / k['force_n']},
             'median_pa': {'known': k['median_pa'], 'now': float(np.median(mag)),
