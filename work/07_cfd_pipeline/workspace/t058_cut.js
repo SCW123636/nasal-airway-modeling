@@ -29,11 +29,16 @@ const VIEW_DIRS = {
 const Q = new URLSearchParams(location.search);
 const EMBEDDED = Q.get('embedded') === '1' && window.parent !== window;
 const WANT_CASE = Q.get('case');
+/* T-063：?sl=<lines.json url> 可选，把该例已核验流线叠加进同一个 3D 视口
+   （模型与流线出自同一例同一套几何，LPS mm 同坐标系，无需第二张图）。
+   页内切到别的病例时按 lines.json 的 case 字段诚实降级：不匹配就只有模型。 */
+const SL_URL = (Q.get('sl') || '').trim();
 if (EMBEDDED) document.documentElement.classList.add('embedded');
 
 let scene, camera, renderer, controls;
 let cases = [], cur = null, group = null;
 let focusExit = true;
+let slData = null, linesGroup = null;
 
 function initScene() {
   scene = new THREE.Scene();
@@ -112,9 +117,75 @@ function row(k, v) {
   return '<div class="row"><span>' + k + '</span><b>' + v + '</b></div>';
 }
 
+/* ---------- 流线叠加层（T-063：模型 + 流线同一 3D 视口） ---------- */
+/* 色带 = 流线页（T-057）同款 stops；颜色只留给数据，符合 tokens.css 纪律。返回 [r,g,b] 0..1 */
+const STOPS = [[0.19,0.07,0.23],[0.28,0.35,0.85],[0.15,0.72,0.90],[0.25,0.93,0.55],
+  [0.72,0.95,0.20],[0.99,0.75,0.10],[0.98,0.42,0.10],[0.80,0.12,0.10],[0.48,0.05,0.09]];
+function ramp(t) {
+  const x = Math.max(0, Math.min(1, t)) * (STOPS.length - 1);
+  const i = Math.floor(x), f = x - i;
+  const a = STOPS[i], b = STOPS[Math.min(STOPS.length - 1, i + 1)];
+  return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f];
+}
+function atobToF32(s64) {
+  const b = atob(s64);
+  const u = new Uint8Array(b.length);
+  for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i);
+  return new Float32Array(u.buffer);
+}
+function removeLines() {
+  if (linesGroup) { scene.remove(linesGroup); linesGroup = null; }
+}
+function buildLines(data) {
+  if (!group || !group.userData.center) return;
+  const center = group.userData.center;
+  const spd2 = data.meta && data.meta.spd_p2 != null ? data.meta.spd_p2 : 0;
+  const spdMax = data.meta && data.meta.spd_max != null ? data.meta.spd_max : 1;
+  linesGroup = new THREE.Group();
+  for (const L of (data.lines || [])) {
+    const raw = atobToF32(L.pos);
+    const spd = L.spd ? atobToF32(L.spd) : null;
+    const n = raw.length / 3;
+    const pos = new Float32Array(raw.length);
+    for (let k = 0; k < raw.length; k += 3) {
+      const v = toView([raw[k], raw[k + 1], raw[k + 2]], center);
+      pos[k] = v[0]; pos[k + 1] = v[1]; pos[k + 2] = v[2];
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    let mat;
+    if (spd && spd.length >= n) {
+      const col = new Float32Array(n * 3);
+      for (let k = 0; k < n; k++) {
+        const c = ramp((spd[k] - spd2) / (spdMax - spd2 || 1));
+        col[k * 3] = c[0]; col[k * 3 + 1] = c[1]; col[k * 3 + 2] = c[2];
+      }
+      geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+      mat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.95, depthTest: false });
+    } else {
+      mat = new THREE.LineBasicMaterial({ color: 0x26828e, transparent: true, opacity: 0.95, depthTest: false });
+    }
+    linesGroup.add(new THREE.Line(geo, mat));
+  }
+  linesGroup.renderOrder = 5;
+  linesGroup.visible = $('cLines').checked;
+  scene.add(linesGroup);
+  /* 图例：叠加成功才显示速度范围 */
+  $('legSpd').textContent = '流线 ≈ ' + spd2.toFixed(2) + '–' + spdMax.toFixed(2) + ' m/s（'
+    + data.n_lines + ' 条）';
+}
+function applyStreamlines() {
+  removeLines();
+  const ok = !!(slData && cur && slData.case === cur.id && group);
+  if (ok) buildLines(slData);
+  $('wrapLines').style.display = ok ? '' : 'none';
+  $('legLines').style.display = ok ? 'inline-block' : 'none';
+}
+
 function loadCase(item) {
   cur = item;
   if (group) { scene.remove(group); }
+  removeLines();   /* T-063：换例先撤旧流线层（applyStreamlines 按 case 匹配决定是否重建） */
   group = new THREE.Group();
   scene.add(group);
   $('nums').innerHTML = '<div class="row"><span>加载中…</span><b></b></div>';
@@ -165,6 +236,7 @@ function loadCase(item) {
     group.userData = { parts, lo, hi, elo, ehi, center, axisDir };
     applyVis();
     fitCurrent();
+    applyStreamlines();   /* T-063：模型就位后按 case 匹配叠加流线层（不匹配则诚实只有模型） */
     const m = data.meta;
     $('nums').innerHTML =
       row('判定', m.decision === 'auto_pass' ? 'auto_pass ✓' : 'escalated') +
@@ -251,6 +323,7 @@ function applyVis() {
   p.ghost.visible = v.ghost;
   p.planeNew.visible = v.planes; p.planeAxial.visible = v.planes;
   p.axis.visible = v.axis;
+  if (linesGroup) linesGroup.visible = $('cLines').checked;
   p.wall.material.opacity = parseInt($('rOpacity').value, 10) / 100;
 }
 
@@ -290,11 +363,22 @@ function main() {
       setView(views[id]);
     });
   });
-  ['cWall', 'cCaps', 'cGhost', 'cPlanes', 'cAxis'].forEach(id =>
+  ['cWall', 'cCaps', 'cGhost', 'cPlanes', 'cAxis', 'cLines'].forEach(id =>
     $(id).addEventListener('change', applyVis));
   $('rOpacity').addEventListener('input', applyVis);
   $('cFocus').addEventListener('change', e => { focusExit = e.target.checked; fitCurrent(); });
   $('bFrontlow').classList.add('on');
+  /* T-063：?sl= 指定该例已核验流线 lines.json → 读到后叠加进当前病例视口。
+     读取失败只少一层（诚实降级），绝不阻塞几何检视。 */
+  if (SL_URL) {
+    fetch(SL_URL, { cache: 'no-store' }).then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(d => {
+      slData = d;
+      if (cur) applyStreamlines();
+    }).catch(e => console.warn('流线数据读取失败（只显示模型）：', e.message));
+  }
   tick();
 }
 

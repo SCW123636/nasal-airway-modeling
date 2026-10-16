@@ -291,59 +291,42 @@ function renderView() {
   const body = $('view-body'); body.replaceChildren();
   const fr = src => { const f = document.createElement('iframe'); f.src = src; return f; };
   if (S.view === 'geometry') {
-    /* T-063：三维检查 = 模型 + 流线合并视图（都是 3D，同页上下两栏） */
+    /* T-063/T-064：三维检查 = 单一 3D 视口，模型 + 流线叠加（同一例同一套几何，
+       流线经 t058_cut.html?sl= 画进模型场景，不再上下两栏各开一张图） */
     if (!S.caseId) { body.append(el('div', '在左侧选择患者项目，这里显示其三维检查（模型 + 流线）。', 'placeholder')); return; }
     const c = S.cases.find(x => caseIdOf(x) === S.caseId);
     const url = c && c.artifacts && c.artifacts.viewer;
+    if (!url) {
+      body.append(el('div', '三维模型：该病例暂无三维清单（可能仍在处理早期阶段）。', 'placeholder'));
+      return;
+    }
+    const it = streamlineItemOf(S.caseId);
     const stack = el('div', undefined, 'geo-stack');
-    const cell = () => el('div', undefined, 'geo-cell');
-    if (url) {
-      stack.append(el('p', '三维模型（解剖斜切检视）', 'proj-note'));
-      const cl = cell(); cl.append(fr(url + (url.includes('?') ? '&' : '?') + 'embedded=1')); stack.append(cl);
-    } else {
-      stack.append(el('p', '三维模型：该病例暂无三维清单（可能仍在处理早期阶段）。', 'proj-note'));
-      const cl = cell(); cl.append(el('div', '暂无三维模型。', 'placeholder')); stack.append(cl);
-    }
-    const s = latestStreamlines();
-    stack.append(el('div', undefined, 'geo-sep'));
-    if (s) {
-      const it = s.item;
-      stack.append(el('p', it ? ('流线（产物清单搬运）：' + it.label + ' · ' + it.domain
-        + ' · ' + it.source + ' · ' + it.clinical_status)
-        : ('流线（job 产物）：' + (s.job ? s.job.id.slice(0, 12) + '…' : '—')), 'proj-note'));
-      const cl = cell(); cl.append(fr(s.url)); stack.append(cl);
-    } else {
-      stack.append(el('p', '流线：该病例暂无流线产物（患者任务完成后自动生成）。', 'proj-note'));
-      const cl = cell(); cl.append(el('div', '暂无可用的流线产物。', 'placeholder')); stack.append(cl);
-    }
+    stack.append(el('p', '三维检查：模型 + 流线（同一 3D 视口 · 左键旋转 / 滚轮缩放 / 右键平移）', 'proj-note'));
+    const cell = el('div', undefined, 'geo-cell');
+    cell.append(fr(url + (url.includes('?') ? '&' : '?') + 'embedded=1'
+      + (it ? '&sl=' + encodeURIComponent(it.lines_url) : '')));
+    stack.append(cell);
+    stack.append(el('p', it
+      ? ('流线（产物清单搬运）：' + it.label + ' · ' + it.domain + ' · ' + it.source
+        + ' · ' + it.clinical_status)
+      : '该病例暂无流线数据，视口内只有模型（患者任务完成后自动补充）。', 'proj-note'));
     body.append(stack);
     return;
   }
   if (S.view === 'compare') { body.append(renderCompare()); return; }
   if (S.view === 'jobs') { body.append(renderJobsNative(scopedJobs())); return; }
 }
-function latestStreamlines() {
-  for (const j of scopedJobs()) {
-    const a = (j.artifacts || []).find(a => a.name === 'streamlines.html');
-    if (a) return {url: a.url, job: j};
-  }
-  for (const j of S.jobs) {
-    const a = (j.artifacts || []).find(a => a.name === 'streamlines.html');
-    if (a) return {url: a.url, job: j};
-  }
-  /* 回退：已核验产物清单（优先当前项目，其次第一条） */
-  const items = S.streamlines || [];
-  if (!items.length) return null;
-  const mine = S.caseId ? items.find(i => i.case_id === S.caseId) : null;
-  return {url: (mine || items[0]).url, item: mine || items[0]};
-}
-/* T-063：病例 → 可叠加的流线数据 URL（lines.json）。匹配 = 精确或 item.case_id 为
+/* T-063：病例 → 已核验流线条目（含 lines_url）。匹配 = 精确或 item.case_id 为
    病例 id 的工程主项目（'b15' → 'b15_engineering'）；变体（_t029a 等）不回退继承——
-   对比页两侧各放各的流线，没有就只有模型，不画别例/别边界的线冒充。 */
-function linesUrlOf(caseId) {
+   页内没有就只有模型，不画别例/别边界的线冒充。 */
+function streamlineItemOf(caseId) {
   if (!caseId) return null;
-  const it = (S.streamlines || []).find(i => i.lines_url &&
-    (i.case_id === caseId || i.case_id.startsWith(caseId + '_')));
+  return (S.streamlines || []).find(i => i.lines_url &&
+    (i.case_id === caseId || i.case_id.startsWith(caseId + '_'))) || null;
+}
+function linesUrlOf(caseId) {
+  const it = streamlineItemOf(caseId);
   return it ? it.lines_url : null;
 }
 

@@ -64,7 +64,7 @@ html.embedded #scene{min-height:380px}
 </div>
 <details class="honesty"><summary>读图须知与诚实边界（点击展开）</summary>
 <ol>
-<li>本页只是<strong>几何检视</strong>：切完的域表面、三个开口、被斜切切除的楔形（红色幽灵）、拟合轴与两个参考面。不含任何流场或临床结论。</li>
+<li>本页主体是<strong>几何检视</strong>：切完的域表面、三个开口、被斜切切除的楔形（红色幽灵）、拟合轴与两个参考面。当 URL 带 <code>?sl=</code> 指定该例已核验流线数据时（T-064），同一 3D 视口内叠加流线（速度着色，后处理级）——切到别的病例会自动隐藏，不冒充。</li>
 <li>鼻孔侧（入口）与退役轴位切运行<strong>逐位复现</strong>（b01 80.08/80.08、b02 80.15/80.22、b15 80.04/80.06 mm²）——斜切只改出口。</li>
 <li>出口面积改为人气道<b>真实垂直截面</b>（旧轴位值是椭圆高估值 ×1/cosθ）；b15/b01 因此不再与 T-054/T-047 出口逐位一致，那些基线降级为历史轴位参考，网格+求解重跑后在解剖切上重建。</li>
 <li>红色幽灵 = 源表面中完全位于斜切平面以下的三角形（斜切多切除、轴位切会保留在低侧的楔形）；跨切面的三角形被切分，不计入幽灵，故幽灵略薄于真实切除量。</li>
@@ -92,6 +92,7 @@ html.embedded #scene{min-height:380px}
   <label class="chk"><input type="checkbox" id="cGhost" checked>被切除楔形（幽灵）</label>
   <label class="chk"><input type="checkbox" id="cPlanes" checked>参考切面（新/旧）</label>
   <label class="chk"><input type="checkbox" id="cAxis" checked>拟合气道轴</label>
+  <label class="chk" id="wrapLines" style="display:none"><input type="checkbox" id="cLines" checked>流线（速度着色）</label>
   <label class="chk"><input type="checkbox" id="cFocus" checked>出口特写（域底 34 mm；取消看全域）</label>
   <div style="margin-top:6px"><span style="font-size:12px">壁面不透明度</span>
   <input type="range" id="rOpacity" min="0" max="100" value="100"></div>
@@ -101,6 +102,7 @@ html.embedded #scene{min-height:380px}
     <span><i class="sw" style="background:#2ca02c"></i>鼻开口 R</span>
     <span><i class="sw" style="background:#e8823a"></i>出口帽</span>
     <span><i class="sw" style="background:#d62728;opacity:.55"></i>切除楔形</span>
+    <span id="legLines" style="display:none"><i class="sw" style="background:linear-gradient(90deg,#30125c,#4859d9,#27b8e6,#40ed8c,#b8f233,#fdbf1a,#fa6b1a,#cc1f1a,#7a0d17)"></i><span id="legSpd"></span></span>
   </div>
   <h2 style="margin-top:14px">本例数值</h2>
   <div id="nums"></div>

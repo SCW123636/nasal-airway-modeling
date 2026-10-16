@@ -1,6 +1,6 @@
 {
   "schema": "pro_streamline_artifacts/v1",
-  "note": "工作台「三维检查」（T-063 起含流线栏）的已核验流线产物清单，与 patient_metrics.json 同一搬运模式：只列已核验任务的产物，每条带 source/domain/clinical_status 出处，不做实时推算、不伪造 job 记录。job 体系登记了 streamlines.html 时优先用 job 产物；无登记时回退到本清单。lines_url = 供对比页 t058_cmp 叠加流线层的坐标数据（T-063）。",
+  "note": "工作台「三维检查」（T-063/T-064 起流线叠加进同一 3D 视口）的已核验流线产物清单，与 patient_metrics.json 同一搬运模式：只列已核验任务的产物，每条带 source/domain/clinical_status 出处，不做实时推算、不伪造 job 记录。job 体系登记了 streamlines.html 时优先用 job 产物；无登记时回退到本清单。lines_url = 供三维检查（t058_cut ?sl=）与对比页（t058_cmp sa/sb）叠加流线层的坐标数据。",
   "items": [
     {
       "id": "t058_b15_anat_t600",
@@ -12,6 +12,28 @@
       "source": "T-058（源场 t058_chain_anat/b15，vtkStreamTracer，seed=7，每侧 60 种子）",
       "clinical_status": "generalisation_test_only_no_human_review",
       "note": "★ 当前口径（2026-10-16 起）：源场 = **T-058 解剖斜切扩展域**（出口帽 126.89 mm² mesh / 125.85 opening、Δp 17.120 Pa、653,789 cells）。**取代** T-057 轴位切产物（出口 112.51 mm²、Δp 18.267 Pa；差 −6.28% 属**切面口径差非修正**；旧页 /workspace/pro/artifacts/streamlines_b15_oroext_t600.html 仍留盘可查）。112 条线（抵达出口 15 / 出域 79 / 滞留 18；对比轴位切 10 / 61 / 36 → 解剖切下**过流更多、滞留更少**，与「切面⊥流向」的物理预期一致）。定量仍以 postProcessing 的 surfaceFieldValue 为准。扩展域口径（03:3x 用户裁定后的域标准）；短域（T-042/T-049，10.294 Pa）已降级历史参考。"
+    },
+    {
+      "id": "t064_b01_anat_t600",
+      "label": "b01 · 口咽扩展域 · 解剖斜切 · time=600",
+      "url": "/workspace/pro/artifacts/streamlines_b01_anat_t600.html",
+      "lines_url": "/workspace/pro/artifacts/streamlines_b01_anat_t600.lines.json",
+      "case_id": "b01_engineering",
+      "domain": "extended（鼻+鼻咽+可见口咽）· 出口 = 解剖斜切⊥局部气道轴",
+      "source": "T-064（源场 = T-058 t058_chain_anat/b01，vtkStreamTracer，seed=7，每侧 60 种子；未重跑模拟）",
+      "clinical_status": "generalisation_test_only_no_human_review",
+      "note": "T-064 补追踪：从 T-058 已算好的 b01 解剖斜切 t600 场直接追踪（M2 四判据已过，Δp 15.460 Pa）。103 条线（抵达出口 30 / 出域 52 / 滞留 17 / 回鼻孔 4），沿流线速度 1.53–3.38 m/s。出口帽 210.60 mm²（mesh）/ 208.46（opening）。定量仍以 postProcessing 的 surfaceFieldValue 为准。"
+    },
+    {
+      "id": "t064_b02_anat_t600",
+      "label": "b02 · 口咽扩展域 · 解剖斜切 · time=600",
+      "url": "/workspace/pro/artifacts/streamlines_b02_anat_t600.html",
+      "lines_url": "/workspace/pro/artifacts/streamlines_b02_anat_t600.lines.json",
+      "case_id": "b02_engineering",
+      "domain": "extended（鼻+鼻咽+可见口咽）· 出口 = 解剖斜切⊥局部气道轴",
+      "source": "T-064（源场 = T-058 t058_chain_anat/b02，vtkStreamTracer，seed=7，每侧 60 种子；未重跑模拟）",
+      "clinical_status": "generalisation_test_only_no_human_review",
+      "note": "T-064 补追踪：从 T-058 已算好的 b02 解剖斜切 t600 场直接追踪（M2 四判据已过，Δp 43.231 Pa，三例中最高）。97 条线（抵达出口 12 / 出域 67 / 滞留 18），沿流线速度 1.38–4.83 m/s。出口帽 85.45 mm²（mesh）/ 84.57（opening）。定量仍以 postProcessing 的 surfaceFieldValue 为准。"
     }
   ]
 }

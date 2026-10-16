@@ -79,10 +79,9 @@ code{font-family:var(--mono);font-size:11px;background:var(--soft);padding:0 4px
 .view-body{flex:1;min-height:0;position:relative}
 .view-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
 .view-native{position:absolute;inset:0;overflow:auto;padding:14px 16px}
-/* T-063：三维检查 = 模型 + 流线上下两栏 */
+/* T-064：三维检查 = 标题 + 单一 3D 视口（模型 + 流线叠加，?sl= 传入） */
 .geo-stack{position:absolute;inset:0;display:flex;flex-direction:column;min-height:0}
 .geo-cell{position:relative;flex:1;min-height:140px}
-.geo-sep{flex:none;border-top:1px solid var(--line)}
 .geo-stack .proj-note{margin:4px 2px 2px}
 .placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   color:var(--muted);font-size:12px;text-align:center;padding:30px;line-height:1.8}

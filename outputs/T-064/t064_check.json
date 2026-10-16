@@ -1,0 +1,24 @@
+{
+  "errors": [],
+  "checks": {
+    "iframe_count": 1,
+    "has_sl_param": true,
+    "sl_url": "http://127.0.0.1:8769/workspace/t058_cut.html?case=b15&embedded=1&sl=%2Fworkspace%2Fpro%2Fartifacts%2Fstreamlines_b15_anat_t600.lines.json",
+    "cLines_visible": true,
+    "legend_text": "流线 ≈ 0.21–3.65 m/s（112 条）",
+    "b01_iframe_n": 1,
+    "b01_sl": "%2Fworkspace%2Fpro%2Fartifacts%2Fstreamlines_b01_anat_t600.lines.json",
+    "b02_iframe_n": 1,
+    "b02_sl": "%2Fworkspace%2Fpro%2Fartifacts%2Fstreamlines_b02_anat_t600.lines.json",
+    "direct_wrapLines_visible": true,
+    "direct_legend": "流线 ≈ 0.08–4.83 m/s（97 条）"
+  },
+  "shots": [
+    "t064_geo_b15.png",
+    "t064_geo_b15_settled.png",
+    "t064_geo_b01.png",
+    "t064_geo_b02.png",
+    "t064_direct_b02.png"
+  ],
+  "pass": true
+}
