@@ -72,6 +72,7 @@ outputs/T-059/openings/*/
 
 # T-039 SlicerVMTK 实测中间产物（~1.2G；结论卡已归档，二进制留盘）
 outputs/T-039/chali_*/
+outputs/T-039/wheels/
 
 # 本地测试符号链接
 /vartest
