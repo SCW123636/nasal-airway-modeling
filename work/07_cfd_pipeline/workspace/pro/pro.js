@@ -4,7 +4,7 @@
    T-056 栏位精简与归位（一数据一入口 + CAE 三栏标准站位）：
    - 左栏 = 患者项目树（master-detail：项目 → 处理链路节点，单选展开），
      状态由 API 真实字段 + 已核验指标文件推导，stale 传播可见（P2/P4 原理）；
-   - 中栏 = 图形/数据视图（三维 / 咽部扩展 / 流线 / 对比 / 任务控制台）；
+   - 中栏 = 图形/数据视图（三维 / 流线 / 对比 / 任务控制台）；
    - 右栏 = 属性面板（P3 PropertyManager：项目 / 节点 / 任务三级详情）；
    - 任务数据只保留「任务控制台」一个入口；顶栏只留品牌 + 临床口径 chip；
    - 数据全部只读；缺项如实「—」；UI 黑白灰单色纪律。
@@ -23,7 +23,7 @@ const S = {
   caseId: null,                                      // null = 未选项目
   view: 'geometry',
   sel: null,                                         // {kind:'flow'|'job', key}
-  cmp: {a: null, b: null, mode: 'ref'},              // mode: 'ref' V1 | 'pair' V2
+  cmp: {a: null, b: null, mode: 'ref', pa: null, pb: null},   // ref: V1 患者；pair: pa/pb 两侧模型
 };
 
 /* ---------- 处理树（PRO重构设计_v2：8 节点，含依赖） ---------- */
@@ -47,7 +47,6 @@ const FLOW = [
 ];
 const VIEWS = [
   {key: 'geometry',    label: '三维检查'},
-  {key: 'airway',      label: '咽部扩展'},
   {key: 'streamlines', label: '流线'},
   {key: 'compare',     label: '对比'},
   {key: 'jobs',        label: '任务控制台'},
@@ -301,7 +300,6 @@ function renderView() {
     else body.append(el('div', '该病例暂无三维清单（可能仍在处理早期阶段）。', 'placeholder'));
     return;
   }
-  if (S.view === 'airway') { body.append(fr('/workspace/upper-airway.html')); return; }
   if (S.view === 'streamlines') {
     const s = latestStreamlines();
     if (s) {
@@ -443,42 +441,78 @@ function renderCompareRef() {
     + '相对位置如实标注，不做归一化评分——避免暗示诊断。', 'proj-note'));
   return wrap;
 }
+/* 三维模型可用性：搬运清单的 viewer_case，或产物 URL 的 ?case= 参数。
+   只有能解析出模型 id 的病例才进「对比」两侧的选择列表——对比视图放的是模型本身，
+   不是各病例的处理界面；选完即把该模型放进对应一侧。 */
+function viewerCaseOf(c) {
+  if (!c) return null;
+  if (c._manifest && c._manifest.viewer_case) return c._manifest.viewer_case;
+  const url = c.artifacts && c.artifacts.viewer;
+  const m = url ? /[?&]case=([^&]+)/.exec(url) : null;
+  return m ? decodeURIComponent(m[1]) : null;
+}
+function modelCases() {
+  const seen = new Set(); const out = [];
+  for (const c of S.cases) {
+    const vc = viewerCaseOf(c);
+    if (!vc || seen.has(vc)) continue;
+    seen.add(vc);
+    out.push({id: caseIdOf(c), vc, label: (c._manifest && c._manifest.label) || synthLabel(caseIdOf(c))});
+  }
+  return out;
+}
+function compareViewerCase(caseId) {
+  return caseId ? viewerCaseOf(S.cases.find(x => caseIdOf(x) === caseId)) : null;
+}
+function modelOptionList(selEl, current) {
+  selEl.replaceChildren();
+  const empty = el('option', '（选择三维模型）', '');
+  empty.value = ''; selEl.append(empty);
+  for (const m of modelCases()) {
+    const o = el('option', m.label + '（' + m.id + '）', '');
+    o.value = m.id; selEl.append(o);
+  }
+  selEl.value = current || '';
+}
 function renderComparePair() {
   const wrap = el('div');
+  const models = modelCases();
+  if (models.length) {
+    if (!models.some(m => m.id === S.cmp.pa)) S.cmp.pa = models[0].id;
+    if (!models.some(m => m.id === S.cmp.pb)) S.cmp.pb = (models[1] || models[0]).id;
+  }
   const bar = el('div', undefined, 'cmp-bar');
   bar.append(el('span', 'A', 'cmp-tag'));
-  const selA = el('select'); caseOptionList(selA, S.cmp.a); bar.append(selA);
+  const selA = el('select'); modelOptionList(selA, S.cmp.pa); bar.append(selA);
   bar.append(el('span', 'B', 'cmp-tag'));
-  const selB = el('select'); caseOptionList(selB, S.cmp.b); bar.append(selB);
-  selA.onchange = () => { S.cmp.a = selA.value || null; renderAll(); };
-  selB.onchange = () => { S.cmp.b = selB.value || null; renderAll(); };
+  const selB = el('select'); modelOptionList(selB, S.cmp.pb); bar.append(selB);
+  bar.append(el('span', '两侧放模型本身（同一相机轨道同步旋转 / 缩放），不是各病例的处理界面', 'cmp-hint'));
+  selA.onchange = () => { S.cmp.pa = selA.value || null; renderAll(); };
+  selB.onchange = () => { S.cmp.pb = selB.value || null; renderAll(); };
   wrap.append(bar);
 
-  const mkA = S.cmp.a ? metricKeyOf(S.cmp.a) : null;
-  const mkB = S.cmp.b ? metricKeyOf(S.cmp.b) : null;
-  const ma = mkA && S.metrics ? S.metrics.patients[mkA] : null;
-  const mb = mkB && S.metrics ? S.metrics.patients[mkB] : null;
-
-  /* 双栏三维并排（既有 viewer 嵌入） */
-  const panes = el('div', undefined, 'cmp-panes');
-  for (const [tag, id, mp] of [['A', S.cmp.a, ma], ['B', S.cmp.b, mb]]) {
-    const pane = el('div', undefined, 'cmp-pane');
-    pane.append(el('div', tag + ' · ' + (id ? (id.length > 16 ? id.slice(0, 16) + '…' : id) : '未选择')
-      + (mp ? '（' + mp.domain + '）' : ''), 'cmp-title'));
-    if (id) {
-      const c = S.cases.find(x => caseIdOf(x) === id);
-      const url = c && c.artifacts && c.artifacts.viewer;
-      if (url) {
-        const f = document.createElement('iframe');
-        f.src = url + (url.includes('?') ? '&' : '?') + 'embedded=1';
-        pane.append(f);
-      } else pane.append(el('div', '该病例暂无三维清单。', 'cmp-empty'));
-    } else pane.append(el('div', '选择患者项目后并排显示。', 'cmp-empty'));
-    panes.append(pane);
+  /* 三维双视口：单画布两视口 + 共用相机轨道（t058_cmp.html），拖动两侧同步 */
+  const stage = el('div', undefined, 'cmp-stage');
+  const vcA = compareViewerCase(S.cmp.pa), vcB = compareViewerCase(S.cmp.pb);
+  if (vcA || vcB) {
+    const q = new URLSearchParams();
+    if (vcA) q.set('a', vcA);
+    if (vcB) q.set('b', vcB);
+    q.set('embedded', '1');
+    const f = document.createElement('iframe');
+    f.src = '/workspace/t058_cmp.html?' + q.toString();
+    f.title = '双侧三维对比（解剖斜切）';
+    stage.append(f);
+  } else {
+    stage.append(el('div', '选择两个患者模型后并排显示三维对比。', 'cmp-empty'));
   }
-  wrap.append(panes);
+  wrap.append(stage);
 
   /* 功能指标对照表（H-PAIR：功能指标为主；采集参数降级附录） */
+  const mkA = S.cmp.pa ? metricKeyOf(S.cmp.pa) : null;
+  const mkB = S.cmp.pb ? metricKeyOf(S.cmp.pb) : null;
+  const ma = mkA && S.metrics ? S.metrics.patients[mkA] : null;
+  const mb = mkB && S.metrics ? S.metrics.patients[mkB] : null;
   if (!ma && !mb) {
     wrap.append(el('p', '选择 A / B 两个患者项目后，这里出现功能指标对照。', 'muted'));
     return wrap;
@@ -488,9 +522,9 @@ function renderComparePair() {
   const tb = el('table', undefined, 'jobs-table cmp-table');
   const head = el('tr');
   head.append(el('th', '功能指标'));
-  head.append(el('th', 'A' + (S.cmp.a ? ' · ' + S.cmp.a.slice(0, 10) + '…' : '')
+  head.append(el('th', 'A' + (S.cmp.pa ? ' · ' + S.cmp.pa.slice(0, 10) + '…' : '')
     + (ma ? '（' + ma.domain.split('（')[0] + '）' : '')));
-  head.append(el('th', 'B' + (S.cmp.b ? ' · ' + S.cmp.b.slice(0, 10) + '…' : '')
+  head.append(el('th', 'B' + (S.cmp.pb ? ' · ' + S.cmp.pb.slice(0, 10) + '…' : '')
     + (mb ? '（' + mb.domain.split('（')[0] + '）' : '')));
   tb.append(head);
   for (const k of keys) {
@@ -516,7 +550,7 @@ function renderComparePair() {
   for (const h of ['采集参数', 'A', 'B']) h2.append(el('th', h));
   tb2.append(h2);
   const geo = id => { const c = S.cases.find(x => caseIdOf(x) === id); return (c && c.geometry) || {}; };
-  const ga = geo(S.cmp.a || ''), gb = geo(S.cmp.b || '');
+  const ga = geo(S.cmp.pa || ''), gb = geo(S.cmp.pb || '');
   const appRows = [
     ['CT 尺寸', ga.size_xyz ? ga.size_xyz.join('×') : '—', gb.size_xyz ? gb.size_xyz.join('×') : '—'],
     ['像元 mm', ga.spacing_xyz_mm ? ga.spacing_xyz_mm.map(v => +(+v).toFixed(3)).join('/') : '—',

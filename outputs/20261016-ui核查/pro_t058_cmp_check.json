@@ -1,0 +1,44 @@
+{
+  "errors": [],
+  "external": [],
+  "checks": {
+    "view_tabs": [
+      "三维检查",
+      "流线",
+      "对比",
+      "任务控制台"
+    ],
+    "has_airway_tab": 0,
+    "airway_iframe": 0,
+    "cmp_hint": "症状 vs 正常人的分组队列（V3）需先建正常参考数据集 → 缓建（患者需求文档 L43）",
+    "cmp_stage_iframe": 1,
+    "cmp_iframe_src": "/workspace/t058_cmp.html?a=b15&b=b01&embedded=1",
+    "cmp_src_is_cmp_page": true,
+    "sel_options": [
+      "（选择三维模型）b15 · 解剖斜切（b15_engineering）b01 · 解剖斜切（b01_engineering）b02 · 解剖斜切（b02_engineering）"
+    ],
+    "cmp_frame_loaded": true,
+    "tagA": "A · b15 · 解剖斜切出口帽 · 解剖切 125.85 mm² · 轴倾角 24.75°",
+    "tagB": "B · b01 · 解剖斜切出口帽 · 解剖切 208.46 mm² · 轴倾角 23.71°",
+    "cmp_canvas": 1,
+    "cmp_canvas_size": [
+      1467,
+      528
+    ],
+    "cmp_view_btns": 5,
+    "cmp_frame_errors": [],
+    "b_swap_new_src": "/workspace/t058_cmp.html?a=b15&b=b15&embedded=1",
+    "b_swap_changed": true,
+    "legacy_nav": [
+      "01CT 导入上传与自动处理",
+      "02病例总览状态与下一步",
+      "03三维检查结构与候选位置",
+      "04切片审核逐点检验与记录",
+      "05意见核对对照意见与原 CT",
+      "06边界草稿口腔与鼻窦复核",
+      "07计算与结果准入与验证"
+    ],
+    "legacy_has_airway": 0
+  },
+  "ok": true
+}

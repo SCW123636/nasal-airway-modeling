@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>双侧三维对比 · 解剖斜切 · T-058</title>
+<script type="importmap">{"imports":{"three":"/viewer/vendor/three.module.js"}}</script>
+<style>
+:root{--ink:#23332f;--muted:#78817e;--line:#e2e8e5;--soft:#eef3f0;--accent:#257861;--bg:#eef2f3}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:12px/1.55 system-ui,"Microsoft YaHei",sans-serif;
+  display:flex;flex-direction:column;overflow:hidden}
+.bar{flex:none;display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:6px 9px;
+  background:#fff;border-bottom:1px solid var(--line)}
+.sp{flex:1}
+button{font:11.5px system-ui,"Microsoft YaHei",sans-serif;padding:4px 9px;border-radius:5px;
+  border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;white-space:nowrap}
+button:hover{background:var(--soft)}
+button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+label.chk{display:flex;align-items:center;gap:4px;font-size:11.5px;color:#4a5754;cursor:pointer;white-space:nowrap}
+.op{display:flex;align-items:center;gap:5px;font-size:11.5px;color:#4a5754;white-space:nowrap}
+.op input[type=range]{width:82px}
+.stage{flex:1;position:relative;min-height:200px;overflow:hidden;background:#e8eff1}
+.stage canvas{display:block;width:100%;height:100%}
+.divider{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(35,51,47,.22);pointer-events:none}
+.tag{position:absolute;top:7px;left:9px;font:600 11.5px ui-monospace,Consolas,monospace;
+  background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:4px;padding:3px 8px;
+  pointer-events:none;max-width:45%;overflow:hidden}
+.tag.b{left:calc(50% + 9px)}
+.tag .sub{display:block;font-weight:400;color:var(--muted);font-size:10.5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hint{position:absolute;left:9px;bottom:7px;font-size:10.5px;color:#68736f;pointer-events:none;
+  background:rgba(255,255,255,.72);border-radius:4px;padding:2px 6px}
+.legend{flex:none;display:flex;gap:11px;flex-wrap:wrap;align-items:center;padding:5px 9px;
+  font-size:11px;color:#4a5754;background:#fff;border-top:1px solid var(--line)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+html.embedded body{background:#fff}
+</style></head><body>
+<div class="bar">
+  <span id="viewBtns" style="display:flex;gap:4px;flex-wrap:wrap"></span>
+  <span class="sp"></span>
+  <span class="op">壁面不透明度<input type="range" id="rOpacity" min="10" max="100" value="60"></span>
+  <label class="chk"><input type="checkbox" id="cCaps" checked>开口</label>
+  <label class="chk"><input type="checkbox" id="cGhost" checked>切除楔形</label>
+  <label class="chk"><input type="checkbox" id="cPlane" checked>切面</label>
+</div>
+<div class="stage" id="stage">
+  <div class="divider"></div>
+  <div class="tag" id="tagA">A · 加载中…</div>
+  <div class="tag b" id="tagB">B · 加载中…</div>
+  <div class="hint">拖动 = 两侧同步旋转 · 滚轮 = 同步缩放（共用同一视角与取景距离，按两例较大者取景，保留相对尺寸差异）</div>
+</div>
+<div class="legend">
+  <span><i class="sw" style="background:#c3cdda"></i>气道壁面</span>
+  <span><i class="sw" style="background:#1f77b4"></i>鼻开口 L</span>
+  <span><i class="sw" style="background:#2ca02c"></i>鼻开口 R</span>
+  <span><i class="sw" style="background:#e8823a"></i>出口帽</span>
+  <span><i class="sw" style="background:#d62728;opacity:.55"></i>切除楔形</span>
+  <span style="color:var(--muted)">几何检视，不含流场结论；壁面为抽稀显示网格（约 5 万面）</span>
+</div>
+<script type="module" src="t058_cmp.js"></script>
+</body></html>
