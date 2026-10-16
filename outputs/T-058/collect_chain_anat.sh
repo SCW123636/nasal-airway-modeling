@@ -12,6 +12,8 @@ for P in b15 b01 b02; do
      "/mnt/c/ts_work/t058_chain_anat/$P/"
   cp "/home/lenovo2/t058_chain_anat/$P/maxh1.msh.mesh.json" \
      "/mnt/c/ts_work/t058_chain_anat/$P/"
+  cp "/home/lenovo2/t058_chain_anat/$P/wall_600.vtp" \
+     "/mnt/c/ts_work/t058_chain_anat/$P/" || echo "WARN no wall_600.vtp for $P"
   cp "/home/lenovo2/t058_chain_anat/$P/foam_maxh1/log.wss" \
      "/mnt/c/ts_work/t058_chain_anat/$P/" || true
   cp "/home/lenovo2/t058_chain_anat/$P/foam_maxh1/log.foamToVTK" \
