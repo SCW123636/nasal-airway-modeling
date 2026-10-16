@@ -10,6 +10,10 @@
  * - 资产与 t058_cut.html 同源：t058_cut_data.json（索引）+ t058_<case>.json（每例 mesh）。
  *
  * 嵌入契约：?a=<case>&b=<case> 指定左右两例；?embedded=1 收窄页面（工作台中栏 iframe）。
+ * T-063：?sa=<lines.json url>&sb=<lines.json url> 可选，每侧叠加流线层（模型+流线综合视图）。
+ * 流线数据由 pro.js 按 manifest lines_url 传入；无该参数或读取失败的一侧只有模型（诚实降级）。
+ * 流线与模型同坐标系（LPS mm），过与模型相同的 toView(center) 变换对齐；
+ * 顶点色按速度映射流线页（T-057）同款色带——颜色只留给数据，符合 tokens.css 纪律。
  */
 import * as THREE from 'three';
 import { OrbitControls } from '/viewer/vendor/OrbitControls.js';
@@ -19,6 +23,7 @@ const Q = new URLSearchParams(location.search);
 const EMBEDDED = Q.get('embedded') === '1' && window.parent !== window;
 if (EMBEDDED) document.documentElement.classList.add('embedded');
 const WANT = [(Q.get('a') || '').trim(), (Q.get('b') || '').trim()];
+const SL_URLS = [(Q.get('sa') || '').trim(), (Q.get('sb') || '').trim()];
 
 const COLORS = {
   wall: 0xc3cdda, nostril_L: 0x1f77b4, nostril_R: 0x2ca02c,
@@ -39,9 +44,78 @@ let indexData = { cases: [] };
 let currentView = 'frontlow';
 const cams = [];
 const slots = [
-  { name: 'A', scene: null, group: null, ok: false, R: 0 },
-  { name: 'B', scene: null, group: null, ok: false, R: 0 },
+  { name: 'A', scene: null, group: null, ok: false, R: 0, center: null, lines: null },
+  { name: 'B', scene: null, group: null, ok: false, R: 0, center: null, lines: null },
 ];
+
+/* ---------- 流线层（T-063） ---------- */
+/* 色带 = 流线页（T-057）同款 stops；返回 [r,g,b] 0..1 */
+const STOPS = [[0.19,0.07,0.23],[0.28,0.35,0.85],[0.15,0.72,0.90],[0.25,0.93,0.55],
+  [0.72,0.95,0.20],[0.99,0.75,0.10],[0.98,0.42,0.10],[0.80,0.12,0.10],[0.48,0.05,0.09]];
+function ramp(t) {
+  const x = Math.max(0, Math.min(1, t)) * (STOPS.length - 1);
+  const i = Math.floor(x), f = x - i;
+  const a = STOPS[i], b = STOPS[Math.min(STOPS.length - 1, i + 1)];
+  return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f];
+}
+function atobToF32(s64) {
+  const b = atob(s64);
+  const u = new Uint8Array(b.length);
+  for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i);
+  return new Float32Array(u.buffer);
+}
+async function addStreamlines(slot, i, url) {
+  slot.lines = null;
+  if (!url) return;
+  let data;
+  try {
+    const r = await fetch(url, { cache: 'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    data = await r.json();
+  } catch (e) {
+    console.warn('streamlines load failed:', e.message);   /* 诚实降级：只少一层，不阻塞模型 */
+    return;
+  }
+  if (!slot.center || !slot.scene) return;
+  const cv = p => toView(p, slot.center);
+  const spd2 = data.meta && data.meta.spd_p2 != null ? data.meta.spd_p2 : 0;
+  const spdMax = data.meta && data.meta.spd_max != null ? data.meta.spd_max : 1;
+  const g = new THREE.Group();
+  for (const L of (data.lines || [])) {
+    const raw = atobToF32(L.pos);
+    const spd = L.spd ? atobToF32(L.spd) : null;
+    const n = raw.length / 3;
+    const pos = new Float32Array(raw.length);
+    for (let k = 0; k < raw.length; k += 3) {
+      const v = cv([raw[k], raw[k + 1], raw[k + 2]]);
+      pos[k] = v[0]; pos[k + 1] = v[1]; pos[k + 2] = v[2];
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    let mat;
+    if (spd && spd.length >= n) {
+      const col = new Float32Array(n * 3);
+      for (let k = 0; k < n; k++) {
+        const c = ramp((spd[k] - spd2) / (spdMax - spd2 || 1));
+        col[k * 3] = c[0]; col[k * 3 + 1] = c[1]; col[k * 3 + 2] = c[2];
+      }
+      geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+      mat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.95, depthTest: false });
+    } else {
+      mat = new THREE.LineBasicMaterial({ color: 0x26828e, transparent: true, opacity: 0.95, depthTest: false });
+    }
+    g.add(new THREE.Line(geo, mat));
+  }
+  g.renderOrder = 5;
+  g.visible = $('cLines').checked;
+  slot.lines = g;
+  slot.scene.add(g);
+  /* 图例：任一侧成功加载即显示速度范围 */
+  const wrap = $('wrapLines'), leg = $('legLines');
+  wrap.style.display = ''; leg.style.display = 'flex';
+  $('legSpd').textContent = '≈ ' + spd2.toFixed(2) + '–' + spdMax.toFixed(2) + ' m/s（'
+    + data.n_lines + ' 条 · ' + (data.case || '?') + ' 扩展域 t600）';
+}
 
 /* ---------- 几何工具（与 t058_cut.js 同款） ---------- */
 function toView(points, center) {
@@ -101,6 +175,7 @@ function buildModel(slot, data) {
     }
   }
   const center = [(lo[0] + hi[0]) / 2, (lo[1] + hi[1]) / 2, (lo[2] + hi[2]) / 2];
+  slot.center = center;   /* 流线层（T-063）复用同一 center 归零 */
   /* 显示变换保距，故半径可在 LPS 下直接算 */
   let R2 = 0;
   const scan = pts => {
@@ -141,6 +216,7 @@ async function setSide(i, caseId) {
     addLights(slot.scene);
   }
   if (slot.group) { slot.scene.remove(slot.group); slot.group = null; }
+  if (slot.lines) { slot.scene.remove(slot.lines); slot.lines = null; }
   slot.ok = false;
   setTag(i, entry.label || caseId, '正在读取几何…');
   let data;
@@ -160,12 +236,15 @@ async function setSide(i, caseId) {
     (m.tilt_deg != null ? ' · 轴倾角 ' + m.tilt_deg + '°' : ''));
   applyVis();
   fit(currentView);
+  /* T-063：模型就位后叠加流线（若有该侧的数据 URL） */
+  if (SL_URLS[i]) await addStreamlines(slot, i, SL_URLS[i]);
 }
 
 /* ---------- 可见性 / 取景 ---------- */
 function applyVis() {
   const v = {
     caps: $('cCaps').checked, ghost: $('cGhost').checked, plane: $('cPlane').checked,
+    lines: $('cLines') ? $('cLines').checked : true,
     opacity: parseInt($('rOpacity').value, 10) / 100,
   };
   for (const s of slots) {
@@ -176,6 +255,7 @@ function applyVis() {
     p.nostril_L.visible = p.nostril_R.visible = p.outlet.visible = v.caps;
     p.ghost.visible = v.ghost;
     p.planeNew.visible = v.plane;
+    if (s.lines) s.lines.visible = v.lines;
   }
 }
 function dirFor(name) {
@@ -276,7 +356,7 @@ function buildBar() {
     });
     box.append(b);
   }
-  ['cCaps', 'cGhost', 'cPlane'].forEach(id => $(id).addEventListener('change', applyVis));
+  ['cCaps', 'cGhost', 'cPlane', 'cLines'].forEach(id => { const e = $(id); if (e) e.addEventListener('change', applyVis); });
   $('rOpacity').addEventListener('input', applyVis);
 }
 async function boot() {

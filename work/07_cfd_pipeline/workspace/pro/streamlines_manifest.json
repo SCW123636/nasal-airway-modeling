@@ -1,11 +1,12 @@
 {
   "schema": "pro_streamline_artifacts/v1",
-  "note": "工作台「流线」页的已核验流线产物清单，与 patient_metrics.json 同一搬运模式：只列已核验任务的产物，每条带 source/domain/clinical_status 出处，不做实时推算、不伪造 job 记录。job 体系登记了 streamlines.html 时优先用 job 产物；无登记时回退到本清单。",
+  "note": "工作台「三维检查」（T-063 起含流线栏）的已核验流线产物清单，与 patient_metrics.json 同一搬运模式：只列已核验任务的产物，每条带 source/domain/clinical_status 出处，不做实时推算、不伪造 job 记录。job 体系登记了 streamlines.html 时优先用 job 产物；无登记时回退到本清单。lines_url = 供对比页 t058_cmp 叠加流线层的坐标数据（T-063）。",
   "items": [
     {
       "id": "t058_b15_anat_t600",
       "label": "b15 · 口咽扩展域 · 解剖斜切 · time=600",
       "url": "/workspace/pro/artifacts/streamlines_b15_anat_t600.html",
+      "lines_url": "/workspace/pro/artifacts/streamlines_b15_anat_t600.lines.json",
       "case_id": "b15_engineering",
       "domain": "extended（鼻+鼻咽+可见口咽）· 出口 = 解剖斜切⊥局部气道轴",
       "source": "T-058（源场 t058_chain_anat/b15，vtkStreamTracer，seed=7，每侧 60 种子）",

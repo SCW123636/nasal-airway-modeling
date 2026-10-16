@@ -44,6 +44,7 @@ html.embedded body{background:#fff}
   <label class="chk"><input type="checkbox" id="cCaps" checked>开口</label>
   <label class="chk"><input type="checkbox" id="cGhost" checked>切除楔形</label>
   <label class="chk"><input type="checkbox" id="cPlane" checked>切面</label>
+  <label class="chk" id="wrapLines" style="display:none"><input type="checkbox" id="cLines" checked>流线</label>
 </div>
 <div class="stage" id="stage">
   <div class="divider"></div>
@@ -57,6 +58,9 @@ html.embedded body{background:#fff}
   <span><i class="sw" style="background:#2ca02c"></i>鼻开口 R</span>
   <span><i class="sw" style="background:#e8823a"></i>出口帽</span>
   <span><i class="sw" style="background:#d62728;opacity:.55"></i>切除楔形</span>
+  <span id="legLines" style="display:none;align-items:center;gap:5px">流线
+    <i class="sw" id="legRamp" style="width:44px;background:linear-gradient(90deg,#301233,#472f7d,#26828e,#3fbc82,#b4de2c,#fae617,#d3430f,#7d0c17)"></i>
+    <span id="legSpd" style="color:var(--muted)"></span></span>
   <span style="color:var(--muted)">几何检视，不含流场结论；壁面为抽稀显示网格（约 5 万面）</span>
 </div>
 <script type="module" src="t058_cmp.js"></script>

@@ -47,7 +47,6 @@ const FLOW = [
 ];
 const VIEWS = [
   {key: 'geometry',    label: '三维检查'},
-  {key: 'streamlines', label: '流线'},
   {key: 'compare',     label: '对比'},
   {key: 'jobs',        label: '任务控制台'},
 ];
@@ -271,8 +270,7 @@ function renderProjectTree() {
         ci.title = f.desc;
         ci.onclick = ev => { ev.stopPropagation();
           S.sel = {kind: 'flow', key: f.key};
-          if (f.key === 'geometry') S.view = 'geometry';
-          else if (f.key === 'post') S.view = 'streamlines';
+          if (f.key === 'geometry' || f.key === 'post') S.view = 'geometry';   /* T-063：三维检查含流线 */
           renderAll(); };
         t.append(ci);
       }
@@ -293,22 +291,32 @@ function renderView() {
   const body = $('view-body'); body.replaceChildren();
   const fr = src => { const f = document.createElement('iframe'); f.src = src; return f; };
   if (S.view === 'geometry') {
-    if (!S.caseId) { body.append(el('div', '在左侧选择患者项目，这里显示其三维几何检查。', 'placeholder')); return; }
+    /* T-063：三维检查 = 模型 + 流线合并视图（都是 3D，同页上下两栏） */
+    if (!S.caseId) { body.append(el('div', '在左侧选择患者项目，这里显示其三维检查（模型 + 流线）。', 'placeholder')); return; }
     const c = S.cases.find(x => caseIdOf(x) === S.caseId);
     const url = c && c.artifacts && c.artifacts.viewer;
-    if (url) body.append(fr(url + (url.includes('?') ? '&' : '?') + 'embedded=1'));
-    else body.append(el('div', '该病例暂无三维清单（可能仍在处理早期阶段）。', 'placeholder'));
-    return;
-  }
-  if (S.view === 'streamlines') {
+    const stack = el('div', undefined, 'geo-stack');
+    const cell = () => el('div', undefined, 'geo-cell');
+    if (url) {
+      stack.append(el('p', '三维模型（解剖斜切检视）', 'proj-note'));
+      const cl = cell(); cl.append(fr(url + (url.includes('?') ? '&' : '?') + 'embedded=1')); stack.append(cl);
+    } else {
+      stack.append(el('p', '三维模型：该病例暂无三维清单（可能仍在处理早期阶段）。', 'proj-note'));
+      const cl = cell(); cl.append(el('div', '暂无三维模型。', 'placeholder')); stack.append(cl);
+    }
     const s = latestStreamlines();
+    stack.append(el('div', undefined, 'geo-sep'));
     if (s) {
       const it = s.item;
-      body.append(el('p', it ? ('产物清单搬运：' + it.label + ' · ' + it.domain
+      stack.append(el('p', it ? ('流线（产物清单搬运）：' + it.label + ' · ' + it.domain
         + ' · ' + it.source + ' · ' + it.clinical_status)
-        : ('job 产物：' + (s.job ? s.job.id.slice(0, 12) + '…' : '—')), 'proj-note'));
-      body.append(fr(s.url));
-    } else body.append(el('div', '暂无可用的流线产物：患者任务完成后将自动生成（streamlines.html）。', 'placeholder'));
+        : ('流线（job 产物）：' + (s.job ? s.job.id.slice(0, 12) + '…' : '—')), 'proj-note'));
+      const cl = cell(); cl.append(fr(s.url)); stack.append(cl);
+    } else {
+      stack.append(el('p', '流线：该病例暂无流线产物（患者任务完成后自动生成）。', 'proj-note'));
+      const cl = cell(); cl.append(el('div', '暂无可用的流线产物。', 'placeholder')); stack.append(cl);
+    }
+    body.append(stack);
     return;
   }
   if (S.view === 'compare') { body.append(renderCompare()); return; }
@@ -328,6 +336,15 @@ function latestStreamlines() {
   if (!items.length) return null;
   const mine = S.caseId ? items.find(i => i.case_id === S.caseId) : null;
   return {url: (mine || items[0]).url, item: mine || items[0]};
+}
+/* T-063：病例 → 可叠加的流线数据 URL（lines.json）。匹配 = 精确或 item.case_id 为
+   病例 id 的工程主项目（'b15' → 'b15_engineering'）；变体（_t029a 等）不回退继承——
+   对比页两侧各放各的流线，没有就只有模型，不画别例/别边界的线冒充。 */
+function linesUrlOf(caseId) {
+  if (!caseId) return null;
+  const it = (S.streamlines || []).find(i => i.lines_url &&
+    (i.case_id === caseId || i.case_id.startsWith(caseId + '_')));
+  return it ? it.lines_url : null;
 }
 
 /* ---------- 中：对比视图（T-055 重设计：V1 参考带 + V2 配对） ---------- */
@@ -486,18 +503,22 @@ function renderComparePair() {
   const selA = el('select'); modelOptionList(selA, S.cmp.pa); bar.append(selA);
   bar.append(el('span', 'B', 'cmp-tag'));
   const selB = el('select'); modelOptionList(selB, S.cmp.pb); bar.append(selB);
-  bar.append(el('span', '两侧放模型本身（同一相机轨道同步旋转 / 缩放），不是各病例的处理界面', 'cmp-hint'));
+  bar.append(el('span', '两侧 = 模型 + 流线综合（有流线的病例叠加；同一相机轨道同步旋转 / 缩放）', 'cmp-hint'));
   selA.onchange = () => { S.cmp.pa = selA.value || null; renderAll(); };
   selB.onchange = () => { S.cmp.pb = selB.value || null; renderAll(); };
   wrap.append(bar);
 
-  /* 三维双视口：单画布两视口 + 共用相机轨道（t058_cmp.html），拖动两侧同步 */
+  /* 三维双视口：单画布两视口 + 共用相机轨道（t058_cmp.html），拖动两侧同步。
+     T-063：每侧叠加该病例的流线层（sa/sb，模型+流线综合对比；无流线侧只有模型） */
   const stage = el('div', undefined, 'cmp-stage');
   const vcA = compareViewerCase(S.cmp.pa), vcB = compareViewerCase(S.cmp.pb);
   if (vcA || vcB) {
     const q = new URLSearchParams();
     if (vcA) q.set('a', vcA);
     if (vcB) q.set('b', vcB);
+    const sa = linesUrlOf(S.cmp.pa), sb = linesUrlOf(S.cmp.pb);
+    if (sa) q.set('sa', sa);
+    if (sb) q.set('sb', sb);
     q.set('embedded', '1');
     const f = document.createElement('iframe');
     f.src = '/workspace/t058_cmp.html?' + q.toString();
