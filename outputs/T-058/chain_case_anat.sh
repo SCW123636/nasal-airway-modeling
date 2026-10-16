@@ -108,7 +108,12 @@ ls -la 600/wallShearStress 2>/dev/null || { echo "NO wallShearStress field"; exi
 
 echo "== step 9: foamToVTK -ascii (shared library reads ASCII only) =="
 foamToVTK -ascii -time 600 > log.foamToVTK 2>&1
-VTKDIR=$(ls -d VTK/foam_maxh1_* | tail -1)
+# NOTE: foamToVTK writes BOTH a multi-block index file VTK/<case>_<time>.vtm and a
+# directory VTK/<case>_<time>/ holding internal.vtu + boundary/*.vtp.  A bare glob
+# `ls -d VTK/<case>_*` lists both and `tail -1` picks the .vtm file ("Not a
+# directory" -> wall.vtp never copied, chain aborts before CHAIN-DONE).  Restrict
+# the glob to directories with a trailing slash.
+VTKDIR=$(ls -d VTK/foam_maxh1_*/ | tail -1)
 echo "VTK dir: $VTKDIR"
 ls "$VTKDIR/boundary/" | head -6
 cp "$VTKDIR/boundary/wall.vtp" "$STAGE/wall_600.vtp"
