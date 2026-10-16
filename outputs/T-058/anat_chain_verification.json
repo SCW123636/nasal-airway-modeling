@@ -1,0 +1,478 @@
+{
+  "task": "T-058 anatomical-cut 3-case chain verification",
+  "chain_root": "C:\\ts_work\\t058_chain_anat",
+  "cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+  "cases": {
+    "b15": {
+      "chain_done": true,
+      "collect_done": true,
+      "checkmesh": {
+        "cells": 653789,
+        "points": 136322,
+        "non_orth_max": 76.5598242591,
+        "non_orth_avg": 18.7182859451,
+        "aspect_max": 22.7071535201,
+        "failed_checks": 2,
+        "mesh_ok": false,
+        "determinant_lines": [
+          "Cell determinant (wellposedness) : minimum: 2.60176909805e-05 average: 0.17430899757",
+          "***Cells with small determinant (< 0.001) found, number of cells: 482"
+        ],
+        "det_small_count": null
+      },
+      "metrics": {
+        "created": "2026-10-16T11:39:22.486459+08:00",
+        "task": "T-058 b15 oropharynx-extended S-A solve metrics (production chain)",
+        "schema": "nasal_cfd_metrics/v1",
+        "solver": "laminar (simpleFoam S-A preset, mirrors T-006/T-042/T-054)",
+        "rho_kg_m3": 1.2,
+        "boundary_convention": "fixed 50:50 nostril flow split (1.25e-4 m3/s each) + outlet p=0 gauge; comparable ONLY with T-006/T-041/T-042/T-047/T-054, NOT with T-021/T-029 common-static-pressure runs",
+        "outlet_role": "engineering_truncation_at_scan_inferior_face; downstream (hypopharynx+larynx) resistance missing -> delta_p biased low",
+        "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+        "domain": {
+          "labels": "nasal_cavity_left+right+nasopharynx+oropharynx",
+          "mesh_cells_repaired": 639686
+        },
+        "samples": {
+          "monitor_points": 600,
+          "last_time": 600,
+          "steady_window": "last 40%"
+        },
+        "metrics": {
+          "converged": false,
+          "numerical_validation": "unchecked (per M2 ruling; final residuals recorded)",
+          "final_initial_residuals": {
+            "Ux": 9.36621222983e-05,
+            "p": 2.20239843462e-05
+          },
+          "delta_p_pa": {
+            "value": 17.119542030795298,
+            "p_inL_kinematic": 14.075732166874054,
+            "p_inR_kinematic": 14.456837884451442,
+            "p_out_kinematic": 0.0,
+            "note": "mean of bilateral inlet area-average p, x rho"
+          },
+          "total_flow_m3s": {
+            "value": 0.00025000000000000006,
+            "target": 0.00025
+          },
+          "outlet_flow_m3s": {
+            "value": 0.0002499999849566583
+          },
+          "mass_imbalance_frac": 6.017336694023877e-08,
+          "monitor_max_window_change_frac": 0.00011111855900314168,
+          "resistance_R": {
+            "value_pa_s_ml": 0.06847816812318118,
+            "value_pa_s_m3": 68478.16812318118
+          }
+        },
+        "extension_increment": {
+          "analytical_oropharynx_segment_dp_pa": 0.04935674309522287,
+          "method": "Poiseuille integral over T-048 per-case area profile (8*pi*mu*Q*SUM(dz/A^2)); laminar straight-tube lower bound"
+        },
+        "m2_criteria": {
+          "no_crash": true,
+          "delta_p_in_band_10_100Pa": true,
+          "mass_imbalance_le_0.5pct": true,
+          "monitor_stable_le_0.5pct": true
+        },
+        "patch_areas_mm2": {
+          "mesh_labelled": {}
+        },
+        "reconciliation": {
+          "reference": "T-054 b15 oropharynx-extended maxh1 S-A",
+          "note": "reference = AXIAL-cut baseline (perpendicular to scan z). With the anatomical oblique outlet the outlet geometry changes (area + flow direction), so differences are EXPECTED and are not a regression; the inlet (nostril) side is the regression check.",
+          "delta_p_pa": {
+            "known": 18.267,
+            "now": 17.12,
+            "rel_diff": -0.062815895834275
+          },
+          "R_pa_s_ml": {
+            "known": 0.07307,
+            "now": 0.06848,
+            "rel_diff": -0.06284154751360088
+          },
+          "cells": {
+            "known": 636342,
+            "now": 639686
+          }
+        },
+        "clinical_status": "generalisation_test_only_no_human_review"
+      },
+      "wss": {
+        "task": "T-058 b15 oropharynx-extended domain WSS (production chain)",
+        "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+        "source_vtp": "C:\\ts_work\\t058_chain_anat\\b15\\wall_600.vtp",
+        "faces": 81064,
+        "wall_area_m2": 0.018797226348590622,
+        "wall_area_mm2": 18797.226348590622,
+        "units_note": "foamToVTK exports SI: coords metres, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+        "wss_median_pa": 0.06777372384868408,
+        "wss_mean_pa": 0.08763113395843422,
+        "wss_p90_pa": 0.17325473234619038,
+        "wss_max_pa": 3.4880811525725814,
+        "wall_shear_force_n": 0.00148545062118494,
+        "clinical_status": "generalisation_test_only_no_human_review",
+        "reconciliation": {
+          "reference": "T-054 b15 oropharynx-extended",
+          "note": "reference = AXIAL-cut baseline; with the anatomical oblique outlet the outlet geometry changes -> differences EXPECTED, not a regression",
+          "force_n": {
+            "known": 0.001506,
+            "now": 0.00148545062118494,
+            "rel_diff": -0.013645005853293469
+          },
+          "median_pa": {
+            "known": 0.0682,
+            "now": 0.06777372384868408,
+            "rel_diff": -0.006250383450380079
+          },
+          "max_pa": {
+            "known": 3.292,
+            "now": 3.4880811525725814,
+            "rel_diff": 0.05956292605485469
+          }
+        }
+      },
+      "nostril_regression": {
+        "known": [
+          80.04,
+          80.06
+        ],
+        "now": [
+          80.03741,
+          80.057289
+        ],
+        "tolerance_mm2": 0.01,
+        "delta": [
+          -0.0026,
+          -0.0027
+        ],
+        "match": true
+      },
+      "outlet_area": {
+        "opening_stage_mm2": 125.845838,
+        "mesh_labelled_mm2": 126.894149,
+        "axial_mesh_labelled_mm2": 112.505258,
+        "rel_change_vs_axial": 0.12789527579235455
+      },
+      "axial_baseline": {
+        "src": "T-054",
+        "dp_pa": 18.267,
+        "R": 0.07307,
+        "wss_force_n": 0.001506,
+        "outlet_mesh_mm2": 112.505258,
+        "cells": 636342
+      }
+    },
+    "b01": {
+      "chain_done": true,
+      "collect_done": true,
+      "checkmesh": {
+        "cells": 710101,
+        "points": 146413,
+        "non_orth_max": 83.3985536299,
+        "non_orth_avg": 18.5006199148,
+        "aspect_max": 55.4204387085,
+        "failed_checks": 2,
+        "mesh_ok": false,
+        "determinant_lines": [
+          "Cell determinant (wellposedness) : minimum: 2.3519257638e-06 average: 0.176640498609",
+          "***Cells with small determinant (< 0.001) found, number of cells: 490"
+        ],
+        "det_small_count": null
+      },
+      "metrics": {
+        "created": "2026-10-16T11:39:22.694833+08:00",
+        "task": "T-058 b01 oropharynx-extended S-A solve metrics (production chain)",
+        "schema": "nasal_cfd_metrics/v1",
+        "solver": "laminar (simpleFoam S-A preset, mirrors T-006/T-042/T-054)",
+        "rho_kg_m3": 1.2,
+        "boundary_convention": "fixed 50:50 nostril flow split (1.25e-4 m3/s each) + outlet p=0 gauge; comparable ONLY with T-006/T-041/T-042/T-047/T-054, NOT with T-021/T-029 common-static-pressure runs",
+        "outlet_role": "engineering_truncation_at_scan_inferior_face; downstream (hypopharynx+larynx) resistance missing -> delta_p biased low",
+        "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+        "domain": {
+          "labels": "nasal_cavity_left+right+nasopharynx+oropharynx",
+          "mesh_cells_repaired": 696358
+        },
+        "samples": {
+          "monitor_points": 600,
+          "last_time": 600,
+          "steady_window": "last 40%"
+        },
+        "metrics": {
+          "converged": false,
+          "numerical_validation": "unchecked (per M2 ruling; final residuals recorded)",
+          "final_initial_residuals": {
+            "Ux": 4.35727326709e-05,
+            "p": 7.5993970965e-06
+          },
+          "delta_p_pa": {
+            "value": 15.460361239424284,
+            "p_inL_kinematic": 12.361407314971112,
+            "p_inR_kinematic": 13.405861417402694,
+            "p_out_kinematic": 0.0,
+            "note": "mean of bilateral inlet area-average p, x rho"
+          },
+          "total_flow_m3s": {
+            "value": 0.00025000000000000006,
+            "target": 0.00025
+          },
+          "outlet_flow_m3s": {
+            "value": 0.00025000011191937606
+          },
+          "mass_imbalance_frac": 4.476775040083979e-07,
+          "monitor_max_window_change_frac": 0.00010000494921476046,
+          "resistance_R": {
+            "value_pa_s_ml": 0.06184144495769712,
+            "value_pa_s_m3": 61841.44495769712
+          }
+        },
+        "extension_increment": {
+          "analytical_oropharynx_segment_dp_pa": 0.25014067117336314,
+          "method": "Poiseuille integral over T-048 per-case area profile (8*pi*mu*Q*SUM(dz/A^2)); laminar straight-tube lower bound"
+        },
+        "m2_criteria": {
+          "no_crash": true,
+          "delta_p_in_band_10_100Pa": true,
+          "mass_imbalance_le_0.5pct": true,
+          "monitor_stable_le_0.5pct": true
+        },
+        "patch_areas_mm2": {
+          "mesh_labelled": {}
+        },
+        "reconciliation": {
+          "reference": "T-047 b01 oropharynx-extended maxh1 S-A",
+          "note": "reference = AXIAL-cut baseline (perpendicular to scan z). With the anatomical oblique outlet the outlet geometry changes (area + flow direction), so differences are EXPECTED and are not a regression; the inlet (nostril) side is the regression check.",
+          "delta_p_pa": {
+            "known": 15.709,
+            "now": 15.46,
+            "rel_diff": -0.015827790475250868
+          },
+          "R_pa_s_ml": {
+            "known": 0.06284,
+            "now": 0.06184,
+            "rel_diff": -0.015890436701191515
+          },
+          "cells": {
+            "known": 764801,
+            "now": 696358
+          }
+        },
+        "clinical_status": "generalisation_test_only_no_human_review"
+      },
+      "wss": {
+        "task": "T-058 b01 oropharynx-extended domain WSS (production chain)",
+        "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+        "source_vtp": "C:\\ts_work\\t058_chain_anat\\b01\\wall_600.vtp",
+        "faces": 84343,
+        "wall_area_m2": 0.01944923845846035,
+        "wall_area_mm2": 19449.23845846035,
+        "units_note": "foamToVTK exports SI: coords metres, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+        "wss_median_pa": 0.05025978813342112,
+        "wss_mean_pa": 0.06636696901550937,
+        "wss_p90_pa": 0.1432569534433047,
+        "wss_max_pa": 2.346037050430532,
+        "wall_shear_force_n": 0.0012736585187948888,
+        "clinical_status": "generalisation_test_only_no_human_review",
+        "reconciliation": {
+          "reference": "T-047 b01 oropharynx-extended",
+          "note": "reference = AXIAL-cut baseline; with the anatomical oblique outlet the outlet geometry changes -> differences EXPECTED, not a regression",
+          "force_n": {
+            "known": 0.001331,
+            "now": 0.0012736585187948888,
+            "rel_diff": -0.04308150353501966
+          },
+          "median_pa": {
+            "known": 0.0537,
+            "now": 0.05025978813342112,
+            "rel_diff": -0.06406353569048187
+          },
+          "max_pa": {
+            "known": 2.157,
+            "now": 2.346037050430532,
+            "rel_diff": 0.08763887363492448
+          }
+        }
+      },
+      "nostril_regression": {
+        "known": [
+          80.08,
+          80.08
+        ],
+        "now": [
+          80.082608,
+          80.081077
+        ],
+        "tolerance_mm2": 0.01,
+        "delta": [
+          0.0026,
+          0.0011
+        ],
+        "match": true
+      },
+      "outlet_area": {
+        "opening_stage_mm2": 208.460364,
+        "mesh_labelled_mm2": 210.599878,
+        "axial_mesh_labelled_mm2": null,
+        "rel_change_vs_axial": null
+      },
+      "axial_baseline": {
+        "src": "T-047",
+        "dp_pa": 15.709,
+        "R": 0.06284,
+        "wss_force_n": 0.001331,
+        "outlet_mesh_mm2": null,
+        "cells": 764801
+      }
+    },
+    "b02": {
+      "chain_done": true,
+      "collect_done": true,
+      "checkmesh": {
+        "cells": 590961,
+        "points": 126660,
+        "non_orth_max": 81.0676561323,
+        "non_orth_avg": 19.2682953747,
+        "aspect_max": 38.531255812,
+        "failed_checks": 2,
+        "mesh_ok": false,
+        "determinant_lines": [
+          "Cell determinant (wellposedness) : minimum: 9.98465113126e-06 average: 0.170326660673",
+          "***Cells with small determinant (< 0.001) found, number of cells: 668"
+        ],
+        "det_small_count": null
+      },
+      "metrics": {
+        "created": "2026-10-16T11:39:22.918781+08:00",
+        "task": "T-058 b02 oropharynx-extended S-A solve metrics (production chain)",
+        "schema": "nasal_cfd_metrics/v1",
+        "solver": "laminar (simpleFoam S-A preset, mirrors T-006/T-042/T-054)",
+        "rho_kg_m3": 1.2,
+        "boundary_convention": "fixed 50:50 nostril flow split (1.25e-4 m3/s each) + outlet p=0 gauge; comparable ONLY with T-006/T-041/T-042/T-047/T-054, NOT with T-021/T-029 common-static-pressure runs",
+        "outlet_role": "engineering_truncation_at_scan_inferior_face; downstream (hypopharynx+larynx) resistance missing -> delta_p biased low",
+        "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+        "domain": {
+          "labels": "nasal_cavity_left+right+nasopharynx+oropharynx",
+          "mesh_cells_repaired": 573555
+        },
+        "samples": {
+          "monitor_points": 600,
+          "last_time": 600,
+          "steady_window": "last 40%"
+        },
+        "metrics": {
+          "converged": false,
+          "numerical_validation": "unchecked (per M2 ruling; final residuals recorded)",
+          "final_initial_residuals": {
+            "Ux": 0.00171831097006,
+            "p": 0.000208893185761
+          },
+          "delta_p_pa": {
+            "value": 43.230504459526095,
+            "p_inL_kinematic": 43.42752067688022,
+            "p_inR_kinematic": 28.62332008899661,
+            "p_out_kinematic": 0.0,
+            "note": "mean of bilateral inlet area-average p, x rho"
+          },
+          "total_flow_m3s": {
+            "value": 0.00025000000000000006,
+            "target": 0.00025
+          },
+          "outlet_flow_m3s": {
+            "value": 0.000249999885546788
+          },
+          "mass_imbalance_frac": 4.5781284817823776e-07,
+          "monitor_max_window_change_frac": 0.0007632971894402474,
+          "resistance_R": {
+            "value_pa_s_ml": 0.17292201783810435,
+            "value_pa_s_m3": 172922.01783810434
+          }
+        },
+        "extension_increment": {
+          "analytical_oropharynx_segment_dp_pa": 0.14405167400649682,
+          "method": "Poiseuille integral over T-048 per-case area profile (8*pi*mu*Q*SUM(dz/A^2)); laminar straight-tube lower bound"
+        },
+        "m2_criteria": {
+          "no_crash": true,
+          "delta_p_in_band_10_100Pa": true,
+          "mass_imbalance_le_0.5pct": true,
+          "monitor_stable_le_0.5pct": true
+        },
+        "patch_areas_mm2": {
+          "mesh_labelled": {}
+        },
+        "reconciliation": null,
+        "clinical_status": "generalisation_test_only_no_human_review"
+      },
+      "wss": {
+        "task": "T-058 b02 oropharynx-extended domain WSS (production chain)",
+        "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+        "source_vtp": "C:\\ts_work\\t058_chain_anat\\b02\\wall_600.vtp",
+        "faces": 83514,
+        "wall_area_m2": 0.019517709372794952,
+        "wall_area_mm2": 19517.709372794954,
+        "units_note": "foamToVTK exports SI: coords metres, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+        "wss_median_pa": 0.08971002711026776,
+        "wss_mean_pa": 0.12488685028541957,
+        "wss_p90_pa": 0.26408957833612695,
+        "wss_max_pa": 22.86460977517695,
+        "wall_shear_force_n": 0.0023701889127586465,
+        "clinical_status": "generalisation_test_only_no_human_review"
+      },
+      "nostril_regression": {
+        "known": [
+          80.15,
+          80.22
+        ],
+        "now": [
+          80.149521,
+          80.224047
+        ],
+        "tolerance_mm2": 0.01,
+        "delta": [
+          -0.0005,
+          0.004
+        ],
+        "match": true
+      },
+      "outlet_area": {
+        "opening_stage_mm2": 84.572528,
+        "mesh_labelled_mm2": 85.446964,
+        "axial_mesh_labelled_mm2": null,
+        "rel_change_vs_axial": null
+      },
+      "axial_baseline": null
+    }
+  },
+  "summary": {
+    "all_chain_done": true,
+    "all_collected": true,
+    "all_nostril_match": true,
+    "m2_by_case": {
+      "b15": {
+        "no_crash": true,
+        "delta_p_in_band_10_100Pa": true,
+        "mass_imbalance_le_0.5pct": true,
+        "monitor_stable_le_0.5pct": true
+      },
+      "b01": {
+        "no_crash": true,
+        "delta_p_in_band_10_100Pa": true,
+        "mass_imbalance_le_0.5pct": true,
+        "monitor_stable_le_0.5pct": true
+      },
+      "b02": {
+        "no_crash": true,
+        "delta_p_in_band_10_100Pa": true,
+        "mass_imbalance_le_0.5pct": true,
+        "monitor_stable_le_0.5pct": true
+      }
+    },
+    "cells_by_case": {
+      "b15": 653789,
+      "b01": 710101,
+      "b02": 590961
+    },
+    "all_m2_pass": true
+  }
+}

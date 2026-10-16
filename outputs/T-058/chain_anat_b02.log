@@ -1,0 +1,68 @@
+== step 1: netgen volume mesh (maxh 1.0, T-054 preset) ==
+  "labelling_verified_against_areas": true,
+  "descriptor_semantics_used": false,
+  "next_step": "repair_boundary_tetrahedra.py then gmshToFoam + checkMesh"
+}
+== step 2: repair boundary tetrahedra ==
+  },
+  "nonmanifold_faces": 0,
+  "cells_with_multiple_boundary_faces_remaining": 0
+}
+== step 3: scaffold + gmshToFoam ==
+    cells:            590961
+    Boundary definition OK.
+    Cell to face addressing OK.
+    Point usage OK.
+    Upper triangular ordering OK.
+    Face vertices OK.
+    Topological cell zip-up check OK.
+    Face-face connectivity OK.
+    Boundary openness (7.79488032157e-18 4.89348934656e-18 -1.54294428411e-16) OK.
+    Max cell openness = 6.49133072326e-16 OK.
+== step 4: wall patch type -> wall (wallShearStress silently zeroes on type patch) ==
+patch_wall_type: patch 'wall' rewritten (physicalType dropped: True)
+--- before ---
+    wall
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          83514;
+        startFace       1139383;
+    }
+
+--- after ---
+    wall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          83514;
+        startFace       1139383;
+    }
+
+boundary md5 before: 4c50307fb4c3703b45d78f4e9baeb856e94a54fbce5643120f7ab8ff01849535
+boundary md5 after:  0bc206d2469ac660c7f5ce43fcfd3d2bb2ffe3cc9a03158ff77ececfc31f0ccc
+== step 5: 0/U + 0/p (S-A laminar, 125 mL/s per nostril, outlet p=0) ==
+== step 6: S-A preset + patch-name sanity checks ==
+ nNonOrthogonalCorrectors 2;
+relaxationFactors { equations { U 0.7; } fields { p 0.3; } }
+    grad(U) cellLimited Gauss linear 1;
+endTime 600;
+    nostril_L
+    wall
+    nostril_R
+    oropharynx_truncation_outlet
+== step 7: simpleFoam (600 steps) ==
+simpleFoam exit=0
+End
+
+End
+== step 8: wallShearStress post-process (latest time) ==
+wss exit=0
+-rw-r--r-- 1 lenovo2 lenovo2 4363145 Oct 16 11:39 600/wallShearStress
+== step 9: foamToVTK -ascii (shared library reads ASCII only) ==
+VTK dir: VTK/foam_maxh1_600/
+nostril_L.vtp
+nostril_R.vtp
+oropharynx_truncation_outlet.vtp
+wall.vtp
+CHAIN-DONE b02

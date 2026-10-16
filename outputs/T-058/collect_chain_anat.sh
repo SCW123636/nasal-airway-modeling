@@ -12,6 +12,10 @@ for P in b15 b01 b02; do
      "/mnt/c/ts_work/t058_chain_anat/$P/"
   cp "/home/lenovo2/t058_chain_anat/$P/maxh1.msh.mesh.json" \
      "/mnt/c/ts_work/t058_chain_anat/$P/"
+  # chain.log carries the CHAIN-DONE marker the verifier checks; it must travel
+  # with the rest of the artefacts or every case reads as "chain incomplete".
+  cp "/home/lenovo2/t058_chain_anat/$P/chain.log" \
+     "/mnt/c/ts_work/t058_chain_anat/$P/" || echo "WARN no chain.log for $P"
   cp "/home/lenovo2/t058_chain_anat/$P/wall_600.vtp" \
      "/mnt/c/ts_work/t058_chain_anat/$P/" || echo "WARN no wall_600.vtp for $P"
   cp "/home/lenovo2/t058_chain_anat/$P/foam_maxh1/log.wss" \

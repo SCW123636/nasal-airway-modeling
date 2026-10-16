@@ -1,0 +1,15 @@
+{
+  "task": "T-058 b02 oropharynx-extended domain WSS (production chain)",
+  "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+  "source_vtp": "C:\\ts_work\\t058_chain_anat\\b02\\wall_600.vtp",
+  "faces": 83514,
+  "wall_area_m2": 0.019517709372794952,
+  "wall_area_mm2": 19517.709372794954,
+  "units_note": "foamToVTK exports SI: coords metres, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+  "wss_median_pa": 0.08971002711026776,
+  "wss_mean_pa": 0.12488685028541957,
+  "wss_p90_pa": 0.26408957833612695,
+  "wss_max_pa": 22.86460977517695,
+  "wall_shear_force_n": 0.0023701889127586465,
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

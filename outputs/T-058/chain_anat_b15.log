@@ -1,0 +1,67 @@
+== step 1: netgen volume mesh (maxh 1.0, T-054 preset) ==
+  "labelling_verified_against_areas": true,
+  "descriptor_semantics_used": false,
+  "next_step": "repair_boundary_tetrahedra.py then gmshToFoam + checkMesh"
+}
+== step 2: repair boundary tetrahedra ==
+  },
+  "nonmanifold_faces": 0,
+  "cells_with_multiple_boundary_faces_remaining": 0
+}
+== step 3: scaffold + gmshToFoam ==
+    cells:            653789
+    Boundary definition OK.
+    Cell to face addressing OK.
+    Point usage OK.
+    Upper triangular ordering OK.
+    Face vertices OK.
+    Topological cell zip-up check OK.
+    Face-face connectivity OK.
+    Boundary openness (4.20554022702e-17 6.6909788622e-18 -1.03509096315e-16) OK.
+    Max cell openness = 6.76489029828e-16 OK.
+== step 4: wall patch type -> wall (wallShearStress silently zeroes on type patch) ==
+patch_wall_type: patch 'wall' rewritten (physicalType dropped: True)
+--- before ---
+    wall
+    {
+        type            patch;
+        physicalType    patch;
+        nFaces          81064;
+        startFace       1266086;
+    }
+
+--- after ---
+    wall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          81064;
+        startFace       1266086;
+    }
+
+boundary md5 before: 1d5de2594627e7780c2c8055e2b0dd26fec2898f99c0abc3c0929148818dfa1a
+boundary md5 after:  d6d123a11b3b082a78d11237ad3a83a1598149d87b24af71563c5cea17a8fc36
+== step 5: 0/U + 0/p (S-A laminar, 125 mL/s per nostril, outlet p=0) ==
+== step 6: S-A preset + patch-name sanity checks ==
+ nNonOrthogonalCorrectors 2;
+relaxationFactors { equations { U 0.7; } fields { p 0.3; } }
+    grad(U) cellLimited Gauss linear 1;
+endTime 600;
+    nostril_L
+    wall
+    oropharynx_truncation_outlet
+    nostril_R
+== step 7: simpleFoam (600 steps) ==
+simpleFoam exit=0
+End
+
+End
+== step 8: wallShearStress post-process (latest time) ==
+wss exit=0
+-rw-r--r-- 1 lenovo2 lenovo2 4257942 Oct 16 11:04 600/wallShearStress
+== step 9: foamToVTK -ascii (shared library reads ASCII only) ==
+VTK dir: VTK/foam_maxh1_600.vtm
+ls: cannot access 'VTK/foam_maxh1_600.vtm/boundary/': Not a directory
+cp: cannot stat 'VTK/foam_maxh1_600.vtm/boundary/wall.vtp': Not a directory
+step 9 back-filled by hand at 11:11:39: wall.vtp copied from VTK/foam_maxh1_600/boundary/ ; root cause = bare glob picked the .vtm file, fixed in chain_case_anat.sh (now VTK/foam_maxh1_*/)
+CHAIN-DONE b15

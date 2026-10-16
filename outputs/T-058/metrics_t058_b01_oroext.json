@@ -1,0 +1,79 @@
+{
+  "created": "2026-10-16T11:39:22.694833+08:00",
+  "task": "T-058 b01 oropharynx-extended S-A solve metrics (production chain)",
+  "schema": "nasal_cfd_metrics/v1",
+  "solver": "laminar (simpleFoam S-A preset, mirrors T-006/T-042/T-054)",
+  "rho_kg_m3": 1.2,
+  "boundary_convention": "fixed 50:50 nostril flow split (1.25e-4 m3/s each) + outlet p=0 gauge; comparable ONLY with T-006/T-041/T-042/T-047/T-054, NOT with T-021/T-029 common-static-pressure runs",
+  "outlet_role": "engineering_truncation_at_scan_inferior_face; downstream (hypopharynx+larynx) resistance missing -> delta_p biased low",
+  "outlet_cut_convention": "anatomical_oblique_perpendicular_to_local_airway_axis",
+  "domain": {
+    "labels": "nasal_cavity_left+right+nasopharynx+oropharynx",
+    "mesh_cells_repaired": 696358
+  },
+  "samples": {
+    "monitor_points": 600,
+    "last_time": 600,
+    "steady_window": "last 40%"
+  },
+  "metrics": {
+    "converged": false,
+    "numerical_validation": "unchecked (per M2 ruling; final residuals recorded)",
+    "final_initial_residuals": {
+      "Ux": 4.35727326709e-05,
+      "p": 7.5993970965e-06
+    },
+    "delta_p_pa": {
+      "value": 15.460361239424284,
+      "p_inL_kinematic": 12.361407314971112,
+      "p_inR_kinematic": 13.405861417402694,
+      "p_out_kinematic": 0.0,
+      "note": "mean of bilateral inlet area-average p, x rho"
+    },
+    "total_flow_m3s": {
+      "value": 0.00025000000000000006,
+      "target": 0.00025
+    },
+    "outlet_flow_m3s": {
+      "value": 0.00025000011191937606
+    },
+    "mass_imbalance_frac": 4.476775040083979e-07,
+    "monitor_max_window_change_frac": 0.00010000494921476046,
+    "resistance_R": {
+      "value_pa_s_ml": 0.06184144495769712,
+      "value_pa_s_m3": 61841.44495769712
+    }
+  },
+  "extension_increment": {
+    "analytical_oropharynx_segment_dp_pa": 0.25014067117336314,
+    "method": "Poiseuille integral over T-048 per-case area profile (8*pi*mu*Q*SUM(dz/A^2)); laminar straight-tube lower bound"
+  },
+  "m2_criteria": {
+    "no_crash": true,
+    "delta_p_in_band_10_100Pa": true,
+    "mass_imbalance_le_0.5pct": true,
+    "monitor_stable_le_0.5pct": true
+  },
+  "patch_areas_mm2": {
+    "mesh_labelled": {}
+  },
+  "reconciliation": {
+    "reference": "T-047 b01 oropharynx-extended maxh1 S-A",
+    "note": "reference = AXIAL-cut baseline (perpendicular to scan z). With the anatomical oblique outlet the outlet geometry changes (area + flow direction), so differences are EXPECTED and are not a regression; the inlet (nostril) side is the regression check.",
+    "delta_p_pa": {
+      "known": 15.709,
+      "now": 15.46,
+      "rel_diff": -0.015827790475250868
+    },
+    "R_pa_s_ml": {
+      "known": 0.06284,
+      "now": 0.06184,
+      "rel_diff": -0.015890436701191515
+    },
+    "cells": {
+      "known": 764801,
+      "now": 696358
+    }
+  },
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

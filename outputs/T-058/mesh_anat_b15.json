@@ -1,0 +1,66 @@
+{
+  "input_unit": "mm",
+  "output_unit": "m",
+  "physical_layout": {
+    "nostril_L": 1,
+    "nostril_R": 2,
+    "oropharynx_truncation_outlet": 3,
+    "wall": 4,
+    "fluid": 5
+  },
+  "descriptor_mapping": {
+    "1": "nostril_L",
+    "2": "nostril_R",
+    "3": "oropharynx_truncation_outlet",
+    "4": "wall"
+  },
+  "points": 131621,
+  "tetrahedra": 639686,
+  "volume_m3": 2.1325590517649417e-05,
+  "patch_triangle_counts": {
+    "nostril_L": 3399,
+    "wall": 81064,
+    "oropharynx_truncation_outlet": 2012,
+    "nostril_R": 3307
+  },
+  "status": "converted_requires_repair_and_openfoam_check",
+  "medical_approval_granted": false,
+  "patient_solver_allowed": false,
+  "source": "/home/lenovo2/t058_chain_anat/b15/placed.stl",
+  "source_sha256": "67f870766adaa9e5536b56d62148e9f2e306ae10a9189bbe6cdabe91a5cb2504",
+  "export_json": "/home/lenovo2/t058_chain_anat/b15/export.json",
+  "output": "/home/lenovo2/t058_chain_anat/b15/maxh1.msh",
+  "output_sha256": "edb938cf1817a672eba55ef5a02d009738b31b841e2d4a62d5cba66402c256ac",
+  "maxh": 1.0,
+  "grading": 0.1,
+  "plane_tol_mm": 0.07089867612758906,
+  "plane_tol_rule": "0.1 x median boundary face edge",
+  "median_boundary_edge_mm": 0.708987,
+  "boundary_patch_areas_mm2": {
+    "nostril_L": 82.581423,
+    "wall": 18797.221566,
+    "oropharynx_truncation_outlet": 126.894149,
+    "nostril_R": 81.195561
+  },
+  "boundary_patch_face_counts": {
+    "nostril_L": 3399,
+    "wall": 81064,
+    "oropharynx_truncation_outlet": 2012,
+    "nostril_R": 3307
+  },
+  "opening_stage_areas_mm2": {
+    "nostril_L": 80.03741,
+    "nostril_R": 80.057289,
+    "oropharynx_truncation_outlet": 125.845838
+  },
+  "cap_area_deviation_pct": {
+    "nostril_L": 3.179,
+    "nostril_R": 1.422,
+    "oropharynx_truncation_outlet": 0.833
+  },
+  "cap_area_deviation_caveat": "The surface optimiser bends the cap near the rim, so the cap is not exactly planar and no single plane tolerance reproduces the opening area exactly (measured, not fitted). These deviations are therefore the honest resolution of this labelling, not a precision claim; the gate only rejects misidentification.",
+  "labelling": "geometric (centroid on the opening plane)",
+  "labelling_verified_against_areas": true,
+  "descriptor_semantics_used": false,
+  "next_step": "repair_boundary_tetrahedra.py then gmshToFoam + checkMesh"
+}

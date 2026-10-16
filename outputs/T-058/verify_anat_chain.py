@@ -97,13 +97,20 @@ def main():
         areas_open = mj.get('opening_stage_areas_mm2') or {}
         areas_mesh = mj.get('boundary_patch_areas_mm2') or {}
 
-        # E. 鼻孔回归（开口阶段值）
+        # E. 鼻孔回归（开口阶段值）。NOSTRIL_KNOWN 是四舍五入到 2 位的展示值，
+        #    必须容差比较：逐位相等的判据只适用于同一批浮点产物，不适用于
+        #    跨批的重网结果（实际 80.03741 vs 展示 80.04）。
         nk = NOSTRIL_KNOWN[c]
+        tol = 0.01  # mm^2；远小于任何有解剖意义的开口面积变化
+        nL, nR = areas_open.get('nostril_L'), areas_open.get('nostril_R')
         entry['nostril_regression'] = {
             'known': list(nk),
-            'now': [areas_open.get('nostril_L'), areas_open.get('nostril_R')],
-            'match': bool(areas_open.get('nostril_L') == nk[0]
-                          and areas_open.get('nostril_R') == nk[1]),
+            'now': [nL, nR],
+            'tolerance_mm2': tol,
+            'delta': [None if nL is None else round(nL - nk[0], 4),
+                      None if nR is None else round(nR - nk[1], 4)],
+            'match': bool(nL is not None and nR is not None
+                          and abs(nL - nk[0]) <= tol and abs(nR - nk[1]) <= tol),
         }
 
         # D. 出口面积口径变化
