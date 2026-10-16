@@ -1,0 +1,63 @@
+
+================ b01 ================
+  cut plane z = -85.217 mm (bottom voxel centre -85.717, +0.5 mm), outlet cap 148.93 mm2, 583 air voxels on the bottom slice
+  air mask: shape (195, 512, 512), spacing (0.488, 0.488, 0.625)
+  nasal_cavity_left      z [  -55.72,   -10.09]  len  45.62 mm    68508 vox
+  nasal_cavity_right     z [  -53.84,    -9.47]  len  44.38 mm    68508 vox
+  nasopharynx            z [  -50.09,   -29.47]  len  20.62 mm    40153 vox
+  oropharynx             z [  -85.72,   -45.72]  len  40.00 mm    54370 vox
+  soft_palate            z [  -72.59,   -48.22]  len  24.38 mm    22146 vox
+  hard_palate            z [  -58.84,   -46.34]  len  12.50 mm    16461 vox
+  hypopharynx            z [  -85.72,   -84.47]  len   1.25 mm      255 vox
+  bottom-16mm profile: area 137.8-161.4 mm2, centroid drift x 0.40 / y 0.06 mm
+  local tube axis    : 17.9 deg off vertical, drifting anterior going down; axial-cut obliquity 17.9 deg
+  cap area inflation vs true cross-section: x1.051 (ellipse minor/major = cos 17.9 deg = 0.952)
+  airway below velum tip            :     12.62 mm
+  velum tip FOV-truncated           :      False
+  airway below nasopharynx floor    :     35.12 mm
+  oropharynx label length           :     40.00 mm
+  oropharynx label bottom - cut     :     -0.50 mm
+  hypopharynx top vs cut            :      0.75 mm
+  hypopharynx voxels                :        255
+  min area in bottom 20 mm: 137.8 mm2 at -85.72 mm (above the cut)
+  exit: u_mean 1.68 m/s, d_eq 13.8 mm, Re 1541 (laminar threshold ~2300)
+
+================ b02 ================
+  cut plane z = -92.287 mm (bottom voxel centre -92.787, +0.5 mm), outlet cap 91.98 mm2, 389 air voxels on the bottom slice
+  air mask: shape (173, 512, 512), spacing (0.488, 0.488, 0.625)
+  nasal_cavity_left      z [  -74.66,   -27.16]  len  47.50 mm    62450 vox
+  nasal_cavity_right     z [  -74.66,   -28.41]  len  46.25 mm    66551 vox
+  nasopharynx            z [  -72.79,   -57.16]  len  15.62 mm    37849 vox
+  oropharynx             z [  -92.79,   -72.79]  len  20.00 mm    25598 vox
+  soft_palate            z [  -92.79,   -73.41]  len  19.38 mm    20204 vox
+  hard_palate            z [  -79.66,   -71.54]  len   8.12 mm    17704 vox
+  bottom-16mm profile: area 91.3-92.7 mm2, centroid drift x 0.14 / y 0.40 mm
+  local tube axis    : 18.8 deg off vertical, drifting anterior going down; axial-cut obliquity 18.8 deg
+  cap area inflation vs true cross-section: x1.056 (ellipse minor/major = cos 18.8 deg = 0.947)
+  airway below velum tip            :     -0.50 mm
+  velum tip FOV-truncated           :       True
+  airway below nasopharynx floor    :     19.50 mm
+  oropharynx label length           :     20.00 mm
+  oropharynx label bottom - cut     :     -0.50 mm
+  min area in bottom 20 mm: 91.3 mm2 at -91.54 mm (at the cut)
+  exit: u_mean 2.72 m/s, d_eq 10.8 mm, Re 1961 (laminar threshold ~2300)
+
+================ b15 ================
+  cut plane z = -58.338 mm (bottom voxel centre -58.838, +0.5 mm), outlet cap 111.00 mm2, 450 air voxels on the bottom slice
+  air mask: shape (148, 512, 512), spacing (0.488, 0.488, 0.625)
+  nasal_cavity_left      z [  -48.84,    -3.21]  len  45.62 mm    76850 vox
+  nasal_cavity_right     z [  -48.84,    -3.84]  len  45.00 mm    72452 vox
+  nasopharynx            z [  -50.09,   -35.71]  len  14.38 mm    23218 vox
+  oropharynx             z [  -58.84,   -48.84]  len  10.00 mm    12735 vox
+  soft_palate            z [  -58.84,   -48.84]  len  10.00 mm    14230 vox
+  hard_palate            z [  -50.09,   -43.21]  len   6.88 mm    19900 vox
+  bottom-16mm profile: area 107.3-117.5 mm2, centroid drift x 0.21 / y 0.34 mm
+  local tube axis    : 17.9 deg off vertical, drifting anterior going down; axial-cut obliquity 17.9 deg
+  cap area inflation vs true cross-section: x1.051 (ellipse minor/major = cos 17.9 deg = 0.952)
+  airway below velum tip            :     -0.50 mm
+  velum tip FOV-truncated           :       True
+  airway below nasopharynx floor    :      8.25 mm
+  oropharynx label length           :     10.00 mm
+  oropharynx label bottom - cut     :     -0.50 mm
+  min area in bottom 20 mm: 107.3 mm2 at -58.84 mm (above the cut)
+  exit: u_mean 2.25 m/s, d_eq 11.9 mm, Re 1785 (laminar threshold ~2300)
