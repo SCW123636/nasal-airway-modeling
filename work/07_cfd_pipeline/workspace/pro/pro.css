@@ -32,6 +32,8 @@ code{font-family:var(--mono);font-size:11px;background:var(--soft);padding:0 4px
 .chip{font:10.5px var(--mono);padding:3px 8px;border-radius:2px;background:#2c2c2c;color:#c4c4c4;
   border:1px solid #454545;white-space:nowrap}
 .chip.warn{background:#ececec;color:#1b1b1b;border-color:#ececec;font-weight:600}
+.chip.nav{text-decoration:none;cursor:pointer}
+.chip.nav:hover{background:#3a3a3a;color:#fff;border-color:#6e6e6e}
 
 /* ---- 主壳三栏 ---- */
 .shell{flex:1;display:grid;grid-template-columns:248px minmax(0,1fr) 300px;min-height:0}

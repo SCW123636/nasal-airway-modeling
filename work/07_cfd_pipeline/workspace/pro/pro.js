@@ -19,6 +19,7 @@ const el = (tag, text, cls) => { const e = document.createElement(tag);
 const S = {
   cases: [], jobs: [], metrics: null,                // metrics = patient_metrics.json（已核验搬运）
   streamlines: null,                                 // streamlines_manifest.json（已核验流线产物清单）
+  projects: null,                                    // patient_projects.json（已核验患者项目搬运清单）
   caseId: null,                                      // null = 未选项目
   view: 'geometry',
   sel: null,                                         // {kind:'flow'|'job', key}
@@ -101,6 +102,26 @@ function mergeSyntheticCases() {
     });
     added++;
   }
+  /* 已核验患者项目搬运清单（T-058）：本项目的患者求解在工作台外（WSL 直跑 simpleFoam）
+     完成，job 体系里没有对应记录——清单把它们的身份与已核验产物入口登记进树。
+     已在树中的（如 jobs 派生的 b15_engineering）就地富化，不新建重复项目。 */
+  for (const p of (S.projects || [])) {
+    const cid = p.case_id;
+    if (!cid) continue;
+    const hit = S.cases.find(c => caseIdOf(c) === cid);
+    if (hit) {
+      hit._manifest = p;
+      if (p.artifacts) hit.artifacts = Object.assign({}, hit.artifacts, p.artifacts);
+      continue;
+    }
+    seen.add(cid);
+    S.cases.push({
+      id: cid, kind: '已核验患者项目（搬运清单）', synthetic: true, error: null,
+      active_stage: null, artifacts: p.artifacts || null, _manifest: p,
+      _note: p.note || '工作台外求解：已核验产物搬运，数值以 patient_metrics.json 为准',
+    });
+    added++;
+  }
   return added;
 }
 async function loadJobs() {
@@ -119,6 +140,15 @@ async function loadStreamlines() {
     const d = await jget('/workspace/pro/streamlines_manifest.json');
     S.streamlines = (d.items || []);
   } catch (e) { S.streamlines = []; }
+}
+/* 已核验患者项目搬运清单（T-058）：工作台外（WSL）直跑的患者求解没有 job 记录，
+   若无此清单则 b01/b02 不出现在患者树、三维检查页也无产物入口。
+   清单只挂产物 URL 与出处；数值一律以 patient_metrics.json 为准。 */
+async function loadProjects() {
+  try {
+    const d = await jget('/workspace/pro/patient_projects.json');
+    S.projects = (d.items || []);
+  } catch (e) { S.projects = []; }
 }
 
 /* ---------- 处理树状态推导（P4：state = f(自身产物, 上游 state)） ---------- */
@@ -181,6 +211,7 @@ function importSub(c) {
   return st + (sz ? ' · ' + sz : '') + (c.kind ? ' · ' + c.kind : '');
 }
 function synthSub(c, id) {
+  if (c && c._manifest) return '已核验患者项目 · ' + (metricKeyOf(id) ? '已核验指标' : '指标缺记录');
   if (metricKeyOf(id)) return '仿真项目 · 已核验指标';
   /* 只认 run_* 真实求解任务（preflight 不算求解）；取最新一个 run 的状态 */
   const runs = jobsOfCase(id).filter(j => String(j.action || '').startsWith('run_'));
@@ -219,7 +250,8 @@ function renderProjectTree() {
       li.append(el('span', sel ? '▾' : '▸', 'caret'));
       li.append(el('span', icon, 'st ' + cls));
       const lbl = el('span', undefined, 'lbl');
-      lbl.textContent = c.synthetic ? synthLabel(id) : importLabel(c);
+      lbl.textContent = c.synthetic
+        ? ((c._manifest && c._manifest.label) || synthLabel(id)) : importLabel(c);
       lbl.append(el('span', c.synthetic ? synthSub(c, id) : importSub(c), 'sub'));
       li.append(lbl);
       li.title = (c.synthetic ? (c._note || '仿真项目（jobs API 派生）') : (IMPORT_STATUS[c.status] || c.status || ''))
@@ -639,6 +671,24 @@ function renderCaseProps(body) {
   sec.append(dl);
   if (c.error) sec.append(el('div', '导入失败：' + c.error, 'notice bad'));
   if (c.synthetic) sec.append(el('div', c._note || '仿真项目（jobs API 派生）', 'notice'));
+  /* 已核验搬运清单条目：出处 + 产物入口（三维 = 解剖切检视页） */
+  if (c._manifest) {
+    const m = c._manifest;
+    sec.append(el('h4', '已核验搬运清单'));
+    const dlm = el('dl');
+    kv(dlm, '出处', m.source, false);
+    kv(dlm, '域口径', m.domain, false);
+    kv(dlm, '临床状态', m.clinical_status, false);
+    sec.append(dlm);
+    const box = el('div', undefined, 'acts');
+    for (const [k, url] of Object.entries(m.artifacts || {})) {
+      const l = el('a', k === 'viewer' ? '解剖切三维检视' : k,
+        'act-link' + (k === 'viewer' ? ' hot' : ''));
+      l.href = url; l.target = '_blank'; box.append(l);
+    }
+    if (box.childNodes.length) sec.append(box);
+    if (m.note) sec.append(el('p', m.note, 'proj-note'));
+  }
   const mk = metricKeyOf(S.caseId);
   if (mk && S.metrics) {
     const mp = S.metrics.patients[mk];
@@ -704,9 +754,20 @@ function renderAll() { renderProjectTree(); renderTabs(); renderView(); renderPr
 async function boot() {
   try { await loadCases(); } catch (e) { S.cases = []; }
   try { await loadJobs(); } catch (e) {}
+  await loadProjects();
   mergeSyntheticCases();
   await loadMetrics();
   await loadStreamlines();
+  /* 嵌入的三维检视页（t058_cut）内切换病例时回传，保持患者树/属性面板同步 */
+  window.addEventListener('message', ev => {
+    if (ev.origin !== location.origin) return;
+    const d = ev.data;
+    if (!d || d.type !== 'nasal-pro-select-case' || !d.case) return;
+    const p = (S.projects || []).find(x => x.viewer_case === d.case);
+    if (p && p.case_id !== S.caseId) {
+      S.caseId = p.case_id; S.sel = null; S.view = 'geometry'; renderAll();
+    }
+  });
   renderAll();
 }
 boot();

@@ -10,7 +10,7 @@
       "domain": "extended（鼻+鼻咽+可见口咽）",
       "source": "T-057（源场 T-054，vtkStreamTracer，seed=7，每侧 60 种子）",
       "clinical_status": "generalisation_test_only_no_human_review",
-      "note": "扩展域口径（03:3x 用户裁定后的域标准）。出口 = oropharynx_truncation_outlet 工程截断 112.51 mm²；Δp 18.267 Pa（T-054 M2 四判据全过）。短域（T-042/T-049，10.294 Pa）已降级历史参考，两者只可比作域口径差异。流线属后处理级，定量以 postProcessing 的 surfaceFieldValue 为准。"
+      "note": "★ 源场口径已过期（2026-10-16）：本流线由 **T-054 轴位切**场追踪（出口 112.51 mm²、Δp 18.267 Pa）。出口几何已按用户裁定「按照人体构造来就好，斜切」改为解剖斜切（T-058：出口 125.85 mm²、Δp 17.120 Pa），故本产物为**历史口径**，待解剖切场重跑流线后替换；定量仍以 postProcessing 的 surfaceFieldValue 为准。扩展域口径（03:3x 用户裁定后的域标准）。短域（T-042/T-049，10.294 Pa）已降级历史参考，两者只可比作域口径差异。"
     }
   ]
 }

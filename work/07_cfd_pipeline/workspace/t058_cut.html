@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>切割结果三维检视 · 解剖斜切（垂直气道轴） · T-058</title>
+<script type="importmap">{"imports":{"three":"/viewer/vendor/three.module.js"}}</script>
+<style>
+:root{--ink:#23332f;--muted:#78817e;--line:#e4e9e6;--accent:#257861;--soft:#edf5f0;
+--warn:#99691e;--bg:#f5f7f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif}
+code{font:11.5px ui-monospace,Consolas,monospace;background:var(--soft);padding:1px 5px;border-radius:4px}
+.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:16px 22px 10px}
+.crumb{font-size:11px;color:var(--muted);width:100%}
+h1{font-size:19px;margin:0;font-weight:650}
+.sub{width:100%;font-size:12px;color:var(--muted);margin:2px 0 0}
+.badges{margin-left:auto;display:flex;gap:6px}
+.badge{font-size:10px;padding:3px 8px;border-radius:5px;background:var(--soft);color:var(--muted);border:1px solid var(--line)}
+.badge.warn{background:#fff4de;color:var(--warn);border-color:#ecd9b0}
+.honesty{margin:4px 22px 0;border:1px solid #ecd9b0;background:#fffaf0;border-radius:8px;font-size:12px;color:#7a6a45}
+.honesty summary{cursor:pointer;padding:9px 13px;font-weight:600;color:var(--warn)}
+.honesty ol{margin:0;padding:0 20px 12px 32px}
+.honesty li{margin:5px 0;line-height:1.7}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;padding:12px 22px 20px;align-items:start}
+.stage{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-height:580px}
+.stage-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid var(--line);background:#fbfdfc}
+.stage-bar .sp{flex:1}
+button{font:12px system-ui,"Microsoft YaHei",sans-serif;padding:5px 10px;border-radius:6px;border:1px solid var(--line);
+background:#fff;color:var(--ink);cursor:pointer}
+button:hover{background:var(--soft)}
+button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+button.case{font-weight:650}
+#scene{flex:1;min-height:500px;position:relative}
+.panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.panel h2{font-size:13px;margin:2px 0 8px;color:var(--accent)}
+.row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px dashed #eef1ef;gap:10px}
+.row:last-child{border-bottom:none}
+.row b{font-weight:650;font-variant-numeric:tabular-nums;text-align:right}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:8px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+label.chk{display:flex;align-items:center;gap:6px;font-size:12px;padding:3px 0;cursor:pointer}
+input[type=range]{width:100%}
+.note{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:8px}
+.footer{padding:0 22px 18px;font-size:11.5px;color:var(--muted)}
+/* 嵌入工作台中栏（?embedded=1）：收窄页面 chrome，保留标题与临床状态徽标 */
+html.embedded .crumb,html.embedded .sub,html.embedded .footer{display:none}
+html.embedded body{background:#fff}
+html.embedded .top{padding:10px 12px 6px}
+html.embedded .layout{grid-template-columns:minmax(0,1fr) 292px;gap:10px;padding:8px 12px 12px}
+html.embedded .honesty{margin:2px 12px 0}
+html.embedded .stage{min-height:440px}
+html.embedded #scene{min-height:380px}
+</style></head><body>
+<div class="top">
+  <div class="crumb">T-058 生产管线原生扩展域 · 用户裁定 2026-10-16「按照人体构造来就好，斜切」</div>
+  <h1>切割结果三维检视</h1>
+  <div class="badges">
+    <span class="badge">出口 = 垂直局部气道轴（解剖切）</span>
+    <span class="badge warn">clinical_status: generalisation_test_only_no_human_review</span>
+  </div>
+  <div class="sub">气道域 = 鼻 + 鼻咽 + 口咽（扫描底面工程截断）。出口切面垂直于拟合的气道轴，最低点距底孔中心 0.5 mm（与退役轴位切同一条锚定规则）。渲染栈 = 项目既有 viewer/vendor（three 0.180 + OrbitControls，离线锁定）。</div>
+</div>
+<details class="honesty"><summary>读图须知与诚实边界（点击展开）</summary>
+<ol>
+<li>本页只是<strong>几何检视</strong>：切完的域表面、三个开口、被斜切切除的楔形（红色幽灵）、拟合轴与两个参考面。不含任何流场或临床结论。</li>
+<li>鼻孔侧（入口）与退役轴位切运行<strong>逐位复现</strong>（b01 80.08/80.08、b02 80.15/80.22、b15 80.04/80.06 mm²）——斜切只改出口。</li>
+<li>出口面积改为人气道<b>真实垂直截面</b>（旧轴位值是椭圆高估值 ×1/cosθ）；b15/b01 因此不再与 T-054/T-047 出口逐位一致，那些基线降级为历史轴位参考，网格+求解重跑后在解剖切上重建。</li>
+<li>红色幽灵 = 源表面中完全位于斜切平面以下的三角形（斜切多切除、轴位切会保留在低侧的楔形）；跨切面的三角形被切分，不计入幽灵，故幽灵略薄于真实切除量。</li>
+<li>橙色线框 = 新解剖切面；灰色线框 = 退役轴位切面（水平，底孔中心 +0.5 mm）。</li>
+<li>壁面为抽稀显示网格（vtkDecimatePro 保拓扑，约 5 万面），仅用于观看；CFD 计算几何以 STL 为准。</li>
+</ol></details>
+<div class="layout">
+<div class="stage">
+  <div class="stage-bar">
+    <span id="caseBar" style="display:flex;gap:6px"></span>
+    <span class="sp"></span>
+    <button id="bPersp">透视</button>
+    <button id="bFrontlow">前下（看出口）</button>
+    <button id="bFront">前面</button>
+    <button id="bSide">左面</button>
+    <button id="bTop">顶视</button>
+    <button id="bBottom">底视（看出口）</button>
+  </div>
+  <div id="scene"><div style="position:absolute;left:14px;bottom:10px;font-size:11.5px;color:#78817e">拖动旋转 · 滚轮缩放 · 右键拖动平移</div></div>
+</div>
+<div class="panel">
+  <h2>控制</h2>
+  <label class="chk"><input type="checkbox" id="cWall" checked>气道壁面（半透明）</label>
+  <label class="chk"><input type="checkbox" id="cCaps" checked>三个开口（鼻/出口）</label>
+  <label class="chk"><input type="checkbox" id="cGhost" checked>被切除楔形（幽灵）</label>
+  <label class="chk"><input type="checkbox" id="cPlanes" checked>参考切面（新/旧）</label>
+  <label class="chk"><input type="checkbox" id="cAxis" checked>拟合气道轴</label>
+  <label class="chk"><input type="checkbox" id="cFocus" checked>出口特写（域底 34 mm；取消看全域）</label>
+  <div style="margin-top:6px"><span style="font-size:12px">壁面不透明度</span>
+  <input type="range" id="rOpacity" min="0" max="100" value="100"></div>
+  <div class="legend">
+    <span><i class="sw" style="background:#c3cdda"></i>壁面</span>
+    <span><i class="sw" style="background:#1f77b4"></i>鼻开口 L</span>
+    <span><i class="sw" style="background:#2ca02c"></i>鼻开口 R</span>
+    <span><i class="sw" style="background:#e8823a"></i>出口帽</span>
+    <span><i class="sw" style="background:#d62728;opacity:.55"></i>切除楔形</span>
+  </div>
+  <h2 style="margin-top:14px">本例数值</h2>
+  <div id="nums"></div>
+  <div class="note">面积单位为 mm²；倾角为拟合轴与竖直方向夹角；漂移为窗口内质心位移（显示坐标 x=左、y=上、z=前）。</div>
+</div>
+</div>
+<div class="footer">几何预览不构成患者 CFD 结果，也不替代解剖审核。资产：<code>t058_cut_data.json</code> + <code>t058_&lt;case&gt;.json</code>（由 <code>outputs/T-058/build_cut_assets.py</code> 生成，含来源 sha256）。</div>
+<script type="module" src="t058_cut.js"></script>
+</body></html>

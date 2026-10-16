@@ -22,6 +22,7 @@ work/06_auto_landmarks/
 work/07_cfd_pipeline/solver_install/
 work/07_cfd_pipeline/workspace/*
 !work/07_cfd_pipeline/workspace/index.html
+!work/07_cfd_pipeline/workspace/t058_cut.html
 !work/07_cfd_pipeline/workspace/*.js
 !work/07_cfd_pipeline/workspace/*.css
 !work/07_cfd_pipeline/workspace/pro/

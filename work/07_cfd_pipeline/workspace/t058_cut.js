@@ -23,6 +23,14 @@ const VIEW_DIRS = {
   bottom: new THREE.Vector3(0, -1, 0),
 };
 
+// 嵌入契约（供工作台 pro/index.html 中栏 iframe 使用）：
+//   ?case=<b01|b02|b15>  默认选中该例（患者树点选后三维页随之定位）
+//   ?embedded=1          收窄页面 chrome（见 t058_cut.html 的 html.embedded 规则）
+const Q = new URLSearchParams(location.search);
+const EMBEDDED = Q.get('embedded') === '1' && window.parent !== window;
+const WANT_CASE = Q.get('case');
+if (EMBEDDED) document.documentElement.classList.add('embedded');
+
 let scene, camera, renderer, controls;
 let cases = [], cur = null, group = null;
 let focusExit = true;
@@ -267,8 +275,10 @@ function main() {
       });
       bar.appendChild(b);
     });
-    $('c' + cases[cases.length - 1].id).classList.add('on');
-    loadCase(cases[cases.length - 1]);
+    // ?case= 指定则默认选中该例（工作台患者树点选后三维页随之定位）；否则取末例
+    const initial = cases.find(k => k.id === WANT_CASE) || cases[cases.length - 1];
+    $('c' + initial.id).classList.add('on');
+    loadCase(initial);
     setView('frontlow');
   });
   const views = { bPersp: 'persp', bFrontlow: 'frontlow', bFront: 'front',

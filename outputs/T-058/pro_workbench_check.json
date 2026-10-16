@@ -1,0 +1,64 @@
+{
+ "url": "http://127.0.0.1:8769/workspace/pro/index.html",
+ "tree": [
+  "▸ | ◇ | b15 · 工程试算 · T-029a | 仿真项目 · 求解失败",
+  "▸ | ◇ | b15 · 解剖斜切 | 已核验患者项目 · 已核验指标",
+  "▸ | ◇ | p0 | 仿真项目 · 未求解",
+  "▸ | ◇ | b01 · 解剖斜切 | 已核验患者项目 · 已核验指标",
+  "▸ | ◇ | b02 · 解剖斜切 | 已核验患者项目 · 已核验指标",
+  "▸ | ◌ | CT 导入 · 10-15 23:32 | 待审核 · 78 MB · dicom",
+  "▸ | ◌ | CT 导入 · 10-09 22:35 | 待审核 · 98 MB · dicom",
+  "▸ | ◌ | CT 导入 · 10-15 15:41 | 待审核 · 73 MB · dicom",
+  "▸ | ◌ | CT 导入 · 10-11 10:20 | 待审核 · 63 MB · dicom",
+  "▸ | ✗ | CT 导入 · 10-09 22:34 | 导入失败 · 28 KB · dicom",
+  "▸ | ✗ | CT 导入 · 10-09 22:34 | 导入失败 · 31 KB · dicom",
+  "▸ | ◌ | CT 导入 · 10-08 21:43 | 已中断 · 90 MB · zip",
+  "▸ | ◌ | CT 导入 · 10-06 22:44 | 待审核 · 90 MB · zip",
+  "▸ | ◇ | 参考解算 · 分流反馈 | 仿真项目 · 求解完成",
+  "▸ | ◇ | 参考解算 · 通道 | 仿真项目 · 求解失败"
+ ],
+ "steps": [
+  {
+   "case": "b15 · 解剖斜切",
+   "iframe": "/workspace/t058_cut.html?case=b15&embedded=1",
+   "ok": true,
+   "prop_has_manifest": true,
+   "prop_has_metrics": true
+  },
+  {
+   "case": "b01 · 解剖斜切",
+   "iframe": "/workspace/t058_cut.html?case=b01&embedded=1",
+   "ok": true,
+   "prop_has_manifest": true,
+   "prop_has_metrics": true
+  },
+  {
+   "case": "b02 · 解剖斜切",
+   "iframe": "/workspace/t058_cut.html?case=b02&embedded=1",
+   "ok": true,
+   "prop_has_manifest": true,
+   "prop_has_metrics": true
+  }
+ ],
+ "pageerrors": [],
+ "console_errors": [],
+ "compare_options": [
+  "",
+  "u_0ff4dbeaf259456d",
+  "u_fbca9137690e4837",
+  "u_ccf06624879c403a",
+  "u_b39e51153cda46d7",
+  "u_74a998a9fd274288",
+  "u_a3d2534c7d534b36",
+  "u_531c98ca241b4232",
+  "u_e41f17339e7a4ee5",
+  "b15_engineering_t029a",
+  "b15_engineering",
+  "reference_split_feedback",
+  "p0",
+  "reference_channel",
+  "b01_engineering",
+  "b02_engineering"
+ ],
+ "all_ok": true
+}
