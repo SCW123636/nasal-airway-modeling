@@ -51,7 +51,7 @@
 3. **所有判据先用「带出处的已知答案」验证**——本项目已 **7 次**出现「判据输出合法但与事实不符」（第 7 次：2026-10-15 `diag_p0_naso_clip.py:244` 把 `mask_is_none` 写死为 False、漏抄 `and mask is None` 条件，得出与生产相反的结论）。
 4. **WSL 场景要真实 artifact / 时序**：禁止编造数字；OpenFOAM case 建在 native Linux 文件系统，**不要** `cd /mnt/c` 再跑。
 5. **git**：谁有权写谁提交，只 `git add` 自己权限内的路径；**禁止 `git add .` / `-A`**；提交信息 `[T-编号] 主题`。`.gitignore` 必含 `.workbuddy/`。
-6. 医学/解剖判断**不由本地卡做**，需复核人（王湧瑞）。
+6. 医学/解剖判断最终把关由 **Owner（用户本人）** 承担（2026-10-16「完全消除人工」裁定，对外材料已移除医学复核人叙述）；产物恒带 `clinical_status: generalisation_test_only_no_human_review`。扩展域出口 `oropharynx_truncation_outlet` 为**工程截断**、由物理判据（口咽以下零数据、无第二位置可选）定义，**不属医学判断、不需医学复核**。
 
 ## 并行车道规则（本项目独有，v3.0 判据 1 的本地化）
 

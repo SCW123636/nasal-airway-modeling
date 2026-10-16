@@ -55,13 +55,15 @@ from auto_opening_placement import detect_onset, plane_basis
 
 # T-058: the outlet is now oropharynx_truncation_outlet, an ENGINEERING
 # TRUNCATION at the scan's inferior face. Its 10 mm2 target is a FLOOR, not a
-# physiological target: the natural truncation cap (measured b01 ~139 mm2,
-# b15 ~113 mm2) sits far above it, so the bisection never fires and the plane
-# stays at its anchor, which is the maximal domain. That is deliberate - there
-# is nothing anatomical to target there, and shrinking the domain to hit a
-# number would only throw away real geometry. The nostril targets are untouched
-# (80 mm2): nostril anatomy is not affected by the oropharynx extension, which
-# is what makes them the built-in regression check.
+# physiological target: on the anatomical cut (perpendicular to the airway
+# axis, per the 2026-10-16 ruling) the cap is the tube's true cross-section,
+# which measured 141 mm2 on b01 and sits far above the floor in every case,
+# so the bisection never fires and the plane stays at its anchor, which is
+# the maximal domain. That is deliberate - there is nothing anatomical to
+# target there, and shrinking the domain to hit a number would only throw
+# away real geometry. The nostril targets are untouched (80 mm2): nostril
+# anatomy is not affected by the oropharynx extension, which is what makes
+# them the built-in regression check.
 CAP_TARGET_MM2 = {'nostril_L': 80.0, 'nostril_R': 80.0,
                   'oropharynx_truncation_outlet': 10.0}
 # Search window per origin, in mm measured from that origin's base. The onset
@@ -98,12 +100,124 @@ SEED_OFFSET_MM = START_OFFSET_MM['onset']   # historical alias (diagnostics/test
 
 CUT_ABOVE_BOTTOM_MM = 0.5
 ROI_MARGIN_XY_MM = 3.0
+# T-058, user ruling 2026-10-16 08:1x: "按照人体构造来就好，斜切" and
+# "人体事实大于我们少量数据的结果". The truncation cut follows the ANATOMY -
+# perpendicular to the local airway axis - not the axial slice plane. That
+# outranks bit-exactness with the T-054/T-047 baselines, which were cut
+# axially: the nostrils (inlet side, which dominates the nasal field) remain
+# the built-in regression check, and the outlet cap changes because a
+# perpendicular cut of a tilted tube is the tube's true cross-section while
+# the axial cut overstated it by 1/cos(tilt) ~ 1.05 (measured tilt 19-24 deg
+# on b01/b02/b15).
+#
+# Consequences accepted by that ruling, recorded here so they stay visible:
+#   * b15/b01 no longer reproduce T-054/T-047 at the OUTLET (nostrils still
+#     do); those baselines become historical axial-cut references, and the
+#     mesh+solve re-run re-establishes them on the anatomical cut.
+#   * The plane is positioned so its LOWEST point over the airway sits
+#     CUT_ABOVE_BOTTOM_MM above the bottom voxel centre - the same anchor
+#     rule as the retired axial cut, applied to the tilted plane. That keeps
+#     the whole bottom voxel below the plane, so the exit stays a single
+#     planar cap: a tilted plane through the slice centroid instead dips
+#     below the scan's inferior face on the low side and would leave a
+#     remnant of that face on the wall patch, silently blocking part of the
+#     exit (measured on b01: the centroid-anchored plane drops 2.4 mm below
+#     the bottom voxel at the anterior edge).
+AXIS_FIT_MAX_MM = 10.0        # chord window above the cut: ~1 tube diameter
+AXIS_FIT_AREA_RATIO = 2.2     # stop early where the section leaves the tube
+AXIS_FIT_MIN_SLICES = 4       # ~2.5 mm at 0.625 mm slices
+AXIS_FIT_MIN_HEIGHT_MM = 2.0
+AXIS_TILT_SANE_DEG = 35.0     # beyond this the window has left the tube
 # T-058: which openings the landmark stage actually proposes. The truncation
 # outlet is derived from the mask geometry (truncation_plane below) and has no
 # landmark, so it must not be required of the proposal file. auto_anatomy_
 # landmarks.py still writes a nasopharynx_outlet landmark; it is no longer
 # consumed as the domain outlet, only kept as a diagnostic of its own.
 LANDMARK_OPENINGS = ('nostril_L', 'nostril_R')
+
+
+def airway_axis_at_bottom(arr, sp, org, z_cut):
+    """Fit the local airway axis over the tube above the cut.
+
+    Returns (axis, diag). axis is the unit direction of increasing z along
+    the tube - superior, the side the domain keeps - so a plane with that
+    normal and keep_positive=True is perpendicular to the airway.
+
+    The window walks UP from the cut because the cut sits at the scan's
+    inferior face: the airway below it is half a voxel thick, so a window
+    centred on the cut is a window over nothing. (Measured the hard way on
+    2026-10-16: a "bottom 12 mm" window clipped to the mask's z-range
+    degenerated to the bottom 3 slices and reported an 18 deg axis from a
+    1.25 mm centroid drift - a fit over 1.25 mm, not a tube axis. Its
+    direction was also wrong: the airway drifts ANTERIOR going up, i.e.
+    posterior going down, the opposite of what that fit claimed.)
+
+    The window stops at AXIS_FIT_MAX_MM or where the section grows past
+    AXIS_FIT_AREA_RATIO times the cut slice - the tube ending, not the tube.
+    Measured on the three cases: b01's oropharyngeal tube flares 1.5->1.66x
+    inside itself and only the velopharyngeal port (~11 mm up) turns the
+    centroid back, so the height cap binds; b02's section doubles at ~13 mm
+    where the pharyngeal cavity starts. Both give a 19-24 deg tilt.
+    """
+    from scipy import ndimage
+
+    zs = org[2] + np.arange(arr.shape[0]) * sp[2]
+    i_cut = int(np.argmin(np.abs(zs - z_cut)))
+    n = arr.shape[0]
+
+    def collect():
+        cents, areas, zz = [], [], []
+        a0 = None
+        for i in range(i_cut, n):
+            sl = arr[i] > 0
+            if not sl.any():
+                break
+            lab, nc = ndimage.label(sl)
+            if nc > 1:      # keep the tube, not a stray fragment
+                sl = lab == (np.argmax(np.bincount(lab.ravel())[1:]) + 1)
+            yy, xx = np.where(sl)
+            a = float(len(xx)) * sp[0] * sp[1]
+            if a0 is None:
+                a0 = a
+            if zz and (zs[i] - zz[0] > AXIS_FIT_MAX_MM
+                       or a > AXIS_FIT_AREA_RATIO * a0):
+                break
+            cents.append([org[0] + float(xx.mean()) * sp[0],
+                          org[1] + float(yy.mean()) * sp[1]])
+            areas.append(a)
+            zz.append(float(zs[i]))
+        return np.array(cents), np.array(areas), np.array(zz)
+
+    cents, areas, zz = collect()
+    if len(zz) < 3 or zz[-1] - zz[0] < AXIS_FIT_MIN_HEIGHT_MM:
+        return np.array([0.0, 0.0, 1.0]), {
+            'reason': 'axis_degenerate', 'slices': int(len(zz)),
+            'height_mm': round(float(zz[-1] - zz[0]), 2) if len(zz) else 0.0,
+            'note': 'not enough airway above the cut to fit a direction; '
+                    'axis defaults to vertical, which for a straight tube '
+                    'is the anatomical answer and reproduces the retired '
+                    'axial cut exactly'}
+    A = np.vstack([zz, np.ones(len(zz))]).T
+    sx = float(np.linalg.lstsq(A, cents[:, 0], rcond=None)[0][0])
+    sy = float(np.linalg.lstsq(A, cents[:, 1], rcond=None)[0][0])
+    axis = np.array([sx, sy, 1.0])
+    axis /= np.linalg.norm(axis)
+    tilt = float(np.degrees(np.arccos(min(1.0, abs(float(axis[2]))))))
+    diag = {'reason': None, 'slices': int(len(zz)),
+            'height_mm': round(float(zz[-1] - zz[0]), 2),
+            'tilt_deg': round(tilt, 2),
+            'drift_xy_mm': [round(float(cents[-1, 0] - cents[0, 0]), 2),
+                            round(float(cents[-1, 1] - cents[0, 1]), 2)],
+            'area_first_last_mm2': [round(float(areas[0]), 1),
+                                    round(float(areas[-1]), 1)]}
+    if tilt > AXIS_TILT_SANE_DEG:
+        return np.array([0.0, 0.0, 1.0]), dict(
+            diag, reason='tilt_implausible',
+            note=f'fitted tilt {tilt:.1f} deg exceeds the sane bound '
+                 f'{AXIS_TILT_SANE_DEG} deg, so the window has left the tube; '
+                 f'axis defaults to vertical (the retired axial cut) rather '
+                 f'than cutting on a direction the data cannot support')
+    return axis, diag
 
 
 def truncation_plane(case_dir, cut_above_mm=CUT_ABOVE_BOTTOM_MM,
@@ -113,13 +227,18 @@ def truncation_plane(case_dir, cut_above_mm=CUT_ABOVE_BOTTOM_MM,
     The domain now ends at the scan's inferior face, not at an anatomical
     landmark: T-048 closed the loop on 29/29 cases whose oropharynx touches
     that face, with nothing below it in any scan. There is therefore no
-    landmark to read, so the plane is derived from the geometry itself - an
-    axial cut 0.5 mm above the bottom voxel-centre plane of the air mask,
-    keeping the domain above it.
+    landmark to read, so the plane is derived from the geometry itself -
+    since T-058 (user ruling 2026-10-16) PERPENDICULAR TO THE LOCAL AIRWAY
+    AXIS, positioned so its lowest point over the airway sits cut_above_mm
+    above the bottom voxel centre. That anchor keeps the whole bottom voxel
+    below the plane, so the exit stays a single planar cap with no remnant
+    of the scan's inferior face left on the wall patch to block part of the
+    exit.
 
-    Returns (plane, info). plane is None when the mask is missing or does not
-    reach the inferior face; the caller must escalate on that, never fall back
-    to the short domain, which T-058 retired.
+    Returns (plane, info). plane is None when the mask is missing, does not
+    reach the inferior face, or the axis cannot be fitted; the caller must
+    escalate on that, never fall back to the short domain, which T-058
+    retired.
     """
     try:
         import SimpleITK as sitk
@@ -139,16 +258,36 @@ def truncation_plane(case_dir, cut_above_mm=CUT_ABOVE_BOTTOM_MM,
     ys = org[1] + yy * sp[1]
     z_bot = float(org[2])
     z_cut = z_bot + cut_above_mm
-    plane = {'point_lps_mm': [float(xs.mean()), float(ys.mean()), z_cut],
-             'normal_lps': [0.0, 0.0, 1.0],
+    cx, cy = float(xs.mean()), float(ys.mean())
+    axis, axis_diag = airway_axis_at_bottom(arr, sp, org, z_cut)
+    nz = float(axis[2])
+    if nz <= 1e-6:       # cannot happen (axis[2]=1 before normalising); guard
+        return None, {'reason': 'axis_not_superior', 'axis': axis.tolist()}
+    # Clearance: how far the tilted plane drops below its anchor over the
+    # bottom slice's own extent. The plane's z at an xy offset (dx, dy) from
+    # the anchor is z_anchor - (nx*dx + ny*dy)/nz, so its lowest point over
+    # the slice is z_anchor - max(nx*dx + ny*dy)/nz. Lifting the anchor by
+    # exactly that puts the plane's lowest point at z_cut. For a vertical
+    # axis the clearance is 0 and the plane is exactly the retired axial cut.
+    dx = xs - cx
+    dy = ys - cy
+    clearance = max(float(np.max(axis[0] * dx + axis[1] * dy) / nz), 0.0)
+    z_anchor = z_cut + clearance
+    plane = {'point_lps_mm': [cx, cy, z_anchor],
+             'normal_lps': [float(axis[0]), float(axis[1]), float(axis[2])],
              'roi_lps_mm': {'min': [float(xs.min()) - margin_xy,
                                     float(ys.min()) - margin_xy, z_bot - 0.8],
                             'max': [float(xs.max()) + margin_xy,
                                     float(ys.max()) + margin_xy, z_cut + 0.7]},
              'keep_positive': True}
     info = {'reason': None, 'bottom_air_voxels': int(arr[0].sum()),
-            'z_bottom_center_mm': z_bot, 'z_cut_mm': z_cut,
-            'cut_above_bottom_mm': cut_above_mm}
+            'z_bottom_center_mm': z_bot, 'z_cut_lowest_mm': round(z_cut, 3),
+            'z_anchor_mm': round(z_anchor, 3),
+            'clearance_mm': round(clearance, 3),
+            'cut_above_bottom_mm': cut_above_mm,
+            'axis_lps': [float(axis[0]), float(axis[1]), float(axis[2])],
+            'axis_fit': axis_diag,
+            'cut_rule': 'perpendicular_to_local_airway_axis'}
     return plane, info
 
 
