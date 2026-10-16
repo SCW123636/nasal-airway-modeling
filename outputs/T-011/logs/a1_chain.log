@@ -1,0 +1,10 @@
+== step 1: netgen volume mesh (maxh 1.0) ==
+== step 2: repair boundary tetrahedra ==
+    mesh = meshio.read(source)
+  File "/home/lenovo2/netgen_venv/lib/python3.10/site-packages/meshio/_helpers.py", line 71, in read
+    return _read_file(Path(filename), file_format)
+  File "/home/lenovo2/netgen_venv/lib/python3.10/site-packages/meshio/_helpers.py", line 90, in _read_file
+    raise ReadError(f"File {path} not found.")
+meshio._exceptions.ReadError: File /home/lenovo2/t011_p0/maxh1.msh not found.
+== step 3: scaffold + gmshToFoam ==
+cp: cannot stat '/home/lenovo2/t011_p0/maxh1_repaired.msh': No such file or directory
