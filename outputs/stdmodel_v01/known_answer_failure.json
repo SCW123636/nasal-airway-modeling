@@ -1,0 +1,31 @@
+{
+  "gate": "known_answer/T-058汇总裁决",
+  "passed": false,
+  "problems": [
+    "b15.nostril_L_mm2: 实际缺失",
+    "b15.nostril_R_mm2: 实际缺失",
+    "b15.outlet_opening_mm2: 实际缺失",
+    "b15.delta_p_pa: 实际缺失",
+    "b15.resistance_pa_s_ml: 实际缺失",
+    "b15.wss_force_n: 实际缺失",
+    "b15.wss_median_pa: 实际缺失",
+    "b15.mesh_cells: 实际缺失",
+    "b01.nostril_L_mm2: 实际缺失",
+    "b01.nostril_R_mm2: 实际缺失",
+    "b01.outlet_opening_mm2: 实际缺失",
+    "b01.delta_p_pa: 实际缺失",
+    "b01.resistance_pa_s_ml: 实际缺失",
+    "b01.wss_force_n: 实际缺失",
+    "b01.wss_median_pa: 实际缺失",
+    "b01.mesh_cells: 实际缺失",
+    "b02.nostril_L_mm2: 实际缺失",
+    "b02.nostril_R_mm2: 实际缺失",
+    "b02.outlet_opening_mm2: 实际缺失",
+    "b02.delta_p_pa: 实际缺失",
+    "b02.resistance_pa_s_ml: 实际缺失",
+    "b02.wss_force_n: 实际缺失",
+    "b02.wss_median_pa: 实际缺失",
+    "b02.mesh_cells: 实际缺失"
+  ],
+  "checked_at": "2026-10-16T05:22:35+00:00"
+}

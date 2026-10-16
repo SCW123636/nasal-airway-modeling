@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>探查报告</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>B/C 数据集症状痕迹探查报告（病历挖掘 · DICOM 层）</h1>
+<ul>
+<li>日期：2026-10-16</li>
+<li>目的：「症状对应」主线（设计文档第 11 节裁定）的 Y 侧标签来源核查——先证明「确实没有」，再决定采集</li>
+<li>脚本：<code>outputs/20261016-B患者症状痕迹探查/probe_symptom_traces.py</code>（只读 DICOM 头白名单临床语义字段；身份字段在代码层面不构造 tag，无泄露路径；<code>stop_before_pixels=True</code> 规避压缩解码）</li>
+<li>范围：B 三患者（2449 帧，原始 + 脱敏副本双扫）+ C 集 27 例（脱敏副本）</li>
+</ul>
+<h2>一、结论（三句话）</h2>
+<ol>
+<li><strong>DICOM 层零症状标签痕迹</strong>：手头 30 例（B 3 + C 27）的 DICOM 头中，没有任何症状评分、症状描述、VAS/ENS6Q/NOSE/SNOT-22 痕迹，也没有可解析成 ICD/CPT 的过程编码。</li>
+<li><strong>最强信号只到「检查协议名」级别</strong>：B 的 RequestedProcedureDescription 是唯一部位级线索——患者1 = Sinus、患者2 = 鼻咽CT平扫、患者3 = 副鼻窦；C 27 例的 StudyDescription 去重后只有 3 个值（空 / Head^07_Sinus (Adult) / mwl），全是协议名。</li>
+<li><strong>DICOM 挖掘这条路正式关闭</strong>：Y 侧标签只能来自 DICOM 之外的渠道——① 需求方/医院 HIS-RIS 的申请单与病历（主诉、诊断、术后史、随访评分）；② 按 S2 最低可行设计前瞻性采集（≥28–30 例/NOSE+ENS6Q/3 月随访/单侧提取/表型分层）。</li>
+</ol>
+<h2>二、证据明细</h2>
+<h3>2.1 找到的（全部无症状信息量）</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>B 三患者</th>
+<th>C 27 例</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>StudyDescription</td>
+<td>3/3</td>
+<td>27/27（53 序列次）</td>
+<td>空 / Head^07_Sinus (Adult) / mwl——协议名</td>
+</tr>
+<tr>
+<td>SeriesDescription</td>
+<td>3/3</td>
+<td>27/27</td>
+<td>序列协议名（1.0x0.8 Soft-3D、0.625mm C-、Patient Protocol 等）</td>
+</tr>
+<tr>
+<td>BodyPartExamined</td>
+<td>患者1、3</td>
+<td>52 次</td>
+<td>HEAD（部位，无信息量）</td>
+</tr>
+<tr>
+<td>RequestedProcedureDescription</td>
+<td>3/3</td>
+<td><strong>0</strong></td>
+<td>Sinus / PJ鼻咽CT平扫 / 副鼻窦（部位级线索，见 2.3）</td>
+</tr>
+<tr>
+<td>ProcedureCodeSequence</td>
+<td>患者2</td>
+<td>1 次</td>
+<td>院内本地码 <code>470200080001</code>，无 CodeMeaning/Scheme，不可解析</td>
+</tr>
+<tr>
+<td>SR 文本 / ImageComments</td>
+<td>0</td>
+<td>0</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 没找到的（Y 侧标签的全部形态）</h3>
+<ul>
+<li>症状量表：ENS6Q / NOSE / SNOT-22 / VAS / 任何数值化评分——<strong>0 处</strong></li>
+<li>症状描述：主诉、鼻塞程度、术后状态、随访记录——<strong>0 处</strong></li>
+<li>可解析诊断编码：ICD-10/CPT——<strong>0 处</strong>（唯一 proc code 为院内本地码）</li>
+<li>影像报告文本（SR ContentSequence TextValue）——<strong>0 处</strong></li>
+</ul>
+<h3>2.3 两个附带发现</h3>
+<ol>
+<li><strong>脱敏遗漏（需处理）</strong>：<code>资料/脱敏数据_clean/患者3/</code> 的目录名为 <code>250111559-TKT</code>——DICOM 标签层 0 PHI（既有验证结论仍成立），但<strong>目录名残留了院内病案号格式</strong>。建议重命名该目录为 <code>患者3</code>，与患者1/2 一致。（B 原始目录 <code>资料/脱敏数据/患者ct+鼻空腔建模/</code> 带完整 PHI，按 2026-09-29 评估文档建议应隔离或删除，此项仍待用户裁定。）</li>
+<li><strong>B 的检查部位线索（将来病历索要的核对点）</strong>：患者2 申请为「鼻咽CT平扫」而患者1/3 为鼻窦/副鼻窦——若向需求方索要病历，这是核对「哪份病历对哪例 CT」的锚点；「PJ」疑为缩写（不做猜测，如实记录）。</li>
+</ol>
+<h2>三、对路线图的影响</h2>
+<ul>
+<li>设计文档第 11 节 B 阶段（Y 侧）第一步「病历挖掘」的 DICOM 层已查完，<strong>结论 = 无线索</strong>；</li>
+<li>下一步二选一（需用户拍板）：</li>
+<li><strong>A. 向需求方正式索要病历</strong>：HIS-RIS 里的申请单/诊断/随访（如果对方给的是脱敏摘要，可解 Y 侧燃眉之急；连带问清楚 B 三患者的临床背景——患者2 为何拍鼻咽 CT）；</li>
+<li><strong>B. 直接按采集设计立项</strong>：≥28–30 例、NOSE+ENS6Q 双终点、3 月随访、单侧提取、表型分层——成本高但口径完全可控；</li>
+<li>在 Y 侧解决前，A 阶段 X 侧（四主特征 + 24 例特征表，等 T-058 收卡）继续全速——X 侧不依赖标签。</li>
+</ul>
+<h2>四、产物与纪律</h2>
+<ul>
+<li>结构化结果：<code>probe_result.json</code>（含每序列白名单字段；无任何身份字段值）</li>
+<li>纪律执行：原始（带 PHI）目录仅读白名单字段；本报告与 JSON 中无姓名/ID/生日/机构/医师/日期/流水号；序列 UID 仅截断作键</li>
+</ul><div class="src">原件：outputs/20261016-B患者症状痕迹探查/探查报告.md</div></body></html>

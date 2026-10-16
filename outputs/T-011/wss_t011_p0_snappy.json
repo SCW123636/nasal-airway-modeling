@@ -1,0 +1,20 @@
+{
+  "task": "T-011 A.1 p0 extended-domain WSS, snappyHexMesh route",
+  "source_vtp": "C:\\ts_work\\t011_p0\\snappy_out\\wall.vtp",
+  "faces": 78440,
+  "wall_area_m2": 0.019290106503231652,
+  "wall_area_mm2": 19290.10650323165,
+  "units_note": "foamToVTK exports SI: coords m, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+  "wss_median_pa": 0.03250149348152866,
+  "wss_mean_pa": 0.0495933374484387,
+  "wss_p90_pa": 0.11879484526132775,
+  "wss_max_pa": 1.5742750345777903,
+  "wall_shear_force_n": 0.0010086361897320842,
+  "b15_extended_reference_T054": {
+    "force_n": 0.001506
+  },
+  "b01_extended_reference_T047": {
+    "force_n": 0.001331
+  },
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

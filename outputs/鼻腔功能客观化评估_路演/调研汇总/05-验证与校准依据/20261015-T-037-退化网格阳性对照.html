@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>20261015-T-037-退化网格阳性对照</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>结论卡 T-037 — 退化网格阳性对照（强化 H1 机制收窄）</h1>
+<p><strong>日期</strong>：2026-10-15
+<strong>状态</strong>：VERIFIED（路线③延伸，决策无关，独立可复现）
+<strong>上游</strong>：T-036 VERIFIED（阴性对照）；T-006（患者 b15 真阳性对照）</p>
+<h2>一句话结论</h2>
+<p>合成圆管的近壁畸变（非正交度 26°→44.6°）<strong>未能复现</strong>患者 2.6e-4 残差平台（p_floor 恒 ~1e-13）；0.30 档触发 24 个 concave cells 被管线网格门拒解。⇒ <strong>患者平台来自 sliver/det&lt;0.001 严重缺陷类，而非近壁非正交度本身</strong>；H1 维持"支持（强）"并由真实患者网格（T-006）提供真阳性对照。</p>
+<h2>证据（real）</h2>
+<ul>
+<li><code>outputs/T-037/matrix_degrade.json</code>：4 行（ref 干净 + 3 档退化）。</li>
+<li>amp=0.05/0.15：completed，p_floor 2.0e-13 / 1.4e-13，max_nonorth 40.3° / 44.6°，均收敛。</li>
+<li>amp=0.30：rejected_mesh_gate，max_nonorth 45.7°，concave cells=24，det&lt;0.001=None（未产生 sliver）。</li>
+<li>ref 干净 0.4mm/t006：p_floor 1.04e-13，max_nonorth 26.1°。</li>
+</ul>
+<h2>判级</h2>
+<table>
+<thead>
+<tr>
+<th>假设</th>
+<th>内容</th>
+<th>T-037 证据</th>
+<th>判级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1</td>
+<td>患者平台=网格缺陷</td>
+<td>合成畸变不触发平台；真阳性对照(b15)已触发</td>
+<td><strong>支持（强）· 机制收窄</strong></td>
+</tr>
+<tr>
+<td>H1-机制</td>
+<td>温和非正交面所致？</td>
+<td>44.6° 仍 1e-13 → 否；平台需 sliver/det&lt;0.001</td>
+<td><strong>排除（温和非正交）</strong></td>
+</tr>
+<tr>
+<td>H3/H4</td>
+<td>设置/组合极限</td>
+<td>（沿用 T-036）t006 3 分辨率稳健</td>
+<td>部分成立</td>
+</tr>
+</tbody>
+</table>
+<h2>治理指向</h2>
+<p>修复患者 b15 网格的 585 个 det&lt;0.001 + 198 个严重非正交面 → 套 t006 复跑；非调设置、非加分辨率。</p>
+<h2>交付物</h2>
+<ul>
+<li><code>work/lib/phantom_matrix.py</code>（新增 degrade 模式，不改共享代码）</li>
+<li><code>outputs/T-037/matrix_degrade.json</code>、<code>outputs/T-037/analysis.md</code></li>
+<li>本结论卡</li>
+</ul>
+<h2>风险/待办</h2>
+<ul>
+<li>合成畸变未覆盖 sliver 维；真阳性对照已由 T-006 患者网格提供，无需补做。</li>
+<li>管线对 concave cells 零容忍（24 即拒解）——属求解前安全闸，与 M3 "Mesh OK 降记录项" 裁量不冲突（不同层级）。</li>
+</ul><div class="src">原件：knowledge/结论卡/20261015-T-037-退化网格阳性对照.md</div></body></html>

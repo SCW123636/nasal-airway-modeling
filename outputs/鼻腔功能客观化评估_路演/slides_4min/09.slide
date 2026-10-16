@@ -1,0 +1,39 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 760, height: 760, background: 'radial-gradient(circle at 50% 42%, rgba(34,211,238,0.16) 0%, rgba(34,211,238,0) 62%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 520, height: 520, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.09) 0%, rgba(245,165,36,0) 66%)' }} />
+
+    <Box style={{ position: 'relative', width: 1280, height: 720, padding: '56px 80px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 14, letterSpacing: 4, color: '#22D3EE', fontWeight: 600 }}>ENDING</Text>
+
+        <Text style={{ fontSize: 62, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.28, textAlign: 'center', marginTop: 26, width: 1020 }}>
+            让「说不出的难受」<br />变成<span style={{ color: '#22D3EE' }}>看得见的数字</span>
+        </Text>
+
+        <Box style={{ width: 120, height: 3, background: 'linear-gradient(90deg, rgba(34,211,238,0), #22D3EE, rgba(34,211,238,0))', marginTop: 34 }} />
+
+        <Text style={{ fontSize: 20, color: '#B7CBDD', lineHeight: 1.7, textAlign: 'center', marginTop: 30, width: 940 }}>
+            空鼻症鼻腔功能客观化评估 · 一张 CT → 自动建模 → 稳态流场 → 鼻阻力 / 壁面剪应力 / 后鼻孔温湿与热通量
+        </Text>
+
+        <Box style={{ flexDirection: 'row', gap: 30, marginTop: 44 }}>
+            <Box style={{ flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+                <Text style={{ fontSize: 30, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>100%</Text>
+                <Text style={{ fontSize: 14, color: '#8BA6C1' }}>开源可复现</Text>
+            </Box>
+            <Box style={{ width: 1, height: 46, background: 'rgba(139,166,193,0.28)' }} />
+            <Box style={{ flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+                <Text style={{ fontSize: 30, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>1</Text>
+                <Text style={{ fontSize: 14, color: '#8BA6C1' }}>条命令跑通</Text>
+            </Box>
+            <Box style={{ width: 1, height: 46, background: 'rgba(139,166,193,0.28)' }} />
+            <Box style={{ flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+                <Text style={{ fontSize: 30, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>0</Text>
+                <Text style={{ fontSize: 14, color: '#8BA6C1' }}>次人工交互</Text>
+            </Box>
+        </Box>
+
+        <Text style={{ fontSize: 13, color: '#3B5675', lineHeight: 1.6, textAlign: 'center', marginTop: 46, width: 1040 }}>
+            本项目输出为工程尺度的功能指标，用于研究与器械设计评估，不构成临床诊断或治疗建议；患者数据均经脱敏处理。
+        </Text>
+    </Box>
+</Slide>

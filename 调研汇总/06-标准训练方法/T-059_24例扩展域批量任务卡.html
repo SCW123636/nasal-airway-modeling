@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>T-059</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>T-059 · 24 例扩展域几何层重跑（表面+开口）→ 标准模型 Layer G 输入</h1>
+<blockquote>
+<p><strong>立约</strong>：2026-10-16 下午 · 段主对话（Lead）｜<strong>目的</strong>：为用户目标「得到标准模型」提供几何层输入（S1 几何常模 + S3 截面谱的 24 例特征表）。
+<strong>上游</strong>：T-058（链路已验证，卡 <code>VERIFIED</code>；卡内注明「24 例重跑须另立卡」——本卡即该卡）；<code>plan/有依据的标准模型_设计_v1.md</code> §7 动作 5。
+<strong>执行体</strong>：段主对话本人 + 后台批跑（CPU 车道，load-ceiling 总督）。级别 T2。</p>
+</blockquote>
+<h2>合同</h2>
+<ul>
+<li>状态：OPEN（立约即转 EXECUTING）。</li>
+<li>车道：<strong>CPU 独占</strong>（surface+opening 属几何构建，与网格/求解同车道规则；启动前已验：无求解/网格进程、即时负载 40%、总督 ceiling 78）。</li>
+<li>输出绝对目录：<code>D:\项目\鼻腔建模\outputs\T-059\</code>（ surfaces/ + openings/ + normal_run_t059.json ）。</li>
+<li>写域：上述目录 + 本卡 + <code>state/状态.md</code>。<strong>禁改</strong>：阈值 −300、生产链常量、<code>C:/ts_work/</code> 下任何既有产物、T-058 三例已验证产物、其他任务卡。</li>
+</ul>
+<h2>输入（已逐项实测）</h2>
+<ol>
+<li>masks：<code>C:/ts_work/bXX/masks/</code>（4 标签含 oropharynx，T-058 事实 1 已验 24 例非空；本卡只读）。</li>
+<li>landmarks：<code>work/06_auto_landmarks/bXX/landmarks.json</code>（<strong>24 例齐全已验</strong>， nasal_pipeline.py:210 真实路径）。</li>
+<li>生产链：<code>nasal_pipeline.py --from-stage 4 --skip-series</code>（stage 2 分割/landmark 复用，N2 门仍照跑；stage 4 表面 + stage 5 开口为 T-058 改后的 4 标签扩展域口径）。</li>
+</ol>
+<h2>执行命令（唯一）</h2>
+<pre><code>python -u work/lib/nasal_pipeline.py --from-stage 4 --skip-series \
+  --jobs 2 --threads 6 --load-ceiling 78 --allow-needs-review \
+  --surface-root outputs/T-059/surfaces --opening-root outputs/T-059/openings \
+  --output outputs/T-059/normal_run_t059.json
+</code></pre>
+<ul>
+<li><code>--allow-needs-review</code> <strong>必须传</strong>：历史 21/24 基线即准入 soft_palate FOV 标记（b01/b03 旧报告有 admitted_needs_review 实录），不传则历史能过的例现在会 escalate，破坏基线可比性。</li>
+<li><code>--allow-onset-outlier</code> 不传：auto_opening_pipeline.py:789 默认已 True。</li>
+<li>输出落 D 盘（C 盘禁令）；输入读 C 盘只读，不新建 C 盘文件。</li>
+</ul>
+<h2>判据</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>判据</th>
+<th>验证方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C1</strong></td>
+<td><strong>b15/b01/b02 与 T-058 已验值逐位对账</strong>（判据纪律：先用带出处的已知答案验证）：surface sha256 一致；鼻孔 80.040/80.060、80.082/80.081、80.150/80.224（容差 0.01）；截断出口 opening 阶段 125.846/208.460/84.573 mm²</td>
+<td>逐位比 <code>outputs/T-058/anat_chain_verification.json</code></td>
+</tr>
+<tr>
+<td>C2</td>
+<td>auto_pass ≥ 21/24（对标短域 21/24 基线）</td>
+<td>normal_run_t059.json 汇总</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>截断出口面积记录在 [10,600]，超出 = escalate 不静默</td>
+<td>逐例报告</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>每例指纹落盘：surface sha256 + landmark sha256 + mask 目录 sha（run JSON 自动记录，抽 3 例复算）</td>
+<td>复算比对</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>旧短域产出零破坏（新目录，<code>C:/ts_work/batch27_*</code> 与 T-058 产物不动）</td>
+<td>git status + 目录 mtime</td>
+</tr>
+</tbody>
+</table>
+<h2>失败处理</h2>
+<ul>
+<li>单例 escalate（N2/N6/异常）→ 记录原因进 run JSON，<strong>不在本卡内调参绕过</strong>（真因另立卡）；按项目铁律 escalated 就停手报 Lead。</li>
+<li>b15/b01/b02 对账不过 → 全批结果不可用作 Layer G 输入，停下查生产链版本（commit 漂移）。</li>
+</ul>
+<h2>交付物</h2>
+<ol>
+<li><code>outputs/T-059/surfaces/bXX/source_surface.vtp</code> + <code>air_mask.nii.gz</code>（24 例）</li>
+<li><code>outputs/T-059/openings/bXX.json</code>（24 例，含 patch_areas/surface_qc/sha）</li>
+<li><code>outputs/T-059/normal_run_t059.json</code>（逐例 N2/N6/指纹/复用记录）</li>
+<li>本卡执行记录 + 对账结论（C1–C5）</li>
+</ol>
+<h2>边界</h2>
+<ul>
+<li>本卡只到<strong>几何层</strong>（表面+开口+几何特征就绪的输入）；CFD 层（24 例网格+求解）不在本卡——阻塞于 D-0 口径裁定，另立卡。</li>
+<li>产物恒带 <code>clinical_status: generalisation_test_only_no_human_review</code>；不宣称任何临床结论。</li>
+</ul><div class="src">原件：tasks/T-059.md</div></body></html>

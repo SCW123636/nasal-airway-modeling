@@ -1,0 +1,88 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.10) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.07) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>02 / 产品与解决方案</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>一句话：CT 进，功能数字出</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q2</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'column', gap: 16 }}>
+            <Box style={{ height: 250, flexDirection: 'column', padding: '14px 20px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                <Text style={{ fontSize: 18, fontWeight: 600, color: '#B7CBDD' }}>鼻腔功能评估管线：一条命令，六个阶段，无需人工点击</Text>
+                <svg width={1104} height={186} viewBox='0 0 1104 186'>
+                    <rect x='0' y='34' width='160' height='96' rx='10' fill='#0E2039' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='80' y='76' fill='#E8F1FA' fontSize='17' fontWeight='600' textAnchor='middle'>CT 影像</text>
+                    <text x='80' y='102' fill='#8BA6C1' fontSize='13' textAnchor='middle'>DICOM 序列</text>
+
+                    <path d='M162 82 L188 82' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M182 77 L190 82 L182 87 Z' fill='#22D3EE' />
+
+                    <rect x='192' y='34' width='160' height='96' rx='10' fill='#0E2039' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='272' y='76' fill='#E8F1FA' fontSize='17' fontWeight='600' textAnchor='middle'>气道分割</text>
+                    <text x='272' y='102' fill='#8BA6C1' fontSize='13' textAnchor='middle'>自动阈值 + 连通域</text>
+
+                    <path d='M354 82 L380 82' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M374 77 L382 82 L374 87 Z' fill='#22D3EE' />
+
+                    <rect x='384' y='34' width='160' height='96' rx='10' fill='#0E2039' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='464' y='76' fill='#E8F1FA' fontSize='17' fontWeight='600' textAnchor='middle'>表面重建</text>
+                    <text x='464' y='102' fill='#8BA6C1' fontSize='13' textAnchor='middle'>STL + 四门禁</text>
+
+                    <path d='M546 82 L572 82' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M566 77 L574 82 L566 87 Z' fill='#22D3EE' />
+
+                    <rect x='576' y='34' width='160' height='96' rx='10' fill='#0E2039' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='656' y='76' fill='#E8F1FA' fontSize='17' fontWeight='600' textAnchor='middle'>体网格</text>
+                    <text x='656' y='102' fill='#8BA6C1' fontSize='13' textAnchor='middle'>四面体 · 质量门</text>
+
+                    <path d='M738 82 L764 82' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M758 77 L766 82 L758 87 Z' fill='#22D3EE' />
+
+                    <rect x='768' y='34' width='160' height='96' rx='10' fill='#0E2039' stroke='#F5A524' strokeWidth='1.5' />
+                    <text x='848' y='76' fill='#E8F1FA' fontSize='17' fontWeight='600' textAnchor='middle'>稳态求解</text>
+                    <text x='848' y='102' fill='#8BA6C1' fontSize='13' textAnchor='middle'>OpenFOAM 层流</text>
+
+                    <path d='M930 82 L956 82' stroke='#F5A524' strokeWidth='2' />
+                    <path d='M950 77 L958 82 L950 87 Z' fill='#F5A524' />
+
+                    <rect x='960' y='34' width='144' height='96' rx='10' fill='#0E2039' stroke='#F5A524' strokeWidth='1.5' />
+                    <text x='1032' y='76' fill='#E8F1FA' fontSize='17' fontWeight='600' textAnchor='middle'>功能报告</text>
+                    <text x='1032' y='102' fill='#8BA6C1' fontSize='13' textAnchor='middle'>三指标 + 三维气流</text>
+
+                    <text x='0' y='162' fill='#8BA6C1' fontSize='13'>输入：患者 CT 原始序列（DICOM）</text>
+                    <text x='1104' y='162' fill='#8BA6C1' fontSize='13' textAnchor='end'>输出：疾病-功能对照报告（PDF / 网页 / 三维流线）</text>
+                </svg>
+            </Box>
+
+            <Box style={{ height: 234, flexDirection: 'row', gap: 16 }}>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 10, padding: '20px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>0 次</Text>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>人工交互</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.55, marginTop: 'auto' }}>不需要在三维软件里手工点击分割、封口、裁剪；分割与开口由物理判据自动裁定，每一步留下可复核的判据与指纹。</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 10, padding: '20px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>100%</Text>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>开源栈</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.55, marginTop: 'auto' }}>SimpleITK / Netgen / OpenFOAM / VTK 全开源，零商业许可成本；同一份输入在任何机器上可重放同一条命令。</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 10, padding: '20px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>3 类</Text>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>功能指标</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.55, marginTop: 'auto' }}>鼻阻力、壁面剪应力、后鼻孔温湿度与热通量——分别对应患者的三个核心主诉，而不是泛泛的「流场图」。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>数据落点：单例处理从人工 30–60 分钟降到一条命令，且过程可复现、可审计</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>05 / 09</Text>
+        </Box>
+    </Box>
+</Slide>

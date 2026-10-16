@@ -1,0 +1,78 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.10) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.07) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>01 / 问题与需求</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>一群被 CT「证明健康」的病人</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>ENS</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 510, marginTop: 16, flexDirection: 'row', gap: 30 }}>
+            <Box style={{ flex: 62, flexDirection: 'column', gap: 8, justifyContent: 'center' }}>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14, height: 84, padding: '12px 18px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 700, color: '#22D3EE', width: 26 }}>01</Text>
+                    <Box style={{ flexDirection: 'column', gap: 4 }}>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>矛盾性鼻塞</Text>
+                        <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.4 }}>主诉「吸不进气」，可内镜和 CT 都显示鼻腔通畅——7/7 来源一致的核心症状</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14, height: 84, padding: '12px 18px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 700, color: '#22D3EE', width: 26 }}>02</Text>
+                    <Box style={{ flexDirection: 'column', gap: 4 }}>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>干燥 · 结痂 · 烧灼</Text>
+                        <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.4 }}>「呼吸进来的空气像刀子」；鼻腔灼热、结痂、反复感染——7/7 一致</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14, height: 84, padding: '12px 18px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 700, color: '#22D3EE', width: 26 }}>03</Text>
+                    <Box style={{ flexDirection: 'column', gap: 4 }}>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>气流感知丧失</Text>
+                        <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.4 }}>感觉不到空气流过鼻子，「直接吸到肺里」——6/7 一致</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14, height: 84, padding: '12px 18px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 700, color: '#22D3EE', width: 26 }}>04</Text>
+                    <Box style={{ flexDirection: 'column', gap: 4 }}>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>睡眠障碍 · 疲劳 · 认知下降</Text>
+                        <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.4 }}>整夜无法入睡、白天浑浑噩噩、劳动能力丧失——7/7 一致</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14, height: 84, padding: '12px 18px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 700, color: '#22D3EE', width: 26 }}>05</Text>
+                    <Box style={{ flexDirection: 'column', gap: 4 }}>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>焦虑 · 抑郁共病</Text>
+                        <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.4 }}>中国患者常见路径：耳鼻喉科不接诊 → 被诊断为抑郁症 → 转精神科</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 38, flexDirection: 'column', justifyContent: 'space-between', padding: '26px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(34,211,238,0.32)' }}>
+                <Box style={{ flexDirection: 'column', gap: 10 }}>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#22D3EE' }}>空鼻症 · EMPTY NOSE SYNDROME</Text>
+                    <Text style={{ fontSize: 20, color: '#B7CBDD', lineHeight: 1.6 }}>
+                        多发生在<span style={{ color: '#E8F1FA', fontWeight: 600 }}>鼻甲手术后</span>：鼻腔过于宽大，黏膜与神经末梢减少，加温加湿、气流感知、鼻阻力同时失守。
+                    </Text>
+                </Box>
+                <Box style={{ flexDirection: 'column', gap: 6 }}>
+                    <Text style={{ fontSize: 76, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>20%</Text>
+                    <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.5 }}>下鼻甲全切术后 ENS 发生率（5 个来源一致，含人民日报报道）</Text>
+                </Box>
+                <Box style={{ flexDirection: 'column', gap: 8, paddingTop: 14, borderTop: '1px solid rgba(139,166,193,0.24)' }}>
+                    <Text style={{ fontSize: 19, color: '#E8F1FA', lineHeight: 1.55 }}>「愿用一条胳膊或者一条腿换回一个健康的鼻子——四肢残缺还能得到别人的同情，可空鼻症却不被理解。」</Text>
+                    <Text style={{ fontSize: 14, color: '#8BA6C1' }}>患者原声 · 健康时报报道</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 40, marginTop: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>来源：多源交叉验证表（2026-10-15）· 12 类来源，剔除不可溯源数字</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>03 / 09</Text>
+        </Box>
+    </Box>
+</Slide>

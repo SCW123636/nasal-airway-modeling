@@ -1,0 +1,608 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>{title}</title>
+<style>
+  body {{ font-family: "Microsoft YaHei", sans-serif; max-width: 960px; margin: 32px auto; padding: 0 24px; line-height: 1.75; color: #1c2733; }}
+  h1 {{ border-bottom: 2px solid #0e7490; padding-bottom: 8px; color: #0c4a6e; }}
+  h2 {{ color: #0c4a6e; margin-top: 28px; }}
+  table {{ border-collapse: collapse; margin: 16px 0; }} th, td {{ border: 1px solid #cbd5e1; padding: 6px 12px; }}
+  th {{ background: #f1f5f9; }} code {{ background: #f1f5f9; padding: 2px 6px; border-radius: 3px; }}
+  a {{ color: #0e7490; }}
+</style></head><body><h1>从 24 例到「标准」：训练设计 v1</h1>
+<blockquote>
+<p>2026-10-16 · 段主对话 · <strong>只设计，未执行</strong>
+承接用户提问「怎么通过二十多例训练出一个标准」；三轮患者需求调研已建立症状↔气流/黏膜湿温的对应关系。
+关联：<code>knowledge/患者需求/</code>（三轮调研 + 需求转译）、<code>plan/需求方待决项_M3.md</code>、T-058（扩展域标准）、T-054/T-047（扩展域基线）、<code>research/20261015-症状与局部气流近期研究核对.md</code>。</p>
+</blockquote>
+<h2>0. 结论先行</h2>
+<p>「训练出一个标准」在本项目 = <strong>三个不同的东西，只有两个现在训得动</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>「标准」</th>
+<th>本质</th>
+<th>现在能训吗</th>
+<th>卡点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S1</strong></td>
+<td>队列常模参考框架</td>
+<td>描述统计 + 文献锚点</td>
+<td>✅ 输入标准化之后</td>
+<td>T-058 收卡（24 例重跑）</td>
+</tr>
+<tr>
+<td><strong>S2</strong></td>
+<td>症状预测模型</td>
+<td>监督学习</td>
+<td>⛔ 训不了</td>
+<td>逐例症状标签 = <strong>0 例</strong></td>
+</tr>
+<tr>
+<td><strong>S3</strong></td>
+<td>解剖形状常模（SSM）</td>
+<td>几何 PCA</td>
+<td>✅ 现在就能</td>
+<td>无（纯几何，零 CFD）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话</strong>：文献给「标准」（锚点与关系），24 例给「分布与偏离」。不是从 24 例患者训出一个「正常」，而是把文献锚点校准成队列常模；新患者进来 → 同协议提特征 → 输出「队列百分位 + 文献锚点偏差」剖面。症状预测要等标签，且 n≈24 只能上预注册小特征 + 强正则。</p>
+<h2>1. 三个硬现实（设计前提，不可绕）</h2>
+<p><strong>R1 没有标签。</strong> 24 例副鼻窦 CT（b01–b24）无任何逐例症状评分；ENS6Q / SNOT / NOSE 只存在于调研文献（ENS6Q 六条目、MCID=7、截断 ≥11 均为外部值）。B 数据集的「2449 帧」是 <strong>DICOM CT 帧数</strong>（3 患者 1.1 GB），不是症状时间序列。→ 监督学习今天没有 y。</p>
+<p><strong>R2 没有健康对照。</strong> 队列 = 副鼻窦患者 CT；A 底座（0.35 mm）是链路验证例，健康状态未核验。→ 「正常」不能由队列均值定义；正常只能来自文献锚点（健康 n=5：32.2±0.2 ℃ / 93.5±1.5 %RH）。</p>
+<p><strong>R3 输入未冻结。</strong> T-058 只完成 3 例（b15/b01/b02）新域标准对账，其余 21 例表面未重跑、24 例网格+求解未重跑；历史上存在两套 BC 口径（50:50 vs 共同静压）与短/扩展域混杂。→ 混合输入上训练任何东西都违反项目自己的输入冻结协议。</p>
+<p><strong>附带：采集混杂。</strong> 24 例来自不同医院/设备，层厚 0.35–1.0 mm、重建核与 RescaleIntercept 不一（B 数据集已实证两种截距混用）。文献影像红线 ≤0.6 mm 各向同性 → <strong>QC 门后有效 n 可能 &lt; 24</strong>，统计按有效 n 做，不按名义 n。</p>
+<h2>2. Stage 0：输入冻结（任何「训练」的前置门，不是训练本身）</h2>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>冻结内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>域</td>
+<td>扩展域（鼻+鼻咽+可见口咽，T-058 标准）；<strong>choana 为域内截面，温湿度取值截面必须是后鼻孔</strong>（C8）</td>
+</tr>
+<tr>
+<td>几何</td>
+<td>24 例表面+开口重跑（C1–C6 判据）→ 网格+求解重跑（另立卡，CPU 独占串行）</td>
+</tr>
+<tr>
+<td>BC</td>
+<td><strong>单一口径（已裁定 D-0′，2026-10-16）：两鼻孔共同可调静压 + 自然分流 + 口咽截断出口 p=0，外层调压使总流量 = 250 mL/s</strong>。弃用固定 50:50；历史 50:50 基线（T-006/041/042/054）保留为「对称约束口径历史参考」，并列不混用。执行卡 T-062。</td>
+</tr>
+<tr>
+<td>数值</td>
+<td>每网格先标定数值模板（T-007 约束）；medium-to-fine ≤5% 屏</td>
+</tr>
+<tr>
+<td>指纹</td>
+<td>每例落盘：surface sha256 + 生产代码 commit + 网格参数 + BC 预设 + 采集元数据（设备/层厚/核/截距）</td>
+</tr>
+<tr>
+<td>口径</td>
+<td>阈值（−300 主）/出口 p=0 按需求方三裁定<strong>参数化</strong>，裁定后切换不重训</td>
+</tr>
+</tbody>
+</table>
+<p><strong>QC 门（进常模的准入）</strong>：层厚 ≤0.6 mm（文献红线）；分割水密/开口 auto_pass；网格门记录项。不满足者降级「仅形态学」或剔除并记账。</p>
+<h2>3. Stage 1：特征层（解剖驱动预注册，禁数据挖掘）</h2>
+<p>特征清单在看见任何结局之前冻结（防 cherry-pick）。每特征带出处与证据权重：</p>
+<p><strong>几何特征（Stage 0.5 即可全量算，零 CFD）</strong>：最小截面积 MCA 及位置、鼻阀面积、气道容积、黏膜面积、左右容积比、下鼻甲残存度量、中/下鼻道容积比、后鼻孔面积、采集元数据。</p>
+<p><strong>CFD 特征（Stage 0 后）</strong>：R（仅配对口径）、Δp@250 mL/s、WSS 分布（median/p95/高剪面积占比）、<strong>下鼻道 WSS 占比</strong>（ENS 32.2%±12.5% vs 正常/术后 46.5–54.0%，与 ENS6Q 相关）、<strong>热通量 &gt;50 W/m² 黏膜面积占比</strong>（与 NOSE/VAS 相关性最强）、<strong>后鼻孔 T/RH</strong>（对标 32.2 ℃ / 93.5 %RH）、SAVR（n=14 中 RH 唯一相关参数）、左右分流、中鼻道射流占比（棉花试验 −41% 为干预靶）。</p>
+<p><strong>证据分级（进模型时的先验权重）</strong>：
+- 强（L1 多源）：后鼻孔 T/RH、热通量面积占比、下鼻道 WSS 占比、MCA
+- 中：R（配对）、SAVR、左右不对称
+- 探索：全局 WSS、射流占比
+- <strong>C5 硬规则</strong>：n=14 研究无全局 CFD 参数与 ENS6Q 相关 → 全局 R 只作「矛盾性鼻塞」客观读数，<strong>不得作为症状相关主特征</strong>（D1 裁定前）。</p>
+<h2>4. S1 队列常模（主产品，输入冻结后可交付）</h2>
+<ul>
+<li><strong>算法</strong>：24 例（有效 n）特征表 → 逐特征 median/IQR/分位数；采集元数据分层（层厚/设备）。</li>
+<li><strong>文献锚点层</strong>（外部常量，不带入队列估计）：健康 32.2±0.2 ℃ / 93.5±1.5 %RH（n=5）；ENS 31.4±0.9 ℃ / 84.6±7.7 %RH（n=14）；下鼻道 WSS 占比 46.5–54.0%；热通量 &gt;50 W/m² 相关（PMC12791179）；MCA 临床鼻测压带；棉花栓先验（位置 1.74±0.26 cm / 长度 1.93±0.35 cm）。</li>
+<li><strong>输出 = 患者功能剖面</strong>（每特征三列）：队列百分位 ｜ 文献锚点偏差 ｜ 口径与 <code>clinical_status: generalisation_test_only_no_human_review</code> 声明。</li>
+<li><strong>接入协议</strong>：新患者 CT → 同 protocol（同域/同 BC/同网格档）提特征 → 剖面对比。这就是「标准」的日常用法。</li>
+<li><strong>边界</strong>：常模是「队列分布」不是「正常」；只报百分位与偏差，<strong>正常/异常判定不做</strong>（归复核人）；绝对值不可对标临床鼻测压（C4），跨例比较用同协议相对量。</li>
+</ul>
+<h2>5. S2 症状预测模型（标签到位后才训；现在 0 例）</h2>
+<ul>
+<li><strong>标签来源路径</strong>：① IIT/RCT 入组（ENS6Q 前后，MCID=7，交叉设计 n≈8–12）；② B 患者3 双时间点 CT（2025-07-09 / 2026-02-17）——唯一的潜在配对；③ 未来门诊自评采集。</li>
+<li><strong>训法（n≈24 量级，二选一或并行）</strong>：</li>
+<li>a) 预注册 ≤5 个强证据特征 + 岭回归/弹性网；LOO-CV + 置换检验 + bootstrap CI；报效应量不追 p。</li>
+<li>b) 贝叶斯分层：先验取文献（相关方向与强度，如 RH↔SAVR、热通量↔NOSE/VAS），队列似然更新——小样本下比频率派回归稳。</li>
+<li><strong>验收判据</strong>：LOO R²/RMSE 带 bootstrap CI；置换检验 p；bootstrap 特征入选率；不过 LOO 不报数。</li>
+<li><strong>禁令</strong>：深度学习（24 例）；数据挖掘式特征选择；全局 R 主特征；把队列均值当「正常」；任何输出不带 clinical_status。</li>
+</ul>
+<h2>6. S3 解剖形状常模 SSM（并行，现在就能做）</h2>
+<p>24 例（+3 患者）气道 mesh → PCA → 下鼻道变异主成分 + 「通用型覆盖率」。这是调研报告自己点的 P1 动作与领域空白（R7），零 CFD 成本，可直接支撑器械设计空间与「层厚—精度对照」空白研究。可与 Stage 0 并行（零 CPU 车道）。</p>
+<h2>7. 验证设计（贯穿）</h2>
+<ul>
+<li>内部：输入指纹一致性；LOO/permutation/bootstrap。</li>
+<li>外部锚：文献值；A 底座 sanity；B 患者3 双时间点动态合理性。</li>
+<li>口径纪律：配对相对变化为主口径（C4）；choana 截面非域出口（C8）；两套 BC 不混用。</li>
+<li>每版「标准」落盘：数据版本指纹 + 特征 schema 版本 + clinical_status + 未核验标注。</li>
+</ul>
+<h2>8. 与现有卡的衔接</h2>
+<ul>
+<li><strong>T-058 收卡 = Stage 0 主体</strong>；24 例网格+求解重跑另立卡（CPU 独占串行）。</li>
+<li>需求方三裁定（阈值/出口/K2）→ 模板参数化，不阻塞设计。</li>
+<li>D1（R 的权重与报法）裁定前，R 在常模中只作客观读数。</li>
+<li>医学判断（正常/异常、解剖位置）仍归复核人；本设计不产出临床结论。</li>
+</ul>
+<h2>9. 待拍板（岔路，决定 Stage 2 投入顺序）</h2>
+<ol>
+<li><strong>用途优先级</strong>：S1 常模 / S2 症状模型 / S3 SSM / 器械设计空间——先做哪个（建议 S3+S1 并行，S2 等标签）。</li>
+<li><strong>标签</strong>：24 例确实没有 / 有病历可挖 / 近期可入组采集。</li>
+<li><strong>健康对照</strong>：没有（仅文献锚点）/ 有健康 CT 可扩样 / A 底座可核验。</li>
+<li><strong>BC 口径</strong>（D-0）→ <strong>✅ 已裁定（2026-10-16）：采纳共同静压自然分流，弃用 50:50</strong>（执行卡 T-062，见 §16）。</li>
+</ol>
+<h2>10. 云端调研回执（2026-10-16，只追加）</h2>
+<ul>
+<li>调研执行：用户授权「只发关键两题」，7 单元并行深搜（题1 C5 症状关联证据裁定 + 题2 小样本症状预测方法学），任务书 <code>plan/20261016-云端调研任务书_症状关联与小样本方法学.md</code>，完整报告 <code>outputs/20261016-云端调研_症状关联与小样本方法学/report.md</code>，逐单元证据 <code>results/*.json</code>（16 字段 100% 覆盖，uncertain 如实标注）。</li>
+<li><strong>C5 裁定（结案）</strong>：PMC13638262 原文核实（Na Y 2026，DOI 10.1002/lio2.70567，ENS n=14，四项全局参数 vs ENS6Q 全阴性：阻力 r=0.089/p=0.762、RH r=−0.043/p=0.884、气温 r=0.007/p=0.982、SAVR r=0.232/p=0.425）——阴性 = 功效不足（检出 r≈0.5 需 ~28 例）+ 双侧合并稀释 + 总分终点 + 表型混杂，且与金标准鼻测压证据（NAR-症状 r≈0.1–0.4，André 2009 系统综述/Darbari Kaul 2026 n=601）一致，非反常。阳性证据集中于区域/感觉相关量（SAHF50 热通量 r=−0.76、中鼻道气流 |r|=0.76、下鼻道峰值 WSS r=−0.398@n=27、前端温降 R²=0.62）。</li>
+<li><strong>对本设计的修订（R1–R6，详见报告第四节）</strong>：R1 Stage 1 症状主特征候选 = 热通量(SAHF50 50W/m²) &gt; 下鼻道峰值 WSS &gt; 中鼻道气流占比 &gt; 前端温降，全局 R 作客观读数（与第 8 节 D1 口径一致，现获文献加强）；R2 C5 结案；R3 S2 最低可行设计定稿（≥28–30 例 / NOSE+ENS6Q 终点 / MCID 效应量 / 3 月随访 / 配对变化量优先 / 特征 ≤1–2 未正则化或 LASSO / 重复分层 k 折+嵌套 CV+bootstrap .632+ / 95%CI+校准必报）；R4 新增文献先验贝叶斯为 S2 默认路线（NAR-症状 r≈0.1–0.4 编码为正态信息先验，先例 de Grooth N(0,0.238)）；R5 标签采集方案；R6 报告口径（禁单点 AUC，LOOCV 仅补充）。</li>
+<li><strong>对 T-047 的约束</strong>：R+32% 与文献弱-中等区间相符非反常，但小样本单次阳性须嵌套 CV+95%CI 复核后方可采信，不得泛化。</li>
+<li><strong>对待拍板项的影响</strong>：②（标签）获采集方案判据、③（对照）仍有方法空间（题4 未发）；①（用途优先级）与 ④（BC 口径）仍待用户裁定，调研不能代拍。</li>
+</ul>
+<h2>11. 用途裁定：症状对应为主线目标（2026-10-16 用户拍板）</h2>
+<p><strong>裁定记录</strong>：用户 2026-10-16 08:1x 定——「目前用途放在症状对应，我认为这个是后面所有的前提」。</p>
+<p><strong>裁定的含义（对既有结构的调整）</strong>：
+1. <strong>S2 升格为主线目标</strong>：从「挂起等标签的分支」变为整个「标准」的目标函数；「症状对应」取宽定义——CFD 指标与症状评分的映射，含关联强度、代理指标、表型分层解释，不限于预测模型（n≈24 规模即便有标签，更可能产出「关联/代理」而非「预测」，见调研 S2 判据）。
+2. <strong>S1 队列常模 / S3 几何 SSM 降格为支撑模块</strong>：S3 的表型分层是症状对应的防稀释手段（调研实证：混合表型入组稀释关联）；S1 的分布与偏离是症状对应的解释层与协变量来源。
+3. <strong>两条前提链</strong>（「前提」的准确拆解）：
+   - 工程前提 = <strong>输入冻结（Stage 0，T-058 收卡）</strong>——症状对应的 X 侧特征必须来自冻结输入，否则一切白算；
+   - 数据前提 = <strong>症状标签（Y 侧）</strong>——24 例无逐例评分（已核实），当前 X 侧可全速推进，Y 侧只能靠病历挖掘或采集。</p>
+<p><strong>症状对应路线图</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>内容</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A（X 侧，现在可全速）</td>
+<td>输入冻结 + 四主特征预注册（热通量 SAHF50/下鼻道峰值 WSS/中鼻道气流占比/前端温降，R 作客观读数）+ 24 例特征表 + S3 表型分层维度</td>
+<td>等 T-058 收卡即启动</td>
+</tr>
+<tr>
+<td>B（Y 侧，标签）</td>
+<td>① 病历挖掘（电子病历鼻塞主诉/术后史/随访记录——先证明「确实没有」再走采集）；② 采集按 S2 最低可行设计（≥28–30 例/NOSE+ENS6Q/3 月随访/单侧提取/表型分层）；③ B 患者3 双时间点 CT 作配对探针（n=3，仅验证「变化量对应」可行性）</td>
+<td>待用户拍标签来源</td>
+</tr>
+<tr>
+<td>C（模型）</td>
+<td>标签到位后按 S2 判据执行：≤1–2 特征未正则化或 LASSO、重复分层 k 折+嵌套 CV+bootstrap .632+、95%CI+校准必报、文献先验贝叶斯默认路线</td>
+<td>阻塞于 B</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对剩余岔路的影响</strong>：②（标签）升为最高优先级——它是症状对应的数据前提，建议先做病历挖掘（零成本）再定采集；④（BC 口径）权重下降——症状对应以配对相对变化为主口径，BC 只影响 R 绝对值报法；③（健康对照）继续服务于 S1 解释层。</p>
+<hr />
+<h2>12. Y 侧关闭裁定与结构重构：S4 文献映射表型路线（2026-10-16 用户拍板）</h2>
+<p><strong>用户原话</strong>：「我们什么都拿不到」（回应第 11 节 Y 侧二选一：索要病历 / 采集立项）。</p>
+<p><strong>裁定解读</strong>：两条标签路均不可行——需求方病历拿不到，采集立项也无资源。这不是「推迟」，是当前条件下 Y 侧症状标签（逐例 ENS6Q/NOSE 等）<strong>永久关闭</strong>。同日已完成 30 例 DICOM 层病历挖掘（<code>outputs/20261016-B患者症状痕迹探查/探查报告.md</code>）：零症状量表痕迹，与裁定互证。</p>
+<h3>12.1 直接后果</h3>
+<table>
+<thead>
+<tr>
+<th>分支</th>
+<th>裁定前</th>
+<th>裁定后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S2 症状预测模型</td>
+<td>挂起等标签</td>
+<td><strong>永久关闭</strong>。重开条件（全部满足才可重议）：①获得逐例症状标签来源；②n≥28–30；③输入已冻结</td>
+</tr>
+<tr>
+<td>B 患者 3 双时间点</td>
+<td>唯一潜在配对</td>
+<td>降级为「术后自身对照案例展示」（CFD 客观变化仍可报告），<strong>不得</strong>用于症状关联——仍无 y</td>
+</tr>
+<tr>
+<td>症状对应主线</td>
+<td>S2 承担</td>
+<td>改由 <strong>S4（无监督功能表型 + 文献症状映射）</strong> 承担，见 12.2</td>
+</tr>
+</tbody>
+</table>
+<h3>12.2 S4 设计：无标签条件下唯一站得住的症状对应路径</h3>
+<p>核心逻辑：<strong>不预测症状，而把每例患者归入文献已描述的功能表型，再转译该表型已发表的症状关联</strong>。症状陈述全部来自文献迁移，本队列零验证。</p>
+<p><strong>输入（X 侧，全部来自冻结输入，等 T-058 收卡）</strong>：
+- 四主特征：黏膜热通量 SAHF50（&gt;50W/m² 面积占比）、下鼻道峰值 WSS、中鼻道气流占比、鼻腔前端温降 ΔT
+- 全局读数（仅客观报告，不进聚类）：R、WSS 力
+- S3 几何表型维度（下鼻道/中鼻道横断面积谱）交叉备用</p>
+<p><strong>方法链（n=24 小样本，全部判据预注册）</strong>：
+1. 特征标准化（训练队列内 fit）
+2. 降维：PCA 保留 ≥80% 方差的主成分（预期 2–3 个）
+3. 聚类：k-means/层次聚类，k 由轮廓系数 + <strong>bootstrap 稳定性（ARI/Jaccard≥0.75 才接受该 k）</strong>共同裁定——小样本聚类不稳定是已知风险，稳定性不过的 k 不进入报告
+4. 表型命名：对照文献表型学描述（Park 2025 的 MT/IT/Mixed 气流分型与下鼻道优势表型、ENS 腔体过大表型、MCA 狭窄表型），只命名有文献依据的簇；无法对应的簇如实报告「未匹配表型」
+5. 症状映射层：每簇按文献报告的方向与量级转写症状倾向陈述（例：下鼻道峰值 WSS 低的簇 → Li 2018 ENS6Q 负相关 r=-0.398 方向 → 「该表型在文献中对应更高空鼻症症状评分方向」），<strong>每条陈述必须带来源 + 证据等级</strong></p>
+<p><strong>输出形态（替代原 S2 的每例剖面卡）</strong>：
+- 表型标签（含 bootstrap 稳定性数值）
+- 文献症状关联解释（逐条引用，区分「原文报告」与「我们的映射」）
+- 队列百分位（S1 提供，解释层）
+- 锚点偏离（对文献健康锚点，如后鼻孔 32.2℃/93.5%RH）</p>
+<p><strong>硬约束（诚实性口径，写进每份报告）</strong>：
+1. <strong>禁个体化症状预测</strong>——不得输出「该患者 ENS6Q≈X 分」类数字；只允许方向性、群体层面的表型-症状对应陈述
+2. 所有症状陈述标注「文献迁移，未在本队列验证」
+3. 保留 <code>clinical_status: generalisation_test_only_no_human_review</code>，新增口径「症状侧零标签：所有症状关联为外部证据套用」
+4. 映射层文献清单与证据等级随报告附录（题1 已回收 7 份证据 JSON 为一手材料）</p>
+<h3>12.3 路线图更新（替代第 11 节 B/C 阶段）</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>内容</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A（X 侧）</td>
+<td>四主特征 + 24 例特征表 + 表型维度</td>
+<td>等 T-058 收卡即启动（不变）</td>
+</tr>
+<tr>
+<td>B（Y 侧）</td>
+<td>~~病历挖掘~~ ~~采集立项~~</td>
+<td><strong>已关闭</strong>（2026-10-16 裁定 + 挖掘零收获互证）</td>
+</tr>
+<tr>
+<td>C（模型）</td>
+<td>~~S2 监督模型~~</td>
+<td><strong>已关闭</strong>（重开条件见 12.1）</td>
+</tr>
+<tr>
+<td>D（S4）</td>
+<td>无监督表型聚类 + 文献症状映射 + S1 百分位解释层</td>
+<td>新主线，随 A 阶段产出后执行</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对剩余岔路的影响</strong>：②（标签）结案关闭；④（BC 口径）维持低权重；③（健康对照）升为 S4 映射层的锚点来源（文献健康锚点继续服务，采集健康 CT 对照不再必要——S4 不依赖本队列对照）。</p>
+<hr />
+<h2>13. S4 桥接协议与科学性评估（2026-10-16，「怎么跟文献对应上」的深化设计）</h2>
+<blockquote>
+<p>本节回答两个问题：① 文献表型/指标与我们的队列之间怎么「对应上」；② 这套做法科学上站不站得住。原料 = 题1 回收的 7 份证据 JSON（<code>outputs/20261016-云端调研_症状关联与小样本方法学/results/</code>），其中 PMC13638262 原文细节已逐字段核验（Na Y 2026, DOI 10.1002/lio2.70567）。</p>
+</blockquote>
+<h3>13.1 三道断层：为什么「对应」不能靠贴文献结论</h3>
+<table>
+<thead>
+<tr>
+<th>断层</th>
+<th>文献侧</th>
+<th>我们侧</th>
+<th>后果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 定义方式</strong></td>
+<td>Park 2025 气流分型 MT/IT/Mixed = <strong>冠状面速度分布目视判读</strong>（定性分类，单侧症状者评症状侧）</td>
+<td>四主特征为连续量，聚类产连续空间分组</td>
+<td>簇↔表型的对应必须经过「操作化转译」，而转译规则是我们的假设，不是文献原文</td>
+</tr>
+<tr>
+<td><strong>② 物理条件</strong></td>
+<td>各研究 BC 不一：Park 用 250 mL/s、入口 25°C/35%RH、稳态吸气、刚性壁共轭传热；其余研究 BC 多未报告</td>
+<td>项目两套 BC（50:50 分流 / 共同静压自然分流）</td>
+<td>WSS/热通量/气流占比的<strong>绝对值强 BC 依赖</strong>，跨文献比数值无效；方向与排序对流量大小相对稳健（层流稳态下流态结构主要由几何决定）</td>
+</tr>
+<tr>
+<td><strong>③ 人群</strong></td>
+<td>症状关联证据集中于 ENS 术后人群（Park/Li/Maza）与阻塞人群（Casey/Dupilumab）</td>
+<td>队列为副鼻窦 CT，诊断构成未明（DICOM 仅见协议名 "Head^07_Sinus (Adult)"，无诊断字段）</td>
+<td>映射效度的根本限制：ENS 表型（腔体过大/下鼻道优势）在非术后队列可能不存在或罕见</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>【勘误 2026-10-16 13:3x，详见第 14 节 A-0】</strong>：上文「Park 2025」为错误引用（源自题1 总览单元的误标签并被我沿用）。MT/IT/Mixed 三型分型的<strong>正确出处 = Na Y, Kwon KW, Jang YJ 2026，Laryngoscope Investigative Otolaryngology，PMC13638262，DOI 10.1002/lio2.70567</strong>（题1 已 PMC 全文核验：ENS n=14，冠状面速度分布目视分型，单侧症状者评症状侧，Group IT 表型 ENS6Q 更高名义 p=0.047）。分型本身有据，仅出处名错误；250 mL/s、25°C/35%RH BC 同出该文（Na Y 组，更早方法学出处 Byun 2019, J Therm Biol 83:60-68）。</p>
+</blockquote>
+<p><strong>另一条已核实的口径差</strong>：Park 的鼻阻力定义为 Δp÷体积流量（Pa·s/mL）、患者层面双侧合并——与本项目 R 口径不同，且双侧合并已被 Garcia（PMC3490502）证明会稀释效应（健侧稀释患侧）。任何跨文献阻力对比一律无效，只允许各自内部的方向报告。</p>
+<h3>13.2 三级对应 + 强度分级（桥接协议核心）</h3>
+<p><strong>L1 指标对应（连续量 ↔ 连续量）</strong>——逐指标检查定义同构性（测量截面、归一化方式、区域定义）：</p>
+<table>
+<thead>
+<tr>
+<th>我们的特征</th>
+<th>文献对应</th>
+<th>同构性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>黏膜热通量 SAHF50（&gt;50W/m² 面积占比）</td>
+<td>Sullivan 2014 SAHF50（n=10, NOSE r=-0.76）；Almagribi 2024 综述合并 r=0.78（预印本，降权）</td>
+<td>截面定义需复核（原文阈值法）；方向可比</td>
+</tr>
+<tr>
+<td>下鼻道峰值 WSS</td>
+<td>Li 2018 下鼻甲周围峰值 WSS（n=27, ENS6Q r=-0.398, p=0.003）；Maza 2018 症状组下鼻道 WSS 更低</td>
+<td><strong>区域定义必须一致（下鼻道周围峰值，非全局均值）</strong>；方向可比</td>
+</tr>
+<tr>
+<td>中鼻道气流占比</td>
+<td>Casey 2017（n=30, |r|=0.76）；Dupilumab 队列中/上鼻道 CSA/AFR（n=12, r=0.41–0.49）</td>
+<td>占比定义需归一化口径统一；方向可比</td>
+</tr>
+<tr>
+<td>鼻腔前端温降 ΔT</td>
+<td>鼻中隔偏曲 42 例（VAS R²=0.62）；Zhao 2012 峰值冷却（n=22 健康, r=-0.46）</td>
+<td>位置定义（前端/峰值）需操作化；方向可比</td>
+</tr>
+</tbody>
+</table>
+<p><strong>L2 表型对应（簇 ↔ 文献表型）</strong>——操作化近似，允许三种结果：<strong>部分匹配 / 混合匹配 / 未匹配</strong>。示例：Park 的 Group IT（下鼻道优势）→ 我们的操作化假设「下鼻道气流占比 &gt; 50%」（该阈值判据为我们的转译假设，需以原文目视分型的可复现性复核，未复核前标 B 级）。</p>
+<p><strong>L3 症状关联对应（文献 r → 簇症状倾向）</strong>——<strong>只转译方向与显著性状态，不转译数值</strong>。示例：下鼻道峰值 WSS 低的簇 → 转写「该表型在 Li 2018（n=27）中对应更高 ENS6Q 方向（r=-0.398, p=0.003）」→ 禁止写成「该簇 ENS6Q 预计高 X 分」。</p>
+<p><strong>强度分级（每对对应必标）</strong>：
+- <strong>A</strong> = 定义同构（截面/归一化/BC 可比）→ 可比数值
+- <strong>B</strong> = 操作化近似 → 只比方向
+- <strong>C</strong> = 仅概念相关 → 仅作背景，不产症状陈述</p>
+<h3>13.3 命名-映射分离（防循环论证）</h3>
+<p>表型命名规则<strong>只用描述性/结构性文献</strong>（气流分布定义、几何分型），且在<strong>不看任何症状关联数据前冻结</strong>；症状映射<strong>只用关联性文献</strong>（报告 r 值的队列）。两条文献链分离——防止「按症状关联挑簇、再用症状关联解释簇」的循环。命名时无法对应的簇如实报告「未匹配表型」，禁止为凑对应而放宽命名规则。</p>
+<h3>13.4 数值迁移禁令（硬规则）</h3>
+<p>任何 Pa / W/m² / ℃ / mm⁻¹ 量级的绝对值<strong>不得跨 BC 直接对标文献阈值</strong>——包括 Zhao 组的 WSS 0.72 Pa（鼻中隔穿孔 87% 敏/100% 特）、Park 的 SAVR 值、任何热通量阈值判定。文献阈值只能以「该值的测量 BC」复现后才可比；未复现 = 仅记录为背景。本队列的 WSS/热通量绝对值只进队列内百分位与锚点偏离（对文献健康锚点，且锚点比较同样受 BC 限制，须声明）。</p>
+<h3>13.5 S4 的科学性评估</h3>
+<p><strong>定位（唯一诚实的位置）</strong>：S4 是<strong>假说生成</strong>（hypothesis-generating），不是验证（confirmatory）。症状侧零标签意味着统计推断在数学上不成立——S4 的科学性不来自 p 值，来自以下四支柱：</p>
+<ol>
+<li><strong>表型可复现性</strong>：bootstrap 稳定性（ARI/Jaccard≥0.75 才接受 k）+ 留一特征重聚一致性 + 将来新病例落簇率（目标 ≥80%）。可复现的表型是 S4 全部 claim 的地基。</li>
+<li><strong>映射透明性</strong>：每条症状陈述可追溯到具体文献的具体数字（源/n/r/证据等级随报告附录）；「原文报告」与「我们的映射/推断」显式分栏。</li>
+<li><strong>反例纳入</strong>：题1 的阴性证据（Park 全局阴性 n=14、Cherobin n=25 阴性、器械侧 NAR-症状 r≈0.1–0.4）必须进报告——只报阳性证据的映射层不具科学性。</li>
+<li><strong>多源支持门槛</strong>：同一表型-症状方向有 ≥2 个独立文献源才标「多源支持」（如下鼻道低 WSS→ENS 方向有 Li+Maza 两源）；单源一律标「单源，探索性」（Park 的表型-ENS6Q 名义 p=0.047 即此级）。</li>
+</ol>
+<p><strong>方法论依据</strong>：S4 的「变量组合」形态响应 Kimbell/Garcia 综述的领域共识——单一 CFD 变量不足以对应症状，相关建立在变量组合上（这正是全局单指标阴性而分区/组合可阳性的解释）。聚类是变量组合的自然实现。</p>
+<p><strong>已知硬伤与缓解</strong>：
+- n=24 聚类不稳定 → <strong>预案</strong>：稳定性判据不过时，S4 降级为「连续特征百分位报告」（不硬分类，仅报告每主特征的队列百分位 + 文献方向偏离），宁可不分类也不报不稳的簇；
+- 人群断层 → 队列诊断构成核实列为 A 阶段前置动作；若以鼻窦炎/阻塞为主，ENS 表型映射降为概念参考（C 级），主力映射转向阻塞型证据（MCA/下鼻甲类，在鼻窦队列更常见）；
+- 证据本身弱（r≈0.4 级/名义显著）→ 产出形态为<strong>排序假说清单</strong>而非结论清单，按多源状态 × 证据等级 × 效应量排序。</p>
+<p><strong>可失败性（S4 判不成立的条件，预注册）</strong>：
+1. 全部 k 的 bootstrap 稳定性 &lt;0.75 → 聚类维度失败，S4 降级为 S1 百分位报告；
+2. 表型与 S3 几何表型或客观量（R 百分位）系统性矛盾且无解释 → 映射层可信度崩塌，回退重设计；
+3. 映射文献经不起复核（DOI/n/效应量错误）→ 该条映射立即撤下；
+4. 将来新病例落簇率 &lt;80% → 表型无泛化性，S4 关闭。</p>
+<h3>13.6 执行顺序（A 阶段内嵌）</h3>
+<ol>
+<li>文献登记表：从 7 份证据 JSON 逐条提取（源/DOI/n/定义/截面/BC/人群/症状关联/证据等级/转译级别 A-B-C）→ 落盘 <code>outputs/T-XXX/S4文献登记表.md</code>；</li>
+<li>转译规则冻结：每个文献指标的可计算判据 + 分级，<strong>先于看队列数据</strong>；</li>
+<li>表型命名规则冻结（描述性文献链，与症状映射分离）；</li>
+<li>队列聚类 + 稳定性检验（等 T-058 收卡的特征表）；</li>
+<li>命名 + 映射 + 反例检查 + 多源标注；</li>
+<li>产出：<strong>排序假说清单</strong> + 每例剖面（簇标签含稳定性数值 / 文献症状关联解释 / 队列百分位 / 锚点偏离），硬约束口径随每份报告（禁个体化症状预测；症状陈述标「文献迁移，未在本队列验证」）。</li>
+</ol>
+<hr />
+<h2>14. 题5+题6 调研回执（2026-10-16 用户自发云端调研，报告已归档）</h2>
+<blockquote>
+<p>报告：<code>outputs/20261016-云端调研_症状关联与小样本方法学/report_题5题6_S4方法学.md</code>（云端执行，原文核验 + 检索报告 + 推断 + 未找到四级标注）。
+任务书：<code>plan/20261016-云端调研任务书_S4方法学题5题6.md</code>。以下裁定直接替换/修正第 12–13 节对应设计。</p>
+</blockquote>
+<h3>A. 引用与事实勘误（最高优先，影响登记表与表型命名层）</h3>
+<ul>
+<li><strong>A-0「Park 2025」= 错误引用</strong>。MT/IT/Mixed 三型分型正确出处 = <strong>Na Y 2026（PMC13638262）</strong>，题1 已全文核验；云端「未找到 Park 2025」系我方线索错误（t1-overview 误标签 → 我沿用）。分型有据、BC 同源（250 mL/s、25°C/35%RH），<strong>保留分型作为表型命名依据，仅改出处名</strong>。「中鼻道 vs 下鼻道气流优势」的原始观察另出 Zhao K 2014（IFAR，n=20 健康，「more flow through the middle than the inferior meatus」，与通畅感 r=−0.65）。</li>
+<li><strong>A-1 SAHF50 定义修正</strong>：Sullivan 2014 原文（PMC3917722，已核）SAHF50 = <strong>「热通量 &gt;50 W/m² 的黏膜表面积」，单位 cm²（绝对面积，非占比）</strong>；且 50 W/m² 是<strong>使相关性最大化的扫描寻优经验阈值，非生理常数</strong>。原文另有 250 W/m² 处报告占比（%）——<strong>两者不可混淆</strong>。→ 我们特征表须同时记录「SAHF50 绝对面积（cm²，忠于原文）」与「&gt;50 W/m² 面积占比（%）」两个量：主报告用原文定义保同构，占比作规模可比性辅助（队列腔体规模变异大时绝对面积被解剖规模主导）。</li>
+<li><strong>A-2 解剖实体修正</strong>：Li 2018 / Maza 2019 的区域是「<strong>下鼻甲区（inferior turbinate, IT）</strong>」，<strong>不是下鼻道（inferior meatus）</strong>。特征计算与登记表全部按 IT 区更正（峰值 WSS = IT 区内空间最大值；分区冠状面 d=0.6）。</li>
+<li><strong>A-3 年份更正</strong>：Zhao「2012」→ <strong>2014</strong>（Laryngoscope 124(3):E74–E80）；Maza「2018」→ <strong>2019</strong>（IFAR 9(2):211–218）。</li>
+<li><strong>A-4 对照组复用（打多源判据）</strong>：Li 2018 的「健康 42」与 Maza 2019 的对照<strong>是同一批人</strong>；且 Sullivan/Casey 同为 Garcia 组。→ <strong>「多源支持」按独立课题组计，不按论文数计</strong>：Zhao 组（Zhao2014+Li+Maza）= 1 源；Garcia 组（Sullivan+Casey）= 1 源。原第 13.5 节「下鼻道低 WSS→ENS 方向有 Li+Maza 两源」<strong>降级为单源（Zhao 组）</strong>；热通量→症状方向（Sullivan + Almagribi 预印本）预印本不计独立源 → 同降级。<strong>结论：当前无一方向达到 ≥2 独立源，全部症状映射先按「单源探索级」执行。</strong></li>
+</ul>
+<h3>B. 聚类协议修正（题5，替换第 12.2 方法链第 1–3 步与第 13.5 判据）</h3>
+<ul>
+<li><strong>B-1 门槛写出处</strong>：Jaccard 每簇 ≥0.75 = Hennig 2007（CSDA 52:258-271）<strong>举例性表述</strong>（原文 "say"）+ clusterboot 默认惯例，<strong>删「金标准」表述</strong>；<strong>γ≤0.5 = 簇解体</strong>（Hennig 2004c 推得 1/2 为临界值，有理论依据）。ARI 与 Jaccard 不同尺度，<strong>禁止把 0.75 同时套两个指标</strong>。</li>
+<li><strong>B-2 协议参数</strong>：<strong>B=1000、80% 无放回子采样</strong>（n=24 下有放回会大量重复点、稀释小簇）、每次固定簇数 k、报「每簇 Jaccard 均值±SD + 解体/复原计数」，ARI 作次级指标并列。</li>
+<li><strong>B-3 k 与簇规模</strong>：k 上限 <strong>3（最多 4）</strong>、每簇 <strong>≥5–6 例</strong>、排除全单点解；联合判据 = 轮廓系数（&lt;0.25 视为无结构）+ 稳定性 + 最小簇占比 5%；<strong>n/k 经验下限（10·p·k）不适用本场景，禁止反向引用论证 n=24 充分</strong>——n=24 远低于该线，如实写入局限。</li>
+<li><strong>B-4 降级预案升格</strong>：Dennis JM 2019（Lancet Diabetes Endocrinol）明确「<strong>基于连续表型指标优于基于亚组分配</strong>」（簇非病因性、重叠、个体层面无法稳健界定）→ 第 12.2 的降级预案（PCA 得分连续特征描述 + 假说标注）从「备选」升为<strong>与硬分类并列的正规产出路径</strong>；LCA/混合模型在 n=24 多数场合样本不足（Nylund 最低 200、Wurpts &amp; Geiser 不建议 &lt;100），不采用。</li>
+<li><strong>B-5 先例（可援引，须同段声明局限）</strong>：Esteban-Ortega 2025（Eur Arch ORL 282:1319-1326，PMID 39663223）——<strong>n=48 ENS，用无量纲 R+φ（气流不对称度）k-means k=3 得「典型 ENS/不对称/正常气流」三型</strong>，是鼻腔 CFD 定量聚类直接先例（但其仅报初始化一致性、未做 bootstrap——我们的 B-2 协议强于领域现状）；胶质瘤代谢分型 n=12 先例（原文自承小样本局限）。</li>
+</ul>
+<h3>C. 桥接协议修正（题6，替换第 13.2/13.4 对应规则）</h3>
+<ul>
+<li><strong>C-1 L1 只做物理层统一</strong>：截面/归一化/单位三类不一致 → 物理层统一（重采样、单位换算、统一定义）；<strong>BC 类不一致 → 敏感性分析，非校正项</strong>。<strong>ComBat 类特征协调明确不适用</strong>：其前提是同一物理量的批次平移/缩放偏移，且已发布协调变换不可外推到新中心新受试者（Da-Ano 2020 原文承认）→ 我们的单向文献映射<strong>不得以任何统计协调实现</strong>。</li>
+<li><strong>C-2 合成规则</strong>：六条区域相关量（r −0.40~−0.76，n 10–30，BC 各异）<strong>禁止 pooled r</strong>；用 <strong>SWiM 式叙述合成 + 逐条标注 n/BC/指标定义 + 异质性说明</strong>；Fisher z 合并仅在同尺度同质时可用（Var(z)≈1/(n−3)）。</li>
+<li><strong>C-3 证据等级</strong>：S4 全部症状映射统一标 <strong>OCEBM Level 4–5 / GRADE low（预印本来源 very low）</strong>。</li>
+<li><strong>C-4 数值迁移禁令获得规范级依据</strong>：TRIPOD-12（验证须报告与开发数据的 setting/纳排/结局/预测因子差异）+ RQS-12（验证须不调 cut-off）→ <strong>文献阈值仅用于定性方向对照（如「越高越通畅」），禁用于定量判阳性</strong>——原禁令从物理层直觉升级为报告规范级硬约束。</li>
+<li><strong>C-5 目视分型迁移的最低可交付</strong>（若将来做 MT/IT/Mixed 迁移）：≥2 名独立盲法评分者 + Cohen kappa + 95%CI + Landis-Koch 解释（&lt;0.40 poor / 0.6–0.75 moderate / &gt;0.75 excellent）+ 与独立定量维度（流量占比/WSS）交叉验证 + 前瞻确认。先例：Tse 2025（外部队列 kappa 0.518–0.582）、Shetty 2020（kappa 0.68）。</li>
+</ul>
+<h3>D. 执行顺序更新（替换第 13.6 第 1–2 步的前置）</h3>
+<ol>
+<li><strong>文献登记表先按 A-1~A-4 修正基线再冻结</strong>（SAHF50=cm²、IT 区、Zhao2014/Maza2019、按课题组计多源）；</li>
+<li>转译规则冻结增加 C-1~C-4 四条规则；</li>
+<li>聚类按 B-1~B-3 执行；<strong>连续特征路径与硬分类路径并行预备</strong>（B-4），稳定性不达标即切换而非返工；</li>
+<li>映射层执行时<strong>全部方向暂按「单源探索级」标注</strong>（A-4），直到出现真正独立课题组的方向。</li>
+</ol>
+<hr />
+<h2>15. 题7+题8+题9 调研回执与裁定（2026-10-16，S4 执行前补全）</h2>
+<blockquote>
+<p>报告：<code>outputs/20261016-云端调研_症状关联与小样本方法学/report_题7题8题9_S4执行前补全.md</code>（云端执行，四级标注：原文核验 / 检索报告 / 推断 / 未找到）
+任务书：<code>plan/20261016-云端调研任务书_S4执行前补全_题7题8题9.md</code>
+本节分 E（引用勘误，修正第 13/14 节）、F（题7 机制）、G（题8 合并判据）、H（题9 人群）、I（登记表更正）五组。</p>
+</blockquote>
+<h3>E. 引用勘误（修正第 13/14 节，最高优先）</h3>
+<ul>
+<li><strong>E-1 ComBat 不可外推性的引文更正</strong>：第 14 节 C-1 引的「Da-Ano 2020 Sci Rep 10:10248」不精确——该文（doi:10.1038/s41598-020-66110-w）标题为 <em>Performance comparison of modified ComBat…</em>，仅 Intro 提及须合并重算。<strong>最直接出处 = Da-ano R et al. 2021, PLoS One 16(7):e0253653</strong>（PMID 34197503, PMC8248970），原句：「the new data has to be labeled and added to the previously considered datasets, and the entire new datasets has to be re-harmonized again」。<strong>重要补漏</strong>：该文另提出 transfer learning 方案可部分解决「把已定协调变换应用于新数据」——故桥接协议表述改为：「ComBat 类协调默认<strong>不可直接外推</strong>至未纳入的新中心/新受试者（须合并重算）；领域已有 TL 方案可部分解决但需参考中心数据。→ 本项目<strong>不采用统计协调</strong>，仅做物理层统一。」</li>
+<li><strong>E-2 Dennis 2019 表述修正</strong>：第 14 节 B-4 引的「因簇非病因性、重叠、个体层面无法稳健界定」<strong>在原文摘要中未见，属附加</strong>，删除。原文 Interpretation 准确句：「models that are based on simple continuous clinical features are more useful to stratify patients… specific phenotypic measures to predict specific outcomes, rather than assigning patients to subgroups」（Lancet Diabetes Endocrinol 2019;7(6):442-451, PMID 31047901）。<strong>结论不变</strong>（连续表型 &gt; 亚组分配），仅删附加理由。</li>
+<li><strong>E-3 TRIPOD / TRIPOD+AI 条款号补全</strong>：内部验证 = TRIPOD 2015 <strong>Item 10b</strong> / TRIPOD+AI <strong>Item 12c</strong>；乐观偏倚归 Item 10b（shrinkage/penalization）；外部验证数据差异 = TRIPOD <strong>Item 12</strong>、分布比较 <strong>Item 13c</strong>、模型更新 <strong>Item 10e+17</strong>、性能 <strong>Item 16</strong>。TRIPOD+AI 为 <strong>27 项</strong>且<strong>取代 TRIPOD-2015</strong>。<strong>注意</strong>：第 14 节 C-4 引「TRIPOD-12 + RQS-12 佐证阈值禁定量判阳性」——<strong>RQS-12 保留</strong>（原文核验通过）；TRIPOD-12 的准确含义是「报告验证与开发数据的差异」，作阈值禁用佐证是<strong>间接</strong>的，措辞须收紧。</li>
+<li><strong>E-4 RQS / SWiM / Fisher z / Esteban-Ortega 核验</strong>：RQS Item 8（cut-off 用中位数/已发表阈值/连续变量，+1）、Item 12（验证不重训、不调 cut-off，−5/+2/+3/+4/+5，总分 36）<strong>通过</strong>；SWiM = Campbell 2020 BMJ 368:l6890，<strong>9 条目</strong>；Fisher z（Var≈1/(n−3), w=n−3，条件：双变量正态/独立/n&gt;10）属教科书级【未逐字核验】；Esteban-Ortega 2025 <strong>完全正确</strong>（K-means 48 例，三组；稳定性 = 多次初始化一致性、未做 bootstrap）。</li>
+</ul>
+<h3>F. 题7 裁定：机制支撑只覆盖 2/4</h3>
+<ul>
+<li><strong>有机制支撑</strong>：① 热通量（TRPM8 冷通路：McKemy/Peier 2002 克隆 TRPM8；Keh 2011 鼻甲活检证实 TRPM8 神经纤维；Willatt &amp; Jones 1996 黏膜越冷越通畅）；④ 前端温降（与冷感受假说同源，前庭温受体密度最高）。</li>
+<li><strong>仅统计关联</strong>：② 下鼻甲区峰值 WSS（<strong>无传入感觉通路证据</strong>——Even-Tzur/Elad 2008 只是上皮机械转导；Elad 2006 用 "may" 推测；Yan 2023 测的是机械刺激检测阈、非 WSS）；③ 气流占比（机制经 ① 间接传导，无独立感受器）。</li>
+<li><strong>感觉热点内部矛盾</strong>：受体密度热点 = 鼻前庭（Jones 1989：前庭冷受体 3.5/cm²、鼻甲未检出温受体）；CFD 相关热点 = 前庭后方 + 下鼻甲峰值（Zhao 2014 r=−0.46；Malik 2022 三变量）。Meusel 2010（冷受体均匀分布）为反证。→ 恰好支撑「区域指标」而非全鼻平均。</li>
+<li><strong>强反证（进反例组）</strong>：André 2009（主客观不确定）；Stolovitzky 2019（假手术 RCT n=137，假手术组 NOSE 也降 −22.7 / 54.7% 应答）；Aarnisalo 2018（安慰剂 RCT n=98）；Jones 1987（前庭局麻诱发堵塞感而阻力不变）；Boyce &amp; Eccles 2006（长期降气流未致症状）。</li>
+<li><strong>★ 对 S4 表述的硬约束</strong>：<strong>不得写「四主特征有统一神经生理机制链」</strong>——只能写「①④ 有机制支撑；②③ 为统计关联、机制待验证」。</li>
+<li><strong>可新增的机制层证据</strong>：Li et al. 2017 Laryngoscope 127:E176-E184（PMC5445013）——<strong>首例同队列 CFD + 三叉感觉（薄荷醇侧化阈 LDT）</strong>：ENS 下鼻甲 WSS↓ + LDT 受损（n=6 ENS vs 14 对照）。这是 WSS 与神经感觉「同队列共测」的唯一先例。</li>
+</ul>
+<h3>G. 题8 裁定：24 例合并判据（A 阶段前置闸门）</h3>
+<table>
+<thead>
+<tr>
+<th>目标指标</th>
+<th>BC 敏感性</th>
+<th>裁定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>气流占比（%）、SAHF50、双侧总量 R</td>
+<td>&lt;2%（统一到同流量/压降口径重算，Borojeni 2017）</td>
+<td><strong>可合并</strong></td>
+</tr>
+<tr>
+<td>单侧/区域 WSS、嗅裂区量、峰值量、呼气期量</td>
+<td>~10–100%（Taylor 2010）</td>
+<td><strong>必须分层</strong>（A/B 各一组，或 BC 作协变量）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>★ 强烈建议弃用固定 50:50 入口</strong>：它强加对称约束，与生理 ~40:60 冲突，<strong>直接污染占比与单侧量</strong>（文献未找到 50:50 vs 自然分流的直接逐指标对比，故本条为【推断】，但机理明确）→ <strong>与 D-0 口径岔路合并，见下方待裁定项。</strong></li>
+<li>建议改用 <strong>BC 稳健量</strong>：气流占比（%）、SAHF50、无量纲 WSS、基于占比的排序指标。</li>
+<li><strong>合规写法</strong>：把 A/B 套差异作为 <strong>δ_input</strong>，按 <strong>ASME V&amp;V 20-2009(R2021)</strong> 报 E ± u_val；补做同队列 A/B 双跑敏感性分析。</li>
+<li>出口 BC &gt; 截断本身：<strong>恒定 P_out = −15 Pa 会出现显著差异</strong>（Borojeni 2017，与 NOSE 相关性降到最低、Q 仅 r=0.48）→ 出口用压力出口且口径须固定。</li>
+</ul>
+<h3>H. 题9 裁定：人群断层 → 主力证据转 NAO/鼻塞人群</h3>
+<ul>
+<li><strong>ENS 证据不可迁移</strong>：Zhao 2019（IFAR 9(8):891-899, PMID 31077575）证明<strong>术后几何/阻力无差别的两组，仅症状性 ENS 出现下鼻道气流↓、中鼻道↑、下鼻甲 WSS↓</strong> →「表型 = 气流分布 + 神经感觉，<strong>不是几何</strong>」；且 ENS 中鼻道方向与 NAO <strong>相反</strong>（Casey 2017：NAO 中鼻道气流↓）。→ <strong>「下鼻甲低 WSS / 中鼻道高占比」的 ENS 结论仅适用术后 + 神经感觉缺失人群，本队列无手术史时不得引用为表型定义。</strong></li>
+<li><strong>主力证据</strong>：NAO/鼻塞人群（Casey 2017 中区占比 |r|=0.76；Sullivan 2014 患侧 SAHF50 vs NOSE r=−0.76；Cherobin 2021 最阻塞侧 VAS vs 单侧气流 r=−0.42）；CRS 侧参考 CRSwNP 治疗队列（中/上鼻道 CSA、气流率 vs SNOT-22 r≈0.41–0.49，<strong>鼻阻不相关</strong>）。</li>
+<li><strong>优先指标建议</strong>：① 患侧/区域气流占比（中鼻道 %）② 区域 CSA ③ 患侧黏膜冷却/热通量；<strong>慎用整体鼻阻</strong>。可增补 <strong>Lund-Mackay 评分</strong>（唯一有 CRS 级 SNOT-22 相关的 CT 指标）作 CRS 侧锚点。</li>
+<li><strong>缺口声明</strong>：CRS/AR 人群的 CFD × SNOT-22 横断面证据<strong>未找到</strong> → 须在 S4 结论显式声明。</li>
+<li><strong>前置动作</strong>（本队列<strong>无标签</strong>，故报告所列「本队列内重算指标—症状相关」不适用）：实际只须在特征提取时执行「明确患侧定义」与「鼻周期/减充血敏感性」两项；未做则外推标「未验证」。</li>
+<li><strong>★ 四主特征映射层排序修正</strong>（题7 + 题9 合成）：① 热通量/SAHF50 = 机制✓ + 多源症状证据✓ + BC 可合并✓（<strong>最强</strong>）；③ 气流占比 = 机制间接 + 多源症状证据（NAO，|r|=0.76）+ BC 可合并 → <strong>映射层主力（若队列偏 NAO）</strong>；④ 前端温降 = 机制✓ + 单/准多源证据；② IT 区峰值 WSS = <strong>机制✗ + 症状证据仅 ENS（不可迁移）→ 保留为聚类维度，映射层不产症状陈述</strong>。</li>
+</ul>
+<h3>I. 文献登记表更正（v1 → v1.1，已同步落盘 <code>S4文献登记表_v1.md</code>）</h3>
+<table>
+<thead>
+<tr>
+<th>原条目</th>
+<th>更正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3「Frank-Ito DO 2014, J Biomech」</td>
+<td>→ <strong>Kimbell JS, Frank DO, Laud P, Garcia GJM, Rhee JS. J Biomech 2013;46(15):2634-2643</strong>（PMID 24063885, PMC3959863）；n=10；BC = 压力驱动（目标流量 = 分钟通气量×2）、层流、稳态、黏膜 32.6 °C、环境 20 °C、未报湿度；热通量 = h_f(T_w−T_f) 面积加权；ΔHF-OS = +90.7±46.5 W/m²（p=0.0002）；Heat Flux-OS vs NOSE r=−0.65</td>
+</tr>
+<tr>
+<td>F2「Zhao K 2014 IFAR, n=20」</td>
+<td>→ <strong>Zhao K, Jiang J. IFAR 2014;4(6):435-446</strong>（doi:10.1002/alr.21319, PMID 24664528, PMC4144275）；n=<strong>22</strong>；「优势」= <strong>定量占比</strong>（中部 47.9±12.1% vs 下部 35.8±11.8%，p&lt;0.05）；BC = 低雷诺数 k-ω、准稳态、鼻孔压力入口 15 Pa、鼻咽压力出口、湍流强度 2.5%；中鼻道流量% vs 通畅度 r=−0.65</td>
+</tr>
+<tr>
+<td>W3 鼻中隔穿孔</td>
+<td>→ <strong>Li C, Maza G, … Zhao K. IFAR 2019;9(8):883-890</strong>（doi:10.1002/alr.22337, PMID 31141844, PMC6750740）；WSS 沿穿孔边缘 4 区峰值，后缘差异最大；<strong>0.72 Pa = 后缘峰值 WSS 的 ROC 最优截断（AUC 0.947），非通用阈值</strong></td>
+</tr>
+<tr>
+<td>N2 Cherobin</td>
+<td>→ <strong>Cherobin GB et al. Am J Rhinol Allergy 2021;35(2):245-255</strong>（doi:10.1177/1945892420950157, PMID 32806938）；设计 = <strong>减充血前/后</strong>（非术前术后）；结论修正：<strong>非「均无相关」，实为弱但显著</strong>（最阻塞侧 VAS vs 单侧气流 r=−0.42, p=0.003；R_CFD vs R_RMN r=0.41，CFD 低估阻力比值 0.65）</td>
+</tr>
+<tr>
+<td>T1 中文 42 例</td>
+<td>→ <strong>汪涛, 王珮华, 陈东, 李莹. 临床耳鼻咽喉头颈外科杂志 2018;32(20):1557-1562,1567</strong>（doi:10.13201/j.issn.1001-1781.2018.20.006, PMID 30400706）；BC = 稳态层流、壁面 32 °C、鼻孔压力入口 0 Pa、后鼻孔 250 mL/s 34 °C 速度出口；<strong>ΔT 位置以解剖标志定义</strong>（下鼻甲前端矢状截面 ↔ 鼻孔入口平均温差），勿写数值区间；VAS vs ΔT下鼻甲前端 R²=0.6196</td>
+</tr>
+</tbody>
+</table>
+<p><strong>表 2 多源核算随之更新</strong>：F2 已获全文核实 → <strong>中区气流占比升为「多源支持」</strong>（Garcia F1 + Zhao F2，两独立课题组）；IT 区 WSS 方向随题9 退出映射层（不再计源）；热通量维持多源（Garcia + Zhao）。</p>
+<h3>待裁定项 → ✅ 已裁定：采纳 D-0′（2026-10-16 14:3x 用户「全部按你推荐的」）</h3>
+<ul>
+<li><strong>D-0′（原 D-0 的强化版）</strong>：文献强烈建议<strong>弃用固定 50:50 入口</strong>（强加对称约束、污染占比与单侧量）。若采纳：历史 50:50 病例（T-006/041/042 口径）须在自然分流口径下<strong>重跑</strong>才可并入 24 例聚类；若不采纳：占比/单侧类指标须按 BC 分层、且 50:50 组结论须标「对称约束假设下」。
+  → <strong>✅ 已裁定采纳</strong>。执行卡 = <strong>T-062</strong>（<code>tasks/T-062.md</code>）：实现自然分流适配器 + 三例口径重跑 + 对照表。详见 §16。</li>
+</ul>
+<hr />
+<h2>16. D-0′ 裁定执行：BC 口径统一为「共同静压 + 自然分流」（2026-10-16 14:3x）</h2>
+<blockquote>
+<p><strong>用户裁定</strong>：「全部按你推荐的」——采纳 §15 待裁定项 <strong>D-0′</strong> 的推荐方案。
+<strong>执行卡</strong>：<code>tasks/T-062.md</code>（立卡前已查当期最大号 = T-061，本卡取 T-062）。</p>
+</blockquote>
+<h3>16.1 裁定内容</h3>
+<p>队列 CFD 边界口径<strong>从「固定 50:50 分流 + 出口 p=0」统一为「两鼻孔共同可调静压 + 自然分流 + 口咽截断出口 p=0」</strong>，外层调压使求解总流量达 <strong>250 mL/s（15 L/min）</strong>。弃用固定 50:50 入口（其强加左右对称约束，与生理 ~40:60 冲突，直接污染占比与单侧量）。</p>
+<h3>16.2 现状事实（已实测，非假设）</h3>
+<table>
+<thead>
+<tr>
+<th>事实</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>自然分流适配器至今未实现</strong></td>
+<td><code>config_catalog.json</code> 全部 <strong>8 份配置 <code>execution_allowed=false</code></strong>，共同 warning「solver adapter has not been implemented and verified」；<code>18Pa与边界条件修订.md</code> 第 15 行「自然分流的求解适配器尚待实现和验证」</td>
+</tr>
+<tr>
+<td><strong>三例扩展域指标全是 50:50 口径</strong></td>
+<td>T-054（b15）、T-047（b01）红线写死「固定 50:50 + 出口 p=0」；T-058 沿用</td>
+</tr>
+<tr>
+<td><strong>几何层不受影响</strong></td>
+<td>T-059（24 例表面+开口）与 BC 无关，产物继续有效</td>
+</tr>
+</tbody>
+</table>
+<h3>16.3 影响清单（须重跑 / 须标注）</h3>
+<table>
+<thead>
+<tr>
+<th>产物</th>
+<th>现状口径</th>
+<th>D-0′ 后处置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T-054 b15 指标（Δp 18.267 / R 0.07307 / WSS 力 1.506e-3 N）</td>
+<td>50:50</td>
+<td><strong>须自然分流重跑</strong>；50:50 结果保留为历史参考</td>
+</tr>
+<tr>
+<td>T-047 b01 指标（Δp 15.709 / R 0.06284 / WSS 力 1.331e-3 N）</td>
+<td>50:50</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>T-058 三例全链（b15/b01/b02）</td>
+<td>50:50</td>
+<td>同上（复用网格，仅重跑求解+指标）</td>
+</tr>
+<tr>
+<td>工作台 <code>pro/patient_metrics.json</code> b15/b01/b02</td>
+<td>50:50</td>
+<td>重跑后切换口径并标注变更</td>
+</tr>
+<tr>
+<td>24 例批量（M4）CFD 层</td>
+<td>未跑（阻塞 D-0）</td>
+<td><strong>按自然分流口径执行</strong>（M4 的 D-0 阻塞解除）</td>
+</tr>
+<tr>
+<td>S4 四主特征表（X 侧）</td>
+<td>未产</td>
+<td>按自然分流口径提取；聚类一次性合并（不按 BC 分层）</td>
+</tr>
+<tr>
+<td>T-006/041/042 短域</td>
+<td>50:50 短域</td>
+<td>已作废（短域），无需重跑，标注口径关闭</td>
+</tr>
+</tbody>
+</table>
+<h3>16.4 执行顺序（T-062 内）</h3>
+<ol>
+<li><strong>适配器实现</strong>（最高风险，先做）：两鼻孔共同可调静压 + 出口 p=0，外层反馈调压使 Q_total = 250 mL/s；<strong>先过隔离基准验证</strong>（楔形/Poiseuille），确认不引入伪解除。</li>
+<li><strong>自然分流核验</strong>：左右鼻孔流量由求解自然分配，<strong>不得等于强制等分</strong>（C2 判据）。</li>
+<li><strong>三例口径重跑</strong>（b15/b01/b02，复用 T-058 网格）：出 Δp/R/WSS/热通量锚点。</li>
+<li><strong>对照表 + 回归对账</strong>：50:50 vs 自然分流逐指标并列；<strong>可合并量（气流占比/SAHF50/双侧总量 R）预期差 &lt;2%</strong>（题8，Borojeni 2017）作为口径切换正确性的内建检查——若可合并量也大改，说明适配器实现有误，停下查。</li>
+<li><strong>下游</strong>：M4 的 24 例 CFD 批量；工作台指标口径切换；S4 X 侧特征表。</li>
+</ol>
+<h3>16.5 风险与诚实声明</h3>
+<ul>
+<li><strong>D-0′ 是重大不可回退裁定</strong>，直接后果是 <strong>b15/b01/b02 三个已交付患者指标全部作废（降为历史参考），须重跑</strong>——工作量大于一次普通重跑，且适配器实现本身是新的工程风险点。</li>
+<li><strong>自然分流与 50:50 的差异可能显著</strong>（尤其单侧/区域 WSS、峰值量，题8 判 ~10–100%），故重跑后患者三指标数值会变；<strong>口径变更本身不是「数值修正」</strong>，两者是不同物理设定，须并列标注、不得混作同一序列比较。</li>
+<li>产物恒带 <code>clinical_status: generalisation_test_only_no_human_review</code>；口径通过 ≠ 生理出口成立 ≠ 医学结论。</li>
+<li><strong>本裁定解除了 M4 的 D-0 口径阻塞</strong>，但 M4 仍受其自身前置（需求方裁定 + R11 三道门）约束。</li>
+</ul></body></html>

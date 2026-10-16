@@ -1,0 +1,72 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.10) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.07) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>04 / 测试过程与真实反馈</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>为什么这些数字可以被相信</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q4</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'column', gap: 16 }}>
+            <Box style={{ height: 250, flexDirection: 'column', padding: '14px 20px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                <Text style={{ fontSize: 18, fontWeight: 600, color: '#B7CBDD' }}>验证三重门：三个不依赖「我们说自己严谨」的独立关卡</Text>
+                <svg width={1104} height={186} viewBox='0 0 1104 186'>
+                    <rect x='20' y='72' width='1064' height='14' rx='7' fill='rgba(34,211,238,0.10)' />
+
+                    <rect x='48' y='30' width='320' height='96' rx='10' fill='#0E2039' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='208' y='66' fill='#E8F1FA' fontSize='18' fontWeight='600' textAnchor='middle'>① 已知答案对照</text>
+                    <text x='208' y='94' fill='#8BA6C1' fontSize='13' textAnchor='middle'>轴向力平衡偏差 0.087%</text>
+                    <text x='208' y='114' fill='#8BA6C1' fontSize='13' textAnchor='middle'>圆管 9 格判别 · 泊肃叶解析解</text>
+
+                    <path d='M372 78 L388 78' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M382 73 L390 78 L382 83 Z' fill='#22D3EE' />
+
+                    <rect x='392' y='30' width='320' height='96' rx='10' fill='#0E2039' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='552' y='66' fill='#E8F1FA' fontSize='18' fontWeight='600' textAnchor='middle'>② 独立复验</text>
+                    <text x='552' y='94' fill='#8BA6C1' fontSize='13' textAnchor='middle'>未参与创作的人逐项复核</text>
+                    <text x='552' y='114' fill='#8BA6C1' fontSize='13' textAnchor='middle'>按同一判据重走结论</text>
+
+                    <path d='M716 78 L732 78' stroke='#F5A524' strokeWidth='2' />
+                    <path d='M726 73 L734 78 L726 83 Z' fill='#F5A524' />
+
+                    <rect x='736' y='30' width='320' height='96' rx='10' fill='#0E2039' stroke='#F5A524' strokeWidth='1.5' />
+                    <text x='896' y='66' fill='#E8F1FA' fontSize='18' fontWeight='600' textAnchor='middle'>③ 一条命令复现</text>
+                    <text x='896' y='94' fill='#8BA6C1' fontSize='13' textAnchor='middle'>42 秒从原始数据重建</text>
+                    <text x='896' y='114' fill='#8BA6C1' fontSize='13' textAnchor='middle'>12 个已知值逐位匹配</text>
+
+                    <text x='20' y='160' fill='#8BA6C1' fontSize='13'>门 ① 与 ② 检验「方法对不对」</text>
+                    <text x='1084' y='160' fill='#8BA6C1' fontSize='13' textAnchor='end'>门 ③ 检验「别人能不能重来一遍」</text>
+                </svg>
+            </Box>
+
+            <Box style={{ height: 234, flexDirection: 'row', gap: 16 }}>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 10, padding: '20px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>0.087%</Text>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>解出来的力和输入对得上</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.55, marginTop: 'auto' }}>壁面应力积分的合力与压差反作用力相差不到千分之一；纯解析圆管泊肃叶解也逐档对上。</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 10, padding: '20px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>独立</Text>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>不是自己给自己签字</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.55, marginTop: 'auto' }}>每个关键结论都由未参与创作的人按同一套判据重走一遍，逐项对上才写入结论卡。</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 10, padding: '20px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>42 s</Text>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>别人能重来一遍</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1', lineHeight: 1.55, marginTop: 'auto' }}>删掉旧现场从原始案例重建，42 秒完成：12 个已知值 + 6 个输入 SHA256 逐位匹配。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>文献对照：静息呼吸稳态层流解与全分辨 LES 预测近乎一致 —— 本管线的层流口径合规</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>15 / 18</Text>
+        </Box>
+    </Box>
+</Slide>

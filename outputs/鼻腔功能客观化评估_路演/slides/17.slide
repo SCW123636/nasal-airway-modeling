@@ -1,0 +1,65 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.12) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.08) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>05 / 团队与产品的未来计划</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>下一步：从评估工具到定制器件</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q5</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'column', gap: 18 }}>
+            <Box style={{ height: 360, flexDirection: 'row', gap: 26 }}>
+                <Box style={{ flex: 1.2, flexDirection: 'column', padding: '22px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(34,211,238,0.34)' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#22D3EE' }}>阶段 A · 评估工具（进行中）</Text>
+                    <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, marginTop: 10 }}>
+                        <Text style={{ fontSize: 76, fontWeight: 800, lineHeight: 1, color: '#22D3EE' }}>24</Text>
+                        <Text style={{ fontSize: 20, color: '#8BA6C1' }}>例副鼻窦 CT 队列</Text>
+                    </Box>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA', marginTop: 12 }}>从单例演示到队列常模</Text>
+                    <Text style={{ fontSize: 17, color: '#B7CBDD', lineHeight: 1.6, marginTop: 8 }}>24 例几何层已批量重跑（23/24 通过表面判据）。下一步把网格、求解、指标一并批量，建立队列常模分布，并用无监督聚类做表型分层。</Text>
+                    <Text style={{ fontSize: 15, color: '#8BA6C1', lineHeight: 1.5, marginTop: 'auto', paddingTop: 12, borderTop: '1px solid rgba(139,166,193,0.24)' }}>边界：表型分层是文献迁移的解释层，未在本队列验证；不做个体化症状预测。</Text>
+                </Box>
+
+                <Box style={{ flex: 1, flexDirection: 'column', padding: '22px 24px', background: 'linear-gradient(150deg, #1B3A5C 0%, #12263F 100%)', borderRadius: 12, border: '1px solid rgba(245,165,36,0.40)' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#F5A524' }}>阶段 B · 终局产品（设计目标）</Text>
+                    <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8, marginTop: 10 }}>
+                        <Text style={{ fontSize: 76, fontWeight: 800, lineHeight: 1, color: '#F5A524' }}>&gt;50</Text>
+                        <Text style={{ fontSize: 18, color: '#8BA6C1' }}>W/m² 黏膜占比</Text>
+                    </Box>
+                    <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA', marginTop: 12 }}>把「气流重新导回下鼻道」写成设计目标</Text>
+                    <Text style={{ fontSize: 17, color: '#B7CBDD', lineHeight: 1.6, marginTop: 8 }}>以热通量与壁面剪应力为约束，反向求解鼻腔填充器件的形状与位置 —— 从「读出功能」变成「改回功能」。</Text>
+                    <Text style={{ fontSize: 15, color: '#8BA6C1', lineHeight: 1.5, marginTop: 'auto', paddingTop: 12, borderTop: '1px solid rgba(139,166,193,0.24)' }}>前置：需先有队列常模，否则器件设计没有可比的基线。</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ height: 120, flexDirection: 'column', padding: '14px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#8BA6C1' }}>我们需要什么</Text>
+                <Box style={{ flexDirection: 'row', gap: 22, marginTop: 10 }}>
+                    <Box style={{ flex: 1, flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 700, color: '#E8F1FA' }}>1 · 真实病例数据</Text>
+                        <Text style={{ fontSize: 15, color: '#8BA6C1', lineHeight: 1.5 }}>带症状记录的病例尤其稀缺 —— 这是最大缺口。</Text>
+                    </Box>
+                    <Box style={{ flex: 1, flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 700, color: '#E8F1FA' }}>2 · 临床合作</Text>
+                        <Text style={{ fontSize: 15, color: '#8BA6C1', lineHeight: 1.5 }}>术前术后配对随访，让「相对变化」落地。</Text>
+                    </Box>
+                    <Box style={{ flex: 1, flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 700, color: '#E8F1FA' }}>3 · 算力与工程人手</Text>
+                        <Text style={{ fontSize: 15, color: '#8BA6C1', lineHeight: 1.5 }}>队列批量求解与器件设计，需要更多算力与人力。</Text>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>路径逻辑：先有可信的功能读数，再有队列基线，最后才谈得上按目标设计器件</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>17 / 18</Text>
+        </Box>
+    </Box>
+</Slide>

@@ -1,0 +1,93 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.10) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.07) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>03 / 一个月的协作故事</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>三个关键时刻：我们改了「前提」</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q3</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 516, marginTop: 16, flexDirection: 'row', gap: 26 }}>
+            <Box style={{ width: 486, flexDirection: 'column', padding: '18px 18px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#8BA6C1' }}>被改写的三个前提</Text>
+                <svg width={450} height={420} viewBox='0 0 450 420'>
+                    <rect x='8' y='20' width='150' height='56' rx='9' fill='#0E2039' stroke='#3B5675' strokeWidth='1.5' strokeDasharray='5 4' />
+                    <text x='83' y='44' fill='#8BA6C1' fontSize='12' textAnchor='middle'>旧</text>
+                    <text x='83' y='64' fill='#8BA6C1' fontSize='14' fontWeight='600' textAnchor='middle'>网格判「致命」</text>
+                    <path d='M164 48 L192 48' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M186 43 L194 48 L186 53 Z' fill='#22D3EE' />
+                    <rect x='200' y='20' width='242' height='56' rx='9' fill='#14294A' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='321' y='44' fill='#22D3EE' fontSize='12' textAnchor='middle'>新</text>
+                    <text x='321' y='64' fill='#E8F1FA' fontSize='14' fontWeight='600' textAnchor='middle'>数值设置 · 双轨判据收口</text>
+
+                    <rect x='8' y='150' width='150' height='56' rx='9' fill='#0E2039' stroke='#3B5675' strokeWidth='1.5' strokeDasharray='5 4' />
+                    <text x='83' y='174' fill='#8BA6C1' fontSize='12' textAnchor='middle'>旧</text>
+                    <text x='83' y='194' fill='#8BA6C1' fontSize='14' fontWeight='600' textAnchor='middle'>鼻腔短域</text>
+                    <path d='M164 178 L192 178' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M186 173 L194 178 L186 183 Z' fill='#22D3EE' />
+                    <rect x='200' y='150' width='242' height='56' rx='9' fill='#14294A' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='321' y='174' fill='#22D3EE' fontSize='12' textAnchor='middle'>新</text>
+                    <text x='321' y='194' fill='#E8F1FA' fontSize='14' fontWeight='600' textAnchor='middle'>鼻 + 鼻咽 + 可见口咽</text>
+
+                    <rect x='8' y='280' width='150' height='56' rx='9' fill='#0E2039' stroke='#3B5675' strokeWidth='1.5' strokeDasharray='5 4' />
+                    <text x='83' y='304' fill='#8BA6C1' fontSize='12' textAnchor='middle'>旧</text>
+                    <text x='83' y='324' fill='#8BA6C1' fontSize='14' fontWeight='600' textAnchor='middle'>出口需人工确认</text>
+                    <path d='M164 308 L192 308' stroke='#22D3EE' strokeWidth='2' />
+                    <path d='M186 303 L194 308 L186 313 Z' fill='#22D3EE' />
+                    <rect x='200' y='280' width='242' height='56' rx='9' fill='#14294A' stroke='#22D3EE' strokeWidth='1.5' />
+                    <text x='321' y='304' fill='#22D3EE' fontSize='12' textAnchor='middle'>新</text>
+                    <text x='321' y='324' fill='#E8F1FA' fontSize='14' fontWeight='600' textAnchor='middle'>物理判据唯一定义</text>
+
+                    <text x='8' y='382' fill='#3B5675' fontSize='12'>虚线 = 已被推翻的旧前提</text>
+                    <text x='442' y='382' fill='#3B5675' fontSize='12' textAnchor='end'>实线 = 现行标准</text>
+                </svg>
+            </Box>
+
+            <Box style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', gap: 12 }}>
+                <Box style={{ flexDirection: 'column', gap: 6 }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                        <Box style={{ width: 26, height: 26, borderRadius: 13, border: '1px solid rgba(34,211,238,0.6)', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>1</Text>
+                        </Box>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>网格被判「致命」，我们把它推翻了</Text>
+                    </Box>
+                    <Text style={{ fontSize: 17, color: '#B7CBDD', lineHeight: 1.6 }}>首跑在 Time = 260 报浮点异常，「网格质量差」一度成为结论。我们在同一网格上只改数值设置做单变量反证。</Text>
+                    <Text style={{ fontSize: 16, color: '#F5A524', lineHeight: 1.5, borderLeft: '3px solid #F5A524', paddingLeft: 12 }}>代价：533 步稳定收敛、Δp 落回合理带 —— 承认是判据定得太松，全部已验证案例重跑。</Text>
+                </Box>
+
+                <Box style={{ flexDirection: 'column', gap: 6 }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                        <Box style={{ width: 26, height: 26, borderRadius: 13, border: '1px solid rgba(34,211,238,0.6)', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>2</Text>
+                        </Box>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>计算域从「鼻腔」扩到「含口咽」</Text>
+                    </Box>
+                    <Text style={{ fontSize: 17, color: '#B7CBDD', lineHeight: 1.6 }}>原先只建鼻腔短域，把鼻咽与口咽切在域外。但患者最难受的位置，恰恰在鼻咽之后。</Text>
+                    <Text style={{ fontSize: 16, color: '#F5A524', lineHeight: 1.5, borderLeft: '3px solid #F5A524', paddingLeft: 12 }}>代价：b15 鼻阻力由 0.041 升到 0.068 Pa·s/mL —— 旧口径把阻力系统性低估了近四成。</Text>
+                </Box>
+
+                <Box style={{ flexDirection: 'column', gap: 6 }}>
+                    <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                        <Box style={{ width: 26, height: 26, borderRadius: 13, border: '1px solid rgba(34,211,238,0.6)', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>3</Text>
+                        </Box>
+                        <Text style={{ fontSize: 21, fontWeight: 700, color: '#E8F1FA' }}>出口改由物理判据唯一定义</Text>
+                    </Box>
+                    <Text style={{ fontSize: 17, color: '#B7CBDD', lineHeight: 1.6 }}>出口截断位置不再依赖人工确认，而是由「mask 最底 + 0.5 mm」这一条物理判据唯一确定。</Text>
+                    <Text style={{ fontSize: 16, color: '#F5A524', lineHeight: 1.5, borderLeft: '3px solid #F5A524', paddingLeft: 12 }}>代价：出口被明确声明为工程截断面而非解剖结构 —— 数字因此站得住，也因此不可对标临床鼻测压。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 38, marginTop: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>数据落点：三个转折都留下了代价记录 —— 前提可以改，但改了必须付账</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>12 / 18</Text>
+        </Box>
+    </Box>
+</Slide>

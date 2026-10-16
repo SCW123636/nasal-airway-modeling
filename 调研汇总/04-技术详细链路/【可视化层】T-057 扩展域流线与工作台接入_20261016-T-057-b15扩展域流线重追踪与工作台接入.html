@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>20261016-T-057-b15扩展域流线重追踪与工作台接入</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>20261016-T-057-b15扩展域流线重追踪与工作台接入</h1>
+<ul>
+<li>任务：T-057（用户「继续」→ 05:0x 方案落地）</li>
+<li>状态：EXECUTING（交付完成，判据自检通过；T2 独立复验待派）</li>
+<li>一句话：b15 流线图从短域旧口径重做到<strong>扩展域新标准</strong>（T-054 的 t600 场，同种子同引擎可直接与
+  T-049 短域对照），并把产物接进工作台——「流线」页从占位文案变为真实可交互图。</li>
+</ul>
+<h2>交付</h2>
+<ol>
+<li><strong>扩展域流线 HTML</strong>（<code>outputs/T-057/streamlines_b15_oroext_t600.html</code>，2.9 MB，
+   工作台副本 <code>pro/artifacts/</code>）：vtkStreamTracer（ParaView 内核），seed=7 每侧 60 种子（同 T-044/T-049
+   口径）→ <strong>111 条线</strong>：抵达口咽出口 10 / 出壁区 61 / 近壁停滞 36 / 回到鼻孔 4；
+   速度中位 1.575 m/s（max 3.756）；长度中位 34.84 mm（max 94.04）。
+   恒带 <code>clinical_status: generalisation_test_only_no_human_review</code>；后处理级，定量以
+   postProcessing 的 surfaceFieldValue 为准。</li>
+<li><strong>定量 meta</strong>（<code>t057_streamlines_meta.json</code>）+ 静态三视图（<code>t057_view.png</code>）。</li>
+<li><strong>治本项落地</strong>：<code>work/lib/flow_streamlines.py</code> 出口 patch 名参数化
+   （<code>DEFAULT_OUTLET</code>/<code>patch_files()</code>，五个函数加 <code>outlet=</code> 形参，默认旧值向后兼容）——
+   记忆 §9 欠的"PATCH_FILES 短域常量"卡内清掉。</li>
+<li><strong>工作台接入</strong>（<code>pro/streamlines_manifest.json</code> + <code>pro.js</code> 回退逻辑 + 来源注记行）：
+   job 体系无 <code>streamlines.html</code> 登记（今天求解全走 WSL 直跑）→ 流线页回退到
+   <strong>已核验搬运清单</strong>（与 patient_metrics.json 同一模式），不伪造 job 记录。</li>
+</ol>
+<h2>判据</h2>
+<ul>
+<li>无头验收 <code>outputs/20261016-ui核查/check_streamline_tab.py</code>：ok=true——iframe=1（src 正确）、
+  canvas=2（three.js 场景真渲染）、占位=0、注记行含完整口径/出处/clinical_status、
+  零 JS 报错、零外部请求；截图 <code>streamline_tab.png</code>。</li>
+<li>与短域 T-049 并列（<strong>口径差异，不是修正</strong>）：Δp 18.267 vs 10.294 Pa；抵达出口 10/111（9%）
+  vs 31/100（31%）；近壁停滞 36 vs 15。方向合理解释 = 域更长、出口更远更小（112.51 mm² 工程截断），
+  更多流线在抵达前终止；<strong>网格密度 confound 并列声明</strong>（636K vs 1.16M cells，T-041 界定 ≤~1.2% 于 Δp）；
+  不构成任何"口咽导致气流感知下降"类结论。</li>
+</ul>
+<h2>边界</h2>
+<ul>
+<li>短域 T-044/045/049 产物原样保留（历史参考），与新图并列标注口径；
+  T-054 的 case/指标/WSS 产物只读未动。</li>
+<li>50:50 + 出口 p=0 口径；禁与 T-021/T-029 混用；层流；未过 N6 解剖门；缺下咽-喉下游阻力
+  → Δp 偏低估方向已知。</li>
+<li>坐标为求解器坐标（mm），未做 LPS/解剖方位归位。</li>
+</ul><div class="src">原件：knowledge/结论卡/20261016-T-057-b15扩展域流线重追踪与工作台接入.md</div></body></html>

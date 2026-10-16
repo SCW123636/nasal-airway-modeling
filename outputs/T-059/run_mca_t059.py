@@ -10,6 +10,7 @@ measure_mca.py 输入（本驱动显式绑定，不用其默认路径）：
 b20 跳过（T-059 已 escalate：landmark 缺 nostril_L 提案，真因另立卡）。
 """
 
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -19,6 +20,10 @@ LIB = ROOT / "work/lib"
 PY = sys.executable
 
 SKIP = {"b20"}  # T-059 escalated 例（上游 landmark 缺口，非本步骤可修）
+
+# §3.9：子进程 stdout 是管道时 Windows 默认 GBK，print 中文/⚠ 会 UnicodeEncodeError
+# 直接把子进程钉成 UTF-8（2026-10-16 实测：不设则 23 例全 rc=1）
+CHILD_ENV = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
 
 
 def main() -> int:
@@ -36,7 +41,8 @@ def main() -> int:
                "--landmarks", str(ROOT / "work/06_auto_landmarks" / c / "landmarks.json"),
                "--ct", rf"C:\ts_work\{c}\ct.nii.gz",
                "--out-dir", str(out_d)]
-        r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
+        r = subprocess.run(cmd, capture_output=True, text=True,
+                           encoding="utf-8", errors="replace", env=CHILD_ENV)
         if r.returncode == 0 and (out_d / f"mca_{c}.json").exists():
             ok += 1
             print(f"{c}: OK")

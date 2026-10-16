@@ -1,0 +1,340 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>正常路径验收报告_b01-b24_20261012</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>b01–b24 正常路径泛化验收报告</h1>
+<p>日期：2026-10-12　｜　范围：b01–b24（24 例，单一干净序列）
+管线：<code>nasal_pipeline.py --skip-series --jobs 2 --threads 6 --load-ceiling 78</code>
+输入：<code>工作/06_auto_landmarks</code>（自动提案）→ <code>C:/ts_work/batch27_surfaces</code>（表面）</p>
+<h2>一、结论</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>首跑（无 flag）</th>
+<th>本次（<code>--allow-needs-review</code>）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>auto_pass</strong></td>
+<td><strong>2 / 24</strong></td>
+<td><strong>18 / 24</strong></td>
+</tr>
+<tr>
+<td><code>no_planes</code></td>
+<td>22</td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>首跑 2/24 不是「泛化能力差」</strong>，而是一条<strong>坏判据把 22 例一起挡了</strong>（详见 §三）。
+修正后 18/24 通过；余 6 例升级原因<strong>各不相同</strong>，且<strong>全部属于本方法设计上应转人工</strong>的情形。</p>
+<blockquote>
+<p>⚠️ 本报告一律 <code>clinical_status: generalisation_test_only_no_human_review</code>。
+自动通过 ≠ 临床可用。本判据只保证<strong>开口面积合理</strong>，不保证平面解剖位置正确。</p>
+</blockquote>
+<h2>二、通过 18 例明细（面积 mm²，全部入带）</h2>
+<table>
+<thead>
+<tr>
+<th>例</th>
+<th>鼻L</th>
+<th>鼻R</th>
+<th>出口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b01</td>
+<td>80.12</td>
+<td>83.33</td>
+<td>299.43</td>
+</tr>
+<tr>
+<td>b02</td>
+<td>91.01</td>
+<td>81.68</td>
+<td>268.51</td>
+</tr>
+<tr>
+<td>b03</td>
+<td>93.33</td>
+<td>93.58</td>
+<td>254.64</td>
+</tr>
+<tr>
+<td>b06</td>
+<td>80.26</td>
+<td>84.92</td>
+<td>289.54</td>
+</tr>
+<tr>
+<td>b07</td>
+<td>112.87</td>
+<td>107.46</td>
+<td>388.37</td>
+</tr>
+<tr>
+<td>b08</td>
+<td>95.37</td>
+<td>98.43</td>
+<td>254.71</td>
+</tr>
+<tr>
+<td>b09</td>
+<td>97.70</td>
+<td>99.39</td>
+<td>259.50</td>
+</tr>
+<tr>
+<td>b10</td>
+<td>83.64</td>
+<td>87.90</td>
+<td>262.02</td>
+</tr>
+<tr>
+<td>b11</td>
+<td>80.38</td>
+<td>91.21</td>
+<td>251.67</td>
+</tr>
+<tr>
+<td>b12</td>
+<td>117.79</td>
+<td>116.18</td>
+<td>444.79</td>
+</tr>
+<tr>
+<td>b13</td>
+<td>92.20</td>
+<td>114.96</td>
+<td>270.72</td>
+</tr>
+<tr>
+<td>b14</td>
+<td>100.57</td>
+<td>92.34</td>
+<td>257.74</td>
+</tr>
+<tr>
+<td>b16</td>
+<td>94.05</td>
+<td>95.47</td>
+<td>259.71</td>
+</tr>
+<tr>
+<td>b17</td>
+<td>102.04</td>
+<td>102.85</td>
+<td>254.45</td>
+</tr>
+<tr>
+<td>b19</td>
+<td>114.26</td>
+<td>111.90</td>
+<td>255.72</td>
+</tr>
+<tr>
+<td>b21</td>
+<td>85.28</td>
+<td>80.40</td>
+<td>267.48</td>
+</tr>
+<tr>
+<td>b22</td>
+<td>81.33</td>
+<td>80.21</td>
+<td>250.01</td>
+</tr>
+<tr>
+<td>b24</td>
+<td>95.46</td>
+<td>110.90</td>
+<td>265.10</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>鼻侧范围 80.12–117.79 mm²（带 40–140）</li>
+<li>出口范围 250.01–444.79 mm²（带 120–500）</li>
+</ul>
+<p><strong>交叉验证</strong>：b01 = 80.12 / 83.33 / 299.43，与首跑<strong>逐位一致</strong> → flag 未改动物理量。</p>
+<h2>三、首跑 2/24 的根因（本轮核心发现）</h2>
+<h3>3.1 现象</h3>
+<p>22 例<strong>全部同因 <code>no_planes</code></strong>，detail 恒为同一句 —— 不是 22 种失败。</p>
+<h3>3.2 根因链</h3>
+<pre><code>auto_anatomy_landmarks.py:433
+  fov_truncated_labels[X] = 标签掩膜任一体素触及 CT 立体六面之一
+        ↓  第 468 行
+  if truncated['soft_palate']: nasopharynx_outlet.status = 'needs_review'
+        ↓  auto_opening_pipeline.load_planes
+  if status != 'proposed': raise → no_planes（硬阻塞）
+</code></pre>
+<p><strong>该判据 = 必要条件被当成充分条件</strong>（与 <code>surface_contact_audit.py</code> 同类错误）。</p>
+<h3>3.3 实测证据</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>值</th>
+<th>解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>oropharynx</code> 触边</td>
+<td><strong>24 / 24</strong></td>
+<td>口咽本就向下延伸出扫描范围 → 判据恒真</td>
+</tr>
+<tr>
+<td><code>soft_palate</code> 触边</td>
+<td><strong>22 / 24</strong></td>
+<td><strong>全部触头侧（superior）面</strong> —— 颈部长度扫描里软腭就在 FOV 上界</td>
+</tr>
+<tr>
+<td>未触边的两例</td>
+<td>b01 / b11</td>
+<td><strong>恰好就是通过的那两例</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>3.4 点位质量完全不受影响（24/24）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th><code>needs_review</code> 组（n=22）</th>
+<th><code>proposed</code> 组（n=2）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>point_lps_mm</code> 存在</td>
+<td>22 / 22</td>
+<td>2 / 2</td>
+</tr>
+<tr>
+<td>平面拟合 RMS</td>
+<td>0.00 – 0.41 mm</td>
+<td>0.38 / 0.34 mm</td>
+</tr>
+<tr>
+<td>到软腭距离</td>
+<td>4.95 – 11.68 mm</td>
+<td>5.74 / 6.43 mm</td>
+</tr>
+</tbody>
+</table>
+<p>两组<strong>分布完全重叠，无区分力</strong> → 该标志对点位质量<strong>零信息量</strong>。</p>
+<h3>3.5 为什么试点 5 例没暴露</h3>
+<p>同一条判据在 p0–p3 上<strong>已触发 3/5 次</strong>（p1 / p3 / p3t1），
+但旧路径走的是<strong>人工复核过的点位</strong>，完全绕开提案关卡。
+走自动路径后 22/24 立即暴露。
+→ <strong>不是「新数据泛化差」，是旧路径掩盖了坏判据。</strong></p>
+<h3>3.6 处置</h3>
+<ul>
+<li>新增显式开关 <code>--allow-needs-review</code>（<strong>默认关</strong>），<code>auto_opening_pipeline.py</code> + <code>nasal_pipeline.py</code> 双处贯通。</li>
+<li><strong>每个被放行的标志记入报告 <code>admitted_needs_review</code></strong>，不静默覆盖。</li>
+<li><strong>默认路径逐字未变</strong>：复验 p1/p3/p3t1 仍阻塞、p2 仍通过（1/4，与改动前一致）。</li>
+<li>判据本身的修复（改测「结构被切断」而非「触碰边界」）<strong>列入待办，本轮未改</strong>。</li>
+<li>新增测试 <code>test_auto_opening_planes.py</code>（6 项）：默认必须拒、opt-in 必须放行且记录、
+  <strong>flag 只放宽 status 绝不放宽「点位不存在」</strong>。</li>
+</ul>
+<h2>四、6 例仍升级（原因各异，均为设计上应转人工）</h2>
+<table>
+<thead>
+<tr>
+<th>例</th>
+<th>原因</th>
+<th>判读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>b20</strong></td>
+<td><code>no_planes</code>：<code>nostril_L status=unavailable</code></td>
+<td><strong>真·无点位</strong>（T300 下无有限接触面/向外通道），与 FOV 标志无关 → 应拒绝 ✅</td>
+</tr>
+<tr>
+<td>b04</td>
+<td><code>onset_outlier</code> −7.25 mm（带 [−4, 1]）、出口 <code>seed_lost</code>、鼻L <code>seed_lost</code></td>
+<td>出口腔 onset 偏离五例观察带 → 需人工确认</td>
+</tr>
+<tr>
+<td>b23</td>
+<td><code>onset_outlier</code> −5.00 mm + 出口 <code>seed_lost</code></td>
+<td>同上</td>
+</tr>
+<tr>
+<td>b05</td>
+<td>出口 <code>seed_lost</code></td>
+<td>ROI 对该平面失效</td>
+</tr>
+<tr>
+<td>b15</td>
+<td>出口 <code>seed_lost</code></td>
+<td>同上</td>
+</tr>
+<tr>
+<td>b18</td>
+<td>出口 <code>seed_lost</code></td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>6 例全部是「本方法设计上就该转人工」的情形，而非判据缺陷。</strong></p>
+<h2>五、基准值复验（含勘误）</h2>
+<p>修正后基准（<strong>全部带出处</strong>）：</p>
+<table>
+<thead>
+<tr>
+<th>基准</th>
+<th>值</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>序列可选出</td>
+<td>≥ 24 / 27</td>
+<td><code>batch27_series_choice.json</code></td>
+</tr>
+<tr>
+<td>p2 出口 cap</td>
+<td><strong>441.87 mm²</strong></td>
+<td><code>C:/ts_work/auto_opening_v2_20261011/p2.json</code></td>
+</tr>
+<tr>
+<td>p1 鼻孔 cap</td>
+<td><strong>80.07 mm²</strong></td>
+<td>同目录 <code>p1.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ <strong>勘误</strong>：本表此前误记为 292.13 / 85.95。这两个数来自
+<strong>ROI-box / 选择谓词时代</strong>（<code>connectivity_opened_20261011</code>，<strong>不做面积目标二分</strong>）。
+v2 改按 cap 目标二分后为 441.87 / 80.07。</p>
+<p><strong>这不是回归</strong>：新跑结果与 <code>auto_opening_v2_20261011</code> 逐位一致、<code>source_sha256</code> 一致。
+差异源于<strong>我把两条不同管线的数混记成一条基准</strong>。</p>
+<h2>六、复现命令</h2>
+<pre><code class="language-bash">python work/lib/nasal_pipeline.py --skip-series \
+  --jobs 2 --threads 6 --load-ceiling 78 --allow-needs-review \
+  --output work/10_nasalseg_intake/normal_run_allow.json
+</code></pre>
+<p>测试：</p>
+<pre><code class="language-bash">cd work/lib &amp;&amp; pytest test_partitioned_surface.py test_surface_gate.py \
+  test_auto_anatomy_landmarks.py test_run_auto_anatomy.py \
+  test_auto_opening_planes.py test_surface_scope_proposal.py \
+  test_boundary_pipeline_integration.py -q     # 52 passed
+</code></pre>
+<h2>七、遗留</h2>
+<ul>
+<li>判据修复：<code>fov_truncated_labels</code> 应改测「结构被切断」而非「触碰边界」（语义化）。</li>
+<li>b25/b26/b27 多序列例仍不在范围内。</li>
+<li>6 例升级需人工确认（其中 5 例集中在出口 <code>seed_lost</code> / <code>onset_outlier</code>）。</li>
+<li>p0 仍 <code>seed_lost</code>，属复核点位问题（非代码）。</li>
+</ul><div class="src">原件：work/07_cfd_pipeline/正常路径验收报告_b01-b24_20261012.md</div></body></html>

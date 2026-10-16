@@ -1,0 +1,252 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>20261016-T-042-患者功能指标首产</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>T-042 结论卡 · 患者功能指标首产（b15 maxh1 · S-A 预设）</h1>
+<ul>
+<li>日期：2026-10-16</li>
+<li>车道：CPU 独占（OpenFOAM v1912 / WSL2 native FS；后处理只在求解结束后进行）</li>
+<li>路线：B —— 不等人、不靠人判断，用带出处的客观量化判据 + 已知答案对照产出患者功能指标</li>
+<li>状态：<strong>VERIFIED</strong>（M2 四条主判据全过；R / WSS 为记录值，R 低于 ISCOANA 参考的差异已如实标注，不调参迁就）</li>
+<li>临床边界：<code>clinical_status: generalisation_test_only_no_human_review</code> —— 本卡不宣称 K2 达成、不宣称临床有效</li>
+</ul>
+<h2>运行标识与口径（先声明，防混用）</h2>
+<ul>
+<li>算例：T-041 派生的 <code>b15_maxh1</code>，S-A 预设（复刻 T-006 Run 1：nNonOrthogonalCorrectors 2 / U 0.7 + fields{p 0.3} / grad(U) cellLimited），Time=600 正常 <code>End</code>（重启续跑段 200→600，原 0→316 段被 kill）。</li>
+<li><strong>口径 = T-006/T-041 系：固定 50:50 双鼻孔分流（各 125 mL/s）+ 出口 p=0</strong>。
+  与 T-021/T-029 系（共同静压 + 自然分流）<strong>的 Δp 不是同一个量，禁止跨口径比较或混用</strong>。</li>
+</ul>
+<h2>结果总表（对照客观判据集，全部实测）</h2>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+<th>判据 / 参考（出处）</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>求解不崩</td>
+<td>Time=600 <code>End</code>，无 FOAM FATAL</td>
+<td>M2 主判据 ①</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Δp</strong></td>
+<td><strong>10.286 Pa</strong>（p_in 面积加权 8.5717 kin × ρ1.2；p_out=0）</td>
+<td>M2 带 <strong>10–100 Pa</strong>；ENS 哨兵 10–20 Pa（PMC8062271，仅哨兵）</td>
+<td>✅ <strong>入带（贴下限）</strong>；亦在哨兵带内</td>
+</tr>
+<tr>
+<td>↳ 复刻一致性</td>
+<td>10.286 vs T-006 Run 1 的 10.29 Pa</td>
+<td>项目记录（T-006 卡）</td>
+<td>✅ 差 0.04%，复刻成立</td>
+</tr>
+<tr>
+<td>总流量</td>
+<td>2.5e-4 m³/s = <strong>250 mL/s = 15 L/min</strong>（双鼻各 125）</td>
+<td>文献 ≤15 L/min 层流锚（PMC3747603）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>双侧分流</td>
+<td>split_ratio <strong>0.5</strong>、symmetry_phi <strong>1.0</strong></td>
+<td>固定 50:50 口径</td>
+<td>✅ 口径坐实（构造值，非患者实测分流）</td>
+</tr>
+<tr>
+<td>质量不平衡</td>
+<td><strong>5.27e-7</strong>（全程最大 1.74e-6 @ t=229，重启瞬态）</td>
+<td>M2 ≤0.5%；M1 ≤1e-4</td>
+<td>✅ 优 3–6 个数量级</td>
+</tr>
+<tr>
+<td>监测量稳定</td>
+<td><strong>8.87e-5 = 0.00887%</strong>（末 40% 共 8 窗，窗均值 10.2848–10.2860 Pa）</td>
+<td>契约 <code>diagnostic_basis</code> ≤0.5%</td>
+<td>✅；T-006 为 0.0079%，同量级</td>
+</tr>
+<tr>
+<td>residualControl 收敛</td>
+<td><strong>未收敛</strong>（末步 Ux 1.19e-4 / p 3.03e-4）</td>
+<td>M2 记录项</td>
+<td>记录：<code>numerical_validation: unchecked</code></td>
+</tr>
+<tr>
+<td>网格质量</td>
+<td>checkMesh <strong>Failed 2 mesh checks</strong>（与原 case 逐项一致）</td>
+<td>M1 裁定：记录项</td>
+<td>记录；<strong>不得对外宣称 Mesh OK</strong></td>
+</tr>
+<tr>
+<td><strong>R = Δp/Q</strong></td>
+<td><strong>0.0411 Pa·s/mL</strong>（41 144 Pa·s/m³）</td>
+<td>ISCOANA <strong>0.25 Pa·s/mL</strong>（正常参考）</td>
+<td>⚠️ <strong>低于参考 6.1×</strong> —— 如实记录，解释见下节</td>
+</tr>
+<tr>
+<td>WSS 积分力</td>
+<td><strong>1.102e-3 N</strong>（wall 面积 18 024 mm² → 面积加权 mean &#124;tau&#124; ≈ 0.061 Pa）</td>
+<td>无绝对通过带（T-042 判据集）</td>
+<td>量值记录；提取路径已用力平衡验证（0.087%）</td>
+</tr>
+<tr>
+<td>WSS 分布</td>
+<td>median 0.047 / p90 0.148 / p99 0.596 / <strong>max 4.17 Pa</strong>（86 822 面；1%+ 面 &gt;1 Pa）</td>
+<td>—</td>
+<td>记录；高 tau 长尾集中在极少面（疑似鼻瓣射流区，<strong>空间定位需解剖区域标签，未做</strong>）</td>
+</tr>
+<tr>
+<td>鼻孔面积</td>
+<td>82.05 / 81.15 mm²</td>
+<td>自动管线基准 ~80 mm²/侧</td>
+<td>✅（+2.6% / +1.4%）</td>
+</tr>
+<tr>
+<td>出口面积</td>
+<td><strong>487.7 mm²</strong></td>
+<td>解剖后鼻孔文献 297–362 mm²（华东 251.1）；管线 cap 带 120–500</td>
+<td>⚠️ <strong>超文献带</strong>、在管线 cap 带内 → 待核（见待办）</td>
+</tr>
+<tr>
+<td>最大速度</td>
+<td>4.57 m/s（cell max，VTK 内部场）</td>
+<td>—</td>
+<td>记录（鼻瓣峰值量级 plausible）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>交叉校验：dat 文件头自带的 patch 面积（双精度）与 VTK 提取面积（Float32）相对差 ~1e-6；
+监控脚本独立算的末值 Δp（10.286010671888477）与提取器输出<strong>逐位相同</strong>。</p>
+</blockquote>
+<h2>★ 三个静默失败坑（本次全部实测定位并修复；均为"判据合法但与事实不符"类）</h2>
+<h3>坑 1：命名 shell 变量在 Windows→WSL 途中被吃空</h3>
+<ul>
+<li>现象：<code>for f in CASE/*; do ln -s "$f" SCRATCH/; done</code> 到达 WSL bash 时 <code>$f</code> 为<strong>空</strong>，每次迭代报 <code>failed to create symbolic link 'SCRATCH/' -&gt; ''</code>。<code>$?</code>/<code>$0</code> 存活，<code>$f</code>/<code>$p</code> 等命名变量一律被吃（与既有"shell 变量被 Git Bash 吃"同族的新变种，本次第 5 次踩到）。</li>
+<li>修复：全部命令改<strong>无变量写法</strong>（字面路径 + glob + <code>ln -s SRC... DEST/</code>）。</li>
+</ul>
+<h3>坑 2：提取器 legacy dat 回退 → 静默降级 Float32</h3>
+<ul>
+<li>现象：本 case controlDict 只定义逐 patch 函数对象（flowInL/flowInR/flowOut/pressureInL/pressureInR/pressureOut）；<code>postProcessing/flowIn/</code> 与 <code>pressureIn/</code> 是<strong>重启前配置的残留目录，dat 文件为空</strong>。提取器 <code>dat_value()</code> 的 legacy 回退读到空文件 → 返回 None → 静默回退 VTK Float32 压力。</li>
+<li>修复：在暂存目录按提取器文档化的 <code>flow_&lt;patch&gt;</code> / <code>pressure_&lt;patch&gt;</code> 命名提供<strong>逐 patch 双精度副本</strong>（仅改名，值不动）。主结果 <code>delta_p_pa.source = function_object_dat</code>（双精度）。</li>
+</ul>
+<h3>坑 3：b15 网格 wall patch 类型不是 <code>wall</code> → WSS 函数对象静默写全零场</h3>
+<ul>
+<li>现象：第一次提取输出 <code>wall_shear_force_n = 0.0</code>，<strong>无任何警告</strong>。查因：<code>constant/polyMesh/boundary</code> 里四个 patch 全是 <code>type patch</code>（gmshToFoam 默认），<code>wall</code> patch 也是 <code>patch</code> → <code>wallShearStress</code> 函数对象找不到 wall 型 patch → 写 <code>internalField uniform (0 0 0)</code>，dat 只有表头。</li>
+<li><strong>A/B 对照（单变量）</strong>：复制 case 到 <code>t042_b15_wssfix</code>，只把 wall patch 改成 <code>type wall</code>，checkMesh 计数逐项一致（points 229033 / faces 2378797 / cells 1161194 / patches 4，Failed 2 不变）→ 同网格同场重跑 postProcess → WSS 非零（dat 出现 min/max 行，场 86 822 个非零矢量）。<strong>根因确证 = patch 类型，与网格几何/求解无关。</strong></li>
+<li>修复（两层）：</li>
+<li>本卡：在 patch 类型修正后的副本上重取指标；<strong>原 case 未被改动</strong>（修正只发生在副本）。</li>
+<li>共享库 <code>work/lib/extract_cfd_metrics.py</code>：补「全零判据」——WSS 数组存在但在非零面积 wall patch 上积分<strong>恰为 0</strong> → 报 <code>not_computed</code> + 原因 + warning，<strong>不再报 0.0</strong>（Float32 下真实流场不可能整 patch 恰零）。TDD：先红后绿，新增 2 个测试，<strong>7/7 全过</strong>；用修复后库重取 b15，输出与修复前<strong>逐位一致</strong>（非零路径不受影响）。</li>
+</ul>
+<h2>★ 复现链固化（2026-10-16 01:1x，本次把全流程升级为一条命令可复现）</h2>
+<p>手工现场（16:57 那次）已固化为 <code>outputs/T-042/extract_b15_metrics.py</code> 最终版：
+<strong>copy-based 全自动重建</strong>，原案例连派生产物都不产生（比早期 symlink scratch 方案更干净）。
+13 步零变量命令：确认 End → BC 计数对账 [2,1,1,1] → 复制案例（<strong>排除旧 VTK</strong>，坑 5）
+→ <code>work/lib/patch_wall_type.py</code> 修 wall 类型（坑 3 的工具化）→ resume 日志就位
+→ postProcessing 逐 patch 目录改名映射（坑 2）→ 装 <code>case_manifest.json</code>（坑 3 角色）
+→ <code>simpleFoam -postProcess -func wallShearStress -latestTime</code> → <code>foamToVTK -ascii</code> → 提取 → 回 Windows。</p>
+<p><strong>逐位复现已实证</strong>（2026-10-16 01:17，删掉旧现场从原案例完整重建，42 秒）：
+12 个已知值（Δp / p_in / R / WSS 力 / split / imbalance / max_vel / 流量 / vtk 目录……）
++ 6 个输入 SHA256（4 个边界 vtp + internal.vtu + log.simpleFoam）<strong>全部逐位匹配</strong>
+16:57 权威版；对账失败时脚本拒绝覆盖旧产物并留 <code>metrics_b15_maxh1.repro_fail.json</code>。
+附带实证：foamToVTK / postProcess 输出确定性（VTK 文件 sha256 跨运行逐位相同）。</p>
+<h3>坑 4（新记）：foamToVTK 按案例目录名建输出目录 + latest_vtk_dir 字母序 tie-break</h3>
+<ul>
+<li>复制案例向前推进时，旧代 VTK（<code>b15_maxh1_600</code>，零值 WSS）会留在 <code>VTK/</code> 里；
+  <code>latest_vtk_dir</code> 用 <code>max((time, name))</code>，同时间戳按字母序任意决断。
+  本次侥幸选对（<code>t042_b15_wssfix_600</code> &gt; <code>b15_maxh1_600</code>），但这是运气不是设计。</li>
+<li>修复：复制时 <code>rm -rf FIXCASE/VTK</code>，保证 <code>VTK/</code> 下只有一个代。</li>
+</ul>
+<h3>坑 5（新记）：幂等检查不能只查「字段存在」</h3>
+<ul>
+<li>「<code>VTK/*/boundary/wall.vtp</code> 里有 wallShearStress」<strong>不等于</strong>后处理正确——零值场的
+  wallShearStress 字段同样"存在"（原案例就是如此，曾导致提取器报 WSS=0.0）。</li>
+<li>修复：幂等判据改为「字段存在<strong>且前若干数据行含非零矢量</strong>」（<code>grep -A2 ... | grep -qv '0 0 0'</code>）。</li>
+</ul>
+<h3>生产链缺陷外溢（横跨卡片，需另立卡）</h3>
+<ul>
+<li>根因在 <code>gmshToFoam</code> / <code>surface_to_case.py</code>：<strong>所有 patch 建成 <code>type patch</code></strong>。
+  本卡在提取侧用 <code>patch_wall_type.py</code> 绕开；<strong>T-043 的壁面热通量（wallHeatFlux）同样只认
+  <code>type wall</code>，将静默写零</strong>——要么生产链修 patch 类型（治本，涉网格生成需全链回归），
+  要么 T-043 沿用本卡副本法（治标）。已登记待办。</li>
+</ul>
+<h2>R 低于 ISCOANA 参考 6.1× 的解释（诚实边界，不迁就）</h2>
+<p>三个因素方向相同（都使实测 R 偏低），但<strong>不一定补足 6× 差距</strong>，故如实记录为开放项：
+1. <strong>层流假设</strong>：鼻瓣峰值 4.57 m/s、当地 Re≈1.8e3（D≈6mm）已进入过渡区，层流求解低估局部损失 → 真实 R 应<strong>高于</strong> 0.041。
+2. <strong>出口切面偏宽</strong>：487.7 mm² 超解剖后鼻孔文献带（297–362），域因此偏短 → 低估阻力（待与开口定位 v2 报告核对）。
+3. <strong>病理方向</strong>：若该例主诉为 ENS 向（干燥/结痂/烧灼，T-043 卡记载 7/7 源一致），低阻力与病理方向一致 —— 但本卡<strong>不宣称诊断一致性</strong>，仅记录数值与参考的差异。</p>
+<h2>交付物</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outputs/T-042/metrics_b15_maxh1.json</code> + <code>.raw.txt</code></td>
+<td>主指标 JSON（schema nasal_cfd_metrics/v1，含逐 patch 面积/压力/流量、输入 SHA256）+ 13 步原始审计日志</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/monitor_stability_b15.json</code></td>
+<td>Δp 窗间稳定性 + 流量监控 + 不平衡全程历史（启动瞬态 vs 稳态分离）</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/wss_distribution_b15.json</code></td>
+<td>WSS 分布统计 + 直方图</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/extract_b15_metrics.py</code></td>
+<td>提取脚本最终版（copy-based 全自动重建 13 步；BC 计数自检；零变量命令；逐 patch dat 改名映射；<strong>已知答案对账，不复现则拒绝覆盖</strong>）</td>
+</tr>
+<tr>
+<td><code>work/lib/patch_wall_type.py</code></td>
+<td>wall patch 类型修复工具（幂等；只改目标块，nFaces/startFace 逐位保留；隔离测试：patch/no-op/diff 仅 wall 块两行）</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/metrics_b15_maxh1.json</code> + <code>.raw.txt</code></td>
+<td>主指标 JSON（schema nasal_cfd_metrics/v1，含逐 patch 面积/压力/流量、输入 SHA256）+ 13 步原始审计日志</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/metrics_b15_maxh1.attempt1_error.json</code></td>
+<td>首次失败保全（KeyError 'metrics'，旧 error json 被当成功输出读入）</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/monitor_stability_b15.py</code> / <code>wss_distribution_b15.py</code></td>
+<td>双端（Windows→WSL）分析与分布脚本</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/verify_wss_force_balance.py</code> + <code>wss_force_balance_verification.json</code></td>
+<td>WSS 路径已知答案验证（PASS，0.087%）</td>
+</tr>
+<tr>
+<td><code>outputs/T-042/b15_patch_map.json</code></td>
+<td>patch 角色清单（附 BC 证据；权威版，早期同义副本 <code>patch_map_b15_maxh1.json</code> 保留未删，以本文件为准）</td>
+</tr>
+<tr>
+<td><code>work/lib/extract_cfd_metrics.py</code> + <code>test_extract_cfd_metrics.py</code></td>
+<td>全零判据修复（+2 测试，7/7 过）</td>
+</tr>
+<tr>
+<td>WSL <code>/home/lenovo2/t042_b15_wssfix/</code></td>
+<td>提取现场（脚本可随时从原案例一键重建，已验证逐位复现；原 case 逐字节未动）</td>
+</tr>
+</tbody>
+</table>
+<h2>待办（本卡派生，不预记通过）</h2>
+<ol>
+<li><strong>出口面积 487.7 mm² vs 开口定位 v2 的 250 mm² 目标</strong>：核对 T-041 链的切面与自动管线开口报告，确认切面位置是否后移/是否包含额外开口。</li>
+<li><strong>生产链 patch 类型修复（治本项）</strong>：<code>gmshToFoam</code>/<code>surface_to_case.py</code> 把所有 patch 建成 <code>type patch</code>，本卡与 T-043（壁面热通量）都会撞上「函数对象只认 type wall 静默写零」。修生产链需全链回归（网格生成→checkMesh→提取），另立卡；T-043 可先用副本法绕过。</li>
+<li><strong>混合 wall 静默零</strong>：若部分 wall patch 有 WSS 数组、部分没有，<code>or 0.0</code> 仍会把缺失算成 0 —— 同类静默零，后续补判据。</li>
+<li><strong>WSS 高 tau 长尾的空间定位</strong>（哪些解剖区域 &gt;1 Pa）：需要经验证的区域标签，与 <code>region_flow_fraction</code> 同禁令（几何代理已证伪），未做。</li>
+<li><strong>温湿度 / 热通量</strong>（患者主诉之一）：<code>simpleFoam</code> 覆盖不了 → 已另立 <strong>T-043</strong>。</li>
+<li>湍流模型（kOmegaSST）下重跑以量化层流低估：属 M3 患者几何轴 36 格矩阵，待 N6 解锁后排期。</li>
+</ol><div class="src">原件：knowledge/结论卡/20261016-T-042-患者功能指标首产.md</div></body></html>

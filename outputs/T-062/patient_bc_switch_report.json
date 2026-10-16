@@ -1,0 +1,14 @@
+{
+  "schema": "nasal_t062_patient_bc_switch/v1",
+  "boundary_mode": "common_inlet_static_pressure_outer_feedback",
+  "target_m3_s": 0.00025,
+  "rho_kg_m3": 1.2,
+  "clinical_status": "generalisation_test_only_no_human_review",
+  "created": "2026-10-16T07:06:25.357525+00:00",
+  "cases": {
+    "b15": {
+      "status": "error",
+      "error": "RuntimeError('solver failed exit=1 case=/home/lenovo2/t062_patient/b15/eval_001')"
+    }
+  }
+}

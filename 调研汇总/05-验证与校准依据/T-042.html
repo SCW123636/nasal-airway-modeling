@@ -1,0 +1,218 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>T-042</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>T-042 · B 路径：患者功能指标产出（鼻阻力 + 壁面剪应力）</h1>
+<blockquote>
+<p><strong>用户裁定（2026-10-16 00:18）</strong>：「1 人也判断不了可行性，你别一直想让人作为标准」+「进行 B」。
+⇒ <strong>本卡立约的第一原则：不把任何单个人的主观裁定当作标准或解锁条件。</strong>
+几何可信性、指标可信性一律改用<strong>带出处的客观量化判据</strong> + <strong>已知答案对照</strong>验证。
+王湧瑞复核与需求方三裁定<strong>照常保留、照常催</strong>，但<strong>不再是本卡的阻塞项</strong>。</p>
+</blockquote>
+<h2>合同</h2>
+<ul>
+<li>状态：<strong>VERIFIED</strong>（2026-10-16 01:0x；M2 四条主判据全过，结论卡 <code>knowledge/结论卡/20261016-T-042-患者功能指标首产.md</code>）</li>
+<li>执行体：段主对话本人；级别 T2（含真实数值，须独立复核）</li>
+<li>目的：把「第 1 层价值指标」第一次真正跑出来 —— 患者三大主诉里<strong>当前求解器能覆盖的两个</strong>：</li>
+<li>矛盾性鼻塞 → <strong>鼻阻力 R = Δp / Q</strong></li>
+<li>气流感知丧失 → <strong>壁面剪应力 WSS</strong>（全域积分力 + 分布）</li>
+<li>干燥/烧灼 → <strong>当前 <code>simpleFoam</code> 覆盖不了</strong>（等温单相，无能量方程/无湿度输运）→ <strong>不在本卡范围</strong>，另立卡</li>
+<li>车道：CPU 独占。T-041 maxh1 求解结束后才做后处理；不与 maxh04 抢车道。</li>
+<li>写域：<code>D:\项目\鼻腔建模\outputs\T-042\</code>、WSL <code>/home/lenovo2/patient_cfd/b15_maxh1</code>（只增不改：后处理产物）、结论卡 <code>knowledge/结论卡/20261016-T-042-患者功能指标首产.md</code></li>
+</ul>
+<h2>禁改（红线）</h2>
+<ul>
+<li>不改 <code>work/lib/extract_cfd_metrics.py</code> 的判据语义（如需扩字段，另立卡或显式扩域记录）</li>
+<li>不动 T-041 的 case 配置、网格、0/ 目录、原日志；不覆盖 <code>log.simpleFoam</code> / <code>log.simpleFoam_resume</code></li>
+<li><strong>不放宽任何门</strong>：M2 四条主判据（不崩 / Δp 入带 / 不平衡 ≤0.5% / 监测量稳定）照常适用</li>
+<li><strong>诚实边界</strong>：b15 的 <code>auto_pass</code> ≠ 解剖已核实。本卡<strong>不宣称 K2 达成、不宣称临床有效</strong>，
+  产物一律带 <code>clinical_status: generalisation_test_only_no_human_review</code></li>
+</ul>
+<h2>★ 入口可行性检查（已过，客观证据）</h2>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>实测值</th>
+<th>判据</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>域总容积</strong></td>
+<td><strong>1.9769e-05 m³ = 19.77 mL</strong></td>
+<td>鼻腔气道双侧量级 15–20 mL（ENS 偏大）；反例：T-039 封闭块 88.6 cm³、T-034 候选带 +89.6 万体素外部空气</td>
+<td>✅ 落在鼻腔量级，<strong>不是外部空气/整卷</strong></td>
+</tr>
+<tr>
+<td>包围盒跨度</td>
+<td>39.1 × 93.8 × 47.4 mm</td>
+<td>鼻孔→鼻咽距离约 70–90 mm</td>
+<td>✅ 自洽</td>
+</tr>
+<tr>
+<td>patch 身份</td>
+<td><code>nostril_L</code> / <code>nostril_R</code> / outlet / <code>wall</code></td>
+<td>双鼻孔 + 单出口，自动管线 v2 定位成功</td>
+<td>✅ 结构自洽</td>
+</tr>
+<tr>
+<td>非正交/长宽比</td>
+<td>max 87.3°（204 面 &gt;70°）、AR 118.96</td>
+<td>M1 双轨下的<strong>记录项</strong>，非门禁</td>
+<td>⚠️ 记录，不阻塞</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>这一组数字就是「不靠人判断」的答案</strong>：容积 + 跨度 + patch 结构三者交叉自洽，
+与两个已知反例（88.6 cm³ 封闭块 / 89.6 万体素外部空气）显著可区分。</p>
+</blockquote>
+<h2>★ 客观判据集（全部带出处；无一条依赖个人意见）</h2>
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>判据 / 参考带</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Δp</td>
+<td>10–100 Pa（主）；10–20 Pa 为 ENS 低阻力哨兵带</td>
+<td>M2 收口裁定；<code>extract_cfd_metrics.py</code> 引 PMC8062271（脚本自声明：哨兵带<strong>不是</strong>通过判据）</td>
+</tr>
+<tr>
+<td>R = Δp/Q</td>
+<td>参考 ISCOANA <strong>0.25 Pa·s/mL</strong>；<strong>ENS 应显著低于正常</strong>（鼻阻力过低是核心病理）</td>
+<td>ISCOANA；<code>knowledge/患者需求/</code> SRC-A 判断 5 / H-R</td>
+</tr>
+<tr>
+<td>鼻孔面积</td>
+<td>~80 mm²/侧</td>
+<td>自动管线基准 <code>C:/ts_work/auto_opening_v2_20261011/</code></td>
+</tr>
+<tr>
+<td>后鼻孔/出口面积</td>
+<td>297–362 mm²（中文锚）；华东 251.1 mm²</td>
+<td>项目文献锚（MEMORY「文献锚」段）</td>
+</tr>
+<tr>
+<td>MCA</td>
+<td>Grymer 0.72–0.73 cm²（<strong>正常</strong>人；ENS 因鼻甲缺失应<strong>更大</strong>）</td>
+<td>Grymer</td>
+</tr>
+<tr>
+<td>质量不平衡</td>
+<td>≤0.5%（相对）</td>
+<td>M2 主判据 ③</td>
+</tr>
+<tr>
+<td>监测量稳定</td>
+<td>Δp 末 40% 窗（窗长 20）窗间相对变化 ≤0.5%</td>
+<td>契约 <code>diagnostic_basis</code></td>
+</tr>
+<tr>
+<td>WSS</td>
+<td><strong>无绝对通过带</strong>。只报量值与分布，可与 S16「植入后 WSS +25%」作方向性参照</td>
+<td>S16（APS DFD16）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>纪律</strong>：上表任何一格若拿不到，<code>extract_cfd_metrics.py</code> 一律输出 <code>not_computed</code> + 原因，
+<strong>禁止填 0、禁止用几何代理近似</strong>（几何代理已被 T-034/T-032 证伪，脚本内已明令禁止）。</p>
+</blockquote>
+<h2>★ 入口发现：Δp 路径已验证，WSS 路径<strong>从未验证</strong>（2026-10-16 00:2x）</h2>
+<p>按项目纪律「所有判据先用带出处的已知答案验证」核实 <code>extract_cfd_metrics.py</code>：</p>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>验证状态</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Δp / 流量 / 质量不平衡</td>
+<td>✅ <strong>已验证</strong></td>
+<td><code>test_extract_cfd_metrics.py::test_verified_case_regression</code> <strong>未 skip</strong>，跑 <code>work/07_cfd_pipeline/solver_reference/results/poiseuille_v1912_verified/medium</code>，与解析解 <code>VERIFIED_DELTA_P = 0.21587924916228 Pa</code> 比对，容差 1%，且要求不平衡 &lt;1e-6、converged=True。<strong>测试 5/5 全过</strong>（本机亲跑）。</td>
+</tr>
+<tr>
+<td><strong>wallShearStress（WSS）</strong></td>
+<td>⛔ <strong>从未验证</strong></td>
+<td>该 reference case 的 <code>walls.vtp</code> 与 <code>postprocessed/walls_physical.vtp</code> <strong>都没有 wallShearStress 字段</strong>（只有 U / p / pressure_Pa / speed_m_s）→ 脚本里 <code>wall_shear_force_n</code> 一直走 <code>not_computed</code> 分支，<strong>从未被任何已知答案检验过</strong>。</td>
+</tr>
+</tbody>
+</table>
+<p>⇒ <strong>纪律要求：不得把一个从未验证过的指标直接用在患者 case 上。</strong> 先建已知答案再算。</p>
+<p><strong>已知答案（轴向力平衡，与网格无关）</strong>：
+稳态充分发展流动中，截面上的压力力与总壁面剪切力精确平衡：</p>
+<pre><code>sum(|tau_kin| * dA) = delta_p_kin * A_cross        （运动学形式，与 rho 无关）
+</code></pre>
+<p>参考 case 几何（<code>system/blockMeshDict</code> 实测）：L=0.040 m、板间距 h=0.002 m、展向 w=0.001 m（<code>frontAndBack</code> 为 <code>empty</code> → <strong>平面 Poiseuille，不是圆管</strong>），<code>A_cross = h*w = 2.0e-6 m²</code>。
+验证脚本：<code>outputs/T-042/verify_wss_force_balance.py</code>（容差 2%，产物 <code>wss_force_balance_verification.json</code>）。
+<strong>若 WSS 验证不通过，本卡只交付鼻阻力 R 与 Δp，WSS 一律标 <code>not_verified</code> 并写明原因，不许拿未验证数字冒充成果。</strong></p>
+<h2>执行步骤（每步落盘）</h2>
+<ol>
+<li><strong>等</strong> T-041 <code>b15_maxh1</code> 求解到 <code>endTime 600</code> 正常结束（记录退出码与终态）。</li>
+<li><code>postProcess -func wallShearStress</code>（生成 WSS 场；<strong>不重跑求解</strong>）。</li>
+<li><code>foamToVTK -ascii</code>（<code>extract_cfd_metrics.py</code> 只接受 ascii XML）。</li>
+<li><code>python work/lib/extract_cfd_metrics.py --case &lt;case&gt; --out outputs/T-042/metrics_b15_maxh1.json</code>
+   → 得到 Δp / R / WSS 力 / 双侧分流比 / 最大速度 / patch 面积 / 质量不平衡。</li>
+<li><strong>逐条对照上表判据集</strong>，出对照表；不入带的<strong>如实标注不入带</strong>，不调整判据迁就结果。</li>
+<li>写结论卡；更新 <code>state/状态.md</code> 与 <code>plan/主计划.md</code>。</li>
+</ol>
+<h2>执行记录</h2>
+<ul>
+<li>2026-10-16 00:1x 立约（追记：本次<strong>先立卡再执行</strong>，吸取 T-041 无卡裸跑教训）。</li>
+<li>00:2x 入口可行性检查通过（容积 19.77 mL + 跨度 + patch 结构三者交叉自洽，见上表）。</li>
+<li>00:2x 核实 <code>extract_cfd_metrics.py</code> 验证状态：测试 5/5 全过；<strong>发现 WSS 路径从未验证</strong>（见上节），已补已知答案验证脚本。</li>
+<li>00:2x 车道确认：<code>chain_maxh04.py</code> <strong>未在运行</strong>（无进程）→ maxh1 结束后不会自动抢车道；b15 求解 Time=519/600 继续推进。为避免重演 T-041 被杀，<strong>已起后台等待任务，不并发占用 CPU</strong>。</li>
+</ul>
+<h3>⛔ 坑：<code>postProcess</code> 独立调用会崩（已定位并修）</h3>
+<ul>
+<li>现象：<code>postProcess -func wallShearStress</code> → <code>FOAM FATAL ERROR: Unable to find turbulence model in the database</code>（<code>wallShearStress.C:217</code>）。</li>
+<li>根因：<code>wallShearStress</code> functionObject 依赖 <code>turbulenceModel</code> 对象，<strong>独立 <code>postProcess</code> 不创建它</strong>；层流也一样。</li>
+<li>解法：<strong>用求解器包装形式</strong> <code>simpleFoam -postProcess -func wallShearStress -latestTime</code> —— 求解器先建好 turbulence model（laminar → Stokes），然后只执行函数对象、不求解。两个脚本已同步修正。</li>
+</ul>
+<h3>✅ WSS 已知答案验证：PASS（2026-10-16 00:3x）</h3>
+<ul>
+<li><code>outputs/T-042/verify_wss_force_balance.py</code> → <code>wss_force_balance_verification.json</code></li>
+<li>期望（解析力平衡）<code>3.597987486038e-07</code> vs 实测 <code>3.6011219130576684e-07</code> → <strong>相对误差 0.087%</strong>（容差 2%）。</li>
+<li>
+<p>⇒ <strong>WSS 提取路径自此有已知答案背书，可用于患者 case。</strong>（此前它从未被验证过。）</p>
+</li>
+<li>
+<p>00:3x 待求解结束执行：<code>outputs/T-042/verify_wss_force_balance.py</code>（<strong>已 PASS</strong>）→ <code>outputs/T-042/extract_b15_metrics.py</code>（后台任务 <code>msXYQq</code>，等 simpleFoam 退出后自动跑）。</p>
+</li>
+<li>
+<p>后者用<strong>符号链接暂存目录</strong> <code>/home/lenovo2/t042_b15_extract/</code>：把 <code>log.simpleFoam</code> 指向 <code>log.simpleFoam_resume</code>，因为提取器硬编码读 <code>log.simpleFoam</code>，而那一份是 <strong>Time=317 被杀时的旧日志</strong>（最新状态在 resume 日志里）。<strong>原 case 保持逐字节不变。</strong></p>
+</li>
+<li>
+<p>01:0x 求解正常 <strong>End</strong>（Time=600，退出码 0；resume 段 200→600 补回被杀区间）。</p>
+</li>
+<li>01:0x <strong>坑①（独立后处理崩）</strong>：<code>postProcess -func wallShearStress</code> 单独调用 → <code>FOAM FATAL ERROR: Unable to find turbulence model in the database</code>（<code>wallShearStress.C:217</code>）。根因：该函数对象依赖 <code>turbulenceModel</code> 对象，独立 <code>postProcess</code> 不创建它（层流也一样）。解法：<strong>求解器包装形式</strong> <code>simpleFoam -postProcess -func wallShearStress -latestTime</code>——求解器先建 turbulence model（laminar→Stokes），再只执行函数对象、不求解。</li>
+<li>01:0x <strong>坑②（最重要：静默错误）</strong>：第一次提取器输出 <strong><code>wall_shear_force_n = 0.0</code> 且零 warning</strong>。A/B 单变量对照定位根因：b15 <code>constant/polyMesh/boundary</code> 四个 patch 全是 <code>type patch</code>，wall patch 不是 <code>type wall</code> → <code>wallShearStress</code> 函数对象<strong>只对 <code>type wall</code> patch 输出</strong>，对本 mesh <strong>静默写全零场</strong>（dat 只剩表头）。复制 case 到 <code>outputs/T-042/t042_b15_wssfix</code>（后为 <code>b15_boundary_wallfix</code>），<strong>只改 wall patch 类型</strong>（几何零改：checkMesh 计数 points 229033 / faces 2378797 / internal 2265979 / cells 1161194 / patches 4 逐项一致，Failed 2 不变）→ postProcess 后 WSS 非零，根因确证。第一次的错误输出已正名保留为证据文件 <code>outputs/T-042/metrics_b15_maxh1.wss_silent_zero.json</code>（Δp/R/imbalance 与最终产物逐位一致，仅 WSS 为静默零）。</li>
+<li>01:1x <strong>修复①（共享库，TDD 先红后绿 7/7）</strong>：<code>work/lib/extract_cfd_metrics.py</code> 补全零判据——wallShearStress 数组存在但整 patch 积分恰 0（Float32 下真实流场不可能整 patch 恰零）= 结构性故障签名 → 报 <code>not_computed</code> + 原因 + warning，<strong>不再无警告报 0.0</strong>。测试 <code>test_all_zero_wss_is_not_reported_as_a_value</code> / <code>test_nonzero_wss_still_reports_a_value</code> 锁死；b15 重取输出除 WSS 外逐位一致。</li>
+<li>01:1x <strong>修复②（原 case 未动）</strong>：在 wallfix 副本上重取指标；原 case 与 <code>log.simpleFoam</code> / <code>log.simpleFoam_resume</code> 逐字节保留。</li>
+<li>01:1x <strong>坑③</strong>：符号链接暂存命令 <code>for f in CASE/*; do ln -s "$f" ...</code> 中 <code>$f</code> 在 Windows→WSL 途中被吃空（实测 <code>$?</code>/<code>$0</code> 存活、<code>$f</code>/<code>$p</code> 死亡）→ 改<strong>无变量字面写法</strong> <code>ln -s CASE/* SCRATCH/</code>。</li>
+<li>01:1x <strong>坑④</strong>：提取器硬编码读 <code>log.simpleFoam</code>（Time=317 被杀的旧日志，最新状态在 resume 日志）→ 暂存目录把 <code>log.simpleFoam</code> 软链到 <code>log.simpleFoam_resume</code>。</li>
+<li>01:1x <strong>坑⑤</strong>：monitor 脚本对重启 case 的 dat 拼接不可计算（pre-kill <code>pressureOut/0</code> 为空文件，InL/InR 0-dir 316 行 → 样本数不齐）→ concatenated 记 <code>not_computable</code> 并写明原因，只用 resume 段（200-dir，400 样本，t=201..600）。</li>
+<li>01:2x <strong>判据对照结论</strong>（逐条对照本文「客观判据集」，详见结论卡）：M2 四条主判据<strong>全过</strong>；R 低于 ISCOANA 参考 6.1× 已如实记录并给三因解释（不宣称诊断）；出口面积 487.7 mm² 超文献 choana 带（297–362）但在管线 cap 带（120–500）内 = <strong>待核项</strong>；<code>converged: false</code> / <code>numerical_validation: unchecked</code> 按 M2 双轨诚实声明。</li>
+<li>01:1x–01:2x <strong>复现链固化（本次）</strong>：手工现场升级为一条命令可复现 —— <code>extract_b15_metrics.py</code> 最终版 copy-based 13 步全自动重建（原案例连派生产物都不产生，比 symlink scratch 方案更干净）；新建 <code>work/lib/patch_wall_type.py</code>（隔离测试：patch 幂等 / no-op / diff 仅 wall 块两行，nFaces/startFace 逐位保留）；<strong>删旧现场从原案例完整重建，42 秒，12 个已知值 + 6 个输入 SHA256 全部逐位匹配 16:57 权威版</strong>（对账失败则拒绝覆盖旧产物）。新记两坑：foamToVTK 按案例名建目录 + latest_vtk_dir 字母序 tie-break（复制必须排除旧 VTK）；幂等检查不能只查「字段存在」（零值场的字段同样存在）。生产链缺陷外溢登记：gmshToFoam/surface_to_case 全 patch <code>type patch</code> → T-043 壁面热通量同样会静默零，治本修复另立卡。manifest 统一以 <code>b15_patch_map.json</code> 为权威（早期同义副本 <code>patch_map_b15_maxh1.json</code> 保留未删）。</li>
+</ul>
+<h2>待办 / 后续（本卡派生，不预记通过）</h2>
+<ul>
+<li><strong>温湿度 / 热通量</strong>（患者主诉之一，多源一致 7/7）：<code>simpleFoam</code> 覆盖不了，需加能量方程 + 水汽标量输运 → 已另立卡 <strong>T-043</strong>（scalarTransportFoam 路线，并行会话占用），未排期。</li>
+<li><strong>患者 vs 正常人配对（H-PAIR）</strong>：需额外脱敏数据，未排期。</li>
+<li>b15 的 <code>auto_pass</code> 与解剖正确性的差距：由本卡的客观判据集部分弥补，<strong>不消除</strong>。</li>
+<li><strong>出口面积 487.7 mm² 待核</strong>：超文献 choana 带（297–362），需回溯 v2 开口定位为何收敛到 cap 带上限附近（不影响本卡判据结论，cap 带内合法）。</li>
+<li><strong>R 的 6.1× 差距边界</strong>：三因解释已记录，但层流假设（Re≈1.8e3）对 ENS 的适用性未独立验证——不得单独引用 R 做任何患者结论。</li>
+</ul><div class="src">原件：tasks/T-042.md</div></body></html>

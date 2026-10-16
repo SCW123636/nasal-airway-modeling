@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>{title}</title>
+<style>
+  body {{ font-family: "Microsoft YaHei", sans-serif; max-width: 960px; margin: 32px auto; padding: 0 24px; line-height: 1.75; color: #1c2733; }}
+  h1 {{ border-bottom: 2px solid #0e7490; padding-bottom: 8px; color: #0c4a6e; }}
+  h2 {{ color: #0c4a6e; margin-top: 28px; }}
+  table {{ border-collapse: collapse; margin: 16px 0; }} th, td {{ border: 1px solid #cbd5e1; padding: 6px 12px; }}
+  th {{ background: #f1f5f9; }} code {{ background: #f1f5f9; padding: 2px 6px; border-radius: 3px; }}
+  a {{ color: #0e7490; }}
+</style></head><body><h1>功能演示 Demo · 启动说明</h1>
+<h2>启动（一条命令）</h2>
+<p>双击项目根目录下的 <code>work/07_cfd_pipeline/启动三维工作台.ps1</code>
+（启动本地服务，仅监听本机回环地址，端口 8769）。</p>
+<h2>打开</h2>
+<ul>
+<li>唯一工作台入口：<a href="http://localhost:8769/workspace/pro/index.html">http://localhost:8769/workspace/pro/index.html</a></li>
+<li>健康检查：<a href="http://127.0.0.1:8769/health.json">http://127.0.0.1:8769/health.json</a>（页面空白时先看这里）</li>
+</ul>
+<h2>建议演示动线（对应路演稿第 05–06 页）</h2>
+<ol>
+<li><strong>患者树</strong>：三例真实患者（已脱敏），点选任意一例</li>
+<li><strong>三维检查</strong>：解剖切视页，查看气道几何与开口判据</li>
+<li><strong>流线</strong>：扩展域气流流线（111 条，出口参数化）</li>
+<li><strong>对比</strong>：两个三维模型并排双视口，共用相机轨道同步</li>
+<li><strong>任务控制台</strong>：网格 / 求解任务状态</li>
+</ol>
+<h2>口径提醒（随演示声明）</h2>
+<ul>
+<li>数值唯一来源：<code>pro/patient_metrics.json</code>（现行基线 T-058 §6）</li>
+<li>三例为<strong>稳态层流工程尺度验证</strong>，非临床诊断；出口为扫描底工程截断面</li>
+<li>R 绝对值不可与临床鼻测压对标，仅配对相对变化可采信</li>
+</ul></body></html>

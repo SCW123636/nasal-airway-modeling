@@ -1,0 +1,81 @@
+{
+  "created": "2026-10-16T15:43:48.193988+08:00",
+  "task": "T-011 A.1 p0 extended-domain S-A solve, snappyHexMesh route",
+  "schema": "nasal_cfd_metrics/v1",
+  "solver": "laminar simpleFoam S-A preset (b15_maxh1 templates verbatim)",
+  "mesher": "snappyHexMesh castellated+snap, level 3 (0.5 mm), addLayers off",
+  "rho_kg_m3": 1.2,
+  "boundary_convention": "fixed 50:50 nostril flow split (1.25e-4 m3/s each) + outlet p=0 gauge; comparable ONLY with T-006/T-041/T-042/T-054, NOT with T-021/T-029 common-static-pressure runs",
+  "outlet_role": "engineering_truncation at scan inferior face; downstream resistance missing -> delta_p biased low",
+  "domain": {
+    "cells": 192913,
+    "points": 241203,
+    "max_nonorthogonality_deg": 57.5886,
+    "max_aspect_ratio": 5.4886,
+    "total_volume_m3": 2.98830124942e-05
+  },
+  "samples": {
+    "monitor_points": 600,
+    "last_time": 600,
+    "steady_window": "last 40%"
+  },
+  "metrics": {
+    "converged": false,
+    "numerical_validation": "unchecked (per M2 ruling; final residuals recorded)",
+    "final_residuals": {
+      "Ux_final": 1.53029108892e-07,
+      "p_final": 1.05689799076e-08
+    },
+    "delta_p_pa": {
+      "value": 14.717508932947034,
+      "p_inL_kinematic": 11.770871290850002,
+      "p_inR_kinematic": 12.758310264061722,
+      "p_out_kinematic": 0.0,
+      "note": "mean of bilateral inlet area-average p, x rho"
+    },
+    "total_flow_m3s": {
+      "value": 0.00025000000000000006,
+      "target": 0.00025
+    },
+    "outlet_flow_m3s": {
+      "value": 0.0002499999920789397
+    },
+    "mass_imbalance_frac": 3.168424138506875e-08,
+    "monitor_max_window_change_frac": 0.004767728276945223,
+    "resistance_R": {
+      "value_pa_s_ml": 0.058870035731788124,
+      "value_pa_s_m3": 58870.03573178812
+    },
+    "outlet_mean_velocity_mps": 1.1603334891274435,
+    "nostril_mean_velocity_mps": {
+      "L": 1.5877552316534886,
+      "R": 1.579573211954716
+    }
+  },
+  "comparison_b15_T054": {
+    "source": "T-054 b15 oropharynx-extended netgen mesh (636,342 tets)",
+    "delta_p_pa": 18.267,
+    "R_pa_s_ml": 0.07307,
+    "wss_force_n": 0.001506
+  },
+  "m2_criteria": {
+    "no_crash": true,
+    "delta_p_in_band_10_100Pa": true,
+    "mass_imbalance_le_0.5pct": true,
+    "monitor_stable_le_0.5pct": true
+  },
+  "patch_areas_mm2": {
+    "mesh_labelled": {
+      "nostril_L": 78.7275,
+      "nostril_R": 79.1353,
+      "oropharynx_truncation_outlet": 215.4553,
+      "wall": 19289.9932
+    },
+    "opening_stage": {
+      "nostril_L": 80.255429,
+      "nostril_R": 80.457859,
+      "oropharynx_truncation_outlet": 225.996205
+    }
+  },
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

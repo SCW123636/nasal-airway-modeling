@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>T-002</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>T-002 ｜ M2 患者 CFD 求解就绪调研（无 CPU，与 M1 完全并行）</h1>
+<ul>
+<li><strong>编号</strong>：T-002</li>
+<li><strong>车道</strong>：<strong>只读/零 CPU</strong>。与 M1（体网格）<strong>无数据依赖</strong>：本卡只做「就绪度盘点」，
+  不建网格、不求解、不改任何配置。</li>
+<li><strong>状态</strong>：OPEN</li>
+</ul>
+<h2>目的</h2>
+<p>M1 还在攻体网格质量，M2（患者 simpleFoam 真跑一次）目前 <strong>0 次执行</strong>、8 份配置
+<code>execution_allowed=false</code>。本卡要把「M2 到底卡在哪、还差什么、M1 出口后能否立刻开跑」
+盘成一张可核验的清单，<strong>让 M1 一收口就能直接派 M2 执行卡</strong>，不浪费等待时间。</p>
+<h2>已知事实（直接用，不要重做）</h2>
+<ul>
+<li>患者 CFD 至今 <strong>0 次真跑</strong>；8 份配置全部 <code>execution_allowed=false</code>。</li>
+<li>主工况：<strong>15 L/min 入口流量 + 出口 0 Pa</strong>；<code>Re ≈ 5276</code>。</li>
+<li>链式路线：blockMesh → snappyHexMesh → checkMesh → simpleFoam → foamToVTK；
+  <code>icoFoam</code> 作流场基线；OpenFOAM <strong>v1912</strong>，WSL2 Ubuntu-22.04 原生（非 Docker）。</li>
+<li>隔离基准已过：wedge 5°×160mm 压降 1.312%、流量误差 6.4e-14、峰值 0.097%、质量不平衡 0；
+  2D Poiseuille 三档 2.17/0.61/0.18%。</li>
+<li>验证矩阵规格：36 格/例（3 阈值 × 2 几何 × 3 网格 × 2 求解），Phase A 例0 → B p3_t2 → C 收敛门禁 → D eval。</li>
+<li><code>common_inlet_pressure_feedback</code> <strong>未实现</strong>。</li>
+<li>⚠️ 18 Pa 口径争议未决：SimScale 出口端 gauge 静压 +18 Pa（=0.18355 cmH₂O），<strong>不是 Δp</strong>；
+  作者确认前不用。安全默认 = 入口流量 + 0 Pa 出口。</li>
+</ul>
+<h2>必做</h2>
+<ol>
+<li><strong>读</strong> <code>work/07_cfd_pipeline/solver/**</code>（<strong>工作树版本</strong>，注意该目录有未提交改动——
+   只读，<strong>不得修改、不得 commit</strong>），搞清现有求解链路代码结构与入口。</li>
+<li><strong>找到那 8 份配置</strong>，逐份列出 <code>execution_allowed=false</code> 的<strong>具体阻塞原因</strong>
+   （是代码未实现？是缺 mesh？是门禁未过？还是口径未定？）。逐条带文件路径+行号或原文引用。</li>
+<li><strong>盘点 M2 开跑的最小充分条件</strong>：从「有一个合格体网格」到「simpleFoam 出第一张流场图」，
+   还差哪些步骤/文件/参数，哪些已实现、哪些未实现（<strong>显式标「未实现」</strong>）。</li>
+<li><strong>给出 M2 任务卡拆分建议</strong>（大步骤 3–7 个），每步指明服务于哪个上层目的。
+   <strong>只建议，不执行。</strong></li>
+<li>如发现与上述「已知事实」冲突的地方，<strong>显式指出冲突</strong>并给出你读到的原文
+   （本项目纪律：既往结论被证伪必须主动修正，不得顺着说）。</li>
+</ol>
+<h2>交付物</h2>
+<ul>
+<li><code>D:\项目\鼻腔建模\outputs\T-002\M2求解就绪调研.md</code>
+  （阻塞清单 + 最小充分条件 + M2 任务拆分建议 + 与已知事实的冲突项）</li>
+<li><code>outputs/T-002/</code> 下如需放引用片段，放 <code>quotes/</code> 子目录。</li>
+</ul>
+<h2>硬约束</h2>
+<ul>
+<li><strong>只读</strong> <code>work/**</code> 与 <code>C:\ts_work\**</code>；<strong>不写</strong>、<strong>不改</strong>、<strong>不 commit</strong> 任何既有文件。</li>
+<li><strong>不跑</strong> WSL CPU 重活；最多一次 <code>wsl -d Ubuntu-22.04 bash -lc 'source /usr/share/openfoam/etc/bashrc &amp;&amp; foamVersion'</code>
+  这类 trivial 版本确认。</li>
+<li><strong>不建网格、不求解、不改配置</strong>。</li>
+<li>每条主张带出处（文件:行号 或 命令+输出）；严禁编造。</li>
+<li>完成后把「阻塞清单 + 最小充分条件 + M2 拆分建议」回发主对话。</li>
+</ul><div class="src">原件：tasks/T-002.md</div></body></html>

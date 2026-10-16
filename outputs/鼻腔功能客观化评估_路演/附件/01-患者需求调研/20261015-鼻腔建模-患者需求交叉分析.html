@@ -1,0 +1,241 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>{title}</title>
+<style>
+  body {{ font-family: "Microsoft YaHei", sans-serif; max-width: 960px; margin: 32px auto; padding: 0 24px; line-height: 1.75; color: #1c2733; }}
+  h1 {{ border-bottom: 2px solid #0e7490; padding-bottom: 8px; color: #0c4a6e; }}
+  h2 {{ color: #0c4a6e; margin-top: 28px; }}
+  table {{ border-collapse: collapse; margin: 16px 0; }} th, td {{ border: 1px solid #cbd5e1; padding: 6px 12px; }}
+  th {{ background: #f1f5f9; }} code {{ background: #f1f5f9; padding: 2px 6px; border-radius: 3px; }}
+  a {{ color: #0e7490; }}
+</style></head><body><h1>患者需求交叉分析（CFD 相关性）· 2026-10-15</h1>
+<blockquote>
+<p>分析对象：
+- SRC-A <code>knowledge/患者需求/原始材料/空鼻症患者共性问题交叉验证表.md</code>（群体共性，多源文献交叉验证，已结构化分层）
+- SRC-B <code>knowledge/患者需求/原始材料/患者真实需求_聊天记录复述.txt</code>（个体患者真实需求，群聊复述，去标识化昵称）
+用途：把"患者侧诉求"转译为"鼻腔 CFD / 鼻腔功能评估项目"可承接的指标、研究线索与边界。
+<strong>免责声明：本分析仅为公开资料与患者自述的汇总，不构成医疗建议；临床判断不在此文档做，须由复核人（王湧瑞）裁定。</strong></p>
+</blockquote>
+<hr />
+<h2>0. 一句话结论</h2>
+<p>空鼻症（ENS）是「<strong>解剖正常 ≠ 功能正常</strong>」的典型病例。患者最痛的五个共性问题（矛盾性鼻塞 / 气流感知丧失 / 加温加湿丧失 / 睡眠-疲劳-认知下降 / 焦虑抑郁共病），恰好能被 CFD 已有且部分已量化的三类指标覆盖——<strong>鼻阻力、壁面剪应力（WSS）/ 气流感知、后鼻孔温湿度 / 热通量</strong>。这正是本项目把"CT→CFD 自动化"做成"鼻腔功能客观化评估"的核心价值点。但患者也明确提出了<strong>个体化对比、环境敏感性、逆向器械开发</strong>等超出当前管线范围的延伸需求，需单列研究线索管理。</p>
+<hr />
+<h2>1. 两份材料的性质与证据等级</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>SRC-A 交叉验证表</th>
+<th>SRC-B 聊天复述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>性质</td>
+<td>二手调研（公开医学源/文献/媒体报道）</td>
+<td>一手患者自述（群聊，去标识化）</td>
+</tr>
+<tr>
+<td>证据等级</td>
+<td>L1/L2 多源一致为主，已剔除不可溯源数字</td>
+<td>个体 anecdotal，样本单一（Charlie 主述 + 三鱼等）</td>
+</tr>
+<tr>
+<td>覆盖</td>
+<td>群体共性（≥3 源一致才判"一致"）</td>
+<td>个体特异性症状、环境假说、器械诉求</td>
+</tr>
+<tr>
+<td>可采信度</td>
+<td>高（方法学已剔除 S18 等 AI 生成内容）</td>
+<td>低-中（Charlie 自陈"样本太单一不可作为论据"）</td>
+</tr>
+<tr>
+<td>对本项目价值</td>
+<td>提供<strong>患者侧证据基线</strong>与<strong>量化锚点</strong></td>
+<td>提供<strong>具体研究假设</strong>与<strong>个性化对比需求</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>纪律衔接</strong>：SRC-A 已剔除"78% 抑郁率 / 4.7 倍自杀风险 / 85% 矛盾鼻塞"等无溯源数字；本分析沿用该纪律——任何来自 SRC-B 的量化臆测（如海拔具体高度、紫外线品种）一律标记为"患者假说，未验证"。</p>
+<hr />
+<h2>2. 患者需求 → CFD 可量化指标映射矩阵</h2>
+<blockquote>
+<p>下表合并 SRC-A §7 与 SRC-B 的个体诉求，统一落到本项目可产出的 CFD 指标。带 ✅ 者表示项目已有方法或文献锚点；带 ⚠️ 者为延伸需求（当前管线未覆盖）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>患者主诉 / 需求</th>
+<th>对应 CFD / 生理指标</th>
+<th>文献锚点</th>
+<th>项目状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"明明通气却吸不到氧"（矛盾性鼻塞）</td>
+<td>鼻阻力过低、气流分配异常</td>
+<td>S15/S16</td>
+<td>✅ 已有鼻阻力计算口径</td>
+</tr>
+<tr>
+<td>"感受不到气流"（气流感知丧失）</td>
+<td>壁面剪应力（WSS）降低、三叉神经侧向检测阈（LDT）降低</td>
+<td>S15/S16</td>
+<td>✅ WSS 可算；LDT 需体外实验</td>
+</tr>
+<tr>
+<td>加温加湿丧失（干燥/结痂/烧灼）</td>
+<td>后鼻孔温度/相对湿度（正常 ~33–34℃ / &gt;90%）、热通量 &gt;50 W/m² 的表面积占比</td>
+<td>S15</td>
+<td>✅ 已有温湿度出口判据基础</td>
+</tr>
+<tr>
+<td>嗅觉下降</td>
+<td>嗅区（上鼻道）WSS 与流量分配</td>
+<td>S15</td>
+<td>⚠️ 需扩展嗅区 patch</td>
+</tr>
+<tr>
+<td>呼吸浅快 / 窒息感</td>
+<td>鼻阻力降低→肺泡通气不足假说；ENS6Q suffocation 项</td>
+<td>S3/S5</td>
+<td>⚠️ 需结合问卷</td>
+</tr>
+<tr>
+<td>颗粒物过滤差、反复感染</td>
+<td>宽大鼻腔低速涡流区→惯性沉积效率下降</td>
+<td>S15</td>
+<td>⚠️ 需沉积模型</td>
+</tr>
+<tr>
+<td><strong>个体化对比</strong>（"我的结构和正常人的结构有什么区别"）</td>
+<td>同例 CFD vs 正常人参考气流场对比</td>
+<td>—</td>
+<td>⚠️ 需建立正常参考数据集</td>
+</tr>
+<tr>
+<td><strong>环境敏感性</strong>（海拔/湿度/紫外线）</td>
+<td>环境条件（温度/湿度/海拔气压）作为边界条件的敏感性扫描</td>
+<td>—</td>
+<td>⚠️ 当前出口口径未定（见 §5）</td>
+</tr>
+<tr>
+<td><strong>逆向器械开发</strong>（airing 微型呼吸器）</td>
+<td>器械流场 vs 正常呼吸流场逆向匹配</td>
+<td>SRC-B</td>
+<td>⚠️ 二期项目，非本管线</td>
+</tr>
+</tbody>
+</table>
+<p><strong>工程含义</strong>：前 5 行是项目现阶段的"主战场"——把患者三大核心主诉（鼻塞/气流感知/温湿）客观化为指标，直接回应"SRC-A §0 判断 5"。后 4 行（⚠️）是患者明确提出的延伸方向，应进入研究线索池而非当前自动化管线。</p>
+<hr />
+<h2>3. 个体患者研究线索（来自 SRC-B，须逐条标注证据等级）</h2>
+<h3>3.1 Charlie（主述者，鼻甲部分缺失）</h3>
+<ul>
+<li><strong>海拔/环境假说</strong>：低海拔（山东/鲁南）难受、硬痂增多、左肺轻微发痛；高海拔（丽江、中亚齐姆肯特/阿克套/阿斯塔纳）舒适但自动鼻塞、通气不适感低；住高楼（20 楼）不如低层舒服；回国即不适。</li>
+<li><em>患者自归因</em>：紫外线/光照（"太阳晒得好啥病都没有""观星指数 97%"）。</li>
+<li><strong>分析标注</strong>：这是<strong>未验证的患者假说</strong>。可从 CFD 角度做"环境条件作为入口边界条件"的敏感性扫描（温度、湿度、环境气压），但<strong>不能直接采信"紫外线治病"结论</strong>——属 confounding（海拔同时改变气压/湿度/污染物，非仅紫外线）。Charlie 本人亦声明样本单一。→ 列为 <strong>H-ENV（环境敏感性）假设，证据等级：L3 个体</strong>。</li>
+<li><strong>手术史线索</strong>：提及"下鼻甲外移手术""S 型/严重偏曲矫正易变次全切、违背三线减张"——指向 ENS 的<strong>医源性</strong>证据，可与 SRC-A §5 的"发病机制争议"互证。</li>
+<li><strong>器械诉求</strong>：airing 微型呼吸器"气流拟合度不好、不够贴近正常人呼吸"→ 想用 CFD 做"器械流场 vs 正常呼吸"逆向开发。明确为<strong>二期长远项目</strong>，与本期"CT→CFD 自动化"解耦。</li>
+</ul>
+<h3>3.2 三鱼（另一需求者）</h3>
+<ul>
+<li>鼻甲缺失比 Charlie <strong>少</strong>、中鼻甲<strong>未缺失</strong>，但症状"从某种程度比 Charlie 轻一些"。</li>
+<li><strong>分析标注</strong>：这是"解剖缺失程度 ≠ 症状严重度"的<strong>活体反例</strong>，正是 SRC-A §7 所述"症状-解剖脱节 → CFD 个体化评估必要性"的直接素材。建议：若获其脱敏数据，与 Charlie 做<strong>配对 CFD 对比</strong>，检验"解剖量化指标能否区分症状轻重"。→ 列为 <strong>H-PAIR（个体配对）假设，证据等级：L3 个体</strong>。</li>
+</ul>
+<h3>3.3 群体行为（自救方式，暗示功能补偿机制）</h3>
+<ul>
+<li>塞棉球/湿棉、戴口罩、熏鼻、洗鼻、加湿器、迁居湿润地——本质都是<strong>人为增加鼻阻力 / 局部加温加湿</strong>。</li>
+<li><strong>分析标注</strong>：与 SRC-A "自行堵塞鼻孔可缓解（一致 5/7）"互证，反向支撑"鼻阻力过低是核心病理"的工程假设。可作为 CFD 干预模拟的<strong>虚拟手术/虚拟阻塞</strong>验证场景。</li>
+</ul>
+<hr />
+<h2>4. 患者社群困境的共识（工程意义，来自 SRC-A §3）</h2>
+<ul>
+<li>"检查（CT/内镜）正常却与主诉矛盾"——<strong>这正是 CFD 功能评估的立身之本</strong>：影像学正常 ≠ 功能正常，需靠流场/温湿/剪应力客观化。</li>
+<li>"被疑精神病、求医无门、耳鼻喉科不了解该病"——项目产出的<strong>客观化评估报告</strong>可作为患者与医生沟通、乃至未来残疾认定/维权的<strong>第三方证据</strong>，但本项目仅负责技术产出，不做临床结论。</li>
+<li>"ENS 作为独立疾病存在性仍有争议"——意味着 CFD 指标必须<strong>可溯源、可复核、带判据</strong>（呼应项目 M2 出口双轨判据纪律），经得起质疑。</li>
+</ul>
+<hr />
+<h2>5. 与既有项目待决项的衔接</h2>
+<table>
+<thead>
+<tr>
+<th>本项目既有项</th>
+<th>患者需求侧的新输入</th>
+<th>衔接动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plan/需求方待决项_M3.md</code>（阈值基准 / 出口口径 / K2 金标准）</td>
+<td>SRC-A 给出可溯源量化锚：ENS6Q 截断值 ≥10.5、热通量 &gt;50 W/m²、后鼻孔 33–34℃/&gt;90%</td>
+<td>把 SRC-A 锚点作为<strong>需求方待决项的文献依据</strong>补入，提示阈值基准可从"-300 主口径"延伸到"功能指标阈值"</td>
+</tr>
+<tr>
+<td>ENS6Q 问卷</td>
+<td>SRC-A §4 给出截断值（敏感度 86.7%/特异度 96.6%）+ MCID=7 分</td>
+<td>若项目要做"CFD 指标 ↔ ENS6Q 评分"相关性，这是现成的金标准候选（K2 候选之一）</td>
+</tr>
+<tr>
+<td>阈值 SOP −300（备 −350/−400）</td>
+<td>患者"干燥/结痂"主诉直接对应黏膜/气流温湿功能，非单纯 HU 阈值问题</td>
+<td>提醒：功能评估不能只靠 HU 阈值，需叠加 CFD 功能指标</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. 研究假设清单（带证据等级，供后续立项）</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>假设</th>
+<th>证据等级</th>
+<th>可验证性</th>
+<th>建议去向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H-ENV</td>
+<td>环境条件（温/湿/气压）改变可解释部分 ENS 症状起伏</td>
+<td>L3 个体（Charlie 假说）</td>
+<td>可做 CFD 边界条件敏感性扫描</td>
+<td>研究线索池，非当前管线</td>
+</tr>
+<tr>
+<td>H-PAIR</td>
+<td>解剖量化指标（WSS/温湿/阻力）能区分"缺失少但症状重"与"缺失多但症状轻"</td>
+<td>L3 个体（三鱼 vs Charlie）</td>
+<td>需配对脱敏数据</td>
+<td>待数据到位后做配对 CFD</td>
+</tr>
+<tr>
+<td>H-R（阻力核心）</td>
+<td>鼻阻力过低是多数 ENS 核心病理，人为增阻可缓解</td>
+<td>L2（多源自救行为一致）</td>
+<td>CFD 虚拟阻塞模拟</td>
+<td>可作功能评估主指标</td>
+</tr>
+<tr>
+<td>H-FUNC</td>
+<td>后鼻孔温湿度 + 热通量表面积占比可量化"加温加湿丧失"</td>
+<td>L1（S15 单团队，单病例）</td>
+<td>需群体验证</td>
+<td>当前管线已支持，待群体级验证</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>纪律：H-ENV / H-PAIR 为<strong>个体 anecdote</strong>，引用时必须标注"样本单一、未验证"，不得升格为结论；H-R / H-FUNC 有 L1/L2 支撑，可作工程基线但 H-FUNC 仍缺群体级数据（SRC-A §8 明示）。</p>
+</blockquote>
+<hr />
+<h2>7. 数据卫生与边界</h2>
+<ol>
+<li><strong>去标识化</strong>：SRC-B 仅含群聊昵称（查理Charlie / 三鱼 / 打怪小分队 等），无真实姓名/病历号，按项目 PHI 纪律视为已脱敏的定性患者报告；若后续引入三鱼等真实 CT 数据，须走 <code>资料/脱敏数据_clean/</code> 流程。</li>
+<li><strong>勿采信未溯源数字</strong>：沿用 SRC-A 纪律，任何"78%/4.7 倍/85%"类数字一律剔除；本分析内 Charlie 的海拔/紫外线臆测同样不采信为结论。</li>
+<li><strong>临床判断权限</strong>：症状归因、诊断、治疗建议不在本分析范围；涉及解剖-症状判读须交复核人（王湧瑞）。</li>
+<li><strong>存放位置</strong>：原始材料已固存于 <code>knowledge/患者需求/原始材料/</code>，本分析为 <code>knowledge/患者需求/20261015-鼻腔建模-患者需求交叉分析.md</code>；索引登记（knowledge/索引.md）按协议由 Lead 追加。</li>
+</ol>
+<hr />
+<p><em>分析方法：交叉比对 SRC-A 群体共性与 SRC-B 个体诉求，按"可量化/延伸/未验证"三档转译为 CFD 指标与研究线索；证据等级沿用 SRC-A 的 L1/L2/L3 分级并显式标注假设来源。</em></p></body></html>

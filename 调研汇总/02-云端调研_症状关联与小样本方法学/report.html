@@ -1,0 +1,239 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>report</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>云端调研报告：症状关联证据裁定 + 小样本症状预测方法学</h1>
+<ul>
+<li>日期：2026-10-16</li>
+<li>任务书：<code>plan/20261016-云端调研任务书_症状关联与小样本方法学.md</code>（用户授权「只发关键两题」）</li>
+<li>执行机制：deep-research 工作流，7 个调研单元分两批并行深搜（题1 四单元 + 题2 三单元），逐单元 JSON 落盘 + 字段验证</li>
+<li>质量摘要：7/7 单元完成；字段结构 4 类 16 项（5 必填）全部 100% 覆盖；共 12 项不确定内容如实标注（见各 JSON <code>uncertain</code> 数组），未编造任何数字</li>
+<li>检索入口：服务端出口搜索（Bing/搜狗/百度；Google 不可达，无单元因此失败）</li>
+</ul>
+<hr />
+<h2>一、单元交付一览</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>单元</th>
+<th>核心交付</th>
+<th>uncertain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CFD指标与症状评分关联研究总览</td>
+<td>11 项研究证据图景：<strong>指标特异性</strong>（区域/感觉相关量中等-强相关，全局量弱/阴性）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>阴性结论解剖（PMC13638262 原文）</td>
+<td>原文核实 + 四类阴性原因解剖 + 阳性研究回应</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>鼻腔阻力经典非 CFD 证据</td>
+<td>André 2009 系统综述 + n=601 大样本：NAR-症状 r≈0.1–0.4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ENS6Q/SNOT-22/NOSE 量表与 MCID</td>
+<td>三量表验证参数 + MCID + 终点选择建议</td>
+<td>5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>影像组学小样本建模实践</td>
+<td>EPV≥10 法则、n≈24 特征上限、正则化选择链</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>小样本验证协议（LOOCV）</td>
+<td>LOO-CV 方差问题、重复 k 折判据、TRIPOD 条款</td>
+<td>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>文献先验贝叶斯 + 鼻腔预测先例</td>
+<td>先验编码案例（具体到先验分布参数）+ 鼻腔 CFD→症状先例</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>（原文核实：PMC13638262 = Na Y, Kwon KW, Jang YJ. <em>Laryngoscope Investigative Otolaryngology</em>, 2026, DOI 10.1002/lio2.70567。单元 1 自述曾报 n=29，经单元 2 调取 PMC 全文核实为 <strong>ENS n=14</strong>（NSD n=10、正常 n=5），本报告以原文为准。）</p>
+<hr />
+<h2>二、C5 裁定（题1结论）：四条独立证据链收敛</h2>
+<h3>2.1 证据链</h3>
+<p><strong>① 原文解剖（单元2）</strong>：ENS n=14 中，四项全局 CFD 参数 vs ENS6Q 全部阴性——双侧鼻阻力 r=0.089（95%CI −0.46~0.59，p=0.762）、后鼻孔 RH r=−0.043（p=0.884）、气温 r=0.007（p=0.982）、SAVR r=0.232（p=0.425）；仅 RH–SAVR 正相关（r=0.663，p&lt;0.01）。阴性有方法学解释：n=14 时 r 的 95%CI 半宽约 ±0.53，检出 r≈0.5 需约 28 例才有 80% 功效；阻力取<strong>双侧合并</strong>（Garcia 已证健侧稀释患侧，改单侧即出相关）；WSS 取整体黏膜而非下鼻道峰值；终点用总分；ENS 混合表型入组（中鼻道优势 64%）。该文证据等级判定：<strong>低</strong>（单中心回顾、无复现、作者自陈不能排除有临床意义的关联）。</p>
+<p><strong>② 经典非 CFD 证据（单元3）</strong>：André 2009 系统综述（16 项 II 级研究）结论——鼻测压/声反射与主观通畅感相关性「不确定」；大样本 Darbari Kaul 2026（n=601）NAR vs VAS 仅 ρ=0.222、vs 鼻塞序数评分 ρ=0.112；NAR-症状总体 r/ρ≈0.1–0.4。<strong>即金标准器械测出的阻力与症状也就这个水平</strong>——CFD 阻力阴性与器械一致，非 CFD 缺陷。反向发现：声反射几何量（NV/NMCA）与 VAS 达 r≈−0.75~−0.85，几何/面积类指标比纯阻力更适合症状代理。</p>
+<p><strong>③ CFD 总览（单元1）</strong>：关联呈「指标特异性」——全局阻力/压降弱或阴性（Barbarite 2021 n=53 静态人群例外 R²=0.32）；区域/感觉相关量中等至强相关：SAHF50（热通量&gt;50W/m² 黏膜面积）vs NOSE r=−0.76（Sullivan 2014）、中鼻道气流占比 vs NOSE |r|=0.76（Casey 2017）、下鼻道峰值 WSS vs ENS6Q r=−0.398/p=0.003（Li 2018 n=27 ENS——<strong>阳性研究只需 n=27</strong>）、鼻腔前端温降 vs VAS R²=0.62（中文 42 例）。合并分析（Almagribi 2024，<strong>预印本需降权</strong>）：热通量 r=0.78（95%CI 0.69–0.85）、WSS r=0.71、传统鼻测压 r=0.42（0.31–0.53）。两篇 PRISMA 综述（Radulesco 2019、Kanjanawasee 2022）一致认为热通量最贴近主观感知。</p>
+<p><strong>④ 量表侧（单元4）</strong>：ENS6Q（α=0.76–0.93，重测 ICC 0.895–0.969，区分 ENS vs 对照 AUC 0.91–0.96，MCID≈6.25–7）；SNOT-22（α=0.91，MCID 手术 8.9/内科 12）；NOSE（MCID 约 30 分或 40% 基线变化，文献 4–40 分不一）。鼻塞特异的 NOSE 与 ENS 特异的 ENS6Q 比综合量表 SNOT-22 更可能捕捉 CFD 气流改变对应的症状；常规随访窗口 3 个月。</p>
+<h3>2.2 裁定结论</h3>
+<ol>
+<li><strong>PMC13638262 阴性结论结案</strong>：非反常、非「CFD 无效」的证据——与金标准器械的弱相关一致，且可被四个方法学弱点完全解释（功效不足/双侧合并/总分终点/表型混杂）。</li>
+<li><strong>全局 R 正式降级为「客观读数」</strong>，不作症状主特征（三方独立证据：经典器械 r≈0.1–0.4 + CFD 总览全局量弱/阴性 + 原文阴性）。</li>
+<li><strong>症状主特征候选（按证据强度排序）</strong>：① 黏膜热通量（SAHF50，阈值 50W/m²，多研究+两综述+Meta 支持）；② 下鼻道/下鼻甲峰值 WSS（n=27 即可检出 r≈−0.4）；③ 中鼻道气流占比（D=0.5 冠状面三分区）；④ 鼻腔前端温降 ΔT。预期效应量量级 r≈−0.4~−0.78（中等至强），达不到该量级须谨慎解读。</li>
+<li><strong>对 T-047「R+32% 阳性」的约束</strong>：与文献常见弱-中等相关区间（r≈0.3–0.4）相符、非反常，但属全局量阳性，与主流证据方向相左；且单元 5/6 显示小样本下单次阳性极可能是乐观偏倚——<strong>必须嵌套 CV + 95%CI 复核后方可采信</strong>，不得作为普遍结论引用。</li>
+</ol>
+<hr />
+<h2>三、S2 方法学判据（题2结论）</h2>
+<h3>3.1 样本与特征纪律</h3>
+<ul>
+<li><strong>EPV≥10 为硬性下限</strong>（Peduzzi 1996，应用最广）；做变量选择时需 EPV≈50；van Smeden 2019：EPV 不可单独用，须联合总样本量、预测因子数、事件比例。</li>
+<li>实证支持 10 EPV 为特征数经验上限（Vertebral MRI：10 EPV AUC=0.84 显著优于 15/20 EPV，p&lt;0.001）；校准斜率随 EPV 改善（5→0.71、10→0.85、50→0.96，Wynants 2015）。</li>
+<li><strong>n=24 特征上限（推断值，JSON 已标注）</strong>：二分类均衡未正则化最多约 1 个预测因子；连续/回归 1–2 个。24 例下多变量模型<strong>必须</strong>惩罚回归或压到 &lt;3 个主成分。</li>
+<li>正则化选择：LASSO（稀疏+可解释清单，影像组学最常用）/ Ridge（特征高度相关时更稳，不挑相关组任一员）/ Elastic Net（折中默认）；λ 必须 CV 选定，特征先标准化。</li>
+</ul>
+<h3>3.2 验证协议（防乐观偏倚）</h3>
+<ul>
+<li><strong>LOO-CV 可用但不得作为唯一依据</strong>：近似无偏但方差最高；n=50 仿真中 CV 误差估计与真实误差回归斜率近 0 甚至为负（EURASIP J Bioinform Syst Biol 2013）；Poldrack/Varoquaux 明确主张 k=5~10 折。</li>
+<li>主方案：<strong>重复分层 k 折（k=5–10，R=5–10，默认 10）</strong>，重复足够判据 = 折间 between-repeat SD ≤ 0.1×折内 within SD；或 bootstrap .632+（≥500 次）。</li>
+<li><strong>特征选择/标准化/插补必须嵌套在 CV 训练折内</strong>（TRIPOD Item 10b）；典型嵌套 10×10 折，外循环出性能、内循环做选择调优，最终全数据重训。泄露代价实证：Sharpe 从 0.4 虚报为 1.8。</li>
+<li>无外部验证时的报告替代：嵌套 CV + bootstrap .632 乐观校正 + <strong>95%CI + 校准度（校准斜率、Brier）</strong>，禁报单点 AUC。</li>
+<li>TRIPOD 适用条款：Item 8（样本量依据）、10b（建模步骤验证内重复）、12c（乐观偏倚校正）、18（局限：每变量事件数少）；TRIPOD+AI 新增 Item 22（完整模型以公式/代码给出）、23a/25/26（亚组/公平性）。有限数据<strong>不推荐</strong>随机拆分训练/测试（Type 2a）。</li>
+</ul>
+<h3>3.3 文献先验贝叶斯路线（24 例无标签的正解）</h3>
+<ul>
+<li>先验编码先例（具体到分布参数）：de Grooth 2025 以 ARMA/ACURASYS RCT 效应量构建 N(0, 0.238)（log-odds 尺度）收缩小样本亚组夸大效应；Wandel 罕见病 MAP 先验 N(10.8, 1.19) 将 III 期安慰剂臂 85→43；Lüdecke 2026 文献 believer 先验把频数 OR 8.87（CI 1.66–165.19，稀疏不稳）收缩为 4.01（CrI 1.99–8.78）；神经影像再校准显示小样本效应量向总体收缩 0–0.97（Cohen's d），收缩量与 n 负相关（r=−0.27, p&lt;0.001）。</li>
+<li><strong>对本项目的编码方案</strong>：把「鼻腔阻力-症状」文献效应量（经典证据 NAR-症状 r≈0.1–0.4）直接编码为 CFD R-症状的正态信息先验；模型形式先用可解释线性/岭回归（对应窄先验），禁黑箱。</li>
+<li>鼻腔 CFD→症状先例（性能量级参考）：Chiang &amp; Frank-Ito 2025（n=10 <strong>术后自身配对</strong>，CFD 气流+VAS 两参数 OLS 预测 NOSE，R²=0.84——注意高 R² 仅见于配对设计，横断面大样本多仅弱相关）；鼻中隔穿孔 WSS 阈值 0.72 Pa（87% 敏/100% 特）；Dupilumab n=12 中/上鼻道 CSA/AFR vs SNOT-22 r=0.41–0.49 而阻力不相关；Zhao 2012 黏膜冷却峰值 vs 通畅感 r=−0.46、LDA 89%。</li>
+</ul>
+<h3>3.4 S2 最低可行设计（将来标签到位后）</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>判据</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>样本量</td>
+<td>≥28–30 例（80% 功效检出 r≈0.5）</td>
+<td>单元2</td>
+</tr>
+<tr>
+<td>终点</td>
+<td>NOSE + ENS6Q（特异量表），不用 SNOT-22 总分</td>
+<td>单元4</td>
+</tr>
+<tr>
+<td>效应量基准</td>
+<td>NOSE MCID≈30 分/40% 基线变化；ENS6Q MCID≈6.25–7</td>
+<td>单元4</td>
+</tr>
+<tr>
+<td>随访</td>
+<td>3 个月</td>
+<td>单元4</td>
+</tr>
+<tr>
+<td>分析口径</td>
+<td>配对/变化量终点优先；单侧/患侧提取（防双侧合并稀释）；表型分层</td>
+<td>单元2</td>
+</tr>
+<tr>
+<td>特征数</td>
+<td>未正则化 ≤1–2；否则 LASSO/Elastic Net（λ CV 选定）</td>
+<td>单元5</td>
+</tr>
+<tr>
+<td>验证</td>
+<td>重复分层 k 折（k=5–10, R=10）+ 嵌套 CV + bootstrap .632+，报 95%CI + 校准</td>
+<td>单元5/6</td>
+</tr>
+<tr>
+<td>先验</td>
+<td>文献效应量→正态信息先验（贝叶斯收缩）</td>
+<td>单元7</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>四、对《从24例到标准_训练设计_v1》的修订清单</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>位置</th>
+<th>修订</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>Stage 1 特征预注册清单</td>
+<td>症状主特征候选重排为：黏膜热通量（SAHF50/50W/m²）&gt; 下鼻道峰值 WSS &gt; 中鼻道气流占比 &gt; 前端温降 ΔT；全局 R 降为客观读数</td>
+<td>题1 四方证据</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>C5 机制冲突</td>
+<td>状态「未裁定」→「已裁定」：阴性=方法学可解释且与经典证据一致；T-047 R+32% 须嵌套 CV+95%CI 复核后采信</td>
+<td>题1</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>S2 分支</td>
+<td>最低可行设计按 3.4 表定稿（样本/终点/随访/特征/验证/先验）</td>
+<td>题2</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>S2 分支</td>
+<td>新增「文献先验贝叶斯」为默认路线（NAR-症状 r≈0.1–0.4 编码为先验；线性/岭起步）</td>
+<td>单元7</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>标签采集（将来）</td>
+<td>NOSE/ENS6Q 双终点 + MCID 效应量 + 3 月随访 + 单侧提取 + 表型分层</td>
+<td>单元4/2</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>报告口径</td>
+<td>所有相关/性能必须带 95%CI/CrI + 校准；LOOCV 仅补充；禁报单点 AUC</td>
+<td>单元5/6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>不改变的结论</strong>：三个硬现实（无标签/无对照/输入未冻结）与 Stage 0→S1/S3 主线；S3（SSM）现在可做不受影响；「文献给标准（锚点与关系）、24 例给分布与偏离」的总命题不变且获得加强。</p>
+<hr />
+<h2>五、遗留与不确定</h2>
+<ol>
+<li>Almagribi 2024 合并分析（热通量 r=0.78）为<strong>单作者预印本</strong>，降权使用；其「热通量最相关」方向与两篇 PRISMA 综述一致，可采信方向、不采信精确值。</li>
+<li>n=24 特征上限 1–2 为<strong>推断值</strong>（由 EPV 法则外推），非直接实证。</li>
+<li>多数原始 CFD 研究未报 95%CI（仅合并分析与单元 2 有），效应量点估计的精度整体受限。</li>
+<li>题3（SSM 可行性）、题4（无健康对照常模方法）按用户决定未发，S1/S3 的相关判据仍缺文献支撑。</li>
+<li>中文版 ENS6Q 是否正式发表未核实（单元 4 标注不确定）——影响国内采集方案。</li>
+</ol>
+<hr />
+<h2>六、产物清单</h2>
+<pre><code>outputs/20261016-云端调研_症状关联与小样本方法学/
+├── outline.yaml / fields.yaml        # 调研大纲（7 单元 + 16 字段契约）
+├── results/
+│   ├── CFD指标与症状评分关联研究总览.json
+│   ├── 阴性结论研究方法学解剖_PMC13638262及同类.json
+│   ├── 鼻腔阻力与鼻塞症状的经典非CFD证据.json
+│   ├── ENS6Q_SNOT22_NOSE量表验证与MCID.json
+│   ├── 影像组学小样本建模实践_n50以下.json
+│   ├── 小样本验证协议_LOOCV可靠性与报告规范.json
+│   └── 文献先验贝叶斯小样本案例与鼻腔症状预测先例.json
+└── report.md                          # 本报告
+</code></pre>
+<ul>
+<li>任务书：<code>plan/20261016-云端调研任务书_症状关联与小样本方法学.md</code></li>
+<li>回执（设计文档修订记录）：见 <code>plan/从24例到标准_训练设计_v1.md</code> 末尾「云端调研回执」节</li>
+</ul><div class="src">原件：outputs/20261016-云端调研_症状关联与小样本方法学/report.md</div></body></html>

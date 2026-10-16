@@ -1,0 +1,17 @@
+{
+  "task": "T-011 A.2 threshold-axis WSS t400 (-400 x snappyL3 x S-A)",
+  "source_vtp": "C:/ts_work/t011_axis/out_t400/wall.vtp",
+  "faces": 77383,
+  "wall_area_m2": 0.01917767007865816,
+  "wall_area_mm2": 19177.67007865816,
+  "units_note": "foamToVTK exports SI: coords m, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+  "wss_median_pa": 0.03528002753402177,
+  "wss_mean_pa": 0.05306113946527482,
+  "wss_p90_pa": 0.12597798457571718,
+  "wss_max_pa": 1.7859091170123975,
+  "wall_shear_force_n": 0.0010711933424888476,
+  "A1_anchor_t300_same_route": {
+    "force_n": 0.001008636
+  },
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

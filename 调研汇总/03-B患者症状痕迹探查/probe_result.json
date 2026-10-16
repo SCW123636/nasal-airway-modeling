@@ -1,0 +1,438 @@
+{
+  "scan_policy": "仅白名单临床语义字段；身份字段脚本层面不构造。输出已剔除身份信息。",
+  "sources": {
+    "脱敏副本_脱敏数据_clean": {
+      "root": "D:\\项目\\鼻腔建模\\资料\\脱敏数据_clean",
+      "patients": {
+        "患者1": {
+          "series_count": 1,
+          "files": 514,
+          "unreadable": 0,
+          "series": {
+            "(0020,000E) Series Instance UID         ": {
+              "frames_in_series": 136,
+              "reads": [
+                {
+                  "file": "000000.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.8 Soft-3D'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                },
+                {
+                  "file": "000135.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.8 Soft-3D'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "患者2": {
+          "series_count": 1,
+          "files": 380,
+          "unreadable": 0,
+          "series": {
+            "(0020,000E) Series Instance UID         ": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": "000000.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: Secondary Capture Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: 'Head^07_Sinus (Adult)'",
+                  "series_desc": "(0008,103E) Series Description                  LO: 'Patient Protocol'",
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [
+                    {
+                      "code": "(0008,0100) Code Value                          SH: '470200080001'",
+                      "meaning": null,
+                      "scheme": null
+                    }
+                  ],
+                  "image_comments": null,
+                  "image_type": [
+                    "DERIVED",
+                    "SECONDARY",
+                    "OTHER",
+                    "CT_SOM5 PROT"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "患者3": {
+          "series_count": 1,
+          "files": 1555,
+          "unreadable": 0,
+          "series": {
+            "(0020,000E) Series Instance UID         ": {
+              "frames_in_series": 232,
+              "reads": [
+                {
+                  "file": "000000.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.5_soft'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                },
+                {
+                  "file": "000231.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.5_soft'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "原始_患者ct+鼻空腔建模": {
+      "root": "D:\\项目\\鼻腔建模\\资料\\脱敏数据\\患者ct+鼻空腔建模\\患者ct+鼻空腔建模",
+      "patients": {
+        "患者1": {
+          "series_count": 4,
+          "files": 517,
+          "unreadable": 0,
+          "series": {
+            "__nosuid__患者1": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "__nosuid________-______": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "__nosuid__20260127": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "(0020,000E) Series Instance UID         ": {
+              "frames_in_series": 136,
+              "reads": [
+                {
+                  "file": "000000.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.8 Soft-3D'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": "(0032,1060) Requested Procedure Description     LO: 'Sinus'",
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                },
+                {
+                  "file": "000135.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.8 Soft-3D'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": "(0032,1060) Requested Procedure Description     LO: 'Sinus'",
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "患者2": {
+          "series_count": 4,
+          "files": 383,
+          "unreadable": 0,
+          "series": {
+            "__nosuid__患者2": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "__nosuid__p01360058-____": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "__nosuid__20250902-Head^07_Sinus (Adult)": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "(0020,000E) Series Instance UID         ": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": "000000.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: Secondary Capture Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: 'Head^07_Sinus (Adult)'",
+                  "series_desc": "(0008,103E) Series Description                  LO: 'Patient Protocol'",
+                  "body_part": null,
+                  "requested_proc": "(0032,1060) Requested Procedure Description     LO: 'PJ鼻咽CT平扫'",
+                  "proc_codes": [
+                    {
+                      "code": "(0008,0100) Code Value                          SH: '470200080001'",
+                      "meaning": null,
+                      "scheme": null
+                    }
+                  ],
+                  "image_comments": null,
+                  "image_type": [
+                    "DERIVED",
+                    "SECONDARY",
+                    "OTHER",
+                    "CT_SOM5 PROT"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "患者3": {
+          "series_count": 3,
+          "files": 1557,
+          "unreadable": 0,
+          "series": {
+            "__nosuid__患者3": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "__nosuid__250111559-TKT": {
+              "frames_in_series": 1,
+              "reads": [
+                {
+                  "file": ".DS_Store",
+                  "modality": null,
+                  "sop_class": null,
+                  "study_desc": null,
+                  "series_desc": null,
+                  "body_part": null,
+                  "requested_proc": null,
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": null
+                }
+              ]
+            },
+            "(0020,000E) Series Instance UID         ": {
+              "frames_in_series": 232,
+              "reads": [
+                {
+                  "file": "000000.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.5_soft'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": "(0032,1060) Requested Procedure Description     LO: '副鼻窦'",
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                },
+                {
+                  "file": "000231.dcm",
+                  "modality": "(0008,0060) Modality                            CS: 'CT'",
+                  "sop_class": "(0008,0016) SOP Class UID                       UI: CT Image Storage",
+                  "study_desc": "(0008,1030) Study Description                   LO: ''",
+                  "series_desc": "(0008,103E) Series Description                  LO: '1.0 x 0.5_soft'",
+                  "body_part": "(0018,0015) Body Part Examined                  CS: 'HEAD'",
+                  "requested_proc": "(0032,1060) Requested Procedure Description     LO: '副鼻窦'",
+                  "proc_codes": [],
+                  "image_comments": null,
+                  "image_type": [
+                    "ORIGINAL",
+                    "PRIMARY",
+                    "AXIAL",
+                    "HELICAL"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "summary_nonempty_fields": {
+    "study_desc": [
+      "原始_患者ct+鼻空腔建模/患者1",
+      "原始_患者ct+鼻空腔建模/患者2",
+      "原始_患者ct+鼻空腔建模/患者3",
+      "脱敏副本_脱敏数据_clean/患者1",
+      "脱敏副本_脱敏数据_clean/患者2",
+      "脱敏副本_脱敏数据_clean/患者3"
+    ],
+    "series_desc": [
+      "原始_患者ct+鼻空腔建模/患者1",
+      "原始_患者ct+鼻空腔建模/患者2",
+      "原始_患者ct+鼻空腔建模/患者3",
+      "脱敏副本_脱敏数据_clean/患者1",
+      "脱敏副本_脱敏数据_clean/患者2",
+      "脱敏副本_脱敏数据_clean/患者3"
+    ],
+    "body_part": [
+      "原始_患者ct+鼻空腔建模/患者1",
+      "原始_患者ct+鼻空腔建模/患者3",
+      "脱敏副本_脱敏数据_clean/患者1",
+      "脱敏副本_脱敏数据_clean/患者3"
+    ],
+    "proc_codes": [
+      "原始_患者ct+鼻空腔建模/患者2",
+      "脱敏副本_脱敏数据_clean/患者2"
+    ],
+    "requested_proc": [
+      "原始_患者ct+鼻空腔建模/患者1",
+      "原始_患者ct+鼻空腔建模/患者2",
+      "原始_患者ct+鼻空腔建模/患者3"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| T-011 A.1 (snappyHexMesh route) - background Cartesian mesh for the p0
+| extended-domain airway.  Internal-flow domain: snappyHexMesh keeps only the
+| cells on the locationInMesh side of the closed surface, so every cell touching
+| this block's outer boundary is deleted; the `outer` patch therefore vanishes
+| and the final boundary is exactly the four STL patches.
+|
+| units: the STL is in mm  ->  convertToMeters 0.001.
+| bounds are chosen as exact multiples of 4 mm so the base cells are cubic:
+|   x [-48,16]  = 64 mm / 16 = 4 mm
+|   y [-252,-132]=120 mm / 30 = 4 mm
+|   z [-716,-616]=100 mm / 25 = 4 mm
+| The STL bbox is x[-36.88,3.67] y[-240.25,-142.71] z[-703.27,-624.86], i.e.
+| >=10 mm of margin on every side.  snappy refinement level 3 -> 4/2^3 = 0.5 mm
+| at the surface (b15's netgen mesh was ~0.5 mm too).
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+
+convertToMeters 0.001;
+
+vertices
+(
+    (-48 -252 -716)
+    ( 16 -252 -716)
+    ( 16 -132 -716)
+    (-48 -132 -716)
+    (-48 -252 -616)
+    ( 16 -252 -616)
+    ( 16 -132 -616)
+    (-48 -132 -616)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (16 30 25) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    outer
+    {
+        type patch;
+        faces
+        (
+            (0 3 2 1)
+            (4 5 6 7)
+            (0 1 5 4)
+            (3 7 6 2)
+            (0 4 7 3)
+            (1 2 6 5)
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //

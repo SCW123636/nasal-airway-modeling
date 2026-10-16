@@ -1,0 +1,63 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 620, height: 620, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.16) 0%, rgba(34,211,238,0) 70%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 460, height: 460, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.10) 0%, rgba(245,165,36,0) 70%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>02 / 产品与解决方案</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>三个数字，回答三个主诉</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q2</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'column', gap: 16 }}>
+            <Box style={{ height: 316, flexDirection: 'row', gap: 16 }}>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 8, padding: '22px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(34,211,238,0.34)' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#22D3EE' }}>鼻阻力 R = Δp / Q</Text>
+                    <Text style={{ fontSize: 76, fontWeight: 800, color: '#22D3EE', lineHeight: 1 }}>0.0685</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1' }}>Pa·s/mL｜b15 扩展域实测</Text>
+                    <Box style={{ flexDirection: 'column', gap: 6, marginTop: 'auto', paddingTop: 14, borderTop: '1px solid rgba(139,166,193,0.24)' }}>
+                        <Text style={{ fontSize: 18, color: '#E8F1FA', fontWeight: 600 }}>替患者回答「明明通气，却吸不到氧」</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.5 }}>气流整体「太好走」——把鼻阻力量化出来，就是矛盾性鼻塞的客观读数。</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 8, padding: '22px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#8BA6C1' }}>壁面剪应力 WSS</Text>
+                    <Text style={{ fontSize: 76, fontWeight: 800, color: '#E8F1FA', lineHeight: 1 }}>1.49</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1' }}>×10⁻³ N 积分力｜中位 0.068 Pa</Text>
+                    <Box style={{ flexDirection: 'column', gap: 6, marginTop: 'auto', paddingTop: 14, borderTop: '1px solid rgba(139,166,193,0.24)' }}>
+                        <Text style={{ fontSize: 18, color: '#E8F1FA', fontWeight: 600 }}>替患者回答「感觉不到空气在流动」</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.5 }}>黏膜靠剪应力被感知；宽大鼻腔里气流贴壁溜走——这正是气流感丧失的机制。</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 8, padding: '22px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(245,165,36,0.34)' }}>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#F5A524' }}>后鼻孔温湿度 / 热通量</Text>
+                    <Text style={{ fontSize: 76, fontWeight: 800, color: '#F5A524', lineHeight: 1 }}>32.2</Text>
+                    <Text style={{ fontSize: 17, color: '#8BA6C1' }}>℃ / 93.5 %RH｜健康对照实测基准</Text>
+                    <Box style={{ flexDirection: 'column', gap: 6, marginTop: 'auto', paddingTop: 14, borderTop: '1px solid rgba(139,166,193,0.24)' }}>
+                        <Text style={{ fontSize: 18, color: '#E8F1FA', fontWeight: 600 }}>替患者回答「干、结痂、烧灼」</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.5 }}>文献把「热通量 &gt; 50 W/m² 黏膜面积占比」列为与症状相关性最强的指标。</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            <Box style={{ height: 168, flexDirection: 'row', alignItems: 'center', gap: 28, padding: '24px 28px', background: 'rgba(34,211,238,0.07)', borderLeft: '3px solid #22D3EE', borderRadius: 8 }}>
+                <Box style={{ flexDirection: 'column', gap: 6, width: 200 }}>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#22D3EE' }}>为什么是这三个</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>不是「好看的流场图」</Text>
+                </Box>
+                <Text style={{ flex: 1, fontSize: 19, color: '#B7CBDD', lineHeight: 1.65 }}>
+                    常规 CFD 报告输出的是速度云图与压降曲线，患者看不懂、医生用不上。我们做的是一次<span style={{ color: '#E8F1FA', fontWeight: 600 }}>需求到指标的翻译</span>：患者主诉 → 可量化的功能量 → 可比较的数值。三指标分别锚定「堵」「感受不到」「干」三大主诉，其中热通量与症状的相关性在文献中最强（r ≈ −0.76）。
+                </Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>数值为 b15 扩展域全链实测（T-058）；温湿度为健康对照实测基准，本项目为工程尺度验证，不构成临床诊断</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>08 / 18</Text>
+        </Box>
+    </Box>
+</Slide>

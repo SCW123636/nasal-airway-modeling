@@ -1,0 +1,23 @@
+===== threshold -350 : stage 4 surface =====
+p0: OK  air=708592  pts=223774  tri=447552  boundary=0
+
+built 1/1; written C:\ts_work\t011_axis\surfaces_t350\surface_build.json
+surface_sha256 a8802218bad7016f7d6ae54dd9a3ef2aeafafe1a241e00164463e4d91f3c037c
+===== threshold -350 : stage 5 opening =====
+p0: auto_pass
+auto_pass 1/1
+===== threshold -350 : N6 gate (project gate_report) =====
+{"gate": "N5", "ok": false, "decision": null, "areas_mm2": null, "outside_band": null, "provenance": null, "surface_sha256": "a8802218bad7016f7d6ae54dd9a3ef2aeafafe1a241e00164463e4d91f3c037c", "landmarks_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"}
+===== threshold -350 done =====
+===== threshold -400 : stage 4 surface =====
+p0: OK  air=699647  pts=223690  tri=447380  boundary=0
+
+built 1/1; written C:\ts_work\t011_axis\surfaces_t400\surface_build.json
+surface_sha256 6db065896e4bb2d48eb99a968129455005e7fa622c6035056094a675a4a7e279
+===== threshold -400 : stage 5 opening =====
+p0: auto_pass
+auto_pass 1/1
+===== threshold -400 : N6 gate (project gate_report) =====
+{"gate": "N5", "ok": false, "decision": null, "areas_mm2": null, "outside_band": null, "provenance": null, "surface_sha256": "6db065896e4bb2d48eb99a968129455005e7fa622c6035056094a675a4a7e279", "landmarks_sha256": "468fa6321d4e071e506eb855b45faeae16bfe9acb9e02b83a5fd66568d215a3c"}
+===== threshold -400 done =====
+A2-GEOMETRY-DONE

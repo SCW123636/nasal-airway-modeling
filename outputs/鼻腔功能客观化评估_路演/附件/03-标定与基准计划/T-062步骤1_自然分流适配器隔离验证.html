@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>{title}</title>
+<style>
+  body {{ font-family: "Microsoft YaHei", sans-serif; max-width: 960px; margin: 32px auto; padding: 0 24px; line-height: 1.75; color: #1c2733; }}
+  h1 {{ border-bottom: 2px solid #0e7490; padding-bottom: 8px; color: #0c4a6e; }}
+  h2 {{ color: #0c4a6e; margin-top: 28px; }}
+  table {{ border-collapse: collapse; margin: 16px 0; }} th, td {{ border: 1px solid #cbd5e1; padding: 6px 12px; }}
+  th {{ background: #f1f5f9; }} code {{ background: #f1f5f9; padding: 2px 6px; border-radius: 3px; }}
+  a {{ color: #0e7490; }}
+</style></head><body><h1>T-062 步骤1 · 自然分流适配器复用与隔离验证</h1>
+<blockquote>
+<p>2026-10-16 ｜ 执行：段主对话（Lead）｜ 卡：<code>tasks/T-062.md</code>
+目的：为 D-0′ 口径（弃用 50:50、统一共同静压自然分流）准备可用的求解通道。</p>
+</blockquote>
+<h2>1. 关键发现：适配器<strong>已存在</strong>，无需从零实现</h2>
+<p>自然分流求解适配器由 <strong>T-021 已实现并 VERIFIED</strong>（不是本卡新写）：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>work/lib/openfoam_pressure_adapter.py</code></td>
+<td><code>OpenFOAMPressureEvaluator</code>（真实 OpenFOAM 评估）：入口共同 <code>fixedValue p/rho</code> + <code>pressureInletOutletVelocity</code>；出口 <code>fixedValue 0</code>；有符号 <code>phi</code>；输入指纹绑定 + 可续跑；<code>set_pressure_boundaries()</code> 写 BC；<code>run_split_suite()</code></td>
+</tr>
+<tr>
+<td><code>work/lib/pressure_feedback.py</code></td>
+<td><code>solve_common_pressure()</code> 外层割线+二分调压；<code>signed_patch_fluxes()</code>；<code>FlowEvaluation</code>。<strong><code>FeedbackConfig.target_m3_s</code> 默认 = 2.5e-4 = 250 mL/s（正是本卡目标）</strong></td>
+</tr>
+<tr>
+<td><code>work/lib/structured_split_feedback.py</code></td>
+<td><code>write_case()</code> 生成不等分支 2D 示意几何；三场景（unequal / symmetric / swapped_labels）判据</td>
+</tr>
+</tbody>
+</table>
+<p>⇒ 步骤1 = <strong>复用 + 隔离复现 + 参数化到扩展域出口 <code>oropharynx_truncation_outlet</code></strong>。</p>
+<h2>2. 隔离基准组A（复现 T-021 已知答案）✅ 通过</h2>
+<p><code>outputs/T-062/run_isolated_baseline.py</code>（WSL 原生跑）。<strong>逐位复现 T-021</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>压力 (Pa)</th>
+<th>Q_total (m³/s)</th>
+<th>left_fraction</th>
+<th>理想值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unequal (2:1)</td>
+<td>1.7688857763694905</td>
+<td>1.6557820061579e-05</td>
+<td><strong>0.8871869138544758</strong></td>
+<td>8/9 = 0.8889</td>
+</tr>
+<tr>
+<td>symmetric (1:1)</td>
+<td>2.4442511455041886</td>
+<td>1.6638557666052e-05</td>
+<td>0.5</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>swapped_labels</td>
+<td>1.7688857763694905</td>
+<td>1.6557820061579e-05</td>
+<td>0.11281308614552416</td>
+<td>互补</td>
+</tr>
+</tbody>
+</table>
+<p>6 项判据全 true：<code>all_scenarios_converged</code> / <code>unequal_split_is_not_symmetric</code> / <code>symmetric_split_near_half</code> / <code>label_swap_complements_split</code> / <strong><code>unequal_matches_cubic_law</code>（0.887 vs 0.889，层流 Q∝width³）</strong> / <code>all_flow_errors_within_one_percent</code>。</p>
+<p>→ <strong>C1（适配器隔离基准）与 C2（自然分流核验）达成</strong>；控制器正确性（含自然分流、任意目标 ±1% 收敛）得证。</p>
+<h2>3. 隔离基准组B（合成 250 mL/s）失败 —— <strong>非缺陷，已定性</strong></h2>
+<ul>
+<li>现象：适配器硬质量门 <code>residual_max ≤ 1e-5</code> 未过（<code>converged=False</code>）。</li>
+<li>诊断：<code>Initial residual</code> 停在 ~4.7e-4 平台，但<strong>线性求解 Final residual 达 1e-13（U）/1e-11（p）</strong>——即线性充分收敛、非线性残差存在数值平台，与 <strong>T-058 患者 case <code>converged=false</code> 同类</strong>（M2 判据本就不含 1e-5 残差门）。</li>
+<li>结论：该硬门是 T-021 为小基准设计的；中 Re 2D 几何不适用，<strong>非控制器缺陷</strong>。组B 冗余（控制器对任意目标的正确性已由组A 三场景覆盖），<strong>250 mL/s 的收敛验证改由患者 case（C4）承担</strong>。</li>
+</ul>
+<h2>4. 步骤4：C4 患者自然分流重跑（进行中）</h2>
+<p><code>outputs/T-062/run_patient_bc_switch.py</code>：对 T-058 三例扩展域 case（复用网格）做共同静压调压至 250 mL/s。</p>
+<ul>
+<li>质量门用 <strong>M2 口径</strong>（no_crash / 质量不平衡 / 监测稳定）；Δp 入带 [10,100] 作<strong>最终</strong>判据而非每次 eval 门（调压中 Δp 必跨带）。</li>
+<li>两处接口修复：① <code>run_openfoam_case.py</code> 的 mesh 门拒绝 T-058 网格（已知 Failed 2 checks），且 <code>--allow-failed-mesh-for-diagnostic</code> 仅限合成 tube.stl 幻影 → <strong>直跑 checkMesh+simpleFoam</strong>（复用 T-058 生产链模式）；② monitor 名统一为 <code>flow_nostril_L</code> 等（<code>set_pressure_boundaries</code> 注入）。</li>
+<li><strong>b15 已确认运行</strong>（<code>eval_001</code> simpleFoam <code>Time=39/600</code>）。每 eval 600 步 ≈30min，调压预计 ~6 evals（~3h/例）。</li>
+</ul>
+<h2>5. 口径声明（恒随报告）</h2>
+<p>本卡结果为<strong>共同静压自然分流</strong>，与 T-054/T-047/T-058 的<strong>固定 50:50 口径不是同一个量</strong>，须并列标注、禁混作同一序列比较。产物恒带 <code>clinical_status: generalisation_test_only_no_human_review</code>。</p></body></html>

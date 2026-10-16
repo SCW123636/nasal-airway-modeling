@@ -1,0 +1,20 @@
+{
+  "task": "T-011 A.4 p0 extended-domain WSS, S-B (A.1 snappy mesh reused)",
+  "source_vtp": "C:\\ts_work\\t011_p0\\sb_out\\wall.vtp",
+  "faces": 78440,
+  "wall_area_m2": 0.019290106503231652,
+  "wall_area_mm2": 19290.10650323165,
+  "units_note": "foamToVTK exports SI: coords m, areas m^2; |tau| = kinematic x rho=1.2 -> Pa; force = sum(|tau|*dA) in N",
+  "wss_median_pa": 0.034382818648647784,
+  "wss_mean_pa": 0.050808229640593935,
+  "wss_p90_pa": 0.11989760930041006,
+  "wss_max_pa": 1.5688324001684564,
+  "wall_shear_force_n": 0.0010335115987688292,
+  "SA_anchor_A1_same_mesh": {
+    "force_n": 0.001008636
+  },
+  "b15_extended_reference_T054": {
+    "force_n": 0.001506
+  },
+  "clinical_status": "generalisation_test_only_no_human_review"
+}

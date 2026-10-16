@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>风见方法对照与隔离验证</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>Windcatcher 方法对照与隔离验证</h1>
+<p>更新时间：2026-10-08（北京时间）</p>
+<h2>结论</h2>
+<p>Windcatcher 中可借鉴的部分是“掩膜编辑后递增版本、下游产物失效、端面交线从裁切表面生成、保留入口/出口三角面索引”这条工程思路。它的端面三角化实现不能直接用于当前患者流程：对每条交线单独耳切，耳切失败时允许扇形回退，没有对孔洞、嵌套轮廓和自交轮廓建立阻断门。</p>
+<p>因此当前采用“逻辑借鉴、几何组件隔离验证、患者生产流程暂不替换”的方式。正式病例运行器已补入候选重新生成后的旧边界预览失效修复。</p>
+<h2>方法优势与采纳范围</h2>
+<ol>
+<li><strong>编辑与撤销形成操作闭环</strong>：<code>pipeline/mask_review.py</code> 的三视图笔划映射、原始候选备份、清理撤销和重置让人工修正可恢复；<code>mask_version</code> 变化后重新要求人工确认和体外空气检查。适合借鉴交互与依赖逻辑；当前新增组件保存任意不可变版本和内容哈希，但尚未提供浏览器画笔。</li>
+<li><strong>裁切方案与原掩膜分离</strong>：<code>endplanes.py</code> 保存方案、表面生成使用副本，避免把一次端面试验永久写进原始分割。方案绑定掩膜版本，旧版本会阻断；本项目仍需分别标识左右鼻孔与鼻咽三个开口，不能直接套用它的前/后两端语义。</li>
+<li><strong>端面来自真实三角网格交线</strong>：<code>surface.py</code> 在 LPS/mm 平面裁切网格后收集交线，减少斜切体素阶梯；入口/出口面索引与最终表面共用顶点，有利于保持 patch 身份。收益目前只在合成封盖和壁面拼接得到证据，真实患者局部 ROI 裁切尚待验证。</li>
+<li><strong>异常有明确阻断点</strong>：端面顺序、最小截面积、主通道连接性、版本、体外空气验证和完整外壳质检都参与流程。可借鉴逐步检查的组织方式；技术阈值和“最大连通块”选择必须结合本例解剖审核，不能作为医学正确性的证明。</li>
+</ol>
+<p>其他已检索候选包括 <a href="https://github.com/anj1/airway-geometry">airway-geometry</a>、<a href="https://github.com/qidiai/nasal-airflow-reconstruction">nasal-airflow-reconstruction</a>、<a href="https://github.com/lassoan/SlicerSegmentEditorExtraEffects">Slicer 扩展</a>。本轮没有把它们的实现或结果纳入生产流程，也没有在缺少实测时声明它们优于当前实现。</p>
+<h2>可复现对照</h2>
+<p>参考源码：Windcatcher，MIT，提交 <code>e12d77136040dded6449a921ecac186f1f9c4970</code>，本地审查副本位于 <code>D:/Cache/Temp/windcatcher-review-20261007</code>。</p>
+<table>
+<thead>
+<tr>
+<th>合成截面</th>
+<th style="text-align: right;">Windcatcher 风格实现</th>
+<th style="text-align: right;">当前组件</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>凹形 U 轮廓</td>
+<td style="text-align: right;">面积 10 mm²，6 三角形</td>
+<td style="text-align: right;">面积 10 mm²，6 三角形</td>
+<td>可借鉴的基础耳切思路在简单轮廓上成立</td>
+</tr>
+<tr>
+<td>外轮廓 + 内孔</td>
+<td style="text-align: right;">两条轮廓分别封盖，面积 20 mm²</td>
+<td style="text-align: right;">面积 12 mm²，8 三角形</td>
+<td>独立封盖会把内孔错误填平；当前组件保留孔洞</td>
+</tr>
+<tr>
+<td>自交轮廓</td>
+<td style="text-align: right;">产生 2 个三角形、面积 16 mm²</td>
+<td style="text-align: right;">拒绝：<code>Contours cross or touch</code></td>
+<td>回退不能作为患者几何容错</td>
+</tr>
+<tr>
+<td>嵌套岛</td>
+<td style="text-align: right;">独立填满每条轮廓，面积 21 mm²</td>
+<td style="text-align: right;">面积 13 mm²</td>
+<td>按包含深度分别形成实体和孔洞</td>
+</tr>
+<tr>
+<td>空心方管 + 两端盖</td>
+<td style="text-align: right;">开放边和非流形边均为 0，但 8 条共边方向不一致</td>
+<td style="text-align: right;">开放边、非流形边、方向不一致均为 0</td>
+<td>仅检查闭合边数会漏掉错误封盖</td>
+</tr>
+</tbody>
+</table>
+<h2>当前实现与边界</h2>
+<ul>
+<li><code>work/lib/planar_cap.py</code> 使用 Shapely/GEOS 约束 Delaunay 三角化，先把共面三维轮廓投影到局部二维坐标，再将三角形索引映射回原始 LPS/mm 顶点。每个实体与其直接孔洞共同三角化，偶数嵌套深度的岛独立生成。</li>
+<li>输入前拒绝轮廓相交、接触、自交、退化边、非共面和零面积；支持凹形、孔洞、嵌套轮廓和多个不相连开口。</li>
+<li>输出后检查完整三角形覆盖、面积、缝隙/重叠、三角形退化、法向、原始边界边集合；不提供扇形回退，也不执行自动几何修复或吸附。</li>
+<li>QC 输出明确为技术检查，<code>patient_solver_allowed=false</code>；尚未接入患者表面生成和 CFD。</li>
+<li><code>work/lib/mask_revision_store.py</code> 保存不可变主/候选掩膜版本，绑定 CT 哈希、LPS/mm 几何和父版本；编辑、撤销、重置都产生新版本，并将 surface/mesh/solver/results/report 标为 stale。</li>
+<li>CT 候选重新生成时，旧 <code>boundary_preview</code> 与 <code>boundary_review</code> 均失效；旧记录保留，不覆盖历史。</li>
+</ul>
+<h2>验证证据</h2>
+<ul>
+<li>新增封盖、掩膜版本和候选失效测试：23 项通过，其中 100 组固定种子随机旋转/平移检查嵌套轮廓、面积和法向。</li>
+<li>边界预览、边界审核、CT 边界审核、边界流水线和本机服务回归：34 项通过。</li>
+<li>2026-10-07 全量发现运行 286 项：285 项通过，1 个模块因缺少 <code>meshio</code> 导入错误；2026-10-08 最终后端变化后全量回归 287 项：286 项通过，同一已有模块导入错误。日志 <code>.tools/reconstruction-tests-20261008.log</code>。该环境限制不改变定向结果，不能写成无条件全量通过。</li>
+<li><code>reconstruction_component_validation.json</code> 保存固定参考提交、源码哈希、运行库版本和合成对照数值。真实 SimpleITK 掩膜编辑→不可变版本→表面生成→撤销→重建后，顶点和三角形与初始表面逐项一致；撤销仍产生第 3 个版本且审核 pending、全部下游 stale。</li>
+<li>初次 VTK 三维三角化在旋转带孔截面失败；局部二维投影修复了该样例，但扩大到随机旋转后继续失败。中心化/固有边轴向也未解决所有样例，因此放弃该后端。改用 GEOS 后全部 100 组通过，原失败测试保留，未降低验收条件。</li>
+<li>患者 CFD 结果继续为 0；没有把合成几何或 Windcatcher 参考结果写入患者结论。</li>
+</ul>
+<h2>下一步</h2>
+<p>在得到真实医学边界审核和当前掩膜的最终几何前，不替换患者生产流程。空心管道端面/管壁闭合和掩膜版本→表面生成已完成隔离验证；下一阶段仍需做真实网格裁切→交线提取→三端 patch 绑定，以及受控病例编辑适配器。当前验证没有覆盖裁切、真实鼻腔或体网格。</p>
+<p>新增依赖为 Shapely 2.2.0（BSD-3-Clause），运行 wheel 携带 GEOS（LGPL-2.1-or-later）；约束三角化要求 GEOS &gt;=3.10。固定依赖入口为 <code>work/lib/requirements-reconstruction.txt</code>；没有复制第三方源码。引入库增加环境安装与版本维护成本，当前收益限于合成孔洞、嵌套、旋转稳定性与覆盖检查，不声明医学精度、实际耗时或患者收益。</p>
+<p>复现（项目根目录）：</p>
+<pre><code class="language-powershell">$taskPython = 'C:/Users/lenovo/.workbuddy/binaries/python/envs/nasal-cfd/Scripts/python.exe'
+$env:PYTHONPATH = 'work/lib'
+&amp; $taskPython -m pip install -r work/lib/requirements-reconstruction.txt
+&amp; $taskPython -X utf8 -B -m unittest test_planar_cap test_mask_revision_store test_ct_regeneration
+&amp; $taskPython -X utf8 -B work/lib/validate_reconstruction_components.py --out work/07_cfd_pipeline/reconstruction_component_validation.json --windcatcher-root D:/Cache/Temp/windcatcher-review-20261007
+</code></pre>
+<p>参考仓库路径不存在时可省略 <code>--windcatcher-root</code>，只运行本项目的合成验证；不能将缺少参考数值的输出当作对照收益证据。</p><div class="src">原件：work/07_cfd_pipeline/风见方法对照与隔离验证.md</div></body></html>

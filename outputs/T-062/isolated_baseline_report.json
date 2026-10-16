@@ -1,0 +1,953 @@
+{
+  "schema": "nasal_t062_isolated_baseline/v1",
+  "patient_data": false,
+  "groups": {
+    "A_reproduce_t021": {
+      "target_m3_s": 1.666666666666667e-05,
+      "scenarios": {
+        "unequal": {
+          "result": {
+            "status": "converged",
+            "target_m3_s": 1.666666666666667e-05,
+            "pressure_pa": 1.7688857763694905,
+            "q_total_m3_s": 1.6557820061579e-05,
+            "q_left_m3_s": 1.468988128059e-05,
+            "q_right_m3_s": 1.867938780989e-06,
+            "q_out_m3_s": 1.655782005436e-05,
+            "left_fraction": 0.8871869138544758,
+            "iterations": [
+              {
+                "pressure_pa": 1.0,
+                "q_left_m3_s": 7.962014419421e-06,
+                "q_right_m3_s": 1.015234007874e-06,
+                "q_out_m3_s": 8.977248421779e-06,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 6.144420393254708e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 8.977248427294999e-06,
+                "relative_flow_error": 0.4613650943623002,
+                "left_fraction": 0.8869103360460409
+              },
+              {
+                "pressure_pa": 2.0,
+                "q_left_m3_s": 1.683832816062e-05,
+                "q_right_m3_s": 2.13964921198e-06,
+                "q_out_m3_s": 1.897797736535e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 3.8202168749056266e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 1.89779773726e-05,
+                "relative_flow_error": 0.13867864235599967,
+                "left_fraction": 0.8872562038634749
+              },
+              {
+                "pressure_pa": 1.7688857763694905,
+                "q_left_m3_s": 1.468988128059e-05,
+                "q_right_m3_s": 1.867938780989e-06,
+                "q_out_m3_s": 1.655782005436e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 4.359874003010649e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 1.6557820061579e-05,
+                "relative_flow_error": 0.00653079630526018,
+                "left_fraction": 0.8871869138544758
+              }
+            ],
+            "bracket": [
+              1.7688857763694905,
+              2.0
+            ]
+          },
+          "geometry": {
+            "left_width_mm": 2.0,
+            "right_width_mm": 1.0,
+            "swapped": false
+          },
+          "ideal_planar_left_fraction": 0.8888888888888888,
+          "evaluations": [
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 1.0,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/unequal/evaluations/eval_001",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:42:45.821661+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/unequal/evaluations/eval_001",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -7.962014419421e-06,
+                  "inlet_R": -1.015234007874e-06,
+                  "outlet": 8.977248421779e-06
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 7.962014419421e-06,
+                    "inlet_R": 1.015234007874e-06
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 8.977248421779e-06
+                  },
+                  "q_in_m3_s": 8.977248427294999e-06,
+                  "q_out_m3_s": 8.977248421779e-06,
+                  "mass_imbalance_frac": 6.144420393254708e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 0.9999999999999599,
+                  "inlet_R": 0.9999999999999599,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.72485730506e-07,
+                  "Uy": 9.69785067457e-08,
+                  "p": 9.93066399242e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 6.12799272985e-13,
+                  "Uy": 5.10203569259e-13,
+                  "p": 9.16109101093e-11
+                },
+                "residual_max": 1.72485730506e-07,
+                "continuity_global": -2.12170484379e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 2.495025386242869e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "778"
+              },
+              "evaluation": {
+                "pressure_pa": 1.0,
+                "q_left_m3_s": 7.962014419421e-06,
+                "q_right_m3_s": 1.015234007874e-06,
+                "q_out_m3_s": 8.977248421779e-06,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 6.144420393254708e-10,
+                "residuals_passed": true
+              }
+            },
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 2.0,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/unequal/evaluations/eval_002",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:43:04.593004+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/unequal/evaluations/eval_002",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -1.683832816062e-05,
+                  "inlet_R": -2.13964921198e-06,
+                  "outlet": 1.897797736535e-05
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 1.683832816062e-05,
+                    "inlet_R": 2.13964921198e-06
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 1.897797736535e-05
+                  },
+                  "q_in_m3_s": 1.89779773726e-05,
+                  "q_out_m3_s": 1.897797736535e-05,
+                  "mass_imbalance_frac": 3.8202168749056266e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 2.0000000000004,
+                  "inlet_R": 2.0000000000004,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.25940656464e-07,
+                  "Uy": 7.18992098319e-08,
+                  "p": 9.97732523951e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 4.34308424913e-13,
+                  "Uy": 4.95537050278e-13,
+                  "p": 7.9155289992e-11
+                },
+                "residual_max": 1.25940656464e-07,
+                "continuity_global": -2.79065871255e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 1.5388090713325913e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "1316"
+              },
+              "evaluation": {
+                "pressure_pa": 2.0,
+                "q_left_m3_s": 1.683832816062e-05,
+                "q_right_m3_s": 2.13964921198e-06,
+                "q_out_m3_s": 1.897797736535e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 3.8202168749056266e-10,
+                "residuals_passed": true
+              }
+            },
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 1.7688857763694905,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/unequal/evaluations/eval_003",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:43:28.954790+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/unequal/evaluations/eval_003",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -1.468988128059e-05,
+                  "inlet_R": -1.867938780989e-06,
+                  "outlet": 1.655782005436e-05
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 1.468988128059e-05,
+                    "inlet_R": 1.867938780989e-06
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 1.655782005436e-05
+                  },
+                  "q_in_m3_s": 1.6557820061579e-05,
+                  "q_out_m3_s": 1.655782005436e-05,
+                  "mass_imbalance_frac": 4.359874003010649e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 1.7688857763696,
+                  "inlet_R": 1.7688857763696,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.3509643799e-07,
+                  "Uy": 7.73831408919e-08,
+                  "p": 9.99143140847e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 6.42723444497e-13,
+                  "Uy": 6.80248255216e-13,
+                  "p": 8.35924578836e-11
+                },
+                "residual_max": 1.3509643799e-07,
+                "continuity_global": -2.77974952185e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 1.7019745548382244e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "1169"
+              },
+              "evaluation": {
+                "pressure_pa": 1.7688857763694905,
+                "q_left_m3_s": 1.468988128059e-05,
+                "q_right_m3_s": 1.867938780989e-06,
+                "q_out_m3_s": 1.655782005436e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 4.359874003010649e-10,
+                "residuals_passed": true
+              }
+            }
+          ]
+        },
+        "symmetric": {
+          "result": {
+            "status": "converged",
+            "target_m3_s": 1.666666666666667e-05,
+            "pressure_pa": 2.4442511455041886,
+            "q_total_m3_s": 1.6638557666052e-05,
+            "q_left_m3_s": 8.319278833013e-06,
+            "q_right_m3_s": 8.319278833039e-06,
+            "q_out_m3_s": 1.663855765932e-05,
+            "left_fraction": 0.4999999999992187,
+            "iterations": [
+              {
+                "pressure_pa": 1.0,
+                "q_left_m3_s": 3.381424481358e-06,
+                "q_right_m3_s": 3.381424481371e-06,
+                "q_out_m3_s": 6.762848954205e-06,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 1.2604155538822211e-09,
+                "residuals_passed": true,
+                "q_total_m3_s": 6.762848962729e-06,
+                "relative_flow_error": 0.5942290622362602,
+                "left_fraction": 0.4999999999990388
+              },
+              {
+                "pressure_pa": 2.0,
+                "q_left_m3_s": 6.793086981114e-06,
+                "q_right_m3_s": 6.793086981136e-06,
+                "q_out_m3_s": 1.358617395485e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 5.446712468251235e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 1.3586173962249999e-05,
+                "relative_flow_error": 0.18482956226500027,
+                "left_fraction": 0.49999999999919037
+              },
+              {
+                "pressure_pa": 4.0,
+                "q_left_m3_s": 1.372721137357e-05,
+                "q_right_m3_s": 1.372721137359e-05,
+                "q_out_m3_s": 2.74544227399e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 2.6443829371100323e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 2.745442274716e-05,
+                "relative_flow_error": 0.6472653648295996,
+                "left_fraction": 0.49999999999963574
+              },
+              {
+                "pressure_pa": 2.4442511455041886,
+                "q_left_m3_s": 8.319278833013e-06,
+                "q_right_m3_s": 8.319278833039e-06,
+                "q_out_m3_s": 1.663855765932e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 4.0460243967409057e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 1.6638557666052e-05,
+                "relative_flow_error": 0.0016865400368802014,
+                "left_fraction": 0.4999999999992187
+              }
+            ],
+            "bracket": [
+              2.4442511455041886,
+              4.0
+            ]
+          },
+          "geometry": {
+            "left_width_mm": 1.5,
+            "right_width_mm": 1.5,
+            "swapped": false
+          },
+          "ideal_planar_left_fraction": 0.5,
+          "evaluations": [
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 1.0,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_001",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:43:54.149522+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_001",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -3.381424481358e-06,
+                  "inlet_R": -3.381424481371e-06,
+                  "outlet": 6.762848954205e-06
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 3.381424481358e-06,
+                    "inlet_R": 3.381424481371e-06
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 6.762848954205e-06
+                  },
+                  "q_in_m3_s": 6.762848962729e-06,
+                  "q_out_m3_s": 6.762848954205e-06,
+                  "mass_imbalance_frac": 1.2604155538822211e-09
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 0.9999999999999599,
+                  "inlet_R": 0.9999999999999599,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 2.06073825409e-07,
+                  "Uy": 1.42627130157e-07,
+                  "p": 9.98092329031e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 3.08592705378e-13,
+                  "Uy": 8.59215865761e-13,
+                  "p": 9.76106695999e-11
+                },
+                "residual_max": 2.06073825409e-07,
+                "continuity_global": -3.27861013622e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 2.7073899047334496e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "396"
+              },
+              "evaluation": {
+                "pressure_pa": 1.0,
+                "q_left_m3_s": 3.381424481358e-06,
+                "q_right_m3_s": 3.381424481371e-06,
+                "q_out_m3_s": 6.762848954205e-06,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 1.2604155538822211e-09,
+                "residuals_passed": true
+              }
+            },
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 2.0,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_002",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:44:04.696484+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_002",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -6.793086981114e-06,
+                  "inlet_R": -6.793086981136e-06,
+                  "outlet": 1.358617395485e-05
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 6.793086981114e-06,
+                    "inlet_R": 6.793086981136e-06
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 1.358617395485e-05
+                  },
+                  "q_in_m3_s": 1.3586173962249999e-05,
+                  "q_out_m3_s": 1.358617395485e-05,
+                  "mass_imbalance_frac": 5.446712468251235e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 2.0000000000004,
+                  "inlet_R": 2.0000000000004,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.56629155354e-07,
+                  "Uy": 9.90610748307e-08,
+                  "p": 9.97336989451e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 3.44190400005e-13,
+                  "Uy": 2.761066377e-13,
+                  "p": 9.52801451329e-11
+                },
+                "residual_max": 1.56629155354e-07,
+                "continuity_global": -2.84701032231e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 1.7241548738364154e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "552"
+              },
+              "evaluation": {
+                "pressure_pa": 2.0,
+                "q_left_m3_s": 6.793086981114e-06,
+                "q_right_m3_s": 6.793086981136e-06,
+                "q_out_m3_s": 1.358617395485e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 5.446712468251235e-10,
+                "residuals_passed": true
+              }
+            },
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 4.0,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_003",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:44:14.063380+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_003",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -1.372721137357e-05,
+                  "inlet_R": -1.372721137359e-05,
+                  "outlet": 2.74544227399e-05
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 1.372721137357e-05,
+                    "inlet_R": 1.372721137359e-05
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 2.74544227399e-05
+                  },
+                  "q_in_m3_s": 2.745442274716e-05,
+                  "q_out_m3_s": 2.74544227399e-05,
+                  "mass_imbalance_frac": 2.6443829371100323e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 3.9999999999996,
+                  "inlet_R": 3.9999999999996,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.20565108632e-07,
+                  "Uy": 6.37822909765e-08,
+                  "p": 9.97888336982e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 2.40042198121e-13,
+                  "Uy": 9.10945720277e-13,
+                  "p": 7.49656423171e-11
+                },
+                "residual_max": 1.20565108632e-07,
+                "continuity_global": -2.79284065201e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 1.0768742479983017e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "961"
+              },
+              "evaluation": {
+                "pressure_pa": 4.0,
+                "q_left_m3_s": 1.372721137357e-05,
+                "q_right_m3_s": 1.372721137359e-05,
+                "q_out_m3_s": 2.74544227399e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 2.6443829371100323e-10,
+                "residuals_passed": true
+              }
+            },
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 2.4442511455041886,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_004",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:44:34.534196+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/symmetric/evaluations/eval_004",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -8.319278833013e-06,
+                  "inlet_R": -8.319278833039e-06,
+                  "outlet": 1.663855765932e-05
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 8.319278833013e-06,
+                    "inlet_R": 8.319278833039e-06
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 1.663855765932e-05
+                  },
+                  "q_in_m3_s": 1.6638557666052e-05,
+                  "q_out_m3_s": 1.663855765932e-05,
+                  "mass_imbalance_frac": 4.0460243967409057e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 2.4442511455043996,
+                  "inlet_R": 2.4442511455043996,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.42938112462e-07,
+                  "Uy": 8.70357634575e-08,
+                  "p": 9.83897631281e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 9.19982838894e-13,
+                  "Uy": 7.29217188504e-13,
+                  "p": 8.09918915897e-11
+                },
+                "residual_max": 1.42938112462e-07,
+                "continuity_global": -2.587800294e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 1.4844104177836104e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "639"
+              },
+              "evaluation": {
+                "pressure_pa": 2.4442511455041886,
+                "q_left_m3_s": 8.319278833013e-06,
+                "q_right_m3_s": 8.319278833039e-06,
+                "q_out_m3_s": 1.663855765932e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 4.0460243967409057e-10,
+                "residuals_passed": true
+              }
+            }
+          ]
+        },
+        "swapped_labels": {
+          "result": {
+            "status": "converged",
+            "target_m3_s": 1.666666666666667e-05,
+            "pressure_pa": 1.7688857763694905,
+            "q_total_m3_s": 1.6557820061579e-05,
+            "q_left_m3_s": 1.867938780989e-06,
+            "q_right_m3_s": 1.468988128059e-05,
+            "q_out_m3_s": 1.655782005436e-05,
+            "left_fraction": 0.11281308614552416,
+            "iterations": [
+              {
+                "pressure_pa": 1.0,
+                "q_left_m3_s": 1.015234007874e-06,
+                "q_right_m3_s": 7.962014419421e-06,
+                "q_out_m3_s": 8.977248421779e-06,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 6.144420393254708e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 8.977248427294999e-06,
+                "relative_flow_error": 0.4613650943623002,
+                "left_fraction": 0.11308966395395918
+              },
+              {
+                "pressure_pa": 2.0,
+                "q_left_m3_s": 2.13964921198e-06,
+                "q_right_m3_s": 1.683832816062e-05,
+                "q_out_m3_s": 1.897797736535e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 3.8202168749056266e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 1.89779773726e-05,
+                "relative_flow_error": 0.13867864235599967,
+                "left_fraction": 0.11274379613652506
+              },
+              {
+                "pressure_pa": 1.7688857763694905,
+                "q_left_m3_s": 1.867938780989e-06,
+                "q_right_m3_s": 1.468988128059e-05,
+                "q_out_m3_s": 1.655782005436e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 4.359874003010649e-10,
+                "residuals_passed": true,
+                "q_total_m3_s": 1.6557820061579e-05,
+                "relative_flow_error": 0.00653079630526018,
+                "left_fraction": 0.11281308614552416
+              }
+            ],
+            "bracket": [
+              1.7688857763694905,
+              2.0
+            ]
+          },
+          "geometry": {
+            "left_width_mm": 2.0,
+            "right_width_mm": 1.0,
+            "swapped": true
+          },
+          "ideal_planar_left_fraction": 0.8888888888888888,
+          "evaluations": [
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 1.0,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/swapped_labels/evaluations/eval_001",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:44:46.678343+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/swapped_labels/evaluations/eval_001",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -1.015234007874e-06,
+                  "inlet_R": -7.962014419421e-06,
+                  "outlet": 8.977248421779e-06
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 1.015234007874e-06,
+                    "inlet_R": 7.962014419421e-06
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 8.977248421779e-06
+                  },
+                  "q_in_m3_s": 8.977248427294999e-06,
+                  "q_out_m3_s": 8.977248421779e-06,
+                  "mass_imbalance_frac": 6.144420393254708e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 0.9999999999999599,
+                  "inlet_R": 0.9999999999999599,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.72485730506e-07,
+                  "Uy": 9.69785067457e-08,
+                  "p": 9.93066399242e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 6.12799272985e-13,
+                  "Uy": 5.10203569259e-13,
+                  "p": 9.16109101093e-11
+                },
+                "residual_max": 1.72485730506e-07,
+                "continuity_global": -2.12170484379e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 2.495025386242869e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "778"
+              },
+              "evaluation": {
+                "pressure_pa": 1.0,
+                "q_left_m3_s": 1.015234007874e-06,
+                "q_right_m3_s": 7.962014419421e-06,
+                "q_out_m3_s": 8.977248421779e-06,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 6.144420393254708e-10,
+                "residuals_passed": true
+              }
+            },
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 2.0,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/swapped_labels/evaluations/eval_002",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:45:02.246807+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/swapped_labels/evaluations/eval_002",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -2.13964921198e-06,
+                  "inlet_R": -1.683832816062e-05,
+                  "outlet": 1.897797736535e-05
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 2.13964921198e-06,
+                    "inlet_R": 1.683832816062e-05
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 1.897797736535e-05
+                  },
+                  "q_in_m3_s": 1.89779773726e-05,
+                  "q_out_m3_s": 1.897797736535e-05,
+                  "mass_imbalance_frac": 3.8202168749056266e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 2.0000000000004,
+                  "inlet_R": 2.0000000000004,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.25940656464e-07,
+                  "Uy": 7.18992098319e-08,
+                  "p": 9.97732523951e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 4.34308424913e-13,
+                  "Uy": 4.95537050278e-13,
+                  "p": 7.9155289992e-11
+                },
+                "residual_max": 1.25940656464e-07,
+                "continuity_global": -2.79065871255e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 1.5388090713325913e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "1316"
+              },
+              "evaluation": {
+                "pressure_pa": 2.0,
+                "q_left_m3_s": 2.13964921198e-06,
+                "q_right_m3_s": 1.683832816062e-05,
+                "q_out_m3_s": 1.897797736535e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 3.8202168749056266e-10,
+                "residuals_passed": true
+              }
+            },
+            {
+              "schema": "nasal_real_pressure_evaluation/v1",
+              "pressure_pa": 1.7688857763694905,
+              "case": "/home/lenovo2/t062_iso/A_reproduce_t021/swapped_labels/evaluations/eval_003",
+              "status": "accepted",
+              "started_at": "2026-10-16T06:45:29.683968+00:00",
+              "backend": "real_openfoam_v1912",
+              "clinical_validation": "not_validated",
+              "command": [
+                "/usr/bin/python3",
+                "/mnt/d/项目/鼻腔建模/work/07_cfd_pipeline/solver/run_openfoam_case.py",
+                "--case",
+                "/home/lenovo2/t062_iso/A_reproduce_t021/swapped_labels/evaluations/eval_003",
+                "--steps",
+                "blockMesh,checkMesh,simpleFoam,foamToVTK"
+              ],
+              "exit_code": 0,
+              "diagnostics": {
+                "signed_phi_m3_s": {
+                  "inlet_L": -1.867938780989e-06,
+                  "inlet_R": -1.468988128059e-05,
+                  "outlet": 1.655782005436e-05
+                },
+                "flux": {
+                  "q_in_by_patch": {
+                    "inlet_L": 1.867938780989e-06,
+                    "inlet_R": 1.468988128059e-05
+                  },
+                  "q_out_by_patch": {
+                    "outlet": 1.655782005436e-05
+                  },
+                  "q_in_m3_s": 1.6557820061579e-05,
+                  "q_out_m3_s": 1.655782005436e-05,
+                  "mass_imbalance_frac": 4.359874003010649e-10
+                },
+                "pressure_Pa_gauge": {
+                  "inlet_L": 1.7688857763696,
+                  "inlet_R": 1.7688857763696,
+                  "outlet": 0.0
+                },
+                "initial_residuals": {
+                  "Ux": 1.3509643799e-07,
+                  "Uy": 7.73831408919e-08,
+                  "p": 9.99143140847e-09
+                },
+                "linear_final_residuals": {
+                  "Ux": 6.42723444497e-13,
+                  "Uy": 6.80248255216e-13,
+                  "p": 8.35924578836e-11
+                },
+                "residual_max": 1.3509643799e-07,
+                "continuity_global": -2.77974952185e-09,
+                "monitor_relative_change": 0.0,
+                "monitor_definition": "T-008: dP final forty percent, consecutive nonoverlapping twenty-sample window means, maximum successive relative change",
+                "flow_monitor_relative_change": 1.7019745548382244e-06,
+                "flow_monitor_definition": "reference-only per-patch ten-step mean signed phi change",
+                "mesh_quality_passed": true,
+                "solver_ended": true,
+                "SIMPLE_convergence_banner": true,
+                "final_time": "1169"
+              },
+              "evaluation": {
+                "pressure_pa": 1.7688857763694905,
+                "q_left_m3_s": 1.867938780989e-06,
+                "q_right_m3_s": 1.468988128059e-05,
+                "q_out_m3_s": 1.655782005436e-05,
+                "converged": true,
+                "mesh_quality_passed": true,
+                "mass_imbalance_frac": 4.359874003010649e-10,
+                "residuals_passed": true
+              }
+            }
+          ]
+        }
+      },
+      "checks": {
+        "all_scenarios_converged": true,
+        "unequal_split_is_not_symmetric": true,
+        "symmetric_split_near_half": true,
+        "label_swap_complements_split": true,
+        "unequal_matches_cubic_law": true,
+        "all_flow_errors_within_one_percent": true
+      },
+      "status": "pass"
+    },
+    "B_patient_flow": {
+      "status": "error",
+      "error": "PressureFeedbackError('evaluation did not pass solver quality gates: converged=False, mesh_quality_passed=True, residuals_passed=False')"
+    }
+  },
+  "status": "fail"
+}

@@ -2,7 +2,8 @@ topic: 鼻腔CFD指标与症状评分关联证据裁定 + 小样本症状预测�
 date: 2026-10-16
 task_brief: ../../../plan/20261016-云端调研任务书_症状关联与小样本方法学.md
 定稿依据: 用户 2026-10-16 确认「只发关键两题」；题3（SSM可行性）与题4（无对照常模方法）暂缓另发。框架由模型知识生成后直接定稿（用户已授权按推荐进行，可事后逐条驳回）。
-追加依据: 用户 2026-10-16 09:0x 确认追加题5+题6（S4 文献映射路线的方法学缺口）；题3/题4 仍未发。原题1/题2 已执行完毕，本追加只加 batch 3。
+追加依据: 用户 2026-10-16 09:0x 确认追加题5+题6（S4 文献映射路线的方法学缺口）。
+追加依据2: 用户 2026-10-16 13:3x 问「还可以继续调研么」→ 追加题7（感知机制正当性）+题8（BC 敏感性/合并判据）+题9（人群适用性）+登记表补查 6 项（batch 4，任务书 `plan/20261016-云端调研任务书_S4执行前补全_题7题8题9.md`）——S4 执行前最后一轮补全。题3（SSM可行性）/题4（无对照常模）仍未发（服务 S3/S1 支撑模块，可另发）。
 time_range:
   题1_C5裁定: 2015-01 至今（CFD 症状关联证据）
   题2_方法学: 2010-01 至今（方法学经典不受时间限）
@@ -114,6 +115,46 @@ items:
       峰值冷却定义/位置/BC；④ Li 2018（PMC6015742）：下鼻道峰值 WSS 区域定义/
       提取方式/BC；⑤ Maza 2018（PMC6358472）：下鼻道气流%与 WSS 具体数值/
       样本构成。每篇注明：能找到原文给原文值，只能找到摘要给摘要值并标 [不确定]。
+  - name: 鼻腔气流温湿度感知的神经生理机制
+    category: 题7_S4正当性
+    description: >
+      四主特征的症状对应目前只有统计证据、缺机制链。检索鼻腔气流/通畅感的神经生理
+      机制：三叉神经与冷感受器（TRPM8/TRPA1）、黏膜冷却假说（mucosal cooling
+      hypothesis）提出者与证据状态；感觉热点区域（鼻前庭后/下鼻甲/中鼻道）的定量
+      证据；WSS 的机械感受通路；同时做机制测量与 CFD 指标并建立对应的先例；
+      反对「热交换/剪切→主观感受」链的反证与其他主导因素。检索词：nasal airflow
+      sensation neurophysiology / mucosal cooling hypothesis nasal patency / nasal
+      wall shear stress mechanoreceptor / 鼻腔 气流 感知 机制。
+  - name: 鼻腔CFD边界条件差异对区域指标的定量影响
+    category: 题8_S4合并判据
+    description: >
+      24 例跑在两套 BC（固定 50:50 分流+出口静压0 ／ 共同静压自然分流）上，需判定
+      能否合并聚类。检索：定压差 vs 定流量入口对 R/WSS/热通量/气流占比的定量影响；
+      出口 BC 与计算域截断（后鼻孔出口 vs 延伸域）对 WSS/热通量的影响量级；公认
+      BC 弱依赖量（无量纲/占比/排序）的论证实践；跨 BC 队列合并 vs 分层报告标准做法；
+      鼻腔 CFD 边界条件指南/共识的最低报告要求。检索词：nasal CFD boundary
+      condition sensitivity / nasal CFD domain truncation outlet sensitivity /
+      multi-center CFD harmonization。
+  - name: 常规鼻科人群对CFD症状证据的适用性
+    category: 题9_人群断层
+    description: >
+      队列为常规副鼻窦 CT（诊断构成未明，非 ENS 术后/非单纯鼻中隔手术），已有证据
+      集中在 ENS 与 NAO 人群，需判断迁移效度。检索：CRS/过敏性鼻炎/门诊鼻塞常规
+      人群的 CFD-症状关联研究（结论与 ENS 是否一致）；ENS 典型表型在非术后人群是否
+      存在、跨人群表型比较；外推的限制与前置检验；若队列以 CRS/鼻塞为主，哪套指标-
+      症状证据最适用。检索词：chronic rhinosinusitis CFD symptom SNOT-22 / nasal
+      obstruction outpatient CFD correlation / empty nose syndrome vs chronic
+      rhinosinusitis airflow phenotype。
+  - name: 题7题8题9附_登记表6项原文补查
+    category: 题7题8题9附
+    description: >
+      逐项补齐文献登记表待补细节：① Frank-Ito 2014（PMC3959863）截面/BC/效应量；
+      ② Zhao 2014 IFAR（中区气流优势）完整引用与定义/BC；③ 鼻中隔穿孔 WSS 阈值
+      0.72 Pa 研究（作者/年/期刊/DOI、WSS 定义与区域、BC、阈值来源）；④ Cherobin
+      等（n=25 阴性）完整引用；⑤ 中文鼻中隔偏曲 42 例（PMID 30400706）前端温降的
+      位置区间定义/BC；⑥ 方法学报告条款核实（ComBat/Da-Ano 2020、TRIPOD & TRIPOD+AI
+      条款号、RQS、SWiM、Fisher z 适用条件、Dennis 2019、Esteban-Ortega 2025）。
+      每项给完整引用+字段值+[不确定]标注。
 execution:
   batch_size: 4
   items_per_agent: 1
@@ -125,3 +166,5 @@ execution:
       items: [影像组学小样本建模实践_n50以下, 小样本验证协议_LOOCV可靠性与报告规范, 文献先验贝叶斯小样本案例与鼻腔症状预测先例]
     - batch: 3
       items: [小样本聚类稳定性协议与门槛先例, 无监督表型分型先例与降级实践, 跨研究指标协调方法学, 外部表型定义迁移与异源证据合成, 题6附_五篇关键原文细节补查]
+    - batch: 4
+      items: [鼻腔气流温湿度感知的神经生理机制, 鼻腔CFD边界条件差异对区域指标的定量影响, 常规鼻科人群对CFD症状证据的适用性, 题7题8题9附_登记表6项原文补查]

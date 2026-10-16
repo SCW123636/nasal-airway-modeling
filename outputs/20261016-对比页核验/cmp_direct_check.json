@@ -1,0 +1,19 @@
+{
+ "errors": [],
+ "shots": [
+  "cmp_direct_b15_vs_b01.png",
+  "cmp_direct_b15_vs_b02.png"
+ ],
+ "console_err": [],
+ "cmp_b01": {
+  "slots": 1,
+  "title": "双侧三维对比 · 解剖斜切 · T-058",
+  "badges": []
+ },
+ "cmp_b02": {
+  "slots": 1,
+  "title": "双侧三维对比 · 解剖斜切 · T-058",
+  "badges": []
+ },
+ "pass": true
+}

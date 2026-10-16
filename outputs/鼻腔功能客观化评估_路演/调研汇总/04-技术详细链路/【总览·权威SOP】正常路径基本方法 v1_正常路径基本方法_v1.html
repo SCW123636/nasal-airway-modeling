@@ -1,0 +1,502 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>正常路径基本方法_v1</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>鼻腔 CFD 表面制备 — 正常路径基本方法（v1）</h1>
+<blockquote>
+<p>范围：<strong>正常状况</strong>。异常/特殊状况（p0 类点位异常、序列不可用、几何自相交等）
+本文档<strong>不处理</strong>，另立文档。本方法的目标是让正常例<strong>无人值守跑通</strong>。</p>
+</blockquote>
+<h2>0. 什么叫「正常状况」</h2>
+<p>一条数据只有当下面 <strong>6 条全满足</strong> 时才适用本方法。任何一条不满足即转人工通道，
+<strong>不在本文档范围内</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>条件</th>
+<th>判据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N1</td>
+<td>有可用轴位原始序列</td>
+<td><code>ImageType</code> 含 <code>ORIGINAL</code> + <code>AXIAL</code>，in-plane ≤ 0.8 mm</td>
+</tr>
+<tr>
+<td>N2</td>
+<td>分割三标签非空</td>
+<td><code>nasal_cavity_left/right</code>、<code>nasopharynx</code> 体素数 &gt; 0</td>
+</tr>
+<tr>
+<td>N3</td>
+<td>空气腔非空</td>
+<td>三标签并集 ∩ HU &lt; −300 后体素数 &gt; 0</td>
+</tr>
+<tr>
+<td>N4</td>
+<td>表面闭合</td>
+<td>marching cubes 后 <code>boundary_edges == 0</code></td>
+</tr>
+<tr>
+<td>N5</td>
+<td>自动提案可用</td>
+<td>三开口有可用 <code>point_lps_mm</code> + <code>normal_lps</code>；<code>status</code> 见 §0.1</td>
+</tr>
+<tr>
+<td>N6</td>
+<td>开口面积入带</td>
+<td>鼻孔 ∈ [40,140] mm²、鼻咽出口 ∈ [120,500] mm²</td>
+</tr>
+</tbody>
+</table>
+<p>27 例新数据中，<strong>24 例（b01–b24）满足 N1</strong>（单一干净序列）；
+b25/b26/b27 是多序列例，<strong>不属于本文档范围</strong>。</p>
+<h2>0.1 ⚠️ N5 的 <code>needs_review</code> 不是真正的阻塞（2026-10-12 定案）</h2>
+<p><strong>首次全批（b01–b24）结果：auto_pass 仅 2/24，22 例全部同因 <code>no_planes</code>，
+detail 恒为同一句</strong> —— 不是 22 种失败，是<strong>一条判据把 22 例一起挡了</strong>。</p>
+<p><strong>真因</strong>：<code>auto_anatomy_landmarks.py:433</code> 的 <code>fov_truncated_labels</code>，定义为
+「标签掩膜任一体素触及 CT 立体六面之一即 True」；第 468 行据此把
+<code>nasopharynx_outlet</code> 从 <code>proposed</code> 降级为 <code>needs_review</code>。</p>
+<p><strong>该判据是「必要条件被当成充分条件」</strong>（与 <code>surface_contact_audit.py</code> 同类错误）：</p>
+<table>
+<thead>
+<tr>
+<th>实测</th>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>oropharynx</code> 触边</td>
+<td><strong>24/24</strong></td>
+<td>口咽本就向下延伸出扫描范围 → 判据恒真</td>
+</tr>
+<tr>
+<td><code>soft_palate</code> 触边</td>
+<td><strong>22/24</strong></td>
+<td>全部触<strong>头侧（superior）面</strong> —— 颈部长度扫描里软腭就在 FOV 上界</td>
+</tr>
+<tr>
+<td>未触边的两例</td>
+<td>b01 / b11</td>
+<td><strong>恰好就是通过的那两例</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>点位本身完全不受影响</strong>（24/24 实测）：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>needs_review 组 (n=22)</th>
+<th>proposed 组 (n=2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>point_lps_mm</code> 存在</td>
+<td>22/22</td>
+<td>2/2</td>
+</tr>
+<tr>
+<td>平面 RMS</td>
+<td>0.00–0.41 mm</td>
+<td>0.38 / 0.34 mm</td>
+</tr>
+<tr>
+<td>到软腭距离</td>
+<td>4.95–11.68 mm</td>
+<td>5.74 / 6.43 mm</td>
+</tr>
+</tbody>
+</table>
+<p>两组分布<strong>完全重叠，无区分力</strong> → 该标志对点位质量<strong>零信息量</strong>。</p>
+<p><strong>为什么试点 5 例没暴露</strong>：同一条判据在 p0–p3 上已经触发 <strong>3/5 次</strong>
+（p1 / p3 / p3t1），但旧路径走的是<strong>人工复核过的点位</strong>，完全绕开提案关卡。
+走自动路径后 22/24 立即暴露。→ <strong>这不是「新数据泛化差」，是旧路径掩盖了坏判据。</strong></p>
+<p><strong>处置（不放宽阈值）</strong>：新增显式开关 <code>--allow-needs-review</code>（默认关），
+且<strong>每个被放行的标志都记进报告的 <code>admitted_needs_review</code></strong>，不静默覆盖。
+默认路径行为<strong>逐字未变</strong>（复验：p1/p3/p3t1 仍阻塞，p2 仍通过）。
+判据修复（改测「结构被切断」而非「触碰边界」）列入待办，<strong>不在本轮改</strong>。</p>
+<h3>加 flag 后全批结果（2026-10-12）</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>首跑（无 flag）</th>
+<th>加 flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto_pass</td>
+<td><strong>2 / 24</strong></td>
+<td><strong>18 / 24</strong></td>
+</tr>
+<tr>
+<td><code>no_planes</code></td>
+<td>22</td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<p>18 个通过的例，鼻侧 80.21–117.79 mm²、出口 250.01–444.79 mm²，<strong>全部入带</strong>。
+b01 面积 80.12 / 83.33 / 299.43 mm² —— 与首跑<strong>逐位一致</strong>（flag 未改物理量）。</p>
+<p><strong>6 例仍升级，且原因各异（这是有效信号，不是判据坏了）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>例</th>
+<th>原因</th>
+<th>判读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b20</td>
+<td><code>no_planes</code>：<code>nostril_L status=unavailable</code></td>
+<td><strong>真·无点位</strong>（「T300 下无有限接触面/向外通道」），非 FOV 标志 → 应拒绝 ✅</td>
+</tr>
+<tr>
+<td>b04、b23</td>
+<td><code>onset_outlier</code>（−7.25 / −5.00 mm，带 [−4, 1]）+ <code>seed_lost</code></td>
+<td>出口腔 onset 偏离五例观察带 → 需人工确认</td>
+</tr>
+<tr>
+<td>b05、b15、b18</td>
+<td><code>seed_lost</code>（出口）</td>
+<td>ROI 对该平面失效 → 需人工确认</td>
+</tr>
+<tr>
+<td>b04</td>
+<td>另含 <code>nostril_L seed_lost</code></td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<p>→ <strong>6 例全部是「本方法设计上就该转人工」的情形</strong>，而非判据缺陷。</p>
+<blockquote>
+<p>⚠️ <strong>2026-10-13 更新</strong>：上表为 <strong>onset 起点（历史臂）</strong> 的结果。默认搜索起点已改为
+<code>reviewed</code>（§2⑤），同批复跑为 <strong>21/24</strong>：b05/b15/b18 的 <code>seed_lost</code> 消失并转
+<code>auto_pass</code>，b04/b23 保留 <code>onset_outlier</code>、b20 保留 <code>no_planes</code>。
+再加 <code>--allow-onset-outlier</code>（§0.2，opt-in）为 <strong>22/24</strong>：仅 b23 新增通过，
+b04 的理由由 <code>onset_outlier</code> 更正为真因 <code>seed_lost</code>；<strong>通过例面积逐位未变</strong>。
+当前默认路径仍为 <strong>21/24</strong>，22/24 是 opt-in 臂。
+有效数字以 §0.2 / §4 / §5 与 <code>normal_run_reviewed2.json</code> / <code>normal_run_onset_flag.json</code>
+为准，<strong>上表仅作历史对照</strong>。</p>
+</blockquote>
+<h2>0.2 <code>onset_outlier</code> 门降级为顾问标记（2026-10-13，opt-in）</h2>
+<p><strong>背景</strong>：<code>onset_outlier</code> 把「开口截面<strong>总面积</strong>首次达 50 mm² 的位置落在带 [−4, +1] mm 之外」
+当成硬阻塞。该带宽取自<strong>五例试点</strong>，它守的是<strong>以 onset 为锚</strong>的放置搜索。</p>
+<p><strong>为什么它已不再承重</strong>：2026-10-13 起搜索起点默认改为 <code>reviewed</code>（§2⑤），
+onset <strong>不驱动任何位置</strong>——它既不参与 <code>base</code>，也不参与二分窗口。</p>
+<p><strong>A/B 实测</strong>（<code>work/lib/probe_onset_gate_bypass.py</code>：同输入、同 <code>--search-origin reviewed</code>，
+只切换 onset 门）：</p>
+<table>
+<thead>
+<tr>
+<th>例</th>
+<th>门开（stock）</th>
+<th>门关</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b15 / b18</td>
+<td>auto_pass</td>
+<td><strong>逐位相同</strong>（80.04/80.06/439.18；80.09/80.07/251.64）</td>
+</tr>
+<tr>
+<td>b23</td>
+<td>escalated <code>onset_outlier</code></td>
+<td><strong>auto_pass</strong> 87.97/80.45/<strong>276.87</strong>（全在带内；出口仅位移 +0.45 mm）</td>
+</tr>
+<tr>
+<td>b04</td>
+<td>escalated <code>onset_outlier</code></td>
+<td>escalated <strong><code>seed_lost</code></strong>（nostril_L + 出口）← <strong>真实失败理由</strong></td>
+</tr>
+</tbody>
+</table>
+<p>三条读数：① 门对 onset 在带内的例<strong>严格 no-op</strong>（<code>elif</code> 分支不进入，代码路径完全相同）；
+② b23 被门挡住，但其 reviewed 锚点搜索<strong>能到带内面积</strong>；③ b04 去掉门后<strong>仍升级</strong>，
+理由从 <code>onset_outlier</code> 换成真正起作用的 <code>seed_lost</code>。
+→ <strong>该门在此批次从未提供安全性，只做「阻塞」与「误标」。</strong></p>
+<p><strong>处置（opt-in，默认路径逐字未变）</strong>：新增 <code>--allow-onset-outlier</code>
+（<code>auto_opening_pipeline.py</code> / <code>nasal_pipeline.py</code>）。置位时越带 onset 记入报告
+<code>onset_flags</code>（<strong>观测信息不丢</strong>），由放置自身门禁（<code>seed_lost</code> / <code>clip_failed</code> /
+<code>gate_failed</code> / 面积带）决定成败。<code>no_onset</code>（±30 mm 内找不到任何 ≥50 mm² 截面）
+<strong>仍是硬阻塞</strong>——那是「无可用几何」，不是起始位置偏好，与本节结论无关。</p>
+<p><strong>为什么是 opt-in 而非改默认</strong>：2026-10-13 曾把「保留为硬阻塞」写成决定，理由是
+「去掉它等于用未知换通过」。<strong>该理由对本批 b23 已被证伪</strong>（它不是「未知」，而是
+可核验的带内放置）；但改变对外基准仍需用户裁定，故先提供开关并记录两条臂的数字。</p>
+<h3>全批实测（<code>normal_run_onset_flag.json</code>，b01–b24，2026-10-13）</h3>
+<p><strong>auto_pass 22/24</strong>（基线 <code>normal_run_reviewed2.json</code> 为 21/24）。</p>
+<p>对账（<code>work/lib/ab_compare_runs.py</code>）：</p>
+<table>
+<thead>
+<tr>
+<th>判据</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基线 21 个通过例，面积<strong>逐位相同</strong></td>
+<td>✅ 21/21（证明门对带内例是严格 no-op）</td>
+</tr>
+<tr>
+<td>新失败（通过 → 升级）</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>b23</td>
+<td>escalated → <strong>auto_pass</strong> 87.97/80.45/276.87 ✅ 符合预期</td>
+</tr>
+<tr>
+<td>b04</td>
+<td>仍 escalated，理由从 <code>onset_outlier</code> → <strong><code>seed_lost</code></strong> ✅ 真因浮出</td>
+</tr>
+<tr>
+<td>b20</td>
+<td>仍 escalated <code>no_planes</code> ✅</td>
+</tr>
+</tbody>
+</table>
+<p>→ 仍然只有 2 例升级（b04 真·种子丢失 + b20 真·无点位），<strong>与本节结论完全一致</strong>。</p>
+<h3>⚠️ 工具自身曾误报（第 6 次同类事故，2026-10-13）</h3>
+<p><code>ab_compare_runs.py</code> 原先把 <code>ANCHOR_FAILED = {b04, b23}</code> <strong>连理由一起硬编码</strong>，
+前提是「两者都是锚点失败（onset_outlier）」。本次改造推翻的<strong>正是这个前提</strong>，
+于是工具把一次正确的变更判成 <code>verdict: FAIL</code> ——<strong>判据输出合法但与事实不符</strong>，
+正是本项目反复踩的那一类（阈值量纲错 / <code>area&gt;=0</code> 恒真 / ImageType 索引猜错 /
+基准值跨管线混记 / 弱证据布尔误判）。</p>
+<p><strong>处置</strong>：把「臂无关不变量」与「臂相关预期」分开——
+前者（面积逐位一致、不得新失败）恒检；后者改为命令行参数
+<code>--expect-pass</code> / <code>--expect-blocked</code> / <code>--reasons-clean</code>，不再内嵌个案结论。
+<strong>验证</strong>：不带参数仍复现 <code>FAIL</code>（证明闸门未被放宽）；带
+<code>--expect-pass b23 --reasons-clean b04</code> 得 <code>PASS</code>。</p>
+<h2>1. 五步链路（标准流程）</h2>
+<pre><code>① 选序列      batch27_series_choice.py    →  每例一个 DICOM 目录
+② 分割        ts_nasal_seg.py --batch-dir →  ct.nii.gz + masks/*.nii.gz
+③ 提案        auto_anatomy_landmarks.py   →  landmarks.json（自动解剖点位）
+④ 建表面      batch27_surface.py          →  source_surface.vtp
+⑤ 开口定位    auto_opening_pipeline.py    →  逐例报告 + auto_placed.vtp
+</code></pre>
+<p>单一入口：<code>python nasal_pipeline.py --cases b01 b02 ...</code>（见 §4 验收后可用）。</p>
+<h2>2. 各步判据与参数（全部已实测，非拟合）</h2>
+<h3>② 分割</h3>
+<ul>
+<li>任务 <code>head_glands_cavities</code>，CPU 约 136 s/例，只取三标签。</li>
+<li>阈值 −300（与试点管线一致）。−350/−400 属验证任务，不在本方法内静默改。</li>
+</ul>
+<h3>③ 提案</h3>
+<p><code>auto_anatomy_landmarks.py</code> 产出的三点位 <strong>仅供作起点</strong>，不是临床结论。</p>
+<h3>④ 建表面</h3>
+<ul>
+<li><strong>三标签并集，再 ∩ HU &lt; −300</strong>。
+  这一刀去掉 TotalSegmentator 在骨壁上纳入的部分容积体素；不做会明显更厚更糙。</li>
+<li>MC 在体素空间做，再套完整 LPS 仿射（复用生产函数 <code>mask_surface</code>）。</li>
+</ul>
+<h3>⑤ 开口定位（<strong>v2 判据：按 cap 面积二分</strong>）</h3>
+<p>沿平面法向二分，直到<strong>生产 <code>clip_and_cap</code> 实际产出的端盖面积</strong>达到解剖目标：</p>
+<table>
+<thead>
+<tr>
+<th>开口</th>
+<th>目标</th>
+<th>成人参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>鼻孔 L / R</td>
+<td><strong>80 mm²</strong></td>
+<td>50–100</td>
+</tr>
+<tr>
+<td>鼻咽出口</td>
+<td><strong>250 mm²</strong></td>
+<td>150–400</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>三开口<strong>坐标下降</strong>，≤3 轮（实测第 2 轮即收敛，末轮位移 0.0 mm）。</li>
+<li>每开口 9 次二分；<strong>窗口按搜索起点分档</strong>：<code>onset</code> 14 mm / 2⁹ ≈ 0.027 mm，
+  <code>reviewed</code> 3 mm / 2⁹ ≈ 0.006 mm。</li>
+<li><strong>搜索起点默认 <code>reviewed</code>（2026-10-13 起）</strong>：从 landmark 阶段提出的平面
+  （= 解剖锚点，王湧瑞 25/25 accept）出发，只有该处 cap 不足目标时才位移。
+  <code>onset</code> 保留为对照臂（<code>--search-origin onset</code>）。</li>
+</ul>
+<p><strong>为什么默认起点从 <code>onset</code> 改成 <code>reviewed</code>（2026-10-13 实测）：</strong>
+<code>onset</code> 是 <code>detect_onset</code> 判据的副产物——「截面<strong>总面积</strong>首次达 50 mm²」的位置
+（<code>auto_opening_placement.py</code> 的 <code>AREA_ON = 50</code>），而 cap 目标是 80/250，<strong>相差 5 倍</strong>。
+ROI 盒随平面一起平移，盒沿法向的负侧储备实测只有 <strong>~1.15 mm</strong>，于是任何
+<code>|onset| ≳ 1.25 mm</code> 的开口在搜索起点处<strong>盒内零种子</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>实测（b15 出口，push = 相对复核点位位移）</th>
+<th>seeds</th>
+<th>cap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.00 mm</td>
+<td>832</td>
+<td><strong>439.18</strong>（带内）</td>
+</tr>
+<tr>
+<td>−1.00 mm</td>
+<td>10</td>
+<td>6.9</td>
+</tr>
+<tr>
+<td>−1.25 mm</td>
+<td><strong>0</strong></td>
+<td>FAIL</td>
+</tr>
+</tbody>
+</table>
+<p><code>onset</code> 起点下 b05/b15/b18 全部 <code>seed_lost</code>；改 <code>reviewed</code> 起点后三例全部
+<code>auto_pass</code> 且面积在带内（见 §5 表）。临界边界实测落在 push ∈ (−1.25, −1.00)：
+b16/b21（onset −1.25，push −0.75）在界内通过，b15（push −1.25）在界外失败，
+<strong>两者只差 0.5 mm</strong>。</p>
+<p><strong>锚点超带的显式降级</strong>：若 reviewed 平面自身 cap 已超 band 上限（实测仅 b08：
+出口 772.35 &gt; 500），则回退 <code>onset</code> 起点并在报告写 <code>origin_downgrade</code>
+（含 reason 与违规面积），<strong>不静默换起点</strong>。b08 降级后 254.71，与 onset 基线逐位相同。</p>
+<p><strong>为什么不直接用 onset：</strong>
+v1 以「截面总面积」为被控量，该量<strong>有偏</strong>——p1 鼻孔处端盖面积 85.95 mm²
+竟大于整张截面 70.4 mm²，数学上不可能。v2 改用生产 cap 面积，绕开该问题。</p>
+<h2>3. 已知且必须转人工的两类</h2>
+<p>本方法<strong>不覆盖</strong>，仅列出以便识别：</p>
+<ul>
+<li><strong>p0 类</strong>：出口面高于鼻孔面（p0/p1/p3 高 3.2–7.8 mm），连通域 flood 找不到负侧种子。
+  已排除 ROI 平移解释，属复核点位问题，<strong>非代码问题</strong>。</li>
+<li><strong>多序列例</strong>：b25/b26/b27 含 3D 重建、Dose Report、Scout 等。</li>
+</ul>
+<h2>4. 验收</h2>
+<p>正常例通过 = N1–N6 全满足，且报告 <code>decision == "auto_pass"</code>。</p>
+<p><strong>⚠️ 本报告一律带 <code>clinical_status: generalisation_test_only_no_human_review</code></strong>。
+自动通过 ≠ 临床可用。位置正确性只能由复核确认；本判据只保证<strong>开口面积合理</strong>。</p>
+<h3>已验证</h3>
+<ul>
+<li>试点 5 例（人工复核）：4/5 自动通过，位置距人工位 <strong>0.00–1.42 mm</strong>。</li>
+<li>新数据 b01：<strong>auto_pass</strong>，面积 80.12 / 83.33 / 299.43 mm²，全在带内。
+  ⚠️ 该数为 <strong>onset 起点</strong>（历史臂）产物；reviewed 起点下 b01 = 80.08 / 80.08 / 251.73。</li>
+<li>新数据全批 <strong>b01–b24（加 <code>--allow-needs-review</code>）</strong>：</li>
+<li><strong>onset 起点（历史臂，2026-10-12）：18/24 auto_pass</strong>（见 §0.1）。</li>
+<li><strong>reviewed 起点（2026-10-13 起为默认）：21/24 auto_pass</strong>。
+    新增通过 b05 / b15 / b18（原 <code>seed_lost</code>），<strong>newly failing = 0</strong>；
+    保持报错 3 例：b04/b23 <code>onset_outlier</code>、b20 <code>no_planes</code>。
+  6→3 例的升级原因全部属于「设计上应转人工」或「锚点本身不合法」的情形。</li>
+</ul>
+<h3>运行命令（正常批）</h3>
+<pre><code>python work/lib/nasal_pipeline.py --skip-series \
+  --jobs 2 --threads 6 --load-ceiling 78 --allow-needs-review
+</code></pre>
+<p><code>--jobs 2 --threads 6 --load-ceiling 78</code> 为实测定案：全批 peak 42% / mean 36%（24 核机）。
+搜索起点无需传参（默认 <code>reviewed</code>）；对照臂加 <code>--search-origin onset</code>。</p>
+<h3>溯源指纹（2026-10-13 补，改任何判据后复验时必读）</h3>
+<p>run JSON 现在为每例记录<strong>本run实际产出的几何指纹</strong>：<code>s3_propose.landmarks_sha256</code>、
+<code>s4_surface.surface_sha256</code>，并与 s5 报告里它自报读过的 <code>plane_source_sha256</code> /
+<code>source_sha256</code> <strong>交叉核对</strong>（<code>N6.provenance</code>，取值 <code>match</code> / <code>MISMATCH</code> / <code>unrecorded</code>）。</p>
+<p><strong>任一 MISMATCH → 该例直接 escalated</strong>，面积照记但不作为证据。</p>
+<p>为什么值得单列一条：2026-10-13 追查 b02 出口 268.51 → 177.44 时，run 记录只有
+rc/s/tail，无法回答「这批到底读了哪份 surface」；而每例详细报告会被后续批次覆盖，
+不能当耐久记录。<strong>没有指纹，跨批次对账只能靠猜。</strong></p>
+<h2>5. 基准值（改任何判据后必须先复验）</h2>
+<table>
+<thead>
+<tr>
+<th>基准</th>
+<th>值</th>
+<th>出处</th>
+<th>搜索起点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>序列可选出</td>
+<td>≥ 24 / 27</td>
+<td><code>batch27_series_choice.json</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>p2 出口 cap 面积</td>
+<td><strong>441.87 mm²</strong></td>
+<td><code>C:/ts_work/auto_opening_v2_20261011/p2.json</code></td>
+<td>onset（历史）</td>
+</tr>
+<tr>
+<td>p1 鼻孔 cap 面积</td>
+<td><strong>80.07 mm²</strong>（左）</td>
+<td><code>C:/ts_work/auto_opening_v2_20261011/p1.json</code></td>
+<td>onset（历史）</td>
+</tr>
+<tr>
+<td>b01 出口 cap 面积</td>
+<td><strong>251.73 mm²</strong></td>
+<td><code>normal_run_reviewed2.json</code>（2026-10-13）</td>
+<td><strong>reviewed（默认）</strong></td>
+</tr>
+<tr>
+<td>b15 出口 cap 面积</td>
+<td><strong>439.18 mm²</strong></td>
+<td>同上</td>
+<td>reviewed</td>
+</tr>
+<tr>
+<td>b18 出口 cap 面积</td>
+<td><strong>251.64 mm²</strong></td>
+<td>同上</td>
+<td>reviewed</td>
+</tr>
+<tr>
+<td>b05 出口 cap 面积</td>
+<td><strong>252.27 mm²</strong></td>
+<td>同上</td>
+<td>reviewed</td>
+</tr>
+<tr>
+<td>b08 出口 cap 面积</td>
+<td><strong>254.71 mm²</strong></td>
+<td>同上（经 <code>origin_downgrade</code> 回退 onset）</td>
+<td>onset（降级后）</td>
+</tr>
+<tr>
+<td>b23 出口 cap 面积</td>
+<td><strong>276.87 mm²</strong></td>
+<td><code>normal_run_onset_flag.json</code>（<strong>仅加 <code>--allow-onset-outlier</code> 时</strong>）</td>
+<td>reviewed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>上表后四行由 <code>python work/lib/print_run_table.py &lt;run.json&gt;</code> 从 run 文件直接生成，
+禁止手抄</strong>——本项目「基准值跨管线混记」事故的根因就是手抄。</p>
+<p>⚠️ <strong>默认臂与 opt-in 臂的关系</strong>：b01–b22/b24 的数值在两条臂下<strong>逐位相同</strong>（已用
+<code>ab_compare_runs.py</code> 验证 21/21 bit-identical）；差异<strong>仅</strong>为两条记录：
+b23 从 escalated 变 <strong>auto_pass</strong>（上表末行），b04 的理由由 <code>onset_outlier</code> 更正为
+真因 <code>seed_lost</code>。所以<strong>不需要两套基准表</strong>——默认臂用本表，opt-in 臂在本表基础上
+多一条 b23。</p>
+<p>onset 历史臂下的同批数值（供对照，<strong>勿混用</strong>）：b01 出口 299.43 / b08 出口 254.71；
+b05 / b15 / b18 在 onset 臂为 <code>seed_lost</code>，<strong>无面积值</strong>（这正是默认起点被改掉的原因）。</p>
+<h3>⚠️ 勘误（2026-10-12）</h3>
+<p>本表此前误记为「p2 出口 292.13 / p1 鼻孔 85.95」。<strong>这两个数字不属于 v2 管线</strong>，
+它们是 <strong>ROI-box / 选择谓词时代（<code>connectivity_opened_20261011</code>）的固定平面面积</strong>——
+那个时代不做面积目标二分，p2 出口恰好落在 292.13。</p>
+<p>v2 改按 cap 目标二分后，p2 出口 = <strong>441.87</strong>、p1 鼻孔 = <strong>80.07</strong>。
+差异<strong>不是回归</strong>：<code>source_sha256</code> 与原始 v2 产物逐位相同，实为<strong>我把两条不同管线的数
+混记成了一条基准</strong>。</p>
+<p><strong>教训</strong>：基准值必须<strong>带出处</strong>（文件路径 + 管线名），否则跨管线改名后就会
+拿旧管线的数去验新管线，得出假失败。</p>
+<p><strong>缘由</strong>：本项目已多次出现「判据/解析代码自身坏掉但输出看起来合法」
+（自相交 det 阈值、<code>refine</code> 写 <code>area&gt;=0</code>、DICOM <code>ImageType</code> 索引猜错、
+基准值跨管线混记）。<strong>任何新判据落地，先用已知答案验一遍，且已知答案要带出处。</strong></p><div class="src">原件：work/07_cfd_pipeline/正常路径基本方法_v1.md</div></body></html>

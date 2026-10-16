@@ -1,0 +1,101 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.12) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.08) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>04 / 测试过程与真实反馈</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>全链结果：几何 → 网格 → 求解 → 指标</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q4</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'row', gap: 26 }}>
+            <Box style={{ width: 690, flexDirection: 'column', padding: '20px 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#8BA6C1' }}>扩展域全链结果 · 现行基线</Text>
+
+                <Box style={{ flexDirection: 'row', gap: 8, marginTop: 14, paddingBottom: 10, borderBottom: '1px solid rgba(139,166,193,0.30)' }}>
+                    <Box style={{ width: 200 }}><Text style={{ fontSize: 14, color: '#8BA6C1' }}>指标</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 14, color: '#8BA6C1' }}>b15</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 14, color: '#8BA6C1' }}>b01</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 14, color: '#8BA6C1' }}>b02</Text></Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', gap: 8, height: 44, alignItems: 'center' }}>
+                    <Box style={{ width: 200 }}><Text style={{ fontSize: 17, color: '#E8F1FA' }}>鼻阻力 R（Pa·s/mL）</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, fontWeight: 700, color: '#22D3EE' }}>0.0685</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, fontWeight: 700, color: '#22D3EE' }}>0.0618</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, fontWeight: 700, color: '#F5A524' }}>0.1729</Text></Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', gap: 8, height: 44, alignItems: 'center' }}>
+                    <Box style={{ width: 200 }}><Text style={{ fontSize: 17, color: '#E8F1FA' }}>压差 Δp（Pa）</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#E8F1FA' }}>17.120</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#E8F1FA' }}>15.460</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#F5A524' }}>43.231</Text></Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', gap: 8, height: 44, alignItems: 'center' }}>
+                    <Box style={{ width: 200 }}><Text style={{ fontSize: 17, color: '#E8F1FA' }}>WSS 合力（N）</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#E8F1FA' }}>1.49e-3</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#E8F1FA' }}>1.27e-3</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#F5A524' }}>2.37e-3</Text></Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', gap: 8, height: 44, alignItems: 'center' }}>
+                    <Box style={{ width: 200 }}><Text style={{ fontSize: 17, color: '#E8F1FA' }}>WSS 中位（Pa）</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#E8F1FA' }}>0.068</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#E8F1FA' }}>0.050</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 19, color: '#F5A524' }}>0.090</Text></Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', gap: 8, height: 44, alignItems: 'center' }}>
+                    <Box style={{ width: 200 }}><Text style={{ fontSize: 17, color: '#E8F1FA' }}>网格单元数</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 18, color: '#E8F1FA' }}>653,789</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 18, color: '#E8F1FA' }}>710,101</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 18, color: '#E8F1FA' }}>590,961</Text></Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', gap: 8, height: 44, alignItems: 'center' }}>
+                    <Box style={{ width: 200 }}><Text style={{ fontSize: 17, color: '#E8F1FA' }}>质量不平衡</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 18, color: '#E8F1FA' }}>6.0e-8</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 18, color: '#E8F1FA' }}>4.5e-7</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 18, color: '#E8F1FA' }}>4.6e-7</Text></Box>
+                </Box>
+
+                <Box style={{ flexDirection: 'row', gap: 8, height: 44, alignItems: 'center', background: 'rgba(34,211,238,0.07)', borderRadius: 8 }}>
+                    <Box style={{ width: 200, paddingLeft: 8 }}><Text style={{ fontSize: 17, fontWeight: 600, color: '#22D3EE' }}>工程验证</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 17, fontWeight: 600, color: '#22D3EE' }}>通过</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 17, fontWeight: 600, color: '#22D3EE' }}>通过</Text></Box>
+                    <Box style={{ flex: 1, alignItems: 'center' }}><Text style={{ fontSize: 17, fontWeight: 600, color: '#22D3EE' }}>通过</Text></Box>
+                </Box>
+
+                <Text style={{ fontSize: 13, color: '#3B5675', marginTop: 'auto' }}>均为全链 CHAIN-DONE（几何 → 开口 → 网格 → 求解 → 指标）；网格数为 checkMesh 口径。b02 为本项目首次进入求解链的病例，上表即其首产基线。</Text>
+            </Box>
+
+            <Box style={{ flex: 1, flexDirection: 'column', gap: 14 }}>
+                <Box style={{ flexDirection: 'column', gap: 8, padding: '16px 18px', background: 'rgba(245,165,36,0.08)', borderRadius: 10, borderLeft: '3px solid #F5A524' }}>
+                    <Text style={{ fontSize: 14, fontWeight: 700, letterSpacing: 1, color: '#F5A524' }}>口径声明 · 必读</Text>
+                    <Text style={{ fontSize: 14, color: '#C9D8E6', lineHeight: 1.55 }}>均为<span style={{ fontWeight: 700, color: '#E8F1FA' }}>稳态层流工程尺度验证</span>，非临床诊断；出口下游阻力缺失 → Δp 已知偏低。</Text>
+                    <Text style={{ fontSize: 14, color: '#C9D8E6', lineHeight: 1.55 }}>R 绝对值不可对标临床鼻测压 —— 只有<span style={{ fontWeight: 700, color: '#E8F1FA' }}>配对相对变化</span>可采信。</Text>
+                    <Text style={{ fontSize: 14, color: '#F5A524', lineHeight: 1.55 }}>通过的是<span style={{ fontWeight: 700 }}>工程尺度筛检</span>，而非严格残差意义上的完全收敛。</Text>
+                </Box>
+
+                <Box style={{ flex: 1, flexDirection: 'column', padding: '18px 18px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 14, letterSpacing: 2, color: '#8BA6C1' }}>域不同，数字不可比</Text>
+                    <Text style={{ fontSize: 72, fontWeight: 800, lineHeight: 1, color: '#F5A524', marginTop: 8 }}>40%</Text>
+                    <Text style={{ fontSize: 15, color: '#B7CBDD', lineHeight: 1.55, marginTop: 8 }}>用「鼻腔短域」口径算 b15，Δp 只有 10.29 Pa；含口咽的扩展域是 17.12 Pa。</Text>
+                    <Text style={{ fontSize: 14, color: '#8BA6C1', lineHeight: 1.5, marginTop: 'auto', paddingTop: 10, borderTop: '1px solid rgba(139,166,193,0.24)' }}>域变一次，结论翻一次 —— 域标准必须锁死。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>口径：generalisation_test_only_no_human_review · 出口为工程截断面，缺下游阻力</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>06 / 09</Text>
+        </Box>
+    </Box>
+</Slide>

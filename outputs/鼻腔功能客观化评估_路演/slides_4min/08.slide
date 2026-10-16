@@ -1,0 +1,56 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.12) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.08) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>05 / 团队与产品的未来计划</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>愿景：从评估工具，到一条可复现的标准</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q5</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'column', gap: 16 }}>
+            <Box style={{ height: 156, flexDirection: 'row', gap: 24, padding: '18px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(34,211,238,0.30)' }}>
+                <Box style={{ width: 190, flexDirection: 'column', justifyContent: 'center', gap: 4 }}>
+                    <Text style={{ fontSize: 44, fontWeight: 800, lineHeight: 1, color: '#22D3EE' }}>01</Text>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#8BA6C1' }}>科研 · 客观终点</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 8, justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>把研究终点从主观问卷，换成可复现的物理量</Text>
+                    <Text style={{ fontSize: 15, color: '#B7CBDD', lineHeight: 1.55 }}>空鼻综合征研究长期缺客观终点。文献已给出症状关联分级：热通量 SAHF50 r≈−0.76、下鼻道峰值 WSS −0.398、中鼻道气流占比 0.76；我们将用 24 例队列做无监督表型分型，为人群建立常模分布。</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ height: 156, flexDirection: 'row', gap: 24, padding: '18px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(139,166,193,0.22)' }}>
+                <Box style={{ width: 190, flexDirection: 'column', justifyContent: 'center', gap: 4 }}>
+                    <Text style={{ fontSize: 44, fontWeight: 800, lineHeight: 1, color: '#22D3EE' }}>02</Text>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#8BA6C1' }}>泛化 · 一个标准</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 8, justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>全自动流水线 → 跨中心队列常模</Text>
+                    <Text style={{ fontSize: 15, color: '#B7CBDD', lineHeight: 1.55 }}>几何层已全自动：23/24 通过全部表面判据，网格、求解、指标正在批量化。下一步做跨中心、不同扫描参数的输入标准化——让任何一台 CT 的气道，都能进同一条流水线、比同一套常模。</Text>
+                </Box>
+            </Box>
+
+            <Box style={{ height: 156, flexDirection: 'row', gap: 24, padding: '18px 24px', background: 'linear-gradient(150deg, #1B3A5C 0%, #12263F 100%)', borderRadius: 12, border: '1px solid rgba(245,165,36,0.40)' }}>
+                <Box style={{ width: 190, flexDirection: 'column', justifyContent: 'center', gap: 4 }}>
+                    <Text style={{ fontSize: 44, fontWeight: 800, lineHeight: 1, color: '#F5A524' }}>03</Text>
+                    <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#8BA6C1' }}>器件 · 数字孪生</Text>
+                </Box>
+                <Box style={{ flex: 1, flexDirection: 'column', gap: 8, justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>术前预演手术、试穿定制鼻塞，术后客观随访</Text>
+                    <Text style={{ fontSize: 15, color: '#B7CBDD', lineHeight: 1.55 }}>在患者的数字孪生上预演下鼻甲切除、填充方案对气流与温湿度的影响，反向求解定制鼻塞的形状与位置——从「读出功能」到「改回功能」；术后以配对相对变化做客观随访。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>边界：关联证据为文献迁移、未在本队列验证；不做个体化症状预测；R 绝对值不可对标临床鼻测压</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>08 / 09</Text>
+        </Box>
+    </Box>
+</Slide>

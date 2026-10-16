@@ -1,0 +1,66 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.10) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.07) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>目录 / CONTENTS</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>今天的五个问题</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 14, fontWeight: 700, color: '#22D3EE' }}>5 Q</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'row', gap: 34 }}>
+            <Box style={{ width: 300, flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
+                <Box style={{ width: 40, height: 3, background: '#22D3EE' }} />
+                <Text style={{ fontSize: 21, color: '#B7CBDD', lineHeight: 1.7 }}>
+                    主办方给了五个问题。我们<Text style={{ color: '#E8F1FA', fontWeight: 700 }}>一条都不绕开</Text>——每一章只对一个核心问题负责，并给出可验证的回答。
+                </Text>
+                <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.6 }}>
+                    全篇 18 页 · 五个章节扉页与左侧编号逐一对应
+                </Text>
+            </Box>
+
+            <Box style={{ flex: 1, flexDirection: 'column', gap: 9, justifyContent: 'center' }}>
+                <Box style={{ height: 86, flexDirection: 'row', alignItems: 'center', gap: 18, padding: '0 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 700, color: '#22D3EE', width: 44 }}>01</Text>
+                    <Text style={{ fontSize: 23, fontWeight: 700, color: '#E8F1FA', width: 250 }}>问题与需求</Text>
+                    <Text style={{ fontSize: 18, color: '#8BA6C1', flex: 1, lineHeight: 1.45 }}>关注了哪类患者？他们面临什么真实困难？为什么值得解决？</Text>
+                    <Text style={{ fontSize: 14, color: '#3B5675' }}>P03</Text>
+                </Box>
+                <Box style={{ height: 86, flexDirection: 'row', alignItems: 'center', gap: 18, padding: '0 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 700, color: '#22D3EE', width: 44 }}>02</Text>
+                    <Text style={{ fontSize: 23, fontWeight: 700, color: '#E8F1FA', width: 250 }}>产品与解决方案</Text>
+                    <Text style={{ fontSize: 18, color: '#8BA6C1', flex: 1, lineHeight: 1.45 }}>产品是什么？有哪些核心功能？如何使用？成本与可支付性是多少？</Text>
+                    <Text style={{ fontSize: 14, color: '#3B5675' }}>P06</Text>
+                </Box>
+                <Box style={{ height: 86, flexDirection: 'row', alignItems: 'center', gap: 18, padding: '0 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 700, color: '#22D3EE', width: 44 }}>03</Text>
+                    <Text style={{ fontSize: 23, fontWeight: 700, color: '#E8F1FA', width: 250 }}>一个月的协作故事</Text>
+                    <Text style={{ fontSize: 18, color: '#8BA6C1', flex: 1, lineHeight: 1.45 }}>团队如何从想法走到产品？经历了哪些困难、关键转折和难点？</Text>
+                    <Text style={{ fontSize: 14, color: '#3B5675' }}>P10</Text>
+                </Box>
+                <Box style={{ height: 86, flexDirection: 'row', alignItems: 'center', gap: 18, padding: '0 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 700, color: '#22D3EE', width: 44 }}>04</Text>
+                    <Text style={{ fontSize: 23, fontWeight: 700, color: '#E8F1FA', width: 250 }}>测试过程与真实反馈</Text>
+                    <Text style={{ fontSize: 18, color: '#8BA6C1', flex: 1, lineHeight: 1.45 }}>如何测试？收到哪些反馈？根据反馈做了什么？取得了什么效果？</Text>
+                    <Text style={{ fontSize: 14, color: '#3B5675' }}>P13</Text>
+                </Box>
+                <Box style={{ height: 86, flexDirection: 'row', alignItems: 'center', gap: 18, padding: '0 22px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Text style={{ fontSize: 26, fontWeight: 700, color: '#22D3EE', width: 44 }}>05</Text>
+                    <Text style={{ fontSize: 23, fontWeight: 700, color: '#E8F1FA', width: 250 }}>团队与产品的未来计划</Text>
+                    <Text style={{ fontSize: 18, color: '#8BA6C1', flex: 1, lineHeight: 1.45 }}>团队是否持续协作？下一步如何开发、验证和落地？需要哪些支持？</Text>
+                    <Text style={{ fontSize: 14, color: '#3B5675' }}>P16</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>空鼻症鼻腔功能客观化评估</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>02 / 18</Text>
+        </Box>
+    </Box>
+</Slide>

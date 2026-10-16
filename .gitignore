@@ -75,5 +75,11 @@ outputs/T-059/openings/*/
 outputs/T-039/chali_*/
 outputs/T-039/wheels/
 
+# 路演目录：可再生中间产物留盘（PPTX/HTML/预览图入库）
+outputs/鼻腔功能客观化评估_路演/.cache/
+outputs/鼻腔功能客观化评估_路演/.slidep/
+outputs/鼻腔功能客观化评估_路演/_intermediate/
+outputs/鼻腔功能客观化评估_路演/_render/
+
 # 本地测试符号链接
 /vartest

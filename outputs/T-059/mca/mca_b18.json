@@ -1,7 +1,7 @@
 {
   "schema": "nasal_mca_measurement/v1",
   "case": "b18",
-  "generated_at_utc": "2026-10-16T05:16:53+00:00",
+  "generated_at_utc": "2026-10-16T05:22:02+00:00",
   "generator": {
     "script": "D:\\项目\\鼻腔建模\\work\\lib\\measure_mca.py",
     "parameters": {

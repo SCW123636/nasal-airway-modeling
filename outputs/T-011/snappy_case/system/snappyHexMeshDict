@@ -1,0 +1,167 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| T-011 A.1 (snappyHexMesh route) - castellated + snap of the p0 extended-domain
+| airway.  Replaces the netgen step, which runs away on this geometry
+| (outputs/T-011/netgen_p0_memory_investigation.md).
+|
+| Internal flow: locationInMesh is a point VERIFIED inside the lumen
+| (outputs/T-011/split_surface_for_snappy.py, clearance 6.49 mm); snappy keeps
+| the cells on that side and discards the rest, and the four geometry entries
+| become the four OpenFOAM boundary patches (nostril_L / nostril_R /
+| oropharynx_truncation_outlet / wall).
+|
+| refinement level 3 = 4 mm / 2^3 = 0.5 mm, matching b15's netgen resolution.
+| addLayers is OFF this round: b15's mesh had no boundary layers either, so
+| keeping it off keeps the two meshes comparable.
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+
+castellatedMesh true;
+snap            true;
+addLayers       false;
+
+geometry
+{
+    nostril_L
+    {
+        type triSurfaceMesh;
+        file "nostril_L.stl";
+    }
+    nostril_R
+    {
+        type triSurfaceMesh;
+        file "nostril_R.stl";
+    }
+    oropharynx_truncation_outlet
+    {
+        type triSurfaceMesh;
+        file "oropharynx_truncation_outlet.stl";
+    }
+    wall
+    {
+        type triSurfaceMesh;
+        file "wall.stl";
+    }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells       4000000;
+    maxGlobalCells      12000000;
+    minRefinementCells  10;
+    nCellsBetweenLevels 3;
+
+    features
+    (
+    );
+
+    refinementSurfaces
+    {
+        nostril_L
+        {
+            level (3 3);
+            patchInfo { type patch; }   // inlet: flowRateInletVelocity needs a patch
+        }
+        nostril_R
+        {
+            level (3 3);
+            patchInfo { type patch; }   // inlet
+        }
+        oropharynx_truncation_outlet
+        {
+            level (3 3);
+            patchInfo { type patch; }   // outlet (p = 0)
+        }
+        wall
+        {
+            level (3 3);
+            // no patchInfo -> stays the default `wall` type; wallShearStress only
+            // writes on type wall, so this is required.
+        }
+    }
+
+    resolveFeatureAngle 30;
+
+    refinementRegions
+    {
+    }
+
+    // metres (the STLs were scaled to m by surfaceTransformPoints and blockMeshDict
+    // uses convertToMeters 0.001; the mm-space point was
+    // (-11.88386 -157.24868 -662.26917) with 6.49 mm clearance).
+    locationInMesh (-0.01188386 -0.15724868 -0.66226917);
+
+    allowFreeStandingZoneFaces true;
+}
+
+snapControls
+{
+    nSmoothPatch       3;
+    tolerance          2.0;
+    nSolveIter         30;
+    nRelaxIter         5;
+    nFeatureSnapIter   10;
+    implicitFeatureSnap false;
+    explicitFeatureSnap true;
+    multiRegionFeatureSnap false;
+}
+
+addLayersControls
+{
+    // addLayers is false, so this block is inert; left complete for a later
+    // round if boundary layers are wanted.
+    relativeSizes       true;
+    expansionRatio      1.2;
+    finalLayerThickness 0.4;
+    minThickness        0.1;
+    nGrow               0;
+    featureAngle        60;
+    slipFeatureAngle    30;
+    nRelaxIter          3;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals      3;
+    nSmoothThickness    2;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedianAxisAngle  90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter          50;
+    nRelaxedIter        20;
+    layers
+    {
+    }
+}
+
+meshQualityControls
+{
+    maxNonOrtho         65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave          80;
+    minVol              1e-13;
+    minTetQuality       1e-15;
+    minArea             -1;
+    minTwist            0.02;
+    minDeterminant      0.001;
+    minFaceWeight       0.02;
+    minVolRatio         0.01;
+    minTriangleTwist    -1;
+    nSmoothScale        4;
+    errorReduction      0.75;
+
+    relaxed
+    {
+        maxNonOrtho 75;
+    }
+}
+
+debug 0;
+
+mergeTolerance 1e-6;
+
+// ************************************************************************* //

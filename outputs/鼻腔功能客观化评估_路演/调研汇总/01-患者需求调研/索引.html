@@ -1,0 +1,162 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>索引</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;max-width:960px;margin:32px auto;padding:0 24px;line-height:1.75;color:#1c2733;}
+h1{border-bottom:2px solid #0e7490;padding-bottom:8px;color:#0c4a6e;} h2{color:#0c4a6e;}
+table{border-collapse:collapse;margin:16px 0;} th,td{border:1px solid #cbd5e1;padding:6px 12px;} th{background:#f1f5f9;}
+code{background:#f1f5f9;padding:2px 6px;border-radius:3px;} a{color:#0e7490;}
+.src{background:#f8fafc;border-left:4px solid #0e7490;padding:8px 14px;color:#475569;font-size:13px;margin-top:24px;}
+</style></head><body><h1>患者需求材料索引</h1>
+<blockquote>
+<p>本目录 = 本项目<strong>需求类材料唯一归口</strong>（外部调研报告 / 患者侧材料 / 需求转译分析）。
+命名 <code>YYYYMMDD-&lt;主题&gt;.md</code>；原始未加工材料进 <code>原始材料/</code>。
+与项目级 <code>knowledge/索引.md</code>（任务结论卡，Lead 维护）<strong>互不收录</strong>——那边记"做完了什么"，这边记"要什么、为什么"。</p>
+</blockquote>
+<h2>一、材料登记</h2>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>材料</th>
+<th>性质</th>
+<th>证据口径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-15</td>
+<td><a href="原始材料/空鼻症患者共性问题交叉验证表.html">空鼻症患者共性问题交叉验证表</a></td>
+<td>原始 · SRC-A</td>
+<td>群体共性，多源文献交叉验证，已结构化分层</td>
+</tr>
+<tr>
+<td>2026-10-15</td>
+<td><a href="原始材料/患者真实需求_聊天记录复述.html">患者真实需求_聊天记录复述</a></td>
+<td>原始 · SRC-B</td>
+<td>个体患者自述，群聊复述，去标识化昵称</td>
+</tr>
+<tr>
+<td>2026-10-15</td>
+<td><a href="20261015-鼻腔建模-患者需求交叉分析.html">鼻腔建模-患者需求交叉分析</a></td>
+<td>转译分析 · <strong>项目内产出</strong></td>
+<td>需求 → CFD 指标映射矩阵（鼻阻力 / WSS / 后鼻孔温湿 / 热通量）</td>
+</tr>
+<tr>
+<td>2026-10-15</td>
+<td><a href="20261015-补充信息记录与准确性评估.html">补充信息记录与准确性评估</a></td>
+<td>核验 · 项目内产出</td>
+<td>用户口述转记，L1/L2/L3 分级，二手传闻不升格</td>
+</tr>
+<tr>
+<td>2026-10-16</td>
+<td><a href="20261016-ENS定制鼻塞-患者需求与实现条件.html">ENS 定制鼻塞：患者需要什么 × 做出来需要什么</a></td>
+<td>外部调研 <strong>第二轮</strong> · 逐字入库</td>
+<td>内部【实】/【推】/【误】/【空】标注 + L1/L2/L3</td>
+</tr>
+<tr>
+<td>2026-10-16</td>
+<td><a href="20261016-ENS其他解决方案与跨界借鉴.html">ENS：填充之外的其他解决方案 × 跨界借鉴</a></td>
+<td>外部调研 <strong>第三轮</strong> · 逐字入库</td>
+<td>同上；文末 N1–N5 为作者自述待核引用问题</td>
+</tr>
+</tbody>
+</table>
+<p><strong>系列缺口</strong>：两轮共同承接的《空鼻症鼻腔填充与定制器件全谱系深度调研报告》（<strong>第一轮</strong>）原文<strong>未在本项目内落盘</strong>。第二轮文首 E1/E2/E3 三处更正均针对该未入库报告，读时必须知道被更正的原文不在本地。</p>
+<hr />
+<h2>二、项目内交叉核对（归档时附加，非原文内容）</h2>
+<blockquote>
+<p>逐条对齐"文献口径"与"本项目现状"。<strong>C5 是唯一直接触及项目当前口径的冲突项，须需求方裁定。</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>文献口径</th>
+<th>本项目现状</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C1</strong></td>
+<td>影像红线 ≤0.6 mm 各向同性、层厚 &lt;1 mm（第二轮 §7）</td>
+<td>A 底座 0.35 mm 满足并优于 ENS 队列标准；三患者与 27 例副鼻窦层厚各异</td>
+<td>✅ 底座合；<strong>逐例核对待办</strong></td>
+</tr>
+<tr>
+<td><strong>C2</strong></td>
+<td>扫描须含外鼻轮廓；忽略呼吸区会使分段峰值速度差 ≤12%、前庭沉积差 ≤14×、释放位置假设高估前庭沉积 956–1345%（第二轮 §7）</td>
+<td>目标域 = 鼻 + 鼻咽 + 可见口咽；<strong>鼻孔为 cap 截断面，外鼻空气域未纳入</strong>（T-035 结论卡亦承认 exterior 筛只到 lateral scan faces）</td>
+<td>⚠️ <strong>需求侧缺口</strong>，与文献要求冲突</td>
+</tr>
+<tr>
+<td><strong>C3</strong></td>
+<td>求解器口径：稳态层流 + <strong>固定流量入口</strong>；禁用压力边界（第二轮 §9）</td>
+<td>T-006/T-042/T-054 管路 = 固定 50:50 分流 + 出口 p=0；<code>simpleFoam</code> 稳态层流</td>
+<td>✅ 一致</td>
+</tr>
+<tr>
+<td><strong>C4</strong></td>
+<td>CFD 系统性低估体内鼻阻力（已知未解）→ <strong>改用配对相对变化</strong>，绝对值不可对标（第二轮 §9）</td>
+<td>T-042/T-054 报 R 绝对值 0.0411 / 0.07307 Pa·s/mL，低于 ISCOANA 0.25 参考 6.1×</td>
+<td>⚠️ 绝对值报法需降权，<strong>配对相对变化应为主口径</strong></td>
+</tr>
+<tr>
+<td><strong>C5</strong></td>
+<td>⚠️ n=14 研究（PMC13638262）：<strong>无全局 CFD 参数与 ENS6Q 显著相关</strong>；后鼻孔 RH 与 <strong>SAVR</strong> 正相关（第三轮 §0）</td>
+<td>项目三指标 = R / WSS / 热通量</td>
+<td>🔴 <strong>机制冲突，须裁定</strong>：热通量·WSS 落在"表面积/热湿交换"侧 ✅ 保留；R 落在"全局流场"侧，其作为<strong>症状相关</strong>指标的证据被削弱——但作为"矛盾性鼻塞"主诉的<strong>客观读数</strong>仍成立</td>
+</tr>
+<tr>
+<td><strong>C6</strong></td>
+<td>患者最痛 = 干燥 4.07 / 无气流感 4.02（ENS6Q 基线，n=53）</td>
+<td>项目三指标中 WSS ↔ 无气流感、热通量 ↔ 干燥</td>
+<td>✅ 文献反证支持项目三指标设计</td>
+</tr>
+<tr>
+<td><strong>C7</strong></td>
+<td>ENS 队列网格 5.3–11.9 M（多面体 + 7 层棱柱）（第二轮 §9）</td>
+<td>b15 扩展域 636,342 / b01 扩展域 764,801 四面体</td>
+<td>⚠️ 低一个数量级；T-041 加密 1.75× 显示 Δp +1.23% ≤5% 屏 → <strong>记录，不阻塞</strong></td>
+</tr>
+<tr>
+<td><strong>C8</strong></td>
+<td>后鼻孔目标值更正：~~33 ℃~~ → <strong>32.2 ℃ / 93.5% RH</strong>（健康对照 n=5 实测）（第二轮 §9）</td>
+<td>T-043（温湿度 / 热通量，scalarTransportFoam）已立卡未排期</td>
+<td>⚠️ 目标值须改用 32.2 ℃ / 93.5% RH；<strong>且取值截面必须是后鼻孔，不是域出口（口咽截断）</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>三、文献点名的空白 = 项目现成资产（机会项）</h2>
+<p>第二轮 §20 列出三个"全领域空白"，本项目均有对应存量：</p>
+<table>
+<thead>
+<tr>
+<th>空白</th>
+<th>项目存量</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>层厚—精度对照研究（0.6 vs 0.35 mm 对分割体积与 CFD 指标的量化影响）</td>
+<td>0.35 mm 底座 + 三患者 + 27 例副鼻窦</td>
+<td>未立项</td>
+</tr>
+<tr>
+<td>下鼻道解剖变异人群数据（SSM + 通用型覆盖率）</td>
+<td>24 例干净单序列（b01–b24）</td>
+<td>未立项</td>
+</tr>
+<tr>
+<td>开放鼻腔 CFD 基准算例（几何 STL + 网格 + 结果公开）</td>
+<td>完整 OpenFOAM 链 + b01/b15 两例全链产物</td>
+<td>未立项</td>
+</tr>
+</tbody>
+</table>
+<h2>四、待裁定（送需求方，与 <code>plan/需求方待决项_M3.md</code> 同一队列）</h2>
+<ul>
+<li><strong>D1（最高）</strong> 三指标口径是否随 n=14 研究调整 —— 具体是 R 的权重与报法（C5 + C4 联动）。</li>
+<li><strong>D2</strong> 外鼻空气域是否纳入目标域（C2）——影响入口边界与开口定义，属不可回退的口径决定。</li>
+<li><strong>D3</strong> 后鼻孔温湿度目标值取值口径（C8）——32.2 ℃ / 93.5% RH，且取值截面为后鼻孔。</li>
+</ul><div class="src">原件：knowledge/患者需求/索引.md</div></body></html>

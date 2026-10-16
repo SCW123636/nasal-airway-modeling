@@ -1,0 +1,84 @@
+<Slide style={{ width: 1280, height: 720, background: '#0A1A2F', padding: '24px 64px', position: 'relative', overflow: 'hidden', fontFamily: "'Source Han Sans SC','PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 600, height: 600, background: 'radial-gradient(circle at 0% 0%, rgba(34,211,238,0.10) 0%, rgba(34,211,238,0) 68%)' }} />
+    <Box style={{ position: 'absolute', bottom: 0, right: 0, width: 420, height: 420, background: 'radial-gradient(circle at 100% 100%, rgba(245,165,36,0.07) 0%, rgba(245,165,36,0) 68%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, width: '100%', flexDirection: 'column' }}>
+        <Box style={{ height: 92, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 3, color: '#22D3EE' }}>02 / 产品与解决方案</Text>
+                <Text style={{ fontSize: 36, fontWeight: 700, color: '#E8F1FA', lineHeight: 1.2 }}>怎么用，以及为什么付得起</Text>
+            </Box>
+            <Box style={{ width: 46, height: 46, borderRadius: 23, border: '2px solid rgba(34,211,238,0.55)', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13, fontWeight: 700, color: '#22D3EE' }}>Q2</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 500, marginTop: 16, flexDirection: 'row', gap: 28 }}>
+            <Box style={{ flex: 60, flexDirection: 'column', gap: 12, justifyContent: 'center' }}>
+                <Text style={{ fontSize: 18, fontWeight: 600, color: '#B7CBDD' }}>使用路径：四步，全部在浏览器里完成</Text>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 18, padding: '16px 20px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Box style={{ width: 40, height: 40, borderRadius: 20, border: '2px solid #22D3EE', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 17, fontWeight: 700, color: '#22D3EE' }}>1</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>上传 CT</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1' }}>患者鼻窦 CT 的 DICOM 序列，系统自动校层厚与方位</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 18, padding: '16px 20px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Box style={{ width: 40, height: 40, borderRadius: 20, border: '2px solid #22D3EE', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 17, fontWeight: 700, color: '#22D3EE' }}>2</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>自动建模</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1' }}>分割鼻腔+鼻咽+口咽、重建表面、自动定位鼻孔与截断出口</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 18, padding: '16px 20px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Box style={{ width: 40, height: 40, borderRadius: 20, border: '2px solid #22D3EE', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 17, fontWeight: 700, color: '#22D3EE' }}>3</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>一键求解</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1' }}>体网格 + 稳态层流求解（15 L/min 固定流量入口），自动提取三指标</Text>
+                    </Box>
+                </Box>
+                <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 18, padding: '16px 20px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 10, border: '1px solid rgba(139,166,193,0.22)' }}>
+                    <Box style={{ width: 40, height: 40, borderRadius: 20, border: '2px solid #F5A524', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 17, fontWeight: 700, color: '#F5A524' }}>4</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 20, fontWeight: 700, color: '#E8F1FA' }}>拿到可读报告</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1' }}>三指标数值 + 三维气流流线 + 与参考带的对照，可直接向医生出示</Text>
+                    </Box>
+                </Box>
+            </Box>
+
+            <Box style={{ flex: 40, flexDirection: 'column', justifyContent: 'space-between', padding: '24px 24px', background: 'linear-gradient(150deg, #14294A 0%, #0E2039 100%)', borderRadius: 12, border: '1px solid rgba(245,165,36,0.32)' }}>
+                <Text style={{ fontSize: 15, fontWeight: 600, letterSpacing: 2, color: '#F5A524' }}>成本与可支付性</Text>
+                <Box style={{ flexDirection: 'column', gap: 12 }}>
+                    <Box style={{ flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 19, fontWeight: 700, color: '#E8F1FA' }}>许可成本 = 0</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.5 }}>全链路开源（SimpleITK / Netgen / OpenFOAM / VTK / 自研管线），不依赖任何商业 CFD 许可</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 19, fontWeight: 700, color: '#E8F1FA' }}>算力 = 一台工作站</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.5 }}>单例体网格百万级单元、稳态求解可在普通多核工作站完成；批量队列可上云</Text>
+                    </Box>
+                    <Box style={{ flexDirection: 'column', gap: 3 }}>
+                        <Text style={{ fontSize: 19, fontWeight: 700, color: '#E8F1FA' }}>人力 = 一次命令</Text>
+                        <Text style={{ fontSize: 16, color: '#8BA6C1', lineHeight: 1.5 }}>免去三维软件里逐例手工分割与封口，人力成本从「工程师小时」降到「复核一次」</Text>
+                    </Box>
+                </Box>
+                <Box style={{ paddingTop: 14, borderTop: '1px solid rgba(139,166,193,0.24)' }}>
+                    <Text style={{ fontSize: 17, color: '#B7CBDD', lineHeight: 1.6 }}>对科室而言，这是一条<span style={{ color: '#E8F1FA', fontWeight: 600 }}>不需要新增预算科目</span>就能跑起来的评估流程。</Text>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box style={{ height: 42, marginTop: 12, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(139,166,193,0.22)' }}>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>数据落点：成本结构的瓶颈不是许可费，而是「人」——自动化的直接收益就是把人力从流程里拿掉</Text>
+            <Text style={{ fontSize: 14, color: '#8BA6C1' }}>09 / 18</Text>
+        </Box>
+    </Box>
+</Slide>
